@@ -4,6 +4,7 @@ Element::Element(int currentX, int currentY)
 {
     xLocation = currentX;
     yLocation = currentY;
+
 }
 
 int
