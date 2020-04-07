@@ -1,5 +1,10 @@
 #include "element.h"
 
+Element ::Element()
+{
+
+}
+
 Element::Element(int currentX, int currentY)
 {
     xLocation = currentX;
