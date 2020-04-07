@@ -34,7 +34,7 @@ protected:
 
 
 public:
-
+    StraightTrack(bool isElectrified, std :: string newElectrificationMethod);
 };
 
 #endif // TRACK_H
