@@ -23,7 +23,7 @@ public:
     Track();
 };
 
-class StraightTrack : public Element
+class StraightTrack : public Track
 {
 private:
     bool platform;

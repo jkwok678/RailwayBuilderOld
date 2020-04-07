@@ -81,25 +81,8 @@
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <layout class="QGridLayout" name="trackMenu1">
-         <item row="1" column="0">
-          <widget class="QPushButton" name="straightVButton">
-           <property name="maximumSize">
-            <size>
-             <width>16</width>
-             <height>16</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resources.qrc">
-             <normaloff>:/graphics/graphics/straightV.png</normaloff>:/graphics/graphics/straightV.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QPushButton" name="striaightHButton">
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="radioButton">
            <property name="maximumSize">
             <size>
              <width>16</width>
@@ -142,7 +125,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
   <include location="resources.qrc"/>

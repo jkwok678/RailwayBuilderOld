@@ -19,11 +19,13 @@ SOURCES += \
     element.cpp \
     main.cpp \
     mainwindow.cpp \
+    map.cpp \
     track.cpp
 
 HEADERS += \
     element.h \
     mainwindow.h \
+    map.h \
     track.h
 
 FORMS += \

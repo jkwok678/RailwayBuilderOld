@@ -17,7 +17,7 @@ protected:
 
 
 public:
-
+    Element();
     Element(int currentX, int currentY);
     int getXLocation() const;
     int getYLocation() const;
