@@ -2,20 +2,31 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+#include <QPainter>
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow();
     ~MainWindow();
+    virtual void paintEvent(QPaintEvent *event);
+
+protected:
+
+
+private slots:
+    void openRailway();
+
+
 
 private:
-    Ui::MainWindow *ui;
+
+
+    void createActions();
+    void createMenus();
+    QMenu *fileMenu;
+    QAction *openRailwayAct;
 };
 #endif // MAINWINDOW_H
