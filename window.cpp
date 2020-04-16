@@ -79,7 +79,9 @@ void Window::createOverallMenu()
 
 void Window::createBuildModifyMenu1()
 {
-    trackMenuButton = new QPushButton();
-    trackMenuButton->setIcon(QIcon(":/icons/buildMenuIcon"));
+    trackMenuButton = new QToolButton();
+    trackMenuButton->setMaximumSize(QSize(32,32));
+    QIcon *icon1 = new QIcon(":/icons/icons/buildMenuIcon.png");
+    trackMenuButton->setIcon(*icon1);
     buildModifyMenu1->addWidget(trackMenuButton);
 }
