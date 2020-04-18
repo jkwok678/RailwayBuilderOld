@@ -28,6 +28,10 @@ private slots:
     void openTrackMenu();
     void chooseStraightH();
     void chooseStraightV();
+    void chooseDirectLeft();
+    void chooseDirectRight();
+    void chooseDirectUp();
+    void chooseDirectDown();
 
 private:
     Map currentLayout;
@@ -73,6 +77,26 @@ private:
     QToolButton *straightVButton;
     QAction *chooseStraightVAct;
     QIcon *straightVIcon;
+
+    //DirectLeftButton
+    QToolButton *directLeftButton;
+    QAction *chooseDirectLeftAct;
+    QIcon *directLeftIcon;
+
+    //DirectRightButton
+    QToolButton *directRightButton;
+    QAction *chooseDirectRightAct;
+    QIcon *directRightIcon;
+
+    //DirectUpButton
+    QToolButton *directUpButton;
+    QAction *chooseDirectUpAct;
+    QIcon *directUpIcon;
+
+    //DirectDownButton
+    QToolButton *directDownButton;
+    QAction *chooseDirectDownAct;
+    QIcon *directDownIcon;
 
 
 

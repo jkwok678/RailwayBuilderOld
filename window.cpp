@@ -137,6 +137,26 @@ void Window::chooseStraightV()
     chosen = ElementType::STRAIGHTV;
 }
 
+void Window::chooseDirectLeft()
+{
+
+}
+
+void Window::chooseDirectRight()
+{
+
+}
+
+void Window::chooseDirectUp()
+{
+
+}
+
+void Window::chooseDirectDown()
+{
+
+}
+
 void Window::createTrackBlock1()
 {
     trackBlock1 = new QGridLayout;
@@ -155,6 +175,22 @@ void Window::createTrackBlock1()
     straightVIcon = new QIcon(":/graphics/graphics/straightV.png");
     straightVButton->setIcon(*straightVIcon);
     trackBlock1->addWidget(straightVButton,0,1);
+
+    directLeftButton = new QToolButton();
+    directLeftButton->setMaximumSize(QSize(32,32));
+    chooseDirectLeftAct = new QAction();
+    connect(chooseDirectLeftAct, &QAction::triggered, this, &Window::chooseDirectLeft);
+    directLeftIcon= new QIcon(":/graphics/graphics/directLeft.png");
+    directLeftButton->setIcon(*directLeftIcon);
+    trackBlock1->addWidget(directLeftButton,0,2);
+
+    directRightButton = new QToolButton();
+    directRightButton->setMaximumSize(QSize(32,32));
+    chooseDirectRightAct = new QAction();
+    connect(chooseDirectRightAct, &QAction::triggered, this, &Window::chooseDirectRight);
+    directRightIcon = new QIcon(":/graphics/graphics/straightV.png");
+    directRightButton->setIcon(*directRightIcon);
+    trackBlock1->addWidget(directRightButton,0,1);
 
 
 }
