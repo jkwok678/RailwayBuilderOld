@@ -39,6 +39,11 @@ void Window::openBuildModifyMenu()
 
 }
 
+void Window::openTrackMenu()
+{
+
+}
+
 void Window::createMenuBar()
 {
     menuBar = new QMenuBar();
@@ -81,11 +86,18 @@ void Window::createModeActions()
 void Window::createOverallMenu()
 {
     overallMenu = new QWidget;
-    buildModifyMenu = new QVBoxLayout;
+    overallMenuLayout = new QVBoxLayout;
     buildModifyMenu1 = new QHBoxLayout;
+    //Create top half of Menu.
     createBuildModifyMenu1();
-    buildModifyMenu->addLayout(buildModifyMenu1);
-    overallMenu->setLayout(buildModifyMenu);
+    overallMenuLayout->addLayout(buildModifyMenu1);
+    //Create second half of Menu.
+    allMenus = new QStackedWidget;
+    createTrackMenu();
+    allMenus->addWidget(trackMenu);
+    allMenus->show();
+    overallMenuLayout->addWidget(allMenus);
+    overallMenu->setLayout(overallMenuLayout);
 }
 
 void Window::createBuildModifyMenu1()
@@ -94,18 +106,21 @@ void Window::createBuildModifyMenu1()
     trackMenuButton->setMaximumSize(QSize(32,32));
     openTrackMenuAct = new QAction();
     connect(openTrackMenuAct, &QAction::triggered, this, &Window::openTrackMenu);
-    buildMenuIcon = new QIcon(":/icons/icons/buildMenuIcon.png");
-    trackMenuButton->setIcon(*buildMenuIcon);
+    trackIcon = new QIcon(":/icons/icons/buildMenuIcon.png");
+    trackMenuButton->setIcon(*trackIcon);
     buildModifyMenu1->addWidget(trackMenuButton);
 }
 
-void Window::openTrackMenu()
+void Window::createTrackMenu()
 {
 
-    trackMenu = new QHBoxLayout;
+    trackMenu = new QWidget;
+    trackMenuLayout = new QHBoxLayout;
     createTrackBlock1();
-    trackMenu->addLayout(trackBlock1);
-    buildModifyMenu->addLayout(trackMenu);
+    trackMenuLayout->addLayout(trackBlock1);
+    trackMenu->setLayout(trackMenuLayout);
+    overallMenuLayout->addWidget(trackMenu);
+
 
 
 
@@ -131,5 +146,6 @@ void Window::createTrackBlock1()
     straightHIcon = new QIcon(":/graphics/graphics/straightH.png");
     straightHButton->setIcon(*straightHIcon);
     trackBlock1->addWidget(straightHButton,0,0);
+
 
 }

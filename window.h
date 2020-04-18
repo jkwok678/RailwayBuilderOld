@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QtCore>
 #include <QVBoxLayout>
+#include <QStackedWidget>
 #include <QMenuBar>
 #include <QToolButton>
 #include "borderlayout.h"
@@ -47,16 +48,20 @@ private:
 
     void createOverallMenu();
     void createBuildModifyMenu1();
-
+    void createTrackMenu();
     void createTrackBlock1();
 
     QWidget *overallMenu;
-    QVBoxLayout *buildModifyMenu;
+    QVBoxLayout *overallMenuLayout;
+
     QHBoxLayout *buildModifyMenu1;
     QToolButton *trackMenuButton;
     QAction *openTrackMenuAct;
-    QIcon *buildMenuIcon;
-    QHBoxLayout *trackMenu;
+    QIcon *trackIcon;
+
+    QStackedWidget *allMenus;
+    QWidget *trackMenu;
+    QHBoxLayout *trackMenuLayout;
     QGridLayout *trackBlock1;
     QToolButton *straightHButton;
     QAction *chooseStraightHAct;
