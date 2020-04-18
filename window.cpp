@@ -92,11 +92,12 @@ void Window::createOverallMenu()
     createBuildModifyMenu1();
     overallMenuLayout->addLayout(buildModifyMenu1);
     //Create second half of Menu.
-    allMenus = new QStackedWidget;
+    // allMenus = new QStackedWidget;
     createTrackMenu();
-    allMenus->addWidget(trackMenu);
-    allMenus->show();
-    overallMenuLayout->addWidget(allMenus);
+    //allMenus->addWidget(trackMenu);
+    //allMenus->show();
+    //overallMenuLayout->addWidget(allMenus);
+    overallMenuLayout->addWidget(trackMenu);
     overallMenu->setLayout(overallMenuLayout);
 }
 
@@ -128,12 +129,12 @@ void Window::createTrackMenu()
 
 void Window::chooseStraightH()
 {
-
+    chosen = ElementType::STRAIGHTH;
 }
 
 void Window::chooseStraightV()
 {
-
+    chosen = ElementType::STRAIGHTV;
 }
 
 void Window::createTrackBlock1()
@@ -146,6 +147,14 @@ void Window::createTrackBlock1()
     straightHIcon = new QIcon(":/graphics/graphics/straightH.png");
     straightHButton->setIcon(*straightHIcon);
     trackBlock1->addWidget(straightHButton,0,0);
+
+    straightVButton = new QToolButton();
+    straightVButton->setMaximumSize(QSize(32,32));
+    chooseStraightVAct = new QAction();
+    connect(chooseStraightVAct, &QAction::triggered, this, &Window::chooseStraightV);
+    straightVIcon = new QIcon(":/graphics/graphics/straightV.png");
+    straightVButton->setIcon(*straightVIcon);
+    trackBlock1->addWidget(straightVButton,0,1);
 
 
 }

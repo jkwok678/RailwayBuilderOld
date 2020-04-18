@@ -59,15 +59,20 @@ private:
     QAction *openTrackMenuAct;
     QIcon *trackIcon;
 
-    QStackedWidget *allMenus;
+    //QStackedWidget *allMenus;
     QWidget *trackMenu;
     QHBoxLayout *trackMenuLayout;
     QGridLayout *trackBlock1;
+
+    //StraightHButton
     QToolButton *straightHButton;
     QAction *chooseStraightHAct;
     QIcon *straightHIcon;
-    QToolButton *chooseStraightVAct;
 
+    //StraightVButton
+    QToolButton *straightVButton;
+    QAction *chooseStraightVAct;
+    QIcon *straightVIcon;
 
 
 
