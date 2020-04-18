@@ -6,9 +6,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Window w;
     Map *currentLayout = new Map;
-    w.setCurrentLayout(*currentLayout);
+    Window w;
+
     w.show();
 
     return a.exec();

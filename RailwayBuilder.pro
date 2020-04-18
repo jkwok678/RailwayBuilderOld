@@ -32,7 +32,8 @@ HEADERS += \
     track.h \
     window.h
 
-FORMS +=
+FORMS += \
+    window.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
