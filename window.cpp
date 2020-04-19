@@ -1,9 +1,8 @@
 #include "window.h"
 
-//Constructor
 Window::Window()
 {
-    chosen = ElementType::NONE;
+
     Canvas *centralWidget = new Canvas;
     createOverallMenu();
     createFileActions();
@@ -17,16 +16,6 @@ Window::Window()
     setLayout(layout);
 
 
-}
-
-Map Window::getCurrentLayout()
-{
-    return currentLayout;
-}
-
-void Window::setCurrentLayout(Map newLayout)
-{
-    currentLayout = newLayout;
 }
 
 void Window::openRailway()
@@ -92,44 +81,7 @@ void Window::createBuildModifyMenu1()
 {
     trackMenuButton = new QToolButton();
     trackMenuButton->setMaximumSize(QSize(32,32));
-    openTrackMenuAct = new QAction();
-    connect(openTrackMenuAct, &QAction::triggered, this, &Window::openTrackMenu);
-    buildMenuIcon = new QIcon(":/icons/icons/buildMenuIcon.png");
-    trackMenuButton->setIcon(*buildMenuIcon);
+    QIcon *icon1 = new QIcon(":/icons/icons/buildMenuIcon.png");
+    trackMenuButton->setIcon(*icon1);
     buildModifyMenu1->addWidget(trackMenuButton);
-}
-
-void Window::openTrackMenu()
-{
-
-    trackMenu = new QHBoxLayout;
-    createTrackBlock1();
-    trackMenu->addLayout(trackBlock1);
-    buildModifyMenu->addLayout(trackMenu);
-
-
-
-}
-
-void Window::chooseStraightH()
-{
-
-}
-
-void Window::chooseStraightV()
-{
-
-}
-
-void Window::createTrackBlock1()
-{
-    trackBlock1 = new QGridLayout;
-    straightHButton = new QToolButton();
-    straightHButton->setMaximumSize(QSize(32,32));
-    chooseStraightHAct = new QAction();
-    connect(chooseStraightHAct, &QAction::triggered, this, &Window::chooseStraightH);
-    straightHIcon = new QIcon(":/graphics/graphics/straightH.png");
-    straightHButton->setIcon(*straightHIcon);
-    trackBlock1->addWidget(straightHButton,0,0);
-
 }
