@@ -26,6 +26,7 @@ private slots:
     void openRailway();
     void openBuildModifyMenu();
     void openTrackMenu();
+    void changeAspect();
     void chooseStraightH();
     void chooseStraightV();
     void chooseDirectLeft();
@@ -46,10 +47,15 @@ private slots:
     void chooseCurve2();
     void chooseCurve3();
     void chooseCurve4();
+    void chooseLinkLeft();
+    void chooseLinkRight();
+    void chooseLinkDown();
+    void chooseLinkUp();
 
 private:
     Map currentLayout;
     ElementType chosen;
+    int aspect;
 
 
     void createMenuBar();
@@ -72,10 +78,18 @@ private:
     QWidget *overallMenu;
     QVBoxLayout *overallMenuLayout;
 
-    QHBoxLayout *buildModifyMenu1;
+    QWidget *buildModifyMenu1;
+    QHBoxLayout *buildModifyMenuLayout1;
     QToolButton *trackMenuButton;
     QAction *openTrackMenuAct;
     QIcon *trackIcon;
+    QToolButton *aspectButton;
+    QAction *changeAspectAct;
+    QIcon *aspect4Icon;
+    QIcon *aspect3Icon;
+    QIcon *aspect2Icon;
+    QIcon *aspectShuntIcon;
+
 
     //QStackedWidget *allMenus;
     QWidget *trackMenu;
@@ -181,6 +195,26 @@ private:
     QToolButton *curve4Button;
     QAction *chooseCurve4Act;
     QIcon *curve4Icon;
+
+    //LinkLeftButton
+    QToolButton *linkLeftButton;
+    QAction *chooseLinkLeftAct;
+    QIcon *linkLeftIcon;
+
+    //LinkRightButton
+    QToolButton *linkRightButton;
+    QAction *chooseLinkRightAct;
+    QIcon *linkRightIcon;
+
+    //LinkDownButton
+    QToolButton *linkDownButton;
+    QAction *chooseLinkDownAct;
+    QIcon *linkDownIcon;
+
+    //LinkUpButton
+    QToolButton *linkUpButton;
+    QAction *chooseLinkUpAct;
+    QIcon *linkUpIcon;
 };
 
 #endif // WINDOW_H

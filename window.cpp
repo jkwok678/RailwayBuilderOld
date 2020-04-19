@@ -5,6 +5,7 @@ Window::Window()
 {
     chosen = ElementType::NONE;
     Canvas *centralWidget = new Canvas;
+    aspect = 4;
     createOverallMenu();
     createFileActions();
     createModeActions();
@@ -41,6 +42,24 @@ void Window::openBuildModifyMenu()
 
 void Window::openTrackMenu()
 {
+
+}
+
+void Window::changeAspect()
+{
+    if (aspect==4){
+        aspect = 3;
+        aspectButton->setIcon(*aspect3Icon);
+    } else if (aspect==3){
+        aspect = 2;
+        aspectButton->setIcon(*aspect2Icon);
+    } else if (aspect==2) {
+        aspect = 1;
+        aspectButton->setIcon(*aspectShuntIcon);
+    } else if (aspect==1) {
+        aspect =4;
+        aspectButton->setIcon(*aspect4Icon);
+    }
 
 }
 
@@ -86,11 +105,26 @@ void Window::createModeActions()
 void Window::createOverallMenu()
 {
     overallMenu = new QWidget;
+    QPalette pal = palette();
+
+    pal.setColor(QPalette::Background, Qt::blue);
+    overallMenu->setAutoFillBackground(true);
+    overallMenu->setPalette(pal);
+
     overallMenuLayout = new QVBoxLayout;
-    buildModifyMenu1 = new QHBoxLayout;
+    buildModifyMenuLayout1 = new QHBoxLayout;
+
     //Create top half of Menu.
     createBuildModifyMenu1();
-    overallMenuLayout->addLayout(buildModifyMenu1);
+    buildModifyMenu1 = new QWidget;
+    QPalette pal2 = palette();
+
+    pal2.setColor(QPalette::Background, Qt::red);
+    buildModifyMenu1->setAutoFillBackground(true);
+    buildModifyMenu1->setPalette(pal2);
+    buildModifyMenu1->setLayout(buildModifyMenuLayout1);
+    overallMenuLayout->addWidget(buildModifyMenu1);
+
     //Create second half of Menu.
     // allMenus = new QStackedWidget;
     createTrackMenu();
@@ -109,13 +143,29 @@ void Window::createBuildModifyMenu1()
     connect(openTrackMenuAct, &QAction::triggered, this, &Window::openTrackMenu);
     trackIcon = new QIcon(":/icons/icons/buildMenuIcon.png");
     trackMenuButton->setIcon(*trackIcon);
-    buildModifyMenu1->addWidget(trackMenuButton);
+    buildModifyMenuLayout1->addWidget(trackMenuButton);
+
+    aspectButton = new QToolButton();
+    aspectButton->setMaximumSize(QSize(32,32));
+    changeAspectAct = new QAction();
+    connect(changeAspectAct, &QAction::triggered, this, &Window::changeAspect);
+    aspect4Icon = new QIcon(":/icons/icons/aspect4.png");
+    aspect3Icon = new QIcon(":/icons/icons/aspect3.png");
+    aspect2Icon = new QIcon(":/icons/icons/aspect2.png");
+    aspectShuntIcon = new QIcon(":/icons/icons/aspectShunt.png");
+    aspectButton->setIcon(*aspect4Icon);
+    buildModifyMenuLayout1->addWidget(aspectButton);
 }
 
 void Window::createTrackMenu()
 {
 
     trackMenu = new QWidget;
+    QPalette pal = palette();
+
+    pal.setColor(QPalette::Background, Qt::green);
+    trackMenu->setAutoFillBackground(true);
+    trackMenu->setPalette(pal);
     trackMenuLayout = new QHBoxLayout;
     createTrackBlock1();
     trackMenuLayout->addLayout(trackBlock1);
@@ -288,11 +338,32 @@ void Window::chooseCurve4()
         chosen = ElementType::NONE;
 }
 
+void Window::chooseLinkLeft()
+{
+
+}
+
+void Window::chooseLinkRight()
+{
+
+}
+
+void Window::chooseLinkDown()
+{
+
+}
+
+void Window::chooseLinkUp()
+{
+
+}
+
 
 
 void Window::createTrackBlock1()
 {
     trackBlock1 = new QGridLayout;
+    trackBlock1->setContentsMargins(2,2,2,2);
 
     straightHButton = new QToolButton();
     straightHButton->setMaximumSize(QSize(32,32));
@@ -398,7 +469,6 @@ void Window::createTrackBlock1()
     tightCurve1Button->setIcon(*tightCurve1Icon);
     trackBlock1->addWidget(tightCurve1Button,0,12);
 
-
     tightCurve2Button = new QToolButton();
     tightCurve2Button->setMaximumSize(QSize(32,32));
     chooseTightCurve2Act = new QAction();
@@ -407,7 +477,6 @@ void Window::createTrackBlock1()
     tightCurve2Button->setIcon(*tightCurve2Icon);
     trackBlock1->addWidget(tightCurve2Button,0,13);
 
-
     tightCurve3Button = new QToolButton();
     tightCurve3Button->setMaximumSize(QSize(32,32));
     chooseTightCurve3Act = new QAction();
@@ -415,7 +484,6 @@ void Window::createTrackBlock1()
     tightCurve3Icon = new QIcon(":/graphics/graphics/tightCurve3.png");
     tightCurve3Button->setIcon(*tightCurve3Icon);
     trackBlock1->addWidget(tightCurve3Button,0,14);
-
 
     tightcurve4Button = new QToolButton();
     tightcurve4Button->setMaximumSize(QSize(32,32));
@@ -433,7 +501,6 @@ void Window::createTrackBlock1()
     curve1Button->setIcon(*curve1Icon);
     trackBlock1->addWidget(curve1Button,0,16);
 
-
     curve2Button = new QToolButton();
     curve2Button->setMaximumSize(QSize(32,32));
     chooseCurve2Act = new QAction();
@@ -450,7 +517,6 @@ void Window::createTrackBlock1()
     curve3Button->setIcon(*curve3Icon);
     trackBlock1->addWidget(curve3Button,0,18);
 
-
     curve4Button = new QToolButton();
     curve4Button->setMaximumSize(QSize(32,32));
     chooseCurve4Act = new QAction();
@@ -458,5 +524,39 @@ void Window::createTrackBlock1()
     curve4Icon = new QIcon(":/graphics/graphics/curve4.png");
     curve4Button->setIcon(*curve4Icon);
     trackBlock1->addWidget(curve4Button,0,19);
+
+    linkLeftButton = new QToolButton();
+    linkLeftButton->setMaximumSize(QSize(32,32));
+    chooseLinkLeftAct = new QAction();
+    connect(chooseLinkLeftAct, &QAction::triggered, this, &Window::chooseLinkLeft);
+    linkLeftIcon = new QIcon(":/graphics/graphics/linkLeftSet.png");
+    linkLeftButton->setIcon(*linkLeftIcon);
+    trackBlock1->addWidget(linkLeftButton,1,0);
+
+    linkRightButton = new QToolButton();
+    linkRightButton->setMaximumSize(QSize(32,32));
+    chooseLinkRightAct = new QAction();
+    connect(chooseLinkRightAct, &QAction::triggered, this, &Window::chooseLinkRight);
+    linkRightIcon = new QIcon(":/graphics/graphics/linkRightSet.png");
+    linkRightButton->setIcon(*linkRightIcon);
+    trackBlock1->addWidget(linkRightButton,1,1);
+
+    linkDownButton = new QToolButton();
+    linkDownButton->setMaximumSize(QSize(32,32));
+    chooseLinkDownAct = new QAction();
+    connect(chooseLinkDownAct, &QAction::triggered, this, &Window::chooseLinkDown);
+    linkDownIcon = new QIcon(":/graphics/graphics/linkDownSet.png");
+    linkDownButton->setIcon(*linkDownIcon);
+    trackBlock1->addWidget(linkDownButton,1,2);
+
+    linkUpButton = new QToolButton();
+    linkUpButton->setMaximumSize(QSize(32,32));
+    chooseLinkUpAct = new QAction();
+    connect(chooseLinkUpAct, &QAction::triggered, this, &Window::chooseLinkUp);
+    linkUpIcon = new QIcon(":/graphics/graphics/linkUpSet.png");
+    linkUpButton->setIcon(*linkUpIcon);
+    trackBlock1->addWidget(linkUpButton,1,3);
+
+
 
 }
