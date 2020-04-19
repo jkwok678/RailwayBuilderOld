@@ -8,7 +8,7 @@ class Canvas : public QWidget
 {
     Q_OBJECT
 public:
-    Canvas();
+    explicit Canvas(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *event);
 
 signals:
