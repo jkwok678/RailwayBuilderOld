@@ -80,6 +80,7 @@ void Window::createOverallMenu()
 void Window::createBuildModifyMenu1()
 {
     trackMenuButton = new QPushButton();
-    trackMenuButton->setIcon(QIcon(":/icons/buildMenuIcon"));
+    QIcon *icon = new QIcon(":/icons/buildMenuIcon");
+    trackMenuButton->setIcon(icon);
     buildModifyMenu1->addWidget(trackMenuButton);
 }
