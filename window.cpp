@@ -340,22 +340,66 @@ void Window::chooseCurve4()
 
 void Window::chooseLinkLeft()
 {
-
+    if (chosen!=ElementType::LINKLEFT)
+         chosen = ElementType::LINKLEFT;
+    else
+        chosen = ElementType::NONE;
 }
 
 void Window::chooseLinkRight()
 {
-
+    if (chosen!=ElementType::LINKRIGHT)
+         chosen = ElementType::LINKRIGHT;
+    else
+        chosen = ElementType::NONE;
 }
 
 void Window::chooseLinkDown()
 {
-
+    if (chosen!=ElementType::LINKDOWN)
+         chosen = ElementType::LINKDOWN;
+    else
+        chosen = ElementType::NONE;
 }
 
 void Window::chooseLinkUp()
 {
+    if (chosen!=ElementType::LINKUP)
+         chosen = ElementType::LINKUP;
+    else
+        chosen = ElementType::NONE;
+}
 
+void Window::chooseLinkLeftUp()
+{
+    if (chosen!=ElementType::LINKLEFTUP)
+         chosen = ElementType::LINKLEFTUP;
+    else
+        chosen = ElementType::NONE;
+}
+
+void Window::chooseLinkRightUp()
+{
+    if (chosen!=ElementType::LINKRIGHTUP)
+         chosen = ElementType::LINKRIGHTUP;
+    else
+        chosen = ElementType::NONE;
+}
+
+void Window::chooseLinkLeftDown()
+{
+    if (chosen!=ElementType::LINKLEFTDOWN)
+         chosen = ElementType::LINKLEFTDOWN;
+    else
+        chosen = ElementType::NONE;
+}
+
+void Window::chooseLinkRightDown()
+{
+    if (chosen!=ElementType::LINKRIGHTDOWN)
+         chosen = ElementType::LINKRIGHTDOWN;
+    else
+        chosen = ElementType::NONE;
 }
 
 
@@ -556,6 +600,38 @@ void Window::createTrackBlock1()
     linkUpIcon = new QIcon(":/graphics/graphics/linkUpSet.png");
     linkUpButton->setIcon(*linkUpIcon);
     trackBlock1->addWidget(linkUpButton,1,3);
+
+    linkLeftUpButton = new QToolButton();
+    linkLeftUpButton->setMaximumSize(QSize(32,32));
+    chooseLinkLeftUpAct = new QAction();
+    connect(chooseLinkLeftUpAct, &QAction::triggered, this, &Window::chooseLinkLeftUp);
+    linkLeftUpIcon = new QIcon(":/graphics/graphics/linkLeftUpSet.png");
+    linkLeftUpButton->setIcon(*linkLeftUpIcon);
+    trackBlock1->addWidget(linkLeftUpButton,1,4);
+
+    linkRightUpButton = new QToolButton();
+    linkRightUpButton->setMaximumSize(QSize(32,32));
+    chooseLinkRightUpAct = new QAction();
+    connect(chooseLinkRightUpAct, &QAction::triggered, this, &Window::chooseLinkRightUp);
+    linkRightUpIcon = new QIcon(":/graphics/graphics/linkRightUpSet.png");
+    linkRightUpButton->setIcon(*linkRightUpIcon);
+    trackBlock1->addWidget(linkRightUpButton,1,5);
+
+    linkRightDownButton = new QToolButton();
+    linkRightDownButton->setMaximumSize(QSize(32,32));
+    chooseLinkRightDownAct = new QAction();
+    connect(chooseLinkRightDownAct, &QAction::triggered, this, &Window::chooseLinkRightDown);
+    linkRightDownIcon = new QIcon(":/graphics/graphics/linkRightDownSet.png");
+    linkRightDownButton->setIcon(*linkRightDownIcon);
+    trackBlock1->addWidget(linkRightDownButton,1,6);
+
+    linkLeftDownButton = new QToolButton();
+    linkLeftDownButton->setMaximumSize(QSize(32,32));
+    chooseLinkLeftDownAct = new QAction();
+    connect(chooseLinkLeftDownAct, &QAction::triggered, this, &Window::chooseLinkLeftDown);
+    linkLeftDownIcon = new QIcon(":/graphics/graphics/linkLeftDownSet.png");
+    linkLeftDownButton->setIcon(*linkLeftDownIcon);
+    trackBlock1->addWidget(linkLeftDownButton,1,7);
 
 
 

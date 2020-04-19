@@ -51,6 +51,10 @@ private slots:
     void chooseLinkRight();
     void chooseLinkDown();
     void chooseLinkUp();
+    void chooseLinkLeftUp();
+    void chooseLinkRightUp();
+    void chooseLinkLeftDown();
+    void chooseLinkRightDown();
 
 private:
     Map currentLayout;
@@ -68,6 +72,8 @@ private:
     QMenu *modeMenu;
     QAction *openRailwayAct;
     QAction *openBuildModifyAct;
+
+
 
 
     void createOverallMenu();
@@ -215,6 +221,26 @@ private:
     QToolButton *linkUpButton;
     QAction *chooseLinkUpAct;
     QIcon *linkUpIcon;
+
+    //LinkLeftUpButton
+    QToolButton *linkLeftUpButton;
+    QAction *chooseLinkLeftUpAct;
+    QIcon *linkLeftUpIcon;
+
+    //LinkRightUpButton
+    QToolButton *linkRightUpButton;
+    QAction *chooseLinkRightUpAct;
+    QIcon *linkRightUpIcon;
+
+    //LinkLeftDownButton
+    QToolButton *linkLeftDownButton;
+    QAction *chooseLinkLeftDownAct;
+    QIcon *linkLeftDownIcon;
+
+    //LinkRightButton
+    QToolButton *linkRightDownButton;
+    QAction *chooseLinkRightDownAct;
+    QIcon *linkRightDownIcon;
 };
 
 #endif // WINDOW_H
