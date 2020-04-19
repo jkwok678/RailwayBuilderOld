@@ -1,6 +1,5 @@
 #include "element.h"
 
-
 Element ::Element()
 {
 
@@ -33,24 +32,4 @@ Element::setXLocation(int currentX) {
 void
 Element::setYLocation(int currentY) {
   yLocation= currentY;
-}
-
-int Element::getXOffset() const
-{
-    return xOffset;
-}
-
-void Element::setXOffset(int value)
-{
-    xOffset = value;
-}
-
-int Element::getYOffset() const
-{
-    return yOffset;
-}
-
-void Element::setYOffset(int value)
-{
-    yOffset = value;
 }

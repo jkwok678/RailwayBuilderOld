@@ -39,7 +39,7 @@ private:
     QWidget *overallMenu;
     QVBoxLayout *buildModifyMenu;
     QHBoxLayout *buildModifyMenu1;
-    QToolButton *trackMenuButton;
+    QPushButton *trackMenuButton;
     QAction *openTrackMenuAct;
 
 

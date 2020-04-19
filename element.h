@@ -13,8 +13,6 @@ private:
 protected:
     int xLocation;
     int yLocation;
-    int xOffset;
-    int yOffset;
     ElementType elementType;
 
 
@@ -25,10 +23,6 @@ public:
     int getYLocation() const;
     void setXLocation(int currentX);
     void setYLocation(int currentY);
-    int getXOffset() const;
-    int getYOffset() const;
-    void setXOffset(int value);
-    void setYOffset(int value);
 };
 
 
