@@ -22,6 +22,8 @@ private slots:
 
 
 private:
+    int offSetX;
+    int offSetY;
 
 
     void createActions();
