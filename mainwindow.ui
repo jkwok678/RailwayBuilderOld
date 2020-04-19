@@ -91,6 +91,17 @@
           </rect>
          </property>
          <layout class="QGridLayout" name="trackMenu1">
+          <item row="0" column="1">
+           <widget class="QToolButton" name="striaghtVButton">
+            <property name="text">
+             <string>...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/graphics/graphics/straightV.png</normaloff>:/graphics/graphics/straightV.png</iconset>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="0">
            <widget class="QToolButton" name="straightHButton">
             <property name="text">
@@ -99,6 +110,17 @@
             <property name="icon">
              <iconset resource="resources.qrc">
               <normaloff>:/graphics/graphics/straightH.png</normaloff>:/graphics/graphics/straightH.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QToolButton" name="linkLeftButton">
+            <property name="text">
+             <string>...</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/graphics/graphics/linkLeftSet.png</normaloff>:/graphics/graphics/linkLeftSet.png</iconset>
             </property>
            </widget>
           </item>
