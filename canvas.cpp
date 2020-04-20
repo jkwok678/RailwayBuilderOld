@@ -13,5 +13,8 @@ Canvas::Canvas()
 
 void Canvas::paintEvent(QPaintEvent *event)
 {
+    QPainter painter(this);
+    QImage *image = new QImage(":/graphics/graphics/straightH.png");
 
+    painter.drawImage(*image);
 }

@@ -13,6 +13,9 @@ public:
 
 signals:
 
+private:
+    QPainter p;
+
 };
 
 #endif // CANVAS_H

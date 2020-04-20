@@ -5,6 +5,10 @@
         <file>icons/aspect4.png</file>
         <file>icons/aspectShunt.png</file>
         <file>icons/buildMenuIcon.png</file>
+        <file>icons/down.png</file>
+        <file>icons/left.png</file>
+        <file>icons/right.png</file>
+        <file>icons/up.png</file>
     </qresource>
     <qresource prefix="/graphics">
         <file>graphics/bridgeSet1.png</file>

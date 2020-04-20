@@ -27,6 +27,12 @@ private slots:
     void openBuildModifyMenu();
     void openTrackMenu();
     void changeAspect();
+
+    void moveRight();
+    void moveLeft();
+    void moveUp();
+    void moveDown();
+
     void chooseStraightH();
     void chooseStraightV();
     void chooseDirectLeft();
@@ -95,6 +101,24 @@ private:
     QIcon *aspect3Icon;
     QIcon *aspect2Icon;
     QIcon *aspectShuntIcon;
+
+
+    void createRightMenu();
+    QWidget *rightMenu;
+    QVBoxLayout *rightMenuLayout;
+    QToolButton *rightButton;
+    QAction *rightAct;
+    QIcon *rightIcon;
+    QToolButton *leftButton;
+    QAction *leftAct;
+    QIcon *leftIcon;
+    QToolButton *upButton;
+    QAction *upAct;
+    QIcon *upIcon;
+    QToolButton *downButton;
+    QAction *downAct;
+    QIcon *downIcon;
+
 
 
     //QStackedWidget *allMenus;

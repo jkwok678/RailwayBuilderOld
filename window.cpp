@@ -9,11 +9,13 @@ Window::Window()
     createOverallMenu();
     createFileActions();
     createModeActions();
+    createRightMenu();
     createMenuBar();
     BorderLayout *layout = new BorderLayout;
     layout->addWidget(centralWidget, BorderLayout::Center);
     layout->addWidget(menuBar,BorderLayout::North);
     layout->addWidget(overallMenu,BorderLayout::North);
+    layout->addWidget(rightMenu,BorderLayout::East);
 
     setLayout(layout);
 
@@ -60,6 +62,26 @@ void Window::changeAspect()
         aspect =4;
         aspectButton->setIcon(*aspect4Icon);
     }
+
+}
+
+void Window::moveRight()
+{
+
+}
+
+void Window::moveLeft()
+{
+
+}
+
+void Window::moveUp()
+{
+
+}
+
+void Window::moveDown()
+{
 
 }
 
@@ -634,5 +656,20 @@ void Window::createTrackBlock1()
     trackBlock1->addWidget(linkLeftDownButton,1,7);
 
 
+
+}
+
+void Window::createRightMenu()
+{
+    rightMenu = new QWidget;
+    rightMenuLayout = new QVBoxLayout;
+    rightButton = new QToolButton();
+    rightButton->setMaximumSize(QSize(32,32));
+    rightAct = new QAction();
+    connect(rightAct, &QAction::triggered, this, &Window::moveRight);
+    rightIcon = new QIcon(":/icons/icons/right.png");
+    rightButton->setIcon(*rightIcon);
+    rightMenuLayout->addWidget(rightButton);
+    rightMenu->setLayout(rightMenuLayout);
 
 }
