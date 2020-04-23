@@ -3,18 +3,35 @@
 
 #include <QWidget>
 #include <QPainter>
+#include <QMouseEvent>
 
 class Canvas : public QWidget
 {
     Q_OBJECT
 public:
     Canvas();
-    void paintEvent(QPaintEvent *event);
 
-signals:
+
+public slots:
+
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
-    QPainter p;
+    int imageSize;
+    bool modified = false;
+    QPoint lastPoint;
+    int exactX;
+    int exactY;
+    int extraX;
+    int extraY;
+    int finalX;
+    int finalY;
+    int boundX;
+    int boundY;
+    QImage *straightHImage;
+
 
 };
 
