@@ -67,6 +67,7 @@ private:
     ElementType chosen;
     int aspect;
 
+    Canvas *drawingSurface;
 
     void createMenuBar();
     void createFileMenu();

@@ -4,12 +4,16 @@
 #include <QWidget>
 #include <QPainter>
 #include <QMouseEvent>
+#include "element.h"
+
 
 class Canvas : public QWidget
 {
     Q_OBJECT
 public:
     Canvas();
+    ElementType getElementType();
+    void setElementType(ElementType newChosen);
 
 
 public slots:
@@ -19,6 +23,7 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 private:
+    ElementType chosen;
     int imageSize;
     bool modified = false;
     QPoint lastPoint;
@@ -30,7 +35,7 @@ private:
     int finalY;
     int boundX;
     int boundY;
-    QImage *straightHImage;
+
 
 
 };

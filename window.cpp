@@ -3,8 +3,11 @@
 //Constructor
 Window::Window()
 {
-    chosen = ElementType::NONE;
-    Canvas *centralWidget = new Canvas;
+
+    //NEED HELP
+    chosen = ElementType::STRAIGHTH;
+    drawingSurface = new Canvas;
+    drawingSurface->setElementType(chosen);
     aspect = 4;
     createOverallMenu();
     createFileActions();
@@ -12,7 +15,7 @@ Window::Window()
     createRightMenu();
     createMenuBar();
     BorderLayout *layout = new BorderLayout;
-    layout->addWidget(centralWidget, BorderLayout::Center);
+    layout->addWidget(drawingSurface, BorderLayout::Center);
     layout->addWidget(menuBar,BorderLayout::North);
     layout->addWidget(overallMenu,BorderLayout::North);
     layout->addWidget(rightMenu,BorderLayout::East);
@@ -202,7 +205,10 @@ void Window::createTrackMenu()
 void Window::chooseStraightH()
 {
    if (chosen!=ElementType::STRAIGHTH)
+        {
         chosen = ElementType::STRAIGHTH;
+
+        }
    else
        chosen = ElementType::NONE;
 
@@ -211,7 +217,10 @@ void Window::chooseStraightH()
 void Window::chooseStraightV()
 {
     if (chosen!=ElementType::STRAIGHTV)
+        {
          chosen = ElementType::STRAIGHTV;
+
+        }
     else
         chosen = ElementType::NONE;
 }
@@ -434,6 +443,7 @@ void Window::createTrackBlock1()
     straightHButton = new QToolButton();
     straightHButton->setMaximumSize(QSize(32,32));
     chooseStraightHAct = new QAction();
+    straightHButton->setDefaultAction(chooseStraightHAct);
     connect(chooseStraightHAct, &QAction::triggered, this, &Window::chooseStraightH);
     straightHIcon = new QIcon(":/graphics/graphics/straightH.png");
     straightHButton->setIcon(*straightHIcon);
@@ -442,6 +452,7 @@ void Window::createTrackBlock1()
     straightVButton = new QToolButton();
     straightVButton->setMaximumSize(QSize(32,32));
     chooseStraightVAct = new QAction();
+    straightVButton->setDefaultAction(chooseStraightVAct);
     connect(chooseStraightVAct, &QAction::triggered, this, &Window::chooseStraightV);
     straightVIcon = new QIcon(":/graphics/graphics/straightV.png");
     straightVButton->setIcon(*straightVIcon);
