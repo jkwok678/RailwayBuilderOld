@@ -1,7 +1,5 @@
 #include "canvas.h"
 
-
-
 Canvas::Canvas()
 {
     setMinimumSize(1280,800);
@@ -9,19 +7,20 @@ Canvas::Canvas()
     imageSize=15;
     // set black background
     pal.setColor(QPalette::Background, Qt::white);
-
+    straightHImage = new QImage(":/graphics/graphics/straightH.png");
+    straightVImage = new QImage(":/graphics/graphics/straightV.png");
     setAutoFillBackground(true);
     setPalette(pal);
 }
 
 ElementType Canvas::getElementType()
 {
-    return chosen;
+    return *chosen;
 }
 
-void Canvas::setElementType(ElementType newChosen)
+void Canvas::setElementType(ElementType &newChosen)
 {
-    chosen=newChosen;
+    chosen=&newChosen;
 }
 
 void Canvas::mousePressEvent(QMouseEvent *event)
@@ -48,16 +47,16 @@ void Canvas::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
     //painter.drawImage(finalX,finalY,QImage(":/graphics/graphics/straightH.png"));
-    switch (chosen) {
+    switch (*chosen) {
       case ElementType::NONE:
 
         break;
       case ElementType::STRAIGHTH:
-        painter.drawImage(finalX,finalY,QImage(":/graphics/graphics/straightH.png"));
+        painter.drawImage(finalX,finalY,*straightHImage);
         break;
 
       case ElementType::STRAIGHTV:
-        painter.drawImage(finalX,finalY,QImage(":/graphics/graphics/straightV.png"));
+        painter.drawImage(finalX,finalY,*straightVImage);
         break;
     }
 

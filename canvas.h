@@ -13,7 +13,7 @@ class Canvas : public QWidget
 public:
     Canvas();
     ElementType getElementType();
-    void setElementType(ElementType newChosen);
+    void setElementType(ElementType &newChosen);
 
 
 public slots:
@@ -23,7 +23,7 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 private:
-    ElementType chosen;
+    ElementType *chosen;
     int imageSize;
     bool modified = false;
     QPoint lastPoint;
@@ -35,6 +35,9 @@ private:
     int finalY;
     int boundX;
     int boundY;
+
+    QImage *straightHImage;
+    QImage *straightVImage;
 
 
 
