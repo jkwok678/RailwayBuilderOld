@@ -5,9 +5,9 @@ Window::Window()
 {
 
     //NEED HELP
-    chosen = ElementType::STRAIGHTH;
+    windowChosen = ElementType::STRAIGHTH;
     drawingSurface = new Canvas;
-    drawingSurface->setElementType(chosen);
+    drawingSurface->setElementType(windowChosen);
     aspect = 4;
     createOverallMenu();
     createFileActions();
@@ -27,12 +27,12 @@ Window::Window()
 
 Map Window::getCurrentLayout()
 {
-    return currentLayout;
+    return *windowMap;
 }
 
-void Window::setCurrentLayout(Map newLayout)
+void Window::setCurrentLayout(Map &newLayout)
 {
-    currentLayout = newLayout;
+    windowMap = &newLayout;
 }
 
 void Window::openRailway()
@@ -204,233 +204,233 @@ void Window::createTrackMenu()
 
 void Window::chooseStraightH()
 {
-   if (chosen!=ElementType::STRAIGHTH)
+   if (windowChosen!=ElementType::STRAIGHTH)
         {
-        chosen = ElementType::STRAIGHTH;
+        windowChosen = ElementType::STRAIGHTH;
 
         }
    else
-       chosen = ElementType::NONE;
+       windowChosen = ElementType::NONE;
 
 }
 
 void Window::chooseStraightV()
 {
-    if (chosen!=ElementType::STRAIGHTV)
+    if (windowChosen!=ElementType::STRAIGHTV)
         {
-         chosen = ElementType::STRAIGHTV;
+         windowChosen = ElementType::STRAIGHTV;
 
         }
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseDirectLeft()
 {
-    if (chosen!=ElementType::DIRECTLEFT)
-         chosen = ElementType::DIRECTLEFT;
+    if (windowChosen!=ElementType::DIRECTLEFT)
+         windowChosen = ElementType::DIRECTLEFT;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseDirectRight()
 {
-    if (chosen!=ElementType::DIRECTRIGHT)
-         chosen = ElementType::DIRECTRIGHT;
+    if (windowChosen!=ElementType::DIRECTRIGHT)
+         windowChosen = ElementType::DIRECTRIGHT;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseDirectUp()
 {
-    if (chosen!=ElementType::DIRECTUP)
-         chosen = ElementType::DIRECTUP;
+    if (windowChosen!=ElementType::DIRECTUP)
+         windowChosen = ElementType::DIRECTUP;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseDirectDown()
 {
-    if (chosen!=ElementType::DIRECTDOWN)
-         chosen = ElementType::DIRECTDOWN;
+    if (windowChosen!=ElementType::DIRECTDOWN)
+         windowChosen = ElementType::DIRECTDOWN;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseStraightLeftUp()
 {
-    if (chosen!=ElementType::STRAIGHTLEFTUP)
-         chosen = ElementType::STRAIGHTLEFTUP;
+    if (windowChosen!=ElementType::STRAIGHTLEFTUP)
+         windowChosen = ElementType::STRAIGHTLEFTUP;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseStraightRightUp()
 {
-    if (chosen!=ElementType::STRIAGHTRIGHTUP)
-         chosen = ElementType::STRIAGHTRIGHTUP;
+    if (windowChosen!=ElementType::STRIAGHTRIGHTUP)
+         windowChosen = ElementType::STRIAGHTRIGHTUP;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseDirectLeftUp()
 {
-    if (chosen!=ElementType::DIRECTLEFTUP)
-         chosen = ElementType::DIRECTLEFTUP;
+    if (windowChosen!=ElementType::DIRECTLEFTUP)
+         windowChosen = ElementType::DIRECTLEFTUP;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseDirectRightUp()
 {
-    if (chosen!=ElementType::DIRECTRIGHTUP)
-         chosen = ElementType::DIRECTRIGHTUP;
+    if (windowChosen!=ElementType::DIRECTRIGHTUP)
+         windowChosen = ElementType::DIRECTRIGHTUP;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseDirectLeftDown()
 {
-    if (chosen!=ElementType::DIRECTLEFTDOWN)
-         chosen = ElementType::DIRECTLEFTDOWN;
+    if (windowChosen!=ElementType::DIRECTLEFTDOWN)
+         windowChosen = ElementType::DIRECTLEFTDOWN;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseDirectRightDown()
 {
-    if (chosen!=ElementType::DIRECTRIGHTDOWN)
-         chosen = ElementType::DIRECTRIGHTDOWN;
+    if (windowChosen!=ElementType::DIRECTRIGHTDOWN)
+         windowChosen = ElementType::DIRECTRIGHTDOWN;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseTightCurve1()
 {
-    if (chosen!=ElementType::TIGHTCURVE1)
-         chosen = ElementType::TIGHTCURVE1;
+    if (windowChosen!=ElementType::TIGHTCURVE1)
+         windowChosen = ElementType::TIGHTCURVE1;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseTightCurve2()
 {
-    if (chosen!=ElementType::TIGHTCURVE2)
-         chosen = ElementType::TIGHTCURVE2;
+    if (windowChosen!=ElementType::TIGHTCURVE2)
+         windowChosen = ElementType::TIGHTCURVE2;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseTightCurve3()
 {
-    if (chosen!=ElementType::TIGHTCURVE3)
-         chosen = ElementType::TIGHTCURVE3;
+    if (windowChosen!=ElementType::TIGHTCURVE3)
+         windowChosen = ElementType::TIGHTCURVE3;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseTightCurve4()
 {
-    if (chosen!=ElementType::TIGHTCURVE4)
-         chosen = ElementType::TIGHTCURVE4;
+    if (windowChosen!=ElementType::TIGHTCURVE4)
+         windowChosen = ElementType::TIGHTCURVE4;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseCurve1()
 {
-    if (chosen!=ElementType::CURVE1)
-         chosen = ElementType::CURVE1;
+    if (windowChosen!=ElementType::CURVE1)
+         windowChosen = ElementType::CURVE1;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseCurve2()
 {
-    if (chosen!=ElementType::CURVE2)
-         chosen = ElementType::CURVE2;
+    if (windowChosen!=ElementType::CURVE2)
+         windowChosen = ElementType::CURVE2;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseCurve3()
 {
-    if (chosen!=ElementType::CURVE3)
-         chosen = ElementType::CURVE3;
+    if (windowChosen!=ElementType::CURVE3)
+         windowChosen = ElementType::CURVE3;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseCurve4()
 {
-    if (chosen!=ElementType::CURVE4)
-         chosen = ElementType::CURVE4;
+    if (windowChosen!=ElementType::CURVE4)
+         windowChosen = ElementType::CURVE4;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseLinkLeft()
 {
-    if (chosen!=ElementType::LINKLEFT)
-         chosen = ElementType::LINKLEFT;
+    if (windowChosen!=ElementType::LINKLEFT)
+         windowChosen = ElementType::LINKLEFT;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseLinkRight()
 {
-    if (chosen!=ElementType::LINKRIGHT)
-         chosen = ElementType::LINKRIGHT;
+    if (windowChosen!=ElementType::LINKRIGHT)
+         windowChosen = ElementType::LINKRIGHT;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseLinkDown()
 {
-    if (chosen!=ElementType::LINKDOWN)
-         chosen = ElementType::LINKDOWN;
+    if (windowChosen!=ElementType::LINKDOWN)
+         windowChosen = ElementType::LINKDOWN;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseLinkUp()
 {
-    if (chosen!=ElementType::LINKUP)
-         chosen = ElementType::LINKUP;
+    if (windowChosen!=ElementType::LINKUP)
+         windowChosen = ElementType::LINKUP;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseLinkLeftUp()
 {
-    if (chosen!=ElementType::LINKLEFTUP)
-         chosen = ElementType::LINKLEFTUP;
+    if (windowChosen!=ElementType::LINKLEFTUP)
+         windowChosen = ElementType::LINKLEFTUP;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseLinkRightUp()
 {
-    if (chosen!=ElementType::LINKRIGHTUP)
-         chosen = ElementType::LINKRIGHTUP;
+    if (windowChosen!=ElementType::LINKRIGHTUP)
+         windowChosen = ElementType::LINKRIGHTUP;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseLinkLeftDown()
 {
-    if (chosen!=ElementType::LINKLEFTDOWN)
-         chosen = ElementType::LINKLEFTDOWN;
+    if (windowChosen!=ElementType::LINKLEFTDOWN)
+         windowChosen = ElementType::LINKLEFTDOWN;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 void Window::chooseLinkRightDown()
 {
-    if (chosen!=ElementType::LINKRIGHTDOWN)
-         chosen = ElementType::LINKRIGHTDOWN;
+    if (windowChosen!=ElementType::LINKRIGHTDOWN)
+         windowChosen = ElementType::LINKRIGHTDOWN;
     else
-        chosen = ElementType::NONE;
+        windowChosen = ElementType::NONE;
 }
 
 

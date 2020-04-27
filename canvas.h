@@ -5,6 +5,8 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include "element.h"
+#include "map.h"
+
 
 
 class Canvas : public QWidget
@@ -14,6 +16,8 @@ public:
     Canvas();
     ElementType getElementType();
     void setElementType(ElementType &newChosen);
+    Map getMap();
+    void setMap(Map &map);
 
 
 public slots:
@@ -23,7 +27,8 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 private:
-    ElementType *chosen;
+    ElementType *canvasChosen;
+    Map *canvasMap;
     int imageSize;
     bool modified = false;
     QPoint lastPoint;

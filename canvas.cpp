@@ -15,12 +15,22 @@ Canvas::Canvas()
 
 ElementType Canvas::getElementType()
 {
-    return *chosen;
+    return *canvasChosen;
 }
 
 void Canvas::setElementType(ElementType &newChosen)
 {
-    chosen=&newChosen;
+    canvasChosen=&newChosen;
+}
+
+Map Canvas::getMap()
+{
+    return *canvasMap;
+}
+
+void Canvas::setMap(Map &map)
+{
+    canvasMap = &map;
 }
 
 void Canvas::mousePressEvent(QMouseEvent *event)
@@ -47,7 +57,7 @@ void Canvas::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
     //painter.drawImage(finalX,finalY,QImage(":/graphics/graphics/straightH.png"));
-    switch (*chosen) {
+    switch (*canvasChosen) {
       case ElementType::NONE:
 
         break;

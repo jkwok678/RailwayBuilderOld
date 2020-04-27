@@ -20,7 +20,7 @@ class Window : public QWidget
 public:
     Window();
     Map getCurrentLayout();
-    void setCurrentLayout(Map currentLayout);
+    void setCurrentLayout(Map &currentLayout);
 
 private slots:
     void openRailway();
@@ -63,8 +63,8 @@ private slots:
     void chooseLinkRightDown();
 
 private:
-    Map currentLayout;
-    ElementType chosen;
+    Map *windowMap;
+    ElementType windowChosen;
     int aspect;
 
     Canvas *drawingSurface;
