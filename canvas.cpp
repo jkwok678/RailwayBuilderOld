@@ -9,6 +9,8 @@ Canvas::Canvas()
     pal.setColor(QPalette::Background, Qt::white);
     straightHImage = new QImage(":/graphics/graphics/straightH.png");
     straightVImage = new QImage(":/graphics/graphics/straightV.png");
+    directLeftImage = new QImage(":/graphics/graphics/directLeft.png");
+    directRightImage = new QImage(":/graphics/graphics/directRight.png");
     setAutoFillBackground(true);
     setPalette(pal);
 }
@@ -46,6 +48,25 @@ void Canvas::mousePressEvent(QMouseEvent *event)
          finalY = exactY - extraY;
          boundX = finalX+imageSize;
          boundY = finalY+imageSize;
+         Element newElement;
+         switch (*canvasChosen) {
+            case ElementType::NONE:
+
+            break;
+
+            case ElementType::STRAIGHTH:
+
+            break;
+
+            case ElementType::STRAIGHTV:
+            painter.drawImage(finalX,finalY,*straightVImage);
+            break;
+
+            case ElementType::STRAIGHTV:
+            painter.drawImage(finalX,finalY,*straightVImage);
+            break;
+         }
+
          update(finalX,finalY,boundX,boundY);
 
 
@@ -61,6 +82,7 @@ void Canvas::paintEvent(QPaintEvent *event)
       case ElementType::NONE:
 
         break;
+
       case ElementType::STRAIGHTH:
         painter.drawImage(finalX,finalY,*straightHImage);
         break;
@@ -68,6 +90,10 @@ void Canvas::paintEvent(QPaintEvent *event)
       case ElementType::STRAIGHTV:
         painter.drawImage(finalX,finalY,*straightVImage);
         break;
+
+      case ElementType::STRAIGHTV:
+      painter.drawImage(finalX,finalY,*straightVImage);
+      break;
     }
 
 }

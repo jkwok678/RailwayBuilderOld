@@ -43,7 +43,8 @@ private:
 
     QImage *straightHImage;
     QImage *straightVImage;
-
+    QImage *directLeftImage;
+    QImage *directRightImage;
 
 
 };

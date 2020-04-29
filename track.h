@@ -11,6 +11,10 @@ private:
 
 
 protected:
+    int offsetX;
+    int offsetY;
+    int xLocation;
+    int yLocation;
     bool electrified;
     std :: string electrificationMethod;
     int trackSpeed{200};
@@ -34,7 +38,7 @@ protected:
 
 
 public:
-    StraightTrack(bool isElectrified, std :: string newElectrificationMethod);
+    StraightTrack(int newOffsetX, int newOffsetY, int newXLocation, int newYLocation,bool newIsElectrified, std :: string newElectrificationMethod);
 };
 
 #endif // TRACK_H
