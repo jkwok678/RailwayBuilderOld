@@ -13,7 +13,8 @@ public:
     std::vector<Element> getElementList(){return elementList;};
     void setElementList(std::vector<Element> newElementList);
     void addElement(Element newElement);
-    void deleteElement(int xLocation, int yLocation);
+    Element getElementAt(int locationX, int locationY);
+    void deleteElement(int locationX, int locationY);
 };
 
 #endif // MAP_H

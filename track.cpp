@@ -7,8 +7,9 @@ Track::Track()
 };
 
 
-StraightTrack :: StraightTrack(int newOffsetX, int newOffsetY, int newXLocation,int newYLocation)
+StraightTrack :: StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newXLocation,int newYLocation)
 {
+    elementType = newElementType;
     offsetX = newOffsetX;
     offsetY = newOffsetY;
     locationX = newXLocation;

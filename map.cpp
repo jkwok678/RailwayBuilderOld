@@ -19,3 +19,13 @@ Map::addElement(Element newElement)
     elementList.push_back(newElement);
 }
 
+Element Map::getElementAt(int locationX, int locationY)
+{
+
+}
+
+void Map::deleteElement(int xLocation, int yLocation)
+{
+
+}
+

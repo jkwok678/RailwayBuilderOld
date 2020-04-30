@@ -6,6 +6,7 @@
 #include <QMouseEvent>
 #include "element.h"
 #include "map.h"
+#include "track.h"
 
 
 
@@ -28,7 +29,8 @@ protected:
 
 private:
     ElementType *canvasChosen;
-    Map *canvasMap;
+
+    Map *drawnLayout;
     int imageSize;
     bool modified = false;
     QPoint lastPoint;

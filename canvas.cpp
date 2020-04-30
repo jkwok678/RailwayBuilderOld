@@ -27,36 +27,51 @@ void Canvas::setElementType(ElementType &newChosen)
 
 Map Canvas::getMap()
 {
-    return *canvasMap;
+    return *drawnLayout;
 }
 
 void Canvas::setMap(Map &map)
 {
-    canvasMap = &map;
+    drawnLayout = &map;
 }
 
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
+    lastPoint = event->pos();
+    exactX = event->pos().x();
+    exactY = event->pos().y();
+    extraX = exactX%16;
+    extraY = exactY%16;
+    finalX = exactX - extraX;
+    finalY = exactY - extraY;
+
 
     if (event->button() == Qt::LeftButton) {
-         lastPoint = event->pos();
-         exactX = event->pos().x();
-         exactY = event->pos().y();
-         extraX = exactX%16;
-         extraY = exactY%16;
-         finalX = exactX - extraX;
-         finalY = exactY - extraY;
+
          boundX = finalX+imageSize;
          boundY = finalY+imageSize;
          Element newElement;
+         switch (*canvasChosen) {
+           case ElementType::NONE:
+
+             break;
+
+           case ElementType::STRAIGHTH:
+             StraightTrack straightH = new StraightTrack()
+             break;
+
+           case ElementType::STRAIGHTV:
+             painter.drawImage(finalX,finalY,*straightVImage);
+             break;
+
+
+         }
 
          }
 
          update(finalX,finalY,boundX,boundY);
 
 
-
-        }
 }
 
 void Canvas::paintEvent(QPaintEvent *event)
@@ -76,9 +91,7 @@ void Canvas::paintEvent(QPaintEvent *event)
         painter.drawImage(finalX,finalY,*straightVImage);
         break;
 
-      case ElementType::STRAIGHTV:
-      painter.drawImage(finalX,finalY,*straightVImage);
-      break;
+
     }
 
 }
