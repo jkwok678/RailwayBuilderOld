@@ -49,22 +49,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
          boundX = finalX+imageSize;
          boundY = finalY+imageSize;
          Element newElement;
-         switch (*canvasChosen) {
-            case ElementType::NONE:
 
-            break;
-
-            case ElementType::STRAIGHTH:
-
-            break;
-
-            case ElementType::STRAIGHTV:
-            painter.drawImage(finalX,finalY,*straightVImage);
-            break;
-
-            case ElementType::STRAIGHTV:
-            painter.drawImage(finalX,finalY,*straightVImage);
-            break;
          }
 
          update(finalX,finalY,boundX,boundY);

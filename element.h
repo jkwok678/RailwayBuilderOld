@@ -14,24 +14,29 @@ class Element
 private:
 
 protected:
-    int xLocation;
-    int yLocation;
-    int xOffset;
-    int yOffset;
     ElementType elementType;
+    int offsetX;
+    int offsetY;
+    int locationX;
+    int locationY;
+
+
 
 
 public:
     Element();
     Element(int currentX, int currentY);
-    int getXLocation() const;
-    int getYLocation() const;
-    void setXLocation(int currentX);
-    void setYLocation(int currentY);
-    int getXOffset() const;
-    int getYOffset() const;
-    void setXOffset(int value);
-    void setYOffset(int value);
+
+    ElementType getElementType() const;
+    void setElementType(const ElementType &newElementType);
+    int getOffsetX() const;
+    void setOffsetX(int offsetX);
+    int getOffsetY() const;
+    void setOffsetY(int offsetY);
+    int getLocationX() const;
+    void setLocationX(int locationX);
+    int getLocationY() const;
+    void setLocationY(int locationY);
 };
 
 

@@ -1,6 +1,5 @@
 #include "element.h"
 
-
 Element ::Element()
 {
 
@@ -8,49 +7,59 @@ Element ::Element()
 
 Element::Element(int currentX, int currentY)
 {
-    xLocation = currentX;
-    yLocation = currentY;
+    locationX = currentX;
+    locationY = currentY;
 
 }
 
-int
-Element::getXLocation() const
+ElementType Element::getElementType() const
 {
-  return xLocation;
+    return elementType;
 }
 
-int
-Element::getYLocation() const
+void Element::setElementType(const ElementType &newElementType)
 {
-  return yLocation;
+    elementType = newElementType;
 }
 
-void
-Element::setXLocation(int currentX) {
-  xLocation= currentX;
-}
 
-void
-Element::setYLocation(int currentY) {
-  yLocation= currentY;
-}
-
-int Element::getXOffset() const
+int Element::getOffsetX() const
 {
-    return xOffset;
+    return offsetX;
 }
 
-void Element::setXOffset(int value)
+void Element::setOffsetX(int newOffsetX)
 {
-    xOffset = value;
+    offsetX = newOffsetX;
 }
 
-int Element::getYOffset() const
+int Element::getOffsetY() const
 {
-    return yOffset;
+    return offsetY;
 }
 
-void Element::setYOffset(int value)
+void Element::setOffsetY(int newOffsetY)
 {
-    yOffset = value;
+    offsetY = newOffsetY;
 }
+
+int Element::getLocationX() const
+{
+    return locationX;
+}
+
+void Element::setLocationX(int newLocationX)
+{
+    locationX = newLocationX;
+}
+
+int Element::getLocationY() const
+{
+    return locationY;
+}
+
+void Element::setLocationY(int newLocationY)
+{
+    locationY = newLocationY;
+}
+
