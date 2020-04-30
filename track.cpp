@@ -7,13 +7,10 @@ Track::Track()
 };
 
 
-StraightTrack :: StraightTrack(int newOffsetX, int newOffsetY, int newXLocation,
-                               int newYLocation,bool newIsElectrified, std :: string newElectrificationMethod)
+StraightTrack :: StraightTrack(int newOffsetX, int newOffsetY, int newXLocation,int newYLocation)
 {
     offsetX = newOffsetX;
     offsetY = newOffsetY;
-    xLocation = newXLocation;
-    yLocation = newYLocation;
-    electrified = newIsElectrified;
-    electrificationMethod = newElectrificationMethod;
+    locationX = newXLocation;
+    locationY = newYLocation;
 };
