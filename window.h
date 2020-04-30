@@ -10,7 +10,6 @@
 #include <QToolButton>
 #include "borderlayout.h"
 #include "canvas.h"
-#include "map.h"
 #include "element.h"
 
 
@@ -19,8 +18,6 @@ class Window : public QWidget
 {
 public:
     Window();
-    Map getCurrentLayout();
-    void setCurrentLayout(Map &currentLayout);
 
 private slots:
     void openRailway();
@@ -63,7 +60,7 @@ private slots:
     void chooseLinkRightDown();
 
 private:
-    Map *windowMap;
+
     ElementType windowChosen;
     int aspect;
 

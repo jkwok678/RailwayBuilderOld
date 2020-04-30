@@ -25,15 +25,7 @@ Window::Window()
 
 }
 
-Map Window::getCurrentLayout()
-{
-    return *windowMap;
-}
 
-void Window::setCurrentLayout(Map &newLayout)
-{
-    windowMap = &newLayout;
-}
 
 void Window::openRailway()
 {
