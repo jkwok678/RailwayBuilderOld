@@ -110,11 +110,12 @@ void Canvas::mousePressEvent(QMouseEvent *event)
             }
 
          }
-
+         drawnLayout->addElement(newElement);
 
          }
 
-         update(finalX,finalY,boundX,boundY);
+
+         update();
 
 
 }
@@ -122,19 +123,24 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 void Canvas::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
-    //painter.drawImage(finalX,finalY,QImage(":/graphics/graphics/straightH.png"));
-    switch (*canvasChosen) {
-      case ElementType::NONE:
+    for (Element currentElement : drawnLayout->getElementList()){
 
-        break;
+        switch (currentElement.getElementType()) {
 
-      case ElementType::STRAIGHTH:
-        painter.drawImage(finalX,finalY,*straightHImage);
-        break;
+          case ElementType::NONE:
 
-      case ElementType::STRAIGHTV:
-        painter.drawImage(finalX,finalY,*straightVImage);
-        break;
+            break;
+
+          case ElementType::STRAIGHTH:
+            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightHImage);
+            break;
+
+          case ElementType::STRAIGHTV:
+            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightVImage);
+            break;
+
+
+        }
 
 
     }
