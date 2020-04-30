@@ -6,6 +6,7 @@ Canvas::Canvas()
     QPalette pal = palette();
     imageSize=15;
     // set black background
+    drawnLayout = new Map;
     pal.setColor(QPalette::Background, Qt::white);
     straightHImage = new QImage(":/graphics/graphics/straightH.png");
     straightVImage = new QImage(":/graphics/graphics/straightV.png");
@@ -35,6 +36,45 @@ void Canvas::setMap(Map &map)
     drawnLayout = &map;
 }
 
+int Canvas::getImageSize() const
+{
+    return imageSize;
+}
+
+void Canvas::setImageSize(int newImageSize)
+{
+    imageSize = newImageSize;
+}
+bool Canvas::getModified() const
+{
+    return modified;
+}
+
+void Canvas::setModified(bool newModified)
+{
+    modified = newModified;
+}
+
+int Canvas::getOffsetX() const
+{
+    return offsetX;
+}
+
+void Canvas::setOffsetX(int newOffsetX)
+{
+    offsetX = newOffsetX;
+}
+
+int Canvas::getOffsetY() const
+{
+    return offsetY;
+}
+
+void Canvas::setOffsetY(int newOffsetY)
+{
+    offsetY = newOffsetY;
+}
+
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
     lastPoint = event->pos();
@@ -57,15 +97,20 @@ void Canvas::mousePressEvent(QMouseEvent *event)
              break;
 
            case ElementType::STRAIGHTH:
-             StraightTrack straightH = new StraightTrack()
+            {
+             StraightTrack *straightH = new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY);
+             newElement = *straightH;
              break;
-
+            }
            case ElementType::STRAIGHTV:
-             painter.drawImage(finalX,finalY,*straightVImage);
+            {
+             StraightTrack *straightV = new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY);
+             newElement = *straightV;
              break;
-
+            }
 
          }
+
 
          }
 
@@ -95,4 +140,6 @@ void Canvas::paintEvent(QPaintEvent *event)
     }
 
 }
+
+
 

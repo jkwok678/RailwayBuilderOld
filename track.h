@@ -32,7 +32,7 @@ protected:
 
 
 public:
-    StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newXLocation, int newYLocation);
+    StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 };
 
 #endif // TRACK_H

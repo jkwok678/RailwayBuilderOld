@@ -17,9 +17,21 @@ public:
     Canvas();
     ElementType getElementType();
     void setElementType(ElementType &newChosen);
+
     Map getMap();
     void setMap(Map &map);
 
+    int getImageSize() const;
+    void setImageSize(int newImageSize);
+
+    bool getModified() const;
+    void setModified(bool newModified);
+
+    int getOffsetX() const;
+    void setOffsetX(int newOffsetX);
+
+    int getOffsetY() const;
+    void setOffsetY(int newOffsetY);
 
 public slots:
 
@@ -33,6 +45,8 @@ private:
     Map *drawnLayout;
     int imageSize;
     bool modified = false;
+    int offsetX;
+    int offsetY;
     QPoint lastPoint;
     int exactX;
     int exactY;
