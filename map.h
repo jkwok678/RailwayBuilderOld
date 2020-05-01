@@ -14,6 +14,7 @@ public:
     void setElementList(std::vector<Element> newElementList);
     void addElement(Element newElement);
     Element getElementAt(int locationX, int locationY);
+    bool checkElementExists(int locationX, int locationY);
     void deleteElement(int locationX, int locationY);
 };
 
