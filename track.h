@@ -1,7 +1,9 @@
 #ifndef TRACK_H
 #define TRACK_H
 #include <string>
+#include <iostream>
 #include "element.h"
+
 
 
 
@@ -33,6 +35,7 @@ protected:
 
 public:
     StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    ~StraightTrack();
 };
 
 #endif // TRACK_H

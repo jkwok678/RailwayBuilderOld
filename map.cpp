@@ -31,7 +31,7 @@ bool Map::checkElementExists(int locationX, int locationY)
         int currentX = currentElement.getLocationX();
         int currentY = currentElement.getLocationY();
         if (currentX==locationX && currentY==locationY) {
-            found =true
+            found =true;
         }
     }
     return found;
@@ -40,7 +40,6 @@ bool Map::checkElementExists(int locationX, int locationY)
 
 void Map::deleteElement(int locationX, int locationY)
 {
-    int toRemove;
 
     for (int i=0; i<elementList.size();i++){
         Element currentElement = elementList[i];

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QMouseEvent>
+#include <memory>
 #include "element.h"
 #include "map.h"
 #include "track.h"

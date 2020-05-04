@@ -14,4 +14,9 @@ StraightTrack :: StraightTrack(ElementType newElementType, int newOffsetX, int n
     offsetY = newOffsetY;
     locationX = newLocationX;
     locationY = newLocationY;
+}
+
+StraightTrack::~StraightTrack()
+{
+    std::cout << "Straight Track destroyed";
 };

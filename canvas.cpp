@@ -7,7 +7,7 @@ Canvas::Canvas()
     imageSize=15;
     // set black background
     drawnLayout = new Map;
-    pal.setColor(QPalette::Background, Qt::white);
+    pal.setColor(QPalette::Window, Qt::white);
     straightHImage = new QImage(":/graphics/graphics/straightH.png");
     straightVImage = new QImage(":/graphics/graphics/straightV.png");
     directLeftImage = new QImage(":/graphics/graphics/directLeft.png");
@@ -98,14 +98,19 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 
            case ElementType::STRAIGHTH:
             {
-             StraightTrack *straightH = new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY);
+             std::unique_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             //StraightTrack *straightH = new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY);
              newElement = *straightH;
+             drawnLayout->addElement(newElement);
+
+
              break;
             }
            case ElementType::STRAIGHTV:
             {
              StraightTrack *straightV = new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY);
              newElement = *straightV;
+             drawnLayout->addElement(newElement);
              break;
             }
 
