@@ -99,7 +99,6 @@ void Canvas::mousePressEvent(QMouseEvent *event)
            case ElementType::STRAIGHTH:
             {
              std::unique_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-             //StraightTrack *straightH = new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY);
              newElement = *straightH;
              drawnLayout->addElement(newElement);
 
@@ -108,7 +107,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
             }
            case ElementType::STRAIGHTV:
             {
-             StraightTrack *straightV = new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY);
+             std::unique_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
              newElement = *straightV;
              drawnLayout->addElement(newElement);
              break;
