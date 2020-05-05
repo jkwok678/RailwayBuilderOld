@@ -4,8 +4,8 @@
 Window::Window()
 {
 
-    //NEED HELP
-    windowChosen = ElementType::STRAIGHTH;
+    //Set default chosen track to nothing.
+    windowChosen = ElementType::NONE;
     drawingSurface = new Canvas;
     drawingSurface->setElementType(windowChosen);
     aspect = 4;

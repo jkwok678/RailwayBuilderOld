@@ -18,5 +18,13 @@ StraightTrack :: StraightTrack(ElementType newElementType, int newOffsetX, int n
 
 StraightTrack::~StraightTrack()
 {
-    std::cout << "Straight Track destroyed";
+    if (elementType==ElementType::STRAIGHTH)
+    {
+        std::cout.flush() << "Straight H destroyed \n";
+    }
+    if (elementType==ElementType::STRAIGHTV)
+    {
+        std::cout.flush() << "Straight V destroyed \n";
+    }
+
 };
