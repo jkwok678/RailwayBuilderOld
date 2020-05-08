@@ -12,6 +12,8 @@ Canvas::Canvas()
     straightVImage = new QImage(":/graphics/graphics/straightV.png");
     directLeftImage = new QImage(":/graphics/graphics/directLeft.png");
     directRightImage = new QImage(":/graphics/graphics/directRight.png");
+    directUpImage = new QImage(":/graphics/graphics/directUp.png");
+    directDownImage = new QImage(":/graphics/graphics/directDown.png");
     setAutoFillBackground(true);
     setPalette(pal);
 }
@@ -93,16 +95,16 @@ void Canvas::mousePressEvent(QMouseEvent *event)
          Element newElement;
          switch (*canvasChosen) {
            case ElementType::NONE:
+            {
+
 
              break;
-
+            }
            case ElementType::STRAIGHTH:
             {
              std::unique_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
              newElement = *straightH;
              drawnLayout->addElement(newElement);
-
-
              break;
             }
            case ElementType::STRAIGHTV:
@@ -112,6 +114,35 @@ void Canvas::mousePressEvent(QMouseEvent *event)
              drawnLayout->addElement(newElement);
              break;
             }
+           case ElementType::DIRECTLEFT:
+            {
+             std::unique_ptr<DirectTrack> directLeft(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             newElement = *directLeft;
+             drawnLayout->addElement(newElement);
+             break;
+            }
+           case ElementType::DIRECTRIGHT:
+            {
+             std::unique_ptr<DirectTrack> directRight(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             newElement = *directRight;
+             drawnLayout->addElement(newElement);
+             break;
+            }
+           case ElementType::DIRECTUP:
+            {
+             std::unique_ptr<DirectTrack> directUp(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             newElement = *directUp;
+             drawnLayout->addElement(newElement);
+             break;
+            }
+           case ElementType::DIRECTDOWN:
+            {
+             std::unique_ptr<DirectTrack> directDown(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             newElement = *directDown;
+             drawnLayout->addElement(newElement);
+             break;
+            }
+
 
          }
          drawnLayout->addElement(newElement);
@@ -141,6 +172,20 @@ void Canvas::paintEvent(QPaintEvent *event)
 
           case ElementType::STRAIGHTV:
             painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightVImage);
+            break;
+
+          case ElementType::DIRECTLEFT:
+            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directLeftImage);
+            break;
+
+          case ElementType::DIRECTRIGHT:
+            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directRightImage);
+            break;
+          case ElementType::DIRECTUP:
+            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directUpImage);
+            break;
+          case ElementType::DIRECTDOWN:
+            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directDownImage);
             break;
 
 

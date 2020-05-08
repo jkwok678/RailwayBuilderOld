@@ -4,9 +4,6 @@
 #include <iostream>
 #include "element.h"
 
-
-
-
 class Track : public Element
 {
 private:
@@ -36,6 +33,21 @@ protected:
 public:
     StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
     ~StraightTrack();
+};
+
+class DirectTrack : public Track
+{
+private:
+
+
+
+
+protected:
+
+
+public:
+    DirectTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+
 };
 
 #endif // TRACK_H

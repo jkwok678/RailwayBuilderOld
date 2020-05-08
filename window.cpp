@@ -453,6 +453,7 @@ void Window::createTrackBlock1()
     directLeftButton = new QToolButton();
     directLeftButton->setMaximumSize(QSize(32,32));
     chooseDirectLeftAct = new QAction();
+    directLeftButton->setDefaultAction(chooseDirectLeftAct);
     connect(chooseDirectLeftAct, &QAction::triggered, this, &Window::chooseDirectLeft);
     directLeftIcon= new QIcon(":/graphics/graphics/directLeft.png");
     directLeftButton->setIcon(*directLeftIcon);
@@ -461,6 +462,7 @@ void Window::createTrackBlock1()
     directRightButton = new QToolButton();
     directRightButton->setMaximumSize(QSize(32,32));
     chooseDirectRightAct = new QAction();
+    directRightButton->setDefaultAction(chooseDirectRightAct);
     connect(chooseDirectRightAct, &QAction::triggered, this, &Window::chooseDirectRight);
     directRightIcon = new QIcon(":/graphics/graphics/directRight.png");
     directRightButton->setIcon(*directRightIcon);
@@ -469,6 +471,7 @@ void Window::createTrackBlock1()
     directUpButton = new QToolButton();
     directUpButton->setMaximumSize(QSize(32,32));
     chooseDirectUpAct = new QAction();
+    directUpButton->setDefaultAction(chooseDirectUpAct);
     connect(chooseDirectUpAct, &QAction::triggered, this, &Window::chooseDirectUp);
     directUpIcon = new QIcon(":/graphics/graphics/directUp.png");
     directUpButton->setIcon(*directUpIcon);
@@ -477,6 +480,7 @@ void Window::createTrackBlock1()
     directDownButton = new QToolButton();
     directDownButton->setMaximumSize(QSize(32,32));
     chooseDirectDownAct = new QAction();
+    directDownButton->setDefaultAction(chooseDirectDownAct);
     connect(chooseDirectDownAct, &QAction::triggered, this, &Window::chooseDirectDown);
     directDownIcon = new QIcon(":/graphics/graphics/directDown.png");
     directDownButton->setIcon(*directDownIcon);
