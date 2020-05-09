@@ -14,6 +14,8 @@ Canvas::Canvas()
     directRightImage = new QImage(":/graphics/graphics/directRight.png");
     directUpImage = new QImage(":/graphics/graphics/directUp.png");
     directDownImage = new QImage(":/graphics/graphics/directDown.png");
+    straightLeftUpImage = new QImage(":/graphics/graphics/straightLeftUp.png");
+    straightRightUpImage = new QImage(":/graphics/graphics/straightRightUp.png");
     setAutoFillBackground(true);
     setPalette(pal);
 }
@@ -142,6 +144,20 @@ void Canvas::mousePressEvent(QMouseEvent *event)
              drawnLayout->addElement(newElement);
              break;
             }
+           case ElementType::STRIAGHTRIGHTUP:
+            {
+             std::unique_ptr<StraightTrack> straightRightUp(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             newElement = *straightRightUp;
+             drawnLayout->addElement(newElement);
+             break;
+            }
+           case ElementType::STRAIGHTLEFTUP:
+            {
+             std::unique_ptr<StraightTrack> straightLeftUp(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             newElement = *straightLeftUp;
+             drawnLayout->addElement(newElement);
+             break;
+            }
 
 
          }
@@ -187,6 +203,15 @@ void Canvas::paintEvent(QPaintEvent *event)
           case ElementType::DIRECTDOWN:
             painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directDownImage);
             break;
+
+          case ElementType::STRIAGHTRIGHTUP:
+            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightRightUpImage);
+            break;
+
+          case ElementType::STRAIGHTLEFTUP:
+            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightLeftUpImage);
+            break;
+
 
 
         }

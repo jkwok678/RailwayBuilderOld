@@ -489,6 +489,7 @@ void Window::createTrackBlock1()
     straightRightUpButton = new QToolButton();
     straightRightUpButton->setMaximumSize(QSize(32,32));
     chooseStraightRightUpAct = new QAction();
+    straightRightUpButton->setDefaultAction(chooseStraightRightUpAct);
     connect(chooseStraightRightUpAct, &QAction::triggered, this, &Window::chooseStraightRightUp);
     straightRightUpIcon = new QIcon(":/graphics/graphics/straightRightUp.png");
     straightRightUpButton->setIcon(*straightRightUpIcon);
@@ -497,6 +498,7 @@ void Window::createTrackBlock1()
     straightLeftUpButton = new QToolButton();
     straightLeftUpButton->setMaximumSize(QSize(32,32));
     chooseStraightLeftUpAct = new QAction();
+    straightLeftUpButton->setDefaultAction(chooseStraightLeftUpAct);
     connect(chooseStraightLeftUpAct, &QAction::triggered, this, &Window::chooseStraightLeftUp);
     straightLeftUpIcon = new QIcon(":/graphics/graphics/straightLeftUp.png");
     straightLeftUpButton->setIcon(*straightLeftUpIcon);

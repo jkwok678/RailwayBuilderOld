@@ -64,6 +64,8 @@ private:
     QImage *directRightImage;
     QImage *directUpImage;
     QImage *directDownImage;
+    QImage *straightRightUpImage;
+    QImage *straightLeftUpImage;
 
 
 };
