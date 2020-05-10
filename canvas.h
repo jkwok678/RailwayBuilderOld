@@ -5,6 +5,8 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <memory>
+#include <string>
+#include <iostream>
 #include "element.h"
 #include "map.h"
 #include "track.h"
@@ -29,10 +31,10 @@ public:
     void setModified(bool newModified);
 
     int getOffsetX() const;
-    void setOffsetX(int newOffsetX);
+    void setOffsetX(int &newOffsetX);
 
     int getOffsetY() const;
-    void setOffsetY(int newOffsetY);
+    void setOffsetY(int &newOffsetY);
 
 public slots:
 
@@ -66,6 +68,10 @@ private:
     QImage *directDownImage;
     QImage *straightRightUpImage;
     QImage *straightLeftUpImage;
+    QImage *directRightUpImage;
+    QImage *directLeftUpImage;
+    QImage *directLeftDownImage;
+    QImage *directRightDownIamge;
 
 
 };

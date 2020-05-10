@@ -8,6 +8,8 @@
 #include <QStackedWidget>
 #include <QMenuBar>
 #include <QToolButton>
+#include <string>
+#include <iostream>
 #include "borderlayout.h"
 #include "canvas.h"
 #include "element.h"
@@ -63,7 +65,8 @@ private:
 
     ElementType windowChosen;
     int aspect;
-
+    int windowOffsetX;
+    int windowOffsetY;
     Canvas *drawingSurface;
 
     void createMenuBar();

@@ -8,6 +8,10 @@ Window::Window()
     windowChosen = ElementType::NONE;
     drawingSurface = new Canvas;
     drawingSurface->setElementType(windowChosen);
+    windowOffsetX = 0;
+    windowOffsetY = 0;
+    drawingSurface->setOffsetX(windowOffsetX);
+    drawingSurface->setOffsetY(windowOffsetY);
     aspect = 4;
     createOverallMenu();
     createFileActions();
@@ -63,20 +67,29 @@ void Window::changeAspect()
 void Window::moveRight()
 {
 
+    drawingSurface->setOffsetX(++windowOffsetX);
+    drawingSurface->update();
+    //std::cout << windowOffsetX <<std::flush;
 }
 
 void Window::moveLeft()
 {
+    drawingSurface->setOffsetX(--windowOffsetX);
+    drawingSurface->update();
 
 }
 
 void Window::moveUp()
 {
+    drawingSurface->setOffsetY(++windowOffsetY);
+    drawingSurface->update();
 
 }
 
 void Window::moveDown()
 {
+    drawingSurface->setOffsetY(--windowOffsetY);
+    drawingSurface->update();
 
 }
 
@@ -507,6 +520,7 @@ void Window::createTrackBlock1()
     directRightUpButton = new QToolButton();
     directRightUpButton->setMaximumSize(QSize(32,32));
     chooseDirectRightUpAct = new QAction();
+    directRightUpButton->setDefaultAction(chooseDirectRightUpAct);
     connect(chooseDirectRightUpAct, &QAction::triggered, this, &Window::chooseDirectRightUp);
     directRightUpIcon = new QIcon(":/graphics/graphics/directRightUp.png");
     directRightUpButton->setIcon(*directRightUpIcon);
@@ -515,6 +529,7 @@ void Window::createTrackBlock1()
     directLeftUpButton = new QToolButton();
     directLeftUpButton->setMaximumSize(QSize(32,32));
     chooseDirectLeftUpAct = new QAction();
+    directLeftUpButton->setDefaultAction(chooseDirectLeftUpAct);
     connect(chooseDirectLeftUpAct, &QAction::triggered, this, &Window::chooseDirectLeftUp);
     directLeftUpIcon = new QIcon(":/graphics/graphics/directLeftUp.png");
     directLeftUpButton->setIcon(*directLeftUpIcon);
@@ -523,6 +538,7 @@ void Window::createTrackBlock1()
     directLeftDownButton = new QToolButton();
     directLeftDownButton->setMaximumSize(QSize(32,32));
     chooseDirectLeftDownAct = new QAction();
+    directLeftDownButton->setDefaultAction(chooseDirectLeftDownAct);
     connect(chooseDirectLeftDownAct, &QAction::triggered, this, &Window::chooseDirectLeftDown);
     directLeftDownIcon = new QIcon(":/graphics/graphics/directLeftDown.png");
     directLeftDownButton->setIcon(*directLeftDownIcon);
@@ -531,6 +547,7 @@ void Window::createTrackBlock1()
     directRightDownButton = new QToolButton();
     directRightDownButton->setMaximumSize(QSize(32,32));
     chooseDirectRightDownAct = new QAction();
+    directRightDownButton->setDefaultAction(chooseDirectRightDownAct);
     connect(chooseDirectRightDownAct, &QAction::triggered, this, &Window::chooseDirectRightDown);
     directRightDownIcon = new QIcon(":/graphics/graphics/directRightDown.png");
     directRightDownButton->setIcon(*directRightDownIcon);
@@ -672,13 +689,45 @@ void Window::createRightMenu()
 {
     rightMenu = new QWidget;
     rightMenuLayout = new QVBoxLayout;
+
     rightButton = new QToolButton();
     rightButton->setMaximumSize(QSize(32,32));
     rightAct = new QAction();
+    rightButton->setDefaultAction(rightAct);
     connect(rightAct, &QAction::triggered, this, &Window::moveRight);
     rightIcon = new QIcon(":/icons/icons/right.png");
     rightButton->setIcon(*rightIcon);
     rightMenuLayout->addWidget(rightButton);
+
+
+
+    leftButton = new QToolButton();
+    leftButton->setMaximumSize(QSize(32,32));
+    leftAct = new QAction();
+    leftButton->setDefaultAction(leftAct);
+    connect(leftAct, &QAction::triggered, this, &Window::moveLeft);
+    leftIcon = new QIcon(":/icons/icons/left.png");
+    leftButton->setIcon(*leftIcon);
+    rightMenuLayout->addWidget(leftButton);
+
+    upButton = new QToolButton();
+    upButton->setMaximumSize(QSize(32,32));
+    upAct = new QAction();
+    upButton->setDefaultAction(upAct);
+    connect(upAct, &QAction::triggered, this, &Window::moveUp);
+    upIcon = new QIcon(":/icons/icons/up.png");
+    upButton->setIcon(*upIcon);
+    rightMenuLayout->addWidget(upButton);
+
+    downButton = new QToolButton();
+    downButton->setMaximumSize(QSize(32,32));
+    downAct = new QAction();
+    downButton->setDefaultAction(downAct);
+    connect(downAct, &QAction::triggered, this, &Window::moveDown);
+    downIcon = new QIcon(":/icons/icons/down.png");
+    downButton->setIcon(*downIcon);
+    rightMenuLayout->addWidget(downButton);
+
     rightMenu->setLayout(rightMenuLayout);
 
 }

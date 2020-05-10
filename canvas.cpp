@@ -16,6 +16,10 @@ Canvas::Canvas()
     directDownImage = new QImage(":/graphics/graphics/directDown.png");
     straightLeftUpImage = new QImage(":/graphics/graphics/straightLeftUp.png");
     straightRightUpImage = new QImage(":/graphics/graphics/straightRightUp.png");
+    directLeftUpImage = new QImage(":/graphics/graphics/directLeftUp.png");
+    directRightUpImage = new QImage(":/graphics/graphics/directRightUp.png");
+    directRightDownIamge = new QImage(":/graphics/graphics/directRightDown.png");
+    directLeftDownImage = new QImage(":/graphics/graphics/directLeftDown.png");
     setAutoFillBackground(true);
     setPalette(pal);
 }
@@ -64,7 +68,7 @@ int Canvas::getOffsetX() const
     return offsetX;
 }
 
-void Canvas::setOffsetX(int newOffsetX)
+void Canvas::setOffsetX(int &newOffsetX)
 {
     offsetX = newOffsetX;
 }
@@ -74,7 +78,7 @@ int Canvas::getOffsetY() const
     return offsetY;
 }
 
-void Canvas::setOffsetY(int newOffsetY)
+void Canvas::setOffsetY(int &newOffsetY)
 {
     offsetY = newOffsetY;
 }
@@ -105,6 +109,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
            case ElementType::STRAIGHTH:
             {
              std::unique_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+
              newElement = *straightH;
              drawnLayout->addElement(newElement);
              break;
@@ -112,6 +117,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
            case ElementType::STRAIGHTV:
             {
              std::unique_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             std::cout << offsetX << std::flush;
              newElement = *straightV;
              drawnLayout->addElement(newElement);
              break;
@@ -158,13 +164,40 @@ void Canvas::mousePressEvent(QMouseEvent *event)
              drawnLayout->addElement(newElement);
              break;
             }
+          case ElementType::DIRECTRIGHTUP:
+            {
+             std::unique_ptr<DirectTrack> directRightUp(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             newElement = *directRightUp;
+             drawnLayout->addElement(newElement);
+             break;
+            }
+          case ElementType::DIRECTLEFTUP:
+            {
+            std::unique_ptr<DirectTrack> directLeftUp(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *directLeftUp;
+            drawnLayout->addElement(newElement);
+            break;
+            }
+          case ElementType::DIRECTLEFTDOWN:
+            {
+            std::unique_ptr<DirectTrack> directLeftDown(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *directLeftDown;
+            drawnLayout->addElement(newElement);
+            break;
+            }
+          case ElementType::DIRECTRIGHTDOWN:
+            {
+            std::unique_ptr<DirectTrack> directRightDown(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *directRightDown;
+            drawnLayout->addElement(newElement);
+            break;
+            }
 
 
          }
          drawnLayout->addElement(newElement);
 
          }
-
 
          update();
 
@@ -175,6 +208,8 @@ void Canvas::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
     for (Element currentElement : drawnLayout->getElementList()){
+
+        if (offsetX==currentElement.getOffsetX() && offsetY ==currentElement.getOffsetY()) {
 
         switch (currentElement.getElementType()) {
 
@@ -211,10 +246,24 @@ void Canvas::paintEvent(QPaintEvent *event)
           case ElementType::STRAIGHTLEFTUP:
             painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightLeftUpImage);
             break;
+        case ElementType::DIRECTRIGHTUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directRightUpImage);
+          break;
+        case ElementType::DIRECTLEFTUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directLeftUpImage);
+          break;
+        case ElementType::DIRECTLEFTDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directLeftDownImage);
+          break;
+        case ElementType::DIRECTRIGHTDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directRightDownIamge);
+          break;
 
 
 
         }
+        }
+
 
 
     }
