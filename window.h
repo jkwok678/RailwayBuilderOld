@@ -203,9 +203,9 @@ private:
     QIcon *tightCurve3Icon;
 
     //Tightcurve4Button
-    QToolButton *tightcurve4Button;
-    QAction *chooseTightcurve4Act;
-    QIcon *tightcurve4Icon;
+    QToolButton *tightCurve4Button;
+    QAction *chooseTightCurve4Act;
+    QIcon *tightCurve4Icon;
 
     //Curve1Button
     QToolButton *curve1Button;

@@ -39,3 +39,23 @@ DirectTrack :: DirectTrack(ElementType newElementType, int newOffsetX, int newOf
     locationY = newLocationY;
 }
 
+
+CurvedTrack::CurvedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+{
+    elementType = newElementType;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+
+}
+
+
+LinkedTrack::LinkedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+{
+    elementType = newElementType;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+}

@@ -556,6 +556,7 @@ void Window::createTrackBlock1()
     tightCurve1Button = new QToolButton();
     tightCurve1Button->setMaximumSize(QSize(32,32));
     chooseTightCurve1Act = new QAction();
+    tightCurve1Button->setDefaultAction(chooseTightCurve1Act);
     connect(chooseTightCurve1Act, &QAction::triggered, this, &Window::chooseTightCurve1);
     tightCurve1Icon = new QIcon(":/graphics/graphics/tightCurve1.png");
     tightCurve1Button->setIcon(*tightCurve1Icon);
@@ -564,6 +565,7 @@ void Window::createTrackBlock1()
     tightCurve2Button = new QToolButton();
     tightCurve2Button->setMaximumSize(QSize(32,32));
     chooseTightCurve2Act = new QAction();
+    tightCurve2Button->setDefaultAction(chooseTightCurve2Act);
     connect(chooseTightCurve2Act, &QAction::triggered, this, &Window::chooseTightCurve2);
     tightCurve2Icon = new QIcon(":/graphics/graphics/tightCurve2.png");
     tightCurve2Button->setIcon(*tightCurve2Icon);
@@ -572,22 +574,25 @@ void Window::createTrackBlock1()
     tightCurve3Button = new QToolButton();
     tightCurve3Button->setMaximumSize(QSize(32,32));
     chooseTightCurve3Act = new QAction();
+    tightCurve3Button->setDefaultAction(chooseTightCurve3Act);
     connect(chooseTightCurve3Act, &QAction::triggered, this, &Window::chooseTightCurve3);
     tightCurve3Icon = new QIcon(":/graphics/graphics/tightCurve3.png");
     tightCurve3Button->setIcon(*tightCurve3Icon);
     trackBlock1->addWidget(tightCurve3Button,0,14);
 
-    tightcurve4Button = new QToolButton();
-    tightcurve4Button->setMaximumSize(QSize(32,32));
-    chooseTightcurve4Act = new QAction();
-    connect(chooseTightcurve4Act, &QAction::triggered, this, &Window::chooseTightCurve4);
-    tightcurve4Icon = new QIcon(":/graphics/graphics/tightcurve4.png");
-    tightcurve4Button->setIcon(*tightcurve4Icon);
-    trackBlock1->addWidget(tightcurve4Button,0,15);
+    tightCurve4Button = new QToolButton();
+    tightCurve4Button->setMaximumSize(QSize(32,32));
+    chooseTightCurve4Act = new QAction();
+    tightCurve4Button->setDefaultAction(chooseTightCurve4Act);
+    connect(chooseTightCurve4Act, &QAction::triggered, this, &Window::chooseTightCurve4);
+    tightCurve4Icon = new QIcon(":/graphics/graphics/tightCurve4.png");
+    tightCurve4Button->setIcon(*tightCurve4Icon);
+    trackBlock1->addWidget(tightCurve4Button,0,15);
 
     curve1Button = new QToolButton();
     curve1Button->setMaximumSize(QSize(32,32));
     chooseCurve1Act = new QAction();
+    curve1Button->setDefaultAction(chooseCurve1Act);
     connect(chooseCurve1Act, &QAction::triggered, this, &Window::chooseCurve1);
     curve1Icon = new QIcon(":/graphics/graphics/curve1.png");
     curve1Button->setIcon(*curve1Icon);
@@ -596,6 +601,7 @@ void Window::createTrackBlock1()
     curve2Button = new QToolButton();
     curve2Button->setMaximumSize(QSize(32,32));
     chooseCurve2Act = new QAction();
+    curve2Button->setDefaultAction(chooseCurve2Act);
     connect(chooseCurve2Act, &QAction::triggered, this, &Window::chooseCurve2);
     curve2Icon = new QIcon(":/graphics/graphics/curve2.png");
     curve2Button->setIcon(*curve2Icon);
@@ -604,6 +610,7 @@ void Window::createTrackBlock1()
     curve3Button = new QToolButton();
     curve3Button->setMaximumSize(QSize(32,32));
     chooseCurve3Act = new QAction();
+    curve3Button->setDefaultAction(chooseCurve3Act);
     connect(chooseCurve3Act, &QAction::triggered, this, &Window::chooseCurve3);
     curve3Icon = new QIcon(":/graphics/graphics/curve3.png");
     curve3Button->setIcon(*curve3Icon);
@@ -612,6 +619,7 @@ void Window::createTrackBlock1()
     curve4Button = new QToolButton();
     curve4Button->setMaximumSize(QSize(32,32));
     chooseCurve4Act = new QAction();
+    curve4Button->setDefaultAction(chooseCurve4Act);
     connect(chooseCurve4Act, &QAction::triggered, this, &Window::chooseCurve4);
     curve4Icon = new QIcon(":/graphics/graphics/curve4.png");
     curve4Button->setIcon(*curve4Icon);
@@ -620,6 +628,7 @@ void Window::createTrackBlock1()
     linkLeftButton = new QToolButton();
     linkLeftButton->setMaximumSize(QSize(32,32));
     chooseLinkLeftAct = new QAction();
+    linkLeftButton->setDefaultAction(chooseLinkLeftAct);
     connect(chooseLinkLeftAct, &QAction::triggered, this, &Window::chooseLinkLeft);
     linkLeftIcon = new QIcon(":/graphics/graphics/linkLeftSet.png");
     linkLeftButton->setIcon(*linkLeftIcon);
@@ -628,6 +637,7 @@ void Window::createTrackBlock1()
     linkRightButton = new QToolButton();
     linkRightButton->setMaximumSize(QSize(32,32));
     chooseLinkRightAct = new QAction();
+    linkRightButton->setDefaultAction(chooseLinkRightAct);
     connect(chooseLinkRightAct, &QAction::triggered, this, &Window::chooseLinkRight);
     linkRightIcon = new QIcon(":/graphics/graphics/linkRightSet.png");
     linkRightButton->setIcon(*linkRightIcon);
@@ -636,6 +646,7 @@ void Window::createTrackBlock1()
     linkDownButton = new QToolButton();
     linkDownButton->setMaximumSize(QSize(32,32));
     chooseLinkDownAct = new QAction();
+    linkDownButton->setDefaultAction(chooseLinkDownAct);
     connect(chooseLinkDownAct, &QAction::triggered, this, &Window::chooseLinkDown);
     linkDownIcon = new QIcon(":/graphics/graphics/linkDownSet.png");
     linkDownButton->setIcon(*linkDownIcon);
@@ -644,6 +655,7 @@ void Window::createTrackBlock1()
     linkUpButton = new QToolButton();
     linkUpButton->setMaximumSize(QSize(32,32));
     chooseLinkUpAct = new QAction();
+    linkUpButton->setDefaultAction(chooseLinkUpAct);
     connect(chooseLinkUpAct, &QAction::triggered, this, &Window::chooseLinkUp);
     linkUpIcon = new QIcon(":/graphics/graphics/linkUpSet.png");
     linkUpButton->setIcon(*linkUpIcon);
@@ -652,6 +664,7 @@ void Window::createTrackBlock1()
     linkLeftUpButton = new QToolButton();
     linkLeftUpButton->setMaximumSize(QSize(32,32));
     chooseLinkLeftUpAct = new QAction();
+    linkLeftUpButton->setDefaultAction(chooseLinkLeftUpAct);
     connect(chooseLinkLeftUpAct, &QAction::triggered, this, &Window::chooseLinkLeftUp);
     linkLeftUpIcon = new QIcon(":/graphics/graphics/linkLeftUpSet.png");
     linkLeftUpButton->setIcon(*linkLeftUpIcon);
@@ -660,6 +673,7 @@ void Window::createTrackBlock1()
     linkRightUpButton = new QToolButton();
     linkRightUpButton->setMaximumSize(QSize(32,32));
     chooseLinkRightUpAct = new QAction();
+    linkRightUpButton->setDefaultAction(chooseLinkRightUpAct);
     connect(chooseLinkRightUpAct, &QAction::triggered, this, &Window::chooseLinkRightUp);
     linkRightUpIcon = new QIcon(":/graphics/graphics/linkRightUpSet.png");
     linkRightUpButton->setIcon(*linkRightUpIcon);
@@ -668,6 +682,7 @@ void Window::createTrackBlock1()
     linkRightDownButton = new QToolButton();
     linkRightDownButton->setMaximumSize(QSize(32,32));
     chooseLinkRightDownAct = new QAction();
+    linkRightDownButton->setDefaultAction(chooseLinkRightDownAct);
     connect(chooseLinkRightDownAct, &QAction::triggered, this, &Window::chooseLinkRightDown);
     linkRightDownIcon = new QIcon(":/graphics/graphics/linkRightDownSet.png");
     linkRightDownButton->setIcon(*linkRightDownIcon);
@@ -676,6 +691,7 @@ void Window::createTrackBlock1()
     linkLeftDownButton = new QToolButton();
     linkLeftDownButton->setMaximumSize(QSize(32,32));
     chooseLinkLeftDownAct = new QAction();
+    linkLeftDownButton->setDefaultAction(chooseLinkLeftDownAct);
     connect(chooseLinkLeftDownAct, &QAction::triggered, this, &Window::chooseLinkLeftDown);
     linkLeftDownIcon = new QIcon(":/graphics/graphics/linkLeftDownSet.png");
     linkLeftDownButton->setIcon(*linkLeftDownIcon);

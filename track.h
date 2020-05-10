@@ -50,4 +50,34 @@ public:
 
 };
 
+class CurvedTrack : public Track
+{
+private:
+
+
+
+
+protected:
+
+
+public:
+    CurvedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+
+};
+
+class LinkedTrack : public Track
+{
+private:
+
+
+
+
+protected:
+
+
+public:
+    LinkedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+
+};
+
 #endif // TRACK_H

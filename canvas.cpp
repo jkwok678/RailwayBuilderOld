@@ -20,6 +20,22 @@ Canvas::Canvas()
     directRightUpImage = new QImage(":/graphics/graphics/directRightUp.png");
     directRightDownIamge = new QImage(":/graphics/graphics/directRightDown.png");
     directLeftDownImage = new QImage(":/graphics/graphics/directLeftDown.png");
+    tightCurve1Image = new QImage (":/graphics/graphics/tightCurve1.png");
+    tightCurve2Image = new QImage (":/graphics/graphics/tightCurve2.png");
+    tightCurve3Image = new QImage (":/graphics/graphics/tightCurve3.png");
+    tightCurve4Image = new QImage (":/graphics/graphics/tightCurve4.png");
+    curve1Image = new QImage (":/graphics/graphics/curve1.png");
+    curve2Image = new QImage (":/graphics/graphics/curve2.png");
+    curve3Image = new QImage (":/graphics/graphics/curve3.png");
+    curve4Image = new QImage (":/graphics/graphics/curve4.png");
+    linkLeftImage = new QImage (":/graphics/graphics/linkLeftUnset.png");
+    linkRightImage = new QImage (":/graphics/graphics/linkRightUnset.png");
+    linkDownImage = new QImage (":/graphics/graphics/linkDownUnset.png");
+    linkUpImage = new QImage (":/graphics/graphics/linkUpUnset.png");
+    linkLeftUpImage = new QImage (":/graphics/graphics/linkLeftUpUnset.png");
+    linkRightUpImage = new QImage (":/graphics/graphics/linkRightUpUnset.png");
+    linkRightDownImage = new QImage (":/graphics/graphics/linkRightDownUnset.png");
+    linkLeftDownImage = new QImage (":/graphics/graphics/linkLeftDownUnset.png");
     setAutoFillBackground(true);
     setPalette(pal);
 }
@@ -193,9 +209,122 @@ void Canvas::mousePressEvent(QMouseEvent *event)
             break;
             }
 
+          case ElementType::TIGHTCURVE1:
+            {
+            std::unique_ptr<CurvedTrack> tightCurve1(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *tightCurve1;
+            drawnLayout->addElement(newElement);
+            break;
+            }
+          case ElementType::TIGHTCURVE2:
+            {
+            std::unique_ptr<CurvedTrack> tightCurve2(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *tightCurve2;
+            drawnLayout->addElement(newElement);
+            break;
+            }
+           case ElementType::TIGHTCURVE3:
+            {
+            std::unique_ptr<CurvedTrack> tightCurve3(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *tightCurve3;
+            drawnLayout->addElement(newElement);
+            break;
+            }
+           case ElementType::TIGHTCURVE4:
+            {
+            std::unique_ptr<CurvedTrack> tightCurve4(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *tightCurve4;
+            drawnLayout->addElement(newElement);
+            break;
+            }
+           case ElementType::CURVE1:
+            {
+            std::unique_ptr<CurvedTrack> curve1(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *curve1;
+            drawnLayout->addElement(newElement);
+            break;
+            }
+           case ElementType::CURVE2:
+            {
+            std::unique_ptr<CurvedTrack> curve2(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *curve2;
+            drawnLayout->addElement(newElement);
+            break;
+            }
+           case ElementType::CURVE3:
+            {
+            std::unique_ptr<CurvedTrack> curve3(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *curve3;
+            drawnLayout->addElement(newElement);
+            break;
+            }
+           case ElementType::CURVE4:
+            {
+            std::unique_ptr<CurvedTrack> curve4(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            newElement = *curve4;
+            drawnLayout->addElement(newElement);
+            break;
+            }
+
+         case ElementType::LINKLEFT:
+          {
+          std::unique_ptr<LinkedTrack> linkLeft(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *linkLeft;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::LINKRIGHT:
+          {
+          std::unique_ptr<LinkedTrack> linkRight(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *linkRight;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::LINKDOWN:
+          {
+          std::unique_ptr<LinkedTrack> linkDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *linkDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::LINKUP:
+          {
+          std::unique_ptr<LinkedTrack> linkUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *linkUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::LINKLEFTUP:
+          {
+          std::unique_ptr<LinkedTrack> linkLeftUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *linkLeftUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::LINKRIGHTUP:
+          {
+          std::unique_ptr<LinkedTrack> linkRightUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *linkRightUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::LINKRIGHTDOWN:
+          {
+          std::unique_ptr<LinkedTrack> linkRightDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *linkRightDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::LINKLEFTDOWN:
+          {
+          std::unique_ptr<LinkedTrack> linkLeftDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *linkLeftDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
 
          }
-         drawnLayout->addElement(newElement);
+
 
          }
 
@@ -258,7 +387,64 @@ void Canvas::paintEvent(QPaintEvent *event)
         case ElementType::DIRECTRIGHTDOWN:
           painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directRightDownIamge);
           break;
+        case ElementType::TIGHTCURVE1:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*tightCurve1Image);
+          break;
 
+        case ElementType::TIGHTCURVE2:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*tightCurve2Image);
+          break;
+        case ElementType::TIGHTCURVE3:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*tightCurve3Image);
+          break;
+
+        case ElementType::TIGHTCURVE4:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*tightCurve4Image);
+          break;
+        case ElementType::CURVE1:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve1Image);
+          break;
+
+        case ElementType::CURVE2:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve2Image);
+          break;
+        case ElementType::CURVE3:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve3Image);
+          break;
+
+        case ElementType::CURVE4:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve4Image);
+          break;
+
+        case ElementType::LINKLEFT:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkLeftImage);
+          break;
+
+        case ElementType::LINKRIGHT:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkRightImage);
+          break;
+        case ElementType::LINKDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkDownImage);
+          break;
+
+        case ElementType::LINKUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkUpImage);
+          break;
+
+        case ElementType::LINKLEFTUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkLeftUpImage);
+          break;
+
+        case ElementType::LINKRIGHTUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkRightUpImage);
+          break;
+        case ElementType::LINKRIGHTDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkRightDownImage);
+          break;
+
+        case ElementType::LINKLEFTDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkLeftDownImage);
+          break;
 
 
         }

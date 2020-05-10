@@ -72,6 +72,22 @@ private:
     QImage *directLeftUpImage;
     QImage *directLeftDownImage;
     QImage *directRightDownIamge;
+    QImage *tightCurve1Image;
+    QImage *tightCurve2Image;
+    QImage *tightCurve3Image;
+    QImage *tightCurve4Image;
+    QImage *curve1Image;
+    QImage *curve2Image;
+    QImage *curve3Image;
+    QImage *curve4Image;
+    QImage *linkLeftImage;
+    QImage *linkRightImage;
+    QImage *linkDownImage;
+    QImage *linkUpImage;
+    QImage *linkLeftUpImage;
+    QImage *linkRightUpImage;
+    QImage *linkRightDownImage;
+    QImage *linkLeftDownImage;
 
 
 };
