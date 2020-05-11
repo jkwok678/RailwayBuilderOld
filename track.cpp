@@ -59,3 +59,13 @@ LinkedTrack::LinkedTrack(ElementType newElementType, int newOffsetX, int newOffs
     locationX = newLocationX;
     locationY = newLocationY;
 }
+
+ExitTrack::ExitTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+{
+    elementType = newElementType;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+
+}

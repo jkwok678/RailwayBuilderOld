@@ -47,14 +47,14 @@
         <file>graphics/directRightDown.png</file>
         <file>graphics/directRightUp.png</file>
         <file>graphics/directUp.png</file>
-        <file>graphics/exitDownTrack.png</file>
-        <file>graphics/exitLeftDownTrack.png</file>
-        <file>graphics/exitLeftTrack.png</file>
-        <file>graphics/exitLeftUpTrack.png</file>
-        <file>graphics/exitRightDownTrack.png</file>
-        <file>graphics/exitRightTrack.png</file>
-        <file>graphics/exitRightUpTrack.png</file>
-        <file>graphics/exitUpTrack.png</file>
+        <file>graphics/exitDown.png</file>
+        <file>graphics/exitLeftDown.png</file>
+        <file>graphics/exitLeft.png</file>
+        <file>graphics/exitLeftUp.png</file>
+        <file>graphics/exitRightDown.png</file>
+        <file>graphics/exitRight.png</file>
+        <file>graphics/exitRightUp.png</file>
+        <file>graphics/exitUp.png</file>
         <file>graphics/flyover1.png</file>
         <file>graphics/flyover2.png</file>
         <file>graphics/flyover3.png</file>

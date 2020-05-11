@@ -60,6 +60,14 @@ private slots:
     void chooseLinkRightUp();
     void chooseLinkLeftDown();
     void chooseLinkRightDown();
+    void chooseExitLeft();
+    void chooseExitRight();
+    void chooseExitDown();
+    void chooseExitUp();
+    void chooseExitLeftUp();
+    void chooseExitRightUp();
+    void chooseExitLeftDown();
+    void chooseExitRightDown();
 
 private:
 
@@ -262,10 +270,52 @@ private:
     QAction *chooseLinkLeftDownAct;
     QIcon *linkLeftDownIcon;
 
-    //LinkRightButton
+    //LinkRightDownButton
     QToolButton *linkRightDownButton;
     QAction *chooseLinkRightDownAct;
     QIcon *linkRightDownIcon;
+
+    //ExitLeftButton
+    QToolButton *exitLeftButton;
+    QAction *chooseExitLeftAct;
+    QIcon *exitLeftIcon;
+
+    //ExitRightButton
+    QToolButton *exitRightButton;
+    QAction *chooseExitRightAct;
+    QIcon *exitRightIcon;
+
+    //ExitDownButton
+    QToolButton *exitDownButton;
+    QAction *chooseExitDownAct;
+    QIcon *exitDownIcon;
+
+    //ExitUpButton
+    QToolButton *exitUpButton;
+    QAction *chooseExitUpAct;
+    QIcon *exitUpIcon;
+
+    //ExitLeftUpButton
+    QToolButton *exitLeftUpButton;
+    QAction *chooseExitLeftUpAct;
+    QIcon *exitLeftUpIcon;
+
+    //ExitRightUpButton
+    QToolButton *exitRightUpButton;
+    QAction *chooseExitRightUpAct;
+    QIcon *exitRightUpIcon;
+
+    //ExitLeftDownButton
+    QToolButton *exitLeftDownButton;
+    QAction *chooseExitLeftDownAct;
+    QIcon *exitLeftDownIcon;
+
+    //ExitRightDownButton
+    QToolButton *exitRightDownButton;
+    QAction *chooseExitRightDownAct;
+    QIcon *exitRightDownIcon;
+
+
 };
 
 #endif // WINDOW_H

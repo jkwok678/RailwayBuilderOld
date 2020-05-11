@@ -80,4 +80,19 @@ public:
 
 };
 
+class ExitTrack : public Track
+{
+private:
+
+
+
+
+protected:
+
+
+public:
+    ExitTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+
+};
+
 #endif // TRACK_H

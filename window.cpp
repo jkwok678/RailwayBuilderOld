@@ -438,6 +438,78 @@ void Window::chooseLinkRightDown()
         windowChosen = ElementType::NONE;
 }
 
+void Window::chooseExitLeft()
+{
+    if (windowChosen!=ElementType::EXITLEFT)
+         windowChosen = ElementType::EXITLEFT;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseExitRight()
+{
+    if (windowChosen!=ElementType::EXITRIGHT)
+         windowChosen = ElementType::EXITRIGHT;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseExitDown()
+{
+    if (windowChosen!=ElementType::EXITDOWN)
+         windowChosen = ElementType::EXITDOWN;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseExitUp()
+{
+    if (windowChosen!=ElementType::EXITUP)
+         windowChosen = ElementType::EXITUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseExitLeftUp()
+{
+    if (windowChosen!=ElementType::EXITLEFTUP)
+         windowChosen = ElementType::EXITLEFTUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseExitRightUp()
+{
+    if (windowChosen!=ElementType::EXITRIGHTUP)
+         windowChosen = ElementType::EXITRIGHTUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseExitLeftDown()
+{
+    if (windowChosen!=ElementType::EXITLEFTDOWN)
+         windowChosen = ElementType::EXITLEFTDOWN;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseExitRightDown()
+{
+    if (windowChosen!=ElementType::EXITRIGHTDOWN)
+         windowChosen = ElementType::EXITRIGHTDOWN;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
 
 
 void Window::createTrackBlock1()
@@ -697,6 +769,42 @@ void Window::createTrackBlock1()
     linkLeftDownButton->setIcon(*linkLeftDownIcon);
     trackBlock1->addWidget(linkLeftDownButton,1,7);
 
+    exitLeftButton = new QToolButton();
+    exitLeftButton->setMaximumSize(QSize(32,32));
+    chooseExitLeftAct = new QAction();
+    exitLeftButton->setDefaultAction(chooseExitLeftAct);
+    connect(chooseExitLeftAct, &QAction::triggered, this, &Window::chooseExitLeft);
+    exitLeftIcon = new QIcon(":/graphics/graphics/exitLeft.png");
+    exitLeftButton->setIcon(*exitLeftIcon);
+    trackBlock1->addWidget(exitLeftButton,1,8);
+
+    exitRightButton = new QToolButton();
+    exitRightButton->setMaximumSize(QSize(32,32));
+    chooseExitRightAct = new QAction();
+    exitRightButton->setDefaultAction(chooseExitRightAct);
+    connect(chooseExitRightAct, &QAction::triggered, this, &Window::chooseExitRight);
+    exitRightIcon = new QIcon(":/graphics/graphics/exitRight.png");
+    exitRightButton->setIcon(*exitRightIcon);
+    trackBlock1->addWidget(exitRightButton,1,9);
+
+    exitDownButton = new QToolButton();
+    exitDownButton->setMaximumSize(QSize(32,32));
+    chooseExitDownAct = new QAction();
+    exitDownButton->setDefaultAction(chooseExitDownAct);
+    connect(chooseExitDownAct, &QAction::triggered, this, &Window::chooseExitDown);
+    exitDownIcon = new QIcon(":/graphics/graphics/exitDown.png");
+    exitDownButton->setIcon(*exitDownIcon);
+    trackBlock1->addWidget(exitDownButton,1,10);
+
+    exitUpButton = new QToolButton();
+    exitUpButton->setMaximumSize(QSize(32,32));
+    chooseExitUpAct = new QAction();
+    exitUpButton->setDefaultAction(chooseExitUpAct);
+    connect(chooseExitUpAct, &QAction::triggered, this, &Window::chooseExitUp);
+    exitUpIcon = new QIcon(":/graphics/graphics/exitUp.png");
+    exitUpButton->setIcon(*exitUpIcon);
+    trackBlock1->addWidget(exitUpButton,1,11);
+
 
 
 }
@@ -714,8 +822,6 @@ void Window::createRightMenu()
     rightIcon = new QIcon(":/icons/icons/right.png");
     rightButton->setIcon(*rightIcon);
     rightMenuLayout->addWidget(rightButton);
-
-
 
     leftButton = new QToolButton();
     leftButton->setMaximumSize(QSize(32,32));

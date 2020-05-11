@@ -88,6 +88,14 @@ private:
     QImage *linkRightUpImage;
     QImage *linkRightDownImage;
     QImage *linkLeftDownImage;
+    QImage *exitLeftImage;
+    QImage *exitRightImage;
+    QImage *exitDownImage;
+    QImage *exitUpImage;
+    QImage *exitLeftUpImage;
+    QImage *exitRightUpImage;
+    QImage *exitLeftDownImage;
+    QImage *exitRightDownImage;
 
 
 };
