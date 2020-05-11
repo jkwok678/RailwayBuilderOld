@@ -96,6 +96,14 @@ private:
     QImage *exitRightUpImage;
     QImage *exitLeftDownImage;
     QImage *exitRightDownImage;
+    QImage *curve5Image;
+    QImage *curve6Image;
+    QImage *curve7Image;
+    QImage *curve8Image;
+    QImage *bufferLeftImage;
+    QImage *bufferRightImage;
+    QImage *bufferDownImage;
+    QImage *bufferUpImage;
 
 
 };

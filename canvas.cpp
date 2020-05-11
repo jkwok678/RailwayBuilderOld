@@ -44,6 +44,14 @@ Canvas::Canvas()
     exitRightUpImage = new QImage(":/graphics/graphics/exitRightUp.png");
     exitLeftDownImage = new QImage(":/graphics/graphics/exitLeftDown.png");
     exitRightDownImage = new QImage(":/graphics/graphics/exitRightDown.png");
+    curve5Image = new QImage (":/graphics/graphics/curve5.png");
+    curve6Image = new QImage (":/graphics/graphics/curve6.png");
+    curve7Image = new QImage (":/graphics/graphics/curve7.png");
+    curve8Image = new QImage (":/graphics/graphics/curve8.png");
+    bufferLeftImage = new QImage (":/graphics/graphics/bufferLeft.png");
+    bufferRightImage = new QImage (":/graphics/graphics/bufferRight.png");
+    bufferDownImage = new QImage (":/graphics/graphics/bufferDown.png");
+    bufferUpImage = new QImage (":/graphics/graphics/bufferUp.png");
     setAutoFillBackground(true);
     setPalette(pal);
 }
