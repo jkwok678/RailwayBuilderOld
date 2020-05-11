@@ -40,6 +40,10 @@ Canvas::Canvas()
     exitRightImage = new QImage(":/graphics/graphics/exitRight.png");
     exitDownImage = new QImage(":/graphics/graphics/exitDown.png");
     exitUpImage = new QImage(":/graphics/graphics/exitUp.png");
+    exitLeftUpImage = new QImage(":/graphics/graphics/exitLeftUp.png");
+    exitRightUpImage = new QImage(":/graphics/graphics/exitRightUp.png");
+    exitLeftDownImage = new QImage(":/graphics/graphics/exitLeftDown.png");
+    exitRightDownImage = new QImage(":/graphics/graphics/exitRightDown.png");
     setAutoFillBackground(true);
     setPalette(pal);
 }
@@ -356,6 +360,36 @@ void Canvas::mousePressEvent(QMouseEvent *event)
           break;
           }
 
+         case ElementType::EXITLEFTUP:
+          {
+          std::unique_ptr<ExitTrack> exitLeftUp(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *exitLeftUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::EXITRIGHTUP:
+          {
+          std::unique_ptr<ExitTrack> exitRightUp(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *exitRightUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+
+         case ElementType::EXITLEFTDOWN:
+          {
+          std::unique_ptr<ExitTrack> exitLeftDown(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *exitLeftDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::EXITRIGHTDOWN:
+          {
+          std::unique_ptr<ExitTrack> exitRightDown(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *exitRightDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+
          }
 
 
@@ -492,6 +526,22 @@ void Canvas::paintEvent(QPaintEvent *event)
 
         case ElementType::EXITUP:
           painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitUpImage);
+          break;
+
+        case ElementType::EXITLEFTUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitLeftUpImage);
+          break;
+
+        case ElementType::EXITRIGHTUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitRightUpImage);
+          break;
+
+        case ElementType::EXITLEFTDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitLeftDownImage);
+          break;
+
+        case ElementType::EXITRIGHTDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitRightDownImage);
           break;
 
 

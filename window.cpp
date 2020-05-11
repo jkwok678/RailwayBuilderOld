@@ -805,6 +805,42 @@ void Window::createTrackBlock1()
     exitUpButton->setIcon(*exitUpIcon);
     trackBlock1->addWidget(exitUpButton,1,11);
 
+    exitLeftUpButton = new QToolButton();
+    exitLeftUpButton->setMaximumSize(QSize(32,32));
+    chooseExitLeftUpAct = new QAction();
+    exitLeftUpButton->setDefaultAction(chooseExitLeftUpAct);
+    connect(chooseExitLeftUpAct, &QAction::triggered, this, &Window::chooseExitLeftUp);
+    exitLeftUpIcon = new QIcon(":/graphics/graphics/exitLeftUp.png");
+    exitLeftUpButton->setIcon(*exitLeftUpIcon);
+    trackBlock1->addWidget(exitLeftUpButton,1,12);
+
+    exitRightUpButton = new QToolButton();
+    exitRightUpButton->setMaximumSize(QSize(32,32));
+    chooseExitRightUpAct = new QAction();
+    exitRightUpButton->setDefaultAction(chooseExitRightUpAct);
+    connect(chooseExitRightUpAct, &QAction::triggered, this, &Window::chooseExitRightUp);
+    exitRightUpIcon = new QIcon(":/graphics/graphics/exitRightUp.png");
+    exitRightUpButton->setIcon(*exitRightUpIcon);
+    trackBlock1->addWidget(exitRightUpButton,1,13);
+
+    exitLeftDownButton = new QToolButton();
+    exitLeftDownButton->setMaximumSize(QSize(32,32));
+    chooseExitLeftDownAct = new QAction();
+    exitLeftDownButton->setDefaultAction(chooseExitLeftDownAct);
+    connect(chooseExitLeftDownAct, &QAction::triggered, this, &Window::chooseExitLeftDown);
+    exitLeftDownIcon = new QIcon(":/graphics/graphics/exitLeftDown.png");
+    exitLeftDownButton->setIcon(*exitLeftDownIcon);
+    trackBlock1->addWidget(exitLeftDownButton,1,14);
+
+    exitRightDownButton = new QToolButton();
+    exitRightDownButton->setMaximumSize(QSize(32,32));
+    chooseExitRightDownAct = new QAction();
+    exitRightDownButton->setDefaultAction(chooseExitRightDownAct);
+    connect(chooseExitRightDownAct, &QAction::triggered, this, &Window::chooseExitRightDown);
+    exitRightDownIcon = new QIcon(":/graphics/graphics/exitRightDown.png");
+    exitRightDownButton->setIcon(*exitRightDownIcon);
+    trackBlock1->addWidget(exitRightDownButton,1,15);
+
 
 
 }
