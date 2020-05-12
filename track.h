@@ -95,4 +95,19 @@ public:
 
 };
 
+class BufferTrack : public Track
+{
+private:
+
+
+
+
+protected:
+
+
+public:
+    BufferTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+
+};
+
 #endif // TRACK_H

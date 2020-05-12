@@ -68,6 +68,14 @@ private slots:
     void chooseExitRightUp();
     void chooseExitLeftDown();
     void chooseExitRightDown();
+    void chooseCurve5();
+    void chooseCurve6();
+    void chooseCurve7();
+    void chooseCurve8();
+    void chooseBufferLeft();
+    void chooseBufferRight();
+    void chooseBufferDown();
+    void chooseBufferUp();
 
 private:
 
@@ -314,6 +322,47 @@ private:
     QToolButton *exitRightDownButton;
     QAction *chooseExitRightDownAct;
     QIcon *exitRightDownIcon;
+
+    //Curve5Button
+    QToolButton *curve5Button;
+    QAction *chooseCurve5Act;
+    QIcon *curve5Icon;
+
+    //Curve6Button
+    QToolButton *curve6Button;
+    QAction *chooseCurve6Act;
+    QIcon *curve6Icon;
+
+    //Curve7Button
+    QToolButton *curve7Button;
+    QAction *chooseCurve7Act;
+    QIcon *curve7Icon;
+
+    //Curve8Button
+    QToolButton *curve8Button;
+    QAction *chooseCurve8Act;
+    QIcon *curve8Icon;
+
+    //BufferLeftButton
+    QToolButton *bufferLeftButton;
+    QAction *chooseBufferLeftAct;
+    QIcon *bufferLeftIcon;
+
+    //BufferRightButton
+    QToolButton *bufferRightButton;
+    QAction *chooseBufferRightAct;
+    QIcon *bufferRightIcon;
+
+    //BufferDownButton
+    QToolButton *bufferDownButton;
+    QAction *chooseBufferDownAct;
+    QIcon *bufferDownIcon;
+
+    //BufferUpButton
+    QToolButton *bufferUpButton;
+    QAction *chooseBufferUpAct;
+    QIcon *bufferUpIcon;
+
 
 
 };

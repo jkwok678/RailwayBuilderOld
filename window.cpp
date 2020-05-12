@@ -510,6 +510,77 @@ void Window::chooseExitRightDown()
 
 }
 
+void Window::chooseCurve5()
+{
+    if (windowChosen!=ElementType::CURVE5)
+         windowChosen = ElementType::CURVE5;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseCurve6()
+{
+    if (windowChosen!=ElementType::CURVE6)
+         windowChosen = ElementType::CURVE6;
+    else
+        windowChosen = ElementType::NONE;
+}
+
+void Window::chooseCurve7()
+{
+    if (windowChosen!=ElementType::CURVE7)
+         windowChosen = ElementType::CURVE7;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseCurve8()
+{
+    if (windowChosen!=ElementType::CURVE8)
+         windowChosen = ElementType::CURVE8;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseBufferLeft()
+{
+    if (windowChosen!=ElementType::BUFFERLEFT)
+         windowChosen = ElementType::BUFFERLEFT;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseBufferRight()
+{
+    if (windowChosen!=ElementType::BUFFERRIGHT)
+         windowChosen = ElementType::BUFFERRIGHT;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseBufferDown()
+{
+    if (windowChosen!=ElementType::BUFFERDOWN)
+         windowChosen = ElementType::BUFFERDOWN;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseBufferUp()
+{
+    if (windowChosen!=ElementType::BUFFERUP)
+         windowChosen = ElementType::BUFFERUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
 
 
 void Window::createTrackBlock1()
@@ -840,6 +911,79 @@ void Window::createTrackBlock1()
     exitRightDownIcon = new QIcon(":/graphics/graphics/exitRightDown.png");
     exitRightDownButton->setIcon(*exitRightDownIcon);
     trackBlock1->addWidget(exitRightDownButton,1,15);
+
+    curve5Button = new QToolButton();
+    curve5Button->setMaximumSize(QSize(32,32));
+    chooseCurve5Act = new QAction();
+    curve5Button->setDefaultAction(chooseCurve5Act);
+    connect(chooseCurve5Act, &QAction::triggered, this, &Window::chooseCurve5);
+    curve5Icon = new QIcon(":/graphics/graphics/curve5.png");
+    curve5Button->setIcon(*curve5Icon);
+    trackBlock1->addWidget(curve5Button,1,16);
+
+    curve6Button = new QToolButton();
+    curve6Button->setMaximumSize(QSize(32,32));
+    chooseCurve6Act = new QAction();
+    curve6Button->setDefaultAction(chooseCurve6Act);
+    connect(chooseCurve6Act, &QAction::triggered, this, &Window::chooseCurve6);
+    curve6Icon = new QIcon(":/graphics/graphics/curve6.png");
+    curve6Button->setIcon(*curve6Icon);
+    trackBlock1->addWidget(curve6Button,1,17);
+
+    curve7Button = new QToolButton();
+    curve7Button->setMaximumSize(QSize(32,32));
+    chooseCurve7Act = new QAction();
+    curve7Button->setDefaultAction(chooseCurve7Act);
+    connect(chooseCurve7Act, &QAction::triggered, this, &Window::chooseCurve7);
+    curve7Icon = new QIcon(":/graphics/graphics/curve7.png");
+    curve7Button->setIcon(*curve7Icon);
+    trackBlock1->addWidget(curve7Button,1,18);
+
+    curve8Button = new QToolButton();
+    curve8Button->setMaximumSize(QSize(32,32));
+    chooseCurve8Act = new QAction();
+    curve8Button->setDefaultAction(chooseCurve8Act);
+    connect(chooseCurve8Act, &QAction::triggered, this, &Window::chooseCurve8);
+    curve8Icon = new QIcon(":/graphics/graphics/curve8.png");
+    curve8Button->setIcon(*curve8Icon);
+    trackBlock1->addWidget(curve8Button,1,19);
+
+    bufferLeftButton = new QToolButton();
+    bufferLeftButton->setMaximumSize(QSize(32,32));
+    chooseBufferLeftAct = new QAction();
+    bufferLeftButton->setDefaultAction(chooseBufferLeftAct);
+    connect(chooseBufferLeftAct, &QAction::triggered, this, &Window::chooseBufferLeft);
+    bufferLeftIcon = new QIcon(":/graphics/graphics/bufferLeft.png");
+    bufferLeftButton->setIcon(*bufferLeftIcon);
+    trackBlock1->addWidget(bufferLeftButton,2,0);
+
+    bufferRightButton = new QToolButton();
+    bufferRightButton->setMaximumSize(QSize(32,32));
+    chooseBufferRightAct = new QAction();
+    bufferRightButton->setDefaultAction(chooseBufferRightAct);
+    connect(chooseBufferRightAct, &QAction::triggered, this, &Window::chooseBufferRight);
+    bufferRightIcon = new QIcon(":/graphics/graphics/bufferRight.png");
+    bufferRightButton->setIcon(*bufferRightIcon);
+    trackBlock1->addWidget(bufferRightButton,2,1);
+
+    bufferDownButton = new QToolButton();
+    bufferDownButton->setMaximumSize(QSize(32,32));
+    chooseBufferDownAct = new QAction();
+    bufferDownButton->setDefaultAction(chooseBufferDownAct);
+    connect(chooseBufferDownAct, &QAction::triggered, this, &Window::chooseBufferDown);
+    bufferDownIcon = new QIcon(":/graphics/graphics/bufferDown.png");
+    bufferDownButton->setIcon(*bufferDownIcon);
+    trackBlock1->addWidget(bufferDownButton,2,2);
+
+    bufferUpButton = new QToolButton();
+    bufferUpButton->setMaximumSize(QSize(32,32));
+    chooseBufferUpAct = new QAction();
+    bufferUpButton->setDefaultAction(chooseBufferUpAct);
+    connect(chooseBufferUpAct, &QAction::triggered, this, &Window::chooseBufferUp);
+    bufferUpIcon = new QIcon(":/graphics/graphics/bufferUp.png");
+    bufferUpButton->setIcon(*bufferUpIcon);
+    trackBlock1->addWidget(bufferUpButton,2,3);
+
 
 
 

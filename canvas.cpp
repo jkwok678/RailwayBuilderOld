@@ -398,6 +398,64 @@ void Canvas::mousePressEvent(QMouseEvent *event)
           break;
           }
 
+         case ElementType::CURVE5:
+          {
+          std::unique_ptr<CurvedTrack> curve5(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *curve5;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::CURVE6:
+          {
+          std::unique_ptr<CurvedTrack> curve6(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *curve6;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::CURVE7:
+          {
+          std::unique_ptr<CurvedTrack> curve7(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *curve7;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::CURVE8:
+          {
+          std::unique_ptr<CurvedTrack> curve8(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *curve8;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+
+         case ElementType::BUFFERLEFT:
+          {
+          std::unique_ptr<LinkedTrack> bufferLeft(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *bufferLeft;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+        case ElementType::BUFFERRIGHT:
+          {
+          std::unique_ptr<LinkedTrack> bufferRight(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *bufferRight;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+        case ElementType::BUFFERDOWN:
+          {
+          std::unique_ptr<LinkedTrack> bufferDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *bufferDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+        case ElementType::BUFFERUP:
+          {
+          std::unique_ptr<LinkedTrack> bufferUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *bufferUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+
          }
 
 
@@ -550,6 +608,36 @@ void Canvas::paintEvent(QPaintEvent *event)
 
         case ElementType::EXITRIGHTDOWN:
           painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitRightDownImage);
+          break;
+
+        case ElementType::CURVE5:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve5Image);
+          break;
+
+        case ElementType::CURVE6:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve6Image);
+          break;
+        case ElementType::CURVE7:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve7Image);
+          break;
+
+        case ElementType::CURVE8:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve8Image);
+          break;
+
+        case ElementType::BUFFERLEFT:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferLeftImage);
+          break;
+
+        case ElementType::BUFFERRIGHT:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferRightImage);
+          break;
+        case ElementType::BUFFERDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferDownImage);
+          break;
+
+        case ElementType::BUFFERUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferUpImage);
           break;
 
 
