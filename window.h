@@ -76,6 +76,10 @@ private slots:
     void chooseBufferRight();
     void chooseBufferDown();
     void chooseBufferUp();
+    void chooseBufferLeftUp();
+    void chooseBufferRightUp();
+    void chooseBufferLeftDown();
+    void chooseBufferRightDown();
 
 private:
 
@@ -362,6 +366,26 @@ private:
     QToolButton *bufferUpButton;
     QAction *chooseBufferUpAct;
     QIcon *bufferUpIcon;
+
+    //BufferLeftUpButton
+    QToolButton *bufferLeftUpButton;
+    QAction *chooseBufferLeftUpAct;
+    QIcon *bufferLeftUpIcon;
+
+    //BufferRightUpButton
+    QToolButton *bufferRightUpButton;
+    QAction *chooseBufferRightUpAct;
+    QIcon *bufferRightUpIcon;
+
+    //BufferLeftDownButton
+    QToolButton *bufferLeftDownButton;
+    QAction *chooseBufferLeftDownAct;
+    QIcon *bufferLeftDownIcon;
+
+    //BufferRightDownButton
+    QToolButton *bufferRightDownButton;
+    QAction *chooseBufferRightDownAct;
+    QIcon *bufferRightDownIcon;
 
 
 

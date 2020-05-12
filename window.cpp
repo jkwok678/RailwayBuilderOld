@@ -178,6 +178,7 @@ void Window::createBuildModifyMenu1()
     aspectButton = new QToolButton();
     aspectButton->setMaximumSize(QSize(32,32));
     changeAspectAct = new QAction();
+    aspectButton->setDefaultAction(changeAspectAct);
     connect(changeAspectAct, &QAction::triggered, this, &Window::changeAspect);
     aspect4Icon = new QIcon(":/icons/icons/aspect4.png");
     aspect3Icon = new QIcon(":/icons/icons/aspect3.png");
@@ -576,6 +577,42 @@ void Window::chooseBufferUp()
 {
     if (windowChosen!=ElementType::BUFFERUP)
          windowChosen = ElementType::BUFFERUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseBufferLeftUp()
+{
+    if (windowChosen!=ElementType::BUFFERLEFTUP)
+         windowChosen = ElementType::BUFFERLEFTUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseBufferRightUp()
+{
+    if (windowChosen!=ElementType::BUFFERRIGHTUP)
+         windowChosen = ElementType::BUFFERRIGHTUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseBufferLeftDown()
+{
+    if (windowChosen!=ElementType::BUFFERLEFTDOWN)
+         windowChosen = ElementType::BUFFERLEFTDOWN;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseBufferRightDown()
+{
+    if (windowChosen!=ElementType::BUFFERRIGHTUP)
+         windowChosen = ElementType::BUFFERRIGHTUP;
     else
         windowChosen = ElementType::NONE;
 
