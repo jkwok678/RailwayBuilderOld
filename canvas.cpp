@@ -56,6 +56,22 @@ Canvas::Canvas()
     bufferRightUpImage = new QImage (":/graphics/graphics/bufferRightUp.png");
     bufferLeftDownImage = new QImage (":/graphics/graphics/bufferLeftDown.png");
     bufferRightDownImage = new QImage (":/graphics/graphics/bufferRightDown.png");
+    signalLeftImage = new QImage (":/graphics/graphics/signalLeft.png");
+    signalRightImage = new QImage (":/graphics/graphics/signalRight.png");
+    signalDownImage = new QImage (":/graphics/graphics/signalDown.png");
+    signalUpImage = new QImage (":/graphics/graphics/signalUp.png");
+    signalLeftUpImage = new QImage (":/graphics/graphics/signalLeftUp.png");
+    signalRightUpImage = new QImage (":/graphics/graphics/signalRightUp.png");
+    signalLeftDownImage = new QImage (":/graphics/graphics/signalLeftDown.png");
+    signalRightDownImage = new QImage (":/graphics/graphics/signalRightDown.png");
+    shuntLeftImage = new QImage (":/graphics/graphics/shuntLeft.png");
+    shuntRightImage = new QImage (":/graphics/graphics/shuntRight.png");
+    shuntDownImage = new QImage (":/graphics/graphics/shuntDown.png");
+    shuntUpImage = new QImage (":/graphics/graphics/shuntUp.png");
+    shuntLeftUpImage = new QImage (":/graphics/graphics/shuntLeftUp.png");
+    shuntRightUpImage = new QImage (":/graphics/graphics/shuntRightUp.png");
+    shuntLeftDownImage = new QImage (":/graphics/graphics/shuntLeftDown.png");
+    shuntRightDownImage = new QImage (":/graphics/graphics/shuntRightDown.png");
     setAutoFillBackground(true);
     setPalette(pal);
 }

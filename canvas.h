@@ -108,6 +108,22 @@ private:
     QImage *bufferRightUpImage;
     QImage *bufferLeftDownImage;
     QImage *bufferRightDownImage;
+    QImage *signalLeftImage;
+    QImage *signalRightImage;
+    QImage *signalDownImage;
+    QImage *signalUpImage;
+    QImage *signalLeftUpImage;
+    QImage *signalRightUpImage;
+    QImage *signalLeftDownImage;
+    QImage *signalRightDownImage;
+    QImage *shuntLeftImage;
+    QImage *shuntRightImage;
+    QImage *shuntDownImage;
+    QImage *shuntUpImage;
+    QImage *shuntLeftUpImage;
+    QImage *shuntRightUpImage;
+    QImage *shuntLeftDownImage;
+    QImage *shuntRightDownImage;
 
 
 };
