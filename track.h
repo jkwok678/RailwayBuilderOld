@@ -110,4 +110,22 @@ public:
 
 };
 
+class SignalTrack : public Track
+{
+private:
+    int aspect;
+
+
+
+
+protected:
+
+
+public:
+    SignalTrack(ElementType newElementType, int newAspect, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    int getAspect() const;
+    void setAspect(int newAspect);
+
+};
+
 #endif // TRACK_H

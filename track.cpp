@@ -79,3 +79,24 @@ BufferTrack::BufferTrack(ElementType newElementType, int newOffsetX, int newOffs
     locationY = newLocationY;
 
 }
+
+SignalTrack::SignalTrack(ElementType newElementType, int newAspect, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+{
+    elementType = newElementType;
+    aspect = newAspect;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+
+}
+
+int SignalTrack::getAspect() const
+{
+    return aspect;
+}
+
+void SignalTrack::setAspect(int newAspect)
+{
+    aspect = newAspect;
+}
