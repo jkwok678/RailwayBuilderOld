@@ -52,6 +52,10 @@ Canvas::Canvas()
     bufferRightImage = new QImage (":/graphics/graphics/bufferRight.png");
     bufferDownImage = new QImage (":/graphics/graphics/bufferDown.png");
     bufferUpImage = new QImage (":/graphics/graphics/bufferUp.png");
+    bufferLeftUpImage = new QImage (":/graphics/graphics/bufferLeftUp.png");
+    bufferRightUpImage = new QImage (":/graphics/graphics/bufferRightUp.png");
+    bufferLeftDownImage = new QImage (":/graphics/graphics/bufferLeftDown.png");
+    bufferRightDownImage = new QImage (":/graphics/graphics/bufferRightDown.png");
     setAutoFillBackground(true);
     setPalette(pal);
 }
@@ -455,6 +459,34 @@ void Canvas::mousePressEvent(QMouseEvent *event)
           drawnLayout->addElement(newElement);
           break;
           }
+         case ElementType::BUFFERLEFTUP:
+          {
+          std::unique_ptr<LinkedTrack> bufferLeftUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *bufferLeftUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+        case ElementType::BUFFERRIGHTUP:
+          {
+          std::unique_ptr<LinkedTrack> bufferRightUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *bufferRightUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+        case ElementType::BUFFERLEFTDOWN:
+          {
+          std::unique_ptr<LinkedTrack> bufferLeftDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *bufferLeftDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+        case ElementType::BUFFERRIGHTDOWN:
+          {
+          std::unique_ptr<LinkedTrack> bufferRightDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          newElement = *bufferRightDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
 
          }
 
@@ -638,6 +670,21 @@ void Canvas::paintEvent(QPaintEvent *event)
 
         case ElementType::BUFFERUP:
           painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferUpImage);
+          break;
+
+        case ElementType::BUFFERLEFTUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferLeftUpImage);
+          break;
+
+        case ElementType::BUFFERRIGHTUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferRightUpImage);
+          break;
+        case ElementType::BUFFERLEFTDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferLeftDownImage);
+          break;
+
+        case ElementType::BUFFERRIGHTDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferRightDownImage);
           break;
 
 

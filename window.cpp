@@ -611,8 +611,8 @@ void Window::chooseBufferLeftDown()
 
 void Window::chooseBufferRightDown()
 {
-    if (windowChosen!=ElementType::BUFFERRIGHTUP)
-         windowChosen = ElementType::BUFFERRIGHTUP;
+    if (windowChosen!=ElementType::BUFFERRIGHTDOWN)
+         windowChosen = ElementType::BUFFERRIGHTDOWN;
     else
         windowChosen = ElementType::NONE;
 
@@ -1020,6 +1020,42 @@ void Window::createTrackBlock1()
     bufferUpIcon = new QIcon(":/graphics/graphics/bufferUp.png");
     bufferUpButton->setIcon(*bufferUpIcon);
     trackBlock1->addWidget(bufferUpButton,2,3);
+
+    bufferLeftUpButton = new QToolButton();
+    bufferLeftUpButton->setMaximumSize(QSize(32,32));
+    chooseBufferLeftUpAct = new QAction();
+    bufferLeftUpButton->setDefaultAction(chooseBufferLeftUpAct);
+    connect(chooseBufferLeftUpAct, &QAction::triggered, this, &Window::chooseBufferLeftUp);
+    bufferLeftUpIcon = new QIcon(":/graphics/graphics/bufferLeftUp.png");
+    bufferLeftUpButton->setIcon(*bufferLeftUpIcon);
+    trackBlock1->addWidget(bufferLeftUpButton,2,4);
+
+    bufferRightUpButton = new QToolButton();
+    bufferRightUpButton->setMaximumSize(QSize(32,32));
+    chooseBufferRightUpAct = new QAction();
+    bufferRightUpButton->setDefaultAction(chooseBufferRightUpAct);
+    connect(chooseBufferRightUpAct, &QAction::triggered, this, &Window::chooseBufferRightUp);
+    bufferRightUpIcon = new QIcon(":/graphics/graphics/bufferRightUp.png");
+    bufferRightUpButton->setIcon(*bufferRightUpIcon);
+    trackBlock1->addWidget(bufferRightUpButton,2,5);
+
+    bufferLeftDownButton = new QToolButton();
+    bufferLeftDownButton->setMaximumSize(QSize(32,32));
+    chooseBufferLeftDownAct = new QAction();
+    bufferLeftDownButton->setDefaultAction(chooseBufferLeftDownAct);
+    connect(chooseBufferLeftDownAct, &QAction::triggered, this, &Window::chooseBufferLeftDown);
+    bufferLeftDownIcon = new QIcon(":/graphics/graphics/bufferLeftDown.png");
+    bufferLeftDownButton->setIcon(*bufferLeftDownIcon);
+    trackBlock1->addWidget(bufferLeftDownButton,2,6);
+
+    bufferRightDownButton = new QToolButton();
+    bufferRightDownButton->setMaximumSize(QSize(32,32));
+    chooseBufferRightDownAct = new QAction();
+    bufferRightDownButton->setDefaultAction(chooseBufferRightDownAct);
+    connect(chooseBufferRightDownAct, &QAction::triggered, this, &Window::chooseBufferRightDown);
+    bufferRightDownIcon = new QIcon(":/graphics/graphics/bufferRightDown.png");
+    bufferRightDownButton->setIcon(*bufferRightDownIcon);
+    trackBlock1->addWidget(bufferRightDownButton,2,7);
 
 
 

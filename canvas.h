@@ -104,6 +104,10 @@ private:
     QImage *bufferRightImage;
     QImage *bufferDownImage;
     QImage *bufferUpImage;
+    QImage *bufferLeftUpImage;
+    QImage *bufferRightUpImage;
+    QImage *bufferLeftDownImage;
+    QImage *bufferRightDownImage;
 
 
 };
