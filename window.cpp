@@ -57,9 +57,25 @@ void Window::changeAspect()
     } else if (aspect==2) {
         aspect = 1;
         aspectButton->setIcon(*aspectShuntIcon);
+        signalLeftButton->setIcon(*shuntLeftIcon);
+        signalRightButton->setIcon(*shuntRightIcon);
+        signalDownButton->setIcon(*shuntDownIcon);
+        signalUpButton->setIcon(*shuntUpIcon);
+        signalLeftUpButton->setIcon(*shuntLeftUpIcon);
+        signalRightUpButton->setIcon(*shuntRightUpIcon);
+        signalLeftDownButton->setIcon(*shuntLeftDownIcon);
+        signalRightDownButton->setIcon(*shuntRightDownIcon);
     } else if (aspect==1) {
         aspect =4;
         aspectButton->setIcon(*aspect4Icon);
+        signalLeftButton->setIcon(*signalLeftIcon);
+        signalRightButton->setIcon(*signalRightIcon);
+        signalDownButton->setIcon(*signalDownIcon);
+        signalUpButton->setIcon(*signalUpIcon);
+        signalLeftUpButton->setIcon(*signalLeftUpIcon);
+        signalRightUpButton->setIcon(*signalRightUpIcon);
+        signalLeftDownButton->setIcon(*signalLeftDownIcon);
+        signalRightDownButton->setIcon(*signalRightDownIcon);
     }
 
 }
@@ -618,6 +634,81 @@ void Window::chooseBufferRightDown()
 
 }
 
+void Window::chooseSignalLeft()
+{
+    if (windowChosen!=ElementType::SIGNALLEFT)
+         windowChosen = ElementType::SIGNALLEFT;
+    else
+        windowChosen = ElementType::NONE;
+
+
+}
+
+void Window::chooseSignalRight()
+{
+    if (windowChosen!=ElementType::SIGNALRIGHT)
+         windowChosen = ElementType::SIGNALRIGHT;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSignalDown()
+{
+    if (windowChosen!=ElementType::SIGNALDOWN)
+         windowChosen = ElementType::SIGNALDOWN;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSignalUp()
+{
+    if (windowChosen!=ElementType::SIGNALUP)
+         windowChosen = ElementType::SIGNALUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSignalLeftUp()
+{
+    if (windowChosen!=ElementType::SIGNALLEFTUP)
+         windowChosen = ElementType::SIGNALLEFTUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSignalRightUp()
+{
+    if (windowChosen!=ElementType::SIGNALRIGHTUP)
+         windowChosen = ElementType::SIGNALRIGHTUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSignalLeftDown()
+{
+    if (windowChosen!=ElementType::SIGNALLEFTDOWN)
+         windowChosen = ElementType::SIGNALLEFTDOWN;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSignalRightDown()
+{
+    if (windowChosen!=ElementType::SIGNALRIGHTDOWN)
+         windowChosen = ElementType::SIGNALRIGHTDOWN;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+
+
 
 
 void Window::createTrackBlock1()
@@ -1056,6 +1147,86 @@ void Window::createTrackBlock1()
     bufferRightDownIcon = new QIcon(":/graphics/graphics/bufferRightDown.png");
     bufferRightDownButton->setIcon(*bufferRightDownIcon);
     trackBlock1->addWidget(bufferRightDownButton,2,7);
+
+    signalLeftButton = new QToolButton();
+    signalLeftButton->setMaximumSize(QSize(32,32));
+    chooseSignalLeftAct = new QAction();
+    signalLeftButton->setDefaultAction(chooseSignalLeftAct);
+    connect(chooseSignalLeftAct, &QAction::triggered, this, &Window::chooseSignalLeft);
+    signalLeftIcon = new QIcon(":/graphics/graphics/signalLeft.png");
+    shuntLeftIcon = new QIcon(":/graphics/graphics/shuntLeftRed.png");
+    signalLeftButton->setIcon(*signalLeftIcon);
+    trackBlock1->addWidget(signalLeftButton,2,8);
+
+    signalRightButton = new QToolButton();
+    signalRightButton->setMaximumSize(QSize(32,32));
+    chooseSignalRightAct = new QAction();
+    signalRightButton->setDefaultAction(chooseSignalRightAct);
+    connect(chooseSignalRightAct, &QAction::triggered, this, &Window::chooseSignalRight);
+    signalRightIcon = new QIcon(":/graphics/graphics/signalRight.png");
+    shuntRightIcon = new QIcon(":/graphics/graphics/shuntRightRed.png");
+    signalRightButton->setIcon(*signalRightIcon);
+    trackBlock1->addWidget(signalRightButton,2,9);
+
+    signalDownButton = new QToolButton();
+    signalDownButton->setMaximumSize(QSize(32,32));
+    chooseSignalDownAct = new QAction();
+    signalDownButton->setDefaultAction(chooseSignalDownAct);
+    connect(chooseSignalDownAct, &QAction::triggered, this, &Window::chooseSignalDown);
+    signalDownIcon = new QIcon(":/graphics/graphics/signalDown.png");
+    shuntDownIcon = new QIcon(":/graphics/graphics/shuntDownRed.png");
+    signalDownButton->setIcon(*signalDownIcon);
+    trackBlock1->addWidget(signalDownButton,2,10);
+
+    signalUpButton = new QToolButton();
+    signalUpButton->setMaximumSize(QSize(32,32));
+    chooseSignalUpAct = new QAction();
+    signalUpButton->setDefaultAction(chooseSignalUpAct);
+    connect(chooseSignalUpAct, &QAction::triggered, this, &Window::chooseSignalUp);
+    signalUpIcon = new QIcon(":/graphics/graphics/signalUp.png");
+    shuntUpIcon = new QIcon(":/graphics/graphics/shuntUpRed.png");
+    signalUpButton->setIcon(*signalUpIcon);
+    trackBlock1->addWidget(signalUpButton,2,11);
+
+    signalLeftUpButton = new QToolButton();
+    signalLeftUpButton->setMaximumSize(QSize(32,32));
+    chooseSignalLeftUpAct = new QAction();
+    signalLeftUpButton->setDefaultAction(chooseSignalLeftUpAct);
+    connect(chooseSignalLeftUpAct, &QAction::triggered, this, &Window::chooseSignalLeftUp);
+    signalLeftUpIcon = new QIcon(":/graphics/graphics/signalLeftUp.png");
+    shuntLeftUpIcon = new QIcon(":/graphics/graphics/shuntLeftUpRed.png");
+    signalLeftUpButton->setIcon(*signalLeftUpIcon);
+    trackBlock1->addWidget(signalLeftUpButton,2,12);
+
+    signalRightUpButton = new QToolButton();
+    signalRightUpButton->setMaximumSize(QSize(32,32));
+    chooseSignalRightUpAct = new QAction();
+    signalRightUpButton->setDefaultAction(chooseSignalRightUpAct);
+    connect(chooseSignalRightUpAct, &QAction::triggered, this, &Window::chooseSignalRightUp);
+    signalRightUpIcon = new QIcon(":/graphics/graphics/signalRightUp.png");
+    shuntRightUpIcon = new QIcon(":/graphics/graphics/shuntRightUpRed.png");
+    signalRightUpButton->setIcon(*signalRightUpIcon);
+    trackBlock1->addWidget(signalRightUpButton,2,13);
+
+    signalLeftDownButton = new QToolButton();
+    signalLeftDownButton->setMaximumSize(QSize(32,32));
+    chooseSignalLeftDownAct = new QAction();
+    signalLeftDownButton->setDefaultAction(chooseSignalLeftDownAct);
+    connect(chooseSignalLeftDownAct, &QAction::triggered, this, &Window::chooseSignalLeftDown);
+    signalLeftDownIcon = new QIcon(":/graphics/graphics/signalLeftDown.png");
+    shuntLeftDownIcon = new QIcon(":/graphics/graphics/shuntLeftDownRed.png");
+    signalLeftDownButton->setIcon(*signalLeftDownIcon);
+    trackBlock1->addWidget(signalLeftDownButton,2,14);
+
+    signalRightDownButton = new QToolButton();
+    signalRightDownButton->setMaximumSize(QSize(32,32));
+    chooseSignalRightDownAct = new QAction();
+    signalRightDownButton->setDefaultAction(chooseSignalRightDownAct);
+    connect(chooseSignalRightDownAct, &QAction::triggered, this, &Window::chooseSignalRightDown);
+    signalRightDownIcon = new QIcon(":/graphics/graphics/signalRightDown.png");
+    shuntRightDownIcon = new QIcon(":/graphics/graphics/shuntRightDownRed.png");
+    signalRightDownButton->setIcon(*signalRightDownIcon);
+    trackBlock1->addWidget(signalRightDownButton,2,15);
 
 
 

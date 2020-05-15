@@ -80,6 +80,14 @@ private slots:
     void chooseBufferRightUp();
     void chooseBufferLeftDown();
     void chooseBufferRightDown();
+    void chooseSignalLeft();
+    void chooseSignalRight();
+    void chooseSignalDown();
+    void chooseSignalUp();
+    void chooseSignalLeftUp();
+    void chooseSignalRightUp();
+    void chooseSignalLeftDown();
+    void chooseSignalRightDown();
 
 private:
 
@@ -386,6 +394,54 @@ private:
     QToolButton *bufferRightDownButton;
     QAction *chooseBufferRightDownAct;
     QIcon *bufferRightDownIcon;
+
+    //SignalLeftButton
+    QToolButton *signalLeftButton;
+    QAction *chooseSignalLeftAct;
+    QIcon *signalLeftIcon;
+    QIcon *shuntLeftIcon;
+
+    //SignalRightButton
+    QToolButton *signalRightButton;
+    QAction *chooseSignalRightAct;
+    QIcon *signalRightIcon;
+    QIcon *shuntRightIcon;
+
+    //SignalDownButton
+    QToolButton *signalDownButton;
+    QAction *chooseSignalDownAct;
+    QIcon *signalDownIcon;
+    QIcon *shuntDownIcon;
+
+    //SignalUpButton
+    QToolButton *signalUpButton;
+    QAction *chooseSignalUpAct;
+    QIcon *signalUpIcon;
+    QIcon *shuntUpIcon;
+
+    //SignalLeftUpButton
+    QToolButton *signalLeftUpButton;
+    QAction *chooseSignalLeftUpAct;
+    QIcon *signalLeftUpIcon;
+    QIcon *shuntLeftUpIcon;
+
+    //SignalRightUpButton
+    QToolButton *signalRightUpButton;
+    QAction *chooseSignalRightUpAct;
+    QIcon *signalRightUpIcon;
+    QIcon *shuntRightUpIcon;
+
+    //SignalLeftDownButton
+    QToolButton *signalLeftDownButton;
+    QAction *chooseSignalLeftDownAct;
+    QIcon *signalLeftDownIcon;
+    QIcon *shuntLeftDownIcon;
+
+    //SignalRightDownButton
+    QToolButton *signalRightDownButton;
+    QAction *chooseSignalRightDownAct;
+    QIcon *signalRightDownIcon;
+    QIcon *shuntRightDownIcon;
 
 
 
