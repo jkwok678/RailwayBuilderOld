@@ -36,6 +36,9 @@ public:
     int getOffsetY() const;
     void setOffsetY(int &newOffsetY);
 
+    int getAspect() const;
+    void setAspect(int &newAspect);
+
 public slots:
 
 protected:
@@ -50,6 +53,7 @@ private:
     bool modified = false;
     int offsetX;
     int offsetY;
+    int canvasAspect;
     QPoint lastPoint;
     int exactX;
     int exactY;

@@ -13,6 +13,7 @@ Window::Window()
     drawingSurface->setOffsetX(windowOffsetX);
     drawingSurface->setOffsetY(windowOffsetY);
     aspect = 4;
+    drawingSurface->setAspect(aspect);
     createOverallMenu();
     createFileActions();
     createModeActions();

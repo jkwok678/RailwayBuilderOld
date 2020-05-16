@@ -135,6 +135,16 @@ void Canvas::setOffsetY(int &newOffsetY)
     offsetY = newOffsetY;
 }
 
+int Canvas::getAspect() const
+{
+    return canvasAspect;
+}
+
+void Canvas::setAspect(int &newAspect)
+{
+    canvasAspect = newAspect;
+}
+
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
     lastPoint = event->pos();
@@ -503,6 +513,64 @@ void Canvas::mousePressEvent(QMouseEvent *event)
           drawnLayout->addElement(newElement);
           break;
           }
+         case ElementType::SIGNALLEFT:
+          {
+          std::unique_ptr<SignalTrack> signalLeft(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          newElement = *signalLeft;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::SIGNALRIGHT:
+          {
+          std::unique_ptr<SignalTrack> signalRight(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          newElement = *signalRight;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::SIGNALDOWN:
+          {
+          std::unique_ptr<SignalTrack> signalDown(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          newElement = *signalDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::SIGNALUP:
+          {
+          std::unique_ptr<SignalTrack> signalUp(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          newElement = *signalUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+
+         case ElementType::SIGNALLEFTUP:
+          {
+          std::unique_ptr<SignalTrack> signalLeftUp(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          newElement = *signalLeftUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::SIGNALRIGHTUP:
+          {
+          std::unique_ptr<SignalTrack> signalRightUp(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          newElement = *signalRightUp;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+
+         case ElementType::SIGNALLEFTDOWN:
+          {
+          std::unique_ptr<SignalTrack> signalLeftDown(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          newElement = *signalLeftDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
+         case ElementType::SIGNALRIGHTDOWN:
+          {
+          std::unique_ptr<SignalTrack> signalRightDown(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          newElement = *signalRightDown;
+          drawnLayout->addElement(newElement);
+          break;
+          }
 
          }
 
@@ -701,6 +769,37 @@ void Canvas::paintEvent(QPaintEvent *event)
 
         case ElementType::BUFFERRIGHTDOWN:
           painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferRightDownImage);
+          break;
+
+        case ElementType::SIGNALLEFT:
+
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalLeftImage);
+          break;
+
+        case ElementType::SIGNALRIGHT:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalRightImage);
+          break;
+        case ElementType::SIGNALDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalDownImage);
+          break;
+
+        case ElementType::SIGNALUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalUpImage);
+          break;
+
+        case ElementType::SIGNALLEFTUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalLeftUpImage);
+          break;
+
+        case ElementType::SIGNALRIGHTUP:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalRightUpImage);
+          break;
+        case ElementType::SIGNALLEFTDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalLeftDownImage);
+          break;
+
+        case ElementType::SIGNALRIGHTDOWN:
+          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalRightDownImage);
           break;
 
 
