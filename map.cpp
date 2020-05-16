@@ -8,18 +8,18 @@ Map::Map()
 
 
 void
-Map::setElementList(std::vector<Element> newElementList)
+Map::setElementList(std::vector<std::unique_ptr<Element>> newElementList)
 {
     this->elementList = newElementList;
 }
 
 void
-Map::addElement(Element newElement)
+Map::addElement(std::unique_ptr<Element> newElement)
 {
-    elementList.push_back(newElement);
+    elementList.push_back(std::move(newElement));
 }
 
-Element Map::getElementAt(int locationX, int locationY)
+std::unique_ptr<Element> Map::getElementAt(int locationX, int locationY)
 {
 
 }
@@ -27,9 +27,9 @@ Element Map::getElementAt(int locationX, int locationY)
 bool Map::checkElementExists(int locationX, int locationY)
 {
     bool found = false;
-    for (Element currentElement : elementList){
-        int currentX = currentElement.getLocationX();
-        int currentY = currentElement.getLocationY();
+    for (std::unique_ptr<Element> &currentElement : elementList){
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
         if (currentX==locationX && currentY==locationY) {
             found =true;
         }
@@ -42,9 +42,9 @@ void Map::deleteElement(int locationX, int locationY)
 {
 
     for (int i=0; i<elementList.size();i++){
-        Element currentElement = elementList[i];
-        int currentX = currentElement.getLocationX();
-        int currentY = currentElement.getLocationY();
+        std::unique_ptr<Element> &currentElement = elementList[i];
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
         if (currentX==locationX && currentY==locationY) {
             elementList.erase(elementList.begin() + i);
         }
