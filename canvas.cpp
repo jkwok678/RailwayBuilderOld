@@ -160,7 +160,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 
          boundX = finalX+imageSize;
          boundY = finalY+imageSize;
-         std::unique_ptr<Element> newElement;
+
          switch (*canvasChosen) {
            case ElementType::NONE:
             {
@@ -170,408 +170,352 @@ void Canvas::mousePressEvent(QMouseEvent *event)
             }
            case ElementType::STRAIGHTH:
             {
-             std::unique_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-
-             newElement = std::move(straightH);
-             drawnLayout->addElement(std::move(straightH));
+             std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             drawnLayout->addElement(straightH);
              break;
             }
-          /* case ElementType::STRAIGHTV:
+           case ElementType::STRAIGHTV:
             {
-             std::unique_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             std::shared_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
              std::cout << offsetX << std::flush;
-             newElement = *straightV;
-             drawnLayout->addElement(newElement);
+
+             drawnLayout->addElement(straightV);
              break;
             }
            case ElementType::DIRECTLEFT:
             {
-             std::unique_ptr<DirectTrack> directLeft(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-             newElement = *directLeft;
-             drawnLayout->addElement(newElement);
+             std::shared_ptr<DirectTrack> directLeft(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             drawnLayout->addElement(directLeft);
              break;
             }
            case ElementType::DIRECTRIGHT:
             {
-             std::unique_ptr<DirectTrack> directRight(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-             newElement = *directRight;
-             drawnLayout->addElement(newElement);
+             std::shared_ptr<DirectTrack> directRight(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             drawnLayout->addElement(directRight);
              break;
             }
            case ElementType::DIRECTUP:
             {
-             std::unique_ptr<DirectTrack> directUp(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-             newElement = *directUp;
-             drawnLayout->addElement(newElement);
+             std::shared_ptr<DirectTrack> directUp(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             drawnLayout->addElement(directUp);
              break;
             }
            case ElementType::DIRECTDOWN:
             {
-             std::unique_ptr<DirectTrack> directDown(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-             newElement = *directDown;
-             drawnLayout->addElement(newElement);
+             std::shared_ptr<DirectTrack> directDown(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             drawnLayout->addElement(directDown);
              break;
             }
            case ElementType::STRIAGHTRIGHTUP:
             {
-             std::unique_ptr<StraightTrack> straightRightUp(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-             newElement = *straightRightUp;
-             drawnLayout->addElement(newElement);
+             std::shared_ptr<StraightTrack> straightRightUp(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             drawnLayout->addElement(straightRightUp);
              break;
             }
            case ElementType::STRAIGHTLEFTUP:
             {
-             std::unique_ptr<StraightTrack> straightLeftUp(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-             newElement = *straightLeftUp;
-             drawnLayout->addElement(newElement);
+             std::shared_ptr<StraightTrack> straightLeftUp(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             drawnLayout->addElement(straightLeftUp);
              break;
             }
           case ElementType::DIRECTRIGHTUP:
             {
-             std::unique_ptr<DirectTrack> directRightUp(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-             newElement = *directRightUp;
-             drawnLayout->addElement(newElement);
+             std::shared_ptr<DirectTrack> directRightUp(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+             drawnLayout->addElement(directRightUp);
              break;
             }
           case ElementType::DIRECTLEFTUP:
             {
-            std::unique_ptr<DirectTrack> directLeftUp(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *directLeftUp;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<DirectTrack> directLeftUp(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(directLeftUp);
             break;
             }
           case ElementType::DIRECTLEFTDOWN:
             {
-            std::unique_ptr<DirectTrack> directLeftDown(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *directLeftDown;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<DirectTrack> directLeftDown(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(directLeftDown);
             break;
             }
           case ElementType::DIRECTRIGHTDOWN:
             {
-            std::unique_ptr<DirectTrack> directRightDown(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *directRightDown;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<DirectTrack> directRightDown(new DirectTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(directRightDown);
             break;
             }
 
           case ElementType::TIGHTCURVE1:
             {
-            std::unique_ptr<CurvedTrack> tightCurve1(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *tightCurve1;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<CurvedTrack> tightCurve1(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(tightCurve1);
             break;
             }
           case ElementType::TIGHTCURVE2:
             {
-            std::unique_ptr<CurvedTrack> tightCurve2(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *tightCurve2;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<CurvedTrack> tightCurve2(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(tightCurve2);
             break;
             }
            case ElementType::TIGHTCURVE3:
             {
-            std::unique_ptr<CurvedTrack> tightCurve3(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *tightCurve3;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<CurvedTrack> tightCurve3(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(tightCurve3);
             break;
             }
            case ElementType::TIGHTCURVE4:
             {
-            std::unique_ptr<CurvedTrack> tightCurve4(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *tightCurve4;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<CurvedTrack> tightCurve4(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(tightCurve4);
             break;
             }
            case ElementType::CURVE1:
             {
-            std::unique_ptr<CurvedTrack> curve1(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *curve1;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<CurvedTrack> curve1(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(curve1);
             break;
             }
            case ElementType::CURVE2:
             {
-            std::unique_ptr<CurvedTrack> curve2(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *curve2;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<CurvedTrack> curve2(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(curve2);
             break;
             }
            case ElementType::CURVE3:
             {
-            std::unique_ptr<CurvedTrack> curve3(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *curve3;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<CurvedTrack> curve3(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(curve3);
             break;
             }
            case ElementType::CURVE4:
             {
-            std::unique_ptr<CurvedTrack> curve4(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-            newElement = *curve4;
-            drawnLayout->addElement(newElement);
+            std::shared_ptr<CurvedTrack> curve4(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+            drawnLayout->addElement(curve4);
             break;
             }
 
          case ElementType::LINKLEFT:
           {
-          std::unique_ptr<LinkedTrack> linkLeft(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *linkLeft;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> linkLeft(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(linkLeft);
           break;
           }
          case ElementType::LINKRIGHT:
           {
-          std::unique_ptr<LinkedTrack> linkRight(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *linkRight;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> linkRight(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(linkRight);
           break;
           }
          case ElementType::LINKDOWN:
           {
-          std::unique_ptr<LinkedTrack> linkDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *linkDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> linkDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(linkDown);
           break;
           }
          case ElementType::LINKUP:
           {
-          std::unique_ptr<LinkedTrack> linkUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *linkUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> linkUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(linkUp);
           break;
           }
          case ElementType::LINKLEFTUP:
           {
-          std::unique_ptr<LinkedTrack> linkLeftUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *linkLeftUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> linkLeftUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(linkLeftUp);
           break;
           }
          case ElementType::LINKRIGHTUP:
           {
-          std::unique_ptr<LinkedTrack> linkRightUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *linkRightUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> linkRightUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(linkRightUp);
           break;
           }
          case ElementType::LINKRIGHTDOWN:
           {
-          std::unique_ptr<LinkedTrack> linkRightDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *linkRightDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> linkRightDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(linkRightDown);
           break;
           }
          case ElementType::LINKLEFTDOWN:
           {
-          std::unique_ptr<LinkedTrack> linkLeftDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *linkLeftDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> linkLeftDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(linkLeftDown);
           break;
           }
 
          case ElementType::EXITLEFT:
           {
-          std::unique_ptr<ExitTrack> exitLeft(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *exitLeft;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<ExitTrack> exitLeft(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(exitLeft);
           break;
           }
          case ElementType::EXITRIGHT:
           {
-          std::unique_ptr<ExitTrack> exitRight(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *exitRight;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<ExitTrack> exitRight(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(exitRight);
           break;
           }
          case ElementType::EXITDOWN:
           {
-          std::unique_ptr<ExitTrack> exitDown(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *exitDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<ExitTrack> exitDown(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(exitDown);
           break;
           }
          case ElementType::EXITUP:
           {
-          std::unique_ptr<ExitTrack> exitUp(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *exitUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<ExitTrack> exitUp(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(exitUp);
           break;
           }
 
          case ElementType::EXITLEFTUP:
           {
-          std::unique_ptr<ExitTrack> exitLeftUp(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *exitLeftUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<ExitTrack> exitLeftUp(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(exitLeftUp);
           break;
           }
          case ElementType::EXITRIGHTUP:
           {
-          std::unique_ptr<ExitTrack> exitRightUp(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *exitRightUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<ExitTrack> exitRightUp(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(exitRightUp);
           break;
           }
 
          case ElementType::EXITLEFTDOWN:
           {
-          std::unique_ptr<ExitTrack> exitLeftDown(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *exitLeftDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<ExitTrack> exitLeftDown(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(exitLeftDown);
           break;
           }
          case ElementType::EXITRIGHTDOWN:
           {
-          std::unique_ptr<ExitTrack> exitRightDown(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *exitRightDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<ExitTrack> exitRightDown(new ExitTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(exitRightDown);
           break;
           }
 
          case ElementType::CURVE5:
           {
-          std::unique_ptr<CurvedTrack> curve5(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *curve5;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<CurvedTrack> curve5(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(curve5);
           break;
           }
          case ElementType::CURVE6:
           {
-          std::unique_ptr<CurvedTrack> curve6(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *curve6;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<CurvedTrack> curve6(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(curve6);
           break;
           }
          case ElementType::CURVE7:
           {
-          std::unique_ptr<CurvedTrack> curve7(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *curve7;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<CurvedTrack> curve7(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(curve7);
           break;
           }
          case ElementType::CURVE8:
           {
-          std::unique_ptr<CurvedTrack> curve8(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *curve8;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<CurvedTrack> curve8(new CurvedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(curve8);
           break;
           }
 
          case ElementType::BUFFERLEFT:
           {
-          std::unique_ptr<LinkedTrack> bufferLeft(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *bufferLeft;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> bufferLeft(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(bufferLeft);
           break;
           }
         case ElementType::BUFFERRIGHT:
           {
-          std::unique_ptr<LinkedTrack> bufferRight(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *bufferRight;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> bufferRight(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(bufferRight);
           break;
           }
         case ElementType::BUFFERDOWN:
           {
-          std::unique_ptr<LinkedTrack> bufferDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *bufferDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> bufferDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(bufferDown);
           break;
           }
         case ElementType::BUFFERUP:
           {
-          std::unique_ptr<LinkedTrack> bufferUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *bufferUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> bufferUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(bufferUp);
           break;
           }
          case ElementType::BUFFERLEFTUP:
           {
-          std::unique_ptr<LinkedTrack> bufferLeftUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *bufferLeftUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> bufferLeftUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(bufferLeftUp);
           break;
           }
         case ElementType::BUFFERRIGHTUP:
           {
-          std::unique_ptr<LinkedTrack> bufferRightUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *bufferRightUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> bufferRightUp(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(bufferRightUp);
           break;
           }
         case ElementType::BUFFERLEFTDOWN:
           {
-          std::unique_ptr<LinkedTrack> bufferLeftDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *bufferLeftDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> bufferLeftDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(bufferLeftDown);
           break;
           }
         case ElementType::BUFFERRIGHTDOWN:
           {
-          std::unique_ptr<LinkedTrack> bufferRightDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
-          newElement = *bufferRightDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<LinkedTrack> bufferRightDown(new LinkedTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(bufferRightDown);
           break;
           }
          case ElementType::SIGNALLEFT:
           {
-          std::unique_ptr<SignalTrack> signalLeft(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
-          newElement = *signalLeft;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<SignalTrack> signalLeft(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(signalLeft);
           break;
           }
          case ElementType::SIGNALRIGHT:
           {
-          std::unique_ptr<SignalTrack> signalRight(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
-          newElement = *signalRight;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<SignalTrack> signalRight(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(signalRight);
           break;
           }
          case ElementType::SIGNALDOWN:
           {
-          std::unique_ptr<SignalTrack> signalDown(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
-          newElement = *signalDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<SignalTrack> signalDown(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(signalDown);
           break;
           }
          case ElementType::SIGNALUP:
           {
-          std::unique_ptr<SignalTrack> signalUp(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
-          newElement = *signalUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<SignalTrack> signalUp(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(signalUp);
           break;
           }
 
          case ElementType::SIGNALLEFTUP:
           {
-          std::unique_ptr<SignalTrack> signalLeftUp(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
-          newElement = *signalLeftUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<SignalTrack> signalLeftUp(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(signalLeftUp);
           break;
           }
          case ElementType::SIGNALRIGHTUP:
           {
-          std::unique_ptr<SignalTrack> signalRightUp(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
-          newElement = *signalRightUp;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<SignalTrack> signalRightUp(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(signalRightUp);
           break;
           }
 
          case ElementType::SIGNALLEFTDOWN:
           {
-          std::unique_ptr<SignalTrack> signalLeftDown(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
-          newElement = *signalLeftDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<SignalTrack> signalLeftDown(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(signalLeftDown);
           break;
           }
          case ElementType::SIGNALRIGHTDOWN:
           {
-          std::unique_ptr<SignalTrack> signalRightDown(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
-          newElement = *signalRightDown;
-          drawnLayout->addElement(newElement);
+          std::shared_ptr<SignalTrack> signalRightDown(new SignalTrack(*canvasChosen,canvasAspect,offsetX,offsetY,finalX,finalY));
+          drawnLayout->addElement(signalRightDown);
           break;
           }
-          */
+
 
          }
 
@@ -586,7 +530,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 void Canvas::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
-    for (std::unique_ptr<Element>& currentElement : drawnLayout->getElementList()){
+    for (auto& currentElement : drawnLayout->getElementList()){
 
         if (offsetX==currentElement->getOffsetX() && offsetY ==currentElement->getOffsetY()) {
 
@@ -600,209 +544,210 @@ void Canvas::paintEvent(QPaintEvent *event)
             painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*straightHImage);
             break;
 
-          /*case ElementType::STRAIGHTV:
-            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightVImage);
+          case ElementType::STRAIGHTV:
+            painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*straightVImage);
             break;
 
           case ElementType::DIRECTLEFT:
-            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directLeftImage);
+            painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*directLeftImage);
             break;
 
           case ElementType::DIRECTRIGHT:
-            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directRightImage);
+            painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*directRightImage);
             break;
           case ElementType::DIRECTUP:
-            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directUpImage);
+            painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*directUpImage);
             break;
           case ElementType::DIRECTDOWN:
-            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directDownImage);
+            painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*directDownImage);
             break;
 
           case ElementType::STRIAGHTRIGHTUP:
-            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightRightUpImage);
+            painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*straightRightUpImage);
             break;
 
           case ElementType::STRAIGHTLEFTUP:
-            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightLeftUpImage);
+            painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*straightLeftUpImage);
             break;
         case ElementType::DIRECTRIGHTUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directRightUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*directRightUpImage);
           break;
         case ElementType::DIRECTLEFTUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directLeftUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*directLeftUpImage);
           break;
         case ElementType::DIRECTLEFTDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directLeftDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*directLeftDownImage);
           break;
         case ElementType::DIRECTRIGHTDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*directRightDownIamge);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*directRightDownIamge);
           break;
         case ElementType::TIGHTCURVE1:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*tightCurve1Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*tightCurve1Image);
           break;
 
         case ElementType::TIGHTCURVE2:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*tightCurve2Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*tightCurve2Image);
           break;
         case ElementType::TIGHTCURVE3:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*tightCurve3Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*tightCurve3Image);
           break;
 
         case ElementType::TIGHTCURVE4:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*tightCurve4Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*tightCurve4Image);
           break;
         case ElementType::CURVE1:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve1Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*curve1Image);
           break;
 
         case ElementType::CURVE2:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve2Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*curve2Image);
           break;
         case ElementType::CURVE3:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve3Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*curve3Image);
           break;
 
         case ElementType::CURVE4:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve4Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*curve4Image);
           break;
 
         case ElementType::LINKLEFT:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkLeftImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*linkLeftImage);
           break;
 
         case ElementType::LINKRIGHT:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkRightImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*linkRightImage);
           break;
         case ElementType::LINKDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*linkDownImage);
           break;
 
         case ElementType::LINKUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*linkUpImage);
           break;
 
         case ElementType::LINKLEFTUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkLeftUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*linkLeftUpImage);
           break;
 
         case ElementType::LINKRIGHTUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkRightUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*linkRightUpImage);
           break;
         case ElementType::LINKRIGHTDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkRightDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*linkRightDownImage);
           break;
 
         case ElementType::LINKLEFTDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*linkLeftDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*linkLeftDownImage);
           break;
 
         case ElementType::EXITLEFT:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitLeftImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*exitLeftImage);
           break;
 
         case ElementType::EXITRIGHT:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitRightImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*exitRightImage);
           break;
         case ElementType::EXITDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*exitDownImage);
           break;
 
         case ElementType::EXITUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*exitUpImage);
           break;
 
         case ElementType::EXITLEFTUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitLeftUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*exitLeftUpImage);
           break;
 
         case ElementType::EXITRIGHTUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitRightUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*exitRightUpImage);
           break;
 
         case ElementType::EXITLEFTDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitLeftDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*exitLeftDownImage);
           break;
 
         case ElementType::EXITRIGHTDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*exitRightDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*exitRightDownImage);
           break;
 
         case ElementType::CURVE5:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve5Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*curve5Image);
           break;
 
         case ElementType::CURVE6:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve6Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*curve6Image);
           break;
         case ElementType::CURVE7:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve7Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*curve7Image);
           break;
 
         case ElementType::CURVE8:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*curve8Image);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*curve8Image);
           break;
 
         case ElementType::BUFFERLEFT:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferLeftImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*bufferLeftImage);
           break;
 
         case ElementType::BUFFERRIGHT:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferRightImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*bufferRightImage);
           break;
         case ElementType::BUFFERDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*bufferDownImage);
           break;
 
         case ElementType::BUFFERUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*bufferUpImage);
           break;
 
         case ElementType::BUFFERLEFTUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferLeftUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*bufferLeftUpImage);
           break;
 
         case ElementType::BUFFERRIGHTUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferRightUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*bufferRightUpImage);
           break;
         case ElementType::BUFFERLEFTDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferLeftDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*bufferLeftDownImage);
           break;
 
         case ElementType::BUFFERRIGHTDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*bufferRightDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*bufferRightDownImage);
           break;
 
         case ElementType::SIGNALLEFT:
+          currentElement->
 
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalLeftImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*signalLeftImage);
           break;
 
         case ElementType::SIGNALRIGHT:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalRightImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*signalRightImage);
           break;
         case ElementType::SIGNALDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*signalDownImage);
           break;
 
         case ElementType::SIGNALUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*signalUpImage);
           break;
 
         case ElementType::SIGNALLEFTUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalLeftUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*signalLeftUpImage);
           break;
 
         case ElementType::SIGNALRIGHTUP:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalRightUpImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*signalRightUpImage);
           break;
         case ElementType::SIGNALLEFTDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalLeftDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*signalLeftDownImage);
           break;
 
         case ElementType::SIGNALRIGHTDOWN:
-          painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalRightDownImage);
+          painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*signalRightDownImage);
           break;
-        */
+
 
         }
 

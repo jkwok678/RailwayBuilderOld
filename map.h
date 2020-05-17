@@ -7,14 +7,14 @@
 class Map
 {
 private:
-    std::vector<std::unique_ptr<Element>> elementList;
+    std::vector<std::shared_ptr<Element>> elementList;
 
 public:
     Map();
-    std::vector<std::unique_ptr<Element>> getElementList(){return elementList;};
-    void setElementList(std::vector<std::unique_ptr<Element>> newElementList);
-    void addElement(std::unique_ptr<Element> newElement);
-    std::unique_ptr<Element> getElementAt(int locationX, int locationY);
+    std::vector<std::shared_ptr<Element>> getElementList(){return elementList;};
+    void setElementList(std::vector<std::shared_ptr<Element>> newElementList);
+    void addElement(std::shared_ptr<Element> newElement);
+    std::shared_ptr<Element> getElementAt(int locationX, int locationY);
     bool checkElementExists(int locationX, int locationY);
     void deleteElement(int locationX, int locationY);
 };
