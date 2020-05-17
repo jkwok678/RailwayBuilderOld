@@ -160,7 +160,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 
          boundX = finalX+imageSize;
          boundY = finalY+imageSize;
-         Element newElement;
+         std::unique_ptr<Element> newElement;
          switch (*canvasChosen) {
            case ElementType::NONE:
             {
@@ -172,11 +172,11 @@ void Canvas::mousePressEvent(QMouseEvent *event)
             {
              std::unique_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
 
-             newElement = *straightH;
-             drawnLayout->addElement(newElement);
+             newElement = std::move(straightH);
+             drawnLayout->addElement(std::move(straightH));
              break;
             }
-           case ElementType::STRAIGHTV:
+          /* case ElementType::STRAIGHTV:
             {
              std::unique_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen,offsetX,offsetY,finalX,finalY));
              std::cout << offsetX << std::flush;
@@ -571,6 +571,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
           drawnLayout->addElement(newElement);
           break;
           }
+          */
 
          }
 
@@ -585,21 +586,21 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 void Canvas::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
-    for (Element currentElement : drawnLayout->getElementList()){
+    for (std::unique_ptr<Element>& currentElement : drawnLayout->getElementList()){
 
-        if (offsetX==currentElement.getOffsetX() && offsetY ==currentElement.getOffsetY()) {
+        if (offsetX==currentElement->getOffsetX() && offsetY ==currentElement->getOffsetY()) {
 
-        switch (currentElement.getElementType()) {
+        switch (currentElement->getElementType()) {
 
           case ElementType::NONE:
 
             break;
 
           case ElementType::STRAIGHTH:
-            painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightHImage);
+            painter.drawImage(currentElement->getLocationX(),currentElement->getLocationY(),*straightHImage);
             break;
 
-          case ElementType::STRAIGHTV:
+          /*case ElementType::STRAIGHTV:
             painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*straightVImage);
             break;
 
@@ -801,9 +802,10 @@ void Canvas::paintEvent(QPaintEvent *event)
         case ElementType::SIGNALRIGHTDOWN:
           painter.drawImage(currentElement.getLocationX(),currentElement.getLocationY(),*signalRightDownImage);
           break;
-
+        */
 
         }
+
         }
 
 
