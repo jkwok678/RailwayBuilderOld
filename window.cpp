@@ -51,12 +51,15 @@ void Window::changeAspect()
 {
     if (aspect==4){
         aspect = 3;
+        drawingSurface->setAspect(aspect);
         aspectButton->setIcon(*aspect3Icon);
     } else if (aspect==3){
         aspect = 2;
+        drawingSurface->setAspect(aspect);
         aspectButton->setIcon(*aspect2Icon);
     } else if (aspect==2) {
         aspect = 1;
+        drawingSurface->setAspect(aspect);
         aspectButton->setIcon(*aspectShuntIcon);
         signalLeftButton->setIcon(*shuntLeftIcon);
         signalRightButton->setIcon(*shuntRightIcon);
@@ -68,6 +71,7 @@ void Window::changeAspect()
         signalRightDownButton->setIcon(*shuntRightDownIcon);
     } else if (aspect==1) {
         aspect =4;
+        drawingSurface->setAspect(aspect);
         aspectButton->setIcon(*aspect4Icon);
         signalLeftButton->setIcon(*signalLeftIcon);
         signalRightButton->setIcon(*signalRightIcon);
@@ -951,15 +955,6 @@ void Window::createTrackBlock1()
     linkRightUpButton->setIcon(*linkRightUpIcon);
     trackBlock1->addWidget(linkRightUpButton,1,5);
 
-    linkRightDownButton = new QToolButton();
-    linkRightDownButton->setMaximumSize(QSize(32,32));
-    chooseLinkRightDownAct = new QAction();
-    linkRightDownButton->setDefaultAction(chooseLinkRightDownAct);
-    connect(chooseLinkRightDownAct, &QAction::triggered, this, &Window::chooseLinkRightDown);
-    linkRightDownIcon = new QIcon(":/graphics/graphics/linkRightDownSet.png");
-    linkRightDownButton->setIcon(*linkRightDownIcon);
-    trackBlock1->addWidget(linkRightDownButton,1,6);
-
     linkLeftDownButton = new QToolButton();
     linkLeftDownButton->setMaximumSize(QSize(32,32));
     chooseLinkLeftDownAct = new QAction();
@@ -967,7 +962,16 @@ void Window::createTrackBlock1()
     connect(chooseLinkLeftDownAct, &QAction::triggered, this, &Window::chooseLinkLeftDown);
     linkLeftDownIcon = new QIcon(":/graphics/graphics/linkLeftDownSet.png");
     linkLeftDownButton->setIcon(*linkLeftDownIcon);
-    trackBlock1->addWidget(linkLeftDownButton,1,7);
+    trackBlock1->addWidget(linkLeftDownButton,1,6);
+
+    linkRightDownButton = new QToolButton();
+    linkRightDownButton->setMaximumSize(QSize(32,32));
+    chooseLinkRightDownAct = new QAction();
+    linkRightDownButton->setDefaultAction(chooseLinkRightDownAct);
+    connect(chooseLinkRightDownAct, &QAction::triggered, this, &Window::chooseLinkRightDown);
+    linkRightDownIcon = new QIcon(":/graphics/graphics/linkRightDownSet.png");
+    linkRightDownButton->setIcon(*linkRightDownIcon);
+    trackBlock1->addWidget(linkRightDownButton,1,7);
 
     exitLeftButton = new QToolButton();
     exitLeftButton->setMaximumSize(QSize(32,32));
