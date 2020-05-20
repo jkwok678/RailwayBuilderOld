@@ -1,65 +1,51 @@
 #include "element.h"
 
-Element ::Element()
-{
+Element::Element() {
 
 }
 
-Element::Element(int currentX, int currentY)
-{
-    locationX = currentX;
-    locationY = currentY;
+Element::Element(int currentX, int currentY) {
+	locationX = currentX;
+	locationY = currentY;
 
 }
 
-ElementType Element::getElementType() const
-{
-    return elementType;
+ElementType Element::getElementType() const {
+	return elementType;
 }
 
-void Element::setElementType(const ElementType &newElementType)
-{
-    elementType = newElementType;
+void Element::setElementType(const ElementType& newElementType) {
+	elementType = newElementType;
 }
 
-
-int Element::getOffsetX() const
-{
-    return offsetX;
+int Element::getOffsetX() const {
+	return offsetX;
 }
 
-void Element::setOffsetX(int newOffsetX)
-{
-    offsetX = newOffsetX;
+void Element::setOffsetX(int newOffsetX) {
+	offsetX = newOffsetX;
 }
 
-int Element::getOffsetY() const
-{
-    return offsetY;
+int Element::getOffsetY() const {
+	return offsetY;
 }
 
-void Element::setOffsetY(int newOffsetY)
-{
-    offsetY = newOffsetY;
+void Element::setOffsetY(int newOffsetY) {
+	offsetY = newOffsetY;
 }
 
-int Element::getLocationX() const
-{
-    return locationX;
+int Element::getLocationX() const {
+	return locationX;
 }
 
-void Element::setLocationX(int newLocationX)
-{
-    locationX = newLocationX;
+void Element::setLocationX(int newLocationX) {
+	locationX = newLocationX;
 }
 
-int Element::getLocationY() const
-{
-    return locationY;
+int Element::getLocationY() const {
+	return locationY;
 }
 
-void Element::setLocationY(int newLocationY)
-{
-    locationY = newLocationY;
+void Element::setLocationY(int newLocationY) {
+	locationY = newLocationY;
 }
-

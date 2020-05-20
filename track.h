@@ -10,14 +10,14 @@ private:
 
 
 protected:
-    int trackSpeed{200};
-    int trackLength{100};
-    bool trackLinks [9];
+	int trackSpeed{ 200 };
+	int trackLength{ 100 };
+	bool trackLinks[9];
 
 
 
 public:
-    Track();
+	Track();
 };
 
 class StraightTrack : public Track
@@ -31,8 +31,8 @@ protected:
 
 
 public:
-    StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
-    ~StraightTrack();
+	StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	~StraightTrack();
 };
 
 class DirectTrack : public Track
@@ -46,7 +46,7 @@ protected:
 
 
 public:
-    DirectTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	DirectTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
 
@@ -61,7 +61,7 @@ protected:
 
 
 public:
-    CurvedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	CurvedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
 
@@ -76,7 +76,7 @@ protected:
 
 
 public:
-    LinkedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	LinkedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
 
@@ -91,7 +91,7 @@ protected:
 
 
 public:
-    ExitTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	ExitTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
 
@@ -106,14 +106,14 @@ protected:
 
 
 public:
-    BufferTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	BufferTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
 
 class SignalTrack : public Track
 {
 private:
-    int aspect;
+	int aspect;
 
 
 
@@ -122,9 +122,9 @@ protected:
 
 
 public:
-    SignalTrack(ElementType newElementType, int newAspect, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
-    int getAspect() const;
-    void setAspect(int newAspect);
+	SignalTrack(ElementType newElementType, int newAspect, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	int getAspect() const;
+	void setAspect(int newAspect);
 
 };
 
