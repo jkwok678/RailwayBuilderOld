@@ -128,6 +128,14 @@ private:
 	QImage* shuntRightUpImage;
 	QImage* shuntLeftDownImage;
 	QImage* shuntRightDownImage;
+    QImage* bridgeUnset1Image;
+    QImage* bridgeUnset2Image;
+    QImage* underpassUnset1Image;
+    QImage* underpassUnset2Image;
+    QImage* bridgeSet1Image;
+    QImage* bridgeSet2Image;
+    QImage* underpassSet1Image;
+    QImage* underpassSet2Image;
 
 
 };

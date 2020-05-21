@@ -72,7 +72,16 @@ Canvas::Canvas()
 	shuntRightUpImage = new QImage(":/graphics/graphics/shuntRightUpRed.png");
 	shuntLeftDownImage = new QImage(":/graphics/graphics/shuntLeftDownRed.png");
 	shuntRightDownImage = new QImage(":/graphics/graphics/shuntRightDownRed.png");
-	setAutoFillBackground(true);
+    bridgeUnset1Image = new QImage(":/graphics/graphics/bridgeUnset1.png");
+    bridgeUnset2Image = new QImage(":/graphics/graphics/bridgeUnset2.png");
+    underpassUnset1Image = new QImage(":/graphics/graphics/underpassUnset1.png");
+    underpassUnset2Image = new QImage(":/graphics/graphics/underpassUnset2.png");
+    bridgeSet1Image = new QImage(":/graphics/graphics/brdigeSet1.png");
+    bridgeSet2Image = new QImage(":/graphics/graphics/bridgeSet2.png");
+    underpassSet1Image = new QImage(":/graphics/graphics/underpassSet1.png");
+    underpassSet2Image = new QImage(":/graphics/graphics/underpassSet2.png");
+
+    setAutoFillBackground(true);
 	setPalette(pal);
 }
 
@@ -467,7 +476,6 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 		}
 		case ElementType::SIGNALLEFT:
 		{
-			std::cout << canvasAspect << std::flush;
 			std::shared_ptr<SignalTrack> signalLeft(new SignalTrack(*canvasChosen, canvasAspect, offsetX, offsetY, finalX, finalY));
 			drawnLayout->addSignalTrack(signalLeft);
 			break;
@@ -517,9 +525,36 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 			break;
 		}
 
+        case ElementType::BRIDGE1:
+        {
+            std::shared_ptr<BridgeUnderpassTrack> bridge1(new BridgeUnderpassTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addBridgeUnderpassTrack(bridge1);
+            break;
+        }
+        case ElementType::BRIDGE2:
+        {
+            std::shared_ptr<BridgeUnderpassTrack> bridge2(new BridgeUnderpassTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addBridgeUnderpassTrack(bridge2);
+            break;
+        }
+        case ElementType::UNDERPASS1:
+        {
+            std::shared_ptr<BridgeUnderpassTrack> underpass1(new BridgeUnderpassTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addBridgeUnderpassTrack(underpass1);
+            std::cout << "Hiii" << std::flush;
+            break;
+        }
+        case ElementType::UNDERPASS2:
+        {
+            std::shared_ptr<BridgeUnderpassTrack> underpass2(new BridgeUnderpassTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addBridgeUnderpassTrack(underpass2);
+            break;
+        }
+
+
 
 		}
-
+        update();
 
 	}
 	else
@@ -856,8 +891,30 @@ void Canvas::paintEvent(QPaintEvent* event)
 		}
 
 	}
+    for (auto& currentElement : drawnLayout->getBridgeUnderpassTrackList()) {
 
+        if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
+
+            switch (currentElement->getElementType()) {
+            case ElementType::BRIDGE1:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bridgeUnset1Image);
+                break;
+
+            case ElementType::BRIDGE2:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bridgeUnset2Image);
+                break;
+            case ElementType::UNDERPASS1:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *underpassUnset1Image);
+                break;
+
+            case ElementType::UNDERPASS2:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *underpassUnset2Image);
+                break;
+            }
+        }
+    }
 }
+
 
 
 

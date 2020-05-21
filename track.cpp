@@ -100,3 +100,13 @@ void SignalTrack::setAspect(int newAspect)
 {
 	aspect = newAspect;
 }
+
+BridgeUnderpassTrack::BridgeUnderpassTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+{
+    elementType = newElementType;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+
+}

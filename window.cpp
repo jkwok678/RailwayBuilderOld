@@ -234,11 +234,8 @@ void Window::createTrackMenu()
 
 void Window::chooseStraightH()
 {
-	if (windowChosen != ElementType::STRAIGHTH)
-	{
-		windowChosen = ElementType::STRAIGHTH;
-
-	}
+    if (windowChosen != ElementType::STRAIGHTH)
+        windowChosen = ElementType::STRAIGHTH;
 	else
 		windowChosen = ElementType::NONE;
 
@@ -247,10 +244,7 @@ void Window::chooseStraightH()
 void Window::chooseStraightV()
 {
 	if (windowChosen != ElementType::STRAIGHTV)
-	{
 		windowChosen = ElementType::STRAIGHTV;
-
-	}
 	else
 		windowChosen = ElementType::NONE;
 }
@@ -712,6 +706,46 @@ void Window::chooseSignalRightDown()
 		windowChosen = ElementType::SIGNALRIGHTDOWN;
 	else
 		windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseBridge1()
+{
+    if (windowChosen != ElementType::BRIDGE1)
+        windowChosen = ElementType::BRIDGE1;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseBridge2()
+{
+    if (windowChosen != ElementType::BRIDGE2)
+        windowChosen = ElementType::BRIDGE2;
+    else
+        windowChosen = ElementType::NONE;
+
+
+}
+
+void Window::chooseUnderpass1()
+{
+    if (windowChosen != ElementType::UNDERPASS1)
+    {
+        windowChosen = ElementType::UNDERPASS1;
+        std::cout <<"hi " <<std::flush;
+    }
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseUnderpass2()
+{
+    if (windowChosen != ElementType::UNDERPASS2)
+        windowChosen = ElementType::UNDERPASS2;
+    else
+        windowChosen = ElementType::NONE;
 
 }
 
@@ -1236,8 +1270,49 @@ void Window::createTrackBlock1()
 	signalRightDownButton->setIcon(*signalRightDownIcon);
 	trackBlock1->addWidget(signalRightDownButton, 2, 15);
 
+    bridge1Button = new QToolButton();
+    bridge1Button->setMaximumSize(QSize(32, 32));
+    chooseBridge1Act = new QAction();
+    bridge1Button->setDefaultAction(chooseBridge1Act);
+    connect(chooseBridge1Act, &QAction::triggered, this, &Window::chooseBridge1);
+    bridge1Icon = new QIcon(":/graphics/graphics/bridgeSet1.png");
+    bridge1Button->setIcon(*bridge1Icon);
+    trackBlock1->addWidget(bridge1Button, 2, 16);
+
+    bridge2Button = new QToolButton();
+    bridge2Button->setMaximumSize(QSize(32, 32));
+    chooseBridge2Act = new QAction();
+    bridge2Button->setDefaultAction(chooseBridge2Act);
+    connect(chooseBridge2Act, &QAction::triggered, this, &Window::chooseBridge2);
+    bridge2Icon = new QIcon(":/graphics/graphics/bridgeSet2.png");
+    bridge2Button->setIcon(*bridge2Icon);
+    trackBlock1->addWidget(bridge2Button, 2, 17);
+
+    underpass1Button = new QToolButton();
+    underpass1Button->setMaximumSize(QSize(32, 32));
+    chooseUnderpass1Act = new QAction();
+    underpass1Button->setDefaultAction(chooseUnderpass1Act);
+    connect(chooseUnderpass1Act, &QAction::triggered, this, &Window::chooseUnderpass1);
+    underpass1Icon = new QIcon(":/graphics/graphics/underpassSet1.png");
+    underpass1Button->setIcon(*underpass1Icon);
+    trackBlock1->addWidget(underpass1Button, 2, 18);
+
+    underpass2Button = new QToolButton();
+    underpass2Button->setMaximumSize(QSize(32, 32));
+    chooseUnderpass2Act = new QAction();
+    underpass2Button->setDefaultAction(chooseUnderpass2Act);
+    connect(chooseUnderpass2Act, &QAction::triggered, this, &Window::chooseUnderpass2);
+    underpass2Icon = new QIcon(":/graphics/graphics/underpassSet2.png");
+    underpass2Button->setIcon(*underpass2Icon);
+    trackBlock1->addWidget(underpass2Button, 2, 19);
 
 
+
+
+}
+
+void Window::createTrackBlock2()
+{
 
 }
 

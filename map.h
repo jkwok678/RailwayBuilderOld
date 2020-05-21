@@ -15,6 +15,7 @@ private:
 	std::vector<std::shared_ptr<ExitTrack>> exitTrackList;
 	std::vector<std::shared_ptr<BufferTrack>> bufferTrackList;
 	std::vector<std::shared_ptr<SignalTrack>> signalTrackList;
+    std::vector<std::shared_ptr<BridgeUnderpassTrack>> bridgeUnderpassTrackList;
 
 
 public:
@@ -22,13 +23,11 @@ public:
 
 	std::vector<std::shared_ptr<StraightTrack> > getStraightTrackList() const;
 	void setStraightTrackList(const std::vector<std::shared_ptr<StraightTrack> >& newStraightTrackList);
-	void addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack);
-
+    void addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack);
 
 	std::vector<std::shared_ptr<DirectTrack> > getDirectTrackList() const;
 	void setDirectTrackList(const std::vector<std::shared_ptr<DirectTrack> >& newDirectTrackList);
 	void addDirectTrack(std::shared_ptr<DirectTrack> newDirectTrack);
-
 
 	std::vector<std::shared_ptr<CurvedTrack> > getCurvedTrackList() const;
 	void setCurvedTrackList(const std::vector<std::shared_ptr<CurvedTrack> >& newCurvedTrackList);
@@ -49,6 +48,10 @@ public:
 	std::vector<std::shared_ptr<SignalTrack> > getSignalTrackList() const;
 	void setSignalTrackList(const std::vector<std::shared_ptr<SignalTrack> >& newSignalTrackList);
 	void addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack);
+
+    std::vector<std::shared_ptr<BridgeUnderpassTrack>> getBridgeUnderpassTrackList() const;
+    void setBridgeUnderpassTrackList(const std::vector<std::shared_ptr<BridgeUnderpassTrack> >& newBridgeUnderpassTrackList);
+    void addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridgeUnderpassTrack);
 
 	std::shared_ptr<Element> getElementAt(int offsetX, int offsetY, int locationX, int locationY);
 	bool checkElementExists(int offsetX, int offsetY, int locationX, int locationY);

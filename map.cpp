@@ -182,7 +182,30 @@ void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
 
 }
 
+std::vector<std::shared_ptr<BridgeUnderpassTrack> > Map::getBridgeUnderpassTrackList() const
+{
+    return bridgeUnderpassTrackList;
+}
 
+void Map::setBridgeUnderpassTrackList(const std::vector<std::shared_ptr<BridgeUnderpassTrack> > &newBridgeUnderpassTrackList)
+{
+    bridgeUnderpassTrackList = newBridgeUnderpassTrackList;
+}
+
+void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridgeUnderpassTrack)
+{
+    int tempoffsetX = newBridgeUnderpassTrack->getOffsetX();
+    int tempoffsetY = newBridgeUnderpassTrack->getOffsetY();
+    int tempLocationX = newBridgeUnderpassTrack->getLocationX();
+    int tempLocationY = newBridgeUnderpassTrack->getLocationY();
+    if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+        bridgeUnderpassTrackList.push_back(newBridgeUnderpassTrack);
+    }
+    else {
+
+    }
+
+}
 
 
 
