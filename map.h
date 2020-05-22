@@ -16,6 +16,7 @@ private:
 	std::vector<std::shared_ptr<BufferTrack>> bufferTrackList;
 	std::vector<std::shared_ptr<SignalTrack>> signalTrackList;
     std::vector<std::shared_ptr<BridgeUnderpassTrack>> bridgeUnderpassTrackList;
+    std::vector<std::shared_ptr<SwitchTrack>> switchTrackList;
 
 
 public:
@@ -52,6 +53,10 @@ public:
     std::vector<std::shared_ptr<BridgeUnderpassTrack>> getBridgeUnderpassTrackList() const;
     void setBridgeUnderpassTrackList(const std::vector<std::shared_ptr<BridgeUnderpassTrack> >& newBridgeUnderpassTrackList);
     void addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridgeUnderpassTrack);
+
+    std::vector<std::shared_ptr<SwitchTrack> > getSwitchTrackList() const;
+    void setSwitchTrackList(const std::vector<std::shared_ptr<SwitchTrack> >& newSwitchTrackList);
+    void addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack);
 
 	std::shared_ptr<Element> getElementAt(int offsetX, int offsetY, int locationX, int locationY);
 	bool checkElementExists(int offsetX, int offsetY, int locationX, int locationY);

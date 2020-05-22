@@ -223,7 +223,9 @@ void Window::createTrackMenu()
 	trackMenu->setPalette(pal);
 	trackMenuLayout = new QHBoxLayout;
 	createTrackBlock1();
+    createTrackBlock2();
 	trackMenuLayout->addLayout(trackBlock1);
+    trackMenuLayout->addLayout(trackBlock2);
 	trackMenu->setLayout(trackMenuLayout);
 	overallMenuLayout->addWidget(trackMenu);
 
@@ -744,6 +746,78 @@ void Window::chooseUnderpass2()
 {
     if (windowChosen != ElementType::UNDERPASS2)
         windowChosen = ElementType::UNDERPASS2;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchTight1()
+{
+    if (windowChosen != ElementType::SWITCHTIGHT1)
+        windowChosen = ElementType::SWITCHTIGHT1;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchTight2()
+{
+    if (windowChosen != ElementType::SWITCHTIGHT2)
+        windowChosen = ElementType::SWITCHTIGHT2;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchTight3()
+{
+    if (windowChosen != ElementType::SWITCHTIGHT3)
+        windowChosen = ElementType::SWITCHTIGHT3;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchTight4()
+{
+    if (windowChosen != ElementType::SWITCHTIGHT4)
+        windowChosen = ElementType::SWITCHTIGHT4;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchTight5()
+{
+    if (windowChosen != ElementType::SWITCHTIGHT5)
+        windowChosen = ElementType::SWITCHTIGHT5;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchTight6()
+{
+    if (windowChosen != ElementType::SWITCHTIGHT6)
+        windowChosen = ElementType::SWITCHTIGHT6;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchTight7()
+{
+    if (windowChosen != ElementType::SWITCHTIGHT7)
+        windowChosen = ElementType::SWITCHTIGHT7;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchTight8()
+{
+    if (windowChosen != ElementType::SWITCHTIGHT8)
+        windowChosen = ElementType::SWITCHTIGHT8;
     else
         windowChosen = ElementType::NONE;
 
@@ -1313,6 +1387,80 @@ void Window::createTrackBlock1()
 
 void Window::createTrackBlock2()
 {
+    trackBlock2 = new QGridLayout;
+    trackBlock2->setContentsMargins(2, 2, 2, 2);
+
+    switchTight1Button = new QToolButton();
+    switchTight1Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchTight1Act = new QAction();
+    switchTight1Button->setDefaultAction(chooseSwitchTight1Act);
+    connect(chooseSwitchTight1Act, &QAction::triggered, this, &Window::chooseSwitchTight1);
+    switchTight1Icon = new QIcon(":/graphics/graphics/switchTight1.png");
+    switchTight1Button->setIcon(*switchTight1Icon);
+    trackBlock2->addWidget(switchTight1Button, 0, 0);
+
+    switchTight2Button = new QToolButton();
+    switchTight2Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchTight2Act = new QAction();
+    switchTight2Button->setDefaultAction(chooseSwitchTight2Act);
+    connect(chooseSwitchTight2Act, &QAction::triggered, this, &Window::chooseSwitchTight2);
+    switchTight2Icon = new QIcon(":/graphics/graphics/switchTight2.png");
+    switchTight2Button->setIcon(*switchTight2Icon);
+    trackBlock2->addWidget(switchTight2Button, 0, 1);
+
+    switchTight3Button = new QToolButton();
+    switchTight3Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchTight3Act = new QAction();
+    switchTight3Button->setDefaultAction(chooseSwitchTight3Act);
+    connect(chooseSwitchTight3Act, &QAction::triggered, this, &Window::chooseSwitchTight3);
+    switchTight3Icon = new QIcon(":/graphics/graphics/switchTight3.png");
+    switchTight3Button->setIcon(*switchTight3Icon);
+    trackBlock2->addWidget(switchTight3Button, 0, 2);
+
+    switchTight4Button = new QToolButton();
+    switchTight4Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchTight4Act = new QAction();
+    switchTight4Button->setDefaultAction(chooseSwitchTight4Act);
+    connect(chooseSwitchTight4Act, &QAction::triggered, this, &Window::chooseSwitchTight4);
+    switchTight4Icon = new QIcon(":/graphics/graphics/switchTight4.png");
+    switchTight4Button->setIcon(*switchTight4Icon);
+    trackBlock2->addWidget(switchTight4Button, 0, 3);
+
+    switchTight5Button = new QToolButton();
+    switchTight5Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchTight5Act = new QAction();
+    switchTight5Button->setDefaultAction(chooseSwitchTight5Act);
+    connect(chooseSwitchTight5Act, &QAction::triggered, this, &Window::chooseSwitchTight5);
+    switchTight5Icon = new QIcon(":/graphics/graphics/switchTight5.png");
+    switchTight5Button->setIcon(*switchTight5Icon);
+    trackBlock2->addWidget(switchTight5Button, 0, 4);
+
+    switchTight6Button = new QToolButton();
+    switchTight6Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchTight6Act = new QAction();
+    switchTight6Button->setDefaultAction(chooseSwitchTight6Act);
+    connect(chooseSwitchTight6Act, &QAction::triggered, this, &Window::chooseSwitchTight6);
+    switchTight6Icon = new QIcon(":/graphics/graphics/switchTight6.png");
+    switchTight6Button->setIcon(*switchTight6Icon);
+    trackBlock2->addWidget(switchTight6Button, 0, 5);
+
+    switchTight7Button = new QToolButton();
+    switchTight7Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchTight7Act = new QAction();
+    switchTight7Button->setDefaultAction(chooseSwitchTight7Act);
+    connect(chooseSwitchTight7Act, &QAction::triggered, this, &Window::chooseSwitchTight7);
+    switchTight7Icon = new QIcon(":/graphics/graphics/switchTight7.png");
+    switchTight7Button->setIcon(*switchTight7Icon);
+    trackBlock2->addWidget(switchTight7Button, 0, 6);
+
+    switchTight8Button = new QToolButton();
+    switchTight8Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchTight8Act = new QAction();
+    switchTight8Button->setDefaultAction(chooseSwitchTight8Act);
+    connect(chooseSwitchTight8Act, &QAction::triggered, this, &Window::chooseSwitchTight8);
+    switchTight8Icon = new QIcon(":/graphics/graphics/switchTight8.png");
+    switchTight8Button->setIcon(*switchTight8Icon);
+    trackBlock2->addWidget(switchTight8Button, 0, 7);
 
 }
 

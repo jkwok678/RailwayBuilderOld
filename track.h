@@ -142,4 +142,19 @@ public:
     BridgeUnderpassTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
+
+class SwitchTrack : public Track
+{
+private:
+
+
+
+
+protected:
+
+
+public:
+    SwitchTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+
+};
 #endif // TRACK_H

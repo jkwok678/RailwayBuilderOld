@@ -32,6 +32,8 @@ private slots:
 	void moveUp();
 	void moveDown();
 
+
+    //TrackBlock1 slots
 	void chooseStraightH();
 	void chooseStraightV();
 	void chooseDirectLeft();
@@ -93,6 +95,16 @@ private slots:
     void chooseUnderpass1();
     void chooseUnderpass2();
 
+    //TrackBlock2 slots
+    void chooseSwitchTight1();
+    void chooseSwitchTight2();
+    void chooseSwitchTight3();
+    void chooseSwitchTight4();
+    void chooseSwitchTight5();
+    void chooseSwitchTight6();
+    void chooseSwitchTight7();
+    void chooseSwitchTight8();
+
 private:
 
 	ElementType windowChosen;
@@ -140,6 +152,7 @@ private:
     QWidget* trackMenu;
     QHBoxLayout* trackMenuLayout;
     QGridLayout* trackBlock1;
+    QGridLayout* trackBlock2;
 
     //TrackBlock1 buttons
 
@@ -450,6 +463,48 @@ private:
     QToolButton* underpass2Button;
     QAction* chooseUnderpass2Act;
     QIcon* underpass2Icon;
+
+    //TrackBlock2 buttons
+
+    //SwitchTight1Button
+    QToolButton* switchTight1Button;
+    QAction* chooseSwitchTight1Act;
+    QIcon* switchTight1Icon;
+
+    //SwitchTight2Button
+    QToolButton* switchTight2Button;
+    QAction* chooseSwitchTight2Act;
+    QIcon* switchTight2Icon;
+
+    //SwitchTight3Button
+    QToolButton* switchTight3Button;
+    QAction* chooseSwitchTight3Act;
+    QIcon* switchTight3Icon;
+
+    //SwitchTight4Button
+    QToolButton* switchTight4Button;
+    QAction* chooseSwitchTight4Act;
+    QIcon* switchTight4Icon;
+
+    //SwitchTight5Button
+    QToolButton* switchTight5Button;
+    QAction* chooseSwitchTight5Act;
+    QIcon* switchTight5Icon;
+
+    //SwitchTight6Button
+    QToolButton* switchTight6Button;
+    QAction* chooseSwitchTight6Act;
+    QIcon* switchTight6Icon;
+
+    //SwitchTight7Button
+    QToolButton* switchTight7Button;
+    QAction* chooseSwitchTight7Act;
+    QIcon* switchTight7Icon;
+
+    //SwitchTight8Button
+    QToolButton* switchTight8Button;
+    QAction* chooseSwitchTight8Act;
+    QIcon* switchTight8Icon;
 
 
 	void createRightMenu();

@@ -8,6 +8,8 @@ Canvas::Canvas()
 	// set black background
 	drawnLayout = new Map;
 	pal.setColor(QPalette::Window, Qt::white);
+
+    //TrackBlock1 images
 	straightHImage = new QImage(":/graphics/graphics/straightH.png");
 	straightVImage = new QImage(":/graphics/graphics/straightV.png");
 	directLeftImage = new QImage(":/graphics/graphics/directLeft.png");
@@ -80,6 +82,16 @@ Canvas::Canvas()
     bridgeSet2Image = new QImage(":/graphics/graphics/bridgeSet2.png");
     underpassSet1Image = new QImage(":/graphics/graphics/underpassSet1.png");
     underpassSet2Image = new QImage(":/graphics/graphics/underpassSet2.png");
+
+    //TrackBlock2 images
+    switchTight1Image = new QImage(":/graphics/graphics/switchTight1.png");
+    switchTight2Image = new QImage(":/graphics/graphics/switchTight2.png");
+    switchTight3Image = new QImage(":/graphics/graphics/switchTight3.png");
+    switchTight4Image = new QImage(":/graphics/graphics/switchTight4.png");
+    switchTight5Image = new QImage(":/graphics/graphics/switchTight5.png");
+    switchTight6Image = new QImage(":/graphics/graphics/switchTight6.png");
+    switchTight7Image = new QImage(":/graphics/graphics/switchTight7.png");
+    switchTight8Image = new QImage(":/graphics/graphics/switchTight8.png");
 
     setAutoFillBackground(true);
 	setPalette(pal);
@@ -550,6 +562,54 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             drawnLayout->addBridgeUnderpassTrack(underpass2);
             break;
         }
+        case ElementType::SWITCHTIGHT1:
+        {
+            std::shared_ptr<SwitchTrack> switchTight1(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchTight1);
+            break;
+        }
+        case ElementType::SWITCHTIGHT2:
+        {
+            std::shared_ptr<SwitchTrack> switchTight2(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchTight2);
+            break;
+        }
+        case ElementType::SWITCHTIGHT3:
+        {
+            std::shared_ptr<SwitchTrack> switchTight3(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchTight3);
+            break;
+        }
+        case ElementType::SWITCHTIGHT4:
+        {
+            std::shared_ptr<SwitchTrack> switchTight4(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchTight4);
+            break;
+        }
+        case ElementType::SWITCHTIGHT5:
+        {
+            std::shared_ptr<SwitchTrack> switchTight5(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchTight5);
+            break;
+        }
+        case ElementType::SWITCHTIGHT6:
+        {
+            std::shared_ptr<SwitchTrack> switchTight6(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchTight6);
+            break;
+        }
+        case ElementType::SWITCHTIGHT7:
+        {
+            std::shared_ptr<SwitchTrack> switchTight7(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchTight7);
+            break;
+        }
+        case ElementType::SWITCHTIGHT8:
+        {
+            std::shared_ptr<SwitchTrack> switchTight8(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchTight8);
+            break;
+        }
 
 
 
@@ -909,6 +969,44 @@ void Canvas::paintEvent(QPaintEvent* event)
 
             case ElementType::UNDERPASS2:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *underpassUnset2Image);
+                break;
+            }
+        }
+    }
+
+    for (auto& currentElement : drawnLayout->getSwitchTrackList()) {
+
+        if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
+
+            switch (currentElement->getElementType()) {
+            case ElementType::SWITCHTIGHT1:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight1Image);
+                break;
+
+            case ElementType::SWITCHTIGHT2:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight2Image);
+                break;
+            case ElementType::SWITCHTIGHT3:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight3Image);
+                break;
+
+            case ElementType::SWITCHTIGHT4:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight4Image);
+                break;
+
+            case ElementType::SWITCHTIGHT5:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight5Image);
+                break;
+
+            case ElementType::SWITCHTIGHT6:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight6Image);
+                break;
+            case ElementType::SWITCHTIGHT7:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight7Image);
+                break;
+
+            case ElementType::SWITCHTIGHT8:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight8Image);
                 break;
             }
         }

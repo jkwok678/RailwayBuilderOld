@@ -64,6 +64,8 @@ private:
 	int boundX;
 	int boundY;
 
+
+    //TrackBlock1 images
 	QImage* straightHImage;
 	QImage* straightVImage;
 	QImage* directLeftImage;
@@ -136,6 +138,16 @@ private:
     QImage* bridgeSet2Image;
     QImage* underpassSet1Image;
     QImage* underpassSet2Image;
+
+    //TrackBlock2 images
+    QImage* switchTight1Image;
+    QImage* switchTight2Image;
+    QImage* switchTight3Image;
+    QImage* switchTight4Image;
+    QImage* switchTight5Image;
+    QImage* switchTight6Image;
+    QImage* switchTight7Image;
+    QImage* switchTight8Image;
 
 
 };

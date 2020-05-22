@@ -110,3 +110,13 @@ BridgeUnderpassTrack::BridgeUnderpassTrack(ElementType newElementType, int newOf
     locationY = newLocationY;
 
 }
+
+SwitchTrack::SwitchTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+{
+    elementType = newElementType;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+
+}

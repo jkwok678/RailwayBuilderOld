@@ -207,6 +207,31 @@ void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridg
 
 }
 
+std::vector<std::shared_ptr<SwitchTrack> > Map::getSwitchTrackList() const
+{
+    return switchTrackList;
+}
+
+void Map::setSwitchTrackList(const std::vector<std::shared_ptr<SwitchTrack> > &newSwitchTrackList)
+{
+    switchTrackList = newSwitchTrackList;
+}
+
+void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
+{
+    int tempoffsetX = newSwitchTrack->getOffsetX();
+    int tempoffsetY = newSwitchTrack->getOffsetY();
+    int tempLocationX = newSwitchTrack->getLocationX();
+    int tempLocationY = newSwitchTrack->getLocationY();
+    if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+        switchTrackList.push_back(newSwitchTrack);
+    }
+    else {
+
+    }
+
+}
+
 
 
 bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locationY)
