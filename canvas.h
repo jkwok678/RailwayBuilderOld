@@ -148,6 +148,14 @@ private:
     QImage* switchTight6Image;
     QImage* switchTight7Image;
     QImage* switchTight8Image;
+    QImage* switchSplit1Image;
+    QImage* switchSplit2Image;
+    QImage* switchSplit3Image;
+    QImage* switchSplit4Image;
+    QImage* switchSplit5Image;
+    QImage* switchSplit6Image;
+    QImage* switchSplit7Image;
+    QImage* switchSplit8Image;
 
 
 };

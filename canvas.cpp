@@ -92,6 +92,18 @@ Canvas::Canvas()
     switchTight6Image = new QImage(":/graphics/graphics/switchTight6.png");
     switchTight7Image = new QImage(":/graphics/graphics/switchTight7.png");
     switchTight8Image = new QImage(":/graphics/graphics/switchTight8.png");
+    switchSplit1Image = new QImage(":/graphics/graphics/switchSplit1.png");
+    switchSplit2Image = new QImage(":/graphics/graphics/switchSplit2.png");
+    switchSplit3Image = new QImage(":/graphics/graphics/switchSplit3.png");
+
+
+    switchSplit4Image = new QImage(":/graphics/graphics/switchSplit4.png");
+    switchSplit5Image = new QImage(":/graphics/graphics/switchSplit5.png");
+    switchSplit6Image = new QImage(":/graphics/graphics/switchSplit6.png");
+
+
+    switchSplit7Image = new QImage(":/graphics/graphics/switchSplit7.png");
+    switchSplit8Image = new QImage(":/graphics/graphics/switchSplit8.png");
 
     setAutoFillBackground(true);
 	setPalette(pal);
@@ -611,6 +623,25 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             break;
         }
 
+        case ElementType::SWITCHSPLIT1:
+        {
+            std::shared_ptr<SwitchTrack> switchSplit1(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchSplit1);
+            break;
+        }
+        case ElementType::SWITCHSPLIT2:
+        {
+            std::shared_ptr<SwitchTrack> switchSplit2(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchSplit2);
+            break;
+        }
+        case ElementType::SWITCHSPLIT3:
+        {
+            std::shared_ptr<SwitchTrack> switchSplit3(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchSplit3);
+            break;
+        }
+
 
 
 		}
@@ -1007,6 +1038,17 @@ void Canvas::paintEvent(QPaintEvent* event)
 
             case ElementType::SWITCHTIGHT8:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight8Image);
+                break;
+
+            case ElementType::SWITCHSPLIT1:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit1Image);
+                break;
+
+            case ElementType::SWITCHSPLIT2:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit2Image);
+                break;
+            case ElementType::SWITCHSPLIT3:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit3Image);
                 break;
             }
         }
