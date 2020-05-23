@@ -850,6 +850,78 @@ void Window::chooseSwitchSplit3()
 
 }
 
+void Window::chooseSwitch1()
+{
+    if (windowChosen != ElementType::SWITCH1)
+        windowChosen = ElementType::SWITCH1;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitch2()
+{
+    if (windowChosen != ElementType::SWITCH2)
+        windowChosen = ElementType::SWITCH2;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitch3()
+{
+    if (windowChosen != ElementType::SWITCH3)
+        windowChosen = ElementType::SWITCH3;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitch4()
+{
+    if (windowChosen != ElementType::SWITCH4)
+        windowChosen = ElementType::SWITCH4;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitch5()
+{
+    if (windowChosen != ElementType::SWITCH5)
+        windowChosen = ElementType::SWITCH5;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitch6()
+{
+    if (windowChosen != ElementType::SWITCH6)
+        windowChosen = ElementType::SWITCH6;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitch7()
+{
+    if (windowChosen != ElementType::SWITCH7)
+        windowChosen = ElementType::SWITCH7;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitch8()
+{
+    if (windowChosen != ElementType::SWITCH8)
+        windowChosen = ElementType::SWITCH8;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
 void Window::chooseSwitchSplit4()
 {
     if (windowChosen != ElementType::SWITCHSPLIT4)
@@ -1560,6 +1632,78 @@ void Window::createTrackBlock2()
     switchSplit3Icon = new QIcon(":/graphics/graphics/switchSplit3.png");
     switchSplit3Button->setIcon(*switchSplit3Icon);
     trackBlock2->addWidget(switchSplit3Button, 0, 10);
+
+    switch1Button = new QToolButton();
+    switch1Button->setMaximumSize(QSize(32, 32));
+    chooseSwitch1Act = new QAction();
+    switch1Button->setDefaultAction(chooseSwitch1Act);
+    connect(chooseSwitch1Act, &QAction::triggered, this, &Window::chooseSwitch1);
+    switch1Icon = new QIcon(":/graphics/graphics/switch1.png");
+    switch1Button->setIcon(*switch1Icon);
+    trackBlock2->addWidget(switch1Button, 1, 0);
+
+    switch2Button = new QToolButton();
+    switch2Button->setMaximumSize(QSize(32, 32));
+    chooseSwitch2Act = new QAction();
+    switch2Button->setDefaultAction(chooseSwitch2Act);
+    connect(chooseSwitch2Act, &QAction::triggered, this, &Window::chooseSwitch2);
+    switch2Icon = new QIcon(":/graphics/graphics/switch2.png");
+    switch2Button->setIcon(*switch2Icon);
+    trackBlock2->addWidget(switch2Button, 1, 1);
+
+    switch3Button = new QToolButton();
+    switch3Button->setMaximumSize(QSize(32, 32));
+    chooseSwitch3Act = new QAction();
+    switch3Button->setDefaultAction(chooseSwitch3Act);
+    connect(chooseSwitch3Act, &QAction::triggered, this, &Window::chooseSwitch3);
+    switch3Icon = new QIcon(":/graphics/graphics/switch3.png");
+    switch3Button->setIcon(*switch3Icon);
+    trackBlock2->addWidget(switch3Button, 1, 2);
+
+    switch4Button = new QToolButton();
+    switch4Button->setMaximumSize(QSize(32, 32));
+    chooseSwitch4Act = new QAction();
+    switch4Button->setDefaultAction(chooseSwitch4Act);
+    connect(chooseSwitch4Act, &QAction::triggered, this, &Window::chooseSwitch4);
+    switch4Icon = new QIcon(":/graphics/graphics/switch4.png");
+    switch4Button->setIcon(*switch4Icon);
+    trackBlock2->addWidget(switch4Button, 1, 3);
+
+    switch5Button = new QToolButton();
+    switch5Button->setMaximumSize(QSize(32, 32));
+    chooseSwitch5Act = new QAction();
+    switch5Button->setDefaultAction(chooseSwitch5Act);
+    connect(chooseSwitch5Act, &QAction::triggered, this, &Window::chooseSwitch5);
+    switch5Icon = new QIcon(":/graphics/graphics/switch5.png");
+    switch5Button->setIcon(*switch5Icon);
+    trackBlock2->addWidget(switch5Button, 1, 4);
+
+    switch6Button = new QToolButton();
+    switch6Button->setMaximumSize(QSize(32, 32));
+    chooseSwitch6Act = new QAction();
+    switch6Button->setDefaultAction(chooseSwitch6Act);
+    connect(chooseSwitch6Act, &QAction::triggered, this, &Window::chooseSwitch6);
+    switch6Icon = new QIcon(":/graphics/graphics/switch6.png");
+    switch6Button->setIcon(*switch6Icon);
+    trackBlock2->addWidget(switch6Button, 1, 5);
+
+    switch7Button = new QToolButton();
+    switch7Button->setMaximumSize(QSize(32, 32));
+    chooseSwitch7Act = new QAction();
+    switch7Button->setDefaultAction(chooseSwitch7Act);
+    connect(chooseSwitch7Act, &QAction::triggered, this, &Window::chooseSwitch7);
+    switch7Icon = new QIcon(":/graphics/graphics/switch7.png");
+    switch7Button->setIcon(*switch7Icon);
+    trackBlock2->addWidget(switch7Button, 1, 6);
+
+    switch8Button = new QToolButton();
+    switch8Button->setMaximumSize(QSize(32, 32));
+    chooseSwitch8Act = new QAction();
+    switch8Button->setDefaultAction(chooseSwitch8Act);
+    connect(chooseSwitch8Act, &QAction::triggered, this, &Window::chooseSwitch8);
+    switch8Icon = new QIcon(":/graphics/graphics/switch8.png");
+    switch8Button->setIcon(*switch8Icon);
+    trackBlock2->addWidget(switch8Button, 1, 7);
 
     switchSplit4Button = new QToolButton();
     switchSplit4Button->setMaximumSize(QSize(32, 32));

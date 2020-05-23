@@ -30,6 +30,7 @@ Canvas::Canvas()
 	curve2Image = new QImage(":/graphics/graphics/curve2.png");
 	curve3Image = new QImage(":/graphics/graphics/curve3.png");
 	curve4Image = new QImage(":/graphics/graphics/curve4.png");
+
 	linkLeftImage = new QImage(":/graphics/graphics/linkLeftUnset.png");
 	linkRightImage = new QImage(":/graphics/graphics/linkRightUnset.png");
 	linkDownImage = new QImage(":/graphics/graphics/linkDownUnset.png");
@@ -50,6 +51,7 @@ Canvas::Canvas()
 	curve6Image = new QImage(":/graphics/graphics/curve6.png");
 	curve7Image = new QImage(":/graphics/graphics/curve7.png");
 	curve8Image = new QImage(":/graphics/graphics/curve8.png");
+
 	bufferLeftImage = new QImage(":/graphics/graphics/bufferLeft.png");
 	bufferRightImage = new QImage(":/graphics/graphics/bufferRight.png");
 	bufferDownImage = new QImage(":/graphics/graphics/bufferDown.png");
@@ -96,7 +98,14 @@ Canvas::Canvas()
     switchSplit2Image = new QImage(":/graphics/graphics/switchSplit2.png");
     switchSplit3Image = new QImage(":/graphics/graphics/switchSplit3.png");
 
-
+    switch1Image = new QImage(":/graphics/graphics/switch1.png");
+    switch2Image = new QImage(":/graphics/graphics/switch2.png");
+    switch3Image = new QImage(":/graphics/graphics/switch3.png");
+    switch4Image = new QImage(":/graphics/graphics/switch4.png");
+    switch5Image = new QImage(":/graphics/graphics/switch5.png");
+    switch6Image = new QImage(":/graphics/graphics/switch6.png");
+    switch7Image = new QImage(":/graphics/graphics/switch7.png");
+    switch8Image = new QImage(":/graphics/graphics/switch8.png");
     switchSplit4Image = new QImage(":/graphics/graphics/switchSplit4.png");
     switchSplit5Image = new QImage(":/graphics/graphics/switchSplit5.png");
     switchSplit6Image = new QImage(":/graphics/graphics/switchSplit6.png");
@@ -276,9 +285,9 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 			break;
 		}
 
-		case ElementType::TIGHTCURVE1:
+        case ElementType::TIGHTCURVE1:
 		{
-			std::shared_ptr<CurvedTrack> tightCurve1(new CurvedTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            std::shared_ptr<CurvedTrack> tightCurve1(new CurvedTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
 			drawnLayout->addCurvedTrack(tightCurve1);
 			break;
 		}
@@ -639,6 +648,72 @@ void Canvas::mousePressEvent(QMouseEvent* event)
         {
             std::shared_ptr<SwitchTrack> switchSplit3(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
             drawnLayout->addSwitchTrack(switchSplit3);
+            break;
+        }
+        case ElementType::SWITCH1:
+        {
+            std::shared_ptr<SwitchTrack> switch1(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switch1);
+            break;
+        }
+        case ElementType::SWITCH2:
+        {
+            std::shared_ptr<SwitchTrack> switch2(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switch2);
+            break;
+        }
+        case ElementType::SWITCH3:
+        {
+            std::shared_ptr<SwitchTrack> switch3(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switch3);
+            break;
+        }
+        case ElementType::SWITCH4:
+        {
+            std::shared_ptr<SwitchTrack> switch4(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switch4);
+            break;
+        }
+        case ElementType::SWITCH5:
+        {
+            std::shared_ptr<SwitchTrack> switch5(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switch5);
+            break;
+        }
+        case ElementType::SWITCH6:
+        {
+            std::shared_ptr<SwitchTrack> switch6(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switch6);
+            break;
+        }
+        case ElementType::SWITCH7:
+        {
+            std::shared_ptr<SwitchTrack> switch7(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switch7);
+            break;
+        }
+        case ElementType::SWITCH8:
+        {
+            std::shared_ptr<SwitchTrack> switch8(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switch8);
+            break;
+        }
+        case ElementType::SWITCHSPLIT4:
+        {
+            std::shared_ptr<SwitchTrack> switchSplit4(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchSplit4);
+            break;
+        }
+        case ElementType::SWITCHSPLIT5:
+        {
+            std::shared_ptr<SwitchTrack> switchSplit4(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchSplit4);
+            break;
+        }
+        case ElementType::SWITCHSPLIT6:
+        {
+            std::shared_ptr<SwitchTrack> switchSplit5(new SwitchTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addSwitchTrack(switchSplit5);
             break;
         }
 
@@ -1049,6 +1124,45 @@ void Canvas::paintEvent(QPaintEvent* event)
                 break;
             case ElementType::SWITCHSPLIT3:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit3Image);
+                break;
+            case ElementType::SWITCH1:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch1Image);
+                break;
+
+            case ElementType::SWITCH2:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch2Image);
+                break;
+            case ElementType::SWITCH3:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch3Image);
+                break;
+
+            case ElementType::SWITCH4:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch4Image);
+                break;
+
+            case ElementType::SWITCH5:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch5Image);
+                break;
+
+            case ElementType::SWITCH6:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch6Image);
+                break;
+            case ElementType::SWITCH7:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch7Image);
+                break;
+
+            case ElementType::SWITCH8:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch8Image);
+                break;
+            case ElementType::SWITCHSPLIT4:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit4Image);
+                break;
+
+            case ElementType::SWITCHSPLIT5:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit5Image);
+                break;
+            case ElementType::SWITCHSPLIT6:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit6Image);
                 break;
             }
         }
