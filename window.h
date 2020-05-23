@@ -104,6 +104,14 @@ private slots:
     void chooseSwitchTight6();
     void chooseSwitchTight7();
     void chooseSwitchTight8();
+    void chooseSwitchSplit1();
+    void chooseSwitchSplit2();
+    void chooseSwitchSplit3();
+    void chooseSwitchSplit4();
+    void chooseSwitchSplit5();
+    void chooseSwitchSplit6();
+    void chooseSwitchSplit7();
+    void chooseSwitchSplit8();
 
 private:
 
@@ -505,6 +513,46 @@ private:
     QToolButton* switchTight8Button;
     QAction* chooseSwitchTight8Act;
     QIcon* switchTight8Icon;
+
+    //SwitchSplit1Button
+    QToolButton* switchSplit1Button;
+    QAction* chooseSwitchSplit1Act;
+    QIcon* switchSplit1Icon;
+
+    //SwitchSplit2Button
+    QToolButton* switchSplit2Button;
+    QAction* chooseSwitchSplit2Act;
+    QIcon* switchSplit2Icon;
+
+    //SwitchSplit3Button
+    QToolButton* switchSplit3Button;
+    QAction* chooseSwitchSplit3Act;
+    QIcon* switchSplit3Icon;
+
+    //SwitchSplit4Button
+    QToolButton* switchSplit4Button;
+    QAction* chooseSwitchSplit4Act;
+    QIcon* switchSplit4Icon;
+
+    //SwitchSplit5Button
+    QToolButton* switchSplit5Button;
+    QAction* chooseSwitchSplit5Act;
+    QIcon* switchSplit5Icon;
+
+    //SwitchSplit6Button
+    QToolButton* switchSplit6Button;
+    QAction* chooseSwitchSplit6Act;
+    QIcon* switchSplit6Icon;
+
+    //SwitchSplit7Button
+    QToolButton* switchSplit7Button;
+    QAction* chooseSwitchSplit7Act;
+    QIcon* switchSplit7Icon;
+
+    //SwitchSplit8Button
+    QToolButton* switchSplit8Button;
+    QAction* chooseSwitchSplit8Act;
+    QIcon* switchSplit8Icon;
 
 
 	void createRightMenu();

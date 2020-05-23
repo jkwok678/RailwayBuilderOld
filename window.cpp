@@ -823,6 +823,78 @@ void Window::chooseSwitchTight8()
 
 }
 
+void Window::chooseSwitchSplit1()
+{
+    if (windowChosen != ElementType::SWITCHSPLIT1)
+        windowChosen = ElementType::SWITCHSPLIT1;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchSplit2()
+{
+    if (windowChosen != ElementType::SWITCHSPLIT2)
+        windowChosen = ElementType::SWITCHSPLIT2;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchSplit3()
+{
+    if (windowChosen != ElementType::SWITCHSPLIT3)
+        windowChosen = ElementType::SWITCHSPLIT3;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchSplit4()
+{
+    if (windowChosen != ElementType::SWITCHSPLIT4)
+        windowChosen = ElementType::SWITCHSPLIT4;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchSplit5()
+{
+    if (windowChosen != ElementType::SWITCHSPLIT5)
+        windowChosen = ElementType::SWITCHSPLIT5;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchSplit6()
+{
+    if (windowChosen != ElementType::SWITCHSPLIT6)
+        windowChosen = ElementType::SWITCHSPLIT6;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchSplit7()
+{
+    if (windowChosen != ElementType::SWITCHSPLIT7)
+        windowChosen = ElementType::SWITCHSPLIT7;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseSwitchSplit8()
+{
+    if (windowChosen != ElementType::SWITCHSPLIT8)
+        windowChosen = ElementType::SWITCHSPLIT8;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
 
 
 
@@ -1461,6 +1533,80 @@ void Window::createTrackBlock2()
     switchTight8Icon = new QIcon(":/graphics/graphics/switchTight8.png");
     switchTight8Button->setIcon(*switchTight8Icon);
     trackBlock2->addWidget(switchTight8Button, 0, 7);
+
+    switchSplit1Button = new QToolButton();
+    switchSplit1Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchSplit1Act = new QAction();
+    switchSplit1Button->setDefaultAction(chooseSwitchSplit1Act);
+    connect(chooseSwitchSplit1Act, &QAction::triggered, this, &Window::chooseSwitchSplit1);
+    switchSplit1Icon = new QIcon(":/graphics/graphics/switchSplit1.png");
+    switchSplit1Button->setIcon(*switchSplit1Icon);
+    trackBlock2->addWidget(switchSplit1Button, 0, 8);
+
+    switchSplit2Button = new QToolButton();
+    switchSplit2Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchSplit2Act = new QAction();
+    switchSplit2Button->setDefaultAction(chooseSwitchSplit2Act);
+    connect(chooseSwitchSplit2Act, &QAction::triggered, this, &Window::chooseSwitchSplit2);
+    switchSplit2Icon = new QIcon(":/graphics/graphics/switchSplit2.png");
+    switchSplit2Button->setIcon(*switchSplit2Icon);
+    trackBlock2->addWidget(switchSplit2Button, 0, 9);
+
+    switchSplit3Button = new QToolButton();
+    switchSplit3Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchSplit3Act = new QAction();
+    switchSplit3Button->setDefaultAction(chooseSwitchSplit3Act);
+    connect(chooseSwitchSplit3Act, &QAction::triggered, this, &Window::chooseSwitchSplit3);
+    switchSplit3Icon = new QIcon(":/graphics/graphics/switchSplit3.png");
+    switchSplit3Button->setIcon(*switchSplit3Icon);
+    trackBlock2->addWidget(switchSplit3Button, 0, 10);
+
+    switchSplit4Button = new QToolButton();
+    switchSplit4Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchSplit4Act = new QAction();
+    switchSplit4Button->setDefaultAction(chooseSwitchSplit4Act);
+    connect(chooseSwitchSplit4Act, &QAction::triggered, this, &Window::chooseSwitchSplit4);
+    switchSplit4Icon = new QIcon(":/graphics/graphics/switchSplit4.png");
+    switchSplit4Button->setIcon(*switchSplit4Icon);
+    trackBlock2->addWidget(switchSplit4Button, 1, 8);
+
+    switchSplit5Button = new QToolButton();
+    switchSplit5Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchSplit5Act = new QAction();
+    switchSplit5Button->setDefaultAction(chooseSwitchSplit5Act);
+    connect(chooseSwitchSplit5Act, &QAction::triggered, this, &Window::chooseSwitchSplit5);
+    switchSplit5Icon = new QIcon(":/graphics/graphics/switchSplit5.png");
+    switchSplit5Button->setIcon(*switchSplit5Icon);
+    trackBlock2->addWidget(switchSplit5Button, 1, 9);
+
+    switchSplit6Button = new QToolButton();
+    switchSplit6Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchSplit6Act = new QAction();
+    switchSplit6Button->setDefaultAction(chooseSwitchSplit6Act);
+    connect(chooseSwitchSplit6Act, &QAction::triggered, this, &Window::chooseSwitchSplit6);
+    switchSplit6Icon = new QIcon(":/graphics/graphics/switchSplit6.png");
+    switchSplit6Button->setIcon(*switchSplit6Icon);
+    trackBlock2->addWidget(switchSplit6Button, 1, 10);
+
+    switchSplit7Button = new QToolButton();
+    switchSplit7Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchSplit7Act = new QAction();
+    switchSplit7Button->setDefaultAction(chooseSwitchSplit7Act);
+    connect(chooseSwitchSplit7Act, &QAction::triggered, this, &Window::chooseSwitchSplit7);
+    switchSplit7Icon = new QIcon(":/graphics/graphics/switchSplit7.png");
+    switchSplit7Button->setIcon(*switchSplit7Icon);
+    trackBlock2->addWidget(switchSplit7Button, 2, 8);
+
+    switchSplit8Button = new QToolButton();
+    switchSplit8Button->setMaximumSize(QSize(32, 32));
+    chooseSwitchSplit8Act = new QAction();
+    switchSplit8Button->setDefaultAction(chooseSwitchSplit8Act);
+    connect(chooseSwitchSplit8Act, &QAction::triggered, this, &Window::chooseSwitchSplit8);
+    switchSplit8Icon = new QIcon(":/graphics/graphics/switchSplit8.png");
+    switchSplit8Button->setIcon(*switchSplit8Icon);
+    trackBlock2->addWidget(switchSplit8Button, 2, 9);
+
+
 
 }
 
