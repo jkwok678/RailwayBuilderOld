@@ -151,6 +151,7 @@ private:
     QImage* switchSplit1Image;
     QImage* switchSplit2Image;
     QImage* switchSplit3Image;
+
     QImage* switch1Image;
     QImage* switch2Image;
     QImage* switch3Image;
@@ -159,10 +160,18 @@ private:
     QImage* switch6Image;
     QImage* switch7Image;
     QImage* switch8Image;
-
     QImage* switchSplit4Image;
     QImage* switchSplit5Image;
     QImage* switchSplit6Image;
+
+    QImage* switch9Image;
+    QImage* switch10Image;
+    QImage* switch11Image;
+    QImage* switch12Image;
+    QImage* switch13Image;
+    QImage* switch14Image;
+    QImage* switch15Image;
+    QImage* switch16Image;
     QImage* switchSplit7Image;
     QImage* switchSplit8Image;
 
