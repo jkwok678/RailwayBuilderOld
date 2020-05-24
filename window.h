@@ -54,6 +54,7 @@ private slots:
 	void chooseCurve2();
 	void chooseCurve3();
 	void chooseCurve4();
+
 	void chooseLinkLeft();
 	void chooseLinkRight();
 	void chooseLinkDown();
@@ -74,6 +75,7 @@ private slots:
 	void chooseCurve6();
 	void chooseCurve7();
 	void chooseCurve8();
+
 	void chooseBufferLeft();
 	void chooseBufferRight();
 	void chooseBufferDown();
@@ -120,7 +122,14 @@ private slots:
     void chooseSwitchSplit5();
     void chooseSwitchSplit6();
 
-
+    void chooseSwitch9();
+    void chooseSwitch10();
+    void chooseSwitch11();
+    void chooseSwitch12();
+    void chooseSwitch13();
+    void chooseSwitch14();
+    void chooseSwitch15();
+    void chooseSwitch16();
     void chooseSwitchSplit7();
     void chooseSwitchSplit8();
 
@@ -594,6 +603,46 @@ private:
     QToolButton* switchSplit6Button;
     QAction* chooseSwitchSplit6Act;
     QIcon* switchSplit6Icon;
+
+    //Switch9Button
+    QToolButton* switch9Button;
+    QAction* chooseSwitch9Act;
+    QIcon* switch9Icon;
+
+    //Switch10Button
+    QToolButton* switch10Button;
+    QAction* chooseSwitch10Act;
+    QIcon* switch10Icon;
+
+    //Switch11Button
+    QToolButton* switch11Button;
+    QAction* chooseSwitch11Act;
+    QIcon* switch11Icon;
+
+    //Switch12Button
+    QToolButton* switch12Button;
+    QAction* chooseSwitch12Act;
+    QIcon* switch12Icon;
+
+    //Switch13Button
+    QToolButton* switch13Button;
+    QAction* chooseSwitch13Act;
+    QIcon* switch13Icon;
+
+    //Switch14Button
+    QToolButton* switch14Button;
+    QAction* chooseSwitch14Act;
+    QIcon* switch14Icon;
+
+    //Switch15Button
+    QToolButton* switch15Button;
+    QAction* chooseSwitch15Act;
+    QIcon* switch15Icon;
+
+    //Switch16Button
+    QToolButton* switch16Button;
+    QAction* chooseSwitch16Act;
+    QIcon* switch16Icon;
 
     //SwitchSplit7Button
     QToolButton* switchSplit7Button;
