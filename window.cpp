@@ -1097,6 +1097,60 @@ void Window::chooseFlyover4()
 
 }
 
+void Window::chooseCrossover3()
+{
+    if (windowChosen != ElementType::CROSSOVER3)
+        windowChosen = ElementType::CROSSOVER3;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseCrossover4()
+{
+    if (windowChosen != ElementType::CROSSOVER4)
+        windowChosen = ElementType::CROSSOVER4;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseFlyover5()
+{
+    if (windowChosen != ElementType::FLYOVER5)
+        windowChosen = ElementType::FLYOVER5;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseFlyover6()
+{
+    if (windowChosen != ElementType::FLYOVER6)
+        windowChosen = ElementType::FLYOVER6;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseFlyover7()
+{
+    if (windowChosen != ElementType::FLYOVER7)
+        windowChosen = ElementType::FLYOVER7;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseFlyover8()
+{
+    if (windowChosen != ElementType::FLYOVER8)
+        windowChosen = ElementType::FLYOVER8;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
 
 
 
@@ -2020,6 +2074,60 @@ void Window::createTrackBlock3()
     flyover4Icon = new QIcon(":/graphics/graphics/flyover4.png");
     flyover4Button->setIcon(*flyover4Icon);
     trackBlock3->addWidget(flyover4Button, 0, 5);
+
+    crossover3Button = new QToolButton();
+    crossover3Button->setMaximumSize(QSize(32, 32));
+    chooseCrossover3Act = new QAction();
+    crossover3Button->setDefaultAction(chooseCrossover3Act);
+    connect(chooseCrossover3Act, &QAction::triggered, this, &Window::chooseCrossover3);
+    crossover3Icon = new QIcon(":/graphics/graphics/crossover3.png");
+    crossover3Button->setIcon(*crossover3Icon);
+    trackBlock3->addWidget(crossover3Button, 1, 0);
+
+    crossover4Button = new QToolButton();
+    crossover4Button->setMaximumSize(QSize(32, 32));
+    chooseCrossover4Act = new QAction();
+    crossover4Button->setDefaultAction(chooseCrossover4Act);
+    connect(chooseCrossover4Act, &QAction::triggered, this, &Window::chooseCrossover4);
+    crossover4Icon = new QIcon(":/graphics/graphics/crossover4.png");
+    crossover4Button->setIcon(*crossover4Icon);
+    trackBlock3->addWidget(crossover4Button, 1, 1);
+
+    flyover5Button = new QToolButton();
+    flyover5Button->setMaximumSize(QSize(32, 32));
+    chooseFlyover5Act = new QAction();
+    flyover5Button->setDefaultAction(chooseFlyover5Act);
+    connect(chooseFlyover5Act, &QAction::triggered, this, &Window::chooseFlyover5);
+    flyover5Icon = new QIcon(":/graphics/graphics/flyover5.png");
+    flyover5Button->setIcon(*flyover5Icon);
+    trackBlock3->addWidget(flyover5Button, 1, 2);
+
+    flyover6Button = new QToolButton();
+    flyover6Button->setMaximumSize(QSize(32, 32));
+    chooseFlyover6Act = new QAction();
+    flyover6Button->setDefaultAction(chooseFlyover6Act);
+    connect(chooseFlyover6Act, &QAction::triggered, this, &Window::chooseFlyover6);
+    flyover6Icon = new QIcon(":/graphics/graphics/flyover6.png");
+    flyover6Button->setIcon(*flyover6Icon);
+    trackBlock3->addWidget(flyover6Button, 1, 3);
+
+    flyover7Button = new QToolButton();
+    flyover7Button->setMaximumSize(QSize(32, 32));
+    chooseFlyover7Act = new QAction();
+    flyover7Button->setDefaultAction(chooseFlyover7Act);
+    connect(chooseFlyover7Act, &QAction::triggered, this, &Window::chooseFlyover7);
+    flyover7Icon = new QIcon(":/graphics/graphics/flyover7.png");
+    flyover7Button->setIcon(*flyover7Icon);
+    trackBlock3->addWidget(flyover7Button, 1, 4);
+
+    flyover8Button = new QToolButton();
+    flyover8Button->setMaximumSize(QSize(32, 32));
+    chooseFlyover8Act = new QAction();
+    flyover8Button->setDefaultAction(chooseFlyover8Act);
+    connect(chooseFlyover8Act, &QAction::triggered, this, &Window::chooseFlyover8);
+    flyover8Icon = new QIcon(":/graphics/graphics/flyover8.png");
+    flyover8Button->setIcon(*flyover8Icon);
+    trackBlock3->addWidget(flyover8Button, 1, 5);
 
 }
 

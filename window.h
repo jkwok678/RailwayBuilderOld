@@ -142,6 +142,13 @@ private slots:
     void chooseFlyover3();
     void chooseFlyover4();
 
+    void chooseCrossover3();
+    void chooseCrossover4();
+    void chooseFlyover5();
+    void chooseFlyover6();
+    void chooseFlyover7();
+    void chooseFlyover8();
+
 
 private:
 
@@ -710,6 +717,36 @@ private:
     QToolButton* flyover4Button;
     QAction* chooseFlyover4Act;
     QIcon* flyover4Icon;
+
+    //Crossover3Button
+    QToolButton* crossover3Button;
+    QAction* chooseCrossover3Act;
+    QIcon* crossover3Icon;
+
+    //Crossover4Button
+    QToolButton* crossover4Button;
+    QAction* chooseCrossover4Act;
+    QIcon* crossover4Icon;
+
+    //Flyover5Button
+    QToolButton* flyover5Button;
+    QAction* chooseFlyover5Act;
+    QIcon* flyover5Icon;
+
+    //Flyover6Button
+    QToolButton* flyover6Button;
+    QAction* chooseFlyover6Act;
+    QIcon* flyover6Icon;
+
+    //Flyover7Button
+    QToolButton* flyover7Button;
+    QAction* chooseFlyover7Act;
+    QIcon* flyover7Icon;
+
+    //Flyover8Button
+    QToolButton* flyover8Button;
+    QAction* chooseFlyover8Act;
+    QIcon* flyover8Icon;
 
 
 	void createRightMenu();
