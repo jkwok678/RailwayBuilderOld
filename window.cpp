@@ -186,6 +186,7 @@ void Window::createOverallMenu()
 	//allMenus->show();
 	//overallMenuLayout->addWidget(allMenus);
 	overallMenuLayout->addWidget(trackMenu);
+
 	overallMenu->setLayout(overallMenuLayout);
 }
 
@@ -224,8 +225,12 @@ void Window::createTrackMenu()
 	trackMenuLayout = new QHBoxLayout;
 	createTrackBlock1();
     createTrackBlock2();
-	trackMenuLayout->addLayout(trackBlock1);
+    createTrackBlock3();
+
+    trackMenuLayout->addLayout(trackBlock1);
     trackMenuLayout->addLayout(trackBlock2);
+    trackMenuLayout->addLayout(trackBlock3);
+
 	trackMenu->setLayout(trackMenuLayout);
 	overallMenuLayout->addWidget(trackMenu);
 
@@ -1039,6 +1044,59 @@ void Window::chooseSwitchSplit8()
 
 }
 
+void Window::chooseCrossover1()
+{
+    if (windowChosen != ElementType::CROSSOVER1)
+        windowChosen = ElementType::CROSSOVER1;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseCrossover2()
+{
+    if (windowChosen != ElementType::CROSSOVER2)
+        windowChosen = ElementType::CROSSOVER2;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseFlyover1()
+{
+    if (windowChosen != ElementType::FLYOVER1)
+        windowChosen = ElementType::FLYOVER1;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseFlyover2()
+{
+    if (windowChosen != ElementType::FLYOVER2)
+        windowChosen = ElementType::FLYOVER2;
+    else
+        windowChosen = ElementType::NONE;
+}
+
+void Window::chooseFlyover3()
+{
+    if (windowChosen != ElementType::FLYOVER3)
+        windowChosen = ElementType::FLYOVER3;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseFlyover4()
+{
+    if (windowChosen != ElementType::FLYOVER4)
+        windowChosen = ElementType::FLYOVER4;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
 
 
 
@@ -1046,7 +1104,9 @@ void Window::chooseSwitchSplit8()
 void Window::createTrackBlock1()
 {
 	trackBlock1 = new QGridLayout;
-	trackBlock1->setContentsMargins(2, 2, 2, 2);
+    trackBlock1->setContentsMargins(1, 1, 1, 1);
+    trackBlock1->setHorizontalSpacing(1);
+    trackBlock1->setVerticalSpacing(1);
 
 	straightHButton = new QToolButton();
 	straightHButton->setMaximumSize(QSize(32, 32));
@@ -1604,7 +1664,9 @@ void Window::createTrackBlock1()
 void Window::createTrackBlock2()
 {
     trackBlock2 = new QGridLayout;
-    trackBlock2->setContentsMargins(2, 2, 2, 2);
+    trackBlock2->setContentsMargins(1, 1, 1, 1);
+    trackBlock2->setHorizontalSpacing(1);
+    trackBlock2->setVerticalSpacing(1);
 
     switchTight1Button = new QToolButton();
     switchTight1Button->setMaximumSize(QSize(32, 32));
@@ -1895,6 +1957,69 @@ void Window::createTrackBlock2()
     trackBlock2->addWidget(switchSplit8Button, 2, 9);
 
 
+
+}
+
+void Window::createTrackBlock3()
+{
+    trackBlock3 = new QGridLayout;
+    trackBlock3->setContentsMargins(1, 1, 1, 1);
+    trackBlock3->setHorizontalSpacing(1);
+    trackBlock3->setVerticalSpacing(1);
+
+    crossover1Button = new QToolButton();
+    crossover1Button->setMaximumSize(QSize(32, 32));
+    chooseCrossover1Act = new QAction();
+    crossover1Button->setDefaultAction(chooseCrossover1Act);
+    connect(chooseCrossover1Act, &QAction::triggered, this, &Window::chooseCrossover1);
+    crossover1Icon = new QIcon(":/graphics/graphics/crossover1.png");
+    crossover1Button->setIcon(*crossover1Icon);
+    trackBlock3->addWidget(crossover1Button, 0, 0);
+
+    crossover2Button = new QToolButton();
+    crossover2Button->setMaximumSize(QSize(32, 32));
+    chooseCrossover2Act = new QAction();
+    crossover2Button->setDefaultAction(chooseCrossover2Act);
+    connect(chooseCrossover2Act, &QAction::triggered, this, &Window::chooseCrossover2);
+    crossover2Icon = new QIcon(":/graphics/graphics/crossover2.png");
+    crossover2Button->setIcon(*crossover2Icon);
+    trackBlock3->addWidget(crossover2Button, 0, 1);
+
+    flyover1Button = new QToolButton();
+    flyover1Button->setMaximumSize(QSize(32, 32));
+    chooseFlyover1Act = new QAction();
+    flyover1Button->setDefaultAction(chooseFlyover1Act);
+    connect(chooseFlyover1Act, &QAction::triggered, this, &Window::chooseFlyover1);
+    flyover1Icon = new QIcon(":/graphics/graphics/flyover1.png");
+    flyover1Button->setIcon(*flyover1Icon);
+    trackBlock3->addWidget(flyover1Button, 0, 2);
+
+    flyover2Button = new QToolButton();
+    flyover2Button->setMaximumSize(QSize(32, 32));
+    chooseFlyover2Act = new QAction();
+    flyover2Button->setDefaultAction(chooseFlyover2Act);
+    connect(chooseFlyover2Act, &QAction::triggered, this, &Window::chooseFlyover2);
+    flyover2Icon = new QIcon(":/graphics/graphics/flyover2.png");
+    flyover2Button->setIcon(*flyover2Icon);
+    trackBlock3->addWidget(flyover2Button, 0, 3);
+
+    flyover3Button = new QToolButton();
+    flyover3Button->setMaximumSize(QSize(32, 32));
+    chooseFlyover3Act = new QAction();
+    flyover3Button->setDefaultAction(chooseFlyover3Act);
+    connect(chooseFlyover3Act, &QAction::triggered, this, &Window::chooseFlyover3);
+    flyover3Icon = new QIcon(":/graphics/graphics/flyover3.png");
+    flyover3Button->setIcon(*flyover3Icon);
+    trackBlock3->addWidget(flyover3Button, 0, 4);
+
+    flyover4Button = new QToolButton();
+    flyover4Button->setMaximumSize(QSize(32, 32));
+    chooseFlyover4Act = new QAction();
+    flyover4Button->setDefaultAction(chooseFlyover4Act);
+    connect(chooseFlyover4Act, &QAction::triggered, this, &Window::chooseFlyover4);
+    flyover4Icon = new QIcon(":/graphics/graphics/flyover4.png");
+    flyover4Button->setIcon(*flyover4Icon);
+    trackBlock3->addWidget(flyover4Button, 0, 5);
 
 }
 

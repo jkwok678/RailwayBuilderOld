@@ -2,6 +2,7 @@
 #define MAP_H
 #include <vector>
 #include <memory>
+#include <QMessageBox>
 #include  "element.h"
 #include "track.h"
 
@@ -17,6 +18,9 @@ private:
 	std::vector<std::shared_ptr<SignalTrack>> signalTrackList;
     std::vector<std::shared_ptr<BridgeUnderpassTrack>> bridgeUnderpassTrackList;
     std::vector<std::shared_ptr<SwitchTrack>> switchTrackList;
+    std::vector<std::shared_ptr<CrossoverTrack>> crossoverTrackList;
+    std::vector<std::shared_ptr<FlyoverTrack>> flyoverTrackList;
+
 
 
 public:
@@ -57,6 +61,14 @@ public:
     std::vector<std::shared_ptr<SwitchTrack> > getSwitchTrackList() const;
     void setSwitchTrackList(const std::vector<std::shared_ptr<SwitchTrack> >& newSwitchTrackList);
     void addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack);
+
+    std::vector<std::shared_ptr<CrossoverTrack> > getCrossoverTrackList() const;
+    void setCrossoverTrackList(const std::vector<std::shared_ptr<CrossoverTrack> >& newCrossoverTrackList);
+    void addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack);
+
+    std::vector<std::shared_ptr<FlyoverTrack> > getFlyoverTrackList() const;
+    void setFlyoverTrackList(const std::vector<std::shared_ptr<FlyoverTrack> >& newFlyoverTrackList);
+    void addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack);
 
 	std::shared_ptr<Element> getElementAt(int offsetX, int offsetY, int locationX, int locationY);
 	bool checkElementExists(int offsetX, int offsetY, int locationX, int locationY);

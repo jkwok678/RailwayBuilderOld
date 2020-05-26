@@ -133,6 +133,16 @@ private slots:
     void chooseSwitchSplit7();
     void chooseSwitchSplit8();
 
+    //TrackBlock3 slots
+
+    void chooseCrossover1();
+    void chooseCrossover2();
+    void chooseFlyover1();
+    void chooseFlyover2();
+    void chooseFlyover3();
+    void chooseFlyover4();
+
+
 private:
 
 	ElementType windowChosen;
@@ -160,6 +170,9 @@ private:
 	void createTrackMenu();
 	void createTrackBlock1();
     void createTrackBlock2();
+    void createTrackBlock3();
+    void createTrackBlock4();
+    void createTrackBlock5();
 
 	QWidget* overallMenu;
 	QVBoxLayout* overallMenuLayout;
@@ -181,8 +194,14 @@ private:
     QHBoxLayout* trackMenuLayout;
     QGridLayout* trackBlock1;
     QGridLayout* trackBlock2;
+    QGridLayout* trackBlock3;
+    QGridLayout* trackBlock4;
+    QGridLayout* trackBlock5;
 
-    //TrackBlock1 buttons
+    /*
+     * TrackBlock1 buttons
+     * START HERE
+     */
 
     //StraightHButton
     QToolButton* straightHButton;
@@ -492,7 +511,10 @@ private:
     QAction* chooseUnderpass2Act;
     QIcon* underpass2Icon;
 
-    //TrackBlock2 buttons
+    /*
+     * TrackBlock2 buttons
+     * START HERE
+     */
 
     //SwitchTight1Button
     QToolButton* switchTight1Button;
@@ -653,6 +675,41 @@ private:
     QToolButton* switchSplit8Button;
     QAction* chooseSwitchSplit8Act;
     QIcon* switchSplit8Icon;
+
+    /*
+     * TrackBlock3 buttons
+     * START HERE
+     */
+
+    //Crossover1Button
+    QToolButton* crossover1Button;
+    QAction* chooseCrossover1Act;
+    QIcon* crossover1Icon;
+
+    //Crossover2Button
+    QToolButton* crossover2Button;
+    QAction* chooseCrossover2Act;
+    QIcon* crossover2Icon;
+
+    //Flyover1Button
+    QToolButton* flyover1Button;
+    QAction* chooseFlyover1Act;
+    QIcon* flyover1Icon;
+
+    //Flyover2Button
+    QToolButton* flyover2Button;
+    QAction* chooseFlyover2Act;
+    QIcon* flyover2Icon;
+
+    //Flyover3Button
+    QToolButton* flyover3Button;
+    QAction* chooseFlyover3Act;
+    QIcon* flyover3Icon;
+
+    //Flyover4Button
+    QToolButton* flyover4Button;
+    QAction* chooseFlyover4Act;
+    QIcon* flyover4Icon;
 
 
 	void createRightMenu();

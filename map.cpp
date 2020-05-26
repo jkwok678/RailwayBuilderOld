@@ -26,6 +26,10 @@ void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 		straightTrackList.push_back(newStraightTrack);
 	}
 	else {
+        QMessageBox trackExistsAlreadyAlert;
+        trackExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        trackExistsAlreadyAlert.setText("Track already exists here.");
+        trackExistsAlreadyAlert.exec();
 
 	}
 
@@ -232,6 +236,56 @@ void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
 
 }
 
+std::vector<std::shared_ptr<CrossoverTrack> > Map::getCrossoverTrackList() const
+{
+    return crossoverTrackList;
+}
+
+void Map::setCrossoverTrackList(const std::vector<std::shared_ptr<CrossoverTrack> > &newCrossoverTrackList)
+{
+    crossoverTrackList = newCrossoverTrackList;
+}
+
+void Map::addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack)
+{
+    int tempoffsetX = newCrossoverTrack->getOffsetX();
+    int tempoffsetY = newCrossoverTrack->getOffsetY();
+    int tempLocationX = newCrossoverTrack->getLocationX();
+    int tempLocationY = newCrossoverTrack->getLocationY();
+    if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+        crossoverTrackList.push_back(newCrossoverTrack);
+    }
+    else {
+
+    }
+
+}
+
+std::vector<std::shared_ptr<FlyoverTrack> > Map::getFlyoverTrackList() const
+{
+    return flyoverTrackList;
+}
+
+void Map::setFlyoverTrackList(const std::vector<std::shared_ptr<FlyoverTrack> > &newFlyoverTrackList)
+{
+    flyoverTrackList = newFlyoverTrackList;
+}
+
+void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
+{
+    int tempoffsetX = newFlyoverTrack->getOffsetX();
+    int tempoffsetY = newFlyoverTrack->getOffsetY();
+    int tempLocationX = newFlyoverTrack->getLocationX();
+    int tempLocationY = newFlyoverTrack->getLocationY();
+    if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+        flyoverTrackList.push_back(newFlyoverTrack);
+    }
+    else {
+
+    }
+
+}
+
 
 
 bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locationY)
@@ -357,6 +411,75 @@ bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locati
 		}
 	}
 
+    if (!bridgeUnderpassTrackList.empty() && found == false)
+    {
+        for (std::shared_ptr<BridgeUnderpassTrack>& currentElement : bridgeUnderpassTrackList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    found = true;
+                }
+            }
+        }
+    }
+
+    if (!switchTrackList.empty() && found == false)
+    {
+        for (std::shared_ptr<SwitchTrack>& currentElement : switchTrackList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    found = true;
+                }
+            }
+        }
+    }
+
+    if (!crossoverTrackList.empty() && found == false)
+    {
+        for (std::shared_ptr<CrossoverTrack>& currentElement : crossoverTrackList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    found = true;
+                }
+            }
+        }
+    }
+
+    if (!flyoverTrackList.empty() && found == false)
+    {
+        for (std::shared_ptr<FlyoverTrack>& currentElement : flyoverTrackList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    found = true;
+                }
+            }
+        }
+    }
+
+
 	return found;
 
 }
@@ -437,6 +560,46 @@ bool Map::deleteElement(int locationX, int locationY)
 		}
 
 	}
+    for (int i = 0; i < bridgeUnderpassTrackList.size(); i++) {
+        std::shared_ptr<BridgeUnderpassTrack>& currentElement = bridgeUnderpassTrackList[i];
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        if (currentX == locationX && currentY == locationY) {
+            bridgeUnderpassTrackList.erase(bridgeUnderpassTrackList.begin() + i);
+            deleted = true;
+        }
+
+    }
+    for (int i = 0; i < switchTrackList.size(); i++) {
+        std::shared_ptr<SwitchTrack>& currentElement = switchTrackList[i];
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        if (currentX == locationX && currentY == locationY) {
+            switchTrackList.erase(switchTrackList.begin() + i);
+            deleted = true;
+        }
+
+    }
+    for (int i = 0; i < crossoverTrackList.size(); i++) {
+        std::shared_ptr<CrossoverTrack>& currentElement = crossoverTrackList[i];
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        if (currentX == locationX && currentY == locationY) {
+            crossoverTrackList.erase(crossoverTrackList.begin() + i);
+            deleted = true;
+        }
+
+    }
+    for (int i = 0; i < flyoverTrackList.size(); i++) {
+        std::shared_ptr<FlyoverTrack>& currentElement = flyoverTrackList[i];
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        if (currentX == locationX && currentY == locationY) {
+            flyoverTrackList.erase(flyoverTrackList.begin() + i);
+            deleted = true;
+        }
+
+    }
 
 }
 

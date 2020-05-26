@@ -175,6 +175,22 @@ private:
     QImage* switchSplit7Image;
     QImage* switchSplit8Image;
 
+    //TrackBlock3Images
+    QImage* crossover1Image;
+    QImage* crossover2Image;
+    QImage* flyover1Image;
+    QImage* flyover2Image;
+    QImage* flyover3Image;
+    QImage* flyover4Image;
+
+    QImage* crossover3Image;
+    QImage* crossover4Image;
+    QImage* flyover5Image;
+    QImage* flyover6Image;
+    QImage* flyover7Image;
+    QImage* flyover8Image;
+
+
 
 };
 
