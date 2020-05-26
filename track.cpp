@@ -120,3 +120,23 @@ SwitchTrack::SwitchTrack(ElementType newElementType, int newOffsetX, int newOffs
     locationY = newLocationY;
 
 }
+
+CrossoverTrack::CrossoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+{
+    elementType = newElementType;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+
+}
+
+FlyoverTrack::FlyoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+{
+    elementType = newElementType;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+
+}

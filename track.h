@@ -157,4 +157,35 @@ public:
     SwitchTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
+
+class CrossoverTrack : public Track
+{
+private:
+
+
+
+
+protected:
+
+
+public:
+    CrossoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+
+};
+
+class FlyoverTrack : public Track
+{
+private:
+
+
+
+
+protected:
+
+
+public:
+    FlyoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+
+};
+
 #endif // TRACK_H
