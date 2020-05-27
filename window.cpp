@@ -4,7 +4,7 @@
 Window::Window()
 {
 
-	//Set default chosen track to nothing.
+    //Set default chosen Element to nothing.
 	windowChosen = ElementType::NONE;
 	drawingSurface = new Canvas;
 	drawingSurface->setElementType(windowChosen);
@@ -42,7 +42,7 @@ void Window::openBuildModifyMenu()
 
 }
 
-void Window::openTrackMenu()
+void Window::openElementMenu()
 {
 
 }
@@ -181,24 +181,24 @@ void Window::createOverallMenu()
 
 	//Create second half of Menu.
 	// allMenus = new QStackedWidget;
-	createTrackMenu();
+    createElementMenu();
 	//allMenus->addWidget(trackMenu);
 	//allMenus->show();
 	//overallMenuLayout->addWidget(allMenus);
-	overallMenuLayout->addWidget(trackMenu);
+    overallMenuLayout->addWidget(elementMenu);
 
 	overallMenu->setLayout(overallMenuLayout);
 }
 
 void Window::createBuildModifyMenu1()
 {
-	trackMenuButton = new QToolButton();
-	trackMenuButton->setMaximumSize(QSize(32, 32));
-	openTrackMenuAct = new QAction();
-	connect(openTrackMenuAct, &QAction::triggered, this, &Window::openTrackMenu);
+    elementMenuButton = new QToolButton();
+    elementMenuButton->setMaximumSize(QSize(32, 32));
+    openElementMenuAct = new QAction();
+    connect(openElementMenuAct, &QAction::triggered, this, &Window::openElementMenu);
 	trackIcon = new QIcon(":/icons/icons/buildMenuIcon.png");
-	trackMenuButton->setIcon(*trackIcon);
-	buildModifyMenuLayout1->addWidget(trackMenuButton);
+    elementMenuButton->setIcon(*trackIcon);
+    buildModifyMenuLayout1->addWidget(elementMenuButton);
 
 	aspectButton = new QToolButton();
 	aspectButton->setMaximumSize(QSize(32, 32));
@@ -213,26 +213,26 @@ void Window::createBuildModifyMenu1()
 	buildModifyMenuLayout1->addWidget(aspectButton);
 }
 
-void Window::createTrackMenu()
+void Window::createElementMenu()
 {
 
-	trackMenu = new QWidget;
+    elementMenu = new QWidget;
 	QPalette pal = palette();
 
 	pal.setColor(QPalette::Background, Qt::green);
-	trackMenu->setAutoFillBackground(true);
-	trackMenu->setPalette(pal);
-	trackMenuLayout = new QHBoxLayout;
-	createTrackBlock1();
-    createTrackBlock2();
-    createTrackBlock3();
+    elementMenu->setAutoFillBackground(true);
+    elementMenu->setPalette(pal);
+    elementMenuLayout = new QHBoxLayout;
+    createElementBlock1();
+    createElementBlock2();
+    createElementBlock3();
 
-    trackMenuLayout->addLayout(trackBlock1);
-    trackMenuLayout->addLayout(trackBlock2);
-    trackMenuLayout->addLayout(trackBlock3);
+    elementMenuLayout->addLayout(elementBlock1);
+    elementMenuLayout->addLayout(elementBlock2);
+    elementMenuLayout->addLayout(elementBlock3);
 
-	trackMenu->setLayout(trackMenuLayout);
-	overallMenuLayout->addWidget(trackMenu);
+    elementMenu->setLayout(elementMenuLayout);
+    overallMenuLayout->addWidget(elementMenu);
 
 
 

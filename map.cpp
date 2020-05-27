@@ -27,7 +27,7 @@ void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 	else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
 
 	}
@@ -56,7 +56,7 @@ void Map::addDirectTrack(std::shared_ptr<DirectTrack> newDirectTrack)
 	else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
 	}
 
@@ -85,7 +85,7 @@ void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
 	else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
 	}
 
@@ -113,7 +113,7 @@ void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
 	else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
 	}
 
@@ -141,7 +141,7 @@ void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
 	else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
 	}
 
@@ -169,7 +169,7 @@ void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
 	else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
 	}
 
@@ -197,7 +197,7 @@ void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
 	else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
 	}
 
@@ -225,7 +225,7 @@ void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridg
     else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
     }
 
@@ -253,7 +253,7 @@ void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
     else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
     }
 
@@ -281,7 +281,7 @@ void Map::addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack)
     else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
     }
 
@@ -309,7 +309,35 @@ void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
     else {
         QMessageBox elementExistsAlreadyAlert;
         elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
+
+}
+
+std::vector<std::shared_ptr<Parapet> > Map::getParapetList() const
+{
+    return parapetList;
+}
+
+void Map::setParapetList(const std::vector<std::shared_ptr<Parapet> > &newParapetList)
+{
+    parapetList = newParapetList;
+}
+
+void Map::addParapetTrack(std::shared_ptr<Parapet> newParapet)
+{
+    int tempoffsetX = newParapet->getOffsetX();
+    int tempoffsetY = newParapet->getOffsetY();
+    int tempLocationX = newParapet->getLocationX();
+    int tempLocationY = newParapet->getLocationY();
+    if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+        parapetList.push_back(newParapet);
+    }
+    else {
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
         elementExistsAlreadyAlert.exec();
     }
 
@@ -508,6 +536,23 @@ bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locati
         }
     }
 
+    if (!parapetList.empty() && found == false)
+    {
+        for (std::shared_ptr<Parapet>& currentElement : parapetList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    found = true;
+                }
+            }
+        }
+    }
+
 
 	return found;
 
@@ -625,6 +670,16 @@ bool Map::deleteElement(int locationX, int locationY)
         int currentY = currentElement->getLocationY();
         if (currentX == locationX && currentY == locationY) {
             flyoverTrackList.erase(flyoverTrackList.begin() + i);
+            deleted = true;
+        }
+
+    }
+    for (int i = 0; i < parapetList.size(); i++) {
+        std::shared_ptr<FlyoverTrack>& currentElement = flyoverTrackList[i];
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        if (currentX == locationX && currentY == locationY) {
+            parapetList.erase(parapetList.begin() + i);
             deleted = true;
         }
 

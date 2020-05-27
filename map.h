@@ -21,6 +21,7 @@ private:
     std::vector<std::shared_ptr<SwitchTrack>> switchTrackList;
     std::vector<std::shared_ptr<CrossoverTrack>> crossoverTrackList;
     std::vector<std::shared_ptr<FlyoverTrack>> flyoverTrackList;
+    std::vector<std::shared_ptr<Parapet>> parapetList;
 
 
 
@@ -72,6 +73,10 @@ public:
     std::vector<std::shared_ptr<FlyoverTrack> > getFlyoverTrackList() const;
     void setFlyoverTrackList(const std::vector<std::shared_ptr<FlyoverTrack> >& newFlyoverTrackList);
     void addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack);
+
+    std::vector<std::shared_ptr<Parapet> > getParapetList() const;
+    void setParapetList(const std::vector<std::shared_ptr<Parapet> >& newParapetList);
+    void addParapetTrack(std::shared_ptr<Parapet> newParapet);
 
 	std::shared_ptr<Element> getElementAt(int offsetX, int offsetY, int locationX, int locationY);
 	bool checkElementExists(int offsetX, int offsetY, int locationX, int locationY);

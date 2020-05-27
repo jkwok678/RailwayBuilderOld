@@ -24,7 +24,7 @@ public:
 private slots:
 	void openRailway();
 	void openBuildModifyMenu();
-	void openTrackMenu();
+    void openElementMenu();
 	void changeAspect();
 
 	void moveRight();
@@ -33,7 +33,7 @@ private slots:
 	void moveDown();
 
 
-    //TrackBlock1 slots
+    //ElementBlock1 slots
 	void chooseStraightH();
 	void chooseStraightV();
 	void chooseDirectLeft();
@@ -97,7 +97,7 @@ private slots:
     void chooseUnderpass1();
     void chooseUnderpass2();
 
-    //TrackBlock2 slots
+    //ElementBlock2 slots
     void chooseSwitchTight1();
     void chooseSwitchTight2();
     void chooseSwitchTight3();
@@ -133,7 +133,7 @@ private slots:
     void chooseSwitchSplit7();
     void chooseSwitchSplit8();
 
-    //TrackBlock3 slots
+    //ElementBlock3 slots
 
     void chooseCrossover1();
     void chooseCrossover2();
@@ -181,20 +181,20 @@ private:
 
 	void createOverallMenu();
 	void createBuildModifyMenu1();
-	void createTrackMenu();
-	void createTrackBlock1();
-    void createTrackBlock2();
-    void createTrackBlock3();
-    void createTrackBlock4();
-    void createTrackBlock5();
+    void createElementMenu();
+    void createElementBlock1();
+    void createElementBlock2();
+    void createElementBlock3();
+    void createElementBlock4();
+    void createElementBlock5();
 
 	QWidget* overallMenu;
 	QVBoxLayout* overallMenuLayout;
 
 	QWidget* buildModifyMenu1;
 	QHBoxLayout* buildModifyMenuLayout1;
-	QToolButton* trackMenuButton;
-	QAction* openTrackMenuAct;
+    QToolButton* elementMenuButton;
+    QAction* openElementMenuAct;
 	QIcon* trackIcon;
 	QToolButton* aspectButton;
 	QAction* changeAspectAct;
@@ -204,16 +204,16 @@ private:
 	QIcon* aspectShuntIcon;
 
     //QStackedWidget *allMenus;
-    QWidget* trackMenu;
-    QHBoxLayout* trackMenuLayout;
-    QGridLayout* trackBlock1;
-    QGridLayout* trackBlock2;
-    QGridLayout* trackBlock3;
-    QGridLayout* trackBlock4;
-    QGridLayout* trackBlock5;
+    QWidget* elementMenu;
+    QHBoxLayout* elementMenuLayout;
+    QGridLayout* elementBlock1;
+    QGridLayout* elementBlock2;
+    QGridLayout* elementBlock3;
+    QGridLayout* elementBlock4;
+    QGridLayout* elementBlock5;
 
     /*
-     * TrackBlock1 buttons
+     * ElementBlock1 buttons
      * START HERE
      */
 
@@ -526,7 +526,7 @@ private:
     QIcon* underpass2Icon;
 
     /*
-     * TrackBlock2 buttons
+     * ElementBlock2 buttons
      * START HERE
      */
 
@@ -691,7 +691,7 @@ private:
     QIcon* switchSplit8Icon;
 
     /*
-     * TrackBlock3 buttons
+     * ElementBlock3 buttons
      * START HERE
      */
 
@@ -784,6 +784,8 @@ private:
     QToolButton* flyover12Button;
     QAction* chooseFlyover12Act;
     QIcon* flyover12Icon;
+
+    //ElementBlock4
 
 
 	void createRightMenu();
