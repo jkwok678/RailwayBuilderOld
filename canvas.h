@@ -190,6 +190,13 @@ private:
     QImage* flyover7Image;
     QImage* flyover8Image;
 
+    QImage* crossover5Image;
+    QImage* crossover6Image;
+    QImage* flyover9Image;
+    QImage* flyover10Image;
+    QImage* flyover11Image;
+    QImage* flyover12Image;
+
 
 
 };

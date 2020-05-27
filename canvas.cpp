@@ -136,6 +136,12 @@ Canvas::Canvas()
     flyover7Image = new QImage(":/graphics/graphics/flyover7.png");
     flyover8Image = new QImage(":/graphics/graphics/flyover8.png");
 
+    crossover5Image = new QImage(":/graphics/graphics/crossover5.png");
+    crossover6Image = new QImage(":/graphics/graphics/crossover6.png");
+    flyover9Image = new QImage(":/graphics/graphics/flyover9.png");
+    flyover10Image = new QImage(":/graphics/graphics/flyover10.png");
+    flyover11Image = new QImage(":/graphics/graphics/flyover11.png");
+    flyover12Image = new QImage(":/graphics/graphics/flyover12.png");
 
     setAutoFillBackground(true);
 	setPalette(pal);
@@ -835,6 +841,78 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             drawnLayout->addFlyoverTrack(flyover4);
             break;
         }
+        case ElementType::CROSSOVER3:
+        {
+            std::shared_ptr<CrossoverTrack> crossover3(new CrossoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addCrossoverTrack(crossover3);
+            break;
+        }
+        case ElementType::CROSSOVER4:
+        {
+            std::shared_ptr<CrossoverTrack> crossover4(new CrossoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addCrossoverTrack(crossover4);
+            break;
+        }
+        case ElementType::FLYOVER5:
+        {
+            std::shared_ptr<FlyoverTrack> flyover5(new FlyoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addFlyoverTrack(flyover5);
+            break;
+        }
+        case ElementType::FLYOVER6:
+        {
+            std::shared_ptr<FlyoverTrack> flyover6(new FlyoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addFlyoverTrack(flyover6);
+            break;
+        }
+        case ElementType::FLYOVER7:
+        {
+            std::shared_ptr<FlyoverTrack> flyover7(new FlyoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addFlyoverTrack(flyover7);
+            break;
+        }
+        case ElementType::FLYOVER8:
+        {
+            std::shared_ptr<FlyoverTrack> flyover8(new FlyoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addFlyoverTrack(flyover8);
+            break;
+        }
+        case ElementType::CROSSOVER5:
+        {
+            std::shared_ptr<CrossoverTrack> crossover5(new CrossoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addCrossoverTrack(crossover5);
+            break;
+        }
+        case ElementType::CROSSOVER6:
+        {
+            std::shared_ptr<CrossoverTrack> crossover6(new CrossoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addCrossoverTrack(crossover6);
+            break;
+        }
+        case ElementType::FLYOVER9:
+        {
+            std::shared_ptr<FlyoverTrack> flyover9(new FlyoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addFlyoverTrack(flyover9);
+            break;
+        }
+        case ElementType::FLYOVER10:
+        {
+            std::shared_ptr<FlyoverTrack> flyover10(new FlyoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addFlyoverTrack(flyover10);
+            break;
+        }
+        case ElementType::FLYOVER11:
+        {
+            std::shared_ptr<FlyoverTrack> flyover11(new FlyoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addFlyoverTrack(flyover11);
+            break;
+        }
+        case ElementType::FLYOVER12:
+        {
+            std::shared_ptr<FlyoverTrack> flyover12(new FlyoverTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addFlyoverTrack(flyover12);
+            break;
+        }
 
 
 
@@ -1333,6 +1411,18 @@ void Canvas::paintEvent(QPaintEvent* event)
             case ElementType::CROSSOVER2:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover2Image);
                 break;
+            case ElementType::CROSSOVER3:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover3Image);
+                break;
+            case ElementType::CROSSOVER4:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover4Image);
+                break;
+            case ElementType::CROSSOVER5:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover5Image);
+                break;
+            case ElementType::CROSSOVER6:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover6Image);
+                break;
             }
         }
     }
@@ -1352,6 +1442,30 @@ void Canvas::paintEvent(QPaintEvent* event)
                 break;
             case ElementType::FLYOVER4:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover4Image);
+                break;
+            case ElementType::FLYOVER5:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover5Image);
+                break;
+            case ElementType::FLYOVER6:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover6Image);
+                break;
+            case ElementType::FLYOVER7:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover7Image);
+                break;
+            case ElementType::FLYOVER8:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover8Image);
+                break;
+            case ElementType::FLYOVER9:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover9Image);
+                break;
+            case ElementType::FLYOVER10:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover10Image);
+                break;
+            case ElementType::FLYOVER11:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover11Image);
+                break;
+            case ElementType::FLYOVER12:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover12Image);
                 break;
             }
         }

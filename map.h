@@ -9,7 +9,8 @@
 class Map
 {
 private:
-	std::vector<std::shared_ptr<StraightTrack>> straightTrackList;
+
+    std::vector<std::shared_ptr<StraightTrack>> straightTrackList;
 	std::vector<std::shared_ptr<DirectTrack>> directTrackList;
 	std::vector<std::shared_ptr<CurvedTrack>> curvedTrackList;
 	std::vector<std::shared_ptr<LinkedTrack>> linkedTrackList;
@@ -20,6 +21,8 @@ private:
     std::vector<std::shared_ptr<SwitchTrack>> switchTrackList;
     std::vector<std::shared_ptr<CrossoverTrack>> crossoverTrackList;
     std::vector<std::shared_ptr<FlyoverTrack>> flyoverTrackList;
+
+
 
 
 

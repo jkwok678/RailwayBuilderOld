@@ -3,7 +3,6 @@
 Map::Map()
 {
 
-
 }
 
 std::vector<std::shared_ptr<StraightTrack> > Map::getStraightTrackList() const
@@ -26,10 +25,10 @@ void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 		straightTrackList.push_back(newStraightTrack);
 	}
 	else {
-        QMessageBox trackExistsAlreadyAlert;
-        trackExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-        trackExistsAlreadyAlert.setText("Track already exists here.");
-        trackExistsAlreadyAlert.exec();
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
 
 	}
 
@@ -55,7 +54,10 @@ void Map::addDirectTrack(std::shared_ptr<DirectTrack> newDirectTrack)
 		directTrackList.push_back(newDirectTrack);
 	}
 	else {
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
 	}
 
 
@@ -81,7 +83,10 @@ void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
 		curvedTrackList.push_back(newCurvedTrack);
 	}
 	else {
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
 	}
 
 }
@@ -106,7 +111,10 @@ void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
 		linkedTrackList.push_back(newLinkedTrack);
 	}
 	else {
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
 	}
 
 }
@@ -131,7 +139,10 @@ void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
 		exitTrackList.push_back(newExitTrack);
 	}
 	else {
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
 	}
 
 }
@@ -156,7 +167,10 @@ void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
 		bufferTrackList.push_back(newBufferTrack);
 	}
 	else {
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
 	}
 
 }
@@ -181,7 +195,10 @@ void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
 		signalTrackList.push_back(newSignalTrack);
 	}
 	else {
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
 	}
 
 }
@@ -206,7 +223,10 @@ void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridg
         bridgeUnderpassTrackList.push_back(newBridgeUnderpassTrack);
     }
     else {
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
     }
 
 }
@@ -231,7 +251,10 @@ void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
         switchTrackList.push_back(newSwitchTrack);
     }
     else {
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
     }
 
 }
@@ -256,7 +279,10 @@ void Map::addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack)
         crossoverTrackList.push_back(newCrossoverTrack);
     }
     else {
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
     }
 
 }
@@ -281,7 +307,10 @@ void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
         flyoverTrackList.push_back(newFlyoverTrack);
     }
     else {
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("Track already exists here.");
+        elementExistsAlreadyAlert.exec();
     }
 
 }
