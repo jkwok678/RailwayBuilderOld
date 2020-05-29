@@ -159,7 +159,10 @@ private slots:
     //ElementBlock4 slots
     void chooseNamedLocation();
     void chooseConcourse();
-
+    void choosePlatformLeft();
+    void choosePlatformRight();
+    void choosePlatformDown();
+    void choosePlatformUp();
 
 
 private:
@@ -802,9 +805,31 @@ private:
     QAction* chooseConcourseAct;
     QIcon* concourseIcon;
 
+    //PlatformUpButton
+    QToolButton* platformUpButton;
+    QAction* choosePlatformUpAct;
+    QIcon* platformUpIcon;
+
+    //PlatformDownButton
+    QToolButton* platformDownButton;
+    QAction* choosePlatformDownAct;
+    QIcon* platformDownIcon;
+
+    //PlatformLeftButton
+    QToolButton* platformLeftButton;
+    QAction* choosePlatformLeftAct;
+    QIcon* platformLeftIcon;
+
+    //PlatformRightButton
+    QToolButton* platformRightButton;
+    QAction* choosePlatformRightAct;
+    QIcon* platformRightIcon;
+
+
 	void createRightMenu();
 	QWidget* rightMenu;
 	QVBoxLayout* rightMenuLayout;
+
 	QToolButton* rightButton;
 	QAction* rightAct;
 	QIcon* rightIcon;

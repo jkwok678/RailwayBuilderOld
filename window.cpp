@@ -1228,6 +1228,42 @@ void Window::chooseConcourse()
 
 }
 
+void Window::choosePlatformLeft()
+{
+    if (windowChosen != ElementType::PLATFORMLEFT)
+        windowChosen = ElementType::PLATFORMLEFT;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::choosePlatformRight()
+{
+    if (windowChosen != ElementType::PLATFORMRIGHT)
+        windowChosen = ElementType::PLATFORMRIGHT;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::choosePlatformDown()
+{
+    if (windowChosen != ElementType::PLATFORMDOWN)
+        windowChosen = ElementType::PLATFORMDOWN;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::choosePlatformUp()
+{
+    if (windowChosen != ElementType::PLATFORMUP)
+        windowChosen = ElementType::PLATFORMUP;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
 
 
 void Window::createElementBlock1()
@@ -2284,6 +2320,42 @@ void Window::createElementBlock4()
     concourseIcon = new QIcon(":/graphics/graphics/concourseSet.png");
     concourseButton->setIcon(*concourseIcon);
     elementBlock4->addWidget(concourseButton, 0, 1);
+
+    platformUpButton = new QToolButton();
+    platformUpButton->setMaximumSize(QSize(32, 32));
+    choosePlatformUpAct = new QAction();
+    platformUpButton->setDefaultAction(choosePlatformUpAct);
+    connect(choosePlatformUpAct, &QAction::triggered, this, &Window::choosePlatformUp);
+    platformUpIcon = new QIcon(":/graphics/graphics/platformUpSet.png");
+    platformUpButton->setIcon(*platformUpIcon);
+    elementBlock4->addWidget(platformUpButton,1,0);
+
+    platformDownButton = new QToolButton();
+    platformDownButton->setMaximumSize(QSize(32, 32));
+    choosePlatformDownAct = new QAction();
+    platformDownButton->setDefaultAction(choosePlatformDownAct);
+    connect(choosePlatformDownAct, &QAction::triggered, this, &Window::choosePlatformDown);
+    platformDownIcon = new QIcon(":/graphics/graphics/platformDownSet.png");
+    platformDownButton->setIcon(*platformDownIcon);
+    elementBlock4->addWidget(platformDownButton,1,1);
+
+    platformLeftButton = new QToolButton();
+    platformLeftButton->setMaximumSize(QSize(32, 32));
+    choosePlatformLeftAct = new QAction();
+    platformLeftButton->setDefaultAction(choosePlatformLeftAct);
+    connect(choosePlatformLeftAct, &QAction::triggered, this, &Window::choosePlatformLeft);
+    platformLeftIcon = new QIcon(":/graphics/graphics/platformLeftSet.png");
+    platformLeftButton->setIcon(*platformLeftIcon);
+    elementBlock4->addWidget(platformLeftButton,2,0);
+
+    platformRightButton = new QToolButton();
+    platformRightButton->setMaximumSize(QSize(32, 32));
+    choosePlatformRightAct = new QAction();
+    platformRightButton->setDefaultAction(choosePlatformRightAct);
+    connect(choosePlatformRightAct, &QAction::triggered, this, &Window::choosePlatformRight);
+    platformRightIcon = new QIcon(":/graphics/graphics/platformRightSet.png");
+    platformRightButton->setIcon(*platformRightIcon);
+    elementBlock4->addWidget(platformRightButton,2,1);
 }
 
 void Window::createRightMenu()

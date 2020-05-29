@@ -145,10 +145,14 @@
         <file>graphics/underpassSet2.png</file>
         <file>graphics/underpassUnset1.png</file>
         <file>graphics/underpassUnset2.png</file>
-        <file>graphics/platformVUnset.png</file>
-        <file>graphics/platformVSet.png</file>
-        <file>graphics/platformHUnset.png</file>
-        <file>graphics/platformHSet.png</file>
+        <file>graphics/platformRightUnset.png</file>
+        <file>graphics/platformRightSet.png</file>
+        <file>graphics/platformUpUnset.png</file>
+        <file>graphics/platformUpSet.png</file>
+        <file>graphics/platformLeftUnset.png</file>
+        <file>graphics/platformLeftSet.png</file>
+        <file>graphics/platformDownUnset.png</file>
+        <file>graphics/platformDownSet.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>
