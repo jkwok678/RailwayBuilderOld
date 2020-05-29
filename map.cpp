@@ -793,6 +793,7 @@ bool Map::deleteElement(int locationX, int locationY)
         }
 
     }
+    return deleted;
 
 }
 
