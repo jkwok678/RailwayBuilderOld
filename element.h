@@ -1,6 +1,8 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+#include <string>
+
 enum class ElementType
 {
 	NONE, STRAIGHTH, STRAIGHTV, STRAIGHTLEFTUP, STRIAGHTRIGHTUP, DIRECTLEFT, DIRECTRIGHT, DIRECTUP, DIRECTDOWN, DIRECTRIGHTUP,
@@ -13,7 +15,7 @@ enum class ElementType
     SWITCHSPLIT3, SWITCHSPLIT4, SWITCHSPLIT5, SWITCHSPLIT6, SWITCHSPLIT7, SWITCHSPLIT8, SWITCH1, SWITCH2, SWITCH3, SWITCH4, SWITCH5,
     SWITCH6, SWITCH7, SWITCH8, SWITCH9, SWITCH10, SWITCH11, SWITCH12, SWITCH13, SWITCH14, SWITCH15, SWITCH16,CROSSOVER1,
     CROSSOVER2, CROSSOVER3, CROSSOVER4, CROSSOVER5, CROSSOVER6, FLYOVER1, FLYOVER2, FLYOVER3, FLYOVER4, FLYOVER5, FLYOVER6,
-    FLYOVER7, FLYOVER8, FLYOVER9, FLYOVER10, FLYOVER11, FLYOVER12, PARAPET1, PARAPET2, PARAPET3, PARAPET4, PARAPET5, PARAPET6,
+    FLYOVER7, FLYOVER8, FLYOVER9, FLYOVER10, FLYOVER11, FLYOVER12,NAMEDLOCATION, CONCOURSE, PARAPET1, PARAPET2, PARAPET3, PARAPET4, PARAPET5, PARAPET6,
     PARAPET7, PARAPET8, PARAPET9, PARARPET10
 
 };
@@ -48,6 +50,45 @@ public:
 	int getLocationY() const;
 	void setLocationY(int locationY);
 };
+
+class NamedLocation : public Element
+{
+private:
+
+
+
+
+
+
+protected:
+    bool named;
+    std::string name;
+
+
+public:
+    NamedLocation();
+    NamedLocation(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    bool getNamed() const;
+    void setNamed(bool newNamed);
+
+};
+
+
+class Concourse : public NamedLocation
+{
+private:
+
+
+
+
+protected:
+
+
+public:
+    Concourse(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+
+};
+
 
 class Parapet : public Element
 {

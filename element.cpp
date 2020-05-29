@@ -50,6 +50,45 @@ void Element::setLocationY(int newLocationY) {
 	locationY = newLocationY;
 }
 
+NamedLocation::NamedLocation()
+{
+
+}
+
+NamedLocation::NamedLocation(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+{
+    elementType = newElementType;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+    named = false;
+
+
+
+}
+
+bool NamedLocation::getNamed() const
+{
+    return named;
+}
+
+void NamedLocation::setNamed(bool newNamed)
+{
+    named = newNamed;
+}
+
+Concourse::Concourse(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+{
+    elementType = newElementType;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+    named = false;
+
+}
+
 Parapet::Parapet(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
 {
     elementType = newElementType;

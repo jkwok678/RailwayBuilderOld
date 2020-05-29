@@ -65,7 +65,7 @@ private:
 	int boundY;
 
 
-    //TrackBlock1 images
+    //ElementBlock1 images
 	QImage* straightHImage;
 	QImage* straightVImage;
 	QImage* directLeftImage;
@@ -139,7 +139,7 @@ private:
     QImage* underpassSet1Image;
     QImage* underpassSet2Image;
 
-    //TrackBlock2 images
+    //ElementBlock2 images
     QImage* switchTight1Image;
     QImage* switchTight2Image;
     QImage* switchTight3Image;
@@ -175,7 +175,7 @@ private:
     QImage* switchSplit7Image;
     QImage* switchSplit8Image;
 
-    //TrackBlock3Images
+    //ElementBlock3Images
     QImage* crossover1Image;
     QImage* crossover2Image;
     QImage* flyover1Image;
@@ -196,6 +196,12 @@ private:
     QImage* flyover10Image;
     QImage* flyover11Image;
     QImage* flyover12Image;
+
+    //ElementBlock4Images
+    QImage* namedLocationUnsetImage;
+    QImage* namedLocationSetImage;
+    QImage* concourseUnsetImage;
+    QImage* concourseSetImage;
 
 
 

@@ -156,6 +156,11 @@ private slots:
     void chooseFlyover11();
     void chooseFlyover12();
 
+    //ElementBlock4 slots
+    void chooseNamedLocation();
+    void chooseConcourse();
+
+
 
 private:
 
@@ -787,6 +792,15 @@ private:
 
     //ElementBlock4
 
+    //NamedLocation1Button
+    QToolButton* namedLocationButton;
+    QAction* chooseNamedLocationAct;
+    QIcon* namedLocationIcon;
+
+    //ConcourseButton
+    QToolButton* concourseButton;
+    QAction* chooseConcourseAct;
+    QIcon* concourseIcon;
 
 	void createRightMenu();
 	QWidget* rightMenu;

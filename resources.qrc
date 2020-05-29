@@ -83,8 +83,8 @@
         <file>graphics/linkRightUpUnset.png</file>
         <file>graphics/linkUpSet.png</file>
         <file>graphics/linkUpUnset.png</file>
-        <file>graphics/locationSet.png</file>
-        <file>graphics/locationUnset.png</file>
+        <file>graphics/namedLocationSet.png</file>
+        <file>graphics/namedLocationUnset.png</file>
         <file>graphics/shuntDownRed.png</file>
         <file>graphics/shuntLeftDownRed.png</file>
         <file>graphics/shuntLeftRed.png</file>
@@ -145,6 +145,10 @@
         <file>graphics/underpassSet2.png</file>
         <file>graphics/underpassUnset1.png</file>
         <file>graphics/underpassUnset2.png</file>
+        <file>graphics/platformVUnset.png</file>
+        <file>graphics/platformVSet.png</file>
+        <file>graphics/platformHUnset.png</file>
+        <file>graphics/platformHSet.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>

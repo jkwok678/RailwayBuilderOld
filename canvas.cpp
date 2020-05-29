@@ -9,7 +9,7 @@ Canvas::Canvas()
 	drawnLayout = new Map;
 	pal.setColor(QPalette::Window, Qt::white);
 
-    //TrackBlock1 images
+    //ElementBlock1 images
 	straightHImage = new QImage(":/graphics/graphics/straightH.png");
 	straightVImage = new QImage(":/graphics/graphics/straightV.png");
 	directLeftImage = new QImage(":/graphics/graphics/directLeft.png");
@@ -85,7 +85,7 @@ Canvas::Canvas()
     underpassSet1Image = new QImage(":/graphics/graphics/underpassSet1.png");
     underpassSet2Image = new QImage(":/graphics/graphics/underpassSet2.png");
 
-    //TrackBlock2 images
+    //ElementBlock2 images
     switchTight1Image = new QImage(":/graphics/graphics/switchTight1.png");
     switchTight2Image = new QImage(":/graphics/graphics/switchTight2.png");
     switchTight3Image = new QImage(":/graphics/graphics/switchTight3.png");
@@ -121,7 +121,7 @@ Canvas::Canvas()
     switchSplit7Image = new QImage(":/graphics/graphics/switchSplit7.png");
     switchSplit8Image = new QImage(":/graphics/graphics/switchSplit8.png");
 
-    //TrackBlock3 images
+    //ElementBlock3 images
     crossover1Image = new QImage(":/graphics/graphics/crossover1.png");
     crossover2Image = new QImage(":/graphics/graphics/crossover2.png");
     flyover1Image = new QImage(":/graphics/graphics/flyover1.png");
@@ -142,6 +142,12 @@ Canvas::Canvas()
     flyover10Image = new QImage(":/graphics/graphics/flyover10.png");
     flyover11Image = new QImage(":/graphics/graphics/flyover11.png");
     flyover12Image = new QImage(":/graphics/graphics/flyover12.png");
+
+    //ElementBlock4 images
+    namedLocationUnsetImage = new QImage(":/graphics/graphics/namedLocationUnset.png");
+    namedLocationSetImage = new QImage(":/graphics/graphics/namedLocationSet.png");
+    concourseUnsetImage = new QImage(":/graphics/graphics/concourseUnset.png");
+    concourseSetImage = new QImage(":/graphics/graphics/concourseSet.png");
 
     setAutoFillBackground(true);
 	setPalette(pal);
@@ -913,6 +919,18 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             drawnLayout->addFlyoverTrack(flyover12);
             break;
         }
+        case ElementType::NAMEDLOCATION:
+        {
+            std::shared_ptr<NamedLocation> namedLocation(new NamedLocation(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addNamedLocation(namedLocation);
+            break;
+        }
+        case ElementType::CONCOURSE:
+        {
+            std::shared_ptr<Concourse> concourse(new Concourse(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addConcourse(concourse);
+            break;
+        }
 
 
 
@@ -930,7 +948,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 void Canvas::paintEvent(QPaintEvent* event)
 {
 	QPainter painter(this);
-	for (auto& currentElement : drawnLayout->getStraightTrackList()) {
+    for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList()) {
 
 		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
 
@@ -958,7 +976,7 @@ void Canvas::paintEvent(QPaintEvent* event)
 
 
 	}
-	for (auto& currentElement : drawnLayout->getDirectTrackList()) {
+    for (std::shared_ptr<DirectTrack> currentElement : drawnLayout->getDirectTrackList()) {
 
 		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
 
@@ -993,7 +1011,7 @@ void Canvas::paintEvent(QPaintEvent* event)
 		}
 
 	}
-	for (auto& currentElement : drawnLayout->getCurvedTrackList()) {
+    for (std::shared_ptr<CurvedTrack> currentElement : drawnLayout->getCurvedTrackList()) {
 
 		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
 
@@ -1470,6 +1488,39 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
     }
+    for (std::shared_ptr<NamedLocation> currentElement : drawnLayout->getNamedLocationList()) {
+
+        if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
+            if (currentElement->getNamed()){
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *namedLocationSetImage);
+            }
+            else {
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *namedLocationUnsetImage);
+            }
+
+
+
+        }
+
+    }
+
+    for (std::shared_ptr<Concourse> currentElement : drawnLayout->getConcourseList()) {
+
+        if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
+            if (currentElement->getNamed()){
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *concourseSetImage);
+            }
+            else {
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *concourseUnsetImage);
+            }
+
+
+
+        }
+
+    }
+
+
 }
 
 

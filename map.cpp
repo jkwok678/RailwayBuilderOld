@@ -315,6 +315,61 @@ void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
 
 }
 
+std::vector<std::shared_ptr<NamedLocation> > Map::getNamedLocationList() const
+{
+    return namedLocationList;
+}
+
+void Map::setNamedLocationList(const std::vector<std::shared_ptr<NamedLocation> > &newNamedLocationList)
+{
+    namedLocationList = newNamedLocationList;
+}
+
+void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
+{
+    int tempoffsetX = newNamedLocation->getOffsetX();
+    int tempoffsetY = newNamedLocation->getOffsetY();
+    int tempLocationX = newNamedLocation->getLocationX();
+    int tempLocationY = newNamedLocation->getLocationY();
+    if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+        namedLocationList.push_back(newNamedLocation);
+    }
+    else {
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
+}
+
+std::vector<std::shared_ptr<Concourse> > Map::getConcourseList() const
+{
+    return concourseList;
+}
+
+void Map::setConcourseList(const std::vector<std::shared_ptr<Concourse> > &newConcourseList)
+{
+    concourseList = newConcourseList;
+}
+
+void Map::addConcourse(std::shared_ptr<Concourse> newConcourseTrack)
+{
+    int tempoffsetX = newConcourseTrack->getOffsetX();
+    int tempoffsetY = newConcourseTrack->getOffsetY();
+    int tempLocationX = newConcourseTrack->getLocationX();
+    int tempLocationY = newConcourseTrack->getLocationY();
+    if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+        concourseList.push_back(newConcourseTrack);
+    }
+    else {
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
+
+}
+
 std::vector<std::shared_ptr<Parapet> > Map::getParapetList() const
 {
     return parapetList;
@@ -536,6 +591,40 @@ bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locati
         }
     }
 
+    if (!namedLocationList.empty() && found == false)
+    {
+        for (std::shared_ptr<NamedLocation>& currentElement : namedLocationList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    found = true;
+                }
+            }
+        }
+    }
+
+    if (!concourseList.empty() && found == false)
+    {
+        for (std::shared_ptr<Concourse>& currentElement : concourseList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    found = true;
+                }
+            }
+        }
+    }
+
     if (!parapetList.empty() && found == false)
     {
         for (std::shared_ptr<Parapet>& currentElement : parapetList) {
@@ -670,6 +759,26 @@ bool Map::deleteElement(int locationX, int locationY)
         int currentY = currentElement->getLocationY();
         if (currentX == locationX && currentY == locationY) {
             flyoverTrackList.erase(flyoverTrackList.begin() + i);
+            deleted = true;
+        }
+
+    }
+    for (int i = 0; i < namedLocationList.size(); i++) {
+        std::shared_ptr<NamedLocation>& currentElement = namedLocationList[i];
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        if (currentX == locationX && currentY == locationY) {
+            namedLocationList.erase(namedLocationList.begin() + i);
+            deleted = true;
+        }
+
+    }
+    for (int i = 0; i < concourseList.size(); i++) {
+        std::shared_ptr<Concourse>& currentElement = concourseList[i];
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        if (currentX == locationX && currentY == locationY) {
+            concourseList.erase(concourseList.begin() + i);
             deleted = true;
         }
 

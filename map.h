@@ -21,6 +21,8 @@ private:
     std::vector<std::shared_ptr<SwitchTrack>> switchTrackList;
     std::vector<std::shared_ptr<CrossoverTrack>> crossoverTrackList;
     std::vector<std::shared_ptr<FlyoverTrack>> flyoverTrackList;
+    std::vector<std::shared_ptr<NamedLocation>> namedLocationList;
+    std::vector<std::shared_ptr<Concourse>> concourseList;
     std::vector<std::shared_ptr<Parapet>> parapetList;
 
 
@@ -73,6 +75,14 @@ public:
     std::vector<std::shared_ptr<FlyoverTrack> > getFlyoverTrackList() const;
     void setFlyoverTrackList(const std::vector<std::shared_ptr<FlyoverTrack> >& newFlyoverTrackList);
     void addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack);
+
+    std::vector<std::shared_ptr<NamedLocation> > getNamedLocationList() const;
+    void setNamedLocationList(const std::vector<std::shared_ptr<NamedLocation> >& newNamedLocationList);
+    void addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation);
+
+    std::vector<std::shared_ptr<Concourse> > getConcourseList() const;
+    void setConcourseList(const std::vector<std::shared_ptr<Concourse> >& newConcourseList);
+    void addConcourse(std::shared_ptr<Concourse> newConcourseTrack);
 
     std::vector<std::shared_ptr<Parapet> > getParapetList() const;
     void setParapetList(const std::vector<std::shared_ptr<Parapet> >& newParapetList);

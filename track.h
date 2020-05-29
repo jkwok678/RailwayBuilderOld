@@ -26,16 +26,18 @@ private:
 
 
 
-
 protected:
+    bool platform1;
+    bool platform2;
 
 
 public:
+    StraightTrack();
 	StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 	~StraightTrack();
 };
 
-class DirectTrack : public Track
+class DirectTrack : public StraightTrack
 {
 private:
 
@@ -95,7 +97,7 @@ public:
 
 };
 
-class BufferTrack : public Track
+class BufferTrack : public StraightTrack
 {
 private:
 
@@ -110,7 +112,7 @@ public:
 
 };
 
-class SignalTrack : public Track
+class SignalTrack : public StraightTrack
 {
 private:
 	int aspect;
@@ -128,7 +130,7 @@ public:
 
 };
 
-class BridgeUnderpassTrack : public Track
+class BridgeUnderpassTrack : public StraightTrack
 {
 private:
 
