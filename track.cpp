@@ -35,7 +35,27 @@ StraightTrack::~StraightTrack()
 	{
 		std::cout << "Straight V destroyed \n" << std::flush;;
 	}
-	*/
+    */
+}
+
+bool StraightTrack::getPlatform1() const
+{
+    return platform1;
+}
+
+void StraightTrack::setPlatform1(bool newPlatform)
+{
+    platform1 = newPlatform;
+}
+
+bool StraightTrack::getPlatform2() const
+{
+    return platform2;
+}
+
+void StraightTrack::setPlatform2(bool newPlatform)
+{
+    platform2 = newPlatform;
 };
 
 DirectTrack::DirectTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)

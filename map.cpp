@@ -796,3 +796,43 @@ bool Map::deleteElement(int locationX, int locationY)
 
 }
 
+void Map::addPlatform(Direction direction, int offsetX, int offsetY, int locationX, int locationY)
+{
+    bool added = false;
+
+    if (!straightTrackList.empty() && added == false)
+    {
+        for (std::shared_ptr<StraightTrack>& currentElement : straightTrackList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    switch  (direction){
+                    case Direction::LEFT:
+                        currentElement->setPlatform1(true);
+                        added = true;
+                    case Direction::RIGHT:
+                        currentElement->setPlatform2(true);
+                        added = true;
+                    case Direction::UP:
+                        currentElement->setPlatform1(true);
+                        added = true;
+                    case Direction::DOWN:
+                        currentElement->setPlatform2(true);
+                        added = true;
+                    default:
+                        added = false;
+                    }
+
+
+                }
+            }
+        }
+    }
+
+}
+

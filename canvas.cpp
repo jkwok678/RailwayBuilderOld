@@ -931,6 +931,10 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             drawnLayout->addConcourse(concourse);
             break;
         }
+        case ElementType::PLATFORMLEFT:
+        {
+
+        }
 
 
 
