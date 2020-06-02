@@ -4,8 +4,8 @@
 #include <iostream>
 #include "element.h"
 
-enum class Direction {
-    LEFT, UP, RIGHT, DOWN
+enum class Platform {
+    LEFT, UP, RIGHT, DOWN, LEFTUP, RIGHTUP, LEFTDOWN, RIGHTDOWN
 };
 
 class Track : public Element
@@ -33,18 +33,24 @@ private:
 protected:
     //For vertical tracks, platform1 is left, platform2 is right
     //For Horizontal tracks platform1 is up, platform2 is down
-    bool platform1;
-    bool platform2;
+    bool platformLeft;
+    bool platformRight;
+    bool platformUp;
+    bool platformDown;
 
 
 public:
     StraightTrack();
 	StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 	~StraightTrack();
-    bool getPlatform1() const;
-    void setPlatform1(bool newPlatform);
-    bool getPlatform2() const;
-    void setPlatform2(bool newPlatform);
+    bool getPlatformLeft() const;
+    void setPlatformLeft(bool newPlatform);
+    bool getPlatformRight() const;
+    void setPlatformRight(bool newPlatform);
+    bool getPlatformUp() const;
+    void setPlatformUp(bool newPlatform);
+    bool getPlatformDown() const;
+    void setPlatformDown(bool newPlatform);
 
 };
 

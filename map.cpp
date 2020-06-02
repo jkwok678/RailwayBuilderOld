@@ -797,7 +797,7 @@ bool Map::deleteElement(int locationX, int locationY)
 
 }
 
-void Map::addPlatform(Direction direction, int offsetX, int offsetY, int locationX, int locationY)
+void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, int locationY)
 {
     bool added = false;
 
@@ -808,25 +808,144 @@ void Map::addPlatform(Direction direction, int offsetX, int offsetY, int locatio
             int currentOffsetY = currentElement->getOffsetY();
             int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
+
+
             if (currentOffsetX == offsetX && currentOffsetY == offsetY)
             {
                 if (currentX == locationX && currentY == locationY)
                 {
-                    switch  (direction){
-                    case Direction::LEFT:
-                        currentElement->setPlatform1(true);
+
+                    if (currentElement->getElementType() == ElementType::STRAIGHTV && side == Platform::LEFT) {
+                        currentElement->setPlatformLeft(true);
+                        std::cout << std::boolalpha << currentElement->getPlatformLeft() << "hi  "  << std::flush;
+                    } else if (currentElement->getElementType() == ElementType::STRAIGHTV && side == Platform::RIGHT) {
+                        currentElement->setPlatformRight(true);
+                        std::cout << std::boolalpha << currentElement->getPlatformRight() << "hello  "  << std::flush;
+                    }
+
+                }
+            }
+        }
+    }
+    if (!directTrackList.empty() && added == false)
+    {
+        for (std::shared_ptr<DirectTrack>& currentElement : directTrackList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    switch  (side){
+                    case Platform::LEFT:
+
                         added = true;
-                    case Direction::RIGHT:
-                        currentElement->setPlatform2(true);
+                    case Platform::RIGHT:
+
                         added = true;
-                    case Direction::UP:
-                        currentElement->setPlatform1(true);
+                    case Platform::UP:
+
                         added = true;
-                    case Direction::DOWN:
-                        currentElement->setPlatform2(true);
+                    case Platform::DOWN:
+
                         added = true;
                     default:
                         added = false;
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    if (!bufferTrackList.empty() && added == false)
+    {
+        for (std::shared_ptr<BufferTrack>& currentElement : bufferTrackList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    switch  (side){
+                    case Platform::LEFT:
+
+                        added = true;
+                    case Platform::RIGHT:
+
+                        added = true;
+                    case Platform::UP:
+
+                        added = true;
+                    case Platform::DOWN:
+
+                        added = true;
+                    default:
+                        added = false;
+                    }
+
+
+                }
+            }
+        }
+    }
+
+
+    if (!signalTrackList.empty() && added == false)
+    {
+        for (std::shared_ptr<SignalTrack>& currentElement : signalTrackList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    switch (currentElement->getElementType()) {
+
+                        case ElementType:: SWITCHTIGHT1:
+                        case ElementType:: SWITCHTIGHT2:
+                        case ElementType:: SWITCH1:
+                        case ElementType:: SWITCH2:
+                            if (side==Platform::DOWN){
+
+                                added = true;
+                            }
+                            break;
+                        case ElementType:: SWITCHTIGHT3:
+                        case ElementType:: SWITCHTIGHT4:
+                        case ElementType:: SWITCH3:
+                        case ElementType:: SWITCH4:
+                            if (side==Platform::UP) {
+
+                                added= true;
+                            }
+                            break;
+                        case ElementType:: SWITCHTIGHT5:
+                        case ElementType:: SWITCHTIGHT7:
+                        case ElementType:: SWITCH5:
+                        case ElementType:: SWITCH7:
+                            if (side==Platform::RIGHT) {
+
+                                added= true;
+                            }
+                            break;
+                        case ElementType:: SWITCHTIGHT6:
+                        case ElementType:: SWITCHTIGHT8:
+                        case ElementType:: SWITCH6:
+                        case ElementType:: SWITCH8:
+                            if (side==Platform::LEFT) {
+
+                                added= true;
+                            }
+                            break;
+
                     }
 
 

@@ -92,7 +92,7 @@ public:
 	bool checkElementExists(int offsetX, int offsetY, int locationX, int locationY);
 	bool deleteElement(int locationX, int locationY);
 
-    void addPlatform(Direction direction, int offsetX, int offsetY, int locationX, int locationY );
+    void addPlatform(Platform side, int offsetX, int offsetY, int locationX, int locationY );
 };
 
 #endif // MAP_H

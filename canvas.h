@@ -202,6 +202,14 @@ private:
     QImage* namedLocationSetImage;
     QImage* concourseUnsetImage;
     QImage* concourseSetImage;
+    QImage* platformDownUnsetImage;
+    QImage* platformDownSetImage;
+    QImage* platformUpUnsetImage;
+    QImage* platformUpSetImage;
+    QImage* platformLeftUnsetImage;
+    QImage* platformLeftSetImage;
+    QImage* platformRightUnsetImage;
+    QImage* platformRightSetImage;
 
 
 

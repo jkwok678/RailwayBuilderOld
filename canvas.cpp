@@ -148,6 +148,14 @@ Canvas::Canvas()
     namedLocationSetImage = new QImage(":/graphics/graphics/namedLocationSet.png");
     concourseUnsetImage = new QImage(":/graphics/graphics/concourseUnset.png");
     concourseSetImage = new QImage(":/graphics/graphics/concourseSet.png");
+    platformDownUnsetImage = new QImage(":/graphics/graphics/platformDownUnset.png");
+    platformDownSetImage = new QImage(":/graphics/graphics/platformDownSet.png");
+    platformUpUnsetImage = new QImage(":/graphics/graphics/platformUpUnset.png");
+    platformUpSetImage = new QImage(":/graphics/graphics/platformUpSet.png");
+    platformLeftUnsetImage = new QImage(":/graphics/graphics/platformLeftUnset.png");
+    platformLeftSetImage = new QImage(":/graphics/graphics/platformLeftSet.png");
+    platformRightUnsetImage = new QImage(":/graphics/graphics/platformRightUnset.png");
+    platformRightSetImage = new QImage(":/graphics/graphics/platformRightSet.png");
 
     setAutoFillBackground(true);
 	setPalette(pal);
@@ -931,12 +939,27 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             drawnLayout->addConcourse(concourse);
             break;
         }
-        case ElementType::PLATFORMLEFT:
+        case ElementType::PLATFORMUP:
         {
+            drawnLayout->addPlatform(Platform::UP,offsetX, offsetY,finalX, finalY);
 
         }
 
+        case ElementType::PLATFORMDOWN:
+        {
+            drawnLayout->addPlatform(Platform::DOWN,offsetX, offsetY,finalX, finalY);
 
+        }
+        case ElementType::PLATFORMLEFT:
+        {
+            drawnLayout->addPlatform(Platform::LEFT,offsetX, offsetY,finalX, finalY);
+
+        }
+        case ElementType::PLATFORMRIGHT:
+        {
+            drawnLayout->addPlatform(Platform::RIGHT,offsetX, offsetY,finalX, finalY);
+
+        }
 
 		}
         update();
@@ -960,10 +983,26 @@ void Canvas::paintEvent(QPaintEvent* event)
 
 			case ElementType::STRAIGHTH:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightHImage);
+                if (currentElement->getPlatformUp()) {
+
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
+                if (currentElement->getPlatformDown()) {
+
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
 				break;
 
 			case ElementType::STRAIGHTV:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightVImage);
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightVImage);
+                if (currentElement->getPlatformLeft()==true) {
+                    //std::cout <<  "platLeft " << std::boolalpha << currentElement->getPlatformLeft() << std::flush;
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
+                if (currentElement->getPlatformRight()==true) {
+                    //std::cout << " platRight " << std::boolalpha << currentElement->getPlatformRight() << std::flush;
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
 				break;
 
 			case ElementType::STRIAGHTRIGHTUP:
