@@ -814,14 +814,22 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
             {
                 if (currentX == locationX && currentY == locationY)
                 {
-
-                    if (currentElement->getElementType() == ElementType::STRAIGHTV && side == Platform::LEFT) {
-                        currentElement->setPlatformLeft(true);
-                        std::cout << std::boolalpha << currentElement->getPlatformLeft() << "hi  "  << std::flush;
-                    } else if (currentElement->getElementType() == ElementType::STRAIGHTV && side == Platform::RIGHT) {
-                        currentElement->setPlatformRight(true);
-                        std::cout << std::boolalpha << currentElement->getPlatformRight() << "hello  "  << std::flush;
+                    switch (side) {
+                    case Platform::UP:
+                        if (currentElement->getElementType()==ElementType::STRAIGHTH) {
+                            currentElement->setPlatformUp(true);
+                            std::cout << std::boolalpha << currentElement->getPlatformUp() << std::flush;
+                            std::cout << std::boolalpha << currentElement->getPlatformDown() << std::flush;
+                        }
+                        break;
+                    case Platform::DOWN:
+                        if (currentElement->getElementType()==ElementType::STRAIGHTH) {
+                            currentElement->setPlatformDown(true);
+                            std::cout << "hi " << std::boolalpha << currentElement->getPlatformDown()<< std::flush;
+                            break;
+                        }
                     }
+
 
                 }
             }
