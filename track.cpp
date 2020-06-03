@@ -19,10 +19,9 @@ StraightTrack::StraightTrack(ElementType newElementType, int newOffsetX, int new
 	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
-    platformLeft = false;
-    platformRight = false;
-    platformUp = false;
-    platformDown = false;
+    platform1 = false;
+    platform2 = false;
+
 }
 
 StraightTrack::~StraightTrack()
@@ -39,45 +38,27 @@ StraightTrack::~StraightTrack()
     */
 }
 
-bool StraightTrack::getPlatformLeft() const
+bool StraightTrack::getPlatform1() const
 {
-    return platformLeft;
+    return platform1;
 }
 
-void StraightTrack::setPlatformLeft(bool newPlatform)
+void StraightTrack::setPlatform1(bool newPlatform)
 {
-    platformLeft = newPlatform;
+    platform1 = newPlatform;
 }
 
-bool StraightTrack::getPlatformRight() const
+bool StraightTrack::getPlatform2() const
 {
-    return platformRight;
+    return platform2;
 }
 
-void StraightTrack::setPlatformRight(bool newPlatform)
+void StraightTrack::setPlatform2(bool newPlatform)
 {
-    platformRight = newPlatform;
+    platform2 = newPlatform;
 }
 
-bool StraightTrack::getPlatformUp() const
-{
-    return platformUp;
-}
 
-void StraightTrack::setPlatformUp(bool newPlatform)
-{
-    platformUp = newPlatform;
-}
-
-bool StraightTrack::getPlatformDown() const
-{
-    return platformDown;
-}
-
-void StraightTrack::setPlatformDown(bool newPlatform)
-{
-    platformDown = newPlatform;
-}
 
 DirectTrack::DirectTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
 {
@@ -86,10 +67,9 @@ DirectTrack::DirectTrack(ElementType newElementType, int newOffsetX, int newOffs
 	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
-    platformLeft = false;
-    platformRight = false;
-    platformUp = false;
-    platformDown = false;
+    platform1 = false;
+    platform2 = false;
+
 }
 
 
@@ -130,10 +110,8 @@ BufferTrack::BufferTrack(ElementType newElementType, int newOffsetX, int newOffs
 	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
-    platformLeft = false;
-    platformRight = false;
-    platformUp = false;
-    platformDown = false;
+    platform1 = false;
+    platform2 = false;
 
 }
 
@@ -145,10 +123,8 @@ SignalTrack::SignalTrack(ElementType newElementType, int newAspect, int newOffse
 	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
-    platformLeft = false;
-    platformRight = false;
-    platformUp = false;
-    platformDown = false;
+    platform1 = false;
+    platform2 = false;
 
 }
 
@@ -169,10 +145,8 @@ BridgeUnderpassTrack::BridgeUnderpassTrack(ElementType newElementType, int newOf
     offsetY = newOffsetY;
     locationX = newLocationX;
     locationY = newLocationY;
-    platformLeft = false;
-    platformRight = false;
-    platformUp = false;
-    platformDown = false;
+    platform1 = false;
+    platform2 = false;
 
 }
 

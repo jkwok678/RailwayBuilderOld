@@ -816,16 +816,27 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
                 {
                     switch (side) {
                     case Platform::UP:
-                        if (currentElement->getElementType()==ElementType::STRAIGHTH) {
-                            currentElement->setPlatformUp(true);
-                            std::cout << std::boolalpha << currentElement->getPlatformUp() << std::flush;
-                            std::cout << std::boolalpha << currentElement->getPlatformDown() << std::flush;
+                        if (currentElement->getElementType()==ElementType::STRAIGHTH && added == false) {
+                            currentElement->setPlatform1(true);
+                            added = true;
                         }
                         break;
                     case Platform::DOWN:
-                        if (currentElement->getElementType()==ElementType::STRAIGHTH) {
-                            currentElement->setPlatformDown(true);
-                            std::cout << "hi " << std::boolalpha << currentElement->getPlatformDown()<< std::flush;
+                        if (currentElement->getElementType()==ElementType::STRAIGHTH && added == false) {
+                            currentElement->setPlatform2(true);
+                            added = true;
+                            break;
+                        }
+                    case Platform::LEFT:
+                        if (currentElement->getElementType()==ElementType::STRAIGHTV && added == false) {
+                            currentElement->setPlatform1(true);
+                            added = true;
+                        }
+                        break;
+                    case Platform::RIGHT:
+                        if (currentElement->getElementType()==ElementType::STRAIGHTV && added == false) {
+                            currentElement->setPlatform2(true);
+                            added = true;
                             break;
                         }
                     }

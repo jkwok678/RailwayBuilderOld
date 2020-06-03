@@ -262,9 +262,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 		case ElementType::STRAIGHTV:
 		{
 			std::shared_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
-			std::cout << offsetX << std::flush;
-
-			drawnLayout->addStraightTrack(straightV);
+            drawnLayout->addStraightTrack(straightV);
 			break;
 		}
 		case ElementType::DIRECTLEFT:
@@ -617,7 +615,6 @@ void Canvas::mousePressEvent(QMouseEvent* event)
         {
             std::shared_ptr<BridgeUnderpassTrack> underpass1(new BridgeUnderpassTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
             drawnLayout->addBridgeUnderpassTrack(underpass1);
-            std::cout << "Hiii" << std::flush;
             break;
         }
         case ElementType::UNDERPASS2:
@@ -942,23 +939,23 @@ void Canvas::mousePressEvent(QMouseEvent* event)
         case ElementType::PLATFORMUP:
         {
             drawnLayout->addPlatform(Platform::UP,offsetX, offsetY,finalX, finalY);
-
+            break;
         }
 
         case ElementType::PLATFORMDOWN:
         {
             drawnLayout->addPlatform(Platform::DOWN,offsetX, offsetY,finalX, finalY);
-
+            break;
         }
         case ElementType::PLATFORMLEFT:
         {
             drawnLayout->addPlatform(Platform::LEFT,offsetX, offsetY,finalX, finalY);
-
+            break;
         }
         case ElementType::PLATFORMRIGHT:
         {
             drawnLayout->addPlatform(Platform::RIGHT,offsetX, offsetY,finalX, finalY);
-
+            break;
         }
 
 		}
@@ -983,11 +980,11 @@ void Canvas::paintEvent(QPaintEvent* event)
 
 			case ElementType::STRAIGHTH:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightHImage);
-                if (currentElement->getPlatformUp()) {
+                if (currentElement->getPlatform1()) {
 
                     painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
                 }
-                if (currentElement->getPlatformDown()) {
+                if (currentElement->getPlatform2()) {
 
                     painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
                 }
@@ -995,11 +992,11 @@ void Canvas::paintEvent(QPaintEvent* event)
 
 			case ElementType::STRAIGHTV:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightVImage);
-                if (currentElement->getPlatformLeft()==true) {
+                if (currentElement->getPlatform1()==true) {
                     //std::cout <<  "platLeft " << std::boolalpha << currentElement->getPlatformLeft() << std::flush;
                     painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
                 }
-                if (currentElement->getPlatformRight()==true) {
+                if (currentElement->getPlatform2()==true) {
                     //std::cout << " platRight " << std::boolalpha << currentElement->getPlatformRight() << std::flush;
                     painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
                 }
