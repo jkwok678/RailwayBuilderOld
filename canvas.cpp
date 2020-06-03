@@ -1279,6 +1279,13 @@ void Canvas::paintEvent(QPaintEvent* event)
 				{
 					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalLeftImage);
 				}
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
+
 				break;
 
 			case ElementType::SIGNALRIGHT:
@@ -1289,7 +1296,14 @@ void Canvas::paintEvent(QPaintEvent* event)
 				else
 				{
 					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalRightImage);
-				}break;
+                }
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
+                break;
 			case ElementType::SIGNALDOWN:
 				if (currentElement->getAspect() == 1)
 				{
@@ -1298,7 +1312,14 @@ void Canvas::paintEvent(QPaintEvent* event)
 				else
 				{
 					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalDownImage);
-				}break;
+                }
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
+                break;
 
 			case ElementType::SIGNALUP:
 				if (currentElement->getAspect() == 1)
@@ -1308,7 +1329,14 @@ void Canvas::paintEvent(QPaintEvent* event)
 				else
 				{
 					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalUpImage);
-				}break;
+                }
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
+                break;
 
 			case ElementType::SIGNALLEFTUP:
 				if (currentElement->getAspect() == 1)

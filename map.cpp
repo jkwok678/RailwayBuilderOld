@@ -953,11 +953,119 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
             }
         }
     }
-
-
     if (!signalTrackList.empty() && added == false)
     {
         for (std::shared_ptr<SignalTrack>& currentElement : signalTrackList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    switch  (side){
+                    case Platform::LEFT:
+                        if (currentElement->getElementType()==ElementType::SIGNALUP) {
+                            currentElement->setPlatform1(true);
+                        } else if (currentElement->getElementType()==ElementType::SIGNALDOWN) {
+                            currentElement->setPlatform1(true);
+                        }
+                        added = true;
+                        break;
+                    case Platform::RIGHT:
+                        if (currentElement->getElementType()==ElementType::SIGNALUP) {
+                            currentElement->setPlatform2(true);
+                        } else if (currentElement->getElementType()==ElementType::SIGNALDOWN) {
+                            currentElement->setPlatform2(true);
+                        }
+                        added = true;
+                        break;
+                    case Platform::UP:
+                        if (currentElement->getElementType()==ElementType::SIGNALLEFT) {
+                            currentElement->setPlatform1(true);
+                        } else if (currentElement->getElementType()==ElementType::SIGNALRIGHT) {
+                            currentElement->setPlatform1(true);
+                        }
+                        added = true;
+                        break;
+                    case Platform::DOWN:
+                        if (currentElement->getElementType()==ElementType::SIGNALLEFT) {
+                            currentElement->setPlatform2(true);
+                        } else if (currentElement->getElementType()==ElementType::SIGNALRIGHT) {
+                            currentElement->setPlatform2(true);
+                        }
+                        added = true;
+                        break;
+                    default:
+                        added = false;
+                    }
+
+
+                }
+            }
+        }
+    }
+
+
+
+    if (!bridgeUnderpassTrackList.empty() && added == false)
+    {
+        for (std::shared_ptr<BridgeUnderpassTrack>& currentElement : bridgeUnderpassTrackList) {
+            int currentOffsetX = currentElement->getOffsetX();
+            int currentOffsetY = currentElement->getOffsetY();
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentOffsetX == offsetX && currentOffsetY == offsetY)
+            {
+                if (currentX == locationX && currentY == locationY)
+                {
+                    switch  (side){
+                    case Platform::LEFT:
+                        if (currentElement->getElementType()==ElementType::BUFFERUP) {
+                            currentElement->setPlatform1(true);
+                        } else if (currentElement->getElementType()==ElementType::BUFFERDOWN) {
+                            currentElement->setPlatform1(true);
+                        }
+                        added = true;
+                        break;
+                    case Platform::RIGHT:
+                        if (currentElement->getElementType()==ElementType::BUFFERUP) {
+                            currentElement->setPlatform2(true);
+                        } else if (currentElement->getElementType()==ElementType::BUFFERDOWN) {
+                            currentElement->setPlatform2(true);
+                        }
+                        added = true;
+                        break;
+                    case Platform::UP:
+                        if (currentElement->getElementType()==ElementType::BUFFERLEFT) {
+                            currentElement->setPlatform1(true);
+                        } else if (currentElement->getElementType()==ElementType::BUFFERRIGHT) {
+                            currentElement->setPlatform1(true);
+                        }
+                        added = true;
+                        break;
+                    case Platform::DOWN:
+                        if (currentElement->getElementType()==ElementType::BUFFERLEFT) {
+                            currentElement->setPlatform2(true);
+                        } else if (currentElement->getElementType()==ElementType::BUFFERRIGHT) {
+                            currentElement->setPlatform2(true);
+                        }
+                        added = true;
+                        break;
+                    default:
+                        added = false;
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    /*if (!switchTrackList.empty() && added == false)
+    {
+        for (std::shared_ptr<SwitchTrack>& currentElement : switchTrackList) {
             int currentOffsetX = currentElement->getOffsetX();
             int currentOffsetY = currentElement->getOffsetY();
             int currentX = currentElement->getLocationX();
@@ -973,7 +1081,7 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
                         case ElementType:: SWITCH1:
                         case ElementType:: SWITCH2:
                             if (side==Platform::DOWN){
-
+                                currentElement->setPlatform2(true);
                                 added = true;
                             }
                             break;
@@ -982,7 +1090,7 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
                         case ElementType:: SWITCH3:
                         case ElementType:: SWITCH4:
                             if (side==Platform::UP) {
-
+                                currentElement->setPlatform1(true);
                                 added= true;
                             }
                             break;
@@ -991,7 +1099,7 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
                         case ElementType:: SWITCH5:
                         case ElementType:: SWITCH7:
                             if (side==Platform::RIGHT) {
-
+                                currentElement->setPlatform2(true);
                                 added= true;
                             }
                             break;
@@ -1000,7 +1108,7 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
                         case ElementType:: SWITCH6:
                         case ElementType:: SWITCH8:
                             if (side==Platform::LEFT) {
-
+                                currentElement->setPlatform1(true);
                                 added= true;
                             }
                             break;
@@ -1012,6 +1120,7 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
             }
         }
     }
+    */
 
 }
 
