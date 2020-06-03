@@ -38,22 +38,22 @@ StraightTrack::~StraightTrack()
     */
 }
 
-bool StraightTrack::getPlatform1() const
+bool Track::getPlatform1() const
 {
     return platform1;
 }
 
-void StraightTrack::setPlatform1(bool newPlatform)
+void Track::setPlatform1(bool newPlatform)
 {
     platform1 = newPlatform;
 }
 
-bool StraightTrack::getPlatform2() const
+bool Track::getPlatform2() const
 {
     return platform2;
 }
 
-void StraightTrack::setPlatform2(bool newPlatform)
+void Track::setPlatform2(bool newPlatform)
 {
     platform2 = newPlatform;
 }
@@ -157,6 +157,8 @@ SwitchTrack::SwitchTrack(ElementType newElementType, int newOffsetX, int newOffs
     offsetY = newOffsetY;
     locationX = newLocationX;
     locationY = newLocationY;
+    platform1 = false;
+    platform2 = false;
 
 }
 

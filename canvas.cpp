@@ -1391,17 +1391,41 @@ void Canvas::paintEvent(QPaintEvent* event)
             switch (currentElement->getElementType()) {
             case ElementType::BRIDGE1:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bridgeUnset1Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
                 break;
 
             case ElementType::BRIDGE2:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bridgeUnset2Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
                 break;
             case ElementType::UNDERPASS1:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *underpassUnset1Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
                 break;
 
             case ElementType::UNDERPASS2:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *underpassUnset2Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
                 break;
             }
         }
@@ -1414,72 +1438,122 @@ void Canvas::paintEvent(QPaintEvent* event)
             switch (currentElement->getElementType()) {
             case ElementType::SWITCHTIGHT1:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight1Image);
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCHTIGHT2:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight2Image);
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
                 break;
             case ElementType::SWITCHTIGHT3:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight3Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCHTIGHT4:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight4Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCHTIGHT5:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight5Image);
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCHTIGHT6:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight6Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
                 break;
             case ElementType::SWITCHTIGHT7:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight7Image);
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCHTIGHT8:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight8Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCHSPLIT1:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit1Image);
+
                 break;
 
             case ElementType::SWITCHSPLIT2:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit2Image);
+
                 break;
             case ElementType::SWITCHSPLIT3:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit3Image);
                 break;
             case ElementType::SWITCH1:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch1Image);
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCH2:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch2Image);
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
                 break;
             case ElementType::SWITCH3:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch3Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCH4:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch4Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCH5:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch5Image);
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCH6:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch6Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
                 break;
             case ElementType::SWITCH7:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch7Image);
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
                 break;
 
             case ElementType::SWITCH8:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch8Image);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
                 break;
             case ElementType::SWITCHSPLIT4:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit4Image);

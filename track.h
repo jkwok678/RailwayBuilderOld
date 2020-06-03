@@ -17,11 +17,18 @@ protected:
 	int trackSpeed{ 200 };
 	int trackLength{ 100 };
 	bool trackLinks[9];
+    bool platform1;
+    bool platform2;
+
 
 
 
 public:
 	Track();
+    bool getPlatform1() const;
+    void setPlatform1(bool newPlatform);
+    bool getPlatform2() const;
+    void setPlatform2(bool newPlatform);
 };
 
 class StraightTrack : public Track
@@ -33,8 +40,6 @@ private:
 protected:
     //For vertical tracks, platform1 is left, platform2 is right
     //For Horizontal tracks platform1 is up, platform2 is down
-    bool platform1;
-    bool platform2;
 
 
 
@@ -42,10 +47,7 @@ public:
     StraightTrack();
 	StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 	~StraightTrack();
-    bool getPlatform1() const;
-    void setPlatform1(bool newPlatform);
-    bool getPlatform2() const;
-    void setPlatform2(bool newPlatform);
+
 
 
 };
