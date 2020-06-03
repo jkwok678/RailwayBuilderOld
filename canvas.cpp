@@ -981,23 +981,19 @@ void Canvas::paintEvent(QPaintEvent* event)
 			case ElementType::STRAIGHTH:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightHImage);
                 if (currentElement->getPlatform1()) {
-
                     painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
                 }
                 if (currentElement->getPlatform2()) {
-
                     painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
                 }
 				break;
 
 			case ElementType::STRAIGHTV:
                 painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightVImage);
-                if (currentElement->getPlatform1()==true) {
-                    //std::cout <<  "platLeft " << std::boolalpha << currentElement->getPlatformLeft() << std::flush;
+                if (currentElement->getPlatform1()==true) {   
                     painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
                 }
                 if (currentElement->getPlatform2()==true) {
-                    //std::cout << " platRight " << std::boolalpha << currentElement->getPlatformRight() << std::flush;
                     painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
                 }
 				break;
@@ -1023,16 +1019,40 @@ void Canvas::paintEvent(QPaintEvent* event)
 			switch (currentElement->getElementType()) {
 			case ElementType::DIRECTLEFT:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directLeftImage);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
 				break;
 
 			case ElementType::DIRECTRIGHT:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directRightImage);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
 				break;
 			case ElementType::DIRECTUP:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directUpImage);
+                if (currentElement->getPlatform1()==true) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
+                if (currentElement->getPlatform2()==true) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
 				break;
 			case ElementType::DIRECTDOWN:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directDownImage);
+                if (currentElement->getPlatform1()==true) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
+                if (currentElement->getPlatform2()==true) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
 				break;
 			case ElementType::DIRECTRIGHTUP:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directRightUpImage);

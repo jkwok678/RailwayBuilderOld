@@ -816,25 +816,25 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
                 {
                     switch (side) {
                     case Platform::UP:
-                        if (currentElement->getElementType()==ElementType::STRAIGHTH && added == false) {
+                        if (currentElement->getElementType()==ElementType::STRAIGHTH) {
                             currentElement->setPlatform1(true);
                             added = true;
                         }
                         break;
                     case Platform::DOWN:
-                        if (currentElement->getElementType()==ElementType::STRAIGHTH && added == false) {
+                        if (currentElement->getElementType()==ElementType::STRAIGHTH) {
                             currentElement->setPlatform2(true);
                             added = true;
                             break;
                         }
                     case Platform::LEFT:
-                        if (currentElement->getElementType()==ElementType::STRAIGHTV && added == false) {
+                        if (currentElement->getElementType()==ElementType::STRAIGHTV) {
                             currentElement->setPlatform1(true);
                             added = true;
                         }
                         break;
                     case Platform::RIGHT:
-                        if (currentElement->getElementType()==ElementType::STRAIGHTV && added == false) {
+                        if (currentElement->getElementType()==ElementType::STRAIGHTV) {
                             currentElement->setPlatform2(true);
                             added = true;
                             break;
@@ -859,17 +859,37 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
                 {
                     switch  (side){
                     case Platform::LEFT:
-
+                        if (currentElement->getElementType()==ElementType::DIRECTUP) {
+                            currentElement->setPlatform1(true);
+                        } else if (currentElement->getElementType()==ElementType::DIRECTDOWN) {
+                            currentElement->setPlatform1(true);
+                        }
                         added = true;
+                        break;
                     case Platform::RIGHT:
-
+                        if (currentElement->getElementType()==ElementType::DIRECTUP) {
+                            currentElement->setPlatform2(true);
+                        } else if (currentElement->getElementType()==ElementType::DIRECTDOWN) {
+                            currentElement->setPlatform2(true);
+                        }
                         added = true;
+                        break;
                     case Platform::UP:
-
+                        if (currentElement->getElementType()==ElementType::DIRECTLEFT) {
+                            currentElement->setPlatform1(true);
+                        } else if (currentElement->getElementType()==ElementType::DIRECTRIGHT) {
+                            currentElement->setPlatform1(true);
+                        }
                         added = true;
+                        break;
                     case Platform::DOWN:
-
+                        if (currentElement->getElementType()==ElementType::DIRECTLEFT) {
+                            currentElement->setPlatform2(true);
+                        } else if (currentElement->getElementType()==ElementType::DIRECTRIGHT) {
+                            currentElement->setPlatform2(true);
+                        }
                         added = true;
+                        break;
                     default:
                         added = false;
                     }
