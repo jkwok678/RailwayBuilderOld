@@ -913,17 +913,37 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
                 {
                     switch  (side){
                     case Platform::LEFT:
-
+                        if (currentElement->getElementType()==ElementType::BUFFERUP) {
+                            currentElement->setPlatform1(true);
+                        } else if (currentElement->getElementType()==ElementType::BUFFERDOWN) {
+                            currentElement->setPlatform1(true);
+                        }
                         added = true;
+                        break;
                     case Platform::RIGHT:
-
+                        if (currentElement->getElementType()==ElementType::BUFFERUP) {
+                            currentElement->setPlatform2(true);
+                        } else if (currentElement->getElementType()==ElementType::BUFFERDOWN) {
+                            currentElement->setPlatform2(true);
+                        }
                         added = true;
+                        break;
                     case Platform::UP:
-
+                        if (currentElement->getElementType()==ElementType::BUFFERLEFT) {
+                            currentElement->setPlatform1(true);
+                        } else if (currentElement->getElementType()==ElementType::BUFFERRIGHT) {
+                            currentElement->setPlatform1(true);
+                        }
                         added = true;
+                        break;
                     case Platform::DOWN:
-
+                        if (currentElement->getElementType()==ElementType::BUFFERLEFT) {
+                            currentElement->setPlatform2(true);
+                        } else if (currentElement->getElementType()==ElementType::BUFFERRIGHT) {
+                            currentElement->setPlatform2(true);
+                        }
                         added = true;
+                        break;
                     default:
                         added = false;
                     }

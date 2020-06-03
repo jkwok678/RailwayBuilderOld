@@ -1122,7 +1122,7 @@ void Canvas::paintEvent(QPaintEvent* event)
 
 		}
 	}
-	for (auto& currentElement : drawnLayout->getLinkedTrackList()) {
+    for (std::shared_ptr<LinkedTrack> currentElement : drawnLayout->getLinkedTrackList()) {
 
 		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
 			switch (currentElement->getElementType()) {
@@ -1162,7 +1162,7 @@ void Canvas::paintEvent(QPaintEvent* event)
 
 		}
 	}
-	for (auto& currentElement : drawnLayout->getExitTrackList()) {
+    for (std::shared_ptr<ExitTrack> currentElement : drawnLayout->getExitTrackList()) {
 
 		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
 			switch (currentElement->getElementType()) {
@@ -1204,23 +1204,47 @@ void Canvas::paintEvent(QPaintEvent* event)
 
 	}
 
-	for (auto& currentElement : drawnLayout->getBufferTrackList()) {
+    for (std::shared_ptr<BufferTrack> currentElement : drawnLayout->getBufferTrackList()) {
 
 		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
 			switch (currentElement->getElementType()) {
 			case ElementType::BUFFERLEFT:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferLeftImage);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
 				break;
 
 			case ElementType::BUFFERRIGHT:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferRightImage);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
+                }
 				break;
 			case ElementType::BUFFERDOWN:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferDownImage);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
 				break;
 
 			case ElementType::BUFFERUP:
 				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferUpImage);
+                if (currentElement->getPlatform1()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
+                }
+                if (currentElement->getPlatform2()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
 				break;
 
 			case ElementType::BUFFERLEFTUP:
@@ -1241,7 +1265,7 @@ void Canvas::paintEvent(QPaintEvent* event)
 		}
 	}
 
-	for (auto& currentElement : drawnLayout->getSignalTrackList()) {
+    for (std::shared_ptr<SignalTrack> currentElement : drawnLayout->getSignalTrackList()) {
 
 		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
 
@@ -1332,7 +1356,7 @@ void Canvas::paintEvent(QPaintEvent* event)
 		}
 
 	}
-    for (auto& currentElement : drawnLayout->getBridgeUnderpassTrackList()) {
+    for (std::shared_ptr<BridgeUnderpassTrack> currentElement : drawnLayout->getBridgeUnderpassTrackList()) {
 
         if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
 
@@ -1355,7 +1379,7 @@ void Canvas::paintEvent(QPaintEvent* event)
         }
     }
 
-    for (auto& currentElement : drawnLayout->getSwitchTrackList()) {
+    for (std::shared_ptr<SwitchTrack> currentElement : drawnLayout->getSwitchTrackList()) {
 
         if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
 
@@ -1479,7 +1503,7 @@ void Canvas::paintEvent(QPaintEvent* event)
         }
     }
 
-    for (auto& currentElement : drawnLayout->getCrossoverTrackList()) {
+    for (std::shared_ptr<CrossoverTrack> currentElement : drawnLayout->getCrossoverTrackList()) {
 
         if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
             switch (currentElement->getElementType()) {
@@ -1505,7 +1529,7 @@ void Canvas::paintEvent(QPaintEvent* event)
         }
     }
 
-    for (auto& currentElement : drawnLayout->getFlyoverTrackList()) {
+    for (std::shared_ptr<FlyoverTrack> currentElement : drawnLayout->getFlyoverTrackList()) {
 
         if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
             switch (currentElement->getElementType()) {
