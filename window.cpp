@@ -227,14 +227,13 @@ void Window::createElementMenu()
     createElementBlock2();
     createElementBlock3();
     createElementBlock4();
-
-    //createElementBlock5();
+    createElementBlock5();
 
     elementMenuLayout->addLayout(elementBlock1);
     elementMenuLayout->addLayout(elementBlock2);
     elementMenuLayout->addLayout(elementBlock3);
     elementMenuLayout->addLayout(elementBlock4);
-    //elementMenuLayout->addLayout(elementBlock5);
+    elementMenuLayout->addLayout(elementBlock5);
 
     elementMenu->setLayout(elementMenuLayout);
     overallMenuLayout->addWidget(elementMenu);
@@ -2446,6 +2445,104 @@ void Window::createElementBlock4()
     platformRightIcon = new QIcon(":/graphics/graphics/platformRightSet.png");
     platformRightButton->setIcon(*platformRightIcon);
     elementBlock4->addWidget(platformRightButton,2,1);
+}
+
+void Window::createElementBlock5()
+{
+    elementBlock5= new QGridLayout;
+    elementBlock5->setContentsMargins(1, 1, 1, 1);
+    elementBlock5->setHorizontalSpacing(1);
+    elementBlock5->setVerticalSpacing(1);
+
+    parapet1Button = new QToolButton();
+    parapet1Button->setMaximumSize(QSize(32, 32));
+    chooseParapet1Act = new QAction();
+    parapet1Button->setDefaultAction(chooseParapet1Act);
+    connect(chooseParapet1Act, &QAction::triggered, this, &Window::chooseParapet1);
+    parapet1Icon = new QIcon(":/graphics/graphics/parapet1.png");
+    parapet1Button->setIcon(*parapet1Icon);
+    elementBlock5->addWidget(parapet1Button, 0, 0);
+
+    parapet2Button = new QToolButton();
+    parapet2Button->setMaximumSize(QSize(32, 32));
+    chooseParapet2Act = new QAction();
+    parapet2Button->setDefaultAction(chooseParapet2Act);
+    connect(chooseParapet2Act, &QAction::triggered, this, &Window::chooseParapet2);
+    parapet2Icon = new QIcon(":/graphics/graphics/parapet2.png");
+    parapet2Button->setIcon(*parapet2Icon);
+    elementBlock5->addWidget(parapet2Button, 0, 1);
+
+    parapet3Button = new QToolButton();
+    parapet3Button->setMaximumSize(QSize(32, 32));
+    chooseParapet3Act = new QAction();
+    parapet3Button->setDefaultAction(chooseParapet3Act);
+    connect(chooseParapet3Act, &QAction::triggered, this, &Window::chooseParapet3);
+    parapet3Icon = new QIcon(":/graphics/graphics/parapet3.png");
+    parapet3Button->setIcon(*parapet3Icon);
+    elementBlock5->addWidget(parapet3Button, 0, 2);
+
+    parapet4Button = new QToolButton();
+    parapet4Button->setMaximumSize(QSize(32, 32));
+    chooseParapet4Act = new QAction();
+    parapet4Button->setDefaultAction(chooseParapet4Act);
+    connect(chooseParapet4Act, &QAction::triggered, this, &Window::chooseParapet4);
+    parapet4Icon = new QIcon(":/graphics/graphics/parapet4.png");
+    parapet4Button->setIcon(*parapet4Icon);
+    elementBlock5->addWidget(parapet4Button, 0, 4);
+
+    parapet5Button = new QToolButton();
+    parapet5Button->setMaximumSize(QSize(32, 32));
+    chooseParapet5Act = new QAction();
+    parapet5Button->setDefaultAction(chooseParapet5Act);
+    connect(chooseParapet5Act, &QAction::triggered, this, &Window::chooseParapet5);
+    parapet5Icon = new QIcon(":/graphics/graphics/parapet5.png");
+    parapet5Button->setIcon(*parapet5Icon);
+    elementBlock5->addWidget(parapet5Button, 0, 5);
+
+    parapet6Button = new QToolButton();
+    parapet6Button->setMaximumSize(QSize(32, 32));
+    chooseParapet6Act = new QAction();
+    parapet6Button->setDefaultAction(chooseParapet6Act);
+    connect(chooseParapet6Act, &QAction::triggered, this, &Window::chooseParapet6);
+    parapet6Icon = new QIcon(":/graphics/graphics/parapet6.png");
+    parapet6Button->setIcon(*parapet6Icon);
+    elementBlock5->addWidget(parapet6Button, 0, 6);
+
+    parapet7Button = new QToolButton();
+    parapet7Button->setMaximumSize(QSize(32, 32));
+    chooseParapet7Act = new QAction();
+    parapet7Button->setDefaultAction(chooseParapet7Act);
+    connect(chooseParapet7Act, &QAction::triggered, this, &Window::chooseParapet7);
+    parapet7Icon = new QIcon(":/graphics/graphics/parapet7.png");
+    parapet7Button->setIcon(*parapet7Icon);
+    elementBlock5->addWidget(parapet7Button, 0, 7);
+
+    parapet8Button = new QToolButton();
+    parapet8Button->setMaximumSize(QSize(32, 32));
+    chooseParapet8Act = new QAction();
+    parapet8Button->setDefaultAction(chooseParapet8Act);
+    connect(chooseParapet8Act, &QAction::triggered, this, &Window::chooseParapet8);
+    parapet8Icon = new QIcon(":/graphics/graphics/parapet8.png");
+    parapet8Button->setIcon(*parapet8Icon);
+    elementBlock5->addWidget(parapet8Button, 0, 8);
+
+    parapet9Button = new QToolButton();
+    parapet9Button->setMaximumSize(QSize(32, 32));
+    chooseParapet9Act = new QAction();
+    parapet9Button->setDefaultAction(chooseParapet9Act);
+    connect(chooseParapet9Act, &QAction::triggered, this, &Window::chooseParapet9);
+    parapet9Icon = new QIcon(":/graphics/graphics/parapet9.png");
+    parapet9Button->setIcon(*parapet9Icon);
+    elementBlock5->addWidget(parapet9Button, 0, 9);
+
+    parapet10Button = new QToolButton();
+    parapet10Button->setMaximumSize(QSize(32, 32));
+    chooseParapet10Act = new QAction();
+    parapet10Button->setDefaultAction(chooseParapet10Act);
+    connect(chooseParapet10Act, &QAction::triggered, this, &Window::chooseParapet10);
+    parapet10Icon = new QIcon(":/graphics/graphics/parapet10.png");
+    parapet10Button->setIcon(*parapet10Icon);
+    elementBlock5->addWidget(parapet10Button, 0, 10);
 }
 
 void Window::createRightMenu()
