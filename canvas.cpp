@@ -178,6 +178,14 @@ Canvas::Canvas()
     parapet18Image = new QImage(":/graphics/graphics/parapet18.png");
     parapet19Image = new QImage(":/graphics/graphics/parapet19.png");
     parapet20Image = new QImage(":/graphics/graphics/parapet20.png");
+    parapet21Image = new QImage(":/graphics/graphics/parapet21.png");
+    parapet22Image = new QImage(":/graphics/graphics/parapet22.png");
+    parapet23Image = new QImage(":/graphics/graphics/parapet23.png");
+    parapet24Image = new QImage(":/graphics/graphics/parapet24.png");
+    parapet25Image = new QImage(":/graphics/graphics/parapet25.png");
+    parapet26Image = new QImage(":/graphics/graphics/parapet26.png");
+    parapet27Image = new QImage(":/graphics/graphics/parapet27.png");
+    parapet28Image = new QImage(":/graphics/graphics/parapet28.png");
 
     setAutoFillBackground(true);
 	setPalette(pal);

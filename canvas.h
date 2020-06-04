@@ -232,6 +232,14 @@ private:
     QImage* parapet18Image;
     QImage* parapet19Image;
     QImage* parapet20Image;
+    QImage* parapet21Image;
+    QImage* parapet22Image;
+    QImage* parapet23Image;
+    QImage* parapet24Image;
+    QImage* parapet25Image;
+    QImage* parapet26Image;
+    QImage* parapet27Image;
+    QImage* parapet28Image;
 
 
 };
