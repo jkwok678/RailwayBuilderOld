@@ -153,6 +153,34 @@
         <file>graphics/platformLeftSet.png</file>
         <file>graphics/platformDownUnset.png</file>
         <file>graphics/platformDownSet.png</file>
+        <file>graphics/parapet28.png</file>
+        <file>graphics/parapet27.png</file>
+        <file>graphics/parapet26.png</file>
+        <file>graphics/parapet25.png</file>
+        <file>graphics/parapet24.png</file>
+        <file>graphics/parapet23.png</file>
+        <file>graphics/parapet22.png</file>
+        <file>graphics/parapet21.png</file>
+        <file>graphics/parapet20.png</file>
+        <file>graphics/parapet19.png</file>
+        <file>graphics/parapet18.png</file>
+        <file>graphics/parapet17.png</file>
+        <file>graphics/parapet16.png</file>
+        <file>graphics/parapet15.png</file>
+        <file>graphics/parapet14.png</file>
+        <file>graphics/parapet13.png</file>
+        <file>graphics/parapet12.png</file>
+        <file>graphics/parapet11.png</file>
+        <file>graphics/parapet10.png</file>
+        <file>graphics/parapet9.png</file>
+        <file>graphics/parapet8.png</file>
+        <file>graphics/parapet7.png</file>
+        <file>graphics/parapet6.png</file>
+        <file>graphics/parapet5.png</file>
+        <file>graphics/parapet4.png</file>
+        <file>graphics/parapet3.png</file>
+        <file>graphics/parapet2.png</file>
+        <file>graphics/parapet1.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>
