@@ -1346,8 +1346,8 @@ void Window::chooseParapet9()
 
 void Window::chooseParapet10()
 {
-    if (windowChosen != ElementType::PARARPET10)
-        windowChosen = ElementType::PARARPET10;
+    if (windowChosen != ElementType::PARAPET10)
+        windowChosen = ElementType::PARAPET10;
     else
         windowChosen = ElementType::NONE;
 

@@ -211,6 +211,17 @@ private:
     QImage* platformRightUnsetImage;
     QImage* platformRightSetImage;
 
+    //ElementBlock5Images;
+    QImage* parapet1Image;
+    QImage* parapet2Image;
+    QImage* parapet3Image;
+    QImage* parapet4Image;
+    QImage* parapet5Image;
+    QImage* parapet6Image;
+    QImage* parapet7Image;
+    QImage* parapet8Image;
+    QImage* parapet9Image;
+    QImage* parapet10Image;
 
 
 };

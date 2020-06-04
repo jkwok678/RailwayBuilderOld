@@ -157,6 +157,18 @@ Canvas::Canvas()
     platformRightUnsetImage = new QImage(":/graphics/graphics/platformRightUnset.png");
     platformRightSetImage = new QImage(":/graphics/graphics/platformRightSet.png");
 
+    //ElementBlock5 images
+    parapet1Image = new QImage(":/graphics/graphics/parapet1.png");
+    parapet2Image = new QImage(":/graphics/graphics/parapet2.png");
+    parapet3Image = new QImage(":/graphics/graphics/parapet3.png");
+    parapet4Image = new QImage(":/graphics/graphics/parapet4.png");
+    parapet5Image = new QImage(":/graphics/graphics/parapet5.png");
+    parapet6Image = new QImage(":/graphics/graphics/parapet6.png");
+    parapet7Image = new QImage(":/graphics/graphics/parapet7.png");
+    parapet8Image = new QImage(":/graphics/graphics/parapet8.png");
+    parapet9Image = new QImage(":/graphics/graphics/parapet9.png");
+    parapet10Image = new QImage(":/graphics/graphics/parapet10.png");
+
     setAutoFillBackground(true);
 	setPalette(pal);
 }
@@ -249,7 +261,6 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 		switch (*canvasChosen) {
 		case ElementType::NONE:
 		{
-
 
 			break;
 		}
@@ -955,6 +966,66 @@ void Canvas::mousePressEvent(QMouseEvent* event)
         case ElementType::PLATFORMRIGHT:
         {
             drawnLayout->addPlatform(Platform::RIGHT,offsetX, offsetY,finalX, finalY);
+            break;
+        }
+        case ElementType::PARAPET1:
+        {
+            std::shared_ptr<Parapet> parapet1(new Parapet(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addParapet(parapet1);
+            break;
+        }
+        case ElementType::PARAPET2:
+        {
+            std::shared_ptr<Parapet> parapet2(new Parapet(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addParapet(parapet2);
+            break;
+        }
+        case ElementType::PARAPET3:
+        {
+            std::shared_ptr<Parapet> parapet3(new Parapet(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addParapet(parapet3);
+            break;
+        }
+        case ElementType::PARAPET4:
+        {
+            std::shared_ptr<Parapet> parapet4(new Parapet(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addParapet(parapet4);
+            break;
+        }
+        case ElementType::PARAPET5:
+        {
+            std::shared_ptr<Parapet> parapet5(new Parapet(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addParapet(parapet5);
+            break;
+        }
+        case ElementType::PARAPET6:
+        {
+            std::shared_ptr<Parapet> parapet6(new Parapet(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addParapet(parapet6);
+            break;
+        }
+        case ElementType::PARAPET7:
+        {
+            std::shared_ptr<Parapet> parapet7(new Parapet(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addParapet(parapet7);
+            break;
+        }
+        case ElementType::PARAPET8:
+        {
+            std::shared_ptr<Parapet> parapet8(new Parapet(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addParapet(parapet8);
+            break;
+        }
+        case ElementType::PARAPET9:
+        {
+            std::shared_ptr<Parapet> parapet9(new Parapet(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addParapet(parapet9);
+            break;
+        }
+        case ElementType::PARAPET10:
+        {
+            std::shared_ptr<Parapet> parapet10(new Parapet(*canvasChosen, offsetX, offsetY, finalX, finalY));
+            drawnLayout->addParapet(parapet10);
             break;
         }
 
@@ -1702,6 +1773,45 @@ void Canvas::paintEvent(QPaintEvent* event)
 
 
 
+        }
+
+    }
+
+    for (std::shared_ptr<Parapet> currentElement : drawnLayout->getParapetList()) {
+
+        if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
+            switch (currentElement->getElementType()) {
+            case ElementType::PARAPET1:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet1Image);
+                break;
+            case ElementType::PARAPET2:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet2Image);
+                break;
+            case ElementType::PARAPET3:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet3Image);
+                break;
+            case ElementType::PARAPET4:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet4Image);
+                break;
+            case ElementType::PARAPET5:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet5Image);
+                break;
+            case ElementType::PARAPET6:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet6Image);
+                break;
+            case ElementType::PARAPET7:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet7Image);
+                break;
+            case ElementType::PARAPET8:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet8Image);
+                break;
+            case ElementType::PARAPET9:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet9Image);
+                break;
+            case ElementType::PARAPET10:
+                painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet10Image);
+                break;
+            }
         }
 
     }
