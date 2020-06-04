@@ -177,6 +177,17 @@ private slots:
     void chooseParapet9();
     void chooseParapet10();
 
+    void chooseParapet11();
+    void chooseParapet12();
+    void chooseParapet13();
+    void chooseParapet14();
+    void chooseParapet15();
+    void chooseParapet16();
+    void chooseParapet17();
+    void chooseParapet18();
+    void chooseParapet19();
+    void chooseParapet20();
+
 
 private:
 
@@ -889,6 +900,58 @@ private:
     QToolButton* parapet10Button;
     QAction* chooseParapet10Act;
     QIcon* parapet10Icon;
+
+    //Parapet11Button
+    QToolButton* parapet11Button;
+    QAction* chooseParapet11Act;
+    QIcon* parapet11Icon;
+
+    //Parapet12Button
+    QToolButton* parapet12Button;
+    QAction* chooseParapet12Act;
+    QIcon* parapet12Icon;
+
+    //Parapet13Button
+    QToolButton* parapet13Button;
+    QAction* chooseParapet13Act;
+    QIcon* parapet13Icon;
+
+    //Parapet14Button
+    QToolButton* parapet14Button;
+    QAction* chooseParapet14Act;
+    QIcon* parapet14Icon;
+
+    //Parapet15Button
+    QToolButton* parapet15Button;
+    QAction* chooseParapet15Act;
+    QIcon* parapet15Icon;
+
+    //Parapet16Button
+    QToolButton* parapet16Button;
+    QAction* chooseParapet16Act;
+    QIcon* parapet16Icon;
+
+    //Parapet17Button
+    QToolButton* parapet17Button;
+    QAction* chooseParapet17Act;
+    QIcon* parapet17Icon;
+
+    //Parapet18Button
+    QToolButton* parapet18Button;
+    QAction* chooseParapet18Act;
+    QIcon* parapet18Icon;
+
+    //Parapet19Button
+    QToolButton* parapet19Button;
+    QAction* chooseParapet19Act;
+    QIcon* parapet19Icon;
+
+    //Parapet20Button
+    QToolButton* parapet20Button;
+    QAction* chooseParapet20Act;
+    QIcon* parapet20Icon;
+
+
 
 
 	void createRightMenu();

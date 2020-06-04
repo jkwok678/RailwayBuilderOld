@@ -1353,6 +1353,96 @@ void Window::chooseParapet10()
 
 }
 
+void Window::chooseParapet11()
+{
+    if (windowChosen != ElementType::PARAPET11)
+        windowChosen = ElementType::PARAPET11;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseParapet12()
+{
+    if (windowChosen != ElementType::PARAPET12)
+        windowChosen = ElementType::PARAPET12;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseParapet13()
+{
+    if (windowChosen != ElementType::PARAPET13)
+        windowChosen = ElementType::PARAPET13;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseParapet14()
+{
+    if (windowChosen != ElementType::PARAPET14)
+        windowChosen = ElementType::PARAPET14;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseParapet15()
+{
+    if (windowChosen != ElementType::PARAPET15)
+        windowChosen = ElementType::PARAPET15;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseParapet16()
+{
+    if (windowChosen != ElementType::PARAPET16)
+        windowChosen = ElementType::PARAPET16;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseParapet17()
+{
+    if (windowChosen != ElementType::PARAPET17)
+        windowChosen = ElementType::PARAPET17;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseParapet18()
+{
+    if (windowChosen != ElementType::PARAPET18)
+        windowChosen = ElementType::PARAPET18;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseParapet19()
+{
+    if (windowChosen != ElementType::PARAPET19)
+        windowChosen = ElementType::PARAPET19;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
+void Window::chooseParapet20()
+{
+    if (windowChosen != ElementType::PARAPET20)
+        windowChosen = ElementType::PARAPET20;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
 
 
 void Window::createElementBlock1()
