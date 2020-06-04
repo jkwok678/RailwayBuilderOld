@@ -86,7 +86,7 @@ public:
 
     std::vector<std::shared_ptr<Parapet> > getParapetList() const;
     void setParapetList(const std::vector<std::shared_ptr<Parapet> >& newParapetList);
-    void addParapetTrack(std::shared_ptr<Parapet> newParapet);
+    void addParapet(std::shared_ptr<Parapet> newParapet);
 
 	std::shared_ptr<Element> getElementAt(int offsetX, int offsetY, int locationX, int locationY);
 	bool checkElementExists(int offsetX, int offsetY, int locationX, int locationY);

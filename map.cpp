@@ -380,7 +380,7 @@ void Map::setParapetList(const std::vector<std::shared_ptr<Parapet> > &newParape
     parapetList = newParapetList;
 }
 
-void Map::addParapetTrack(std::shared_ptr<Parapet> newParapet)
+void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 {
     int tempoffsetX = newParapet->getOffsetX();
     int tempoffsetY = newParapet->getOffsetY();

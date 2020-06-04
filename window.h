@@ -164,6 +164,19 @@ private slots:
     void choosePlatformDown();
     void choosePlatformUp();
 
+    //ElementBlock5 slots
+
+    void chooseParapet1();
+    void chooseParapet2();
+    void chooseParapet3();
+    void chooseParapet4();
+    void chooseParapet5();
+    void chooseParapet6();
+    void chooseParapet7();
+    void chooseParapet8();
+    void chooseParapet9();
+    void chooseParapet10();
+
 
 private:
 
@@ -824,6 +837,58 @@ private:
     QToolButton* platformRightButton;
     QAction* choosePlatformRightAct;
     QIcon* platformRightIcon;
+
+    //ElementBlock5
+
+    //Parapet1Button
+    QToolButton* parapet1Button;
+    QAction* chooseParapet1Act;
+    QIcon* parapet1Icon;
+
+    //Parapet2Button
+    QToolButton* parapet2Button;
+    QAction* chooseParapet2Act;
+    QIcon* parapet2Icon;
+
+    //Parapet3Button
+    QToolButton* parapet3Button;
+    QAction* chooseParapet3Act;
+    QIcon* parapet3Icon;
+
+    //Parapet4Button
+    QToolButton* parapet4Button;
+    QAction* chooseParapet4Act;
+    QIcon* parapet4Icon;
+
+    //Parapet5Button
+    QToolButton* parapet5Button;
+    QAction* chooseParapet5Act;
+    QIcon* parapet5Icon;
+
+    //Parapet6Button
+    QToolButton* parapet6Button;
+    QAction* chooseParapet6Act;
+    QIcon* parapet6Icon;
+
+    //Parapet7Button
+    QToolButton* parapet7Button;
+    QAction* chooseParapet7Act;
+    QIcon* parapet7Icon;
+
+    //Parapet8Button
+    QToolButton* parapet8Button;
+    QAction* chooseParapet8Act;
+    QIcon* parapet8Icon;
+
+    //Parapet9Button
+    QToolButton* parapet9Button;
+    QAction* chooseParapet9Act;
+    QIcon* parapet9Icon;
+
+    //Parapet10Button
+    QToolButton* parapet10Button;
+    QAction* chooseParapet10Act;
+    QIcon* parapet10Icon;
 
 
 	void createRightMenu();
