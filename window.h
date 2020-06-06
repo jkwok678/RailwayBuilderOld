@@ -229,8 +229,6 @@ private:
     void createElementBlock4();
     void createElementBlock5();
 
-	QWidget* overallMenu;
-	QVBoxLayout* overallMenuLayout;
 
 	QWidget* buildModifyMenu1;
 	QHBoxLayout* buildModifyMenuLayout1;
@@ -244,7 +242,7 @@ private:
 	QIcon* aspect2Icon;
 	QIcon* aspectShuntIcon;
 
-    //QStackedWidget *allMenus;
+    QStackedWidget *allMenus;
     QWidget* elementMenu;
     QHBoxLayout* elementMenuLayout;
     QGridLayout* elementBlock1;
