@@ -46,9 +46,12 @@ void Window::openBuildModifyMenu()
 
 void Window::openElementMenu()
 {
-    allMenus->setCurrentIndex(1);
-    allMenus->update();
-    allMenus->show();
+    if (allMenus->currentIndex()==0) {
+        allMenus->setCurrentIndex(1);
+    } else {
+        allMenus->setCurrentIndex(0);
+    }
+
 }
 
 void Window::changeAspect()
