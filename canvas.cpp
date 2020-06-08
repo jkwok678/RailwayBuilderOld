@@ -281,7 +281,10 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 		switch (*canvasChosen) {
 		case ElementType::NONE:
 		{
-
+            QMessageBox noELementSelected;
+            noELementSelected.setIcon(QMessageBox::Critical);
+            noELementSelected.setText("No element has been selected.");
+            noELementSelected.exec();
 			break;
 		}
 		case ElementType::STRAIGHTH:

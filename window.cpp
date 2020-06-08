@@ -15,8 +15,6 @@ Window::Window()
 	aspect = 4;
 	drawingSurface->setAspect(aspect);
 	createOverallMenu();
-	createFileActions();
-	createModeActions();
 	createRightMenu();
 	createMenuBar();
 	BorderLayout* layout = new BorderLayout;
@@ -28,10 +26,9 @@ Window::Window()
 
 	setLayout(layout);
 
-
 }
 
-
+// Private slots
 
 void Window::openRailway()
 {
@@ -124,124 +121,7 @@ void Window::moveDown()
 
 }
 
-void Window::createMenuBar()
-{
-	menuBar = new QMenuBar();
-	fileMenu = new QMenu("File");
-	modeMenu = new QMenu("Mode");
-	menuBar->addMenu(fileMenu);
-	menuBar->addMenu(modeMenu);
-	createFileMenu();
-	createModeMenu();
 
-}
-
-void Window::createFileMenu()
-{
-	fileMenu->addAction(openRailwayAct);
-}
-
-void Window::createModeMenu()
-{
-	modeMenu->addAction(openBuildModifyAct);
-}
-
-void Window::createFileActions()
-{
-	openRailwayAct = new QAction(tr("&Open Railway"), this);
-	openRailwayAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
-	openRailwayAct->setStatusTip(tr("Open an existing railway"));
-	connect(openRailwayAct, &QAction::triggered, this, &Window::openRailway);
-}
-
-void Window::createModeActions()
-{
-	openBuildModifyAct = new QAction(tr("&Build/Modify Menu"), this);
-	openBuildModifyAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_B));
-
-	connect(openBuildModifyAct, &QAction::triggered, this, &Window::openBuildModifyMenu);
-	//openBuildModifyAct ->setShortcut()
-}
-
-void Window::createOverallMenu()
-{
-    //Create top half of Menu.
-    buildModifyMenu1 = new QWidget;
-    buildModifyMenuLayout1 = new QHBoxLayout;
-	createBuildModifyMenu1();
-
-	QPalette pal2 = palette();
-	pal2.setColor(QPalette::Background, Qt::red);
-	buildModifyMenu1->setAutoFillBackground(true);
-	buildModifyMenu1->setPalette(pal2);
-	buildModifyMenu1->setLayout(buildModifyMenuLayout1);
-
-    //overallMenuLayout->setAlignment(buildModifyMenu1,Qt::AlignTop);
-
-	//Create second half of Menu.
-    allMenus = new QStackedWidget;
-    createElementMenu();
-    allMenus->addWidget(new QWidget());
-    allMenus->addWidget(elementMenu);
-    allMenus->setCurrentIndex(0);
-	//overallMenuLayout->addWidget(allMenus);
-
-}
-
-void Window::createBuildModifyMenu1()
-{
-    elementMenuButton = new QToolButton();
-    elementMenuButton->setMaximumSize(QSize(32, 32));
-    openElementMenuAct = new QAction();
-    elementMenuButton->setDefaultAction(openElementMenuAct);
-    connect(openElementMenuAct, &QAction::triggered, this, &Window::openElementMenu);
-	trackIcon = new QIcon(":/icons/icons/buildMenuIcon.png");
-    elementMenuButton->setIcon(*trackIcon);
-    buildModifyMenuLayout1->addWidget(elementMenuButton);
-
-	aspectButton = new QToolButton();
-	aspectButton->setMaximumSize(QSize(32, 32));
-	changeAspectAct = new QAction();
-	aspectButton->setDefaultAction(changeAspectAct);
-	connect(changeAspectAct, &QAction::triggered, this, &Window::changeAspect);
-	aspect4Icon = new QIcon(":/icons/icons/aspect4.png");
-	aspect3Icon = new QIcon(":/icons/icons/aspect3.png");
-	aspect2Icon = new QIcon(":/icons/icons/aspect2.png");
-	aspectShuntIcon = new QIcon(":/icons/icons/aspectShunt.png");
-	aspectButton->setIcon(*aspect4Icon);
-	buildModifyMenuLayout1->addWidget(aspectButton);
-}
-
-void Window::createElementMenu()
-{
-
-    elementMenu = new QWidget;
-	QPalette pal = palette();
-	pal.setColor(QPalette::Background, Qt::green);
-    elementMenu->setAutoFillBackground(true);
-    elementMenu->setPalette(pal);
-    elementMenuLayout = new QHBoxLayout;
-
-    createElementBlock1();
-    createElementBlock2();
-    createElementBlock3();
-    createElementBlock4();
-    createElementBlock5();
-
-    elementMenuLayout->addLayout(elementBlock1);
-    elementMenuLayout->addLayout(elementBlock2);
-    elementMenuLayout->addLayout(elementBlock3);
-    elementMenuLayout->addLayout(elementBlock4);
-    elementMenuLayout->addLayout(elementBlock5);
-    //elementMenuLayout->setAlignment(elementBlock1,Qt::AlignLeft);
-    //elementMenuLayout->setAlignment(elementBlock2,Qt::AlignLeft);
-    //elementMenuLayout->setAlignment(elementBlock3,Qt::AlignLeft);
-    //elementMenuLayout->setAlignment(elementBlock4,Qt::AlignLeft);
-    elementMenuLayout->setAlignment(elementBlock5,Qt::AlignLeft);
-    elementMenu->setLayout(elementMenuLayout);
-
-
-}
 
 void Window::chooseStraightH()
 {
@@ -1505,6 +1385,123 @@ void Window::chooseParapet28()
         windowChosen = ElementType::PARAPET28;
     else
         windowChosen = ElementType::NONE;
+}
+
+void Window::chooseLevelCrossing()
+{
+    if (windowChosen != ElementType::LEVELCROSSING)
+        windowChosen = ElementType::LEVELCROSSING;
+    else
+        windowChosen = ElementType::NONE;
+}
+
+void Window::createMenuBar()
+{
+    menuBar = new QMenuBar();
+    fileMenu = new QMenu("File");
+    modeMenu = new QMenu("Mode");
+    menuBar->addMenu(fileMenu);
+    menuBar->addMenu(modeMenu);
+    createFileMenu();
+    createModeMenu();
+
+}
+
+void Window::createFileMenu()
+{
+    openRailwayAct = new QAction(tr("&Open Railway"), this);
+    openRailwayAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
+    openRailwayAct->setStatusTip(tr("Open an existing railway"));
+    connect(openRailwayAct, &QAction::triggered, this, &Window::openRailway);
+    fileMenu->addAction(openRailwayAct);
+}
+
+void Window::createModeMenu()
+{
+    openBuildModifyAct = new QAction(tr("&Build/Modify Menu"), this);
+    openBuildModifyAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_B));
+    connect(openBuildModifyAct, &QAction::triggered, this, &Window::openBuildModifyMenu);
+    modeMenu->addAction(openBuildModifyAct);
+}
+
+
+void Window::createOverallMenu()
+{
+    //Create top half of Menu.
+    buildModifyMenu1 = new QWidget;
+    buildModifyMenuLayout1 = new QHBoxLayout;
+    createBuildModifyMenu1();
+
+    QPalette pal2 = palette();
+    pal2.setColor(QPalette::Background, Qt::red);
+    buildModifyMenu1->setAutoFillBackground(true);
+    buildModifyMenu1->setPalette(pal2);
+    buildModifyMenu1->setLayout(buildModifyMenuLayout1);
+
+    //overallMenuLayout->setAlignment(buildModifyMenu1,Qt::AlignTop);
+
+    //Create second half of Menu.
+    allMenus = new QStackedWidget;
+    createElementMenu();
+    allMenus->addWidget(new QWidget());
+    allMenus->addWidget(elementMenu);
+    allMenus->setCurrentIndex(0);
+    //overallMenuLayout->addWidget(allMenus);
+
+}
+
+void Window::createBuildModifyMenu1()
+{
+    elementMenuButton = new QToolButton();
+    elementMenuButton->setMaximumSize(QSize(32, 32));
+    openElementMenuAct = new QAction();
+    elementMenuButton->setDefaultAction(openElementMenuAct);
+    connect(openElementMenuAct, &QAction::triggered, this, &Window::openElementMenu);
+    trackIcon = new QIcon(":/icons/icons/buildMenuIcon.png");
+    elementMenuButton->setIcon(*trackIcon);
+    buildModifyMenuLayout1->addWidget(elementMenuButton);
+
+    aspectButton = new QToolButton();
+    aspectButton->setMaximumSize(QSize(32, 32));
+    changeAspectAct = new QAction();
+    aspectButton->setDefaultAction(changeAspectAct);
+    connect(changeAspectAct, &QAction::triggered, this, &Window::changeAspect);
+    aspect4Icon = new QIcon(":/icons/icons/aspect4.png");
+    aspect3Icon = new QIcon(":/icons/icons/aspect3.png");
+    aspect2Icon = new QIcon(":/icons/icons/aspect2.png");
+    aspectShuntIcon = new QIcon(":/icons/icons/aspectShunt.png");
+    aspectButton->setIcon(*aspect4Icon);
+    buildModifyMenuLayout1->addWidget(aspectButton);
+}
+
+void Window::createElementMenu()
+{
+
+    elementMenu = new QWidget;
+    QPalette pal = palette();
+    pal.setColor(QPalette::Background, Qt::green);
+    elementMenu->setAutoFillBackground(true);
+    elementMenu->setPalette(pal);
+    elementMenuLayout = new QHBoxLayout;
+
+    createElementBlock1();
+    createElementBlock2();
+    createElementBlock3();
+    createElementBlock4();
+    createElementBlock5();
+    createElementBlock6();
+
+    elementMenuLayout->addLayout(elementBlock1);
+    elementMenuLayout->addLayout(elementBlock2);
+    elementMenuLayout->addLayout(elementBlock3);
+    elementMenuLayout->addLayout(elementBlock4);
+    elementMenuLayout->addLayout(elementBlock5);
+    elementMenuLayout->addLayout(elementBlock6);
+
+    elementMenuLayout->setAlignment(elementBlock6,Qt::AlignLeft);
+    elementMenu->setLayout(elementMenuLayout);
+
+
 }
 
 
@@ -2859,6 +2856,27 @@ void Window::createElementBlock5()
     parapet28Icon = new QIcon(":/graphics/graphics/parapet28.png");
     parapet28Button->setIcon(*parapet28Icon);
     elementBlock5->addWidget(parapet28Button, 2, 8);
+}
+
+void Window::createElementBlock6()
+{
+    elementBlock6= new QGridLayout;
+
+    levelCrossingButton = new QToolButton();
+    levelCrossingButton->setMaximumSize(QSize(32, 32));
+    chooseLevelCrossingAct = new QAction();
+    levelCrossingButton->setDefaultAction(chooseLevelCrossingAct);
+    connect(chooseLevelCrossingAct, &QAction::triggered, this, &Window::chooseLevelCrossing);
+    levelCrossingIcon = new QIcon(":/graphics/graphics/levelCrossingIcon.png");
+    levelCrossingButton->setIcon(*levelCrossingIcon);
+    std::cout << "hi" << std::flush;
+    elementBlock6->addWidget(levelCrossingButton, 0, 0);
+
+    QSpacerItem *spacer1 = new QSpacerItem(16,16,QSizePolicy::Minimum, QSizePolicy::Expanding);
+    QSpacerItem *spacer2 = new QSpacerItem(16,16,QSizePolicy::Minimum, QSizePolicy::Expanding);
+    elementBlock6->addItem(spacer1, 1, 0);
+    elementBlock6->addItem(spacer2, 2, 0);
+
 }
 
 void Window::createRightMenu()

@@ -181,6 +181,9 @@
         <file>graphics/parapet3.png</file>
         <file>graphics/parapet2.png</file>
         <file>graphics/parapet1.png</file>
+        <file>graphics/levelCrossingH.png</file>
+        <file>graphics/levelCrossingIcon.png</file>
+        <file>graphics/levelCrossingV.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>
