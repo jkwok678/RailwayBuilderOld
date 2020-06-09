@@ -1459,6 +1459,7 @@ void Window::createBuildModifyMenu1()
     connect(openElementMenuAct, &QAction::triggered, this, &Window::openElementMenu);
     trackIcon = new QIcon(":/icons/icons/buildMenuIcon.png");
     elementMenuButton->setIcon(*trackIcon);
+
     buildModifyMenuLayout1->addWidget(elementMenuButton);
 
     aspectButton = new QToolButton();

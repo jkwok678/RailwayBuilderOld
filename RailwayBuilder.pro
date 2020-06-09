@@ -42,7 +42,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resources.qrc
 
-DISTFILES += \
-    graphics/levelCrossingH.png \
-    graphics/levelCrossingIcon.png \
-    graphics/levelCrossingV.png
+DISTFILES +=

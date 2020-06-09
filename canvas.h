@@ -243,6 +243,11 @@ private:
     QImage* parapet27Image;
     QImage* parapet28Image;
 
+    //ELementBlock6Image
+    QImage* levelCrossingHImage;
+    QImage* levelCrossingVImage;
+
+
 
 };
 

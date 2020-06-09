@@ -93,6 +93,7 @@ public:
 	bool deleteElement(int locationX, int locationY);
 
     void addPlatform(Platform side, int offsetX, int offsetY, int locationX, int locationY );
+    void addLevelCrossing(int offsetX, int offsetY, int locationX, int locationY );
 };
 
 #endif // MAP_H

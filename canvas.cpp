@@ -189,6 +189,10 @@ Canvas::Canvas()
     parapet27Image = new QImage(":/graphics/graphics/parapet27.png");
     parapet28Image = new QImage(":/graphics/graphics/parapet28.png");
 
+    //ElementBlock6Image
+    levelCrossingHImage = new QImage(":/graphics/graphics/levelCrossingH.png");
+    levelCrossingVImage = new QImage(":/graphics/graphics/levelCrossingV.png");
+
     setAutoFillBackground(true);
 	setPalette(pal);
 }
@@ -1159,6 +1163,10 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             drawnLayout->addParapet(parapet28);
             break;
         }
+        case ElementType::LEVELCROSSING:
+        {
+            drawnLayout->addLevelCrossing(offsetX, offsetY, finalX, finalY);
+        }
 
 		}
         update();
@@ -1188,6 +1196,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                 if (currentElement->getPlatform2()) {
                     painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
                 }
+                if (currentElement->hasLevelCrossing()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *levelCrossingHImage);
+                }
 				break;
 
 			case ElementType::STRAIGHTV:
@@ -1197,6 +1208,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                 }
                 if (currentElement->getPlatform2()==true) {
                     painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
+                }
+                if (currentElement->hasLevelCrossing()) {
+                    painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *levelCrossingVImage);
                 }
 				break;
 
