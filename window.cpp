@@ -92,6 +92,15 @@ void Window::changeAspect()
 
 }
 
+void Window::addEditRemoveText()
+{
+    if (windowChosen != ElementType::TEXT)
+        windowChosen = ElementType::TEXT;
+    else
+        windowChosen = ElementType::NONE;
+
+}
+
 void Window::moveRight()
 {
 
@@ -1473,6 +1482,15 @@ void Window::createBuildModifyMenu1()
     aspectShuntIcon = new QIcon(":/icons/icons/aspectShunt.png");
     aspectButton->setIcon(*aspect4Icon);
     buildModifyMenuLayout1->addWidget(aspectButton);
+
+    addEditRemoveTextButton = new QToolButton();
+    addEditRemoveTextButton->setMaximumSize(QSize(32,32));
+    addEditRemoveTextAct = new QAction();
+    addEditRemoveTextButton->setDefaultAction(addEditRemoveTextAct);
+    connect(addEditRemoveTextAct, &QAction::triggered, this, &Window::addEditRemoveText);
+    addEditRemoveTextIcon = new QIcon(":/icons/icons/addEditRemoveText.png");
+    addEditRemoveTextButton->setIcon(*addEditRemoveTextIcon);
+    buildModifyMenuLayout1->addWidget(addEditRemoveTextButton);
 }
 
 void Window::createElementMenu()
@@ -2864,13 +2882,15 @@ void Window::createElementBlock6()
     elementBlock6= new QGridLayout;
 
     levelCrossingButton = new QToolButton();
+    //levelCrossingButton->setFixedSize(QSize(32,32));
+
     levelCrossingButton->setMaximumSize(QSize(32, 32));
     chooseLevelCrossingAct = new QAction();
     levelCrossingButton->setDefaultAction(chooseLevelCrossingAct);
     connect(chooseLevelCrossingAct, &QAction::triggered, this, &Window::chooseLevelCrossing);
     levelCrossingIcon = new QIcon(":/graphics/graphics/levelCrossingIcon.png");
     levelCrossingButton->setIcon(*levelCrossingIcon);
-    std::cout << "hi" << std::flush;
+    //levelCrossingButton->setAutoRaise(true);
     elementBlock6->addWidget(levelCrossingButton, 0, 0);
 
     QSpacerItem *spacer1 = new QSpacerItem(16,16,QSizePolicy::Minimum, QSizePolicy::Expanding);

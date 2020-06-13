@@ -1,7 +1,8 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
-#include <string>
+#include <QString>
+#include <memory>
 
 enum class ElementType
 {
@@ -18,7 +19,7 @@ enum class ElementType
     FLYOVER7, FLYOVER8, FLYOVER9, FLYOVER10, FLYOVER11, FLYOVER12,NAMEDLOCATION, CONCOURSE, PLATFORMLEFT, PLATFORMRIGHT,
     PLATFORMDOWN, PLATFORMUP, PARAPET1, PARAPET2, PARAPET3, PARAPET4, PARAPET5, PARAPET6,PARAPET7, PARAPET8, PARAPET9,
     PARAPET10, PARAPET11, PARAPET12, PARAPET13, PARAPET14, PARAPET15, PARAPET16, PARAPET17, PARAPET18, PARAPET19, PARAPET20,
-    PARAPET21, PARAPET22, PARAPET23, PARAPET24, PARAPET25, PARAPET26, PARAPET27, PARAPET28, LEVELCROSSING
+    PARAPET21, PARAPET22, PARAPET23, PARAPET24, PARAPET25, PARAPET26, PARAPET27, PARAPET28, LEVELCROSSING, TEXT
 
 
 };
@@ -106,6 +107,33 @@ protected:
 public:
     Parapet(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
+};
+
+class Text : public Element
+{
+private:
+    int editableX;
+    int editableY;
+    int fontSize{ 12 };
+    QString readableText;
+
+
+
+
+protected:
+
+
+public:
+    Text(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY,QString newReadableText);
+
+    int getEditableX() const;
+    void setEditableX(int newEditableX);
+    int getEditableY() const;
+    void setEditableY(int newEditableY);
+    int getFontSize() const;
+    void setFontSize(int newFontSize);
+    QString getReadableText() const;
+    void setReadableText(const QString &newReadableText);
 };
 
 

@@ -9,6 +9,10 @@
         <file>icons/left.png</file>
         <file>icons/right.png</file>
         <file>icons/up.png</file>
+        <file>icons/addEditRemoveText.png</file>
+        <file>icons/changeFont.png</file>
+        <file>icons/moveText.png</file>
+        <file>icons/setChangeNamedLocation.png</file>
     </qresource>
     <qresource prefix="/graphics">
         <file>graphics/bridgeSet1.png</file>

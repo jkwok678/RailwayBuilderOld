@@ -27,6 +27,7 @@ private slots:
 	void openBuildModifyMenu();
     void openElementMenu();
 	void changeAspect();
+    void addEditRemoveText();
 
 	void moveRight();
 	void moveLeft();
@@ -221,9 +222,31 @@ private:
 	QAction* openRailwayAct;
 	QAction* openBuildModifyAct;
 
+    //Top menu 1
 
-	void createOverallMenu();
-	void createBuildModifyMenu1();
+    void createOverallMenu();
+    void createBuildModifyMenu1();
+
+    QWidget* buildModifyMenu1;
+	QHBoxLayout* buildModifyMenuLayout1;
+
+    QToolButton* elementMenuButton;
+    QAction* openElementMenuAct;
+	QIcon* trackIcon;
+
+	QToolButton* aspectButton;
+	QAction* changeAspectAct;
+	QIcon* aspect4Icon;
+	QIcon* aspect3Icon;
+	QIcon* aspect2Icon;
+	QIcon* aspectShuntIcon;
+
+    QToolButton* addEditRemoveTextButton;
+    QAction* addEditRemoveTextAct;
+    QIcon* addEditRemoveTextIcon;
+
+    //Top menu 2
+
     void createElementMenu();
     void createElementBlock1();
     void createElementBlock2();
@@ -232,20 +255,9 @@ private:
     void createElementBlock5();
     void createElementBlock6();
 
-
-	QWidget* buildModifyMenu1;
-	QHBoxLayout* buildModifyMenuLayout1;
-    QToolButton* elementMenuButton;
-    QAction* openElementMenuAct;
-	QIcon* trackIcon;
-	QToolButton* aspectButton;
-	QAction* changeAspectAct;
-	QIcon* aspect4Icon;
-	QIcon* aspect3Icon;
-	QIcon* aspect2Icon;
-	QIcon* aspectShuntIcon;
-
     QStackedWidget *allMenus;
+
+    //Element Menu
     QWidget* elementMenu;
     QHBoxLayout* elementMenuLayout;
     QGridLayout* elementBlock1;
