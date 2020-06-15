@@ -808,39 +808,40 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
             int currentOffsetY = currentElement->getOffsetY();
             int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
-
+            bool levelCrossing = currentElement->hasLevelCrossing();
 
             if (currentOffsetX == offsetX && currentOffsetY == offsetY)
             {
                 if (currentX == locationX && currentY == locationY)
                 {
-                    switch (side) {
-                    case Platform::UP:
-                        if (currentElement->getElementType()==ElementType::STRAIGHTH) {
-                            currentElement->setPlatform1(true);
-                            added = true;
-                        }
-                        break;
-                    case Platform::DOWN:
-                        if (currentElement->getElementType()==ElementType::STRAIGHTH) {
-                            currentElement->setPlatform2(true);
-                            added = true;
+                    if (!levelCrossing){
+                        switch (side) {
+                        case Platform::UP:
+                            if (currentElement->getElementType()==ElementType::STRAIGHTH) {
+                                currentElement->setPlatform1(true);
+                                added = true;
+                            }
                             break;
-                        }
-                    case Platform::LEFT:
-                        if (currentElement->getElementType()==ElementType::STRAIGHTV) {
-                            currentElement->setPlatform1(true);
-                            added = true;
-                        }
-                        break;
-                    case Platform::RIGHT:
-                        if (currentElement->getElementType()==ElementType::STRAIGHTV) {
-                            currentElement->setPlatform2(true);
-                            added = true;
+                        case Platform::DOWN:
+                            if (currentElement->getElementType()==ElementType::STRAIGHTH) {
+                                currentElement->setPlatform2(true);
+                                added = true;
+                                break;
+                            }
+                        case Platform::LEFT:
+                            if (currentElement->getElementType()==ElementType::STRAIGHTV) {
+                                currentElement->setPlatform1(true);
+                                added = true;
+                            }
                             break;
+                        case Platform::RIGHT:
+                            if (currentElement->getElementType()==ElementType::STRAIGHTV) {
+                                currentElement->setPlatform2(true);
+                                added = true;
+                                break;
+                            }
                         }
                     }
-
 
                 }
             }
@@ -1121,5 +1122,28 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
         }
     }
 
+}
+
+void Map::addLevelCrossing(int offsetX, int offsetY, int locationX, int locationY)
+{
+    for (int i = 0; i < straightTrackList.size(); i++) {
+        std::shared_ptr<StraightTrack>& currentElement = straightTrackList[i];
+        int currentOffsetX = currentElement->getOffsetX();
+        int currentOffsetY = currentElement->getOffsetY();
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        bool platform1 = currentElement->getPlatform1();
+        bool platform2 = currentElement->getPlatform2();
+        if (currentOffsetX == offsetX && currentOffsetY == offsetY) {
+            if (currentX == locationX && currentY == locationY) {
+                if (!platform1 && !platform2) {
+                    currentElement->addLevelCrossing();
+                }
+
+            }
+        }
+
+
+    }
 }
 

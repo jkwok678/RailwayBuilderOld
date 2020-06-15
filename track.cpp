@@ -21,6 +21,7 @@ StraightTrack::StraightTrack(ElementType newElementType, int newOffsetX, int new
 	locationY = newLocationY;
     platform1 = false;
     platform2 = false;
+    levelCrossing = false;
 
 }
 
@@ -36,6 +37,16 @@ StraightTrack::~StraightTrack()
 		std::cout << "Straight V destroyed \n" << std::flush;;
 	}
     */
+}
+
+bool StraightTrack::hasLevelCrossing() const
+{
+    return levelCrossing;
+}
+
+void StraightTrack::addLevelCrossing()
+{
+    levelCrossing = true;
 }
 
 bool Track::getPlatform1() const

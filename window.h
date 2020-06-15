@@ -10,6 +10,7 @@
 #include <QToolButton>
 #include <string>
 #include <iostream>
+#include <QSizePolicy>
 #include "borderlayout.h"
 #include "canvas.h"
 #include "element.h"
@@ -26,6 +27,7 @@ private slots:
 	void openBuildModifyMenu();
     void openElementMenu();
 	void changeAspect();
+    void addEditRemoveText();
 
 	void moveRight();
 	void moveLeft();
@@ -97,6 +99,7 @@ private slots:
     void chooseUnderpass1();
     void chooseUnderpass2();
 
+
     //ElementBlock2 slots
     void chooseSwitchTight1();
     void chooseSwitchTight2();
@@ -133,8 +136,8 @@ private slots:
     void chooseSwitchSplit7();
     void chooseSwitchSplit8();
 
-    //ElementBlock3 slots
 
+    //ElementBlock3 slots
     void chooseCrossover1();
     void chooseCrossover2();
     void chooseFlyover1();
@@ -156,6 +159,7 @@ private slots:
     void chooseFlyover11();
     void chooseFlyover12();
 
+
     //ElementBlock4 slots
     void chooseNamedLocation();
     void chooseConcourse();
@@ -164,8 +168,8 @@ private slots:
     void choosePlatformDown();
     void choosePlatformUp();
 
-    //ElementBlock5 slots
 
+    //ElementBlock5 slots
     void chooseParapet1();
     void chooseParapet2();
     void chooseParapet3();
@@ -198,6 +202,9 @@ private slots:
     void chooseParapet28();
 
 
+    //ElementBlock6 slots
+    void chooseLevelCrossing();
+
 private:
 
 	ElementType windowChosen;
@@ -209,34 +216,24 @@ private:
 	void createMenuBar();
 	void createFileMenu();
 	void createModeMenu();
-	void createFileActions();
-	void createModeActions();
-	QMenuBar* menuBar;
+    QMenuBar* menuBar;
 	QMenu* fileMenu;
 	QMenu* modeMenu;
 	QAction* openRailwayAct;
 	QAction* openBuildModifyAct;
 
+    //Top menu 1
 
+    void createOverallMenu();
+    void createBuildModifyMenu1();
 
-
-	void createOverallMenu();
-	void createBuildModifyMenu1();
-    void createElementMenu();
-    void createElementBlock1();
-    void createElementBlock2();
-    void createElementBlock3();
-    void createElementBlock4();
-    void createElementBlock5();
-
-	QWidget* overallMenu;
-	QVBoxLayout* overallMenuLayout;
-
-	QWidget* buildModifyMenu1;
+    QWidget* buildModifyMenu1;
 	QHBoxLayout* buildModifyMenuLayout1;
+
     QToolButton* elementMenuButton;
     QAction* openElementMenuAct;
 	QIcon* trackIcon;
+
 	QToolButton* aspectButton;
 	QAction* changeAspectAct;
 	QIcon* aspect4Icon;
@@ -244,7 +241,23 @@ private:
 	QIcon* aspect2Icon;
 	QIcon* aspectShuntIcon;
 
-    //QStackedWidget *allMenus;
+    QToolButton* addEditRemoveTextButton;
+    QAction* addEditRemoveTextAct;
+    QIcon* addEditRemoveTextIcon;
+
+    //Top menu 2
+
+    void createElementMenu();
+    void createElementBlock1();
+    void createElementBlock2();
+    void createElementBlock3();
+    void createElementBlock4();
+    void createElementBlock5();
+    void createElementBlock6();
+
+    QStackedWidget *allMenus;
+
+    //Element Menu
     QWidget* elementMenu;
     QHBoxLayout* elementMenuLayout;
     QGridLayout* elementBlock1;
@@ -252,6 +265,7 @@ private:
     QGridLayout* elementBlock3;
     QGridLayout* elementBlock4;
     QGridLayout* elementBlock5;
+    QGridLayout* elementBlock6;
 
     /*
      * ElementBlock1 buttons
@@ -1000,6 +1014,12 @@ private:
     QAction* chooseParapet28Act;
     QIcon* parapet28Icon;
 
+    //ElementBlock7
+
+    //LevelCrossingButton
+    QToolButton* levelCrossingButton;
+    QAction* chooseLevelCrossingAct;
+    QIcon* levelCrossingIcon;
 
 
 	void createRightMenu();

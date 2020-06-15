@@ -97,3 +97,58 @@ Parapet::Parapet(ElementType newElementType, int newOffsetX, int newOffsetY, int
     locationX = newLocationX;
     locationY = newLocationY;
 }
+
+
+Text::Text(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY, QString newReadableText)
+{
+    elementType = newElementType;
+    offsetX = newOffsetX;
+    offsetY = newOffsetY;
+    locationX = newLocationX;
+    locationY = newLocationY;
+    readableText = newReadableText;
+    editableX = locationX+fontSize;
+    editableY = locationY +fontSize;
+
+}
+
+int Text::getEditableX() const
+{
+    return editableX;
+}
+
+void Text::setEditableX(int newEditableX)
+{
+    editableX = newEditableX;
+}
+
+int Text::getEditableY() const
+{
+    return editableY;
+}
+
+void Text::setEditableY(int newEditableY)
+{
+    editableY = newEditableY;
+}
+
+int Text::getFontSize() const
+{
+    return fontSize;
+}
+
+void Text::setFontSize(int newFontSize)
+{
+    fontSize = newFontSize;
+}
+
+QString Text::getReadableText() const
+{
+    return readableText;
+}
+
+void Text::setReadableText(const QString &newReadableText)
+{
+    readableText = newReadableText;
+}
+
