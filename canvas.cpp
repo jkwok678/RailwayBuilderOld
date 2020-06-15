@@ -1166,22 +1166,26 @@ void Canvas::mousePressEvent(QMouseEvent* event)
         case ElementType::LEVELCROSSING:
         {
             drawnLayout->addLevelCrossing(offsetX, offsetY, finalX, finalY);
+            break;
         }
+        case ElementType::TEXT:
+        {
+            bool ok;
+            QString readableBit = QInputDialog::getText(this, tr("Add text"),tr("Enter text:"), QLineEdit::Normal, tr(""),&ok);
+            std::shared_ptr<Text> text(new Text(*canvasChosen, offsetX, offsetY, finalX, finalY,readableBit));
+            drawnLayout->addText(text);
 
-		}
+        }
         update();
 
 	}
-	else
-
-		update();
 
 
 }
-
+}
 void Canvas::paintEvent(QPaintEvent* event)
 {
-	QPainter painter(this);
+    QPainter painter(this);
     for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList()) {
 
 		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
@@ -2016,12 +2020,13 @@ void Canvas::paintEvent(QPaintEvent* event)
 
     }
 
+    for (std::shared_ptr<Text> currentElement : drawnLayout->getTextList()) {
+        if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
+            painter.drawText(currentElement->getLocationX(), currentElement->getLocationY(), currentElement->getReadableText());
+        }
+    }
+
 
 }
-
-
-
-
-
 
 

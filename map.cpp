@@ -398,6 +398,22 @@ void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 
 }
 
+std::vector<std::shared_ptr<Text> > Map::getTextList() const
+{
+    return textList;
+}
+
+void Map::setTextList(const std::vector<std::shared_ptr<Text> > &newTextList)
+{
+    textList = newTextList;
+}
+
+void Map::addText(std::shared_ptr<Text> newText)
+{
+    textList.push_back(newText);
+
+}
+
 
 
 bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locationY)

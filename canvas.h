@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QMouseEvent>
+#include <QInputDialog>
 #include <memory>
 #include <string>
 #include <iostream>

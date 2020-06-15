@@ -24,6 +24,7 @@ private:
     std::vector<std::shared_ptr<NamedLocation>> namedLocationList;
     std::vector<std::shared_ptr<Concourse>> concourseList;
     std::vector<std::shared_ptr<Parapet>> parapetList;
+    std::vector<std::shared_ptr<Text>> textList;
 
 
 
@@ -87,6 +88,10 @@ public:
     std::vector<std::shared_ptr<Parapet> > getParapetList() const;
     void setParapetList(const std::vector<std::shared_ptr<Parapet> >& newParapetList);
     void addParapet(std::shared_ptr<Parapet> newParapet);
+
+    std::vector<std::shared_ptr<Text> > getTextList() const;
+    void setTextList(const std::vector<std::shared_ptr<Text> >& newTextList);
+    void addText(std::shared_ptr<Text> newText);
 
 	std::shared_ptr<Element> getElementAt(int offsetX, int offsetY, int locationX, int locationY);
 	bool checkElementExists(int offsetX, int offsetY, int locationX, int locationY);
