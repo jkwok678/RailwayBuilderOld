@@ -57,12 +57,12 @@ NamedLocation::NamedLocation()
 
 NamedLocation::NamedLocation(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
 {
-    elementType = newElementType;
-    offsetX = newOffsetX;
-    offsetY = newOffsetY;
-    locationX = newLocationX;
-    locationY = newLocationY;
-    named = false;
+	elementType = newElementType;
+	offsetX = newOffsetX;
+	offsetY = newOffsetY;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	named = false;
 
 
 
@@ -70,85 +70,85 @@ NamedLocation::NamedLocation(ElementType newElementType, int newOffsetX, int new
 
 bool NamedLocation::getNamed() const
 {
-    return named;
+	return named;
 }
 
 void NamedLocation::setNamed(bool newNamed)
 {
-    named = newNamed;
+	named = newNamed;
 }
 
 Concourse::Concourse(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
 {
-    elementType = newElementType;
-    offsetX = newOffsetX;
-    offsetY = newOffsetY;
-    locationX = newLocationX;
-    locationY = newLocationY;
-    named = false;
+	elementType = newElementType;
+	offsetX = newOffsetX;
+	offsetY = newOffsetY;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	named = false;
 
 }
 
 Parapet::Parapet(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
 {
-    elementType = newElementType;
-    offsetX = newOffsetX;
-    offsetY = newOffsetY;
-    locationX = newLocationX;
-    locationY = newLocationY;
+	elementType = newElementType;
+	offsetX = newOffsetX;
+	offsetY = newOffsetY;
+	locationX = newLocationX;
+	locationY = newLocationY;
 }
 
 
 Text::Text(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY, QString newReadableText)
 {
-    elementType = newElementType;
-    offsetX = newOffsetX;
-    offsetY = newOffsetY;
-    locationX = newLocationX;
-    locationY = newLocationY;
-    readableText = newReadableText;
-    editableX = locationX+fontSize;
-    editableY = locationY +fontSize;
+	elementType = newElementType;
+	offsetX = newOffsetX;
+	offsetY = newOffsetY;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	readableText = newReadableText;
+	editableX = locationX + fontSize;
+	editableY = locationY + fontSize;
 
 }
 
 int Text::getEditableX() const
 {
-    return editableX;
+	return editableX;
 }
 
 void Text::setEditableX(int newEditableX)
 {
-    editableX = newEditableX;
+	editableX = newEditableX;
 }
 
 int Text::getEditableY() const
 {
-    return editableY;
+	return editableY;
 }
 
 void Text::setEditableY(int newEditableY)
 {
-    editableY = newEditableY;
+	editableY = newEditableY;
 }
 
 int Text::getFontSize() const
 {
-    return fontSize;
+	return fontSize;
 }
 
 void Text::setFontSize(int newFontSize)
 {
-    fontSize = newFontSize;
+	fontSize = newFontSize;
 }
 
 QString Text::getReadableText() const
 {
-    return readableText;
+	return readableText;
 }
 
-void Text::setReadableText(const QString &newReadableText)
+void Text::setReadableText(const QString& newReadableText)
 {
-    readableText = newReadableText;
+	readableText = newReadableText;
 }
 

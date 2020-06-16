@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QMouseEvent>
+#include <QInputDialog>
 #include <memory>
 #include <string>
 #include <iostream>
@@ -65,7 +66,7 @@ private:
 	int boundY;
 
 
-    //ElementBlock1 images
+	//ElementBlock1 images
 	QImage* straightHImage;
 	QImage* straightVImage;
 	QImage* directLeftImage;
@@ -130,122 +131,122 @@ private:
 	QImage* shuntRightUpImage;
 	QImage* shuntLeftDownImage;
 	QImage* shuntRightDownImage;
-    QImage* bridgeUnset1Image;
-    QImage* bridgeUnset2Image;
-    QImage* underpassUnset1Image;
-    QImage* underpassUnset2Image;
-    QImage* bridgeSet1Image;
-    QImage* bridgeSet2Image;
-    QImage* underpassSet1Image;
-    QImage* underpassSet2Image;
+	QImage* bridgeUnset1Image;
+	QImage* bridgeUnset2Image;
+	QImage* underpassUnset1Image;
+	QImage* underpassUnset2Image;
+	QImage* bridgeSet1Image;
+	QImage* bridgeSet2Image;
+	QImage* underpassSet1Image;
+	QImage* underpassSet2Image;
 
-    //ElementBlock2 images
-    QImage* switchTight1Image;
-    QImage* switchTight2Image;
-    QImage* switchTight3Image;
-    QImage* switchTight4Image;
-    QImage* switchTight5Image;
-    QImage* switchTight6Image;
-    QImage* switchTight7Image;
-    QImage* switchTight8Image;
-    QImage* switchSplit1Image;
-    QImage* switchSplit2Image;
-    QImage* switchSplit3Image;
+	//ElementBlock2 images
+	QImage* switchTight1Image;
+	QImage* switchTight2Image;
+	QImage* switchTight3Image;
+	QImage* switchTight4Image;
+	QImage* switchTight5Image;
+	QImage* switchTight6Image;
+	QImage* switchTight7Image;
+	QImage* switchTight8Image;
+	QImage* switchSplit1Image;
+	QImage* switchSplit2Image;
+	QImage* switchSplit3Image;
 
-    QImage* switch1Image;
-    QImage* switch2Image;
-    QImage* switch3Image;
-    QImage* switch4Image;
-    QImage* switch5Image;
-    QImage* switch6Image;
-    QImage* switch7Image;
-    QImage* switch8Image;
-    QImage* switchSplit4Image;
-    QImage* switchSplit5Image;
-    QImage* switchSplit6Image;
+	QImage* switch1Image;
+	QImage* switch2Image;
+	QImage* switch3Image;
+	QImage* switch4Image;
+	QImage* switch5Image;
+	QImage* switch6Image;
+	QImage* switch7Image;
+	QImage* switch8Image;
+	QImage* switchSplit4Image;
+	QImage* switchSplit5Image;
+	QImage* switchSplit6Image;
 
-    QImage* switch9Image;
-    QImage* switch10Image;
-    QImage* switch11Image;
-    QImage* switch12Image;
-    QImage* switch13Image;
-    QImage* switch14Image;
-    QImage* switch15Image;
-    QImage* switch16Image;
-    QImage* switchSplit7Image;
-    QImage* switchSplit8Image;
+	QImage* switch9Image;
+	QImage* switch10Image;
+	QImage* switch11Image;
+	QImage* switch12Image;
+	QImage* switch13Image;
+	QImage* switch14Image;
+	QImage* switch15Image;
+	QImage* switch16Image;
+	QImage* switchSplit7Image;
+	QImage* switchSplit8Image;
 
-    //ElementBlock3Images
-    QImage* crossover1Image;
-    QImage* crossover2Image;
-    QImage* flyover1Image;
-    QImage* flyover2Image;
-    QImage* flyover3Image;
-    QImage* flyover4Image;
+	//ElementBlock3Images
+	QImage* crossover1Image;
+	QImage* crossover2Image;
+	QImage* flyover1Image;
+	QImage* flyover2Image;
+	QImage* flyover3Image;
+	QImage* flyover4Image;
 
-    QImage* crossover3Image;
-    QImage* crossover4Image;
-    QImage* flyover5Image;
-    QImage* flyover6Image;
-    QImage* flyover7Image;
-    QImage* flyover8Image;
+	QImage* crossover3Image;
+	QImage* crossover4Image;
+	QImage* flyover5Image;
+	QImage* flyover6Image;
+	QImage* flyover7Image;
+	QImage* flyover8Image;
 
-    QImage* crossover5Image;
-    QImage* crossover6Image;
-    QImage* flyover9Image;
-    QImage* flyover10Image;
-    QImage* flyover11Image;
-    QImage* flyover12Image;
+	QImage* crossover5Image;
+	QImage* crossover6Image;
+	QImage* flyover9Image;
+	QImage* flyover10Image;
+	QImage* flyover11Image;
+	QImage* flyover12Image;
 
-    //ElementBlock4Images
-    QImage* namedLocationUnsetImage;
-    QImage* namedLocationSetImage;
-    QImage* concourseUnsetImage;
-    QImage* concourseSetImage;
-    QImage* platformDownUnsetImage;
-    QImage* platformDownSetImage;
-    QImage* platformUpUnsetImage;
-    QImage* platformUpSetImage;
-    QImage* platformLeftUnsetImage;
-    QImage* platformLeftSetImage;
-    QImage* platformRightUnsetImage;
-    QImage* platformRightSetImage;
+	//ElementBlock4Images
+	QImage* namedLocationUnsetImage;
+	QImage* namedLocationSetImage;
+	QImage* concourseUnsetImage;
+	QImage* concourseSetImage;
+	QImage* platformDownUnsetImage;
+	QImage* platformDownSetImage;
+	QImage* platformUpUnsetImage;
+	QImage* platformUpSetImage;
+	QImage* platformLeftUnsetImage;
+	QImage* platformLeftSetImage;
+	QImage* platformRightUnsetImage;
+	QImage* platformRightSetImage;
 
-    //ElementBlock5Images;
-    QImage* parapet1Image;
-    QImage* parapet2Image;
-    QImage* parapet3Image;
-    QImage* parapet4Image;
-    QImage* parapet5Image;
-    QImage* parapet6Image;
-    QImage* parapet7Image;
-    QImage* parapet8Image;
-    QImage* parapet9Image;
-    QImage* parapet10Image;
+	//ElementBlock5Images;
+	QImage* parapet1Image;
+	QImage* parapet2Image;
+	QImage* parapet3Image;
+	QImage* parapet4Image;
+	QImage* parapet5Image;
+	QImage* parapet6Image;
+	QImage* parapet7Image;
+	QImage* parapet8Image;
+	QImage* parapet9Image;
+	QImage* parapet10Image;
 
-    QImage* parapet11Image;
-    QImage* parapet12Image;
-    QImage* parapet13Image;
-    QImage* parapet14Image;
-    QImage* parapet15Image;
-    QImage* parapet16Image;
-    QImage* parapet17Image;
-    QImage* parapet18Image;
-    QImage* parapet19Image;
-    QImage* parapet20Image;
+	QImage* parapet11Image;
+	QImage* parapet12Image;
+	QImage* parapet13Image;
+	QImage* parapet14Image;
+	QImage* parapet15Image;
+	QImage* parapet16Image;
+	QImage* parapet17Image;
+	QImage* parapet18Image;
+	QImage* parapet19Image;
+	QImage* parapet20Image;
 
-    QImage* parapet21Image;
-    QImage* parapet22Image;
-    QImage* parapet23Image;
-    QImage* parapet24Image;
-    QImage* parapet25Image;
-    QImage* parapet26Image;
-    QImage* parapet27Image;
-    QImage* parapet28Image;
+	QImage* parapet21Image;
+	QImage* parapet22Image;
+	QImage* parapet23Image;
+	QImage* parapet24Image;
+	QImage* parapet25Image;
+	QImage* parapet26Image;
+	QImage* parapet27Image;
+	QImage* parapet28Image;
 
-    //ELementBlock6Image
-    QImage* levelCrossingHImage;
-    QImage* levelCrossingVImage;
+	//ELementBlock6Image
+	QImage* levelCrossingHImage;
+	QImage* levelCrossingVImage;
 
 
 
