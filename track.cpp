@@ -19,9 +19,9 @@ StraightTrack::StraightTrack(ElementType newElementType, int newOffsetX, int new
 	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
-    platform1 = false;
-    platform2 = false;
-    levelCrossing = false;
+	platform1 = false;
+	platform2 = false;
+	levelCrossing = false;
 
 }
 
@@ -36,37 +36,37 @@ StraightTrack::~StraightTrack()
 	{
 		std::cout << "Straight V destroyed \n" << std::flush;;
 	}
-    */
+	*/
 }
 
 bool StraightTrack::hasLevelCrossing() const
 {
-    return levelCrossing;
+	return levelCrossing;
 }
 
 void StraightTrack::addLevelCrossing()
 {
-    levelCrossing = true;
+	levelCrossing = true;
 }
 
 bool Track::getPlatform1() const
 {
-    return platform1;
+	return platform1;
 }
 
 void Track::setPlatform1(bool newPlatform)
 {
-    platform1 = newPlatform;
+	platform1 = newPlatform;
 }
 
 bool Track::getPlatform2() const
 {
-    return platform2;
+	return platform2;
 }
 
 void Track::setPlatform2(bool newPlatform)
 {
-    platform2 = newPlatform;
+	platform2 = newPlatform;
 }
 
 
@@ -78,8 +78,8 @@ DirectTrack::DirectTrack(ElementType newElementType, int newOffsetX, int newOffs
 	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
-    platform1 = false;
-    platform2 = false;
+	platform1 = false;
+	platform2 = false;
 
 }
 
@@ -121,8 +121,8 @@ BufferTrack::BufferTrack(ElementType newElementType, int newOffsetX, int newOffs
 	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
-    platform1 = false;
-    platform2 = false;
+	platform1 = false;
+	platform2 = false;
 
 }
 
@@ -134,8 +134,8 @@ SignalTrack::SignalTrack(ElementType newElementType, int newAspect, int newOffse
 	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
-    platform1 = false;
-    platform2 = false;
+	platform1 = false;
+	platform2 = false;
 
 }
 
@@ -151,44 +151,44 @@ void SignalTrack::setAspect(int newAspect)
 
 BridgeUnderpassTrack::BridgeUnderpassTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
 {
-    elementType = newElementType;
-    offsetX = newOffsetX;
-    offsetY = newOffsetY;
-    locationX = newLocationX;
-    locationY = newLocationY;
-    platform1 = false;
-    platform2 = false;
+	elementType = newElementType;
+	offsetX = newOffsetX;
+	offsetY = newOffsetY;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	platform1 = false;
+	platform2 = false;
 
 }
 
 SwitchTrack::SwitchTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
 {
-    elementType = newElementType;
-    offsetX = newOffsetX;
-    offsetY = newOffsetY;
-    locationX = newLocationX;
-    locationY = newLocationY;
-    platform1 = false;
-    platform2 = false;
+	elementType = newElementType;
+	offsetX = newOffsetX;
+	offsetY = newOffsetY;
+	locationX = newLocationX;
+	locationY = newLocationY;
+	platform1 = false;
+	platform2 = false;
 
 }
 
 CrossoverTrack::CrossoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
 {
-    elementType = newElementType;
-    offsetX = newOffsetX;
-    offsetY = newOffsetY;
-    locationX = newLocationX;
-    locationY = newLocationY;
+	elementType = newElementType;
+	offsetX = newOffsetX;
+	offsetY = newOffsetY;
+	locationX = newLocationX;
+	locationY = newLocationY;
 
 }
 
 FlyoverTrack::FlyoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
 {
-    elementType = newElementType;
-    offsetX = newOffsetX;
-    offsetY = newOffsetY;
-    locationX = newLocationX;
-    locationY = newLocationY;
+	elementType = newElementType;
+	offsetX = newOffsetX;
+	offsetY = newOffsetY;
+	locationX = newLocationX;
+	locationY = newLocationY;
 
 }

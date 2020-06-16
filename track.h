@@ -5,7 +5,7 @@
 #include "element.h"
 
 enum class Platform {
-    LEFT, UP, RIGHT, DOWN, LEFTUP, RIGHTUP, LEFTDOWN, RIGHTDOWN
+	LEFT, UP, RIGHT, DOWN, LEFTUP, RIGHTUP, LEFTDOWN, RIGHTDOWN
 };
 
 class Track : public Element
@@ -17,26 +17,26 @@ protected:
 	int trackSpeed{ 200 };
 	int trackLength{ 100 };
 	bool trackLinks[9];
-    //For vertical tracks, platform1 is left, platform2 is right
-    //For Horizontal tracks platform1 is up, platform2 is down
-    bool platform1;
-    bool platform2;
+	//For vertical tracks, platform1 is left, platform2 is right
+	//For Horizontal tracks platform1 is up, platform2 is down
+	bool platform1;
+	bool platform2;
 
 
 
 
 public:
 	Track();
-    bool getPlatform1() const;
-    void setPlatform1(bool newPlatform);
-    bool getPlatform2() const;
-    void setPlatform2(bool newPlatform);
+	bool getPlatform1() const;
+	void setPlatform1(bool newPlatform);
+	bool getPlatform2() const;
+	void setPlatform2(bool newPlatform);
 };
 
 class StraightTrack : public Track
 {
 private:
-    bool levelCrossing;
+	bool levelCrossing;
 
 
 protected:
@@ -45,11 +45,11 @@ protected:
 
 
 public:
-    StraightTrack();
+	StraightTrack();
 	StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 	~StraightTrack();
-    bool hasLevelCrossing() const;
-    void addLevelCrossing();
+	bool hasLevelCrossing() const;
+	void addLevelCrossing();
 
 
 
@@ -159,7 +159,7 @@ protected:
 
 
 public:
-    BridgeUnderpassTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	BridgeUnderpassTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
 
@@ -174,7 +174,7 @@ protected:
 
 
 public:
-    SwitchTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	SwitchTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
 
@@ -189,7 +189,7 @@ protected:
 
 
 public:
-    CrossoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	CrossoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
 
@@ -204,7 +204,7 @@ protected:
 
 
 public:
-    FlyoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+	FlyoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
 
