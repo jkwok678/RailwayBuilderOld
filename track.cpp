@@ -12,14 +12,13 @@ StraightTrack::StraightTrack()
 
 }
 
-StraightTrack::StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY, int windowSizeX, int windowSizeY)
+StraightTrack::StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
 	offsetX = newOffsetX;
 	offsetY = newOffsetY;
-    locationX = newLocationX + (offsetX*windowSizeX);
-    locationY = newLocationY + (offsetY*windowSizeY);
-    std::cout << locationX << std::flush;
+    locationX = newLocationX;
+    locationY = newLocationY;
 	platform1 = false;
 	platform2 = false;
 	levelCrossing = false;

@@ -270,19 +270,17 @@ void Canvas::setAspect(int& newAspect)
 
 void Canvas::mousePressEvent(QMouseEvent* event)
 {
-        lastPoint = event->pos();
-	exactX = event->pos().x();
-	exactY = event->pos().y();
-	extraX = exactX % 16;
-	extraY = exactY % 16;
-	finalX = exactX - extraX;
-	finalY = exactY - extraY;
 
+        int exactX = event->pos().x();
+        int exactY = event->pos().y();
+        int extraX = exactX % 16;
+        int extraY = exactY % 16;
+        int roundedX = exactX - extraX;
+        int roundedY = exactY - extraY;
+        int finalX = roundedX + (offsetX*canvasSizeX);
+        int finalY = roundedY + (offsetX*canvasSizeY);
 
 	if (event->button() == Qt::LeftButton) {
-
-		boundX = finalX + imageSize;
-		boundY = finalY + imageSize;
                 canvasSizeX = width();
                 canvasSizeY = height();
 
@@ -297,14 +295,15 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 		}
 		case ElementType::STRAIGHTH:
 		{
-                        std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY, canvasSizeX, canvasSizeY));
+
+                    std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
 			drawnLayout->addStraightTrack(straightH);
 			break;
 		}
 		case ElementType::STRAIGHTV:
 		{
-                        //std::shared_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
-                        //drawnLayout->addStraightTrack(straightV);
+                        std::shared_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+                        drawnLayout->addStraightTrack(straightV);
 			break;
 		}
 		case ElementType::DIRECTLEFT:
@@ -2196,6 +2195,11 @@ void Canvas::paintEvent(QPaintEvent* event)
     }
 
 
+}
+
+void Canvas::resizeEvent(QResizeEvent *event)
+{
+    //update();
 }
 
 

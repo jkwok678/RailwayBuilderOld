@@ -46,7 +46,7 @@ protected:
 
 public:
 	StraightTrack();
-    StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY, int windowSizeX, int windowSizeY);
+    StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 	~StraightTrack();
 	bool hasLevelCrossing() const;
 	void addLevelCrossing();

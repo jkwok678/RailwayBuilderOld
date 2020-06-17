@@ -45,6 +45,7 @@ public slots:
 protected:
 	void mousePressEvent(QMouseEvent* event) override;
 	void paintEvent(QPaintEvent* event) override;
+    void resizeEvent(QResizeEvent *event) override;
 
 private:
 	ElementType* canvasChosen;
@@ -52,20 +53,12 @@ private:
 	Map* drawnLayout;
 	int imageSize;
 	bool modified = false;
-	int offsetX;
-	int offsetY;
+    int offsetX;
+    int offsetY;
     int canvasSizeX;
     int canvasSizeY;
 	int canvasAspect;
-	QPoint lastPoint;
-	int exactX;
-	int exactY;
-	int extraX;
-	int extraY;
-	int finalX;
-	int finalY;
-	int boundX;
-	int boundY;
+
 
 
 	//ElementBlock1 images
