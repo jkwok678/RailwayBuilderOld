@@ -8,6 +8,8 @@ Canvas::Canvas()
 	// set black background
 	drawnLayout = new Map;
 	pal.setColor(QPalette::Window, Qt::white);
+        canvasSizeX = width();
+        canvasSizeY = height();
 
 	//ElementBlock1 images
 	straightHImage = new QImage(":/graphics/graphics/straightH.png");
@@ -268,7 +270,7 @@ void Canvas::setAspect(int& newAspect)
 
 void Canvas::mousePressEvent(QMouseEvent* event)
 {
-	lastPoint = event->pos();
+        lastPoint = event->pos();
 	exactX = event->pos().x();
 	exactY = event->pos().y();
 	extraX = exactX % 16;
@@ -281,6 +283,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 
 		boundX = finalX + imageSize;
 		boundY = finalY + imageSize;
+                canvasSizeX = width();
+                canvasSizeY = height();
 
 		switch (*canvasChosen) {
 		case ElementType::NONE:
@@ -293,14 +297,14 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 		}
 		case ElementType::STRAIGHTH:
 		{
-			std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+                        std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY, canvasSizeX, canvasSizeY));
 			drawnLayout->addStraightTrack(straightH);
 			break;
 		}
 		case ElementType::STRAIGHTV:
 		{
-			std::shared_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
-			drawnLayout->addStraightTrack(straightV);
+                        //std::shared_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+                        //drawnLayout->addStraightTrack(straightV);
 			break;
 		}
 		case ElementType::DIRECTLEFT:
@@ -329,14 +333,14 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 		}
 		case ElementType::STRIAGHTRIGHTUP:
 		{
-			std::shared_ptr<StraightTrack> straightRightUp(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
-			drawnLayout->addStraightTrack(straightRightUp);
+                        //std::shared_ptr<StraightTrack> straightRightUp(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+                        //drawnLayout->addStraightTrack(straightRightUp);
 			break;
 		}
 		case ElementType::STRAIGHTLEFTUP:
 		{
-			std::shared_ptr<StraightTrack> straightLeftUp(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
-			drawnLayout->addStraightTrack(straightLeftUp);
+                        //std::shared_ptr<StraightTrack> straightLeftUp(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+                        //drawnLayout->addStraightTrack(straightLeftUp);
 			break;
 		}
 		case ElementType::DIRECTRIGHTUP:
@@ -1176,855 +1180,1020 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 			drawnLayout->addText(text);
 
 		}
-		update();
 
-		}
 
+            }
+            update();
 
 	}
 }
 void Canvas::paintEvent(QPaintEvent* event)
 {
-	QPainter painter(this);
-	for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList()) {
+    canvasSizeX = width();
+    canvasSizeY = height();
+    QPainter painter(this);
+    for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList())
+    {
+        //Get the stored location of track relative to the canvas widget.
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        //Find the area you want to output, by using the offset and the size of the canvas widget.
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        //Find the location on the canvas where you will draw
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::STRAIGHTH:
+                        painter.drawImage(displayX, displayY, *straightHImage);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        if (currentElement->hasLevelCrossing())
+                        {
+                            painter.drawImage(displayX, displayY, *levelCrossingHImage);
+                        }
+                        break;
 
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
+                    case ElementType::STRAIGHTV:
+                        painter.drawImage(displayX, displayY, *straightVImage);
+                        if (currentElement->getPlatform1() == true)
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        if (currentElement->getPlatform2() == true)
+                        {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        if (currentElement->hasLevelCrossing())
+                        {
+                            painter.drawImage(displayX, displayY, *levelCrossingVImage);
+                        }
+                        break;
 
-			switch (currentElement->getElementType()) {
+                    case ElementType::STRIAGHTRIGHTUP:
+                        painter.drawImage(displayX, displayY, *straightRightUpImage);
+                        break;
 
-			case ElementType::STRAIGHTH:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightHImage);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				if (currentElement->hasLevelCrossing()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *levelCrossingHImage);
-				}
-				break;
-
-			case ElementType::STRAIGHTV:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightVImage);
-				if (currentElement->getPlatform1() == true) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				if (currentElement->getPlatform2() == true) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				if (currentElement->hasLevelCrossing()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *levelCrossingVImage);
-				}
-				break;
-
-			case ElementType::STRIAGHTRIGHTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightRightUpImage);
-				break;
-
-			case ElementType::STRAIGHTLEFTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *straightLeftUpImage);
-				break;
-			}
-
-		}
-
-
-
+                    case ElementType::STRAIGHTLEFTUP:
+                        painter.drawImage(displayX, displayY, *straightLeftUpImage);
+                        break;
+                }
+            }
+        }
+    }
+    for (std::shared_ptr<DirectTrack> currentElement : drawnLayout->getDirectTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::DIRECTLEFT:
+                        painter.drawImage(displayX, displayY, *directLeftImage);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        if (currentElement->getPlatform2()) {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::DIRECTRIGHT:
+                        painter.drawImage(displayX, displayY, *directRightImage);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::DIRECTUP:
+                        painter.drawImage(displayX, displayY, *directUpImage);
+                        if (currentElement->getPlatform1())
+                        {
+                           painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        if (currentElement->getPlatform2()) {
+                           painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                    case ElementType::DIRECTDOWN:
+                        painter.drawImage(displayX, displayY, *directDownImage);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        if (currentElement->getPlatform2()) {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                    case ElementType::DIRECTRIGHTUP:
+                        painter.drawImage(displayX, displayY, *directRightUpImage);
+                        break;
+                    case ElementType::DIRECTLEFTUP:
+                        painter.drawImage(displayX, displayY, *directLeftUpImage);
+                        break;
+                    case ElementType::DIRECTLEFTDOWN:
+                        painter.drawImage(displayX, displayY, *directLeftDownImage);
+                        break;
+                    case ElementType::DIRECTRIGHTDOWN:
+                        painter.drawImage(displayX, displayY, *directRightDownIamge);
+                        break;
+                }
+            }
+        }
+    }
+    for (std::shared_ptr<CurvedTrack> currentElement : drawnLayout->getCurvedTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::TIGHTCURVE1:
+                        painter.drawImage(displayX, displayY, *tightCurve1Image);
+                        break;
+                    case ElementType::TIGHTCURVE2:
+                        painter.drawImage(displayX, displayY, *tightCurve2Image);
+                        break;
+                    case ElementType::TIGHTCURVE3:
+                        painter.drawImage(displayX, displayY, *tightCurve3Image);
+                        break;
+                    case ElementType::TIGHTCURVE4:
+                        painter.drawImage(displayX, displayY, *tightCurve4Image);
+                        break;
+                    case ElementType::CURVE1:
+                        painter.drawImage(displayX, displayY, *curve1Image);
+                        break;
+                    case ElementType::CURVE2:
+                        painter.drawImage(displayX, displayY, *curve2Image);
+                        break;
+                    case ElementType::CURVE3:
+                        painter.drawImage(displayX, displayY, *curve3Image);
+                        break;
+                    case ElementType::CURVE4:
+                        painter.drawImage(displayX, displayY, *curve4Image);
+                        break;
+                    case ElementType::CURVE5:
+                        painter.drawImage(displayX, displayY, *curve5Image);
+                        break;
+                    case ElementType::CURVE6:
+                        painter.drawImage(displayX, displayY, *curve6Image);
+                        break;
+                    case ElementType::CURVE7:
+                        painter.drawImage(displayX, displayY, *curve7Image);
+                        break;
+                    case ElementType::CURVE8:
+                        painter.drawImage(displayX, displayY, *curve8Image);
+                        break;
+                }
+            }
 	}
-	for (std::shared_ptr<DirectTrack> currentElement : drawnLayout->getDirectTrackList()) {
+    }
+    for (std::shared_ptr<LinkedTrack> currentElement : drawnLayout->getLinkedTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::LINKLEFT:
+                        painter.drawImage(displayX, displayY, *linkLeftImage);
+                        break;
+                    case ElementType::LINKRIGHT:
+                        painter.drawImage(displayX, displayY, *linkRightImage);
+                        break;
+                    case ElementType::LINKDOWN:
+                        painter.drawImage(displayX, displayY, *linkDownImage);
+                        break;
+                    case ElementType::LINKUP:
+                        painter.drawImage(displayX, displayY, *linkUpImage);
+                        break;
+                    case ElementType::LINKLEFTUP:
+                        painter.drawImage(displayX, displayY, *linkLeftUpImage);
+                        break;
+                    case ElementType::LINKRIGHTUP:
+                        painter.drawImage(displayX, displayY, *linkRightUpImage);
+                        break;
+                    case ElementType::LINKRIGHTDOWN:
+                        painter.drawImage(displayX, displayY, *linkRightDownImage);
+                        break;
+                    case ElementType::LINKLEFTDOWN:
+                        painter.drawImage(displayX, displayY, *linkLeftDownImage);
+                        break;
+                }
+            }
+        }
+    }
+    for (std::shared_ptr<ExitTrack> currentElement : drawnLayout->getExitTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::EXITLEFT:
+                        painter.drawImage(displayX, displayY, *exitLeftImage);
+                        break;
+                    case ElementType::EXITRIGHT:
+                        painter.drawImage(displayX, displayY, *exitRightImage);
+                        break;
+                    case ElementType::EXITDOWN:
+                        painter.drawImage(displayX, displayY, *exitDownImage);
+                        break;
+                    case ElementType::EXITUP:
+                        painter.drawImage(displayX, displayY, *exitUpImage);
+                        break;
+                    case ElementType::EXITLEFTUP:
+                        painter.drawImage(displayX, displayY, *exitLeftUpImage);
+                        break;
+                    case ElementType::EXITRIGHTUP:
+                        painter.drawImage(displayX, displayY, *exitRightUpImage);
+                        break;
+                    case ElementType::EXITLEFTDOWN:
+                        painter.drawImage(displayX, displayY, *exitLeftDownImage);
+                        break;
+                    case ElementType::EXITRIGHTDOWN:
+                        painter.drawImage(displayX, displayY, *exitRightDownImage);
+                        break;
 
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-
-			switch (currentElement->getElementType()) {
-			case ElementType::DIRECTLEFT:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directLeftImage);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-
-			case ElementType::DIRECTRIGHT:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directRightImage);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-			case ElementType::DIRECTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directUpImage);
-				if (currentElement->getPlatform1() == true) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				if (currentElement->getPlatform2() == true) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-			case ElementType::DIRECTDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directDownImage);
-				if (currentElement->getPlatform1() == true) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				if (currentElement->getPlatform2() == true) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-			case ElementType::DIRECTRIGHTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directRightUpImage);
-				break;
-			case ElementType::DIRECTLEFTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directLeftUpImage);
-				break;
-			case ElementType::DIRECTLEFTDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directLeftDownImage);
-				break;
-			case ElementType::DIRECTRIGHTDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *directRightDownIamge);
-				break;
-			}
-
-		}
-
+                }
+            }
 	}
-	for (std::shared_ptr<CurvedTrack> currentElement : drawnLayout->getCurvedTrackList()) {
+    }
+    for (std::shared_ptr<BufferTrack> currentElement : drawnLayout->getBufferTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::BUFFERLEFT:
+                        painter.drawImage(displayX, displayY, *bufferLeftImage);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::BUFFERRIGHT:
+                        painter.drawImage(displayX, displayY, *bufferRightImage);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::BUFFERDOWN:
+                        painter.drawImage(displayX, displayY, *bufferDownImage);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                    case ElementType::BUFFERUP:
+                        painter.drawImage(displayX, displayY, *bufferUpImage);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                    case ElementType::BUFFERLEFTUP:
+                        painter.drawImage(displayX, displayY, *bufferLeftUpImage);
+                        break;
+                    case ElementType::BUFFERRIGHTUP:
+                        painter.drawImage(displayX, displayY, *bufferRightUpImage);
+                        break;
+                    case ElementType::BUFFERLEFTDOWN:
+                        painter.drawImage(displayX, displayY, *bufferLeftDownImage);
+                        break;
+                    case ElementType::BUFFERRIGHTDOWN:
+                        painter.drawImage(displayX, displayY, *bufferRightDownImage);
+                        break;
 
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
+                }
+            }
+        }
+    }
+    for (std::shared_ptr<SignalTrack> currentElement : drawnLayout->getSignalTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::SIGNALLEFT:
+                        if (currentElement->getAspect() == 1)
+                        {
+                            painter.drawImage(displayX, displayY, *shuntLeftImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *signalLeftImage);
+                        }
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::SIGNALRIGHT:
+                        if (currentElement->getAspect() == 1)
+                        {
+                            painter.drawImage(displayX, displayY, *shuntRightImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *signalRightImage);
+                        }
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::SIGNALDOWN:
+                        if (currentElement->getAspect() == 1)
+                        {
+                            painter.drawImage(displayX, displayY, *shuntDownImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *signalDownImage);
+                        }
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                    case ElementType::SIGNALUP:
+                        if (currentElement->getAspect() == 1)
+                        {
+                            painter.drawImage(displayX, displayY, *shuntUpImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *signalUpImage);
+                        }
+                        if (currentElement->getPlatform1()) {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        if (currentElement->getPlatform2()) {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                    case ElementType::SIGNALLEFTUP:
+                        if (currentElement->getAspect() == 1)
+                        {
+                            painter.drawImage(displayX, displayY, *shuntLeftUpImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *signalLeftUpImage);
+                        }
+                        break;
+                    case ElementType::SIGNALRIGHTUP:
+                        if (currentElement->getAspect() == 1)
+                        {
+                            painter.drawImage(displayX, displayY, *shuntRightUpImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *signalRightUpImage);
+                        }
+                        break;
+                    case ElementType::SIGNALLEFTDOWN:
+                        if (currentElement->getAspect() == 1)
+                        {
+                            painter.drawImage(displayX, displayY, *shuntLeftDownImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *signalLeftDownImage);
+                        }
+                        break;
+                    case ElementType::SIGNALRIGHTDOWN:
+                        if (currentElement->getAspect() == 1)
+                        {
+                            painter.drawImage(displayX, displayY, *shuntRightDownImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *signalRightDownImage);
+                        }
+                        break;
+                }
+            }
+        }
+    }
+    for (std::shared_ptr<BridgeUnderpassTrack> currentElement : drawnLayout->getBridgeUnderpassTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::BRIDGE1:
+                        painter.drawImage(displayX, displayY, *bridgeUnset1Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::BRIDGE2:
+                        painter.drawImage(displayX, displayY, *bridgeUnset2Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                    case ElementType::UNDERPASS1:
+                        painter.drawImage(displayX, displayY, *underpassUnset1Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
 
-			switch (currentElement->getElementType()) {
-			case ElementType::TIGHTCURVE1:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *tightCurve1Image);
-				break;
+                    case ElementType::UNDERPASS2:
+                        painter.drawImage(displayX, displayY, *underpassUnset2Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                }
+            }
+        }
+    }
+    for (std::shared_ptr<SwitchTrack> currentElement : drawnLayout->getSwitchTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::SWITCHTIGHT1:
+                        painter.drawImage(displayX, displayY, *switchTight1Image);
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCHTIGHT2:
+                        painter.drawImage(displayX, displayY, *switchTight2Image);
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCHTIGHT3:
+                        painter.drawImage(displayX, displayY, *switchTight3Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCHTIGHT4:
+                        painter.drawImage(displayX, displayY, *switchTight4Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCHTIGHT5:
+                        painter.drawImage(displayX, displayY, *switchTight5Image);
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCHTIGHT6:
+                        painter.drawImage(displayX, displayY, *switchTight6Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCHTIGHT7:
+                        painter.drawImage(displayX, displayY, *switchTight7Image);
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
 
-			case ElementType::TIGHTCURVE2:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *tightCurve2Image);
-				break;
-			case ElementType::TIGHTCURVE3:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *tightCurve3Image);
-				break;
+                    case ElementType::SWITCHTIGHT8:
+                        painter.drawImage(displayX, displayY, *switchTight8Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCHSPLIT1:
+                        painter.drawImage(displayX, displayY, *switchSplit1Image);
+                        break;
+                    case ElementType::SWITCHSPLIT2:
+                        painter.drawImage(displayX, displayY, *switchSplit2Image);
+                        break;
+                    case ElementType::SWITCHSPLIT3:
+                        painter.drawImage(displayX, displayY, *switchSplit3Image);
+                        break;
+                    case ElementType::SWITCH1:
+                        painter.drawImage(displayX, displayY, *switch1Image);
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCH2:
+                        painter.drawImage(displayX, displayY, *switch2Image);
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCH3:
+                        painter.drawImage(displayX, displayY, *switch3Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCH4:
+                        painter.drawImage(displayX, displayY, *switch4Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCH5:
+                        painter.drawImage(displayX, displayY, *switch5Image);
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCH6:
+                        painter.drawImage(displayX, displayY, *switch6Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCH7:
+                        painter.drawImage(displayX, displayY, *switch7Image);
+                        if (currentElement->getPlatform2())
+                        {
+                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCH8:
+                        painter.drawImage(displayX, displayY, *switch8Image);
+                        if (currentElement->getPlatform1())
+                        {
+                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                        }
+                        break;
+                    case ElementType::SWITCHSPLIT4:
+                        painter.drawImage(displayX, displayY, *switchSplit4Image);
+                        break;
+                    case ElementType::SWITCHSPLIT5:
+                        painter.drawImage(displayX, displayY, *switchSplit5Image);
+                        break;
+                    case ElementType::SWITCHSPLIT6:
+                        painter.drawImage(displayX, displayY, *switchSplit6Image);
+                        break;
+                    case ElementType::SWITCH9:
+                        painter.drawImage(displayX, displayY, *switch9Image);
+                        break;
+                    case ElementType::SWITCH10:
+                        painter.drawImage(displayX, displayY, *switch10Image);
+                        break;
+                    case ElementType::SWITCH11:
+                        painter.drawImage(displayX, displayY, *switch11Image);
+                        break;
+                    case ElementType::SWITCH12:
+                        painter.drawImage(displayX, displayY, *switch12Image);
+                        break;
+                    case ElementType::SWITCH13:
+                        painter.drawImage(displayX, displayY, *switch13Image);
+                        break;
+                    case ElementType::SWITCH14:
+                        painter.drawImage(displayX, displayY, *switch14Image);
+                        break;
+                    case ElementType::SWITCH15:
+                        painter.drawImage(displayX, displayY, *switch15Image);
+                        break;
+                    case ElementType::SWITCH16:
+                        painter.drawImage(displayX, displayY, *switch16Image);
+                        break;
+                    case ElementType::SWITCHSPLIT7:
+                        painter.drawImage(displayX, displayY, *switchSplit7Image);
+                        break;
+                    case ElementType::SWITCHSPLIT8:
+                        painter.drawImage(displayX, displayY, *switchSplit8Image);
+                        break;
+                }
+            }
+        }
+    }
+    for (std::shared_ptr<CrossoverTrack> currentElement : drawnLayout->getCrossoverTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+           if (currentY > minDisplayY && currentY < maxDisplayY)
+           {
+               switch (currentElement->getElementType())
+               {
+                   case ElementType::CROSSOVER1:
+                       painter.drawImage(displayX, displayY, *crossover1Image);
+                       break;
+                   case ElementType::CROSSOVER2:
+                       painter.drawImage(displayX, displayY, *crossover2Image);
+                       break;
+                   case ElementType::CROSSOVER3:
+                       painter.drawImage(displayX, displayY, *crossover3Image);
+                       break;
+                   case ElementType::CROSSOVER4:
+                       painter.drawImage(displayX, displayY, *crossover4Image);
+                       break;
+                   case ElementType::CROSSOVER5:
+                       painter.drawImage(displayX, displayY, *crossover5Image);
+                       break;
+                   case ElementType::CROSSOVER6:
+                       painter.drawImage(displayX, displayY, *crossover6Image);
+                       break;
+                }
+            }
+        }
+    }
+    for (std::shared_ptr<FlyoverTrack> currentElement : drawnLayout->getFlyoverTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::FLYOVER1:
+                        painter.drawImage(displayX, displayY, *flyover1Image);
+                        break;
+                    case ElementType::FLYOVER2:
+                        painter.drawImage(displayX, displayY, *flyover2Image);
+                        break;
+                    case ElementType::FLYOVER3:
+                        painter.drawImage(displayX, displayY, *flyover3Image);
+                        break;
+                    case ElementType::FLYOVER4:
+                        painter.drawImage(displayX, displayY, *flyover4Image);
+                        break;
+                    case ElementType::FLYOVER5:
+                        painter.drawImage(displayX, displayY, *flyover5Image);
+                        break;
+                    case ElementType::FLYOVER6:
+                        painter.drawImage(displayX, displayY, *flyover6Image);
+                        break;
+                    case ElementType::FLYOVER7:
+                        painter.drawImage(displayX, displayY, *flyover7Image);
+                        break;
+                    case ElementType::FLYOVER8:
+                        painter.drawImage(displayX, displayY, *flyover8Image);
+                        break;
+                    case ElementType::FLYOVER9:
+                        painter.drawImage(displayX, displayY, *flyover9Image);
+                        break;
+                    case ElementType::FLYOVER10:
+                        painter.drawImage(displayX, displayY, *flyover10Image);
+                        break;
+                    case ElementType::FLYOVER11:
+                        painter.drawImage(displayX, displayY, *flyover11Image);
+                        break;
+                    case ElementType::FLYOVER12:
+                        painter.drawImage(displayX, displayY, *flyover12Image);
+                        break;
+                }
+            }
+        }
+    }
+    for (std::shared_ptr<NamedLocation> currentElement : drawnLayout->getNamedLocationList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                if (currentElement->getNamed())
+                {
+                    painter.drawImage(displayX, displayY, *namedLocationSetImage);
+                }
+                else
+                {
+                    painter.drawImage(displayX, displayY, *namedLocationUnsetImage);
+                }
+            }
+        }
+    }
 
-			case ElementType::TIGHTCURVE4:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *tightCurve4Image);
-				break;
-			case ElementType::CURVE1:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *curve1Image);
-				break;
+    for (std::shared_ptr<Concourse> currentElement : drawnLayout->getConcourseList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                if (currentElement->getNamed())
+                {
+                    painter.drawImage(displayX, displayY, *concourseSetImage);
+                }
+                else
+                {
+                    painter.drawImage(displayX, displayY, *concourseUnsetImage);
+                }
+            }
+        }
+    }
 
-			case ElementType::CURVE2:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *curve2Image);
-				break;
-			case ElementType::CURVE3:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *curve3Image);
-				break;
+    for (std::shared_ptr<Parapet> currentElement : drawnLayout->getParapetList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::PARAPET1:
+                        painter.drawImage(displayX, displayY, *parapet1Image);
+                        break;
+                    case ElementType::PARAPET2:
+                        painter.drawImage(displayX, displayY, *parapet2Image);
+                        break;
+                    case ElementType::PARAPET3:
+                        painter.drawImage(displayX, displayY, *parapet3Image);
+                        break;
+                    case ElementType::PARAPET4:
+                        painter.drawImage(displayX, displayY, *parapet4Image);
+                        break;
+                    case ElementType::PARAPET5:
+                        painter.drawImage(displayX, displayY, *parapet5Image);
+                        break;
+                    case ElementType::PARAPET6:
+                        painter.drawImage(displayX, displayY, *parapet6Image);
+                        break;
+                    case ElementType::PARAPET7:
+                        painter.drawImage(displayX, displayY, *parapet7Image);
+                        break;
+                    case ElementType::PARAPET8:
+                        painter.drawImage(displayX, displayY, *parapet8Image);
+                        break;
+                    case ElementType::PARAPET9:
+                        painter.drawImage(displayX, displayY, *parapet9Image);
+                        break;
+                    case ElementType::PARAPET10:
+                        painter.drawImage(displayX, displayY, *parapet10Image);
+                        break;
+                    case ElementType::PARAPET11:
+                        painter.drawImage(displayX, displayY, *parapet11Image);
+                        break;
+                    case ElementType::PARAPET12:
+                        painter.drawImage(displayX, displayY, *parapet12Image);
+                        break;
+                    case ElementType::PARAPET13:
+                        painter.drawImage(displayX, displayY, *parapet13Image);
+                        break;
+                    case ElementType::PARAPET14:
+                        painter.drawImage(displayX, displayY, *parapet14Image);
+                        break;
+                    case ElementType::PARAPET15:
+                        painter.drawImage(displayX, displayY, *parapet15Image);
+                        break;
+                    case ElementType::PARAPET16:
+                        painter.drawImage(displayX, displayY, *parapet16Image);
+                        break;
+                    case ElementType::PARAPET17:
+                        painter.drawImage(displayX, displayY, *parapet17Image);
+                        break;
+                    case ElementType::PARAPET18:
+                        painter.drawImage(displayX, displayY, *parapet18Image);
+                        break;
+                    case ElementType::PARAPET19:
+                        painter.drawImage(displayX, displayY, *parapet19Image);
+                        break;
+                    case ElementType::PARAPET20:
+                        painter.drawImage(displayX, displayY, *parapet20Image);
+                        break;
+                    case ElementType::PARAPET21:
+                        painter.drawImage(displayX, displayY, *parapet21Image);
+                        break;
+                    case ElementType::PARAPET22:
+                        painter.drawImage(displayX, displayY, *parapet22Image);
+                        break;
+                    case ElementType::PARAPET23:
+                        painter.drawImage(displayX, displayY, *parapet23Image);
+                        break;
+                    case ElementType::PARAPET24:
+                        painter.drawImage(displayX, displayY, *parapet24Image);
+                        break;
+                    case ElementType::PARAPET25:
+                        painter.drawImage(displayX, displayY, *parapet25Image);
+                        break;
+                    case ElementType::PARAPET26:
+                        painter.drawImage(displayX, displayY, *parapet26Image);
+                        break;
+                    case ElementType::PARAPET27:
+                        painter.drawImage(displayX, displayY, *parapet27Image);
+                        break;
+                    case ElementType::PARAPET28:
+                        painter.drawImage(displayX, displayY, *parapet28Image);
+                        break;
+                }
+            }
+        }
+    }
 
-			case ElementType::CURVE4:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *curve4Image);
-				break;
-			case ElementType::CURVE5:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *curve5Image);
-				break;
-
-			case ElementType::CURVE6:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *curve6Image);
-				break;
-			case ElementType::CURVE7:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *curve7Image);
-				break;
-
-			case ElementType::CURVE8:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *curve8Image);
-				break;
-			}
-
-		}
+    for (std::shared_ptr<Text> currentElement : drawnLayout->getTextList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minDisplayX = offsetX * canvasSizeX;
+        int maxDisplayX = (offsetX+1) * canvasSizeX;
+        int minDisplayY = offsetY * canvasSizeY;
+        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int displayX = currentX- minDisplayX;
+        int displayY = currentY - minDisplayY;
+        if (currentX > minDisplayX && currentX < maxDisplayX)
+        {
+            if (currentY > minDisplayY && currentY < maxDisplayY)
+            {
+                painter.drawText(displayX, displayY, currentElement->getReadableText());
+            }
 	}
-	for (std::shared_ptr<LinkedTrack> currentElement : drawnLayout->getLinkedTrackList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-			switch (currentElement->getElementType()) {
-
-			case ElementType::LINKLEFT:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *linkLeftImage);
-				break;
-
-			case ElementType::LINKRIGHT:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *linkRightImage);
-				break;
-			case ElementType::LINKDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *linkDownImage);
-				break;
-
-			case ElementType::LINKUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *linkUpImage);
-				break;
-
-			case ElementType::LINKLEFTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *linkLeftUpImage);
-				break;
-
-			case ElementType::LINKRIGHTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *linkRightUpImage);
-				break;
-			case ElementType::LINKRIGHTDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *linkRightDownImage);
-				break;
-
-			case ElementType::LINKLEFTDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *linkLeftDownImage);
-				break;
-
-
-			}
-
-		}
-	}
-	for (std::shared_ptr<ExitTrack> currentElement : drawnLayout->getExitTrackList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-			switch (currentElement->getElementType()) {
-			case ElementType::EXITLEFT:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *exitLeftImage);
-				break;
-
-			case ElementType::EXITRIGHT:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *exitRightImage);
-				break;
-			case ElementType::EXITDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *exitDownImage);
-				break;
-
-			case ElementType::EXITUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *exitUpImage);
-				break;
-
-			case ElementType::EXITLEFTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *exitLeftUpImage);
-				break;
-
-			case ElementType::EXITRIGHTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *exitRightUpImage);
-				break;
-
-			case ElementType::EXITLEFTDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *exitLeftDownImage);
-				break;
-
-			case ElementType::EXITRIGHTDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *exitRightDownImage);
-				break;
-
-			}
-
-
-		}
-
-	}
-
-	for (std::shared_ptr<BufferTrack> currentElement : drawnLayout->getBufferTrackList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-			switch (currentElement->getElementType()) {
-			case ElementType::BUFFERLEFT:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferLeftImage);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-
-			case ElementType::BUFFERRIGHT:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferRightImage);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-			case ElementType::BUFFERDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferDownImage);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-
-			case ElementType::BUFFERUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferUpImage);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-
-			case ElementType::BUFFERLEFTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferLeftUpImage);
-				break;
-
-			case ElementType::BUFFERRIGHTUP:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferRightUpImage);
-				break;
-			case ElementType::BUFFERLEFTDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferLeftDownImage);
-				break;
-
-			case ElementType::BUFFERRIGHTDOWN:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bufferRightDownImage);
-				break;
-			}
-		}
-	}
-
-	for (std::shared_ptr<SignalTrack> currentElement : drawnLayout->getSignalTrackList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-
-			switch (currentElement->getElementType()) {
-			case ElementType::SIGNALLEFT:
-				if (currentElement->getAspect() == 1)
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *shuntLeftImage);
-				}
-				else
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalLeftImage);
-				}
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-
-				break;
-
-			case ElementType::SIGNALRIGHT:
-				if (currentElement->getAspect() == 1)
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *shuntRightImage);
-				}
-				else
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalRightImage);
-				}
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-			case ElementType::SIGNALDOWN:
-				if (currentElement->getAspect() == 1)
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *shuntDownImage);
-				}
-				else
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalDownImage);
-				}
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-
-			case ElementType::SIGNALUP:
-				if (currentElement->getAspect() == 1)
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *shuntUpImage);
-				}
-				else
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalUpImage);
-				}
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-
-			case ElementType::SIGNALLEFTUP:
-				if (currentElement->getAspect() == 1)
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *shuntLeftUpImage);
-				}
-				else
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalLeftUpImage);
-				}break;
-
-			case ElementType::SIGNALRIGHTUP:
-				if (currentElement->getAspect() == 1)
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *shuntRightUpImage);
-				}
-				else
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalRightUpImage);
-				}break;
-			case ElementType::SIGNALLEFTDOWN:
-				if (currentElement->getAspect() == 1)
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *shuntLeftDownImage);
-				}
-				else
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalLeftDownImage);
-				}break;
-
-			case ElementType::SIGNALRIGHTDOWN:
-				if (currentElement->getAspect() == 1)
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *shuntRightDownImage);
-				}
-				else
-				{
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *signalRightDownImage);
-				}break;
-
-			}
-
-
-
-		}
-
-	}
-	for (std::shared_ptr<BridgeUnderpassTrack> currentElement : drawnLayout->getBridgeUnderpassTrackList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-
-			switch (currentElement->getElementType()) {
-			case ElementType::BRIDGE1:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bridgeUnset1Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-
-			case ElementType::BRIDGE2:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *bridgeUnset2Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-			case ElementType::UNDERPASS1:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *underpassUnset1Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-
-			case ElementType::UNDERPASS2:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *underpassUnset2Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-			}
-		}
-	}
-
-	for (std::shared_ptr<SwitchTrack> currentElement : drawnLayout->getSwitchTrackList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-
-			switch (currentElement->getElementType()) {
-			case ElementType::SWITCHTIGHT1:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight1Image);
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCHTIGHT2:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight2Image);
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-			case ElementType::SWITCHTIGHT3:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight3Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCHTIGHT4:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight4Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCHTIGHT5:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight5Image);
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCHTIGHT6:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight6Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				break;
-			case ElementType::SWITCHTIGHT7:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight7Image);
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCHTIGHT8:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchTight8Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCHSPLIT1:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit1Image);
-
-				break;
-
-			case ElementType::SWITCHSPLIT2:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit2Image);
-
-				break;
-			case ElementType::SWITCHSPLIT3:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit3Image);
-				break;
-			case ElementType::SWITCH1:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch1Image);
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCH2:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch2Image);
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformDownUnsetImage);
-				}
-				break;
-			case ElementType::SWITCH3:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch3Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCH4:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch4Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformUpUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCH5:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch5Image);
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCH6:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch6Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				break;
-			case ElementType::SWITCH7:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch7Image);
-				if (currentElement->getPlatform2()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformRightUnsetImage);
-				}
-				break;
-
-			case ElementType::SWITCH8:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch8Image);
-				if (currentElement->getPlatform1()) {
-					painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *platformLeftUnsetImage);
-				}
-				break;
-			case ElementType::SWITCHSPLIT4:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit4Image);
-				break;
-
-			case ElementType::SWITCHSPLIT5:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit5Image);
-				break;
-			case ElementType::SWITCHSPLIT6:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit6Image);
-				break;
-			case ElementType::SWITCH9:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch9Image);
-				break;
-
-			case ElementType::SWITCH10:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch10Image);
-				break;
-			case ElementType::SWITCH11:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch11Image);
-				break;
-
-			case ElementType::SWITCH12:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch12Image);
-				break;
-
-			case ElementType::SWITCH13:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch13Image);
-				break;
-
-			case ElementType::SWITCH14:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch14Image);
-				break;
-			case ElementType::SWITCH15:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch15Image);
-				break;
-
-			case ElementType::SWITCH16:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switch16Image);
-				break;
-			case ElementType::SWITCHSPLIT7:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit7Image);
-				break;
-
-			case ElementType::SWITCHSPLIT8:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *switchSplit8Image);
-				break;
-			}
-		}
-	}
-
-	for (std::shared_ptr<CrossoverTrack> currentElement : drawnLayout->getCrossoverTrackList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-			switch (currentElement->getElementType()) {
-			case ElementType::CROSSOVER1:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover1Image);
-				break;
-			case ElementType::CROSSOVER2:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover2Image);
-				break;
-			case ElementType::CROSSOVER3:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover3Image);
-				break;
-			case ElementType::CROSSOVER4:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover4Image);
-				break;
-			case ElementType::CROSSOVER5:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover5Image);
-				break;
-			case ElementType::CROSSOVER6:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *crossover6Image);
-				break;
-			}
-		}
-	}
-
-	for (std::shared_ptr<FlyoverTrack> currentElement : drawnLayout->getFlyoverTrackList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-			switch (currentElement->getElementType()) {
-			case ElementType::FLYOVER1:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover1Image);
-				break;
-			case ElementType::FLYOVER2:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover2Image);
-				break;
-			case ElementType::FLYOVER3:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover3Image);
-				break;
-			case ElementType::FLYOVER4:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover4Image);
-				break;
-			case ElementType::FLYOVER5:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover5Image);
-				break;
-			case ElementType::FLYOVER6:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover6Image);
-				break;
-			case ElementType::FLYOVER7:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover7Image);
-				break;
-			case ElementType::FLYOVER8:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover8Image);
-				break;
-			case ElementType::FLYOVER9:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover9Image);
-				break;
-			case ElementType::FLYOVER10:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover10Image);
-				break;
-			case ElementType::FLYOVER11:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover11Image);
-				break;
-			case ElementType::FLYOVER12:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *flyover12Image);
-				break;
-			}
-		}
-	}
-	for (std::shared_ptr<NamedLocation> currentElement : drawnLayout->getNamedLocationList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-			if (currentElement->getNamed()) {
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *namedLocationSetImage);
-			}
-			else {
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *namedLocationUnsetImage);
-			}
-
-
-
-		}
-
-	}
-
-	for (std::shared_ptr<Concourse> currentElement : drawnLayout->getConcourseList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-			if (currentElement->getNamed()) {
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *concourseSetImage);
-			}
-			else {
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *concourseUnsetImage);
-			}
-
-
-
-		}
-
-	}
-
-	for (std::shared_ptr<Parapet> currentElement : drawnLayout->getParapetList()) {
-
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-			switch (currentElement->getElementType()) {
-			case ElementType::PARAPET1:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet1Image);
-				break;
-			case ElementType::PARAPET2:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet2Image);
-				break;
-			case ElementType::PARAPET3:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet3Image);
-				break;
-			case ElementType::PARAPET4:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet4Image);
-				break;
-			case ElementType::PARAPET5:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet5Image);
-				break;
-			case ElementType::PARAPET6:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet6Image);
-				break;
-			case ElementType::PARAPET7:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet7Image);
-				break;
-			case ElementType::PARAPET8:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet8Image);
-				break;
-			case ElementType::PARAPET9:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet9Image);
-				break;
-			case ElementType::PARAPET10:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet10Image);
-				break;
-			case ElementType::PARAPET11:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet11Image);
-				break;
-			case ElementType::PARAPET12:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet12Image);
-				break;
-			case ElementType::PARAPET13:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet13Image);
-				break;
-			case ElementType::PARAPET14:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet14Image);
-				break;
-			case ElementType::PARAPET15:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet15Image);
-				break;
-			case ElementType::PARAPET16:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet16Image);
-				break;
-			case ElementType::PARAPET17:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet17Image);
-				break;
-			case ElementType::PARAPET18:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet18Image);
-				break;
-			case ElementType::PARAPET19:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet19Image);
-				break;
-			case ElementType::PARAPET20:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet20Image);
-				break;
-			case ElementType::PARAPET21:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet21Image);
-				break;
-			case ElementType::PARAPET22:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet22Image);
-				break;
-			case ElementType::PARAPET23:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet23Image);
-				break;
-			case ElementType::PARAPET24:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet24Image);
-				break;
-			case ElementType::PARAPET25:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet25Image);
-				break;
-			case ElementType::PARAPET26:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet26Image);
-				break;
-			case ElementType::PARAPET27:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet27Image);
-				break;
-			case ElementType::PARAPET28:
-				painter.drawImage(currentElement->getLocationX(), currentElement->getLocationY(), *parapet28Image);
-				break;
-			}
-
-		}
-
-	}
-
-	for (std::shared_ptr<Text> currentElement : drawnLayout->getTextList()) {
-		if (offsetX == currentElement->getOffsetX() && offsetY == currentElement->getOffsetY()) {
-			painter.drawText(currentElement->getLocationX(), currentElement->getLocationY(), currentElement->getReadableText());
-		}
-	}
+    }
 
 
 }

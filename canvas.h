@@ -54,6 +54,8 @@ private:
 	bool modified = false;
 	int offsetX;
 	int offsetY;
+    int canvasSizeX;
+    int canvasSizeY;
 	int canvasAspect;
 	QPoint lastPoint;
 	int exactX;

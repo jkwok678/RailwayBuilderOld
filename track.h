@@ -46,7 +46,7 @@ protected:
 
 public:
 	StraightTrack();
-	StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY, int windowSizeX, int windowSizeY);
 	~StraightTrack();
 	bool hasLevelCrossing() const;
 	void addLevelCrossing();
@@ -81,7 +81,7 @@ protected:
 
 
 public:
-	CurvedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    CurvedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
 
 };
 

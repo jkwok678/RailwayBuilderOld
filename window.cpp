@@ -119,14 +119,14 @@ void Window::moveLeft()
 
 void Window::moveUp()
 {
-	drawingSurface->setOffsetY(++windowOffsetY);
+    drawingSurface->setOffsetY(--windowOffsetY);
 	drawingSurface->update();
 
 }
 
 void Window::moveDown()
 {
-	drawingSurface->setOffsetY(--windowOffsetY);
+    drawingSurface->setOffsetY(++windowOffsetY);
 	drawingSurface->update();
 
 }
