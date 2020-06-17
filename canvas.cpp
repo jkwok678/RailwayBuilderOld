@@ -2,7 +2,7 @@
 
 Canvas::Canvas()
 {
-	setMinimumSize(1280, 800);
+        setMinimumSize(1280, 800);
 	QPalette pal = palette();
 	imageSize = 15;
 	// set black background
@@ -270,7 +270,8 @@ void Canvas::setAspect(int& newAspect)
 
 void Canvas::mousePressEvent(QMouseEvent* event)
 {
-
+        canvasSizeX = width();
+        canvasSizeY = height();
         int exactX = event->pos().x();
         int exactY = event->pos().y();
         int extraX = exactX % 16;
@@ -278,11 +279,11 @@ void Canvas::mousePressEvent(QMouseEvent* event)
         int roundedX = exactX - extraX;
         int roundedY = exactY - extraY;
         int finalX = roundedX + (offsetX*canvasSizeX);
-        int finalY = roundedY + (offsetX*canvasSizeY);
+        int finalY = roundedY + (offsetY*canvasSizeY);
+        //std::cout <<finalX<< std::flush;
 
 	if (event->button() == Qt::LeftButton) {
-                canvasSizeX = width();
-                canvasSizeY = height();
+
 
 		switch (*canvasChosen) {
 		case ElementType::NONE:
@@ -1184,7 +1185,11 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             }
             update();
 
-	}
+        } else if (event->button() == Qt::RightButton)
+        {
+            drawnLayout->deleteElement(finalX, finalY);
+            update();
+        }
 }
 void Canvas::paintEvent(QPaintEvent* event)
 {
@@ -1195,7 +1200,11 @@ void Canvas::paintEvent(QPaintEvent* event)
     {
         //Get the stored location of track relative to the canvas widget.
         int currentX = currentElement->getLocationX();
+        std::cout <<currentX<< std::flush;
         int currentY = currentElement->getLocationY();
+        std::cout <<" "<< std::flush;
+        std::cout <<currentY<< std::flush;
+        std::cout <<"\n"<< std::flush;
         //Find the area you want to output, by using the offset and the size of the canvas widget.
         int minDisplayX = offsetX * canvasSizeX;
         int maxDisplayX = (offsetX+1) * canvasSizeX;
@@ -1204,9 +1213,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         //Find the location on the canvas where you will draw
         int displayX = currentX- minDisplayX;
         int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        if (currentX >= minDisplayX && currentX <= maxDisplayX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY >= minDisplayY && currentY <= maxDisplayY)
             {
                 switch (currentElement->getElementType())
                 {

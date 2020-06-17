@@ -671,144 +671,192 @@ bool Map::deleteElement(int locationX, int locationY)
 		std::shared_ptr<StraightTrack>& currentElement = straightTrackList[i];
 		int currentX = currentElement->getLocationX();
 		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
+        if (currentX == locationX && currentY == locationY) {
 			straightTrackList.erase(straightTrackList.begin() + i);
 			deleted = true;
+            break;
 		}
 
 	}
+    if (!deleted) {
+        for (int i = 0; i < directTrackList.size(); i++) {
+            std::shared_ptr<DirectTrack>& currentElement = directTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                directTrackList.erase(directTrackList.begin() + i);
+                deleted = true;
+            }
 
-	for (int i = 0; i < directTrackList.size(); i++) {
-		std::shared_ptr<DirectTrack>& currentElement = directTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			directTrackList.erase(directTrackList.begin() + i);
-			deleted = true;
-		}
+        }
+    }
+    if (!deleted) {
+        for (int i = 0; i < curvedTrackList.size(); i++) {
+            std::shared_ptr<CurvedTrack>& currentElement = curvedTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                curvedTrackList.erase(curvedTrackList.begin() + i);
+                deleted = true;
+            }
 
-	}
+        }
+    }
 
-	for (int i = 0; i < curvedTrackList.size(); i++) {
-		std::shared_ptr<CurvedTrack>& currentElement = curvedTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			curvedTrackList.erase(curvedTrackList.begin() + i);
-			deleted = true;
-		}
+    if (!deleted)
+    {
+        for (int i = 0; i < linkedTrackList.size(); i++) {
+            std::shared_ptr<LinkedTrack>& currentElement = linkedTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                linkedTrackList.erase(linkedTrackList.begin() + i);
+                deleted = true;
+            }
 
-	}
-	for (int i = 0; i < linkedTrackList.size(); i++) {
-		std::shared_ptr<LinkedTrack>& currentElement = linkedTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			linkedTrackList.erase(linkedTrackList.begin() + i);
-			deleted = true;
-		}
+        }
+    }
 
-	}
-	for (int i = 0; i < exitTrackList.size(); i++) {
-		std::shared_ptr<ExitTrack>& currentElement = exitTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			exitTrackList.erase(exitTrackList.begin() + i);
-			deleted = true;
-		}
+    if (!deleted)
+    {
+        for (int i = 0; i < exitTrackList.size(); i++) {
+            std::shared_ptr<ExitTrack>& currentElement = exitTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                exitTrackList.erase(exitTrackList.begin() + i);
+                deleted = true;
+            }
 
-	}
-	for (int i = 0; i < bufferTrackList.size(); i++) {
-		std::shared_ptr<BufferTrack>& currentElement = bufferTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			bufferTrackList.erase(bufferTrackList.begin() + i);
-			deleted = true;
-		}
+        }
+    }
 
-	}
-	for (int i = 0; i < signalTrackList.size(); i++) {
-		std::shared_ptr<SignalTrack>& currentElement = signalTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			signalTrackList.erase(signalTrackList.begin() + i);
-			deleted = true;
-		}
+    if (!deleted)
+    {
+        for (int i = 0; i < bufferTrackList.size(); i++) {
+            std::shared_ptr<BufferTrack>& currentElement = bufferTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                bufferTrackList.erase(bufferTrackList.begin() + i);
+                deleted = true;
+            }
 
-	}
-	for (int i = 0; i < bridgeUnderpassTrackList.size(); i++) {
-		std::shared_ptr<BridgeUnderpassTrack>& currentElement = bridgeUnderpassTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			bridgeUnderpassTrackList.erase(bridgeUnderpassTrackList.begin() + i);
-			deleted = true;
-		}
+        }
+    }
 
-	}
-	for (int i = 0; i < switchTrackList.size(); i++) {
-		std::shared_ptr<SwitchTrack>& currentElement = switchTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			switchTrackList.erase(switchTrackList.begin() + i);
-			deleted = true;
-		}
+    if (!deleted)
+    {
+        for (int i = 0; i < signalTrackList.size(); i++) {
+            std::shared_ptr<SignalTrack>& currentElement = signalTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                signalTrackList.erase(signalTrackList.begin() + i);
+                deleted = true;
+            }
 
-	}
-	for (int i = 0; i < crossoverTrackList.size(); i++) {
-		std::shared_ptr<CrossoverTrack>& currentElement = crossoverTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			crossoverTrackList.erase(crossoverTrackList.begin() + i);
-			deleted = true;
-		}
+        }
+    }
 
-	}
-	for (int i = 0; i < flyoverTrackList.size(); i++) {
-		std::shared_ptr<FlyoverTrack>& currentElement = flyoverTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			flyoverTrackList.erase(flyoverTrackList.begin() + i);
-			deleted = true;
-		}
+    if (!deleted)
+    {
+        for (int i = 0; i < bridgeUnderpassTrackList.size(); i++) {
+            std::shared_ptr<BridgeUnderpassTrack>& currentElement = bridgeUnderpassTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                bridgeUnderpassTrackList.erase(bridgeUnderpassTrackList.begin() + i);
+                deleted = true;
+            }
 
-	}
-	for (int i = 0; i < namedLocationList.size(); i++) {
-		std::shared_ptr<NamedLocation>& currentElement = namedLocationList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			namedLocationList.erase(namedLocationList.begin() + i);
-			deleted = true;
-		}
+        }
+    }
 
-	}
-	for (int i = 0; i < concourseList.size(); i++) {
-		std::shared_ptr<Concourse>& currentElement = concourseList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			concourseList.erase(concourseList.begin() + i);
-			deleted = true;
-		}
+    if (!deleted)
+    {
+        for (int i = 0; i < switchTrackList.size(); i++) {
+            std::shared_ptr<SwitchTrack>& currentElement = switchTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                switchTrackList.erase(switchTrackList.begin() + i);
+                deleted = true;
+            }
 
-	}
-	for (int i = 0; i < parapetList.size(); i++) {
-		std::shared_ptr<FlyoverTrack>& currentElement = flyoverTrackList[i];
-		int currentX = currentElement->getLocationX();
-		int currentY = currentElement->getLocationY();
-		if (currentX == locationX && currentY == locationY) {
-			parapetList.erase(parapetList.begin() + i);
-			deleted = true;
-		}
+        }
+    }
 
-	}
+    if (!deleted)
+    {
+        for (int i = 0; i < crossoverTrackList.size(); i++) {
+            std::shared_ptr<CrossoverTrack>& currentElement = crossoverTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                crossoverTrackList.erase(crossoverTrackList.begin() + i);
+                deleted = true;
+            }
+
+        }
+    }
+
+    if (!deleted)
+    {
+        for (int i = 0; i < flyoverTrackList.size(); i++) {
+            std::shared_ptr<FlyoverTrack>& currentElement = flyoverTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                flyoverTrackList.erase(flyoverTrackList.begin() + i);
+                deleted = true;
+            }
+
+        }
+    }
+
+
+    if (!deleted)
+    {
+        for (int i = 0; i < namedLocationList.size(); i++) {
+            std::shared_ptr<NamedLocation>& currentElement = namedLocationList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                namedLocationList.erase(namedLocationList.begin() + i);
+                deleted = true;
+            }
+
+        }
+    }
+
+    if (!deleted)
+    {
+        for (int i = 0; i < concourseList.size(); i++) {
+            std::shared_ptr<Concourse>& currentElement = concourseList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                concourseList.erase(concourseList.begin() + i);
+                deleted = true;
+            }
+
+        }
+    }
+
+    if (!deleted)
+    {
+        for (int i = 0; i < parapetList.size(); i++) {
+            std::shared_ptr<FlyoverTrack>& currentElement = flyoverTrackList[i];
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == locationX && currentY == locationY) {
+                parapetList.erase(parapetList.begin() + i);
+                deleted = true;
+            }
+
+        }
+    }
 	return deleted;
 
 }
