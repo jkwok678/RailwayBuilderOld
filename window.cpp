@@ -6,8 +6,11 @@ Window::Window()
 
 	//Set default chosen Element to nothing.
 	windowChosen = ElementType::NONE;
+
 	drawingSurface = new Canvas;
 	drawingSurface->setElementType(windowChosen);
+    setMinimumSize(960,544);
+    resize(1024,768);
 	windowOffsetX = 0;
 	windowOffsetY = 0;
 	drawingSurface->setOffsetX(windowOffsetX);
@@ -17,16 +20,33 @@ Window::Window()
 	createOverallMenu();
 	createRightMenu();
 	createMenuBar();
+
+    //QWidget* bottom = new QWidget();
+    //bottom->setFixedWidth(5);
+
+    status = new QStatusBar();
+    status->setSizeGripEnabled(false);
+    QLabel* l = new QLabel (tr("hi"));
+    status->addWidget(l);
+
+    QWidget *left = new QWidget();
+
+    left->setFixedHeight(10);
+
+
 	BorderLayout* layout = new BorderLayout;
-	layout->addWidget(drawingSurface, BorderLayout::Center);
-	layout->addWidget(menuBar, BorderLayout::North);
-	layout->addWidget(buildModifyMenu1, BorderLayout::North);
-	layout->addWidget(allMenus, BorderLayout::North);
+    layout->addWidget(drawingSurface, BorderLayout::Center);
+    layout->addWidget(menuBar, BorderLayout::North);
+    layout->addWidget(buildModifyMenu1, BorderLayout::North);
+    layout->addWidget(allMenus, BorderLayout::North);
 	layout->addWidget(rightMenu, BorderLayout::East);
+    layout->addWidget(left, BorderLayout::West);
+    //layout->addWidget(bottom, BorderLayout::South);
+    layout->addWidget(status, BorderLayout::South);
 
-	setLayout(layout);
-
+    setLayout(layout);
 }
+
 
 // Private slots
 
@@ -119,19 +139,17 @@ void Window::moveLeft()
 
 void Window::moveUp()
 {
-    drawingSurface->setOffsetY(--windowOffsetY);
+    drawingSurface->setOffsetY(++windowOffsetY);
 	drawingSurface->update();
 
 }
 
 void Window::moveDown()
 {
-    drawingSurface->setOffsetY(++windowOffsetY);
+    drawingSurface->setOffsetY(--windowOffsetY);
 	drawingSurface->update();
 
 }
-
-
 
 void Window::chooseStraightH()
 {

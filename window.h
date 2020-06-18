@@ -8,6 +8,8 @@
 #include <QStackedWidget>
 #include <QMenuBar>
 #include <QToolButton>
+#include <QStatusBar>
+#include <QLabel>
 #include <string>
 #include <iostream>
 #include <QSizePolicy>
@@ -1038,6 +1040,8 @@ private:
 	QToolButton* downButton;
 	QAction* downAct;
 	QIcon* downIcon;
+
+    QStatusBar* status;
 
 
 

@@ -2,7 +2,7 @@
 
 Canvas::Canvas()
 {
-        setMinimumSize(1280, 800);
+
 	QPalette pal = palette();
 	imageSize = 15;
 	// set black background
@@ -10,6 +10,8 @@ Canvas::Canvas()
 	pal.setColor(QPalette::Window, Qt::white);
         canvasSizeX = width();
         canvasSizeY = height();
+        //std::cout << canvasSizeX << std::flush;
+        //std::cout <<canvasSizeY << std::flush;
 
 	//ElementBlock1 images
 	straightHImage = new QImage(":/graphics/graphics/straightH.png");
@@ -278,25 +280,41 @@ void Canvas::mousePressEvent(QMouseEvent* event)
         int extraY = exactY % 16;
         int roundedX = exactX - extraX;
         int roundedY = exactY - extraY;
-        int finalX = roundedX + (offsetX*canvasSizeX);
-        int finalY = roundedY + (offsetY*canvasSizeY);
-        //std::cout <<finalX<< std::flush;
+        int maxX = canvasSizeX/16;
+        int maxY = canvasSizeY/16;
 
-	if (event->button() == Qt::LeftButton) {
+        int finalX = ((roundedX + (offsetX*canvasSizeX))/16);
+        int finalY;
+        if (offsetY<0)
+        {
+            finalY = 0 - ((roundedY + (offsetY*canvasSizeY))/16);
+        }
+        else
+        {
+            finalY = ((roundedY+ (offsetY*canvasSizeY))/16);
+        }
+
+        //std::cout <<finalY<< std::flush;
+        std::cout <<"finalX: "<< std::flush;
+        std::cout <<finalX<< std::flush;
+        //std::cout <<" finalY: "<< std::flush;
+        //std::cout <<finalY<< std::flush;
+        std::cout <<" \n "<< std::flush;
+        if (event->button() == Qt::LeftButton) {
 
 
 		switch (*canvasChosen) {
 		case ElementType::NONE:
 		{
-			QMessageBox noELementSelected;
+                        /*QMessageBox noELementSelected;
 			noELementSelected.setIcon(QMessageBox::Critical);
 			noELementSelected.setText("No element has been selected.");
 			noELementSelected.exec();
+                        */
 			break;
 		}
 		case ElementType::STRAIGHTH:
 		{
-
                     std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
 			drawnLayout->addStraightTrack(straightH);
 			break;
@@ -1196,31 +1214,62 @@ void Canvas::paintEvent(QPaintEvent* event)
     canvasSizeX = width();
     canvasSizeY = height();
     QPainter painter(this);
+    //painter.drawImage(0, 704, *straightHImage);
     for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList())
     {
         //Get the stored location of track relative to the canvas widget.
-        int currentX = currentElement->getLocationX();
-        std::cout <<currentX<< std::flush;
-        int currentY = currentElement->getLocationY();
-        std::cout <<" "<< std::flush;
-        std::cout <<currentY<< std::flush;
-        std::cout <<"\n"<< std::flush;
+        int currentX = currentElement->getLocationX()*16;
+        //std::cout <<currentX<< std::flush;
+        int currentY = currentElement->getLocationY()*16;
+        //std::cout <<"CurrentY: "<< std::flush;
+        //std::cout <<currentY<< std::flush;
+       // std::cout <<"\n"<< std::flush;
         //Find the area you want to output, by using the offset and the size of the canvas widget.
+
         int minDisplayX = offsetX * canvasSizeX;
         int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int minDisplayY;
+        int maxDisplayY;
+        if (offsetY<1)
+        {
+            minDisplayY = (offsetY-1) * canvasSizeY;
+            maxDisplayY = offsetY*canvasSizeY;
+        }
+        else
+        {
+            minDisplayY = offsetY * canvasSizeY;
+            maxDisplayY = (offsetY+1) * canvasSizeY;
+        }
+        /*std::cout << " maxDisplayY:  " <<std::flush;
+        std::cout << maxDisplayY <<std::flush;
+        std::cout << " minDisplayY: " <<std::flush;
+        std::cout << minDisplayY <<std::flush;
+        */
+
+        //std::cout <<minDisplayY<< std::flush;
+        //std::cout <<" "<< std::flush;
+        //std::cout <<maxDisplayY<< std::flush;
         //Find the location on the canvas where you will draw
         int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
+
+        int displayY = currentY - maxDisplayY;
+        int invertedDisplayY = 0 - displayY;
         if (currentX >= minDisplayX && currentX <= maxDisplayX)
         {
+            //std::cout << "Yes1" <<std::flush;
             if (currentY >= minDisplayY && currentY <= maxDisplayY)
             {
+                //std::cout << "Yes2" <<std::flush;
                 switch (currentElement->getElementType())
                 {
+
                     case ElementType::STRAIGHTH:
-                        painter.drawImage(displayX, displayY, *straightHImage);
+                        /*std::cout << invertedDisplayY <<std::flush;
+                        std::cout << "displayY: " <<std::flush;
+                        std::cout << displayY <<std::flush;
+                        std::cout << "\n" <<std::flush;
+                        */
+                        painter.drawImage(displayX, invertedDisplayY, *straightHImage);
                         if (currentElement->getPlatform1())
                         {
                             painter.drawImage(displayX, displayY, *platformUpUnsetImage);
@@ -1268,10 +1317,10 @@ void Canvas::paintEvent(QPaintEvent* event)
         int currentY = currentElement->getLocationY();
         int minDisplayX = offsetX * canvasSizeX;
         int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
+        int minDisplayY = 0 - (offsetY * canvasSizeY);
+        int maxDisplayY = 0 - ((offsetY+1) * canvasSizeY);
         int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
+        int displayY = 0- (currentY - minDisplayY);
         if (currentX > minDisplayX && currentX < maxDisplayX)
         {
             if (currentY > minDisplayY && currentY < maxDisplayY)
@@ -2208,7 +2257,16 @@ void Canvas::paintEvent(QPaintEvent* event)
 
 void Canvas::resizeEvent(QResizeEvent *event)
 {
-    //update();
+    int tempX = width();
+    int tempY = height();
+    int diffX = tempX % 16;
+    int diffY = tempY % 16;
+    if (diffX != 0 && diffY != 0)
+    {
+        resize(tempX-diffX,tempY-diffY);
+    }
+
+    update();
 }
 
 
