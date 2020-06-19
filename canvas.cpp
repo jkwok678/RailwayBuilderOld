@@ -285,20 +285,16 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 
         int finalX = ((roundedX + (offsetX*canvasSizeX))/16);
         int finalY;
-        if (offsetY<0)
-        {
-            finalY = 0 - ((roundedY + (offsetY*canvasSizeY))/16);
-        }
-        else
-        {
-            finalY = ((roundedY+ (offsetY*canvasSizeY))/16);
+        if (offsetY==0) {
+            finalY = 0 - ((roundedY+ (offsetY*canvasSizeY))/16);
+        } else if (offsetY<0 || offsetY >0) {
+            finalY = 0 - (roundedY- (offsetY*canvasSizeY))/16;
         }
 
-        //std::cout <<finalY<< std::flush;
         std::cout <<"finalX: "<< std::flush;
         std::cout <<finalX<< std::flush;
-        //std::cout <<" finalY: "<< std::flush;
-        //std::cout <<finalY<< std::flush;
+        std::cout <<" finalY: "<< std::flush;
+        std::cout <<finalY<< std::flush;
         std::cout <<" \n "<< std::flush;
         if (event->button() == Qt::LeftButton) {
 
