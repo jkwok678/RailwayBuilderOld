@@ -291,11 +291,12 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             finalY = 0 - (roundedY- (offsetY*canvasSizeY))/16;
         }
 
-        std::cout <<"finalX: "<< std::flush;
-        std::cout <<finalX<< std::flush;
+        //std::cout <<"finalX: "<< std::flush;
+        //std::cout <<finalX<< std::flush;
         std::cout <<" finalY: "<< std::flush;
-        std::cout <<finalY<< std::flush;
-        std::cout <<" \n "<< std::flush;
+        std::cout <<roundedY<< std::flush;
+        //std::cout <<" \n "<< std::flush;
+
         if (event->button() == Qt::LeftButton) {
 
 
@@ -1214,28 +1215,32 @@ void Canvas::paintEvent(QPaintEvent* event)
     for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList())
     {
         //Get the stored location of track relative to the canvas widget.
-        int currentX = currentElement->getLocationX()*16;
-        //std::cout <<currentX<< std::flush;
-        int currentY = currentElement->getLocationY()*16;
-        //std::cout <<"CurrentY: "<< std::flush;
-        //std::cout <<currentY<< std::flush;
+        int currentX = currentElement->getLocationX();
+        std::cout <<"CurrentX: "<< std::flush;
+        std::cout <<currentX<< std::flush;
+        int currentY = currentElement->getLocationY();
+        std::cout <<"CurrentY: "<< std::flush;
+        std::cout <<currentY<< std::flush;
        // std::cout <<"\n"<< std::flush;
         //Find the area you want to output, by using the offset and the size of the canvas widget.
 
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY;
-        int maxDisplayY;
-        if (offsetY<1)
-        {
-            minDisplayY = (offsetY-1) * canvasSizeY;
-            maxDisplayY = offsetY*canvasSizeY;
-        }
-        else
-        {
-            minDisplayY = offsetY * canvasSizeY;
-            maxDisplayY = (offsetY+1) * canvasSizeY;
-        }
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        std::cout << minCoordinateX << std::flush;
+        std::cout << " " << std::flush;
+        std::cout << maxCoordinateX << std::flush;
+        std::cout << " " << std::flush;
+        std::cout << minCoordinateY << std::flush;
+        std::cout << " " << std::flush;
+        std::cout << maxCoordinateY << std::flush;
+
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+
         /*std::cout << " maxDisplayY:  " <<std::flush;
         std::cout << maxDisplayY <<std::flush;
         std::cout << " minDisplayY: " <<std::flush;
@@ -1246,16 +1251,17 @@ void Canvas::paintEvent(QPaintEvent* event)
         //std::cout <<" "<< std::flush;
         //std::cout <<maxDisplayY<< std::flush;
         //Find the location on the canvas where you will draw
-        int displayX = currentX- minDisplayX;
 
-        int displayY = currentY - maxDisplayY;
-        int invertedDisplayY = 0 - displayY;
-        if (currentX >= minDisplayX && currentX <= maxDisplayX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
             //std::cout << "Yes1" <<std::flush;
-            if (currentY >= minDisplayY && currentY <= maxDisplayY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 //std::cout << "Yes2" <<std::flush;
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                std::cout << " "<< std::flush;
+                std::cout << displayY<< std::flush;
                 switch (currentElement->getElementType())
                 {
 
@@ -1265,7 +1271,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         std::cout << displayY <<std::flush;
                         std::cout << "\n" <<std::flush;
                         */
-                        painter.drawImage(displayX, invertedDisplayY, *straightHImage);
+                        painter.drawImage(displayX, displayY, *straightHImage);
                         if (currentElement->getPlatform1())
                         {
                             painter.drawImage(displayX, displayY, *platformUpUnsetImage);
