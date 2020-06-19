@@ -2323,34 +2323,41 @@ void Canvas::resizeEvent(QResizeEvent *event)
 
 void Canvas::mouseMoveEvent(QMouseEvent *event)
 {
-    int exactX = event->pos().x();
-    int exactY = event->pos().y();
-    int extraX = exactX % 16;
-    int extraY = exactY % 16;
-    int roundedX = exactX - extraX;
-    int roundedY = exactY - extraY;
-    int maxX = canvasSizeX/16;
-    int maxY = canvasSizeY/16;
-
-
-
-    int finalX = ((roundedX + (offsetX*canvasSizeX))/16);
-    int finalY;
-    if (offsetY==0) {
-        finalY = 0 - ((roundedY+ (offsetY*canvasSizeY))/16);
-    } else if (offsetY<0 || offsetY >0) {
-        finalY = 0 - (roundedY- (offsetY*canvasSizeY))/16;
-    }
-    if (drawnLayout->checkElementExists(finalX,finalY))
+    if (canvasShowTrackID)
     {
-        QString toolText1 = "trackID: ";
-        QString toolText2 = QString::number(finalX);
-        QString toolText3 = ",";
-        QString toolText4 = QString::number(finalY);
-        QString finalText = toolText1.append(toolText2).append(toolText3).append(toolText4);
-        setToolTip(finalText);
+        int exactX = event->pos().x();
+        int exactY = event->pos().y();
+        int extraX = exactX % 16;
+        int extraY = exactY % 16;
+        int roundedX = exactX - extraX;
+        int roundedY = exactY - extraY;
+        int maxX = canvasSizeX/16;
+        int maxY = canvasSizeY/16;
 
+
+
+        int finalX = ((roundedX + (offsetX*canvasSizeX))/16);
+        int finalY;
+        if (offsetY==0)
+        {
+            finalY = 0 - ((roundedY+ (offsetY*canvasSizeY))/16);
+        }
+        else if (offsetY<0 || offsetY >0)
+        {
+            finalY = 0 - (roundedY- (offsetY*canvasSizeY))/16;
+        }
+        if (drawnLayout->checkElementExists(finalX,finalY))
+        {
+            QString toolText1 = "trackID: ";
+            QString toolText2 = QString::number(finalX);
+            QString toolText3 = ",";
+            QString toolText4 = QString::number(finalY);
+            QString finalText = toolText1.append(toolText2).append(toolText3).append(toolText4);
+            setToolTip(finalText);
+
+        }
     }
+
 
 }
 

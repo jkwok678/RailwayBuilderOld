@@ -21,6 +21,7 @@ Window::Window()
     showMoreTrackInfo = false;
     drawingSurface->setCanvasShowTrackID(showTrackID);
     drawingSurface->setCanvasShowMoreTrackInfo(showMoreTrackInfo);
+    std::cout << false << std::flush;
 	createOverallMenu();
 	createRightMenu();
 	createMenuBar();
@@ -132,13 +133,15 @@ void Window::toggleTrackID()
     {
         showTrackID = true;
         showTrackIDAct->setText("Hide trackID");
+        drawingSurface->setCanvasShowTrackID(showTrackID);
     }
     else
     {
         showTrackID = false;
         showTrackIDAct->setText("Show trackID");
-    }
 
+    }
+    drawingSurface->setCanvasShowTrackID(showTrackID);
 }
 
 void Window::toggleMoreTrackInfo()
@@ -153,7 +156,7 @@ void Window::toggleMoreTrackInfo()
         showMoreTrackInfo = false;
         showMoreTrackInfoAct->setText("Show more track information");
     }
-
+    drawingSurface->setCanvasShowMoreTrackInfo(showMoreTrackInfo);
 }
 
 void Window::moveRight()
