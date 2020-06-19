@@ -17,6 +17,10 @@ Window::Window()
 	drawingSurface->setOffsetY(windowOffsetY);
 	aspect = 4;
 	drawingSurface->setAspect(aspect);
+    showTrackID = false;
+    showMoreTrackInfo = false;
+    drawingSurface->setCanvasShowTrackID(showTrackID);
+    drawingSurface->setCanvasShowMoreTrackInfo(showMoreTrackInfo);
 	createOverallMenu();
 	createRightMenu();
 	createMenuBar();
@@ -122,12 +126,42 @@ void Window::addEditRemoveText()
 
 }
 
+void Window::toggleTrackID()
+{
+    if (!showTrackID)
+    {
+        showTrackID = true;
+        showTrackIDAct->setText("Hide trackID");
+    }
+    else
+    {
+        showTrackID = false;
+        showTrackIDAct->setText("Show trackID");
+    }
+
+}
+
+void Window::toggleMoreTrackInfo()
+{
+    if (!showMoreTrackInfo)
+    {
+        showMoreTrackInfo = true;
+        showMoreTrackInfoAct->setText("Hide more track information");
+    }
+    else
+    {
+        showMoreTrackInfo = false;
+        showMoreTrackInfoAct->setText("Show more track information");
+    }
+
+}
+
 void Window::moveRight()
 {
 
 	drawingSurface->setOffsetX(++windowOffsetX);
 	drawingSurface->update();
-	//std::cout << windowOffsetX <<std::flush;
+
 }
 
 void Window::moveLeft()
@@ -1428,11 +1462,13 @@ void Window::createMenuBar()
 	menuBar = new QMenuBar();
 	fileMenu = new QMenu("File");
 	modeMenu = new QMenu("Mode");
+    informationMenu = new QMenu("Information");
 	menuBar->addMenu(fileMenu);
 	menuBar->addMenu(modeMenu);
+    menuBar->addMenu(informationMenu);
 	createFileMenu();
 	createModeMenu();
-
+    createInformationMenu();
 }
 
 void Window::createFileMenu()
@@ -1449,7 +1485,17 @@ void Window::createModeMenu()
 	openBuildModifyAct = new QAction(tr("&Build/Modify Menu"), this);
 	openBuildModifyAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_B));
 	connect(openBuildModifyAct, &QAction::triggered, this, &Window::openBuildModifyMenu);
-	modeMenu->addAction(openBuildModifyAct);
+    modeMenu->addAction(openBuildModifyAct);
+}
+
+void Window::createInformationMenu()
+{
+    showTrackIDAct = new QAction(tr("&Show trackID"), this);
+    connect(showTrackIDAct, &QAction::triggered, this, &Window::toggleTrackID);
+    informationMenu->addAction(showTrackIDAct);
+    showMoreTrackInfoAct = new QAction(tr("&Show more track information"), this);
+    connect(showMoreTrackInfoAct, &QAction::triggered, this, &Window::toggleMoreTrackInfo);
+    informationMenu->addAction(showMoreTrackInfoAct);
 }
 
 

@@ -8,10 +8,11 @@ Canvas::Canvas()
 	// set black background
 	drawnLayout = new Map;
 	pal.setColor(QPalette::Window, Qt::white);
-        canvasSizeX = width();
-        canvasSizeY = height();
-        //std::cout << canvasSizeX << std::flush;
-        //std::cout <<canvasSizeY << std::flush;
+    canvasSizeX = width();
+    canvasSizeY = height();
+    //std::cout << canvasSizeX << std::flush;
+    //std::cout <<canvasSizeY << std::flush;
+    setMouseTracking(true);
 
 	//ElementBlock1 images
 	straightHImage = new QImage(":/graphics/graphics/straightH.png");
@@ -267,7 +268,27 @@ int Canvas::getAspect() const
 
 void Canvas::setAspect(int& newAspect)
 {
-	canvasAspect = newAspect;
+    canvasAspect = newAspect;
+}
+
+bool Canvas::getCanvasShowTrackID() const
+{
+    return canvasShowTrackID;
+}
+
+void Canvas::setCanvasShowTrackID(bool &newShowTrackID)
+{
+    canvasShowTrackID = newShowTrackID;
+}
+
+bool Canvas::getCanvasShowMoreTrackInfo() const
+{
+    return canvasShowMoreTrackInfo;
+}
+
+void Canvas::setCanvasShowMoreTrackInfo(bool &newShowMoreTrackInfo)
+{
+    canvasShowMoreTrackInfo = newShowMoreTrackInfo;
 }
 
 void Canvas::mousePressEvent(QMouseEvent* event)
@@ -291,31 +312,23 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             finalY = 0 - (roundedY- (offsetY*canvasSizeY))/16;
         }
 
-        //std::cout <<"finalX: "<< std::flush;
-        //std::cout <<finalX<< std::flush;
-        std::cout <<" finalY: "<< std::flush;
-        std::cout <<roundedY<< std::flush;
-        //std::cout <<" \n "<< std::flush;
-
         if (event->button() == Qt::LeftButton) {
 
-
 		switch (*canvasChosen) {
-		case ElementType::NONE:
-		{
-                        /*QMessageBox noELementSelected;
-			noELementSelected.setIcon(QMessageBox::Critical);
-			noELementSelected.setText("No element has been selected.");
-			noELementSelected.exec();
-                        */
-			break;
-		}
-		case ElementType::STRAIGHTH:
-		{
-                    std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
-			drawnLayout->addStraightTrack(straightH);
-			break;
-		}
+            case ElementType::NONE:
+            {
+                QMessageBox noELementSelected;
+                noELementSelected.setIcon(QMessageBox::Critical);
+                noELementSelected.setText("No element has been selected.");
+                noELementSelected.exec();
+                break;
+            }
+            case ElementType::STRAIGHTH:
+            {
+                std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
+                drawnLayout->addStraightTrack(straightH);
+                break;
+            }
 		case ElementType::STRAIGHTV:
 		{
                         std::shared_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen, offsetX, offsetY, finalX, finalY));
@@ -1200,7 +1213,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             }
             update();
 
-        } else if (event->button() == Qt::RightButton)
+        }
+        else if (event->button() == Qt::RightButton)
         {
             drawnLayout->deleteElement(finalX, finalY);
             update();
@@ -1216,61 +1230,30 @@ void Canvas::paintEvent(QPaintEvent* event)
     {
         //Get the stored location of track relative to the canvas widget.
         int currentX = currentElement->getLocationX();
-        std::cout <<"CurrentX: "<< std::flush;
-        std::cout <<currentX<< std::flush;
         int currentY = currentElement->getLocationY();
-        std::cout <<"CurrentY: "<< std::flush;
-        std::cout <<currentY<< std::flush;
-       // std::cout <<"\n"<< std::flush;
-        //Find the area you want to output, by using the offset and the size of the canvas widget.
 
+        //Find the area you want to output, by using the offset and the size of the canvas widget.
         int minCoordinateX = (offsetX * canvasSizeX)/16;
         int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
         int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
         int maxCoordinateY = (offsetY*canvasSizeY)/16;;
-        std::cout << minCoordinateX << std::flush;
-        std::cout << " " << std::flush;
-        std::cout << maxCoordinateX << std::flush;
-        std::cout << " " << std::flush;
-        std::cout << minCoordinateY << std::flush;
-        std::cout << " " << std::flush;
-        std::cout << maxCoordinateY << std::flush;
 
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayX = ((offsetX+1) * canvasSizeX);
         int minDisplayY = ((offsetY-1) * canvasSizeY);
         int maxDisplayY = (offsetY*canvasSizeY);
 
-        /*std::cout << " maxDisplayY:  " <<std::flush;
-        std::cout << maxDisplayY <<std::flush;
-        std::cout << " minDisplayY: " <<std::flush;
-        std::cout << minDisplayY <<std::flush;
-        */
-
-        //std::cout <<minDisplayY<< std::flush;
-        //std::cout <<" "<< std::flush;
-        //std::cout <<maxDisplayY<< std::flush;
         //Find the location on the canvas where you will draw
-
         if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            //std::cout << "Yes1" <<std::flush;
             if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
-                //std::cout << "Yes2" <<std::flush;
                 int displayX = currentX*16- minDisplayX;
                 int displayY = 0-(currentY*16 - maxDisplayY);
-                std::cout << " "<< std::flush;
-                std::cout << displayY<< std::flush;
                 switch (currentElement->getElementType())
                 {
-
                     case ElementType::STRAIGHTH:
-                        /*std::cout << invertedDisplayY <<std::flush;
-                        std::cout << "displayY: " <<std::flush;
-                        std::cout << displayY <<std::flush;
-                        std::cout << "\n" <<std::flush;
-                        */
+
                         painter.drawImage(displayX, displayY, *straightHImage);
                         if (currentElement->getPlatform1())
                         {
@@ -1313,20 +1296,25 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
     }
+
     for (std::shared_ptr<DirectTrack> currentElement : drawnLayout->getDirectTrackList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = 0 - (offsetY * canvasSizeY);
-        int maxDisplayY = 0 - ((offsetY+1) * canvasSizeY);
-        int displayX = currentX- minDisplayX;
-        int displayY = 0- (currentY - minDisplayY);
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 switch (currentElement->getElementType())
                 {
                     case ElementType::DIRECTLEFT:
@@ -1386,20 +1374,25 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
     }
+
     for (std::shared_ptr<CurvedTrack> currentElement : drawnLayout->getCurvedTrackList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 switch (currentElement->getElementType())
                 {
                     case ElementType::TIGHTCURVE1:
@@ -1440,22 +1433,27 @@ void Canvas::paintEvent(QPaintEvent* event)
                         break;
                 }
             }
-	}
+        }
     }
+
     for (std::shared_ptr<LinkedTrack> currentElement : drawnLayout->getLinkedTrackList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 switch (currentElement->getElementType())
                 {
                     case ElementType::LINKLEFT:
@@ -1486,20 +1484,25 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
     }
+
     for (std::shared_ptr<ExitTrack> currentElement : drawnLayout->getExitTrackList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 switch (currentElement->getElementType())
                 {
                     case ElementType::EXITLEFT:
@@ -1529,22 +1532,27 @@ void Canvas::paintEvent(QPaintEvent* event)
 
                 }
             }
-	}
+        }
     }
+
     for (std::shared_ptr<BufferTrack> currentElement : drawnLayout->getBufferTrackList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 switch (currentElement->getElementType())
                 {
                     case ElementType::BUFFERLEFT:
@@ -1608,20 +1616,25 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
     }
+
     for (std::shared_ptr<SignalTrack> currentElement : drawnLayout->getSignalTrackList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 switch (currentElement->getElementType())
                 {
                     case ElementType::SIGNALLEFT:
@@ -1738,20 +1751,25 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
     }
+
     for (std::shared_ptr<BridgeUnderpassTrack> currentElement : drawnLayout->getBridgeUnderpassTrackList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 switch (currentElement->getElementType())
                 {
                     case ElementType::BRIDGE1:
@@ -1803,20 +1821,25 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
     }
+
     for (std::shared_ptr<SwitchTrack> currentElement : drawnLayout->getSwitchTrackList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 switch (currentElement->getElementType())
                 {
                     case ElementType::SWITCHTIGHT1:
@@ -1984,22 +2007,27 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
     }
+
     for (std::shared_ptr<CrossoverTrack> currentElement : drawnLayout->getCrossoverTrackList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-           if (currentY > minDisplayY && currentY < maxDisplayY)
-           {
-               switch (currentElement->getElementType())
-               {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
                    case ElementType::CROSSOVER1:
                        painter.drawImage(displayX, displayY, *crossover1Image);
                        break;
@@ -2022,20 +2050,25 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
     }
+
     for (std::shared_ptr<FlyoverTrack> currentElement : drawnLayout->getFlyoverTrackList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 switch (currentElement->getElementType())
                 {
                     case ElementType::FLYOVER1:
@@ -2078,20 +2111,25 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
     }
+
     for (std::shared_ptr<NamedLocation> currentElement : drawnLayout->getNamedLocationList())
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 if (currentElement->getNamed())
                 {
                     painter.drawImage(displayX, displayY, *namedLocationSetImage);
@@ -2108,16 +2146,20 @@ void Canvas::paintEvent(QPaintEvent* event)
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 if (currentElement->getNamed())
                 {
                     painter.drawImage(displayX, displayY, *concourseSetImage);
@@ -2134,16 +2176,20 @@ void Canvas::paintEvent(QPaintEvent* event)
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
                 switch (currentElement->getElementType())
                 {
                     case ElementType::PARAPET1:
@@ -2239,21 +2285,25 @@ void Canvas::paintEvent(QPaintEvent* event)
     {
         int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
-        int minDisplayX = offsetX * canvasSizeX;
-        int maxDisplayX = (offsetX+1) * canvasSizeX;
-        int minDisplayY = offsetY * canvasSizeY;
-        int maxDisplayY = (offsetY+1) * canvasSizeY;
-        int displayX = currentX- minDisplayX;
-        int displayY = currentY - minDisplayY;
-        if (currentX > minDisplayX && currentX < maxDisplayX)
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
-            if (currentY > minDisplayY && currentY < maxDisplayY)
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
             {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+
                 painter.drawText(displayX, displayY, currentElement->getReadableText());
             }
-	}
+        }
     }
-
 
 }
 
@@ -2270,5 +2320,34 @@ void Canvas::resizeEvent(QResizeEvent *event)
 
     update();
 }
+
+void Canvas::mouseMoveEvent(QMouseEvent *event)
+{
+    int exactX = event->pos().x();
+    int exactY = event->pos().y();
+    int extraX = exactX % 16;
+    int extraY = exactY % 16;
+    int roundedX = exactX - extraX;
+    int roundedY = exactY - extraY;
+    int maxX = canvasSizeX/16;
+    int maxY = canvasSizeY/16;
+
+    int finalX = ((roundedX + (offsetX*canvasSizeX))/16);
+    int finalY;
+    if (offsetY==0) {
+        finalY = 0 - ((roundedY+ (offsetY*canvasSizeY))/16);
+    } else if (offsetY<0 || offsetY >0) {
+        finalY = 0 - (roundedY- (offsetY*canvasSizeY))/16;
+    }
+    QString toolText1 = "trackID: ";
+    QString toolText2 = QString::number(finalX);
+    QString toolText3 = ",";
+    QString toolText4 = QString::number(finalY);
+    QString finalText = toolText1.append(toolText2).append(toolText3).append(toolText4);
+    setToolTip(finalText);
+
+}
+
+
 
 

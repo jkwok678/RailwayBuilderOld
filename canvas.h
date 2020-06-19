@@ -40,12 +40,20 @@ public:
 	int getAspect() const;
 	void setAspect(int& newAspect);
 
+    bool getCanvasShowTrackID() const;
+    void setCanvasShowTrackID(bool& newShowTrackID);
+
+    bool getCanvasShowMoreTrackInfo() const;
+    void setCanvasShowMoreTrackInfo(bool& newShowMoreTrackInfo);
+
 public slots:
 
 protected:
 	void mousePressEvent(QMouseEvent* event) override;
 	void paintEvent(QPaintEvent* event) override;
     void resizeEvent(QResizeEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+
 
 private:
 	ElementType* canvasChosen;
@@ -58,6 +66,8 @@ private:
     int canvasSizeX;
     int canvasSizeY;
 	int canvasAspect;
+    bool canvasShowTrackID;
+    bool canvasShowMoreTrackInfo;
 
 
 

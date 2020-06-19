@@ -30,6 +30,8 @@ private slots:
 	void openElementMenu();
 	void changeAspect();
 	void addEditRemoveText();
+    void toggleTrackID();
+    void toggleMoreTrackInfo();
 
 	void moveRight();
 	void moveLeft();
@@ -214,15 +216,21 @@ private:
 	int windowOffsetX;
 	int windowOffsetY;
 	Canvas* drawingSurface;
+    bool showTrackID;
+    bool showMoreTrackInfo;
 
 	void createMenuBar();
 	void createFileMenu();
 	void createModeMenu();
+    void createInformationMenu();
 	QMenuBar* menuBar;
 	QMenu* fileMenu;
 	QMenu* modeMenu;
+    QMenu* informationMenu;
 	QAction* openRailwayAct;
 	QAction* openBuildModifyAct;
+    QAction* showTrackIDAct;
+    QAction* showMoreTrackInfoAct;
 
 	//Top menu 1
 
