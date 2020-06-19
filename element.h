@@ -45,11 +45,7 @@ public:
 
 	ElementType getElementType() const;
 	void setElementType(const ElementType& newElementType);
-	int getOffsetX() const;
-	void setOffsetX(int offsetX);
-	int getOffsetY() const;
-	void setOffsetY(int offsetY);
-	int getLocationX() const;
+    int getLocationX() const;
 	void setLocationX(int locationX);
 	int getLocationY() const;
 	void setLocationY(int locationY);
@@ -71,7 +67,7 @@ protected:
 
 public:
 	NamedLocation();
-	NamedLocation(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    NamedLocation(ElementType newElementType, int newLocationX, int newLocationY);
 	bool getNamed() const;
 	void setNamed(bool newNamed);
 
@@ -89,7 +85,7 @@ protected:
 
 
 public:
-	Concourse(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    Concourse(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 
@@ -105,7 +101,7 @@ protected:
 
 
 public:
-	Parapet(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    Parapet(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 
@@ -124,7 +120,7 @@ protected:
 
 
 public:
-	Text(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY, QString newReadableText);
+    Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText);
 
 	int getEditableX() const;
 	void setEditableX(int newEditableX);

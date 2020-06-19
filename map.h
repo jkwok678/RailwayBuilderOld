@@ -93,12 +93,12 @@ public:
 	void setTextList(const std::vector<std::shared_ptr<Text> >& newTextList);
 	void addText(std::shared_ptr<Text> newText);
 
-	std::shared_ptr<Element> getElementAt(int offsetX, int offsetY, int locationX, int locationY);
-	bool checkElementExists(int offsetX, int offsetY, int locationX, int locationY);
+    std::shared_ptr<Element> getElementAt( int locationX, int locationY);
+    bool checkElementExists(int locationX, int locationY);
 	bool deleteElement(int locationX, int locationY);
 
-	void addPlatform(Platform side, int offsetX, int offsetY, int locationX, int locationY);
-	void addLevelCrossing(int offsetX, int offsetY, int locationX, int locationY);
+    void addPlatform(Platform side, int locationX, int locationY);
+    void addLevelCrossing( int locationX, int locationY);
 };
 
 #endif // MAP_H

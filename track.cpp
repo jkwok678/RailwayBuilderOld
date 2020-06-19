@@ -12,11 +12,11 @@ StraightTrack::StraightTrack()
 
 }
 
-StraightTrack::StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+StraightTrack::StraightTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
     locationX = newLocationX;
     locationY = newLocationY;
 	platform1 = false;
@@ -71,11 +71,11 @@ void Track::setPlatform2(bool newPlatform)
 
 
 
-DirectTrack::DirectTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+DirectTrack::DirectTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
 	locationX = newLocationX;
 	locationY = newLocationY;
 	platform1 = false;
@@ -84,41 +84,41 @@ DirectTrack::DirectTrack(ElementType newElementType, int newOffsetX, int newOffs
 }
 
 
-CurvedTrack::CurvedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+CurvedTrack::CurvedTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
 	locationX = newLocationX;
 	locationY = newLocationY;
 
 }
 
 
-LinkedTrack::LinkedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+LinkedTrack::LinkedTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
 	locationX = newLocationX;
 	locationY = newLocationY;
 }
 
-ExitTrack::ExitTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+ExitTrack::ExitTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
 	locationX = newLocationX;
 	locationY = newLocationY;
 
 }
 
-BufferTrack::BufferTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+BufferTrack::BufferTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
 	locationX = newLocationX;
 	locationY = newLocationY;
 	platform1 = false;
@@ -126,12 +126,12 @@ BufferTrack::BufferTrack(ElementType newElementType, int newOffsetX, int newOffs
 
 }
 
-SignalTrack::SignalTrack(ElementType newElementType, int newAspect, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+SignalTrack::SignalTrack(ElementType newElementType, int newAspect, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
 	aspect = newAspect;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
 	locationX = newLocationX;
 	locationY = newLocationY;
 	platform1 = false;
@@ -149,11 +149,11 @@ void SignalTrack::setAspect(int newAspect)
 	aspect = newAspect;
 }
 
-BridgeUnderpassTrack::BridgeUnderpassTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+BridgeUnderpassTrack::BridgeUnderpassTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
 	locationX = newLocationX;
 	locationY = newLocationY;
 	platform1 = false;
@@ -161,11 +161,11 @@ BridgeUnderpassTrack::BridgeUnderpassTrack(ElementType newElementType, int newOf
 
 }
 
-SwitchTrack::SwitchTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+SwitchTrack::SwitchTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
 	locationX = newLocationX;
 	locationY = newLocationY;
 	platform1 = false;
@@ -173,21 +173,21 @@ SwitchTrack::SwitchTrack(ElementType newElementType, int newOffsetX, int newOffs
 
 }
 
-CrossoverTrack::CrossoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+CrossoverTrack::CrossoverTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
 	locationX = newLocationX;
 	locationY = newLocationY;
 
 }
 
-FlyoverTrack::FlyoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+FlyoverTrack::FlyoverTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
+
+
 	locationX = newLocationX;
 	locationY = newLocationY;
 

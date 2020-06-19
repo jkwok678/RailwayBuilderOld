@@ -46,7 +46,7 @@ protected:
 
 public:
 	StraightTrack();
-    StraightTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    StraightTrack(ElementType newElementType, int newLocationX, int newLocationY);
 	~StraightTrack();
 	bool hasLevelCrossing() const;
 	void addLevelCrossing();
@@ -66,7 +66,7 @@ protected:
 
 
 public:
-	DirectTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    DirectTrack(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 
@@ -81,7 +81,7 @@ protected:
 
 
 public:
-    CurvedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    CurvedTrack(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 
@@ -96,7 +96,7 @@ protected:
 
 
 public:
-	LinkedTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    LinkedTrack(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 
@@ -111,7 +111,7 @@ protected:
 
 
 public:
-	ExitTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    ExitTrack(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 
@@ -126,7 +126,7 @@ protected:
 
 
 public:
-	BufferTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    BufferTrack(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 
@@ -142,7 +142,7 @@ protected:
 
 
 public:
-	SignalTrack(ElementType newElementType, int newAspect, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    SignalTrack(ElementType newElementType, int newAspect, int newLocationX, int newLocationY);
 	int getAspect() const;
 	void setAspect(int newAspect);
 
@@ -159,7 +159,7 @@ protected:
 
 
 public:
-	BridgeUnderpassTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    BridgeUnderpassTrack(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 
@@ -174,7 +174,7 @@ protected:
 
 
 public:
-	SwitchTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    SwitchTrack(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 
@@ -189,7 +189,7 @@ protected:
 
 
 public:
-	CrossoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    CrossoverTrack(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 
@@ -204,7 +204,7 @@ protected:
 
 
 public:
-	FlyoverTrack(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY);
+    FlyoverTrack(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
 

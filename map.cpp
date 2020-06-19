@@ -17,11 +17,10 @@ void Map::setStraightTrackList(const std::vector<std::shared_ptr<StraightTrack> 
 
 void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 {
-	int tempoffsetX = newStraightTrack->getOffsetX();
-	int tempoffsetY = newStraightTrack->getOffsetY();
+
 	int tempLocationX = newStraightTrack->getLocationX();
 	int tempLocationY = newStraightTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		straightTrackList.push_back(newStraightTrack);
 	}
 	else {
@@ -46,11 +45,10 @@ void Map::setDirectTrackList(const std::vector<std::shared_ptr<DirectTrack> >& n
 
 void Map::addDirectTrack(std::shared_ptr<DirectTrack> newDirectTrack)
 {
-	int tempoffsetX = newDirectTrack->getOffsetX();
-	int tempoffsetY = newDirectTrack->getOffsetY();
+
 	int tempLocationX = newDirectTrack->getLocationX();
 	int tempLocationY = newDirectTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		directTrackList.push_back(newDirectTrack);
 	}
 	else {
@@ -75,11 +73,9 @@ void Map::setCurvedTrackList(const std::vector<std::shared_ptr<CurvedTrack> >& n
 
 void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
 {
-	int tempoffsetX = newCurvedTrack->getOffsetX();
-	int tempoffsetY = newCurvedTrack->getOffsetY();
 	int tempLocationX = newCurvedTrack->getLocationX();
 	int tempLocationY = newCurvedTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		curvedTrackList.push_back(newCurvedTrack);
 	}
 	else {
@@ -103,11 +99,10 @@ void Map::setLinkedTrackList(const std::vector<std::shared_ptr<LinkedTrack> >& n
 
 void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
 {
-	int tempoffsetX = newLinkedTrack->getOffsetX();
-	int tempoffsetY = newLinkedTrack->getOffsetY();
+
 	int tempLocationX = newLinkedTrack->getLocationX();
 	int tempLocationY = newLinkedTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		linkedTrackList.push_back(newLinkedTrack);
 	}
 	else {
@@ -131,11 +126,10 @@ void Map::setExitTrackList(const std::vector<std::shared_ptr<ExitTrack> >& newEx
 
 void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
 {
-	int tempoffsetX = newExitTrack->getOffsetX();
-	int tempoffsetY = newExitTrack->getOffsetY();
+
 	int tempLocationX = newExitTrack->getLocationX();
 	int tempLocationY = newExitTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		exitTrackList.push_back(newExitTrack);
 	}
 	else {
@@ -159,11 +153,10 @@ void Map::setBufferTrackList(const std::vector<std::shared_ptr<BufferTrack> >& n
 
 void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
 {
-	int tempoffsetX = newBufferTrack->getOffsetX();
-	int tempoffsetY = newBufferTrack->getOffsetY();
+
 	int tempLocationX = newBufferTrack->getLocationX();
 	int tempLocationY = newBufferTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		bufferTrackList.push_back(newBufferTrack);
 	}
 	else {
@@ -187,11 +180,10 @@ void Map::setSignalTrackList(const std::vector<std::shared_ptr<SignalTrack> >& n
 
 void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
 {
-	int tempoffsetX = newSignalTrack->getOffsetX();
-	int tempoffsetY = newSignalTrack->getOffsetY();
+
 	int tempLocationX = newSignalTrack->getLocationX();
 	int tempLocationY = newSignalTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		signalTrackList.push_back(newSignalTrack);
 	}
 	else {
@@ -215,11 +207,10 @@ void Map::setBridgeUnderpassTrackList(const std::vector<std::shared_ptr<BridgeUn
 
 void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridgeUnderpassTrack)
 {
-	int tempoffsetX = newBridgeUnderpassTrack->getOffsetX();
-	int tempoffsetY = newBridgeUnderpassTrack->getOffsetY();
+
 	int tempLocationX = newBridgeUnderpassTrack->getLocationX();
 	int tempLocationY = newBridgeUnderpassTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		bridgeUnderpassTrackList.push_back(newBridgeUnderpassTrack);
 	}
 	else {
@@ -243,11 +234,10 @@ void Map::setSwitchTrackList(const std::vector<std::shared_ptr<SwitchTrack> >& n
 
 void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
 {
-	int tempoffsetX = newSwitchTrack->getOffsetX();
-	int tempoffsetY = newSwitchTrack->getOffsetY();
+
 	int tempLocationX = newSwitchTrack->getLocationX();
 	int tempLocationY = newSwitchTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		switchTrackList.push_back(newSwitchTrack);
 	}
 	else {
@@ -271,11 +261,10 @@ void Map::setCrossoverTrackList(const std::vector<std::shared_ptr<CrossoverTrack
 
 void Map::addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack)
 {
-	int tempoffsetX = newCrossoverTrack->getOffsetX();
-	int tempoffsetY = newCrossoverTrack->getOffsetY();
+
 	int tempLocationX = newCrossoverTrack->getLocationX();
 	int tempLocationY = newCrossoverTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		crossoverTrackList.push_back(newCrossoverTrack);
 	}
 	else {
@@ -299,11 +288,10 @@ void Map::setFlyoverTrackList(const std::vector<std::shared_ptr<FlyoverTrack> >&
 
 void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
 {
-	int tempoffsetX = newFlyoverTrack->getOffsetX();
-	int tempoffsetY = newFlyoverTrack->getOffsetY();
+
 	int tempLocationX = newFlyoverTrack->getLocationX();
 	int tempLocationY = newFlyoverTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		flyoverTrackList.push_back(newFlyoverTrack);
 	}
 	else {
@@ -327,11 +315,10 @@ void Map::setNamedLocationList(const std::vector<std::shared_ptr<NamedLocation> 
 
 void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
 {
-	int tempoffsetX = newNamedLocation->getOffsetX();
-	int tempoffsetY = newNamedLocation->getOffsetY();
+
 	int tempLocationX = newNamedLocation->getLocationX();
 	int tempLocationY = newNamedLocation->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		namedLocationList.push_back(newNamedLocation);
 	}
 	else {
@@ -354,11 +341,10 @@ void Map::setConcourseList(const std::vector<std::shared_ptr<Concourse> >& newCo
 
 void Map::addConcourse(std::shared_ptr<Concourse> newConcourseTrack)
 {
-	int tempoffsetX = newConcourseTrack->getOffsetX();
-	int tempoffsetY = newConcourseTrack->getOffsetY();
+
 	int tempLocationX = newConcourseTrack->getLocationX();
 	int tempLocationY = newConcourseTrack->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		concourseList.push_back(newConcourseTrack);
 	}
 	else {
@@ -382,11 +368,10 @@ void Map::setParapetList(const std::vector<std::shared_ptr<Parapet> >& newParape
 
 void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 {
-	int tempoffsetX = newParapet->getOffsetX();
-	int tempoffsetY = newParapet->getOffsetY();
+
 	int tempLocationX = newParapet->getLocationX();
 	int tempLocationY = newParapet->getLocationY();
-	if (!checkElementExists(tempoffsetX, tempoffsetY, tempLocationX, tempLocationY)) {
+    if (!checkElementExists(tempLocationX, tempLocationY)) {
 		parapetList.push_back(newParapet);
 	}
 	else {
@@ -414,42 +399,29 @@ void Map::addText(std::shared_ptr<Text> newText)
 
 }
 
-
-
-bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locationY)
+bool Map::checkElementExists(int locationX, int locationY)
 {
 	bool found = false;
 	if (!straightTrackList.empty())
 	{
 		for (std::shared_ptr<StraightTrack>& currentElement : straightTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
+            if (currentX == locationX && currentY == locationY)
+            {
 					found = true;
-				}
-			}
-
+            }
 		}
 	}
 
 	if (!directTrackList.empty() && found == false)
 	{
 		for (std::shared_ptr<DirectTrack>& currentElement : directTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
 			}
 		}
 	}
@@ -457,50 +429,38 @@ bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locati
 	if (!curvedTrackList.empty() && found == false)
 	{
 		for (std::shared_ptr<CurvedTrack>& currentElement : curvedTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
-			}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
+            }
 		}
 	}
 
 	if (!linkedTrackList.empty() && found == false)
 	{
 		for (std::shared_ptr<LinkedTrack>& currentElement : linkedTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
-			}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
+            }
 		}
 	}
 
 	if (!exitTrackList.empty() && found == false)
 	{
 		for (std::shared_ptr<ExitTrack>& currentElement : exitTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
+            if (currentX == locationX && currentY == locationY)
+            {
 					found = true;
-				}
 			}
 		}
 	}
@@ -508,16 +468,12 @@ bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locati
 	if (!bufferTrackList.empty() && found == false)
 	{
 		for (std::shared_ptr<BufferTrack>& currentElement : bufferTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
 			}
 		}
 	}
@@ -525,33 +481,24 @@ bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locati
 	if (!signalTrackList.empty() && found == false)
 	{
 		for (std::shared_ptr<SignalTrack>& currentElement : signalTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
-			}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
+            }
 		}
 	}
 
 	if (!bridgeUnderpassTrackList.empty() && found == false)
 	{
 		for (std::shared_ptr<BridgeUnderpassTrack>& currentElement : bridgeUnderpassTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
 			}
 		}
 	}
@@ -559,50 +506,38 @@ bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locati
 	if (!switchTrackList.empty() && found == false)
 	{
 		for (std::shared_ptr<SwitchTrack>& currentElement : switchTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
-			}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
+            }
 		}
 	}
 
 	if (!crossoverTrackList.empty() && found == false)
 	{
 		for (std::shared_ptr<CrossoverTrack>& currentElement : crossoverTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
-			}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
+            }
 		}
 	}
 
 	if (!flyoverTrackList.empty() && found == false)
 	{
 		for (std::shared_ptr<FlyoverTrack>& currentElement : flyoverTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
 			}
 		}
 	}
@@ -610,51 +545,39 @@ bool Map::checkElementExists(int offsetX, int offsetY, int locationX, int locati
 	if (!namedLocationList.empty() && found == false)
 	{
 		for (std::shared_ptr<NamedLocation>& currentElement : namedLocationList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
-			}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
+            }
 		}
 	}
 
 	if (!concourseList.empty() && found == false)
 	{
 		for (std::shared_ptr<Concourse>& currentElement : concourseList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
-			}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
+            }
 		}
 	}
 
 	if (!parapetList.empty() && found == false)
 	{
-		for (std::shared_ptr<Parapet>& currentElement : parapetList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+        for (std::shared_ptr<Parapet>& currentElement : parapetList)
+        {
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					found = true;
-				}
-			}
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
+            }
 		}
 	}
 
@@ -861,52 +784,45 @@ bool Map::deleteElement(int locationX, int locationY)
 
 }
 
-void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, int locationY)
+void Map::addPlatform(Platform side, int locationX, int locationY)
 {
 	bool added = false;
 
 	if (!straightTrackList.empty() && added == false)
 	{
 		for (std::shared_ptr<StraightTrack>& currentElement : straightTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
 			bool levelCrossing = currentElement->hasLevelCrossing();
-
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
-				{
-					if (!levelCrossing) {
-						switch (side) {
-						case Platform::UP:
-							if (currentElement->getElementType() == ElementType::STRAIGHTH) {
-								currentElement->setPlatform1(true);
-								added = true;
-							}
-							break;
-						case Platform::DOWN:
-							if (currentElement->getElementType() == ElementType::STRAIGHTH) {
-								currentElement->setPlatform2(true);
-								added = true;
-								break;
-							}
-						case Platform::LEFT:
-							if (currentElement->getElementType() == ElementType::STRAIGHTV) {
-								currentElement->setPlatform1(true);
-								added = true;
-							}
-							break;
-						case Platform::RIGHT:
-							if (currentElement->getElementType() == ElementType::STRAIGHTV) {
-								currentElement->setPlatform2(true);
-								added = true;
-								break;
-							}
-						}
+            if (currentX == locationX && currentY == locationY)
+            {
+                if (!levelCrossing) {
+                    switch (side) {
+                    case Platform::UP:
+                        if (currentElement->getElementType() == ElementType::STRAIGHTH) {
+                            currentElement->setPlatform1(true);
+                            added = true;
+                        }
+                        break;
+                    case Platform::DOWN:
+                        if (currentElement->getElementType() == ElementType::STRAIGHTH) {
+                            currentElement->setPlatform2(true);
+                            added = true;
+                            break;
+                        }
+                    case Platform::LEFT:
+                        if (currentElement->getElementType() == ElementType::STRAIGHTV) {
+                            currentElement->setPlatform1(true);
+                            added = true;
+                        }
+                        break;
+                    case Platform::RIGHT:
+                        if (currentElement->getElementType() == ElementType::STRAIGHTV) {
+                            currentElement->setPlatform2(true);
+                            added = true;
+                            break;
+                        }
 					}
-
 				}
 			}
 		}
@@ -914,13 +830,9 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
 	if (!directTrackList.empty() && added == false)
 	{
 		for (std::shared_ptr<DirectTrack>& currentElement : directTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
+            if (currentX == locationX && currentY == locationY)
 				{
 					switch (side) {
 					case Platform::LEFT:
@@ -962,9 +874,6 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
 					default:
 						added = false;
 					}
-
-
-				}
 			}
 		}
 	}
@@ -972,13 +881,9 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
 	if (!bufferTrackList.empty() && added == false)
 	{
 		for (std::shared_ptr<BufferTrack>& currentElement : bufferTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
+            if (currentX == locationX && currentY == locationY)
 				{
 					switch (side) {
 					case Platform::LEFT:
@@ -1019,23 +924,17 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
 						break;
 					default:
 						added = false;
-					}
+                }
 
-
-				}
 			}
 		}
 	}
 	if (!signalTrackList.empty() && added == false)
 	{
 		for (std::shared_ptr<SignalTrack>& currentElement : signalTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
+            if (currentX == locationX && currentY == locationY)
 				{
 					switch (side) {
 					case Platform::LEFT:
@@ -1076,10 +975,7 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
 						break;
 					default:
 						added = false;
-					}
-
-
-				}
+                }
 			}
 		}
 	}
@@ -1089,13 +985,10 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
 	if (!bridgeUnderpassTrackList.empty() && added == false)
 	{
 		for (std::shared_ptr<BridgeUnderpassTrack>& currentElement : bridgeUnderpassTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
+
 			int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
+            if (currentX == locationX && currentY == locationY)
 				{
 					switch (side) {
 					case Platform::LEFT:
@@ -1136,9 +1029,6 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
 						break;
 					default:
 						added = false;
-					}
-
-
 				}
 			}
 		}
@@ -1147,13 +1037,9 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
 	if (!switchTrackList.empty() && added == false)
 	{
 		for (std::shared_ptr<SwitchTrack>& currentElement : switchTrackList) {
-			int currentOffsetX = currentElement->getOffsetX();
-			int currentOffsetY = currentElement->getOffsetY();
-			int currentX = currentElement->getLocationX();
+                        int currentX = currentElement->getLocationX();
 			int currentY = currentElement->getLocationY();
-			if (currentOffsetX == offsetX && currentOffsetY == offsetY)
-			{
-				if (currentX == locationX && currentY == locationY)
+            if (currentX == locationX && currentY == locationY)
 				{
 					switch (currentElement->getElementType()) {
 
@@ -1194,9 +1080,6 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
 						}
 						break;
 
-					}
-
-
 				}
 			}
 		}
@@ -1204,22 +1087,19 @@ void Map::addPlatform(Platform side, int offsetX, int offsetY, int locationX, in
 
 }
 
-void Map::addLevelCrossing(int offsetX, int offsetY, int locationX, int locationY)
+void Map::addLevelCrossing(int locationX, int locationY)
 {
 	for (int i = 0; i < straightTrackList.size(); i++) {
 		std::shared_ptr<StraightTrack>& currentElement = straightTrackList[i];
-		int currentOffsetX = currentElement->getOffsetX();
-		int currentOffsetY = currentElement->getOffsetY();
 		int currentX = currentElement->getLocationX();
 		int currentY = currentElement->getLocationY();
 		bool platform1 = currentElement->getPlatform1();
 		bool platform2 = currentElement->getPlatform2();
-		if (currentOffsetX == offsetX && currentOffsetY == offsetY) {
-			if (currentX == locationX && currentY == locationY) {
-				if (!platform1 && !platform2) {
-					currentElement->addLevelCrossing();
-				}
-
+        if (currentX == locationX && currentY == locationY)
+        {
+            if (!platform1 && !platform2)
+            {
+                currentElement->addLevelCrossing();
 			}
 		}
 

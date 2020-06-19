@@ -18,22 +18,6 @@ void Element::setElementType(const ElementType& newElementType) {
 	elementType = newElementType;
 }
 
-int Element::getOffsetX() const {
-	return offsetX;
-}
-
-void Element::setOffsetX(int newOffsetX) {
-	offsetX = newOffsetX;
-}
-
-int Element::getOffsetY() const {
-	return offsetY;
-}
-
-void Element::setOffsetY(int newOffsetY) {
-	offsetY = newOffsetY;
-}
-
 int Element::getLocationX() const {
 	return locationX;
 }
@@ -55,11 +39,9 @@ NamedLocation::NamedLocation()
 
 }
 
-NamedLocation::NamedLocation(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+NamedLocation::NamedLocation(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
 	named = false;
@@ -78,32 +60,26 @@ void NamedLocation::setNamed(bool newNamed)
 	named = newNamed;
 }
 
-Concourse::Concourse(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+Concourse::Concourse(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
 	named = false;
 
 }
 
-Parapet::Parapet(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY)
+Parapet::Parapet(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
 }
 
 
-Text::Text(ElementType newElementType, int newOffsetX, int newOffsetY, int newLocationX, int newLocationY, QString newReadableText)
+Text::Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText)
 {
 	elementType = newElementType;
-	offsetX = newOffsetX;
-	offsetY = newOffsetY;
 	locationX = newLocationX;
 	locationY = newLocationY;
 	readableText = newReadableText;
