@@ -2333,9 +2333,6 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
         int roundedY = exactY - extraY;
         int maxX = canvasSizeX/16;
         int maxY = canvasSizeY/16;
-
-
-
         int finalX = ((roundedX + (offsetX*canvasSizeX))/16);
         int finalY;
         if (offsetY==0)
@@ -2348,36 +2345,30 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
         }
         if (drawnLayout->checkElementExists(finalX,finalY))
         {
-            QString toolText1 = "Track length = ";
-            QString toolTextTrackLength;
-            QString toolText3 = "Track speed limit = ";
-            QString toolTextTrackSpeed;
-            QString toolText5 = " km/h";
-            QString toolText6 = "trackID: ";
-            QString toolTextX = QString::number(finalX);
-            QString toolText8 = ",";
-            QString toolTextY = QString::number(finalY);
-            QString toolTextSpace = "\n";
             QString finalText;
-            if (canvasShowMoreTrackInfo) {
-
-                std::shared_ptr<Element> element = nullptr;
-                element = drawnLayout->getElementAt(finalX,finalY);
-                if (element== nullptr) {
-                    std::shared_ptr<Track> track = nullptr;
-                    track = drawnLayout->getTrackAt(finalX,finalY);
-                    toolTextTrackLength = QString::number(track->getTrackLength());
-                    toolTextTrackSpeed = QString::number(track->getTrackSpeed());
-                    finalText = toolText1.append(toolTextTrackLength).append(toolTextSpace).append(toolText3).append(toolTextTrackSpeed).append(toolText5)
-                            .append(toolTextSpace).append(toolText6).append(toolTextX).append(toolText8).append(toolTextY);
-                }
-
-
+            QString ID;
+            std::shared_ptr<Element> element = nullptr;
+            element = drawnLayout->getElementAt(finalX,finalY);
+            if (element== nullptr)
+            {
+                std::shared_ptr<Track> track = nullptr;
+                track = drawnLayout->getTrackAt(finalX,finalY);
+                ID = "Track ID = ";
+                finalText = ID;
             }
-
+            else
+            {
+                ID = "Element ID = ";
+            }
+            ID = ID.append(QString::number(finalX)).append(",").append(QString::number(finalY));
+            finalText = ID;
             setToolTip(finalText);
 
         }
+
+
+
+
     }
 
 
