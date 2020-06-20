@@ -27,16 +27,21 @@ protected:
 
 public:
 	Track();
+    int getTrackSpeed() const;
+    void setTrackSpeed(int value);
+    int getTrackLength() const;
+    void setTrackLength(int value);
 	bool getPlatform1() const;
 	void setPlatform1(bool newPlatform);
 	bool getPlatform2() const;
 	void setPlatform2(bool newPlatform);
+
 };
 
 class StraightTrack : public Track
 {
 private:
-	bool levelCrossing;
+    bool levelCrossing;
 
 
 protected:

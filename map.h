@@ -94,6 +94,7 @@ public:
 	void addText(std::shared_ptr<Text> newText);
 
     std::shared_ptr<Element> getElementAt( int locationX, int locationY);
+    std::shared_ptr<Track> getTrackAt( int locationX, int locationY);
     bool checkElementExists(int locationX, int locationY);
 	bool deleteElement(int locationX, int locationY);
 

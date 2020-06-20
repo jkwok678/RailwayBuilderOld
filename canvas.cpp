@@ -2348,11 +2348,33 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
         }
         if (drawnLayout->checkElementExists(finalX,finalY))
         {
-            QString toolText1 = "trackID: ";
-            QString toolText2 = QString::number(finalX);
-            QString toolText3 = ",";
-            QString toolText4 = QString::number(finalY);
-            QString finalText = toolText1.append(toolText2).append(toolText3).append(toolText4);
+            QString toolText1 = "Track length = ";
+            QString toolTextTrackLength;
+            QString toolText3 = "Track speed limit = ";
+            QString toolTextTrackSpeed;
+            QString toolText5 = " km/h";
+            QString toolText6 = "trackID: ";
+            QString toolTextX = QString::number(finalX);
+            QString toolText8 = ",";
+            QString toolTextY = QString::number(finalY);
+            QString toolTextSpace = "\n";
+            QString finalText;
+            if (canvasShowMoreTrackInfo) {
+
+                std::shared_ptr<Element> element = nullptr;
+                element = drawnLayout->getElementAt(finalX,finalY);
+                if (element== nullptr) {
+                    std::shared_ptr<Track> track = nullptr;
+                    track = drawnLayout->getTrackAt(finalX,finalY);
+                    toolTextTrackLength = QString::number(track->getTrackLength());
+                    toolTextTrackSpeed = QString::number(track->getTrackSpeed());
+                    finalText = toolText1.append(toolTextTrackLength).append(toolTextSpace).append(toolText3).append(toolTextTrackSpeed).append(toolText5)
+                            .append(toolTextSpace).append(toolText6).append(toolTextX).append(toolText8).append(toolTextY);
+                }
+
+
+            }
+
             setToolTip(finalText);
 
         }
