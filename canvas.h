@@ -19,6 +19,7 @@ class Canvas : public QWidget
 {
 	Q_OBJECT
 public:
+
 	Canvas();
 	ElementType getElementType();
 	void setElementType(ElementType& newChosen);

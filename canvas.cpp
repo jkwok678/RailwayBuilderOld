@@ -297,17 +297,19 @@ void Canvas::setCanvasShowMoreTrackInfo(bool &newShowMoreTrackInfo)
 
 void Canvas::mousePressEvent(QMouseEvent* event)
 {
+    //Get size of the current Canvas Widget.
     canvasSizeX = width();
     canvasSizeY = height();
+    //Getlocation of click.
     int exactX = event->pos().x();
     int exactY = event->pos().y();
+    //Find out how close it is to the nearest 16 (which is the image size)
     int extraX = exactX % 16;
     int extraY = exactY % 16;
+
     int roundedX = exactX - extraX;
     int roundedY = exactY - extraY;
-    int maxX = canvasSizeX/16;
-    int maxY = canvasSizeY/16;
-
+    //Calculate overall coordinate
     int finalX = ((roundedX + (offsetX*canvasSizeX))/16);
     int finalY;
     if (offsetY==0)
