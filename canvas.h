@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QInputDialog>
+#include <QTimer>
 #include <memory>
 #include <string>
 #include <iostream>
