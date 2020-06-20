@@ -2354,14 +2354,24 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
                 std::shared_ptr<Track> track = nullptr;
                 track = drawnLayout->getTrackAt(finalX,finalY);
                 ID = "Track ID = ";
+                ID = ID.append(QString::number(finalX)).append(",").append(QString::number(finalY));
+                if (canvasShowMoreTrackInfo) {
+                   QString text2 = tr("\n").append("Track length = ").append(QString::number(track->getTrackLength())).append(" m");
+                   QString text3 = tr("\n").append("Track speed = ").append(QString::number(track->getTrackSpeed())).append(" km/h");
+                   finalText = ID.append(text2).append(text3);
+                }
                 finalText = ID;
+
             }
             else
             {
                 ID = "Element ID = ";
+                ID = ID.append(QString::number(finalX)).append(",").append(QString::number(finalY));
+                finalText = ID;
             }
-            ID = ID.append(QString::number(finalX)).append(",").append(QString::number(finalY));
-            finalText = ID;
+
+
+
             setToolTip(finalText);
 
         }
