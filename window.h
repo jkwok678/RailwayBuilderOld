@@ -30,6 +30,8 @@ private slots:
 	void openElementMenu();
 	void changeAspect();
 	void addEditRemoveText();
+    void moveText();
+
     void toggleTrackID();
     void toggleMoreTrackInfo();
 
@@ -254,6 +256,10 @@ private:
 	QToolButton* addEditRemoveTextButton;
 	QAction* addEditRemoveTextAct;
 	QIcon* addEditRemoveTextIcon;
+
+    QToolButton* moveTextButton;
+    QAction* moveTextAct;
+    QIcon* moveTextIcon;
 
 	//Top menu 2
 

@@ -1197,7 +1197,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 drawnLayout->addLevelCrossing(finalX, finalY);
                 break;
             }
-            case ElementType::TEXT:
+            case ElementType::ADDCHANGETEXT:
             {
                 bool ok;
                 QString readableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, tr(""), &ok);

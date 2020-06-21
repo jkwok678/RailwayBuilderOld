@@ -26,9 +26,6 @@ Window::Window()
 	createRightMenu();
 	createMenuBar();
 
-    //QWidget* bottom = new QWidget();
-    //bottom->setFixedWidth(5);
-
     status = new QStatusBar();
     status->setSizeGripEnabled(false);
     QLabel* l = new QLabel (tr("hi"));
@@ -46,7 +43,6 @@ Window::Window()
     layout->addWidget(allMenus, BorderLayout::North);
 	layout->addWidget(rightMenu, BorderLayout::East);
     layout->addWidget(left, BorderLayout::West);
-    //layout->addWidget(bottom, BorderLayout::South);
     layout->addWidget(status, BorderLayout::South);
 
     setLayout(layout);
@@ -120,10 +116,19 @@ void Window::changeAspect()
 
 void Window::addEditRemoveText()
 {
-	if (windowChosen != ElementType::TEXT)
-		windowChosen = ElementType::TEXT;
+    if (windowChosen != ElementType::ADDCHANGETEXT)
+        windowChosen = ElementType::ADDCHANGETEXT;
 	else
 		windowChosen = ElementType::NONE;
+
+}
+
+void Window::moveText()
+{
+    if (windowChosen != ElementType::MOVETEXT)
+        windowChosen = ElementType::MOVETEXT;
+    else
+        windowChosen = ElementType::NONE;
 
 }
 
@@ -1559,6 +1564,15 @@ void Window::createBuildModifyMenu1()
 	addEditRemoveTextIcon = new QIcon(":/icons/icons/addEditRemoveText.png");
 	addEditRemoveTextButton->setIcon(*addEditRemoveTextIcon);
 	buildModifyMenuLayout1->addWidget(addEditRemoveTextButton);
+
+    moveTextButton = new QToolButton();
+    moveTextButton->setMaximumSize(QSize(32, 32));
+    moveTextAct = new QAction();
+    moveTextButton->setDefaultAction(moveTextAct);
+    connect(moveTextAct, &QAction::triggered, this, &Window::moveText);
+    moveTextIcon = new QIcon(":/icons/icons/moveText.png");
+    moveTextButton->setIcon(*moveTextIcon);
+    buildModifyMenuLayout1->addWidget(moveTextButton);
 }
 
 void Window::createElementMenu()
