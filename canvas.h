@@ -7,6 +7,8 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+#include <QInputDialog>
+#include <QTimer>
 #include <memory>
 #include <string>
 #include <iostream>
@@ -20,6 +22,7 @@ class Canvas : public QGraphicsView
 {
 	Q_OBJECT
 public:
+
 	Canvas();
 	ElementType getElementType();
 	void setElementType(ElementType& newChosen);
@@ -42,6 +45,12 @@ public:
 	int getAspect() const;
 	void setAspect(int& newAspect);
 
+    bool getCanvasShowTrackID() const;
+    void setCanvasShowTrackID(bool& newShowTrackID);
+
+    bool getCanvasShowMoreTrackInfo() const;
+    void setCanvasShowMoreTrackInfo(bool& newShowMoreTrackInfo);
+
 public slots:
 
 protected:
@@ -49,6 +58,10 @@ protected:
     //void paintEvent(QPaintEvent* event) override;
 
     void redraw();
+	void paintEvent(QPaintEvent* event) override;
+    void resizeEvent(QResizeEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+
 
 private:
 	ElementType* canvasChosen;
@@ -58,8 +71,10 @@ private:
 	Map* drawnLayout;
 	int imageSize;
 	bool modified = false;
-	int offsetX;
-	int offsetY;
+    int offsetX;
+    int offsetY;
+    int canvasSizeX;
+    int canvasSizeY;
 	int canvasAspect;
 	QPoint lastPoint;
 	int exactX;
@@ -253,8 +268,6 @@ private:
     //ELementBlock6Image
     QPixmap* levelCrossingHImage;
     QPixmap* levelCrossingVImage;
-
-
 
 };
 
