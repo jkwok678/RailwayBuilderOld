@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QPainter>
 #include <QMouseEvent>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
 #include <memory>
 #include <string>
 #include <iostream>
@@ -13,7 +16,7 @@
 
 
 
-class Canvas : public QWidget
+class Canvas : public QGraphicsView
 {
 	Q_OBJECT
 public:
@@ -43,10 +46,14 @@ public slots:
 
 protected:
 	void mousePressEvent(QMouseEvent* event) override;
-	void paintEvent(QPaintEvent* event) override;
+    //void paintEvent(QPaintEvent* event) override;
+
+    void redraw();
 
 private:
 	ElementType* canvasChosen;
+
+    QGraphicsScene* scene;
 
 	Map* drawnLayout;
 	int imageSize;
@@ -66,186 +73,186 @@ private:
 
 
     //ElementBlock1 images
-	QImage* straightHImage;
-	QImage* straightVImage;
-	QImage* directLeftImage;
-	QImage* directRightImage;
-	QImage* directUpImage;
-	QImage* directDownImage;
-	QImage* straightRightUpImage;
-	QImage* straightLeftUpImage;
-	QImage* directRightUpImage;
-	QImage* directLeftUpImage;
-	QImage* directLeftDownImage;
-	QImage* directRightDownIamge;
-	QImage* tightCurve1Image;
-	QImage* tightCurve2Image;
-	QImage* tightCurve3Image;
-	QImage* tightCurve4Image;
-	QImage* curve1Image;
-	QImage* curve2Image;
-	QImage* curve3Image;
-	QImage* curve4Image;
-	QImage* linkLeftImage;
-	QImage* linkRightImage;
-	QImage* linkDownImage;
-	QImage* linkUpImage;
-	QImage* linkLeftUpImage;
-	QImage* linkRightUpImage;
-	QImage* linkRightDownImage;
-	QImage* linkLeftDownImage;
-	QImage* exitLeftImage;
-	QImage* exitRightImage;
-	QImage* exitDownImage;
-	QImage* exitUpImage;
-	QImage* exitLeftUpImage;
-	QImage* exitRightUpImage;
-	QImage* exitLeftDownImage;
-	QImage* exitRightDownImage;
-	QImage* curve5Image;
-	QImage* curve6Image;
-	QImage* curve7Image;
-	QImage* curve8Image;
-	QImage* bufferLeftImage;
-	QImage* bufferRightImage;
-	QImage* bufferDownImage;
-	QImage* bufferUpImage;
-	QImage* bufferLeftUpImage;
-	QImage* bufferRightUpImage;
-	QImage* bufferLeftDownImage;
-	QImage* bufferRightDownImage;
-	QImage* signalLeftImage;
-	QImage* signalRightImage;
-	QImage* signalDownImage;
-	QImage* signalUpImage;
-	QImage* signalLeftUpImage;
-	QImage* signalRightUpImage;
-	QImage* signalLeftDownImage;
-	QImage* signalRightDownImage;
-	QImage* shuntLeftImage;
-	QImage* shuntRightImage;
-	QImage* shuntDownImage;
-	QImage* shuntUpImage;
-	QImage* shuntLeftUpImage;
-	QImage* shuntRightUpImage;
-	QImage* shuntLeftDownImage;
-	QImage* shuntRightDownImage;
-    QImage* bridgeUnset1Image;
-    QImage* bridgeUnset2Image;
-    QImage* underpassUnset1Image;
-    QImage* underpassUnset2Image;
-    QImage* bridgeSet1Image;
-    QImage* bridgeSet2Image;
-    QImage* underpassSet1Image;
-    QImage* underpassSet2Image;
+    QPixmap* straightHImage;
+    QPixmap* straightVImage;
+    QPixmap* directLeftImage;
+    QPixmap* directRightImage;
+    QPixmap* directUpImage;
+    QPixmap* directDownImage;
+    QPixmap* straightRightUpImage;
+    QPixmap* straightLeftUpImage;
+    QPixmap* directRightUpImage;
+    QPixmap* directLeftUpImage;
+    QPixmap* directLeftDownImage;
+    QPixmap* directRightDownIamge;
+    QPixmap* tightCurve1Image;
+    QPixmap* tightCurve2Image;
+    QPixmap* tightCurve3Image;
+    QPixmap* tightCurve4Image;
+    QPixmap* curve1Image;
+    QPixmap* curve2Image;
+    QPixmap* curve3Image;
+    QPixmap* curve4Image;
+    QPixmap* linkLeftImage;
+    QPixmap* linkRightImage;
+    QPixmap* linkDownImage;
+    QPixmap* linkUpImage;
+    QPixmap* linkLeftUpImage;
+    QPixmap* linkRightUpImage;
+    QPixmap* linkRightDownImage;
+    QPixmap* linkLeftDownImage;
+    QPixmap* exitLeftImage;
+    QPixmap* exitRightImage;
+    QPixmap* exitDownImage;
+    QPixmap* exitUpImage;
+    QPixmap* exitLeftUpImage;
+    QPixmap* exitRightUpImage;
+    QPixmap* exitLeftDownImage;
+    QPixmap* exitRightDownImage;
+    QPixmap* curve5Image;
+    QPixmap* curve6Image;
+    QPixmap* curve7Image;
+    QPixmap* curve8Image;
+    QPixmap* bufferLeftImage;
+    QPixmap* bufferRightImage;
+    QPixmap* bufferDownImage;
+    QPixmap* bufferUpImage;
+    QPixmap* bufferLeftUpImage;
+    QPixmap* bufferRightUpImage;
+    QPixmap* bufferLeftDownImage;
+    QPixmap* bufferRightDownImage;
+    QPixmap* signalLeftImage;
+    QPixmap* signalRightImage;
+    QPixmap* signalDownImage;
+    QPixmap* signalUpImage;
+    QPixmap* signalLeftUpImage;
+    QPixmap* signalRightUpImage;
+    QPixmap* signalLeftDownImage;
+    QPixmap* signalRightDownImage;
+    QPixmap* shuntLeftImage;
+    QPixmap* shuntRightImage;
+    QPixmap* shuntDownImage;
+    QPixmap* shuntUpImage;
+    QPixmap* shuntLeftUpImage;
+    QPixmap* shuntRightUpImage;
+    QPixmap* shuntLeftDownImage;
+    QPixmap* shuntRightDownImage;
+    QPixmap* bridgeUnset1Image;
+    QPixmap* bridgeUnset2Image;
+    QPixmap* underpassUnset1Image;
+    QPixmap* underpassUnset2Image;
+    QPixmap* bridgeSet1Image;
+    QPixmap* bridgeSet2Image;
+    QPixmap* underpassSet1Image;
+    QPixmap* underpassSet2Image;
 
     //ElementBlock2 images
-    QImage* switchTight1Image;
-    QImage* switchTight2Image;
-    QImage* switchTight3Image;
-    QImage* switchTight4Image;
-    QImage* switchTight5Image;
-    QImage* switchTight6Image;
-    QImage* switchTight7Image;
-    QImage* switchTight8Image;
-    QImage* switchSplit1Image;
-    QImage* switchSplit2Image;
-    QImage* switchSplit3Image;
+    QPixmap* switchTight1Image;
+    QPixmap* switchTight2Image;
+    QPixmap* switchTight3Image;
+    QPixmap* switchTight4Image;
+    QPixmap* switchTight5Image;
+    QPixmap* switchTight6Image;
+    QPixmap* switchTight7Image;
+    QPixmap* switchTight8Image;
+    QPixmap* switchSplit1Image;
+    QPixmap* switchSplit2Image;
+    QPixmap* switchSplit3Image;
 
-    QImage* switch1Image;
-    QImage* switch2Image;
-    QImage* switch3Image;
-    QImage* switch4Image;
-    QImage* switch5Image;
-    QImage* switch6Image;
-    QImage* switch7Image;
-    QImage* switch8Image;
-    QImage* switchSplit4Image;
-    QImage* switchSplit5Image;
-    QImage* switchSplit6Image;
+    QPixmap* switch1Image;
+    QPixmap* switch2Image;
+    QPixmap* switch3Image;
+    QPixmap* switch4Image;
+    QPixmap* switch5Image;
+    QPixmap* switch6Image;
+    QPixmap* switch7Image;
+    QPixmap* switch8Image;
+    QPixmap* switchSplit4Image;
+    QPixmap* switchSplit5Image;
+    QPixmap* switchSplit6Image;
 
-    QImage* switch9Image;
-    QImage* switch10Image;
-    QImage* switch11Image;
-    QImage* switch12Image;
-    QImage* switch13Image;
-    QImage* switch14Image;
-    QImage* switch15Image;
-    QImage* switch16Image;
-    QImage* switchSplit7Image;
-    QImage* switchSplit8Image;
+    QPixmap* switch9Image;
+    QPixmap* switch10Image;
+    QPixmap* switch11Image;
+    QPixmap* switch12Image;
+    QPixmap* switch13Image;
+    QPixmap* switch14Image;
+    QPixmap* switch15Image;
+    QPixmap* switch16Image;
+    QPixmap* switchSplit7Image;
+    QPixmap* switchSplit8Image;
 
     //ElementBlock3Images
-    QImage* crossover1Image;
-    QImage* crossover2Image;
-    QImage* flyover1Image;
-    QImage* flyover2Image;
-    QImage* flyover3Image;
-    QImage* flyover4Image;
+    QPixmap* crossover1Image;
+    QPixmap* crossover2Image;
+    QPixmap* flyover1Image;
+    QPixmap* flyover2Image;
+    QPixmap* flyover3Image;
+    QPixmap* flyover4Image;
 
-    QImage* crossover3Image;
-    QImage* crossover4Image;
-    QImage* flyover5Image;
-    QImage* flyover6Image;
-    QImage* flyover7Image;
-    QImage* flyover8Image;
+    QPixmap* crossover3Image;
+    QPixmap* crossover4Image;
+    QPixmap* flyover5Image;
+    QPixmap* flyover6Image;
+    QPixmap* flyover7Image;
+    QPixmap* flyover8Image;
 
-    QImage* crossover5Image;
-    QImage* crossover6Image;
-    QImage* flyover9Image;
-    QImage* flyover10Image;
-    QImage* flyover11Image;
-    QImage* flyover12Image;
+    QPixmap* crossover5Image;
+    QPixmap* crossover6Image;
+    QPixmap* flyover9Image;
+    QPixmap* flyover10Image;
+    QPixmap* flyover11Image;
+    QPixmap* flyover12Image;
 
     //ElementBlock4Images
-    QImage* namedLocationUnsetImage;
-    QImage* namedLocationSetImage;
-    QImage* concourseUnsetImage;
-    QImage* concourseSetImage;
-    QImage* platformDownUnsetImage;
-    QImage* platformDownSetImage;
-    QImage* platformUpUnsetImage;
-    QImage* platformUpSetImage;
-    QImage* platformLeftUnsetImage;
-    QImage* platformLeftSetImage;
-    QImage* platformRightUnsetImage;
-    QImage* platformRightSetImage;
+    QPixmap* namedLocationUnsetImage;
+    QPixmap* namedLocationSetImage;
+    QPixmap* concourseUnsetImage;
+    QPixmap* concourseSetImage;
+    QPixmap* platformDownUnsetImage;
+    QPixmap* platformDownSetImage;
+    QPixmap* platformUpUnsetImage;
+    QPixmap* platformUpSetImage;
+    QPixmap* platformLeftUnsetImage;
+    QPixmap* platformLeftSetImage;
+    QPixmap* platformRightUnsetImage;
+    QPixmap* platformRightSetImage;
 
     //ElementBlock5Images;
-    QImage* parapet1Image;
-    QImage* parapet2Image;
-    QImage* parapet3Image;
-    QImage* parapet4Image;
-    QImage* parapet5Image;
-    QImage* parapet6Image;
-    QImage* parapet7Image;
-    QImage* parapet8Image;
-    QImage* parapet9Image;
-    QImage* parapet10Image;
+    QPixmap* parapet1Image;
+    QPixmap* parapet2Image;
+    QPixmap* parapet3Image;
+    QPixmap* parapet4Image;
+    QPixmap* parapet5Image;
+    QPixmap* parapet6Image;
+    QPixmap* parapet7Image;
+    QPixmap* parapet8Image;
+    QPixmap* parapet9Image;
+    QPixmap* parapet10Image;
 
-    QImage* parapet11Image;
-    QImage* parapet12Image;
-    QImage* parapet13Image;
-    QImage* parapet14Image;
-    QImage* parapet15Image;
-    QImage* parapet16Image;
-    QImage* parapet17Image;
-    QImage* parapet18Image;
-    QImage* parapet19Image;
-    QImage* parapet20Image;
+    QPixmap* parapet11Image;
+    QPixmap* parapet12Image;
+    QPixmap* parapet13Image;
+    QPixmap* parapet14Image;
+    QPixmap* parapet15Image;
+    QPixmap* parapet16Image;
+    QPixmap* parapet17Image;
+    QPixmap* parapet18Image;
+    QPixmap* parapet19Image;
+    QPixmap* parapet20Image;
 
-    QImage* parapet21Image;
-    QImage* parapet22Image;
-    QImage* parapet23Image;
-    QImage* parapet24Image;
-    QImage* parapet25Image;
-    QImage* parapet26Image;
-    QImage* parapet27Image;
-    QImage* parapet28Image;
+    QPixmap* parapet21Image;
+    QPixmap* parapet22Image;
+    QPixmap* parapet23Image;
+    QPixmap* parapet24Image;
+    QPixmap* parapet25Image;
+    QPixmap* parapet26Image;
+    QPixmap* parapet27Image;
+    QPixmap* parapet28Image;
 
     //ELementBlock6Image
-    QImage* levelCrossingHImage;
-    QImage* levelCrossingVImage;
+    QPixmap* levelCrossingHImage;
+    QPixmap* levelCrossingVImage;
 
 
 
