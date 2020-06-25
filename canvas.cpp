@@ -1618,6 +1618,7 @@ void Canvas::redraw()
         int maxDisplayX = ((offsetX+1) * canvasSizeX);
         int minDisplayY = ((offsetY-1) * canvasSizeY);
         int maxDisplayY = (offsetY*canvasSizeY);
+
         if (currentX > minCoordinateX && currentX < maxCoordinateX)
         {
             if (currentY > minCoordinateY && currentY < maxCoordinateY)
@@ -1628,13 +1629,11 @@ void Canvas::redraw()
                 {
                     QGraphicsPixmapItem *namedLocationSetPixmapItem = scene->addPixmap(*namedLocationSetPixmap);
                     namedLocationSetPixmapItem->setPos(displayX,displayY);
-                    break;
                 }
                 else
                 {
                     QGraphicsPixmapItem *namedLocationUnSetPixmapItem = scene->addPixmap(*namedLocationUnsetPixmap);
                     namedLocationUnSetPixmapItem->setPos(displayX,displayY);
-                    break;
                 }
             }
         }
@@ -1662,13 +1661,13 @@ void Canvas::redraw()
                 {
                     QGraphicsPixmapItem *concourseSetPixmapItem = scene->addPixmap(*concourseSetPixmap);
                     concourseSetPixmapItem->setPos(displayX,displayY);
-                    break;
+
                 }
                 else
                 {
                     QGraphicsPixmapItem *concourseUnSetPixmapItem = scene->addPixmap(*concourseUnsetPixmap);
                     concourseUnSetPixmapItem->setPos(displayX,displayY);
-                    break;
+
                 }
             }
         }
@@ -1910,11 +1909,12 @@ void Canvas::mousePressEvent(QMouseEvent* event)
     //Find out how close it is to the nearest 16 (which is the image size)
     int extraX = exactX % 16;
     int extraY = exactY % 16;
-
+    /*
     std::cout << "height: " << std::flush;
     std::cout << height() << std::flush;
     std::cout << " width: " << std::flush;
     std::cout << width() << std::flush;
+    */
     int roundedX = exactX - extraX;
     int roundedY = exactY - extraY;
     //Calculate overall coordinate
