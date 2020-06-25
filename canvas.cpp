@@ -3,209 +3,221 @@
 Canvas::Canvas()
 {
 
-    QPalette pal = palette();
+
     imageSize = 15;
     // set black background
     drawnLayout = new Map;
-    pal.setColor(QPalette::Window, Qt::white);
+
+    setMouseTracking(true);
+
+    int tempX = width();
+    int tempY = height();
+    int diffX = tempX % 16;
+    int diffY = tempY % 16;
+
+    if (diffX != 0 && diffY != 0)
+    {
+        resize(tempX-diffX,tempY-diffY);
+    }
+
     canvasSizeX = width();
     canvasSizeY = height();
-    //std::cout << canvasSizeX << std::flush;
-    //std::cout <<canvasSizeY << std::flush;
-    setMouseTracking(true);
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    timer->start(30);
+    setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-        scene = new QGraphicsScene;
-        setScene(scene);
+    setVerticalScrollBarPolicy ( Qt::ScrollBarAlwaysOff );
+    setHorizontalScrollBarPolicy ( Qt::ScrollBarAlwaysOff );
+    scene = new QGraphicsScene;
+    setScene(scene);
+    setSceneRect(0, 0, canvasSizeX, canvasSizeY);
+    //QTimer *timer = new QTimer(this);
+    //connect(timer, &QTimer::timeout, this, &Canvas::redraw);
+    //timer->start(30);
 
-        //ElementBlock1 images
-        straightHImage = new QPixmap(":/graphics/graphics/straightH.png");
-        straightVImage = new QPixmap(":/graphics/graphics/straightV.png");
-        directLeftImage = new QPixmap(":/graphics/graphics/directLeft.png");
-        directRightImage = new QPixmap(":/graphics/graphics/directRight.png");
-        directUpImage = new QPixmap(":/graphics/graphics/directUp.png");
-        directDownImage = new QPixmap(":/graphics/graphics/directDown.png");
-        straightLeftUpImage = new QPixmap(":/graphics/graphics/straightLeftUp.png");
-        straightRightUpImage = new QPixmap(":/graphics/graphics/straightRightUp.png");
-        directLeftUpImage = new QPixmap(":/graphics/graphics/directLeftUp.png");
-        directRightUpImage = new QPixmap(":/graphics/graphics/directRightUp.png");
-        directRightDownIamge = new QPixmap(":/graphics/graphics/directRightDown.png");
-        directLeftDownImage = new QPixmap(":/graphics/graphics/directLeftDown.png");
-        tightCurve1Image = new QPixmap(":/graphics/graphics/tightCurve1.png");
-        tightCurve2Image = new QPixmap(":/graphics/graphics/tightCurve2.png");
-        tightCurve3Image = new QPixmap(":/graphics/graphics/tightCurve3.png");
-        tightCurve4Image = new QPixmap(":/graphics/graphics/tightCurve4.png");
-        curve1Image = new QPixmap(":/graphics/graphics/curve1.png");
-        curve2Image = new QPixmap(":/graphics/graphics/curve2.png");
-        curve3Image = new QPixmap(":/graphics/graphics/curve3.png");
-        curve4Image = new QPixmap(":/graphics/graphics/curve4.png");
+    //ElementBlock1 Pixmap
+    straightHPixmap = new QPixmap(":/graphics/graphics/straightH.png");
+    straightVPixmap = new QPixmap(":/graphics/graphics/straightV.png");
+    directLeftPixmap = new QPixmap(":/graphics/graphics/directLeft.png");
+    directRightPixmap = new QPixmap(":/graphics/graphics/directRight.png");
+    directUpPixmap = new QPixmap(":/graphics/graphics/directUp.png");
+    directDownPixmap = new QPixmap(":/graphics/graphics/directDown.png");
+    straightLeftUpPixmap = new QPixmap(":/graphics/graphics/straightLeftUp.png");
+    straightRightUpPixmap = new QPixmap(":/graphics/graphics/straightRightUp.png");
+    directLeftUpPixmap = new QPixmap(":/graphics/graphics/directLeftUp.png");
+    directRightUpPixmap = new QPixmap(":/graphics/graphics/directRightUp.png");
+    directRightDownPixmap = new QPixmap(":/graphics/graphics/directRightDown.png");
+    directLeftDownPixmap = new QPixmap(":/graphics/graphics/directLeftDown.png");
+    tightCurve1Pixmap = new QPixmap(":/graphics/graphics/tightCurve1.png");
+    tightCurve2Pixmap = new QPixmap(":/graphics/graphics/tightCurve2.png");
+    tightCurve3Pixmap = new QPixmap(":/graphics/graphics/tightCurve3.png");
+    tightCurve4Pixmap = new QPixmap(":/graphics/graphics/tightCurve4.png");
+    curve1Pixmap = new QPixmap(":/graphics/graphics/curve1.png");
+    curve2Pixmap = new QPixmap(":/graphics/graphics/curve2.png");
+    curve3Pixmap = new QPixmap(":/graphics/graphics/curve3.png");
+    curve4Pixmap = new QPixmap(":/graphics/graphics/curve4.png");
 
-        linkLeftImage = new QPixmap(":/graphics/graphics/linkLeftUnset.png");
-        linkRightImage = new QPixmap(":/graphics/graphics/linkRightUnset.png");
-        linkDownImage = new QPixmap(":/graphics/graphics/linkDownUnset.png");
-        linkUpImage = new QPixmap(":/graphics/graphics/linkUpUnset.png");
-        linkLeftUpImage = new QPixmap(":/graphics/graphics/linkLeftUpUnset.png");
-        linkRightUpImage = new QPixmap(":/graphics/graphics/linkRightUpUnset.png");
-        linkRightDownImage = new QPixmap(":/graphics/graphics/linkRightDownUnset.png");
-        linkLeftDownImage = new QPixmap(":/graphics/graphics/linkLeftDownUnset.png");
-        exitLeftImage = new QPixmap(":/graphics/graphics/exitLeft.png");
-        exitRightImage = new QPixmap(":/graphics/graphics/exitRight.png");
-        exitDownImage = new QPixmap(":/graphics/graphics/exitDown.png");
-        exitUpImage = new QPixmap(":/graphics/graphics/exitUp.png");
-        exitLeftUpImage = new QPixmap(":/graphics/graphics/exitLeftUp.png");
-        exitRightUpImage = new QPixmap(":/graphics/graphics/exitRightUp.png");
-        exitLeftDownImage = new QPixmap(":/graphics/graphics/exitLeftDown.png");
-        exitRightDownImage = new QPixmap(":/graphics/graphics/exitRightDown.png");
-        curve5Image = new QPixmap(":/graphics/graphics/curve5.png");
-        curve6Image = new QPixmap(":/graphics/graphics/curve6.png");
-        curve7Image = new QPixmap(":/graphics/graphics/curve7.png");
-        curve8Image = new QPixmap(":/graphics/graphics/curve8.png");
+    linkLeftPixmap = new QPixmap(":/graphics/graphics/linkLeftUnset.png");
+    linkRightPixmap = new QPixmap(":/graphics/graphics/linkRightUnset.png");
+    linkDownPixmap = new QPixmap(":/graphics/graphics/linkDownUnset.png");
+    linkUpPixmap = new QPixmap(":/graphics/graphics/linkUpUnset.png");
+    linkLeftUpPixmap = new QPixmap(":/graphics/graphics/linkLeftUpUnset.png");
+    linkRightUpPixmap = new QPixmap(":/graphics/graphics/linkRightUpUnset.png");
+    linkRightDownPixmap = new QPixmap(":/graphics/graphics/linkRightDownUnset.png");
+    linkLeftDownPixmap = new QPixmap(":/graphics/graphics/linkLeftDownUnset.png");
+    exitLeftPixmap = new QPixmap(":/graphics/graphics/exitLeft.png");
+    exitRightPixmap = new QPixmap(":/graphics/graphics/exitRight.png");
+    exitDownPixmap = new QPixmap(":/graphics/graphics/exitDown.png");
+    exitUpPixmap = new QPixmap(":/graphics/graphics/exitUp.png");
+    exitLeftUpPixmap = new QPixmap(":/graphics/graphics/exitLeftUp.png");
+    exitRightUpPixmap = new QPixmap(":/graphics/graphics/exitRightUp.png");
+    exitLeftDownPixmap = new QPixmap(":/graphics/graphics/exitLeftDown.png");
+    exitRightDownPixmap = new QPixmap(":/graphics/graphics/exitRightDown.png");
+    curve5Pixmap = new QPixmap(":/graphics/graphics/curve5.png");
+    curve6Pixmap = new QPixmap(":/graphics/graphics/curve6.png");
+    curve7Pixmap = new QPixmap(":/graphics/graphics/curve7.png");
+    curve8Pixmap = new QPixmap(":/graphics/graphics/curve8.png");
 
-        bufferLeftImage = new QPixmap(":/graphics/graphics/bufferLeft.png");
-        bufferRightImage = new QPixmap(":/graphics/graphics/bufferRight.png");
-        bufferDownImage = new QPixmap(":/graphics/graphics/bufferDown.png");
-        bufferUpImage = new QPixmap(":/graphics/graphics/bufferUp.png");
-        bufferLeftUpImage = new QPixmap(":/graphics/graphics/bufferLeftUp.png");
-        bufferRightUpImage = new QPixmap(":/graphics/graphics/bufferRightUp.png");
-        bufferLeftDownImage = new QPixmap(":/graphics/graphics/bufferLeftDown.png");
-        bufferRightDownImage = new QPixmap(":/graphics/graphics/bufferRightDown.png");
-        signalLeftImage = new QPixmap(":/graphics/graphics/signalLeft.png");
-        signalRightImage = new QPixmap(":/graphics/graphics/signalRight.png");
-        signalDownImage = new QPixmap(":/graphics/graphics/signalDown.png");
-        signalUpImage = new QPixmap(":/graphics/graphics/signalUp.png");
-        signalLeftUpImage = new QPixmap(":/graphics/graphics/signalLeftUp.png");
-        signalRightUpImage = new QPixmap(":/graphics/graphics/signalRightUp.png");
-        signalLeftDownImage = new QPixmap(":/graphics/graphics/signalLeftDown.png");
-        signalRightDownImage = new QPixmap(":/graphics/graphics/signalRightDown.png");
-        shuntLeftImage = new QPixmap(":/graphics/graphics/shuntLeftRed.png");
-        shuntRightImage = new QPixmap(":/graphics/graphics/shuntRightRed.png");
-        shuntDownImage = new QPixmap(":/graphics/graphics/shuntDownRed.png");
-        shuntUpImage = new QPixmap(":/graphics/graphics/shuntUpRed.png");
-        shuntLeftUpImage = new QPixmap(":/graphics/graphics/shuntLeftUpRed.png");
-        shuntRightUpImage = new QPixmap(":/graphics/graphics/shuntRightUpRed.png");
-        shuntLeftDownImage = new QPixmap(":/graphics/graphics/shuntLeftDownRed.png");
-        shuntRightDownImage = new QPixmap(":/graphics/graphics/shuntRightDownRed.png");
-    bridgeUnset1Image = new QPixmap(":/graphics/graphics/bridgeUnset1.png");
-    bridgeUnset2Image = new QPixmap(":/graphics/graphics/bridgeUnset2.png");
-    underpassUnset1Image = new QPixmap(":/graphics/graphics/underpassUnset1.png");
-    underpassUnset2Image = new QPixmap(":/graphics/graphics/underpassUnset2.png");
-    bridgeSet1Image = new QPixmap(":/graphics/graphics/brdigeSet1.png");
-    bridgeSet2Image = new QPixmap(":/graphics/graphics/bridgeSet2.png");
-    underpassSet1Image = new QPixmap(":/graphics/graphics/underpassSet1.png");
-    underpassSet2Image = new QPixmap(":/graphics/graphics/underpassSet2.png");
+    bufferLeftPixmap = new QPixmap(":/graphics/graphics/bufferLeft.png");
+    bufferRightPixmap = new QPixmap(":/graphics/graphics/bufferRight.png");
+    bufferDownPixmap = new QPixmap(":/graphics/graphics/bufferDown.png");
+    bufferUpPixmap = new QPixmap(":/graphics/graphics/bufferUp.png");
+    bufferLeftUpPixmap = new QPixmap(":/graphics/graphics/bufferLeftUp.png");
+    bufferRightUpPixmap = new QPixmap(":/graphics/graphics/bufferRightUp.png");
+    bufferLeftDownPixmap = new QPixmap(":/graphics/graphics/bufferLeftDown.png");
+    bufferRightDownPixmap = new QPixmap(":/graphics/graphics/bufferRightDown.png");
+    signalLeftPixmap = new QPixmap(":/graphics/graphics/signalLeft.png");
+    signalRightPixmap = new QPixmap(":/graphics/graphics/signalRight.png");
+    signalDownPixmap = new QPixmap(":/graphics/graphics/signalDown.png");
+    signalUpPixmap = new QPixmap(":/graphics/graphics/signalUp.png");
+    signalLeftUpPixmap = new QPixmap(":/graphics/graphics/signalLeftUp.png");
+    signalRightUpPixmap = new QPixmap(":/graphics/graphics/signalRightUp.png");
+    signalLeftDownPixmap = new QPixmap(":/graphics/graphics/signalLeftDown.png");
+    signalRightDownPixmap = new QPixmap(":/graphics/graphics/signalRightDown.png");
+    shuntLeftPixmap = new QPixmap(":/graphics/graphics/shuntLeftRed.png");
+    shuntRightPixmap = new QPixmap(":/graphics/graphics/shuntRightRed.png");
+    shuntDownPixmap = new QPixmap(":/graphics/graphics/shuntDownRed.png");
+    shuntUpPixmap = new QPixmap(":/graphics/graphics/shuntUpRed.png");
+    shuntLeftUpPixmap = new QPixmap(":/graphics/graphics/shuntLeftUpRed.png");
+    shuntRightUpPixmap = new QPixmap(":/graphics/graphics/shuntRightUpRed.png");
+    shuntLeftDownPixmap = new QPixmap(":/graphics/graphics/shuntLeftDownRed.png");
+    shuntRightDownPixmap = new QPixmap(":/graphics/graphics/shuntRightDownRed.png");
+    bridgeUnset1Pixmap = new QPixmap(":/graphics/graphics/bridgeUnset1.png");
+    bridgeUnset2Pixmap = new QPixmap(":/graphics/graphics/bridgeUnset2.png");
+    underpassUnset1Pixmap = new QPixmap(":/graphics/graphics/underpassUnset1.png");
+    underpassUnset2Pixmap = new QPixmap(":/graphics/graphics/underpassUnset2.png");
+    bridgeSet1Pixmap = new QPixmap(":/graphics/graphics/brdigeSet1.png");
+    bridgeSet2Pixmap = new QPixmap(":/graphics/graphics/bridgeSet2.png");
+    underpassSet1Pixmap = new QPixmap(":/graphics/graphics/underpassSet1.png");
+    underpassSet2Pixmap = new QPixmap(":/graphics/graphics/underpassSet2.png");
 
-    //ElementBlock2 images
-    switchTight1Image = new QPixmap(":/graphics/graphics/switchTight1.png");
-    switchTight2Image = new QPixmap(":/graphics/graphics/switchTight2.png");
-    switchTight3Image = new QPixmap(":/graphics/graphics/switchTight3.png");
-    switchTight4Image = new QPixmap(":/graphics/graphics/switchTight4.png");
-    switchTight5Image = new QPixmap(":/graphics/graphics/switchTight5.png");
-    switchTight6Image = new QPixmap(":/graphics/graphics/switchTight6.png");
-    switchTight7Image = new QPixmap(":/graphics/graphics/switchTight7.png");
-    switchTight8Image = new QPixmap(":/graphics/graphics/switchTight8.png");
-    switchSplit1Image = new QPixmap(":/graphics/graphics/switchSplit1.png");
-    switchSplit2Image = new QPixmap(":/graphics/graphics/switchSplit2.png");
-    switchSplit3Image = new QPixmap(":/graphics/graphics/switchSplit3.png");
+    //ElementBlock2 Pixmaps
+    switchTight1Pixmap = new QPixmap(":/graphics/graphics/switchTight1.png");
+    switchTight2Pixmap = new QPixmap(":/graphics/graphics/switchTight2.png");
+    switchTight3Pixmap = new QPixmap(":/graphics/graphics/switchTight3.png");
+    switchTight4Pixmap = new QPixmap(":/graphics/graphics/switchTight4.png");
+    switchTight5Pixmap = new QPixmap(":/graphics/graphics/switchTight5.png");
+    switchTight6Pixmap = new QPixmap(":/graphics/graphics/switchTight6.png");
+    switchTight7Pixmap = new QPixmap(":/graphics/graphics/switchTight7.png");
+    switchTight8Pixmap = new QPixmap(":/graphics/graphics/switchTight8.png");
+    switchSplit1Pixmap = new QPixmap(":/graphics/graphics/switchSplit1.png");
+    switchSplit2Pixmap = new QPixmap(":/graphics/graphics/switchSplit2.png");
+    switchSplit3Pixmap = new QPixmap(":/graphics/graphics/switchSplit3.png");
 
-    switch1Image = new QPixmap(":/graphics/graphics/switch1.png");
-    switch2Image = new QPixmap(":/graphics/graphics/switch2.png");
-    switch3Image = new QPixmap(":/graphics/graphics/switch3.png");
-    switch4Image = new QPixmap(":/graphics/graphics/switch4.png");
-    switch5Image = new QPixmap(":/graphics/graphics/switch5.png");
-    switch6Image = new QPixmap(":/graphics/graphics/switch6.png");
-    switch7Image = new QPixmap(":/graphics/graphics/switch7.png");
-    switch8Image = new QPixmap(":/graphics/graphics/switch8.png");
-    switchSplit4Image = new QPixmap(":/graphics/graphics/switchSplit4.png");
-    switchSplit5Image = new QPixmap(":/graphics/graphics/switchSplit5.png");
-    switchSplit6Image = new QPixmap(":/graphics/graphics/switchSplit6.png");
+    switch1Pixmap = new QPixmap(":/graphics/graphics/switch1.png");
+    switch2Pixmap = new QPixmap(":/graphics/graphics/switch2.png");
+    switch3Pixmap = new QPixmap(":/graphics/graphics/switch3.png");
+    switch4Pixmap = new QPixmap(":/graphics/graphics/switch4.png");
+    switch5Pixmap = new QPixmap(":/graphics/graphics/switch5.png");
+    switch6Pixmap = new QPixmap(":/graphics/graphics/switch6.png");
+    switch7Pixmap = new QPixmap(":/graphics/graphics/switch7.png");
+    switch8Pixmap = new QPixmap(":/graphics/graphics/switch8.png");
+    switchSplit4Pixmap = new QPixmap(":/graphics/graphics/switchSplit4.png");
+    switchSplit5Pixmap = new QPixmap(":/graphics/graphics/switchSplit5.png");
+    switchSplit6Pixmap = new QPixmap(":/graphics/graphics/switchSplit6.png");
 
-    switch9Image = new QPixmap(":/graphics/graphics/switch9.png");
-    switch10Image = new QPixmap(":/graphics/graphics/switch10.png");
-    switch11Image = new QPixmap(":/graphics/graphics/switch11.png");
-    switch12Image = new QPixmap(":/graphics/graphics/switch12.png");
-    switch13Image = new QPixmap(":/graphics/graphics/switch13.png");
-    switch14Image = new QPixmap(":/graphics/graphics/switch14.png");
-    switch15Image = new QPixmap(":/graphics/graphics/switch15.png");
-    switch16Image = new QPixmap(":/graphics/graphics/switch16.png");
-    switchSplit7Image = new QPixmap(":/graphics/graphics/switchSplit7.png");
-    switchSplit8Image = new QPixmap(":/graphics/graphics/switchSplit8.png");
+    switch9Pixmap = new QPixmap(":/graphics/graphics/switch9.png");
+    switch10Pixmap = new QPixmap(":/graphics/graphics/switch10.png");
+    switch11Pixmap = new QPixmap(":/graphics/graphics/switch11.png");
+    switch12Pixmap = new QPixmap(":/graphics/graphics/switch12.png");
+    switch13Pixmap = new QPixmap(":/graphics/graphics/switch13.png");
+    switch14Pixmap = new QPixmap(":/graphics/graphics/switch14.png");
+    switch15Pixmap = new QPixmap(":/graphics/graphics/switch15.png");
+    switch16Pixmap = new QPixmap(":/graphics/graphics/switch16.png");
+    switchSplit7Pixmap = new QPixmap(":/graphics/graphics/switchSplit7.png");
+    switchSplit8Pixmap = new QPixmap(":/graphics/graphics/switchSplit8.png");
 
-    //ElementBlock3 images
-    crossover1Image = new QPixmap(":/graphics/graphics/crossover1.png");
-    crossover2Image = new QPixmap(":/graphics/graphics/crossover2.png");
-    flyover1Image = new QPixmap(":/graphics/graphics/flyover1.png");
-    flyover2Image = new QPixmap(":/graphics/graphics/flyover2.png");
-    flyover3Image = new QPixmap(":/graphics/graphics/flyover3.png");
-    flyover4Image = new QPixmap(":/graphics/graphics/flyover4.png");
+    //ElementBlock3 Pixmaps
+    crossover1Pixmap = new QPixmap(":/graphics/graphics/crossover1.png");
+    crossover2Pixmap = new QPixmap(":/graphics/graphics/crossover2.png");
+    flyover1Pixmap = new QPixmap(":/graphics/graphics/flyover1.png");
+    flyover2Pixmap = new QPixmap(":/graphics/graphics/flyover2.png");
+    flyover3Pixmap = new QPixmap(":/graphics/graphics/flyover3.png");
+    flyover4Pixmap = new QPixmap(":/graphics/graphics/flyover4.png");
 
-    crossover3Image = new QPixmap(":/graphics/graphics/crossover3.png");
-    crossover4Image = new QPixmap(":/graphics/graphics/crossover4.png");
-    flyover5Image = new QPixmap(":/graphics/graphics/flyover5.png");
-    flyover6Image = new QPixmap(":/graphics/graphics/flyover6.png");
-    flyover7Image = new QPixmap(":/graphics/graphics/flyover7.png");
-    flyover8Image = new QPixmap(":/graphics/graphics/flyover8.png");
+    crossover3Pixmap = new QPixmap(":/graphics/graphics/crossover3.png");
+    crossover4Pixmap = new QPixmap(":/graphics/graphics/crossover4.png");
+    flyover5Pixmap = new QPixmap(":/graphics/graphics/flyover5.png");
+    flyover6Pixmap = new QPixmap(":/graphics/graphics/flyover6.png");
+    flyover7Pixmap = new QPixmap(":/graphics/graphics/flyover7.png");
+    flyover8Pixmap = new QPixmap(":/graphics/graphics/flyover8.png");
 
-    crossover5Image = new QPixmap(":/graphics/graphics/crossover5.png");
-    crossover6Image = new QPixmap(":/graphics/graphics/crossover6.png");
-    flyover9Image = new QPixmap(":/graphics/graphics/flyover9.png");
-    flyover10Image = new QPixmap(":/graphics/graphics/flyover10.png");
-    flyover11Image = new QPixmap(":/graphics/graphics/flyover11.png");
-    flyover12Image = new QPixmap(":/graphics/graphics/flyover12.png");
+    crossover5Pixmap = new QPixmap(":/graphics/graphics/crossover5.png");
+    crossover6Pixmap = new QPixmap(":/graphics/graphics/crossover6.png");
+    flyover9Pixmap = new QPixmap(":/graphics/graphics/flyover9.png");
+    flyover10Pixmap = new QPixmap(":/graphics/graphics/flyover10.png");
+    flyover11Pixmap = new QPixmap(":/graphics/graphics/flyover11.png");
+    flyover12Pixmap = new QPixmap(":/graphics/graphics/flyover12.png");
 
-    //ElementBlock4 images
-    namedLocationUnsetImage = new QPixmap(":/graphics/graphics/namedLocationUnset.png");
-    namedLocationSetImage = new QPixmap(":/graphics/graphics/namedLocationSet.png");
-    concourseUnsetImage = new QPixmap(":/graphics/graphics/concourseUnset.png");
-    concourseSetImage = new QPixmap(":/graphics/graphics/concourseSet.png");
-    platformDownUnsetImage = new QPixmap(":/graphics/graphics/platformDownUnset.png");
-    platformDownSetImage = new QPixmap(":/graphics/graphics/platformDownSet.png");
-    platformUpUnsetImage = new QPixmap(":/graphics/graphics/platformUpUnset.png");
-    platformUpSetImage = new QPixmap(":/graphics/graphics/platformUpSet.png");
-    platformLeftUnsetImage = new QPixmap(":/graphics/graphics/platformLeftUnset.png");
-    platformLeftSetImage = new QPixmap(":/graphics/graphics/platformLeftSet.png");
-    platformRightUnsetImage = new QPixmap(":/graphics/graphics/platformRightUnset.png");
-    platformRightSetImage = new QPixmap(":/graphics/graphics/platformRightSet.png");
+    //ElementBlock4 Pixmaps
+    namedLocationUnsetPixmap = new QPixmap(":/graphics/graphics/namedLocationUnset.png");
+    namedLocationSetPixmap = new QPixmap(":/graphics/graphics/namedLocationSet.png");
+    concourseUnsetPixmap = new QPixmap(":/graphics/graphics/concourseUnset.png");
+    concourseSetPixmap = new QPixmap(":/graphics/graphics/concourseSet.png");
+    platformDownUnsetPixmap = new QPixmap(":/graphics/graphics/platformDownUnset.png");
+    platformDownSetPixmap = new QPixmap(":/graphics/graphics/platformDownSet.png");
+    platformUpUnsetPixmap = new QPixmap(":/graphics/graphics/platformUpUnset.png");
+    platformUpSetPixmap = new QPixmap(":/graphics/graphics/platformUpSet.png");
+    platformLeftUnsetPixmap = new QPixmap(":/graphics/graphics/platformLeftUnset.png");
+    platformLeftSetPixmap = new QPixmap(":/graphics/graphics/platformLeftSet.png");
+    platformRightUnsetPixmap = new QPixmap(":/graphics/graphics/platformRightUnset.png");
+    platformRightSetPixmap = new QPixmap(":/graphics/graphics/platformRightSet.png");
 
-    //ElementBlock5 images
-    parapet1Image = new QPixmap(":/graphics/graphics/parapet1.png");
-    parapet2Image = new QPixmap(":/graphics/graphics/parapet2.png");
-    parapet3Image = new QPixmap(":/graphics/graphics/parapet3.png");
-    parapet4Image = new QPixmap(":/graphics/graphics/parapet4.png");
-    parapet5Image = new QPixmap(":/graphics/graphics/parapet5.png");
-    parapet6Image = new QPixmap(":/graphics/graphics/parapet6.png");
-    parapet7Image = new QPixmap(":/graphics/graphics/parapet7.png");
-    parapet8Image = new QPixmap(":/graphics/graphics/parapet8.png");
-    parapet9Image = new QPixmap(":/graphics/graphics/parapet9.png");
-    parapet10Image = new QPixmap(":/graphics/graphics/parapet10.png");
+    //ElementBlock5 Pixmaps
+    parapet1Pixmap = new QPixmap(":/graphics/graphics/parapet1.png");
+    parapet2Pixmap = new QPixmap(":/graphics/graphics/parapet2.png");
+    parapet3Pixmap = new QPixmap(":/graphics/graphics/parapet3.png");
+    parapet4Pixmap = new QPixmap(":/graphics/graphics/parapet4.png");
+    parapet5Pixmap = new QPixmap(":/graphics/graphics/parapet5.png");
+    parapet6Pixmap = new QPixmap(":/graphics/graphics/parapet6.png");
+    parapet7Pixmap = new QPixmap(":/graphics/graphics/parapet7.png");
+    parapet8Pixmap = new QPixmap(":/graphics/graphics/parapet8.png");
+    parapet9Pixmap = new QPixmap(":/graphics/graphics/parapet9.png");
+    parapet10Pixmap = new QPixmap(":/graphics/graphics/parapet10.png");
 
-    parapet11Image = new QPixmap(":/graphics/graphics/parapet11.png");
-    parapet12Image = new QPixmap(":/graphics/graphics/parapet12.png");
-    parapet13Image = new QPixmap(":/graphics/graphics/parapet13.png");
-    parapet14Image = new QPixmap(":/graphics/graphics/parapet14.png");
-    parapet15Image = new QPixmap(":/graphics/graphics/parapet15.png");
-    parapet16Image = new QPixmap(":/graphics/graphics/parapet16.png");
-    parapet17Image = new QPixmap(":/graphics/graphics/parapet17.png");
-    parapet18Image = new QPixmap(":/graphics/graphics/parapet18.png");
-    parapet19Image = new QPixmap(":/graphics/graphics/parapet19.png");
-    parapet20Image = new QPixmap(":/graphics/graphics/parapet20.png");
+    parapet11Pixmap = new QPixmap(":/graphics/graphics/parapet11.png");
+    parapet12Pixmap = new QPixmap(":/graphics/graphics/parapet12.png");
+    parapet13Pixmap = new QPixmap(":/graphics/graphics/parapet13.png");
+    parapet14Pixmap = new QPixmap(":/graphics/graphics/parapet14.png");
+    parapet15Pixmap = new QPixmap(":/graphics/graphics/parapet15.png");
+    parapet16Pixmap = new QPixmap(":/graphics/graphics/parapet16.png");
+    parapet17Pixmap = new QPixmap(":/graphics/graphics/parapet17.png");
+    parapet18Pixmap = new QPixmap(":/graphics/graphics/parapet18.png");
+    parapet19Pixmap = new QPixmap(":/graphics/graphics/parapet19.png");
+    parapet20Pixmap = new QPixmap(":/graphics/graphics/parapet20.png");
 
-    parapet21Image = new QPixmap(":/graphics/graphics/parapet21.png");
-    parapet22Image = new QPixmap(":/graphics/graphics/parapet22.png");
-    parapet23Image = new QPixmap(":/graphics/graphics/parapet23.png");
-    parapet24Image = new QPixmap(":/graphics/graphics/parapet24.png");
-    parapet25Image = new QPixmap(":/graphics/graphics/parapet25.png");
-    parapet26Image = new QPixmap(":/graphics/graphics/parapet26.png");
-    parapet27Image = new QPixmap(":/graphics/graphics/parapet27.png");
-    parapet28Image = new QPixmap(":/graphics/graphics/parapet28.png");
+    parapet21Pixmap = new QPixmap(":/graphics/graphics/parapet21.png");
+    parapet22Pixmap = new QPixmap(":/graphics/graphics/parapet22.png");
+    parapet23Pixmap = new QPixmap(":/graphics/graphics/parapet23.png");
+    parapet24Pixmap = new QPixmap(":/graphics/graphics/parapet24.png");
+    parapet25Pixmap = new QPixmap(":/graphics/graphics/parapet25.png");
+    parapet26Pixmap = new QPixmap(":/graphics/graphics/parapet26.png");
+    parapet27Pixmap = new QPixmap(":/graphics/graphics/parapet27.png");
+    parapet28Pixmap = new QPixmap(":/graphics/graphics/parapet28.png");
 
-    //ElementBlock6Image
-    levelCrossingHImage = new QPixmap(":/graphics/graphics/levelCrossingH.png");
-    levelCrossingVImage = new QPixmap(":/graphics/graphics/levelCrossingV.png");
+    //ElementBlock6Pixmap
+    levelCrossingHPixmap = new QPixmap(":/graphics/graphics/levelCrossingH.png");
+    levelCrossingVPixmap = new QPixmap(":/graphics/graphics/levelCrossingV.png");
 
     setAutoFillBackground(true);
-    setPalette(pal);
 }
 
 ElementType Canvas::getElementType()
@@ -298,6 +310,1595 @@ void Canvas::setCanvasShowMoreTrackInfo(bool &newShowMoreTrackInfo)
     canvasShowMoreTrackInfo = newShowMoreTrackInfo;
 }
 
+void Canvas::redraw()
+{
+    scene->clear();
+    for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList())
+    {
+        //Get the stored location of track relative to the canvas widget.
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+
+        //Find the area you want to output, by using the offset and the size of the canvas widget.
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+
+        //Find the location on the canvas where you will draw
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        {
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::STRAIGHTH:
+                    {
+                        QGraphicsPixmapItem *straightHPixmapItem = scene->addPixmap(*straightHPixmap);
+                        straightHPixmapItem->setPos(displayX,displayY);
+                        /*std::cout << "MinMax: " << std::flush;
+                        std::cout << minCoordinateX << std::flush;
+                        std::cout << " "<< std::flush;
+                        std::cout << maxCoordinateX << std::flush;
+                        std::cout << " "<< std::flush;
+                        std::cout << minCoordinateY << std::flush;
+                        std::cout << " "<< std::flush;
+                        std::cout << maxCoordinateY << std::flush;
+                        std::cout << "display: " << std::flush;
+                        std::cout << currentX << std::flush;
+                        std::cout << " "<< std::flush;
+                        std::cout << currentY << std::flush;
+                        std::cout << " "<< std::flush;
+                        */
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->hasLevelCrossing())
+                        {
+                            QGraphicsPixmapItem *levelCrossingHPixmapItem = scene->addPixmap(*levelCrossingHPixmap);
+                            levelCrossingHPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::STRAIGHTV:
+                    {
+                        QGraphicsPixmapItem *straightVPixmapItem = scene->addPixmap(*straightVPixmap);
+                        straightVPixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->hasLevelCrossing())
+                        {
+                            QGraphicsPixmapItem *levelCrossingVPixmapItem = scene->addPixmap(*levelCrossingVPixmap);
+                            levelCrossingVPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+
+                    case ElementType::STRIAGHTRIGHTUP:
+                    {
+                        QGraphicsPixmapItem *straightRightUpPixmapItem = scene->addPixmap(*straightRightUpPixmap);
+                        straightRightUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::STRAIGHTLEFTUP:
+                    {
+                        QGraphicsPixmapItem *straightLeftUpPixmapItem = scene->addPixmap(*straightLeftUpPixmap);
+                        straightLeftUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<DirectTrack> currentElement : drawnLayout->getDirectTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::DIRECTLEFT:
+                    {
+                        QGraphicsPixmapItem *directLeftPixmapItem = scene->addPixmap(*directLeftPixmap);
+                        directLeftPixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::DIRECTRIGHT:
+                    {
+                        QGraphicsPixmapItem *directRightPixmapItem = scene->addPixmap(*directRightPixmap);
+                        directRightPixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::DIRECTUP:
+                    {
+                        QGraphicsPixmapItem *directUpPixmapItem = scene->addPixmap(*directUpPixmap);
+                        directUpPixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::DIRECTDOWN:
+                    {
+                        QGraphicsPixmapItem *directDownPixmapItem = scene->addPixmap(*directDownPixmap);
+                        directDownPixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::DIRECTRIGHTUP:
+                    {
+                        QGraphicsPixmapItem *directRightUpPixmapItem = scene->addPixmap(*directRightUpPixmap);
+                        directRightUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::DIRECTLEFTUP:
+                    {
+                        QGraphicsPixmapItem *directLeftUpPixmapItem = scene->addPixmap(*directLeftUpPixmap);
+                        directLeftUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::DIRECTLEFTDOWN:
+                    {
+                        QGraphicsPixmapItem *directLeftDownPixmapItem = scene->addPixmap(*directLeftDownPixmap);
+                        directLeftDownPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::DIRECTRIGHTDOWN:
+                    {
+                        QGraphicsPixmapItem *directRightDownPixmapItem = scene->addPixmap(*directRightDownPixmap);
+                        directRightDownPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<CurvedTrack> currentElement : drawnLayout->getCurvedTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::TIGHTCURVE1:
+                    {
+                        QGraphicsPixmapItem *tightCurve1PixmapItem = scene->addPixmap(*tightCurve1Pixmap);
+                        tightCurve1PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::TIGHTCURVE2:
+                    {
+                        QGraphicsPixmapItem *tightCurve2PixmapItem = scene->addPixmap(*tightCurve2Pixmap);
+                        tightCurve2PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::TIGHTCURVE3:
+                    {
+                        QGraphicsPixmapItem *tightCurve3PixmapItem = scene->addPixmap(*tightCurve3Pixmap);
+                        tightCurve3PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::TIGHTCURVE4:
+                    {
+                        QGraphicsPixmapItem *tightCurve4PixmapItem = scene->addPixmap(*tightCurve4Pixmap);
+                        tightCurve4PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::CURVE1:
+                    {
+                        QGraphicsPixmapItem *curve1PixmapItem = scene->addPixmap(*curve1Pixmap);
+                        curve1PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::CURVE2:
+                    {
+                        QGraphicsPixmapItem *curve2PixmapItem = scene->addPixmap(*curve2Pixmap);
+                        curve2PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::CURVE3:
+                    {
+                        QGraphicsPixmapItem *curve3PixmapItem = scene->addPixmap(*curve3Pixmap);
+                        curve3PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::CURVE4:
+                    {
+                        QGraphicsPixmapItem *curve4PixmapItem = scene->addPixmap(*curve4Pixmap);
+                        curve4PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::CURVE5:
+                    {
+                        QGraphicsPixmapItem *curve5PixmapItem = scene->addPixmap(*curve5Pixmap);
+                        curve5PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::CURVE6:
+                    {
+                        QGraphicsPixmapItem *curve6PixmapItem = scene->addPixmap(*curve6Pixmap);
+                        curve6PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::CURVE7:
+                    {
+                        QGraphicsPixmapItem *curve7PixmapItem = scene->addPixmap(*curve7Pixmap);
+                        curve7PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::CURVE8:
+                    {
+                        QGraphicsPixmapItem *curve8PixmapItem = scene->addPixmap(*curve8Pixmap);
+                        curve8PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<LinkedTrack> currentElement : drawnLayout->getLinkedTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::LINKLEFT:
+                    {
+                        QGraphicsPixmapItem *linkLeftPixmapItem = scene->addPixmap(*linkLeftPixmap);
+                        linkLeftPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::LINKRIGHT:
+                    {
+                        QGraphicsPixmapItem *linkRightPixmapItem = scene->addPixmap(*linkRightPixmap);
+                        linkRightPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::LINKDOWN:
+                    {
+                        QGraphicsPixmapItem *linkDownPixmapItem = scene->addPixmap(*linkDownPixmap);
+                        linkDownPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::LINKUP:
+                    {
+                        QGraphicsPixmapItem *linkUpPixmapItem = scene->addPixmap(*linkUpPixmap);
+                        linkUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::LINKLEFTUP:
+                    {
+                        QGraphicsPixmapItem *linkLeftUpPixmapItem = scene->addPixmap(*linkLeftUpPixmap);
+                        linkLeftUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::LINKRIGHTUP:
+                    {
+                        QGraphicsPixmapItem *linkRightUpPixmapItem = scene->addPixmap(*linkRightUpPixmap);
+                        linkRightUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::LINKRIGHTDOWN:
+                    {
+                        QGraphicsPixmapItem *linkRightDownPixmapItem = scene->addPixmap(*linkRightDownPixmap);
+                        linkRightDownPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::LINKLEFTDOWN:
+                    {
+                        QGraphicsPixmapItem *linkLeftDownPixmapItem = scene->addPixmap(*linkLeftDownPixmap);
+                        linkLeftDownPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<ExitTrack> currentElement : drawnLayout->getExitTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::EXITLEFT:
+                    {
+                        QGraphicsPixmapItem *exitLeftPixmapItem = scene->addPixmap(*exitLeftPixmap);
+                        exitLeftPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::EXITRIGHT:
+                    {
+                        QGraphicsPixmapItem *exitRightPixmapItem = scene->addPixmap(*exitRightPixmap);
+                        exitRightPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::EXITDOWN:
+                    {
+                        QGraphicsPixmapItem *exitDownPixmapItem = scene->addPixmap(*exitDownPixmap);
+                        exitDownPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::EXITUP:
+                    {
+                        QGraphicsPixmapItem *exitUpPixmapItem = scene->addPixmap(*exitUpPixmap);
+                        exitUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::EXITLEFTUP:
+                    {
+                        QGraphicsPixmapItem *exitLeftUpPixmapItem = scene->addPixmap(*exitLeftUpPixmap);
+                        exitLeftUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::EXITRIGHTUP:
+                    {
+                        QGraphicsPixmapItem *exitRightUpPixmapItem = scene->addPixmap(*exitRightUpPixmap);
+                        exitRightUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::EXITLEFTDOWN:
+                    {
+                        QGraphicsPixmapItem *exitLeftDownPixmapItem = scene->addPixmap(*exitLeftDownPixmap);
+                        exitLeftDownPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::EXITRIGHTDOWN:
+                    {
+                        QGraphicsPixmapItem *exitRightDownPixmapItem = scene->addPixmap(*exitRightDownPixmap);
+                        exitRightDownPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<BufferTrack> currentElement : drawnLayout->getBufferTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::BUFFERLEFT:
+                    {
+                        QGraphicsPixmapItem *bufferLeftPixmapItem = scene->addPixmap(*bufferLeftPixmap);
+                        bufferLeftPixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::BUFFERRIGHT:
+                    {
+                        QGraphicsPixmapItem *bufferRightPixmapItem = scene->addPixmap(*bufferRightPixmap);
+                        bufferRightPixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::BUFFERDOWN:
+                    {
+                        QGraphicsPixmapItem *bufferDownPixmapItem = scene->addPixmap(*bufferDownPixmap);
+                        bufferDownPixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::BUFFERUP:
+                    {
+                        QGraphicsPixmapItem *bufferUpPixmapItem = scene->addPixmap(*bufferUpPixmap);
+                        bufferUpPixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::BUFFERLEFTUP:
+                    {
+                        QGraphicsPixmapItem *bufferLeftUpPixmapItem = scene->addPixmap(*bufferLeftUpPixmap);
+                        bufferLeftUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::BUFFERRIGHTUP:
+                    {
+                        QGraphicsPixmapItem *bufferRightUpPixmapItem = scene->addPixmap(*bufferRightUpPixmap);
+                        bufferRightUpPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::BUFFERLEFTDOWN:
+                    {
+                        QGraphicsPixmapItem *bufferLeftDownPixmapItem = scene->addPixmap(*bufferLeftDownPixmap);
+                        bufferLeftDownPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::BUFFERRIGHTDOWN:
+                    {
+                        QGraphicsPixmapItem *bufferRightDownPixmapItem = scene->addPixmap(*bufferRightDownPixmap);
+                        bufferRightDownPixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<SignalTrack> currentElement : drawnLayout->getSignalTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::SIGNALLEFT:
+                    {
+                        if (currentElement->getAspect() == 1)
+                        {
+                            QGraphicsPixmapItem *signalLeftPixmapItem = scene->addPixmap(*shuntLeftPixmap);
+                            signalLeftPixmapItem->setPos(displayX,displayY);
+                        }
+                        else
+                        {
+                            QGraphicsPixmapItem *signalLeftPixmapItem = scene->addPixmap(*signalLeftPixmap);
+                            signalLeftPixmapItem->setPos(displayX,displayY);
+                        }
+
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SIGNALRIGHT:
+                    {
+                        if (currentElement->getAspect() == 1)
+                        {
+                            QGraphicsPixmapItem *signalRightPixmapItem = scene->addPixmap(*shuntRightPixmap);
+                            signalRightPixmapItem->setPos(displayX,displayY);
+                        }
+                        else
+                        {
+                            QGraphicsPixmapItem *signalRightPixmapItem = scene->addPixmap(*signalRightPixmap);
+                            signalRightPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SIGNALDOWN:
+                    {
+                        if (currentElement->getAspect() == 1)
+                        {
+                            QGraphicsPixmapItem *signalDownPixmapItem = scene->addPixmap(*shuntDownPixmap);
+                            signalDownPixmapItem->setPos(displayX,displayY);
+                        }
+                        else
+                        {
+                            QGraphicsPixmapItem *signalDownPixmapItem = scene->addPixmap(*signalDownPixmap);
+                            signalDownPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SIGNALUP:
+                    {
+                        if (currentElement->getAspect() == 1)
+                        {
+                            QGraphicsPixmapItem *signalUpPixmapItem = scene->addPixmap(*shuntUpPixmap);
+                            signalUpPixmapItem->setPos(displayX,displayY);
+                        }
+                        else
+                        {
+                            QGraphicsPixmapItem *signalUpPixmapItem = scene->addPixmap(*signalUpPixmap);
+                            signalUpPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SIGNALLEFTUP:
+                    {
+                        if (currentElement->getAspect() == 1)
+                        {
+                            QGraphicsPixmapItem *signalLeftUpPixmapItem = scene->addPixmap(*shuntLeftUpPixmap);
+                            signalLeftUpPixmapItem->setPos(displayX,displayY);
+                        }
+                        else
+                        {
+                            QGraphicsPixmapItem *signalLeftUpPixmapItem = scene->addPixmap(*signalLeftUpPixmap);
+                            signalLeftUpPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SIGNALRIGHTUP:
+                    {
+                        if (currentElement->getAspect() == 1)
+                        {
+                            QGraphicsPixmapItem *signalRightUpPixmapItem = scene->addPixmap(*shuntRightUpPixmap);
+                            signalRightUpPixmapItem->setPos(displayX,displayY);
+                            break;
+                        }
+                        else
+                        {
+                            QGraphicsPixmapItem *signalRightUpPixmapItem = scene->addPixmap(*signalRightUpPixmap);
+                            signalRightUpPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SIGNALLEFTDOWN:
+                    {
+                        if (currentElement->getAspect() == 1)
+                        {
+                            QGraphicsPixmapItem *signalLeftDownPixmapItem = scene->addPixmap(*shuntLeftDownPixmap);
+                            signalLeftDownPixmapItem->setPos(displayX,displayY);
+                        }
+                        else
+                        {
+                            QGraphicsPixmapItem *signalLeftDownPixmapItem = scene->addPixmap(*signalLeftDownPixmap);
+                            signalLeftDownPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SIGNALRIGHTDOWN:
+                    {
+                        if (currentElement->getAspect() == 1)
+                        {
+                            QGraphicsPixmapItem *signalRightDownPixmapItem = scene->addPixmap(*shuntRightDownPixmap);
+                            signalRightDownPixmapItem->setPos(displayX,displayY);
+                        }
+                        else
+                        {
+                            QGraphicsPixmapItem *signalRightDownPixmapItem = scene->addPixmap(*signalRightDownPixmap);
+                            signalRightDownPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<BridgeUnderpassTrack> currentElement : drawnLayout->getBridgeUnderpassTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::BRIDGE1:
+                    {
+                        QGraphicsPixmapItem *bridge1PixmapItem = scene->addPixmap(*bridgeUnset1Pixmap);
+                        bridge1PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::BRIDGE2:
+                    {
+                        QGraphicsPixmapItem *bridge2PixmapItem = scene->addPixmap(*bridgeUnset2Pixmap);
+                        bridge2PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::UNDERPASS1:
+                    {
+                        QGraphicsPixmapItem *underpass1PixmapItem = scene->addPixmap(*underpassUnset1Pixmap);
+                        underpass1PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::UNDERPASS2:
+                    {
+                        QGraphicsPixmapItem *underpass2PixmapItem = scene->addPixmap(*underpassUnset2Pixmap);
+                        underpass2PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<SwitchTrack> currentElement : drawnLayout->getSwitchTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::SWITCHTIGHT1:
+                    {
+                        QGraphicsPixmapItem *switchTight1PixmapItem = scene->addPixmap(*switchTight1Pixmap);
+                        switchTight1PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCHTIGHT2:
+                    {
+                        QGraphicsPixmapItem *switchTight2PixmapItem = scene->addPixmap(*switchTight2Pixmap);
+                        switchTight2PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCHTIGHT3:
+                    {
+                        QGraphicsPixmapItem *switchTight3PixmapItem = scene->addPixmap(*switchTight3Pixmap);
+                        switchTight3PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCHTIGHT4:
+                    {
+                        QGraphicsPixmapItem *switchTight4PixmapItem = scene->addPixmap(*switchTight4Pixmap);
+                        switchTight4PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCHTIGHT5:
+                    {
+                        QGraphicsPixmapItem *switchTight5PixmapItem = scene->addPixmap(*switchTight5Pixmap);
+                        switchTight5PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCHTIGHT6:
+                    {
+                        QGraphicsPixmapItem *switchTight6PixmapItem = scene->addPixmap(*switchTight6Pixmap);
+                        switchTight6PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCHTIGHT7:
+                    {
+                        QGraphicsPixmapItem *switchTight7PixmapItem = scene->addPixmap(*switchTight7Pixmap);
+                        switchTight7PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCHTIGHT8:
+                    {
+                        QGraphicsPixmapItem *switchTight8PixmapItem = scene->addPixmap(*switchTight8Pixmap);
+                        switchTight8PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCHSPLIT1:
+                    {
+                        QGraphicsPixmapItem *switchSplit1PixmapItem = scene->addPixmap(*switchSplit1Pixmap);
+                        switchSplit1PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCHSPLIT2:
+                    {
+                        QGraphicsPixmapItem *switchSplit2PixmapItem = scene->addPixmap(*switchSplit2Pixmap);
+                        switchSplit2PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCHSPLIT3:
+                    {
+                        QGraphicsPixmapItem *switchSplit3PixmapItem = scene->addPixmap(*switchSplit3Pixmap);
+                        switchSplit3PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCH1:
+                    {
+                        QGraphicsPixmapItem *switch1PixmapItem = scene->addPixmap(*switch1Pixmap);
+                        switch1PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCH2:
+                    {
+                        QGraphicsPixmapItem *switch2PixmapItem = scene->addPixmap(*switch2Pixmap);
+                        switch2PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformDownUnsetPixmapItem = scene->addPixmap(*platformDownUnsetPixmap);
+                            platformDownUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCH3:
+                    {
+                        QGraphicsPixmapItem *switch3PixmapItem = scene->addPixmap(*switch3Pixmap);
+                        switch3PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCH4:
+                    {
+                        QGraphicsPixmapItem *switch4PixmapItem = scene->addPixmap(*switch4Pixmap);
+                        switch4PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformUpUnsetPixmapItem = scene->addPixmap(*platformUpUnsetPixmap);
+                            platformUpUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCH5:
+                    {
+                        QGraphicsPixmapItem *switch5PixmapItem = scene->addPixmap(*switch5Pixmap);
+                        switch5PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCH6:
+                    {
+                        QGraphicsPixmapItem *switch6PixmapItem = scene->addPixmap(*switch6Pixmap);
+                        switch6PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCH7:
+                    {
+                        QGraphicsPixmapItem *switch7PixmapItem = scene->addPixmap(*switch7Pixmap);
+                        switch7PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform2())
+                        {
+                            QGraphicsPixmapItem *platformRightUnsetPixmapItem = scene->addPixmap(*platformRightUnsetPixmap);
+                            platformRightUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCH8:
+                    {
+                        QGraphicsPixmapItem *switch8PixmapItem = scene->addPixmap(*switch8Pixmap);
+                        switch8PixmapItem->setPos(displayX,displayY);
+                        if (currentElement->getPlatform1())
+                        {
+                            QGraphicsPixmapItem *platformLeftUnsetPixmapItem = scene->addPixmap(*platformLeftUnsetPixmap);
+                            platformLeftUnsetPixmapItem->setPos(displayX,displayY);
+                        }
+                        break;
+                    }
+                    case ElementType::SWITCHSPLIT4:
+                    {
+                        QGraphicsPixmapItem *switchSplit4PixmapItem = scene->addPixmap(*switchSplit4Pixmap);
+                        switchSplit4PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCHSPLIT5:
+                    {
+                        QGraphicsPixmapItem *switchSplit5PixmapItem = scene->addPixmap(*switchSplit5Pixmap);
+                        switchSplit5PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCHSPLIT6:
+                    {
+                        QGraphicsPixmapItem *switchSplit6PixmapItem = scene->addPixmap(*switchSplit6Pixmap);
+                        switchSplit6PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCH9:
+                    {
+                        QGraphicsPixmapItem *switch9PixmapItem = scene->addPixmap(*switch9Pixmap);
+                        switch9PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCH10:
+                    {
+                        QGraphicsPixmapItem *switch10PixmapItem = scene->addPixmap(*switch10Pixmap);
+                        switch10PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCH11:
+                    {
+                        QGraphicsPixmapItem *switch11PixmapItem = scene->addPixmap(*switch11Pixmap);
+                        switch11PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCH12:
+                    {
+                        QGraphicsPixmapItem *switch12PixmapItem = scene->addPixmap(*switch12Pixmap);
+                        switch12PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCH13:
+                    {
+                        QGraphicsPixmapItem *switch13PixmapItem = scene->addPixmap(*switch13Pixmap);
+                        switch13PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCH14:
+                    {
+                        QGraphicsPixmapItem *switch14PixmapItem = scene->addPixmap(*switch14Pixmap);
+                        switch14PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCH15:
+                    {
+                        QGraphicsPixmapItem *switch15PixmapItem = scene->addPixmap(*switch15Pixmap);
+                        switch15PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCH16:
+                    {
+                        QGraphicsPixmapItem *switch16PixmapItem = scene->addPixmap(*switch16Pixmap);
+                        switch16PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCHSPLIT7:
+                    {
+                        QGraphicsPixmapItem *switchSplit7PixmapItem = scene->addPixmap(*switchSplit7Pixmap);
+                        switchSplit7PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::SWITCHSPLIT8:
+                    {
+                        QGraphicsPixmapItem *switchSplit8PixmapItem = scene->addPixmap(*switchSplit8Pixmap);
+                        switchSplit8PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<CrossoverTrack> currentElement : drawnLayout->getCrossoverTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                   case ElementType::CROSSOVER1:
+                    {
+                        QGraphicsPixmapItem *crossover1PixmapItem = scene->addPixmap(*crossover1Pixmap);
+                        crossover1PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                   case ElementType::CROSSOVER2:
+                    {
+                        QGraphicsPixmapItem *crossover2PixmapItem = scene->addPixmap(*crossover2Pixmap);
+                        crossover2PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                   case ElementType::CROSSOVER3:
+                    {
+                        QGraphicsPixmapItem *crossover3PixmapItem = scene->addPixmap(*crossover3Pixmap);
+                        crossover3PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                   case ElementType::CROSSOVER4:
+                    {
+                        QGraphicsPixmapItem *crossover4PixmapItem = scene->addPixmap(*crossover4Pixmap);
+                        crossover4PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                   case ElementType::CROSSOVER5:
+                    {
+                        QGraphicsPixmapItem *crossover5PixmapItem = scene->addPixmap(*crossover5Pixmap);
+                        crossover5PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                   case ElementType::CROSSOVER6:
+                    {
+                        QGraphicsPixmapItem *crossover6PixmapItem = scene->addPixmap(*crossover6Pixmap);
+                        crossover6PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<FlyoverTrack> currentElement : drawnLayout->getFlyoverTrackList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::FLYOVER1:
+                    {
+                        QGraphicsPixmapItem *flyover1PixmapItem = scene->addPixmap(*flyover1Pixmap);
+                        flyover1PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER2:
+                    {
+                        QGraphicsPixmapItem *flyover2PixmapItem = scene->addPixmap(*flyover2Pixmap);
+                        flyover2PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER3:
+                    {
+                        QGraphicsPixmapItem *flyover3PixmapItem = scene->addPixmap(*flyover3Pixmap);
+                        flyover3PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER4:
+                    {
+                        QGraphicsPixmapItem *flyover4PixmapItem = scene->addPixmap(*flyover4Pixmap);
+                        flyover4PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER5:
+                    {
+                        QGraphicsPixmapItem *flyover5PixmapItem = scene->addPixmap(*flyover5Pixmap);
+                        flyover5PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER6:
+                    {
+                        QGraphicsPixmapItem *flyover6PixmapItem = scene->addPixmap(*flyover6Pixmap);
+                        flyover6PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER7:
+                    {
+                        QGraphicsPixmapItem *flyover7PixmapItem = scene->addPixmap(*flyover7Pixmap);
+                        flyover7PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER8:
+                    {
+                        QGraphicsPixmapItem *flyover8PixmapItem = scene->addPixmap(*flyover8Pixmap);
+                        flyover8PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER9:
+                    {
+                        QGraphicsPixmapItem *flyover9PixmapItem = scene->addPixmap(*flyover9Pixmap);
+                        flyover9PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER10:
+                    {
+                        QGraphicsPixmapItem *flyover10PixmapItem = scene->addPixmap(*flyover10Pixmap);
+                        flyover10PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER11:
+                    {
+                        QGraphicsPixmapItem *flyover11PixmapItem = scene->addPixmap(*flyover11Pixmap);
+                        flyover11PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::FLYOVER12:
+                    {
+                        QGraphicsPixmapItem *flyover12PixmapItem = scene->addPixmap(*flyover12Pixmap);
+                        flyover12PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<NamedLocation> currentElement : drawnLayout->getNamedLocationList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                if (currentElement->getNamed())
+                {
+                    QGraphicsPixmapItem *namedLocationSetPixmapItem = scene->addPixmap(*namedLocationSetPixmap);
+                    namedLocationSetPixmapItem->setPos(displayX,displayY);
+                    break;
+                }
+                else
+                {
+                    QGraphicsPixmapItem *namedLocationUnSetPixmapItem = scene->addPixmap(*namedLocationUnsetPixmap);
+                    namedLocationUnSetPixmapItem->setPos(displayX,displayY);
+                    break;
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<Concourse> currentElement : drawnLayout->getConcourseList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                if (currentElement->getNamed())
+                {
+                    QGraphicsPixmapItem *concourseSetPixmapItem = scene->addPixmap(*concourseSetPixmap);
+                    concourseSetPixmapItem->setPos(displayX,displayY);
+                    break;
+                }
+                else
+                {
+                    QGraphicsPixmapItem *concourseUnSetPixmapItem = scene->addPixmap(*concourseUnsetPixmap);
+                    concourseUnSetPixmapItem->setPos(displayX,displayY);
+                    break;
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<Parapet> currentElement : drawnLayout->getParapetList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+                switch (currentElement->getElementType())
+                {
+                    case ElementType::PARAPET1:
+                    {
+                        QGraphicsPixmapItem *parapet1PixmapItem = scene->addPixmap(*parapet1Pixmap);
+                        parapet1PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET2:
+                    {
+                        QGraphicsPixmapItem *parapet2PixmapItem = scene->addPixmap(*parapet2Pixmap);
+                        parapet2PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET3:
+                    {
+                        QGraphicsPixmapItem *parapet3PixmapItem = scene->addPixmap(*parapet3Pixmap);
+                        parapet3PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET4:
+                    {
+                        QGraphicsPixmapItem *parapet4PixmapItem = scene->addPixmap(*parapet4Pixmap);
+                        parapet4PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET5:
+                    {
+                        QGraphicsPixmapItem *parapet5PixmapItem = scene->addPixmap(*parapet5Pixmap);
+                        parapet5PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET6:
+                    {
+                        QGraphicsPixmapItem *parapet6PixmapItem = scene->addPixmap(*parapet6Pixmap);
+                        parapet6PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET7:
+                    {
+                        QGraphicsPixmapItem *parapet7PixmapItem = scene->addPixmap(*parapet7Pixmap);
+                        parapet7PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET8:
+                    {
+                        QGraphicsPixmapItem *parapet8PixmapItem = scene->addPixmap(*parapet8Pixmap);
+                        parapet8PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET9:
+                    {
+                        QGraphicsPixmapItem *parapet9PixmapItem = scene->addPixmap(*parapet9Pixmap);
+                        parapet9PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET10:
+                    {
+                        QGraphicsPixmapItem *parapet10PixmapItem = scene->addPixmap(*parapet10Pixmap);
+                        parapet10PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET11:
+                    {
+                        QGraphicsPixmapItem *parapet11PixmapItem = scene->addPixmap(*parapet11Pixmap);
+                        parapet11PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET12:
+                    {
+                        QGraphicsPixmapItem *parapet12PixmapItem = scene->addPixmap(*parapet12Pixmap);
+                        parapet12PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET13:
+                    {
+                        QGraphicsPixmapItem *parapet13PixmapItem = scene->addPixmap(*parapet13Pixmap);
+                        parapet13PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET14:
+                    {
+                        QGraphicsPixmapItem *parapet14PixmapItem = scene->addPixmap(*parapet14Pixmap);
+                        parapet14PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET15:
+                    {
+                        QGraphicsPixmapItem *parapet15PixmapItem = scene->addPixmap(*parapet15Pixmap);
+                        parapet15PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET16:
+                    {
+                        QGraphicsPixmapItem *parapet16PixmapItem = scene->addPixmap(*parapet16Pixmap);
+                        parapet16PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET17:
+                    {
+                        QGraphicsPixmapItem *parapet17PixmapItem = scene->addPixmap(*parapet17Pixmap);
+                        parapet17PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET18:
+                    {
+                        QGraphicsPixmapItem *parapet18PixmapItem = scene->addPixmap(*parapet18Pixmap);
+                        parapet18PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET19:
+                    {
+                        QGraphicsPixmapItem *parapet19PixmapItem = scene->addPixmap(*parapet19Pixmap);
+                        parapet19PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET20:
+                    {
+                        QGraphicsPixmapItem *parapet20PixmapItem = scene->addPixmap(*parapet20Pixmap);
+                        parapet20PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET21:
+                    {
+                        QGraphicsPixmapItem *parapet21PixmapItem = scene->addPixmap(*parapet21Pixmap);
+                        parapet21PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET22:
+                    {
+                        QGraphicsPixmapItem *parapet22PixmapItem = scene->addPixmap(*parapet22Pixmap);
+                        parapet22PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET23:
+                    {
+                        QGraphicsPixmapItem *parapet23PixmapItem = scene->addPixmap(*parapet23Pixmap);
+                        parapet23PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET24:
+                    {
+                        QGraphicsPixmapItem *parapet24PixmapItem = scene->addPixmap(*parapet24Pixmap);
+                        parapet24PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET25:
+                    {
+                        QGraphicsPixmapItem *parapet25PixmapItem = scene->addPixmap(*parapet25Pixmap);
+                        parapet25PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET26:
+                    {
+                        QGraphicsPixmapItem *parapet26PixmapItem = scene->addPixmap(*parapet26Pixmap);
+                        parapet26PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET27:
+                    {
+                        QGraphicsPixmapItem *parapet27PixmapItem = scene->addPixmap(*parapet27Pixmap);
+                        parapet27PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                    case ElementType::PARAPET28:
+                    {
+                        QGraphicsPixmapItem *parapet28PixmapItem = scene->addPixmap(*parapet27Pixmap);
+                        parapet28PixmapItem->setPos(displayX,displayY);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (std::shared_ptr<Text> currentElement : drawnLayout->getTextList())
+    {
+        int currentX = currentElement->getLocationX();
+        int currentY = currentElement->getLocationY();
+        int minCoordinateX = (offsetX * canvasSizeX)/16;
+        int maxCoordinateX = ((offsetX+1) * canvasSizeX)/16;
+        int minCoordinateY = ((offsetY-1) * canvasSizeY)/16;
+        int maxCoordinateY = (offsetY*canvasSizeY)/16;;
+        int minDisplayX = (offsetX * canvasSizeX);
+        int maxDisplayX = ((offsetX+1) * canvasSizeX);
+        int minDisplayY = ((offsetY-1) * canvasSizeY);
+        int maxDisplayY = (offsetY*canvasSizeY);
+        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        {
+            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            {
+                int displayX = currentX*16- minDisplayX;
+                int displayY = 0-(currentY*16 - maxDisplayY);
+
+
+                QGraphicsTextItem *textItem = scene->addText(currentElement->getReadableText());
+                textItem->setTextInteractionFlags(Qt::TextEditorInteraction);
+                textItem ->setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsFocusable | QGraphicsItem::ItemIsMovable);
+                textItem->setFocus();
+                textItem->setPos(displayX,displayY);
+                //painter.drawText(displayX, displayY, currentElement->getReadableText());
+            }
+        }
+    }
+}
+
+
 void Canvas::mousePressEvent(QMouseEvent* event)
 {
     //Get size of the current Canvas Widget.
@@ -310,6 +1911,10 @@ void Canvas::mousePressEvent(QMouseEvent* event)
     int extraX = exactX % 16;
     int extraY = exactY % 16;
 
+    std::cout << "height: " << std::flush;
+    std::cout << height() << std::flush;
+    std::cout << " width: " << std::flush;
+    std::cout << width() << std::flush;
     int roundedX = exactX - extraX;
     int roundedY = exactY - extraY;
     //Calculate overall coordinate
@@ -321,8 +1926,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
     } else if (offsetY<0 || offsetY >0) {
         finalY = 0 - (roundedY- (offsetY*canvasSizeY))/16;
     }
-
-    if (event->button() == Qt::LeftButton) {
+    if (event->button() == Qt::LeftButton)
+    {
         switch (*canvasChosen)
         {
             case ElementType::NONE:
@@ -1203,7 +2808,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             case ElementType::ADDCHANGETEXT:
             {
                 bool ok;
-                QString readableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, tr(""), &ok);
+                QString readableBit = "Enter text: ";
                 std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
                 drawnLayout->addText(text);
             }
@@ -1212,10 +2817,11 @@ void Canvas::mousePressEvent(QMouseEvent* event)
     else if (event->button() == Qt::RightButton)
     {
         drawnLayout->deleteElement(finalX, finalY);
-        update();
     }
+    redraw();
 }
-void Canvas::paintEvent(QPaintEvent* event)
+
+/*void Canvas::paintEvent(QPaintEvent* event)
 {
     canvasSizeX = width();
     canvasSizeY = height();
@@ -2296,11 +3902,8 @@ void Canvas::paintEvent(QPaintEvent* event)
                 int displayY = 0-(currentY*16 - maxDisplayY);
 
                 painter.drawText(displayX, displayY, currentElement->getReadableText());
-            }
-        }
-    }
+                */
 
-}
 
 void Canvas::resizeEvent(QResizeEvent *event)
 {
@@ -2313,7 +3916,12 @@ void Canvas::resizeEvent(QResizeEvent *event)
         resize(tempX-diffX,tempY-diffY);
     }
 
-    update();
+    canvasSizeX = width();
+    canvasSizeY = height();
+    scene->setSceneRect(0, 0, canvasSizeX, canvasSizeY);
+
+
+    redraw();
 }
 
 void Canvas::mouseMoveEvent(QMouseEvent *event)

@@ -792,6 +792,30 @@ bool Map::checkElementExists(int locationX, int locationY)
 
 }
 
+bool Map::checkTextExists(int locationX, int locationY)
+{
+    bool found = false;
+    if (!textList.empty())
+    {
+        for (std::shared_ptr<Text>& currentText : textList)
+        {
+            int currentX = currentText->getLocationX();
+            int currentY = currentText->getLocationY();
+            int editableX = currentText->getEditableX();
+            int editableY = currentText->getEditableY();
+            if (locationX >= currentX && locationX <=editableX)
+            {
+                if (locationY >= editableY && locationY <= currentY)
+                {
+                found = true;
+
+                }
+            }
+        }
+    }
+    return found;
+}
+
 bool Map::deleteElement(int locationX, int locationY)
 {
 	bool deleted = false;

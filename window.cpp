@@ -9,23 +9,22 @@ Window::Window()
 
 	drawingSurface = new Canvas;
 	drawingSurface->setElementType(windowChosen);
-    setMinimumSize(960,544);
-    resize(1024,768);
+
 	windowOffsetX = 0;
 	windowOffsetY = 0;
 	drawingSurface->setOffsetX(windowOffsetX);
 	drawingSurface->setOffsetY(windowOffsetY);
+    setMinimumSize(960,544);
+    resize(1024,768);
 	aspect = 4;
 	drawingSurface->setAspect(aspect);
     showTrackID = false;
     showMoreTrackInfo = false;
     drawingSurface->setCanvasShowTrackID(showTrackID);
     drawingSurface->setCanvasShowMoreTrackInfo(showMoreTrackInfo);
-    std::cout << false << std::flush;
 	createOverallMenu();
 	createRightMenu();
 	createMenuBar();
-
     status = new QStatusBar();
     status->setSizeGripEnabled(false);
     QLabel* l = new QLabel (tr("hi"));
@@ -168,30 +167,28 @@ void Window::moveRight()
 {
 
 	drawingSurface->setOffsetX(++windowOffsetX);
-	drawingSurface->update();
 
 }
 
 void Window::moveLeft()
 {
 	drawingSurface->setOffsetX(--windowOffsetX);
-	drawingSurface->update();
 
 }
 
 void Window::moveUp()
 {
     drawingSurface->setOffsetY(++windowOffsetY);
-	drawingSurface->update();
+
 
 }
 
 void Window::moveDown()
 {
     drawingSurface->setOffsetY(--windowOffsetY);
-	drawingSurface->update();
 
 }
+
 
 void Window::chooseStraightH()
 {

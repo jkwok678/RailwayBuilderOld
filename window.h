@@ -24,7 +24,7 @@ class Window : public QWidget
 public:
 	Window();
 
-private slots:
+protected slots:
 	void openRailway();
 	void openBuildModifyMenu();
 	void openElementMenu();
