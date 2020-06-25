@@ -604,6 +604,30 @@ std::shared_ptr<Track> Map::getTrackAt(int locationX, int locationY)
     return track;
 }
 
+std::shared_ptr<Text> Map::getTextAt(int locationX, int locationY)
+{
+    std::shared_ptr<Text> text = nullptr;
+    if (!textList.empty())
+    {
+        for (std::shared_ptr<Text>& currentText : textList)
+        {
+            int textCurrentX = currentText->getLocationX();
+            int textCurrentY = currentText->getLocationY();
+            int textEditableX = currentText->getEditableX();
+            int textEditableY = currentText->getEditableY();
+            if (locationX >= textCurrentX && locationX <=textEditableX)
+            {
+                //Text point is at bottom left hand corner
+                if (locationY >= textCurrentY && locationY <= textEditableY)
+                {
+                    text = currentText;
+                }
+            }
+        }
+    }
+    return text;
+}
+
 bool Map::checkElementExists(int locationX, int locationY)
 {
 	bool found = false;
@@ -790,6 +814,29 @@ bool Map::checkElementExists(int locationX, int locationY)
 
 	return found;
 
+}
+
+bool Map::checkTextExists(int locationX, int locationY)
+{
+    bool found = false;
+    if (!textList.empty())
+    {
+        for (std::shared_ptr<Text>& currentText : textList)
+        {
+            int textCurrentX = currentText->getLocationX();
+            int textCurrentY = currentText->getLocationY();
+            int textEditableX = currentText->getEditableX();
+            int textEditableY = currentText->getEditableY();
+            if (locationX >= textCurrentX && locationX <=textEditableX)
+            {
+                if (locationY >= textCurrentY && locationY <= textEditableY)
+                {
+                found = true;
+                }
+            }
+        }
+    }
+    return found;
 }
 
 bool Map::deleteElement(int locationX, int locationY)

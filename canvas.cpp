@@ -10,8 +10,6 @@ Canvas::Canvas()
     pal.setColor(QPalette::Window, Qt::white);
     canvasSizeX = width();
     canvasSizeY = height();
-    //std::cout << canvasSizeX << std::flush;
-    //std::cout <<canvasSizeY << std::flush;
     setMouseTracking(true);
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
@@ -1201,8 +1199,19 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 bool ok;
                 QString readableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, tr(""), &ok);
-                std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
-                drawnLayout->addText(text);
+                if(!readableBit.isEmpty())
+                {
+                    int textX = exactX + (offsetX*canvasSizeX);
+                    int textY;
+                    if (offsetY==0)
+                    {
+                        textY = 0 - ((exactY+ (offsetY*canvasSizeY)));
+                    } else if (offsetY<0 || offsetY >0) {
+                        textY = 0 - (exactY- (offsetY*canvasSizeY));
+                    }
+                    std::shared_ptr<Text> text(new Text(*canvasChosen, textX, textY, readableBit));
+                    drawnLayout->addText(text);
+                }
             }
         };
     }
@@ -2325,7 +2334,6 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
                    finalText = ID.append(text2).append(text3);
                 }
                 finalText = ID;
-
             }
             else
             {
@@ -2333,19 +2341,9 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
                 ID = ID.append(QString::number(finalX/16)).append(",").append(QString::number(finalY/16));
                 finalText = ID;
             }
-
-
-
             setToolTip(finalText);
-
         }
-
-
-
-
     }
-
-
 }
 
 

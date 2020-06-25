@@ -21,8 +21,7 @@ Window::Window()
     showMoreTrackInfo = false;
     drawingSurface->setCanvasShowTrackID(showTrackID);
     drawingSurface->setCanvasShowMoreTrackInfo(showMoreTrackInfo);
-    std::cout << false << std::flush;
-	createOverallMenu();
+    createOverallMenu();
 	createRightMenu();
 	createMenuBar();
 
