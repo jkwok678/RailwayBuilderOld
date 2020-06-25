@@ -167,26 +167,26 @@ void Window::moveRight()
 {
 
 	drawingSurface->setOffsetX(++windowOffsetX);
-
+    drawingSurface->redraw();
 }
 
 void Window::moveLeft()
 {
 	drawingSurface->setOffsetX(--windowOffsetX);
-
+    drawingSurface->redraw();
 }
 
 void Window::moveUp()
 {
     drawingSurface->setOffsetY(++windowOffsetY);
-
+    drawingSurface->redraw();
 
 }
 
 void Window::moveDown()
 {
     drawingSurface->setOffsetY(--windowOffsetY);
-
+    drawingSurface->redraw();
 }
 
 

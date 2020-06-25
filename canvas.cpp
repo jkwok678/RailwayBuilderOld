@@ -2808,9 +2808,27 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             case ElementType::ADDCHANGETEXT:
             {
                 bool ok;
-                QString readableBit = "Enter text: ";
-                std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
-                drawnLayout->addText(text);
+                if (!drawnLayout->checkTextExists(finalX,finalY)) {
+                    QString readableBit = "Enter text: ";
+                    std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                    drawnLayout->addText(text);
+                }
+                else
+                {
+                    foreach(QGraphicsItem *item, items())
+                    {
+                        if (item->x() == finalX)
+                        {
+                            if (item->y()==finalY){
+                                //item->setTextInteractionFlags(Qt::TextEditorInteraction);
+                                item ->setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsFocusable | QGraphicsItem::ItemIsMovable);
+                                item->setFocus();
+                            }
+                        }
+                    }
+                }
+
+
             }
         };
     }
