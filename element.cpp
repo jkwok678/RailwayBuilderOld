@@ -84,8 +84,7 @@ Text::Text(ElementType newElementType, int newLocationX, int newLocationY, QStri
 	locationY = newLocationY;
 	readableText = newReadableText;
 	editableX = locationX + fontSize;
-    editableY = locationY - fontSize;
-
+    editableY = locationY + fontSize;
 }
 
 int Text::getEditableX() const

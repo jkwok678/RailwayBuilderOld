@@ -1198,20 +1198,41 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             case ElementType::ADDCHANGETEXT:
             {
                 bool ok;
-                QString readableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, tr(""), &ok);
-                if(!readableBit.isEmpty())
+                int textX = exactX + (offsetX*canvasSizeX);
+                int textY;
+                if (offsetY==0)
                 {
-                    int textX = exactX + (offsetX*canvasSizeX);
-                    int textY;
-                    if (offsetY==0)
-                    {
-                        textY = 0 - ((exactY+ (offsetY*canvasSizeY)));
-                    } else if (offsetY<0 || offsetY >0) {
-                        textY = 0 - (exactY- (offsetY*canvasSizeY));
-                    }
-                    std::shared_ptr<Text> text(new Text(*canvasChosen, textX, textY, readableBit));
-                    drawnLayout->addText(text);
+                    textY = 0 - ((exactY+ (offsetY*canvasSizeY)));
+                } else if (offsetY<0 || offsetY >0) {
+                    textY = 0 - (exactY- (offsetY*canvasSizeY));
                 }
+                std::cout << " textX: " << std::flush;
+                std::cout << textX << std::flush;
+                std::cout << " textY: " << std::flush;
+                std::cout << textY << std::flush;
+                if (!drawnLayout->checkTextExists(textX,textY))
+                {
+
+                    QString readableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, tr(""), &ok);
+
+                    if (readableBit.startsWith(" "))
+                    {
+                        readableBit.clear();
+                    }
+                    if(!readableBit.isEmpty())
+                    {
+
+                        std::shared_ptr<Text> text(new Text(*canvasChosen, textX, textY, readableBit));
+                        drawnLayout->addText(text);
+                    }
+                }
+                else
+                {
+                    std::shared_ptr<Text> text = drawnLayout->getTextAt(textX,textY);
+                    QString newReadableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, text->getReadableText(), &ok);
+                    text->setReadableText(newReadableBit);
+                }
+
             }
         };
     }
