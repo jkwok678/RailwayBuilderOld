@@ -10,7 +10,7 @@ Canvas::Canvas()
     pal.setColor(QPalette::Window, Qt::white);
     canvasSizeX = width();
     canvasSizeY = height();
-    //setMouseTracking(true);
+    setMouseTracking(true);
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
     timer->start(30);
@@ -1212,16 +1212,13 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 std::cout << textY << std::flush;
                 if (!drawnLayout->checkTextExists(textX,textY))
                 {
-
                     QString readableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, tr(""), &ok);
-
                     if (readableBit.startsWith(" "))
                     {
                         readableBit.clear();
                     }
                     if(!readableBit.isEmpty())
                     {
-
                         std::shared_ptr<Text> text(new Text(*canvasChosen, textX, textY, readableBit));
                         drawnLayout->addText(text);
                     }
@@ -1232,7 +1229,6 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                     QString newReadableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, text->getReadableText(), &ok);
                     text->setReadableText(newReadableBit);
                 }
-
             }
             break;
             case ElementType::MOVETEXT:
@@ -1250,6 +1246,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 {
                     moveText = drawnLayout->getTextAt(textX,textY);
                 }
+
             break;
             }
         };
@@ -2350,8 +2347,11 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
         } else if (offsetY<0 || offsetY >0) {
             textY = 0 - (exactY- (offsetY*canvasSizeY));
         }
-        moveText->setLocationX(textX);
-        moveText->setLocationY(textY);
+        if ( event->buttons() & Qt::LeftButton )
+        {
+            moveText->setLocationX(textX);
+            moveText->setLocationY(textY);
+        }
     }
     update();
     if (canvasShowTrackID)
