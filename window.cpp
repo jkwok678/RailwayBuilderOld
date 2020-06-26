@@ -125,7 +125,9 @@ void Window::addEditRemoveText()
 void Window::moveText()
 {
     if (windowChosen != ElementType::MOVETEXT)
+    {
         windowChosen = ElementType::MOVETEXT;
+    }
     else
         windowChosen = ElementType::NONE;
 

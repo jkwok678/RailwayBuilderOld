@@ -70,6 +70,7 @@ private:
 	int canvasAspect;
     bool canvasShowTrackID;
     bool canvasShowMoreTrackInfo;
+    std::shared_ptr<Text> moveText;
 
 
 

@@ -10,7 +10,7 @@ Canvas::Canvas()
     pal.setColor(QPalette::Window, Qt::white);
     canvasSizeX = width();
     canvasSizeY = height();
-    setMouseTracking(true);
+    //setMouseTracking(true);
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
     timer->start(30);
@@ -1234,6 +1234,24 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }
 
             }
+            break;
+            case ElementType::MOVETEXT:
+            {
+                bool ok;
+                int textX = exactX + (offsetX*canvasSizeX);
+                int textY;
+                if (offsetY==0)
+                {
+                    textY = 0 - ((exactY+ (offsetY*canvasSizeY)));
+                } else if (offsetY<0 || offsetY >0) {
+                    textY = 0 - (exactY- (offsetY*canvasSizeY));
+                }
+                if (drawnLayout->checkTextExists(textX,textY))
+                {
+                    moveText = drawnLayout->getTextAt(textX,textY);
+                }
+            break;
+            }
         };
     }
     else if (event->button() == Qt::RightButton)
@@ -2317,6 +2335,25 @@ void Canvas::resizeEvent(QResizeEvent *event)
 
 void Canvas::mouseMoveEvent(QMouseEvent *event)
 {
+    if (*canvasChosen == ElementType::MOVETEXT)
+    {
+        canvasSizeX = width();
+        canvasSizeY = height();
+        int exactX = event->pos().x();
+        int exactY = event->pos().y();
+        bool ok;
+        int textX = exactX + (offsetX*canvasSizeX);
+        int textY;
+        if (offsetY==0)
+        {
+            textY = 0 - ((exactY+ (offsetY*canvasSizeY)));
+        } else if (offsetY<0 || offsetY >0) {
+            textY = 0 - (exactY- (offsetY*canvasSizeY));
+        }
+        moveText->setLocationX(textX);
+        moveText->setLocationY(textY);
+    }
+    update();
     if (canvasShowTrackID)
     {
         int exactX = event->pos().x();
