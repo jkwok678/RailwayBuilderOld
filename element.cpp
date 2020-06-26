@@ -34,9 +34,11 @@ void Element::setLocationY(int newLocationY) {
 	locationY = newLocationY;
 }
 
+
+
 NamedLocation::NamedLocation()
 {
-
+    
 }
 
 NamedLocation::NamedLocation(ElementType newElementType, int newLocationX, int newLocationY)
@@ -60,13 +62,43 @@ void NamedLocation::setNamed(bool newNamed)
 	named = newNamed;
 }
 
+QString NamedLocation::getName() const
+{
+    return name;
+}
+
+void NamedLocation::setName(const QString &value)
+{
+    name = value;
+}
+
 Concourse::Concourse(ElementType newElementType, int newLocationX, int newLocationY)
 {
-	elementType = newElementType;
+    elementType = newElementType;
 	locationX = newLocationX;
 	locationY = newLocationY;
 	named = false;
 
+}
+
+bool Concourse::getNamed() const
+{
+    return named;
+}
+
+void Concourse::setNamed(bool newNamed)
+{
+    named = newNamed;
+}
+
+QString Concourse::getName() const
+{
+    return name;
+}
+
+void Concourse::setName(const QString &newName)
+{
+    name = newName;
 }
 
 Parapet::Parapet(ElementType newElementType, int newLocationX, int newLocationY)

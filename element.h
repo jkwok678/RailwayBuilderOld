@@ -21,7 +21,7 @@ enum class ElementType
 	FLYOVER7, FLYOVER8, FLYOVER9, FLYOVER10, FLYOVER11, FLYOVER12, NAMEDLOCATION, CONCOURSE, PLATFORMLEFT, PLATFORMRIGHT,
 	PLATFORMDOWN, PLATFORMUP, PARAPET1, PARAPET2, PARAPET3, PARAPET4, PARAPET5, PARAPET6, PARAPET7, PARAPET8, PARAPET9,
 	PARAPET10, PARAPET11, PARAPET12, PARAPET13, PARAPET14, PARAPET15, PARAPET16, PARAPET17, PARAPET18, PARAPET19, PARAPET20,
-    PARAPET21, PARAPET22, PARAPET23, PARAPET24, PARAPET25, PARAPET26, PARAPET27, PARAPET28, LEVELCROSSING, ADDCHANGETEXT, MOVETEXT
+    PARAPET21, PARAPET22, PARAPET23, PARAPET24, PARAPET25, PARAPET26, PARAPET27, PARAPET28, LEVELCROSSING, ADDCHANGETEXT, MOVETEXT,SETCHANGENAMEDLOCATION
 
 
 };
@@ -64,7 +64,7 @@ private:
 
 protected:
 	bool named;
-	std::string name;
+    QString name;
 
 
 public:
@@ -73,13 +73,16 @@ public:
 	bool getNamed() const;
 	void setNamed(bool newNamed);
 
+    QString getName() const;
+    void setName(const QString &name);
 };
 
 
 class Concourse : public NamedLocation
 {
 private:
-
+    bool named;
+    QString name;
 
 
 
@@ -89,6 +92,10 @@ protected:
 public:
     Concourse(ElementType newElementType, int newLocationX, int newLocationY);
 
+    bool getNamed() const;
+    void setNamed(bool named);
+    QString getName() const;
+    void setName(const QString &value);
 };
 
 
@@ -104,6 +111,7 @@ protected:
 
 public:
     Parapet(ElementType newElementType, int newLocationX, int newLocationY);
+
 
 };
 

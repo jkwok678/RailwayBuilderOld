@@ -133,6 +133,16 @@ void Window::moveText()
 
 }
 
+void Window::setChangeNamedLocation()
+{
+    if (windowChosen != ElementType::SETCHANGENAMEDLOCATION)
+    {
+        windowChosen = ElementType::SETCHANGENAMEDLOCATION;
+    }
+    else
+        windowChosen = ElementType::NONE;
+}
+
 void Window::toggleTrackID()
 {
     if (!showTrackID)
@@ -1574,6 +1584,15 @@ void Window::createBuildModifyMenu1()
     moveTextIcon = new QIcon(":/icons/icons/moveText.png");
     moveTextButton->setIcon(*moveTextIcon);
     buildModifyMenuLayout1->addWidget(moveTextButton);
+
+    setChangeNamedLocationButton = new QToolButton();
+    setChangeNamedLocationButton->setMaximumSize(QSize(32, 32));
+    setChangeNamedLocationAct = new QAction();
+    setChangeNamedLocationButton->setDefaultAction(setChangeNamedLocationAct);
+    connect(setChangeNamedLocationAct, &QAction::triggered, this, &Window::setChangeNamedLocation);
+    setChangeNamedLocationIcon = new QIcon(":/icons/icons/setChangeNamedLocation.png");
+    setChangeNamedLocationButton->setIcon(*setChangeNamedLocationIcon);
+    buildModifyMenuLayout1->addWidget(setChangeNamedLocationButton);
 }
 
 void Window::createElementMenu()

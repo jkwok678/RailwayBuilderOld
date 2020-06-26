@@ -13,6 +13,7 @@
         <file>icons/changeFont.png</file>
         <file>icons/moveText.png</file>
         <file>icons/setChangeNamedLocation.png</file>
+        <file>icons/grid.png</file>
     </qresource>
     <qresource prefix="/graphics">
         <file>graphics/bridgeSet1.png</file>

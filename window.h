@@ -31,6 +31,7 @@ private slots:
 	void changeAspect();
 	void addEditRemoveText();
     void moveText();
+    void setChangeNamedLocation();
 
     void toggleTrackID();
     void toggleMoreTrackInfo();
@@ -260,6 +261,10 @@ private:
     QToolButton* moveTextButton;
     QAction* moveTextAct;
     QIcon* moveTextIcon;
+
+    QToolButton* setChangeNamedLocationButton;
+    QAction* setChangeNamedLocationAct;
+    QIcon* setChangeNamedLocationIcon;
 
 	//Top menu 2
 
