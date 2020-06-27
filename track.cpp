@@ -2,6 +2,8 @@
 #include "element.h"
 
 
+
+
 Track::Track()
 {
     
@@ -47,7 +49,25 @@ void Track::setPlatform2(bool newPlatform)
     platform2 = newPlatform;
 }
 
+bool Track::getNamed() const
+{
+    return named;
+}
 
+void Track::setNamed(bool newNamed)
+{
+    named = newNamed;
+}
+
+std::shared_ptr<Text> Track::getText()
+{
+    return text;
+}
+
+void Track::setText(std::shared_ptr<Text> &newText)
+{
+    text = newText;
+}
 
 StraightTrack::StraightTrack()
 {
@@ -57,13 +77,8 @@ StraightTrack::StraightTrack()
 StraightTrack::StraightTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-
-
     locationX = newLocationX;
     locationY = newLocationY;
-	platform1 = false;
-	platform2 = false;
-	levelCrossing = false;
 
 }
 
@@ -99,8 +114,6 @@ DirectTrack::DirectTrack(ElementType newElementType, int newLocationX, int newLo
 	elementType = newElementType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	platform1 = false;
-	platform2 = false;
 
 }
 
@@ -134,8 +147,6 @@ BufferTrack::BufferTrack(ElementType newElementType, int newLocationX, int newLo
 	elementType = newElementType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	platform1 = false;
-	platform2 = false;
 
 }
 
@@ -145,8 +156,6 @@ SignalTrack::SignalTrack(ElementType newElementType, int newAspect, int newLocat
 	aspect = newAspect;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	platform1 = false;
-	platform2 = false;
 
 }
 
@@ -163,13 +172,8 @@ void SignalTrack::setAspect(int newAspect)
 BridgeUnderpassTrack::BridgeUnderpassTrack(ElementType newElementType, int newLocationX, int newLocationY)
 {
 	elementType = newElementType;
-
-
 	locationX = newLocationX;
 	locationY = newLocationY;
-	platform1 = false;
-	platform2 = false;
-
 }
 
 SwitchTrack::SwitchTrack(ElementType newElementType, int newLocationX, int newLocationY)
@@ -177,8 +181,6 @@ SwitchTrack::SwitchTrack(ElementType newElementType, int newLocationX, int newLo
 	elementType = newElementType;
 	locationX = newLocationX;
 	locationY = newLocationY;
-	platform1 = false;
-	platform2 = false;
 
 }
 

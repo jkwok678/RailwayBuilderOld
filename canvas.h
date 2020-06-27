@@ -48,6 +48,7 @@ public:
     bool getCanvasShowMoreTrackInfo() const;
     void setCanvasShowMoreTrackInfo(bool& newShowMoreTrackInfo);
 
+
 public slots:
 
 protected:

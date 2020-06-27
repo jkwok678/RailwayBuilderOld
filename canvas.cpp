@@ -13,7 +13,7 @@ Canvas::Canvas()
     setMouseTracking(true);
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    timer->start(30);
+    timer->start(1000);
 
     //ElementBlock1 images
     straightHImage = new QImage(":/graphics/graphics/straightH.png");
@@ -332,6 +332,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addStraightTrack(straightH);
+                std::cout<< straightH->getNamed() << std::flush;
                 break;
             }
             case ElementType::STRAIGHTV:
@@ -1229,8 +1230,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                     QString newReadableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, text->getReadableText(), &ok);
                     text->setReadableText(newReadableBit);
                 }
+                break;
             }
-            break;
             case ElementType::MOVETEXT:
             {
                 bool ok;
@@ -1239,7 +1240,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 if (offsetY==0)
                 {
                     textY = 0 - ((exactY+ (offsetY*canvasSizeY)));
-                } else if (offsetY<0 || offsetY >0) {
+                } else if (offsetY<0 || offsetY >0)
+                {
                     textY = 0 - (exactY- (offsetY*canvasSizeY));
                 }
                 if (drawnLayout->checkTextExists(textX,textY))
@@ -1248,6 +1250,144 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }
 
             break;
+            }
+            case ElementType::SETCHANGENAMEDLOCATION:
+            {
+                bool exist = false;
+                bool ok = false;
+                std::shared_ptr<StraightTrack> straightTrack = drawnLayout->getStraightTrackAt(finalX,finalY);
+                std::shared_ptr<DirectTrack> directTrack = drawnLayout->getDirectTrackAt(finalX,finalY);
+                std::shared_ptr<BufferTrack> bufferTrack = drawnLayout->getBufferTrackAt(finalX,finalY);
+                std::shared_ptr<SignalTrack> signalTrack = drawnLayout->getSignalTrack(finalX,finalY);
+                std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack = drawnLayout->getBridgeUnderpassTrack(finalX,finalY);
+                std::shared_ptr<SwitchTrack> switchTrack = drawnLayout->getSwitchTrackAt(finalX,finalY);
+                if (straightTrack != nullptr)
+                {
+
+                    if (straightTrack->getPlatform1() || straightTrack->getPlatform2())
+                    {
+                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                            drawnLayout->addText(text);
+                            straightTrack->setText(text);
+                            straightTrack->setNamed(true);
+                            exist = true;
+                        }
+
+                    }
+
+                }
+                if (directTrack != nullptr && exist == false)
+                {
+                    if (directTrack->getPlatform1() || directTrack->getPlatform2())
+                    {
+                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                            drawnLayout->addText(text);
+                            directTrack->setText(text);
+                            directTrack->setNamed(true);
+                            exist = true;
+                        }
+
+                    }
+
+                }
+                if (bufferTrack != nullptr && exist == false)
+                {
+                    if (bufferTrack->getPlatform1() || bufferTrack->getPlatform2())
+                    {
+                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                            drawnLayout->addText(text);
+                            bufferTrack->setText(text);
+                            bufferTrack->setNamed(true);
+                            exist = true;
+                        }
+
+                    }
+
+                }
+                if (signalTrack != nullptr && exist == false)
+                {
+                    if (signalTrack->getPlatform1() || signalTrack->getPlatform2())
+                    {
+                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                            drawnLayout->addText(text);
+                            signalTrack->setText(text);
+                            signalTrack->setNamed(true);
+                            exist = true;
+                        }
+
+                    }
+
+                }
+                if (bridgeUnderpassTrack != nullptr && exist == false)
+                {
+                    if (bridgeUnderpassTrack->getPlatform1() || bridgeUnderpassTrack->getPlatform2())
+                    {
+                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                            drawnLayout->addText(text);
+                            bridgeUnderpassTrack->setText(text);
+                            bridgeUnderpassTrack->setNamed(true);
+                            exist = true;
+                        }
+
+                    }
+
+                }
+                if (switchTrack != nullptr && exist == false)
+                {
+                    if (switchTrack->getPlatform1() || switchTrack->getPlatform2())
+                    {
+                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                            drawnLayout->addText(text);
+                            switchTrack->setText(text);
+                            switchTrack->setNamed(true);
+                            exist = true;
+                        }
+
+                    }
+
+                }
             }
         };
     }
@@ -1290,15 +1430,30 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::STRAIGHTH:
-
+                        //std::cout<< currentElement->getNamed() << std::flush;
                         painter.drawImage(displayX, displayY, *straightHImage);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
+
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         if (currentElement->hasLevelCrossing())
                         {
@@ -1308,13 +1463,28 @@ void Canvas::paintEvent(QPaintEvent* event)
 
                     case ElementType::STRAIGHTV:
                         painter.drawImage(displayX, displayY, *straightVImage);
-                        if (currentElement->getPlatform1() == true)
+                        if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
+
                         }
-                        if (currentElement->getPlatform2() == true)
+                        if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         if (currentElement->hasLevelCrossing())
                         {
@@ -1356,41 +1526,99 @@ void Canvas::paintEvent(QPaintEvent* event)
                         painter.drawImage(displayX, displayY, *directLeftImage);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
+
                         }
                         if (currentElement->getPlatform2()) {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::DIRECTRIGHT:
                         painter.drawImage(displayX, displayY, *directRightImage);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::DIRECTUP:
                         painter.drawImage(displayX, displayY, *directUpImage);
                         if (currentElement->getPlatform1())
                         {
-                           painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2()) {
-                           painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::DIRECTDOWN:
                         painter.drawImage(displayX, displayY, *directDownImage);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
-                        if (currentElement->getPlatform2()) {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                        if (currentElement->getPlatform2())
+                        {
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::DIRECTRIGHTUP:
@@ -1586,44 +1814,100 @@ void Canvas::paintEvent(QPaintEvent* event)
                         painter.drawImage(displayX, displayY, *bufferLeftImage);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::BUFFERRIGHT:
                         painter.drawImage(displayX, displayY, *bufferRightImage);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::BUFFERDOWN:
                         painter.drawImage(displayX, displayY, *bufferDownImage);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::BUFFERUP:
                         painter.drawImage(displayX, displayY, *bufferUpImage);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::BUFFERLEFTUP:
@@ -1673,11 +1957,25 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SIGNALRIGHT:
@@ -1691,11 +1989,25 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SIGNALDOWN:
@@ -1709,11 +2021,25 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SIGNALUP:
@@ -1726,10 +2052,24 @@ void Canvas::paintEvent(QPaintEvent* event)
                             painter.drawImage(displayX, displayY, *signalUpImage);
                         }
                         if (currentElement->getPlatform1()) {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2()) {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SIGNALLEFTUP:
@@ -1799,33 +2139,75 @@ void Canvas::paintEvent(QPaintEvent* event)
                         painter.drawImage(displayX, displayY, *bridgeUnset1Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::BRIDGE2:
                         painter.drawImage(displayX, displayY, *bridgeUnset2Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::UNDERPASS1:
                         painter.drawImage(displayX, displayY, *underpassUnset1Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
 
@@ -1833,11 +2215,25 @@ void Canvas::paintEvent(QPaintEvent* event)
                         painter.drawImage(displayX, displayY, *underpassUnset2Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                 }
@@ -1867,49 +2263,98 @@ void Canvas::paintEvent(QPaintEvent* event)
                         painter.drawImage(displayX, displayY, *switchTight1Image);
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCHTIGHT2:
                         painter.drawImage(displayX, displayY, *switchTight2Image);
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCHTIGHT3:
                         painter.drawImage(displayX, displayY, *switchTight3Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCHTIGHT4:
                         painter.drawImage(displayX, displayY, *switchTight4Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCHTIGHT5:
                         painter.drawImage(displayX, displayY, *switchTight5Image);
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCHTIGHT6:
                         painter.drawImage(displayX, displayY, *switchTight6Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCHTIGHT7:
                         painter.drawImage(displayX, displayY, *switchTight7Image);
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
 
@@ -1917,7 +2362,14 @@ void Canvas::paintEvent(QPaintEvent* event)
                         painter.drawImage(displayX, displayY, *switchTight8Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCHSPLIT1:
@@ -1933,56 +2385,112 @@ void Canvas::paintEvent(QPaintEvent* event)
                         painter.drawImage(displayX, displayY, *switch1Image);
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCH2:
                         painter.drawImage(displayX, displayY, *switch2Image);
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCH3:
                         painter.drawImage(displayX, displayY, *switch3Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCH4:
                         painter.drawImage(displayX, displayY, *switch4Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCH5:
                         painter.drawImage(displayX, displayY, *switch5Image);
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCH6:
                         painter.drawImage(displayX, displayY, *switch6Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCH7:
                         painter.drawImage(displayX, displayY, *switch7Image);
                         if (currentElement->getPlatform2())
                         {
-                            painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCH8:
                         painter.drawImage(displayX, displayY, *switch8Image);
                         if (currentElement->getPlatform1())
                         {
-                            painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                            }
                         }
                         break;
                     case ElementType::SWITCHSPLIT4:

@@ -33,6 +33,29 @@ void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 
 }
 
+std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<StraightTrack> straightTrack = nullptr;
+    if (!straightTrackList.empty())
+    {
+        for (std::shared_ptr<StraightTrack>& currentElement : straightTrackList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                straightTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return straightTrack;
+}
+
+
+
 std::vector<std::shared_ptr<DirectTrack> > Map::getDirectTrackList() const
 {
 	return directTrackList;
@@ -61,6 +84,30 @@ void Map::addDirectTrack(std::shared_ptr<DirectTrack> newDirectTrack)
 
 }
 
+std::shared_ptr<DirectTrack> Map::getDirectTrackAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<DirectTrack> directTrack = nullptr;
+    if (!directTrackList.empty())
+    {
+        for (std::shared_ptr<DirectTrack>& currentElement : directTrackList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                directTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return directTrack;
+}
+
+
+
+
 std::vector<std::shared_ptr<CurvedTrack> > Map::getCurvedTrackList() const
 {
 	return curvedTrackList;
@@ -86,6 +133,30 @@ void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
 	}
 
 }
+
+std::shared_ptr<CurvedTrack> Map::getCurvedTrackAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<CurvedTrack> curvedTrack = nullptr;
+    if (!curvedTrackList.empty())
+    {
+        for (std::shared_ptr<CurvedTrack>& currentElement : curvedTrackList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                curvedTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return curvedTrack;
+}
+
+
+
 
 std::vector<std::shared_ptr<LinkedTrack> > Map::getLinkedTrackList() const
 {
@@ -114,6 +185,30 @@ void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
 
 }
 
+std::shared_ptr<LinkedTrack> Map::getLinkedTrackAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<LinkedTrack> linkedTrack = nullptr;
+    if (!linkedTrackList.empty())
+    {
+        for (std::shared_ptr<LinkedTrack>& currentElement : linkedTrackList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                linkedTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return linkedTrack;
+}
+
+
+
+
 std::vector<std::shared_ptr<ExitTrack> > Map::getExitTrackList() const
 {
 	return exitTrackList;
@@ -140,6 +235,30 @@ void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
 	}
 
 }
+
+std::shared_ptr<ExitTrack> Map::getExitTrackAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<ExitTrack> exitTrack = nullptr;
+    if (!exitTrackList.empty())
+    {
+        for (std::shared_ptr<ExitTrack>& currentElement : exitTrackList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                exitTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return exitTrack;
+}
+
+
+
 
 std::vector<std::shared_ptr<BufferTrack> > Map::getBufferTrackList() const
 {
@@ -168,6 +287,30 @@ void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
 
 }
 
+std::shared_ptr<BufferTrack> Map::getBufferTrackAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<BufferTrack> bufferTrack = nullptr;
+    if (!bufferTrackList.empty())
+    {
+        for (std::shared_ptr<BufferTrack>& currentElement : bufferTrackList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                bufferTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return bufferTrack;
+}
+
+
+
+
 std::vector<std::shared_ptr<SignalTrack> > Map::getSignalTrackList() const
 {
 	return signalTrackList;
@@ -194,6 +337,30 @@ void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
 	}
 
 }
+
+std::shared_ptr<SignalTrack> Map::getSignalTrack(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<SignalTrack> signalTrack = nullptr;
+    if (!signalTrackList.empty())
+    {
+        for (std::shared_ptr<SignalTrack>& currentElement : signalTrackList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                signalTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return signalTrack;
+}
+
+
+
 
 std::vector<std::shared_ptr<BridgeUnderpassTrack> > Map::getBridgeUnderpassTrackList() const
 {
@@ -222,6 +389,29 @@ void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridg
 
 }
 
+std::shared_ptr<BridgeUnderpassTrack> Map::getBridgeUnderpassTrack(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack = nullptr;
+    if (!bridgeUnderpassTrackList.empty())
+    {
+        for (std::shared_ptr<BridgeUnderpassTrack>& currentElement : bridgeUnderpassTrackList) {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                bridgeUnderpassTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return bridgeUnderpassTrack;
+}
+
+
+
+
 std::vector<std::shared_ptr<SwitchTrack> > Map::getSwitchTrackList() const
 {
 	return switchTrackList;
@@ -248,6 +438,30 @@ void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
 	}
 
 }
+
+std::shared_ptr<SwitchTrack> Map::getSwitchTrackAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<SwitchTrack> switchTrack = nullptr;
+    if (!switchTrackList.empty())
+    {
+        for (std::shared_ptr<SwitchTrack>& currentElement : switchTrackList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                switchTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return switchTrack;
+}
+
+
+
 
 std::vector<std::shared_ptr<CrossoverTrack> > Map::getCrossoverTrackList() const
 {
@@ -276,6 +490,30 @@ void Map::addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack)
 
 }
 
+std::shared_ptr<CrossoverTrack> Map::getCrossoverTrackAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<CrossoverTrack> crossoverTrack = nullptr;
+    if (!crossoverTrackList.empty())
+    {
+        for (std::shared_ptr<CrossoverTrack>& currentElement : crossoverTrackList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                crossoverTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return crossoverTrack;
+}
+
+
+
+
 std::vector<std::shared_ptr<FlyoverTrack> > Map::getFlyoverTrackList() const
 {
 	return flyoverTrackList;
@@ -303,6 +541,30 @@ void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
 
 }
 
+std::shared_ptr<FlyoverTrack> Map::getFlyoverTrackAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<FlyoverTrack> flyoverTrack = nullptr;
+    if (!flyoverTrackList.empty())
+    {
+        for (std::shared_ptr<FlyoverTrack>& currentElement : flyoverTrackList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                flyoverTrack = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return flyoverTrack;
+}
+
+
+
+
 std::vector<std::shared_ptr<NamedLocation> > Map::getNamedLocationList() const
 {
 	return namedLocationList;
@@ -326,8 +588,32 @@ void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
 		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
 		elementExistsAlreadyAlert.setText("An element already exists here.");
 		elementExistsAlreadyAlert.exec();
-	}
+    }
 }
+
+std::shared_ptr<NamedLocation> Map::getNamedLocarionAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<NamedLocation> namedLocation = nullptr;
+    if (!namedLocationList.empty())
+    {
+        for (std::shared_ptr<NamedLocation>& currentElement : namedLocationList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                namedLocation = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return namedLocation;
+}
+
+
+
 
 std::vector<std::shared_ptr<Concourse> > Map::getConcourseList() const
 {
@@ -356,6 +642,30 @@ void Map::addConcourse(std::shared_ptr<Concourse> newConcourseTrack)
 
 }
 
+std::shared_ptr<Concourse> Map::getConcourseAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<Concourse> concourse = nullptr;
+    if (!concourseList.empty())
+    {
+        for (std::shared_ptr<Concourse>& currentElement : concourseList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                concourse = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return concourse;
+}
+
+
+
+
 std::vector<std::shared_ptr<Parapet> > Map::getParapetList() const
 {
 	return parapetList;
@@ -382,6 +692,30 @@ void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 	}
 
 }
+
+std::shared_ptr<Parapet> Map::getParapetAt(int finalX, int finalY)
+{
+    bool found = false;
+    std::shared_ptr<Parapet> parapet = nullptr;
+    if (!parapetList.empty())
+    {
+        for (std::shared_ptr<Parapet>& currentElement : parapetList) {
+
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            if (currentX == finalX && currentY == finalY)
+            {
+                parapet = currentElement;
+                found = true;
+                break;
+            }
+        }
+    }
+    return parapet;
+}
+
+
+
 
 std::vector<std::shared_ptr<Text> > Map::getTextList() const
 {
@@ -1233,8 +1567,6 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 		}
 	}
 
-
-
 	if (!bridgeUnderpassTrackList.empty() && added == false)
 	{
 		for (std::shared_ptr<BridgeUnderpassTrack>& currentElement : bridgeUnderpassTrackList) {
@@ -1286,7 +1618,6 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 			}
 		}
 	}
-
 	if (!switchTrackList.empty() && added == false)
 	{
 		for (std::shared_ptr<SwitchTrack>& currentElement : switchTrackList) {

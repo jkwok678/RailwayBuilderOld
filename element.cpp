@@ -34,12 +34,82 @@ void Element::setLocationY(int newLocationY) {
 	locationY = newLocationY;
 }
 
-
-
-NamedLocation::NamedLocation()
+Text::Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText)
 {
-    
+    elementType = newElementType;
+    locationX = newLocationX;
+    locationY = newLocationY;
+    readableText = newReadableText;
+    editableX = locationX + fontSize;
+    editableY = locationY + fontSize;
 }
+
+int Text::getEditableX() const
+{
+    return editableX;
+}
+
+void Text::setEditableX(int newEditableX)
+{
+    editableX = newEditableX;
+}
+
+int Text::getEditableY() const
+{
+    return editableY;
+}
+
+void Text::setEditableY(int newEditableY)
+{
+    editableY = newEditableY;
+}
+
+int Text::getFontSize() const
+{
+    return fontSize;
+}
+
+void Text::setFontSize(int newFontSize)
+{
+    fontSize = newFontSize;
+}
+
+QString Text::getReadableText() const
+{
+    return readableText;
+}
+
+void Text::setReadableText(const QString& newReadableText)
+{
+    readableText = newReadableText;
+}
+
+
+NamedElement::NamedElement()
+{
+
+}
+
+bool NamedElement::getNamed() const
+{
+    return named;
+}
+
+void NamedElement::setNamed(bool newNamed)
+{
+    named = newNamed;
+}
+
+std::shared_ptr<Text> NamedElement::getText()
+{
+    return text;
+}
+
+void NamedElement::setText(std::shared_ptr<Text> &newText)
+{
+    text = newText;
+}
+
 
 NamedLocation::NamedLocation(ElementType newElementType, int newLocationX, int newLocationY)
 {
@@ -47,30 +117,11 @@ NamedLocation::NamedLocation(ElementType newElementType, int newLocationX, int n
 	locationX = newLocationX;
 	locationY = newLocationY;
 	named = false;
-
+    text = nullptr;
 
 
 }
 
-bool NamedLocation::getNamed() const
-{
-	return named;
-}
-
-void NamedLocation::setNamed(bool newNamed)
-{
-	named = newNamed;
-}
-
-QString NamedLocation::getName() const
-{
-    return name;
-}
-
-void NamedLocation::setName(const QString &value)
-{
-    name = value;
-}
 
 Concourse::Concourse(ElementType newElementType, int newLocationX, int newLocationY)
 {
@@ -78,27 +129,8 @@ Concourse::Concourse(ElementType newElementType, int newLocationX, int newLocati
 	locationX = newLocationX;
 	locationY = newLocationY;
 	named = false;
+    text = nullptr;
 
-}
-
-bool Concourse::getNamed() const
-{
-    return named;
-}
-
-void Concourse::setNamed(bool newNamed)
-{
-    named = newNamed;
-}
-
-QString Concourse::getName() const
-{
-    return name;
-}
-
-void Concourse::setName(const QString &newName)
-{
-    name = newName;
 }
 
 Parapet::Parapet(ElementType newElementType, int newLocationX, int newLocationY)
@@ -109,53 +141,4 @@ Parapet::Parapet(ElementType newElementType, int newLocationX, int newLocationY)
 }
 
 
-Text::Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText)
-{
-	elementType = newElementType;
-	locationX = newLocationX;
-	locationY = newLocationY;
-	readableText = newReadableText;
-	editableX = locationX + fontSize;
-    editableY = locationY + fontSize;
-}
-
-int Text::getEditableX() const
-{
-	return editableX;
-}
-
-void Text::setEditableX(int newEditableX)
-{
-	editableX = newEditableX;
-}
-
-int Text::getEditableY() const
-{
-	return editableY;
-}
-
-void Text::setEditableY(int newEditableY)
-{
-	editableY = newEditableY;
-}
-
-int Text::getFontSize() const
-{
-	return fontSize;
-}
-
-void Text::setFontSize(int newFontSize)
-{
-	fontSize = newFontSize;
-}
-
-QString Text::getReadableText() const
-{
-	return readableText;
-}
-
-void Text::setReadableText(const QString& newReadableText)
-{
-	readableText = newReadableText;
-}
 

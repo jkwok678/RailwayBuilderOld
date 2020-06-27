@@ -19,8 +19,10 @@ protected:
 	bool trackLinks[9];
 	//For vertical tracks, platform1 is left, platform2 is right
 	//For Horizontal tracks platform1 is up, platform2 is down
-	bool platform1;
-	bool platform2;
+    bool platform1{ false };
+    bool platform2{ false };
+    bool named{ false };
+    std::shared_ptr<Text> text;
 
 
 
@@ -36,12 +38,16 @@ public:
 	bool getPlatform2() const;
 	void setPlatform2(bool newPlatform);
 
+    bool getNamed() const;
+    void setNamed(bool newNamed);
+    std::shared_ptr<Text> getText();
+    void setText(std::shared_ptr<Text> &newText);
 };
 
 class StraightTrack : public Track
 {
 private:
-    bool levelCrossing;
+    bool levelCrossing{ false };
 
 
 protected:

@@ -2,6 +2,7 @@
 #define ELEMENT_H
 
 #include <QString>
+#include <QSharedPointer>
 #include <memory>
 #include <string>
 #include <iostream>
@@ -38,9 +39,6 @@ protected:
 	int locationX;
 	int locationY;
 
-
-
-
 public:
 	Element();
 	Element(int currentX, int currentY);
@@ -53,37 +51,70 @@ public:
 	void setLocationY(int locationY);
 };
 
-class NamedLocation : public Element
+class Text : public Element
 {
 private:
-
-
+    int editableX;
+    int editableY;
+    int fontSize{ 12 };
+    QString readableText;
 
 
 
 
 protected:
-	bool named;
-    QString name;
 
 
 public:
-	NamedLocation();
-    NamedLocation(ElementType newElementType, int newLocationX, int newLocationY);
-	bool getNamed() const;
-	void setNamed(bool newNamed);
+    Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText);
 
-    QString getName() const;
-    void setName(const QString &name);
+    int getEditableX() const;
+    void setEditableX(int newEditableX);
+    int getEditableY() const;
+    void setEditableY(int newEditableY);
+    int getFontSize() const;
+    void setFontSize(int newFontSize);
+    QString getReadableText() const;
+    void setReadableText(const QString& newReadableText);
+};
+
+class NamedElement : public Element
+{
+private:
+
+
+protected:
+    bool named;
+    std::shared_ptr<Text> text;
+
+
+public:
+    NamedElement();
+    bool getNamed() const;
+    void setNamed(bool newNamed);
+
+    std::shared_ptr<Text> getText();
+    void setText(std::shared_ptr<Text> &newText);
 };
 
 
-class Concourse : public NamedLocation
+class NamedLocation : public NamedElement
 {
 private:
-    bool named;
-    QString name;
 
+
+protected:
+
+
+
+public:
+    NamedLocation(ElementType newElementType, int newLocationX, int newLocationY);
+};
+
+
+class Concourse : public NamedElement
+{
+private:
 
 
 protected:
@@ -92,10 +123,6 @@ protected:
 public:
     Concourse(ElementType newElementType, int newLocationX, int newLocationY);
 
-    bool getNamed() const;
-    void setNamed(bool named);
-    QString getName() const;
-    void setName(const QString &value);
 };
 
 
@@ -115,32 +142,7 @@ public:
 
 };
 
-class Text : public Element
-{
-private:
-	int editableX;
-	int editableY;
-	int fontSize{ 12 };
-	QString readableText;
 
-
-
-
-protected:
-
-
-public:
-    Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText);
-
-	int getEditableX() const;
-	void setEditableX(int newEditableX);
-	int getEditableY() const;
-	void setEditableY(int newEditableY);
-	int getFontSize() const;
-	void setFontSize(int newFontSize);
-	QString getReadableText() const;
-	void setReadableText(const QString& newReadableText);
-};
 
 
 
