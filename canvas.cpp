@@ -313,11 +313,13 @@ void Canvas::mousePressEvent(QMouseEvent* event)
     if (offsetY==0)
     {
         finalY = 0 - ((roundedY+ (offsetY*canvasSizeY)));
-    } else if (offsetY<0 || offsetY >0) {
+    } else if (offsetY<0 || offsetY >0)
+    {
         finalY = 0 - (roundedY- (offsetY*canvasSizeY));
     }
 
-    if (event->button() == Qt::LeftButton) {
+    if (event->button() == Qt::LeftButton)
+    {
         switch (*canvasChosen)
         {
             case ElementType::NONE:
@@ -1204,13 +1206,10 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 if (offsetY==0)
                 {
                     textY = 0 - ((exactY+ (offsetY*canvasSizeY)));
-                } else if (offsetY<0 || offsetY >0) {
+                } else if (offsetY<0 || offsetY >0)
+                {
                     textY = 0 - (exactY- (offsetY*canvasSizeY));
                 }
-                std::cout << " textX: " << std::flush;
-                std::cout << textX << std::flush;
-                std::cout << " textY: " << std::flush;
-                std::cout << textY << std::flush;
                 if (!drawnLayout->checkTextExists(textX,textY))
                 {
                     QString readableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, tr(""), &ok);
@@ -1263,7 +1262,6 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 std::shared_ptr<SwitchTrack> switchTrack = drawnLayout->getSwitchTrackAt(finalX,finalY);
                 if (straightTrack != nullptr)
                 {
-
                     if (straightTrack->getPlatform1() || straightTrack->getPlatform2())
                     {
                         QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
@@ -1279,9 +1277,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                             straightTrack->setNamed(true);
                             exist = true;
                         }
-
                     }
-
                 }
                 if (directTrack != nullptr && exist == false)
                 {
@@ -1300,9 +1296,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                             directTrack->setNamed(true);
                             exist = true;
                         }
-
                     }
-
                 }
                 if (bufferTrack != nullptr && exist == false)
                 {
@@ -1321,9 +1315,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                             bufferTrack->setNamed(true);
                             exist = true;
                         }
-
                     }
-
                 }
                 if (signalTrack != nullptr && exist == false)
                 {
@@ -1342,9 +1334,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                             signalTrack->setNamed(true);
                             exist = true;
                         }
-
                     }
-
                 }
                 if (bridgeUnderpassTrack != nullptr && exist == false)
                 {
@@ -1363,9 +1353,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                             bridgeUnderpassTrack->setNamed(true);
                             exist = true;
                         }
-
                     }
-
                 }
                 if (switchTrack != nullptr && exist == false)
                 {
@@ -1384,9 +1372,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                             switchTrack->setNamed(true);
                             exist = true;
                         }
-
                     }
-
                 }
             }
         };
@@ -1397,6 +1383,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
         update();
     }
 }
+
 void Canvas::paintEvent(QPaintEvent* event)
 {
     canvasSizeX = width();
@@ -1430,6 +1417,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::STRAIGHTH:
+                    {
                         //std::cout<< currentElement->getNamed() << std::flush;
                         painter.drawImage(displayX, displayY, *straightHImage);
                         if (currentElement->getPlatform1())
@@ -1460,8 +1448,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             painter.drawImage(displayX, displayY, *levelCrossingHImage);
                         }
                         break;
-
+                    }
                     case ElementType::STRAIGHTV:
+                    {
                         painter.drawImage(displayX, displayY, *straightVImage);
                         if (currentElement->getPlatform1())
                         {
@@ -1491,14 +1480,17 @@ void Canvas::paintEvent(QPaintEvent* event)
                             painter.drawImage(displayX, displayY, *levelCrossingVImage);
                         }
                         break;
-
+                    }
                     case ElementType::STRIAGHTRIGHTUP:
+                    {
                         painter.drawImage(displayX, displayY, *straightRightUpImage);
                         break;
-
+                    }
                     case ElementType::STRAIGHTLEFTUP:
+                    {
                         painter.drawImage(displayX, displayY, *straightLeftUpImage);
                         break;
+                    }
                 }
             }
         }
@@ -1523,6 +1515,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::DIRECTLEFT:
+                    {
                         painter.drawImage(displayX, displayY, *directLeftImage);
                         if (currentElement->getPlatform1())
                         {
@@ -1547,7 +1540,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::DIRECTRIGHT:
+                    {
                         painter.drawImage(displayX, displayY, *directRightImage);
                         if (currentElement->getPlatform1())
                         {
@@ -1572,7 +1567,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::DIRECTUP:
+                    {
                         painter.drawImage(displayX, displayY, *directUpImage);
                         if (currentElement->getPlatform1())
                         {
@@ -1596,7 +1593,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::DIRECTDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *directDownImage);
                         if (currentElement->getPlatform1())
                         {
@@ -1621,18 +1620,27 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::DIRECTRIGHTUP:
+                    {
                         painter.drawImage(displayX, displayY, *directRightUpImage);
                         break;
+                    }
                     case ElementType::DIRECTLEFTUP:
+                    {
                         painter.drawImage(displayX, displayY, *directLeftUpImage);
                         break;
+                    }
                     case ElementType::DIRECTLEFTDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *directLeftDownImage);
                         break;
+                    }
                     case ElementType::DIRECTRIGHTDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *directRightDownIamge);
                         break;
+                    }
                 }
             }
         }
@@ -1657,41 +1665,63 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::TIGHTCURVE1:
+                    {
                         painter.drawImage(displayX, displayY, *tightCurve1Image);
                         break;
+                    }
                     case ElementType::TIGHTCURVE2:
+                    {
                         painter.drawImage(displayX, displayY, *tightCurve2Image);
                         break;
+                    }
                     case ElementType::TIGHTCURVE3:
+                    {
                         painter.drawImage(displayX, displayY, *tightCurve3Image);
                         break;
+                    }
                     case ElementType::TIGHTCURVE4:
                         painter.drawImage(displayX, displayY, *tightCurve4Image);
                         break;
                     case ElementType::CURVE1:
+                    {
                         painter.drawImage(displayX, displayY, *curve1Image);
                         break;
+                    }
                     case ElementType::CURVE2:
+                    {
                         painter.drawImage(displayX, displayY, *curve2Image);
                         break;
+                    }
                     case ElementType::CURVE3:
+                    {
                         painter.drawImage(displayX, displayY, *curve3Image);
                         break;
+                    }
                     case ElementType::CURVE4:
+                    {
                         painter.drawImage(displayX, displayY, *curve4Image);
                         break;
+                    }
                     case ElementType::CURVE5:
+                    {
                         painter.drawImage(displayX, displayY, *curve5Image);
                         break;
+                    }
                     case ElementType::CURVE6:
+                    {
                         painter.drawImage(displayX, displayY, *curve6Image);
                         break;
+                    }
                     case ElementType::CURVE7:
+                    {
                         painter.drawImage(displayX, displayY, *curve7Image);
                         break;
+                    }
                     case ElementType::CURVE8:
+                    {
                         painter.drawImage(displayX, displayY, *curve8Image);
                         break;
+                    }
                 }
             }
         }
@@ -1716,29 +1746,45 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::LINKLEFT:
+                    {
                         painter.drawImage(displayX, displayY, *linkLeftImage);
                         break;
+                    }
                     case ElementType::LINKRIGHT:
+                    {
                         painter.drawImage(displayX, displayY, *linkRightImage);
                         break;
+                    }
                     case ElementType::LINKDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *linkDownImage);
                         break;
+                    }
                     case ElementType::LINKUP:
+                    {
                         painter.drawImage(displayX, displayY, *linkUpImage);
                         break;
+                    }
                     case ElementType::LINKLEFTUP:
+                    {
                         painter.drawImage(displayX, displayY, *linkLeftUpImage);
                         break;
+                    }
                     case ElementType::LINKRIGHTUP:
+                    {
                         painter.drawImage(displayX, displayY, *linkRightUpImage);
                         break;
+                    }
                     case ElementType::LINKRIGHTDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *linkRightDownImage);
                         break;
+                    }
                     case ElementType::LINKLEFTDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *linkLeftDownImage);
                         break;
+                    }
                 }
             }
         }
@@ -1763,30 +1809,45 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::EXITLEFT:
+                    {
                         painter.drawImage(displayX, displayY, *exitLeftImage);
                         break;
+                    }
                     case ElementType::EXITRIGHT:
+                    {
                         painter.drawImage(displayX, displayY, *exitRightImage);
                         break;
+                    }
                     case ElementType::EXITDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *exitDownImage);
                         break;
+                    }
                     case ElementType::EXITUP:
+                    {
                         painter.drawImage(displayX, displayY, *exitUpImage);
                         break;
+                    }
                     case ElementType::EXITLEFTUP:
+                    {
                         painter.drawImage(displayX, displayY, *exitLeftUpImage);
                         break;
+                    }
                     case ElementType::EXITRIGHTUP:
+                    {
                         painter.drawImage(displayX, displayY, *exitRightUpImage);
                         break;
+                    }
                     case ElementType::EXITLEFTDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *exitLeftDownImage);
                         break;
+                    }
                     case ElementType::EXITRIGHTDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *exitRightDownImage);
                         break;
-
+                    }
                 }
             }
         }
@@ -1811,6 +1872,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::BUFFERLEFT:
+                    {
                         painter.drawImage(displayX, displayY, *bufferLeftImage);
                         if (currentElement->getPlatform1())
                         {
@@ -1835,7 +1897,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::BUFFERRIGHT:
+                    {
                         painter.drawImage(displayX, displayY, *bufferRightImage);
                         if (currentElement->getPlatform1())
                         {
@@ -1860,7 +1924,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::BUFFERDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *bufferDownImage);
                         if (currentElement->getPlatform1())
                         {
@@ -1885,7 +1951,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::BUFFERUP:
+                    {
                         painter.drawImage(displayX, displayY, *bufferUpImage);
                         if (currentElement->getPlatform1())
                         {
@@ -1910,19 +1978,27 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::BUFFERLEFTUP:
+                    {
                         painter.drawImage(displayX, displayY, *bufferLeftUpImage);
                         break;
+                    }
                     case ElementType::BUFFERRIGHTUP:
+                    {
                         painter.drawImage(displayX, displayY, *bufferRightUpImage);
                         break;
+                    }
                     case ElementType::BUFFERLEFTDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *bufferLeftDownImage);
                         break;
+                    }
                     case ElementType::BUFFERRIGHTDOWN:
+                    {
                         painter.drawImage(displayX, displayY, *bufferRightDownImage);
                         break;
-
+                    }
                 }
             }
         }
@@ -1947,6 +2023,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::SIGNALLEFT:
+                    {
                         if (currentElement->getAspect() == 1)
                         {
                             painter.drawImage(displayX, displayY, *shuntLeftImage);
@@ -1978,7 +2055,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SIGNALRIGHT:
+                    {
                         if (currentElement->getAspect() == 1)
                         {
                             painter.drawImage(displayX, displayY, *shuntRightImage);
@@ -2010,7 +2089,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SIGNALDOWN:
+                    {
                         if (currentElement->getAspect() == 1)
                         {
                             painter.drawImage(displayX, displayY, *shuntDownImage);
@@ -2042,7 +2123,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SIGNALUP:
+                    {
                         if (currentElement->getAspect() == 1)
                         {
                             painter.drawImage(displayX, displayY, *shuntUpImage);
@@ -2051,7 +2134,8 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             painter.drawImage(displayX, displayY, *signalUpImage);
                         }
-                        if (currentElement->getPlatform1()) {
+                        if (currentElement->getPlatform1())
+                        {
                             if (currentElement->getNamed())
                             {
                                 painter.drawImage(displayX, displayY, *platformLeftSetImage);
@@ -2061,7 +2145,8 @@ void Canvas::paintEvent(QPaintEvent* event)
                                 painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
                             }
                         }
-                        if (currentElement->getPlatform2()) {
+                        if (currentElement->getPlatform2())
+                        {
                             if (currentElement->getNamed())
                             {
                                 painter.drawImage(displayX, displayY, *platformRightSetImage);
@@ -2072,7 +2157,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SIGNALLEFTUP:
+                    {
                         if (currentElement->getAspect() == 1)
                         {
                             painter.drawImage(displayX, displayY, *shuntLeftUpImage);
@@ -2082,7 +2169,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             painter.drawImage(displayX, displayY, *signalLeftUpImage);
                         }
                         break;
+                    }
                     case ElementType::SIGNALRIGHTUP:
+                    {
                         if (currentElement->getAspect() == 1)
                         {
                             painter.drawImage(displayX, displayY, *shuntRightUpImage);
@@ -2092,7 +2181,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             painter.drawImage(displayX, displayY, *signalRightUpImage);
                         }
                         break;
+                    }
                     case ElementType::SIGNALLEFTDOWN:
+                    {
                         if (currentElement->getAspect() == 1)
                         {
                             painter.drawImage(displayX, displayY, *shuntLeftDownImage);
@@ -2102,7 +2193,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             painter.drawImage(displayX, displayY, *signalLeftDownImage);
                         }
                         break;
+                    }
                     case ElementType::SIGNALRIGHTDOWN:
+                    {
                         if (currentElement->getAspect() == 1)
                         {
                             painter.drawImage(displayX, displayY, *shuntRightDownImage);
@@ -2112,6 +2205,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             painter.drawImage(displayX, displayY, *signalRightDownImage);
                         }
                         break;
+                    }
                 }
             }
         }
@@ -2136,6 +2230,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::BRIDGE1:
+                    {
                         painter.drawImage(displayX, displayY, *bridgeUnset1Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2160,7 +2255,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::BRIDGE2:
+                    {
                         painter.drawImage(displayX, displayY, *bridgeUnset2Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2185,7 +2282,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::UNDERPASS1:
+                    {
                         painter.drawImage(displayX, displayY, *underpassUnset1Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2210,8 +2309,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
-
+                    }
                     case ElementType::UNDERPASS2:
+                    {
                         painter.drawImage(displayX, displayY, *underpassUnset2Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2236,6 +2336,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                 }
             }
         }
@@ -2260,6 +2361,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::SWITCHTIGHT1:
+                    {
                         painter.drawImage(displayX, displayY, *switchTight1Image);
                         if (currentElement->getPlatform2())
                         {
@@ -2273,7 +2375,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCHTIGHT2:
+                    {
                         painter.drawImage(displayX, displayY, *switchTight2Image);
                         if (currentElement->getPlatform2())
                         {
@@ -2287,7 +2391,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCHTIGHT3:
+                    {
                         painter.drawImage(displayX, displayY, *switchTight3Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2301,7 +2407,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCHTIGHT4:
+                    {
                         painter.drawImage(displayX, displayY, *switchTight4Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2315,7 +2423,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCHTIGHT5:
+                    {
                         painter.drawImage(displayX, displayY, *switchTight5Image);
                         if (currentElement->getPlatform2())
                         {
@@ -2329,7 +2439,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCHTIGHT6:
+                    {
                         painter.drawImage(displayX, displayY, *switchTight6Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2343,7 +2455,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCHTIGHT7:
+                    {
                         painter.drawImage(displayX, displayY, *switchTight7Image);
                         if (currentElement->getPlatform2())
                         {
@@ -2357,8 +2471,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
-
+                    }
                     case ElementType::SWITCHTIGHT8:
+                    {
                         painter.drawImage(displayX, displayY, *switchTight8Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2372,16 +2487,24 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCHSPLIT1:
+                    {
                         painter.drawImage(displayX, displayY, *switchSplit1Image);
                         break;
+                    }
                     case ElementType::SWITCHSPLIT2:
+                    {
                         painter.drawImage(displayX, displayY, *switchSplit2Image);
                         break;
+                    }
                     case ElementType::SWITCHSPLIT3:
+                    {
                         painter.drawImage(displayX, displayY, *switchSplit3Image);
                         break;
+                    }
                     case ElementType::SWITCH1:
+                    {
                         painter.drawImage(displayX, displayY, *switch1Image);
                         if (currentElement->getPlatform2())
                         {
@@ -2395,7 +2518,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCH2:
+                    {
                         painter.drawImage(displayX, displayY, *switch2Image);
                         if (currentElement->getPlatform2())
                         {
@@ -2409,7 +2534,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCH3:
+                    {
                         painter.drawImage(displayX, displayY, *switch3Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2423,7 +2550,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCH4:
+                    {
                         painter.drawImage(displayX, displayY, *switch4Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2437,7 +2566,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCH5:
+                    {
                         painter.drawImage(displayX, displayY, *switch5Image);
                         if (currentElement->getPlatform2())
                         {
@@ -2451,7 +2582,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCH6:
+                    {
                         painter.drawImage(displayX, displayY, *switch6Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2465,7 +2598,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCH7:
+                    {
                         painter.drawImage(displayX, displayY, *switch7Image);
                         if (currentElement->getPlatform2())
                         {
@@ -2479,7 +2614,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCH8:
+                    {
                         painter.drawImage(displayX, displayY, *switch8Image);
                         if (currentElement->getPlatform1())
                         {
@@ -2493,45 +2630,72 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                         }
                         break;
+                    }
                     case ElementType::SWITCHSPLIT4:
+                    {
                         painter.drawImage(displayX, displayY, *switchSplit4Image);
                         break;
+                    }
                     case ElementType::SWITCHSPLIT5:
+                    {
                         painter.drawImage(displayX, displayY, *switchSplit5Image);
                         break;
+                    }
                     case ElementType::SWITCHSPLIT6:
+                    {
                         painter.drawImage(displayX, displayY, *switchSplit6Image);
                         break;
+                    }
                     case ElementType::SWITCH9:
+                    {
                         painter.drawImage(displayX, displayY, *switch9Image);
                         break;
+                    }
                     case ElementType::SWITCH10:
+                    {
                         painter.drawImage(displayX, displayY, *switch10Image);
                         break;
+                    }
                     case ElementType::SWITCH11:
+                    {
                         painter.drawImage(displayX, displayY, *switch11Image);
                         break;
+                    }
                     case ElementType::SWITCH12:
+                    {
                         painter.drawImage(displayX, displayY, *switch12Image);
                         break;
+                    }
                     case ElementType::SWITCH13:
+                    {
                         painter.drawImage(displayX, displayY, *switch13Image);
                         break;
+                    }
                     case ElementType::SWITCH14:
+                    {
                         painter.drawImage(displayX, displayY, *switch14Image);
                         break;
+                    }
                     case ElementType::SWITCH15:
+                    {
                         painter.drawImage(displayX, displayY, *switch15Image);
                         break;
+                    }
                     case ElementType::SWITCH16:
+                    {
                         painter.drawImage(displayX, displayY, *switch16Image);
                         break;
+                    }
                     case ElementType::SWITCHSPLIT7:
+                    {
                         painter.drawImage(displayX, displayY, *switchSplit7Image);
                         break;
+                    }
                     case ElementType::SWITCHSPLIT8:
+                    {
                         painter.drawImage(displayX, displayY, *switchSplit8Image);
                         break;
+                    }
                 }
             }
         }
@@ -2556,23 +2720,35 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                    case ElementType::CROSSOVER1:
+                    {
                        painter.drawImage(displayX, displayY, *crossover1Image);
                        break;
+                    }
                    case ElementType::CROSSOVER2:
+                    {
                        painter.drawImage(displayX, displayY, *crossover2Image);
                        break;
+                    }
                    case ElementType::CROSSOVER3:
+                    {
                        painter.drawImage(displayX, displayY, *crossover3Image);
                        break;
+                    }
                    case ElementType::CROSSOVER4:
+                    {
                        painter.drawImage(displayX, displayY, *crossover4Image);
                        break;
+                    }
                    case ElementType::CROSSOVER5:
+                    {
                        painter.drawImage(displayX, displayY, *crossover5Image);
                        break;
+                    }
                    case ElementType::CROSSOVER6:
+                    {
                        painter.drawImage(displayX, displayY, *crossover6Image);
                        break;
+                    }
                 }
             }
         }
@@ -2597,41 +2773,65 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::FLYOVER1:
+                    {
                         painter.drawImage(displayX, displayY, *flyover1Image);
                         break;
+                    }
                     case ElementType::FLYOVER2:
+                    {
                         painter.drawImage(displayX, displayY, *flyover2Image);
                         break;
+                    }
                     case ElementType::FLYOVER3:
+                    {
                         painter.drawImage(displayX, displayY, *flyover3Image);
                         break;
+                    }
                     case ElementType::FLYOVER4:
+                    {
                         painter.drawImage(displayX, displayY, *flyover4Image);
                         break;
+                    }
                     case ElementType::FLYOVER5:
+                    {
                         painter.drawImage(displayX, displayY, *flyover5Image);
                         break;
+                    }
                     case ElementType::FLYOVER6:
+                    {
                         painter.drawImage(displayX, displayY, *flyover6Image);
                         break;
+                    }
                     case ElementType::FLYOVER7:
+                    {
                         painter.drawImage(displayX, displayY, *flyover7Image);
                         break;
+                    }
                     case ElementType::FLYOVER8:
+                    {
                         painter.drawImage(displayX, displayY, *flyover8Image);
                         break;
+                    }
                     case ElementType::FLYOVER9:
+                    {
                         painter.drawImage(displayX, displayY, *flyover9Image);
                         break;
+                    }
                     case ElementType::FLYOVER10:
+                    {
                         painter.drawImage(displayX, displayY, *flyover10Image);
                         break;
+                    }
                     case ElementType::FLYOVER11:
+                    {
                         painter.drawImage(displayX, displayY, *flyover11Image);
                         break;
+                    }
                     case ElementType::FLYOVER12:
+                    {
                         painter.drawImage(displayX, displayY, *flyover12Image);
                         break;
+                    }
                 }
             }
         }
@@ -2712,89 +2912,145 @@ void Canvas::paintEvent(QPaintEvent* event)
                 switch (currentElement->getElementType())
                 {
                     case ElementType::PARAPET1:
+                    {
                         painter.drawImage(displayX, displayY, *parapet1Image);
                         break;
+                    }
                     case ElementType::PARAPET2:
+                    {
                         painter.drawImage(displayX, displayY, *parapet2Image);
                         break;
+                    }
                     case ElementType::PARAPET3:
+                    {
                         painter.drawImage(displayX, displayY, *parapet3Image);
                         break;
+                    }
                     case ElementType::PARAPET4:
+                    {
                         painter.drawImage(displayX, displayY, *parapet4Image);
                         break;
+                    }
                     case ElementType::PARAPET5:
+                    {
                         painter.drawImage(displayX, displayY, *parapet5Image);
                         break;
+                    }
                     case ElementType::PARAPET6:
+                    {
                         painter.drawImage(displayX, displayY, *parapet6Image);
                         break;
+                    }
                     case ElementType::PARAPET7:
+                    {
                         painter.drawImage(displayX, displayY, *parapet7Image);
                         break;
+                    }
                     case ElementType::PARAPET8:
+                    {
                         painter.drawImage(displayX, displayY, *parapet8Image);
                         break;
+                    }
                     case ElementType::PARAPET9:
+                    {
                         painter.drawImage(displayX, displayY, *parapet9Image);
                         break;
+                    }
                     case ElementType::PARAPET10:
+                    {
                         painter.drawImage(displayX, displayY, *parapet10Image);
                         break;
+                    }
                     case ElementType::PARAPET11:
+                    {
                         painter.drawImage(displayX, displayY, *parapet11Image);
                         break;
+                    }
                     case ElementType::PARAPET12:
+                    {
                         painter.drawImage(displayX, displayY, *parapet12Image);
                         break;
+                    }
                     case ElementType::PARAPET13:
+                    {
                         painter.drawImage(displayX, displayY, *parapet13Image);
                         break;
+                    }
                     case ElementType::PARAPET14:
+                    {
                         painter.drawImage(displayX, displayY, *parapet14Image);
                         break;
+                    }
                     case ElementType::PARAPET15:
+                    {
                         painter.drawImage(displayX, displayY, *parapet15Image);
                         break;
+                    }
                     case ElementType::PARAPET16:
+                    {
                         painter.drawImage(displayX, displayY, *parapet16Image);
                         break;
+                    }
                     case ElementType::PARAPET17:
+                    {
                         painter.drawImage(displayX, displayY, *parapet17Image);
                         break;
+                    }
                     case ElementType::PARAPET18:
+                    {
                         painter.drawImage(displayX, displayY, *parapet18Image);
                         break;
+                    }
                     case ElementType::PARAPET19:
+                    {
                         painter.drawImage(displayX, displayY, *parapet19Image);
                         break;
+                    }
                     case ElementType::PARAPET20:
+                    {
                         painter.drawImage(displayX, displayY, *parapet20Image);
                         break;
+                    }
                     case ElementType::PARAPET21:
+                    {
                         painter.drawImage(displayX, displayY, *parapet21Image);
                         break;
+                    }
                     case ElementType::PARAPET22:
+                    {
                         painter.drawImage(displayX, displayY, *parapet22Image);
                         break;
+                    }
                     case ElementType::PARAPET23:
+                    {
                         painter.drawImage(displayX, displayY, *parapet23Image);
                         break;
+                    }
                     case ElementType::PARAPET24:
+                    {
                         painter.drawImage(displayX, displayY, *parapet24Image);
                         break;
+                    }
                     case ElementType::PARAPET25:
+                    {
                         painter.drawImage(displayX, displayY, *parapet25Image);
                         break;
+                    }
                     case ElementType::PARAPET26:
+                    {
                         painter.drawImage(displayX, displayY, *parapet26Image);
                         break;
+                    }
                     case ElementType::PARAPET27:
+                    {
                         painter.drawImage(displayX, displayY, *parapet27Image);
                         break;
+                    }
                     case ElementType::PARAPET28:
+                    {
                         painter.drawImage(displayX, displayY, *parapet28Image);
                         break;
+                    }
                 }
             }
         }
@@ -2870,8 +3126,6 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
         int extraY = exactY % 16;
         int roundedX = exactX - extraX;
         int roundedY = exactY - extraY;
-        int maxX = canvasSizeX;
-        int maxY = canvasSizeY;
         int finalX = ((roundedX + (offsetX*canvasSizeX)));
         int finalY;
         if (offsetY==0)
