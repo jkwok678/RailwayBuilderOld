@@ -1481,6 +1481,10 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                 }
             }
+            if (added)
+            {
+                currentElement->setPlatformAny(true);
+            }
         }
     }
 	if (!directTrackList.empty() && added == false)
@@ -1552,6 +1556,10 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                 }
             }
+            if (added)
+            {
+                currentElement->setPlatformAny(true);
+            }
         }
     }
 
@@ -1622,8 +1630,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
 						added = false;
                     }
                 }
-
 			}
+            if (added)
+            {
+                currentElement->setPlatformAny(true);
+            }
 		}
 	}
 	if (!signalTrackList.empty() && added == false)
@@ -1694,6 +1705,10 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                 }
 			}
+            if (added)
+            {
+                currentElement->setPlatformAny(true);
+            }
 		}
 	}
 
@@ -1765,6 +1780,10 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
 				}
 			}
+            if (added)
+            {
+                currentElement->setPlatformAny(true);
+            }
 		}
 	}
 	if (!switchTrackList.empty() && added == false)
@@ -1827,6 +1846,10 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
 				}
 			}
+            if (added)
+            {
+                currentElement->setPlatformAny(true);
+            }
 		}
 	}
 }

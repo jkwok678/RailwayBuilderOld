@@ -18,7 +18,8 @@ protected:
 	int trackLength{ 100 };
 	bool trackLinks[9];
 	//For vertical tracks, platform1 is left, platform2 is right
-	//For Horizontal tracks platform1 is up, platform2 is down
+    //For Horizontal tracks platform1 is up, platform2 is down
+    bool platformAny{ false };
     bool platform1{ false };
     bool platform2{ false };
     bool named{ false };
@@ -33,6 +34,8 @@ public:
     void setTrackSpeed(int value);
     int getTrackLength() const;
     void setTrackLength(int value);
+    bool getPlatformAny() const;
+    void setPlatformAny(bool value);
 	bool getPlatform1() const;
 	void setPlatform1(bool newPlatform);
 	bool getPlatform2() const;
@@ -42,6 +45,7 @@ public:
     void setNamed(bool newNamed);
     std::shared_ptr<Text> getText();
     void setText(std::shared_ptr<Text> &newText);
+
 };
 
 class StraightTrack : public Track

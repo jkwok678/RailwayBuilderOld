@@ -4,6 +4,8 @@
 
 
 
+
+
 Track::Track()
 {
     
@@ -27,6 +29,16 @@ int Track::getTrackLength() const
 void Track::setTrackLength(int value)
 {
     trackLength = value;
+}
+
+bool Track::getPlatformAny() const
+{
+    return platformAny;
+}
+
+void Track::setPlatformAny(bool value)
+{
+    platformAny = value;
 }
 
 bool Track::getPlatform1() const
