@@ -1911,8 +1911,10 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 {
     if (checkElementExists(locationX, locationY))
     {
+        //Get whatever is at that location
         std::shared_ptr<Track> track = getTrackAt(locationX,locationY);
         std::shared_ptr<NamedElement> namedElement = getNamedElementAt(locationX, locationY);
+        //link text to it
         if (track != nullptr)
         {
             if (track->getPlatformAny())
@@ -1931,14 +1933,16 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
             }
         }
     }
-
+    //See if there's a track above it
     if (checkElementExists(locationX, locationY+16))
     {
         std::shared_ptr<Track> trackTempYP16 = getTrackAt(locationX,locationY+16);
         std::shared_ptr<NamedElement> namedElementTempYP16 = getNamedElementAt(locationX,locationY+16);
+        //Try link the track to text if it has a platform.
+        //Try link if the the element isn't named yet.
         if (trackTempYP16 != nullptr)
         {
-            if (!trackTempYP16->getPlatformAny())
+            if (trackTempYP16->getPlatformAny())
             {
                 linkLocalText(locationX, locationY+16, linkedText);
             }
@@ -1958,7 +1962,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 
         if (trackTempYM16 != nullptr)
         {
-            if (!trackTempYM16->getPlatformAny())
+            if (trackTempYM16->getPlatformAny())
             {
                 linkLocalText(locationX, locationY-16, linkedText);
             }
@@ -1978,7 +1982,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
 
         if (trackTempXP16 != nullptr)
         {
-            if (!trackTempXP16->getPlatformAny())
+            if (trackTempXP16->getPlatformAny())
             {
                 linkLocalText(locationX+16, locationY, linkedText);
             }
@@ -1997,7 +2001,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
         std::shared_ptr<NamedElement> namedElementTempXM16 = getNamedElementAt(locationX-16,locationY);
         if (trackTempXM16 != nullptr)
         {
-            if (!trackTempXM16->getPlatformAny())
+            if (trackTempXM16->getPlatformAny())
             {
                 linkLocalText(locationX-16, locationY, linkedText);
             }
