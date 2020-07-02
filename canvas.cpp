@@ -13,7 +13,7 @@ Canvas::Canvas()
     setMouseTracking(true);
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    timer->start(1000);
+    timer->start(100);
 
     //ElementBlock1 images
     straightHImage = new QImage(":/graphics/graphics/straightH.png");
@@ -1257,9 +1257,11 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 std::shared_ptr<StraightTrack> straightTrack = drawnLayout->getStraightTrackAt(finalX,finalY);
                 std::shared_ptr<DirectTrack> directTrack = drawnLayout->getDirectTrackAt(finalX,finalY);
                 std::shared_ptr<BufferTrack> bufferTrack = drawnLayout->getBufferTrackAt(finalX,finalY);
-                std::shared_ptr<SignalTrack> signalTrack = drawnLayout->getSignalTrack(finalX,finalY);
+                std::shared_ptr<SignalTrack> signalTrack = drawnLayout->getSignalTrackAt(finalX,finalY);
                 std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack = drawnLayout->getBridgeUnderpassTrack(finalX,finalY);
                 std::shared_ptr<SwitchTrack> switchTrack = drawnLayout->getSwitchTrackAt(finalX,finalY);
+                std::shared_ptr<NamedLocation> namedLocation = drawnLayout->getNamedLocationAt(finalX, finalY);
+                std::shared_ptr<Concourse> concourse = drawnLayout->getConcourseAt(finalX, finalY);
                 if (straightTrack != nullptr)
                 {
                     if (straightTrack->getPlatform1() || straightTrack->getPlatform2())
@@ -1273,9 +1275,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         {
                             std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
                             drawnLayout->addText(text);
-                            straightTrack->setText(text);
-                            straightTrack->setNamed(true);
                             exist = true;
+                            drawnLayout->linkLocalText(finalX, finalY, text);
                         }
                     }
                 }
@@ -1292,9 +1293,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         {
                             std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
                             drawnLayout->addText(text);
-                            directTrack->setText(text);
-                            directTrack->setNamed(true);
                             exist = true;
+                            drawnLayout->linkLocalText(finalX, finalY, text);
                         }
                     }
                 }
@@ -1311,9 +1311,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         {
                             std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
                             drawnLayout->addText(text);
-                            bufferTrack->setText(text);
-                            bufferTrack->setNamed(true);
                             exist = true;
+                            drawnLayout->linkLocalText(finalX, finalY, text);
                         }
                     }
                 }
@@ -1330,9 +1329,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         {
                             std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
                             drawnLayout->addText(text);
-                            signalTrack->setText(text);
-                            signalTrack->setNamed(true);
                             exist = true;
+                            drawnLayout->linkLocalText(finalX, finalY, text);
                         }
                     }
                 }
@@ -1349,9 +1347,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         {
                             std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
                             drawnLayout->addText(text);
-                            bridgeUnderpassTrack->setText(text);
-                            bridgeUnderpassTrack->setNamed(true);
                             exist = true;
+                            drawnLayout->linkLocalText(finalX, finalY, text);
                         }
                     }
                 }
@@ -1368,12 +1365,48 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         {
                             std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
                             drawnLayout->addText(text);
-                            switchTrack->setText(text);
-                            switchTrack->setNamed(true);
                             exist = true;
+                            drawnLayout->linkLocalText(finalX, finalY, text);
                         }
                     }
                 }
+                if (namedLocation != nullptr && exist == false)
+                {
+                    if (!namedLocation->getNamed())
+                    {
+                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                            drawnLayout->addText(text);
+                            exist = true;
+                            drawnLayout->linkLocalText(finalX, finalY, text);
+                        }
+                    }
+                }
+                if (concourse != nullptr && exist == false)
+                {
+                    if (!concourse->getNamed())
+                    {
+                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                            drawnLayout->addText(text);
+                            exist = true;
+                            drawnLayout->linkLocalText(finalX, finalY, text);
+                        }
+                    }
+                }
+
             }
         };
     }
