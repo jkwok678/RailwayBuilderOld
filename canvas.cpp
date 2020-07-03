@@ -1264,7 +1264,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 std::shared_ptr<Concourse> concourse = drawnLayout->getConcourseAt(finalX, finalY);
                 if (straightTrack != nullptr)
                 {
-                    if (straightTrack->getPlatform1() || straightTrack->getPlatform2())
+                    if (straightTrack->getPlatformAny())
                     {
                         QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
                         if (readableBit.startsWith(" "))
@@ -1282,7 +1282,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }
                 if (directTrack != nullptr && exist == false)
                 {
-                    if (directTrack->getPlatform1() || directTrack->getPlatform2())
+                    if (directTrack->getPlatformAny())
                     {
                         QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
                         if (readableBit.startsWith(" "))
@@ -1300,7 +1300,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }
                 if (bufferTrack != nullptr && exist == false)
                 {
-                    if (bufferTrack->getPlatform1() || bufferTrack->getPlatform2())
+                    if (bufferTrack->getPlatformAny())
                     {
                         QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
                         if (readableBit.startsWith(" "))
@@ -1318,7 +1318,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }
                 if (signalTrack != nullptr && exist == false)
                 {
-                    if (signalTrack->getPlatform1() || signalTrack->getPlatform2())
+                    if (signalTrack->getPlatformAny())
                     {
                         QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
                         if (readableBit.startsWith(" "))
@@ -1336,7 +1336,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }
                 if (bridgeUnderpassTrack != nullptr && exist == false)
                 {
-                    if (bridgeUnderpassTrack->getPlatform1() || bridgeUnderpassTrack->getPlatform2())
+                    if (bridgeUnderpassTrack->getPlatformAny())
                     {
                         QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
                         if (readableBit.startsWith(" "))
@@ -1354,7 +1354,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }
                 if (switchTrack != nullptr && exist == false)
                 {
-                    if (switchTrack->getPlatform1() || switchTrack->getPlatform2())
+                    if (switchTrack->getPlatformAny())
                     {
                         QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
                         if (readableBit.startsWith(" "))
