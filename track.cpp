@@ -61,26 +61,6 @@ void Track::setPlatform2(bool newPlatform)
     platform2 = newPlatform;
 }
 
-bool Track::getNamed() const
-{
-    return named;
-}
-
-void Track::setNamed(bool newNamed)
-{
-    named = newNamed;
-}
-
-std::shared_ptr<Text> Track::getText()
-{
-    return text;
-}
-
-void Track::setText(std::shared_ptr<Text> &newText)
-{
-    text = newText;
-}
-
 StraightTrack::StraightTrack()
 {
     

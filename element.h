@@ -84,7 +84,7 @@ private:
 
 
 protected:
-    bool named;
+    bool named { false };
     std::shared_ptr<Text> text;
 
 

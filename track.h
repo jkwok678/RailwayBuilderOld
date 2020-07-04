@@ -8,7 +8,7 @@ enum class Platform {
 	LEFT, UP, RIGHT, DOWN, LEFTUP, RIGHTUP, LEFTDOWN, RIGHTDOWN
 };
 
-class Track : public Element
+class Track : public NamedElement
 {
 private:
 
@@ -22,9 +22,6 @@ protected:
     bool platformAny{ false };
     bool platform1{ false };
     bool platform2{ false };
-    bool named{ false };
-    std::shared_ptr<Text> text;
-
 
 
 
@@ -40,11 +37,6 @@ public:
 	void setPlatform1(bool newPlatform);
 	bool getPlatform2() const;
 	void setPlatform2(bool newPlatform);
-
-    bool getNamed() const;
-    void setNamed(bool newNamed);
-    std::shared_ptr<Text> getText();
-    void setText(std::shared_ptr<Text> &newText);
 
 };
 
