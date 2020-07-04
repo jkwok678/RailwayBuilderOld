@@ -1254,143 +1254,11 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 bool exist = false;
                 bool ok = false;
-                std::shared_ptr<StraightTrack> straightTrack = drawnLayout->getStraightTrackAt(finalX,finalY);
-                std::shared_ptr<DirectTrack> directTrack = drawnLayout->getDirectTrackAt(finalX,finalY);
-                std::shared_ptr<BufferTrack> bufferTrack = drawnLayout->getBufferTrackAt(finalX,finalY);
-                std::shared_ptr<SignalTrack> signalTrack = drawnLayout->getSignalTrackAt(finalX,finalY);
-                std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack = drawnLayout->getBridgeUnderpassTrack(finalX,finalY);
-                std::shared_ptr<SwitchTrack> switchTrack = drawnLayout->getSwitchTrackAt(finalX,finalY);
-                std::shared_ptr<NamedLocation> namedLocation = drawnLayout->getNamedLocationAt(finalX, finalY);
-                std::shared_ptr<Concourse> concourse = drawnLayout->getConcourseAt(finalX, finalY);
-                if (straightTrack != nullptr)
+                std::shared_ptr<Track> track = drawnLayout->getTrackAt(finalX,finalY);
+                std::shared_ptr<NamedElement> namedElement = drawnLayout->getNamedElementAt(finalX,finalY);
+                if (track != nullptr)
                 {
-                    if (straightTrack->getPlatformAny())
-                    {
-                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
-                        if (readableBit.startsWith(" "))
-                        {
-                            readableBit.clear();
-                        }
-                        if(!readableBit.isEmpty())
-                        {
-                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
-                            drawnLayout->addText(text);
-                            exist = true;
-                            drawnLayout->linkLocalText(finalX, finalY, text);
-                        }
-                    }
-                }
-                if (directTrack != nullptr && exist == false)
-                {
-                    if (directTrack->getPlatformAny())
-                    {
-                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
-                        if (readableBit.startsWith(" "))
-                        {
-                            readableBit.clear();
-                        }
-                        if(!readableBit.isEmpty())
-                        {
-                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
-                            drawnLayout->addText(text);
-                            exist = true;
-                            drawnLayout->linkLocalText(finalX, finalY, text);
-                        }
-                    }
-                }
-                if (bufferTrack != nullptr && exist == false)
-                {
-                    if (bufferTrack->getPlatformAny())
-                    {
-                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
-                        if (readableBit.startsWith(" "))
-                        {
-                            readableBit.clear();
-                        }
-                        if(!readableBit.isEmpty())
-                        {
-                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
-                            drawnLayout->addText(text);
-                            exist = true;
-                            drawnLayout->linkLocalText(finalX, finalY, text);
-                        }
-                    }
-                }
-                if (signalTrack != nullptr && exist == false)
-                {
-                    if (signalTrack->getPlatformAny())
-                    {
-                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
-                        if (readableBit.startsWith(" "))
-                        {
-                            readableBit.clear();
-                        }
-                        if(!readableBit.isEmpty())
-                        {
-                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
-                            drawnLayout->addText(text);
-                            exist = true;
-                            drawnLayout->linkLocalText(finalX, finalY, text);
-                        }
-                    }
-                }
-                if (bridgeUnderpassTrack != nullptr && exist == false)
-                {
-                    if (bridgeUnderpassTrack->getPlatformAny())
-                    {
-                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
-                        if (readableBit.startsWith(" "))
-                        {
-                            readableBit.clear();
-                        }
-                        if(!readableBit.isEmpty())
-                        {
-                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
-                            drawnLayout->addText(text);
-                            exist = true;
-                            drawnLayout->linkLocalText(finalX, finalY, text);
-                        }
-                    }
-                }
-                if (switchTrack != nullptr && exist == false)
-                {
-                    if (switchTrack->getPlatformAny())
-                    {
-                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
-                        if (readableBit.startsWith(" "))
-                        {
-                            readableBit.clear();
-                        }
-                        if(!readableBit.isEmpty())
-                        {
-                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
-                            drawnLayout->addText(text);
-                            exist = true;
-                            drawnLayout->linkLocalText(finalX, finalY, text);
-                        }
-                    }
-                }
-                if (namedLocation != nullptr && exist == false)
-                {
-                    if (!namedLocation->getNamed())
-                    {
-                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
-                        if (readableBit.startsWith(" "))
-                        {
-                            readableBit.clear();
-                        }
-                        if(!readableBit.isEmpty())
-                        {
-                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
-                            drawnLayout->addText(text);
-                            exist = true;
-                            drawnLayout->linkLocalText(finalX, finalY, text);
-                        }
-                    }
-                }
-                if (concourse != nullptr && exist == false)
-                {
-                    if (!concourse->getNamed())
+                    if (track->getPlatformAny())
                     {
                         QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
                         if (readableBit.startsWith(" "))
@@ -1407,6 +1275,24 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                     }
                 }
 
+                if (namedElement != nullptr && exist == false)
+                {
+                    if (!namedElement->getNamed())
+                    {
+                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                            drawnLayout->addText(text);
+                            exist = true;
+                            drawnLayout->linkLocalText(finalX, finalY, text);
+                        }
+                    }
+                }      
             }
         };
     }
