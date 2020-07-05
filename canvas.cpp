@@ -1256,11 +1256,50 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 bool ok = false;
                 std::shared_ptr<Track> track = drawnLayout->getTrackAt(finalX,finalY);
                 std::shared_ptr<NamedElement> namedElement = drawnLayout->getNamedElementAt(finalX,finalY);
+                QString readableBit;
                 if (track != nullptr)
                 {
                     if (track->getPlatformAny())
                     {
-                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (track->getNamed())
+                        {
+                            readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal
+                            , track->getText()->getReadableText(), &ok);
+                            if (readableBit.startsWith(" "))
+                            {
+                                readableBit.clear();
+                            }
+                            if(!readableBit.isEmpty())
+                            {
+                                std::shared_ptr<Text> text = track->getText();
+                                text->setReadableText(readableBit);
+                            }
+                        }
+                        else
+                        {
+                            readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                            if (readableBit.startsWith(" "))
+                            {
+                                readableBit.clear();
+                            }
+                            if(!readableBit.isEmpty())
+                            {
+                                std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                                drawnLayout->addText(text);
+                                exist = true;
+                                drawnLayout->linkLocalText(finalX, finalY, text);
+                            }
+                        }
+
+
+                    }
+                }
+
+                if (namedElement != nullptr && exist == false)
+                {
+                    if (!namedElement->getNamed())
+                    {
+                        readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
                         if (readableBit.startsWith(" "))
                         {
                             readableBit.clear();
@@ -1273,23 +1312,18 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                             drawnLayout->linkLocalText(finalX, finalY, text);
                         }
                     }
-                }
-
-                if (namedElement != nullptr && exist == false)
-                {
-                    if (!namedElement->getNamed())
+                    else
                     {
-                        QString readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal
+                        , namedElement->getText()->getReadableText(), &ok);
                         if (readableBit.startsWith(" "))
                         {
                             readableBit.clear();
                         }
                         if(!readableBit.isEmpty())
                         {
-                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
-                            drawnLayout->addText(text);
-                            exist = true;
-                            drawnLayout->linkLocalText(finalX, finalY, text);
+                            std::shared_ptr<Text> text = namedElement->getText();
+                            text->setReadableText(readableBit);
                         }
                     }
                 }      
