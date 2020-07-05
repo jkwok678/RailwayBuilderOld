@@ -1944,7 +1944,10 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
         {
             if (trackTempYP16->getPlatformAny())
             {
+                if (!trackTempYP16->getNamed())
+                {
                 linkLocalText(locationX, locationY+16, linkedText);
+                }
             }
         }
         else if (namedElementTempYP16 != nullptr)
@@ -1964,7 +1967,10 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
         {
             if (trackTempYM16->getPlatformAny())
             {
+                if (!trackTempYM16->getNamed())
+                {
                 linkLocalText(locationX, locationY-16, linkedText);
+                }
             }
         }
         else if (namedElementTempYM16 != nullptr)
@@ -1984,7 +1990,10 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
         {
             if (trackTempXP16->getPlatformAny())
             {
+                if (!trackTempXP16->getNamed())
+                {
                 linkLocalText(locationX+16, locationY, linkedText);
+                }
             }
         }
         else if (namedElementTempXP16 != nullptr)
@@ -2003,7 +2012,10 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
         {
             if (trackTempXM16->getPlatformAny())
             {
+                if (!trackTempXM16->getNamed())
+                {
                 linkLocalText(locationX-16, locationY, linkedText);
+                }
             }
         }
         else if (namedElementTempXM16 != nullptr)
