@@ -1514,10 +1514,10 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                         }
                     }
                 }
-            }
-            if (added)
-            {
-                currentElement->setPlatformAny(true);
+                if (added)
+                {
+                    currentElement->setPlatformAny(true);
+                }
             }
         }
     }
@@ -1921,7 +1921,6 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
             {
                 track->setText(linkedText);
                 track->setNamed(true);
-
             }
         }
         if (namedElement != nullptr)
