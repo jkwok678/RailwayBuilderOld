@@ -87,7 +87,6 @@ void Text::setReadableText(const QString& newReadableText)
 
 NamedElement::NamedElement()
 {
-
 }
 
 bool NamedElement::getNamed() const

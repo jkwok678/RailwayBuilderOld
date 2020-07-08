@@ -1913,7 +1913,8 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
     {
         //Get whatever is at that location
         std::shared_ptr<Track> track = getTrackAt(locationX,locationY);
-        std::shared_ptr<NamedElement> namedElement = getNamedElementAt(locationX, locationY);
+        std::shared_ptr<Concourse> concourse = getConcourseAt(locationX, locationY);
+        std::shared_ptr<NamedLocation> namedLocation = getNamedLocationAt(locationX, locationY);
         //link text to it
         if (track != nullptr)
         {
@@ -1923,107 +1924,449 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
                 track->setNamed(true);
             }
         }
-        if (namedElement != nullptr)
+        if (concourse != nullptr)
         {
-            if (!namedElement->getNamed())
+            if (!concourse->getNamed())
             {
-                namedElement->setText(linkedText);
-                namedElement->setNamed(true);
+                concourse->setText(linkedText);
+                concourse->setNamed(true);
             }
         }
-    }
-    //See if there's a track above it
-    if (checkElementExists(locationX, locationY+16))
-    {
-        std::shared_ptr<Track> trackTempYP16 = getTrackAt(locationX,locationY+16);
-        std::shared_ptr<NamedElement> namedElementTempYP16 = getNamedElementAt(locationX,locationY+16);
-        //Try link the track to text if it has a platform.
-        //Try link if the the element isn't named yet.
-        if (trackTempYP16 != nullptr)
+        if (namedLocation != nullptr)
         {
-            if (trackTempYP16->getPlatformAny())
+            if (!namedLocation->getNamed())
             {
-                if (!trackTempYP16->getNamed())
+                namedLocation->setText(linkedText);
+                namedLocation->setNamed(true);
+            }
+        }
+        if (track != nullptr || concourse != nullptr)
+        {
+            //See if there's a track above it
+            if (checkElementExists(locationX, locationY+16))
+            {
+                std::shared_ptr<Track> trackTempYP16 = getTrackAt(locationX,locationY+16);
+                std::shared_ptr<Concourse> concourseTempYP16 = getConcourseAt(locationX,locationY+16);
+                //Try link the track to text if it has a platform.
+                //Try link if the the element isn't named yet.
+                if (trackTempYP16 != nullptr)
                 {
-                linkLocalText(locationX, locationY+16, linkedText);
+                    if (trackTempYP16->getPlatformAny())
+                    {
+                        if (!trackTempYP16->getNamed())
+                        {
+                        linkLocalText(locationX, locationY+16, linkedText);
+                        }
+                    }
+                }
+                else if (concourseTempYP16 != nullptr)
+                {
+                    if (!concourseTempYP16->getNamed())
+                    {
+                        linkLocalText(locationX, locationY+16, linkedText);
+                    }
                 }
             }
-        }
-        else if (namedElementTempYP16 != nullptr)
-        {
-            if (!namedElementTempYP16->getNamed())
+            if (checkElementExists(locationX, locationY-16))
             {
-                linkLocalText(locationX, locationY+16, linkedText);
-            }
-        }
-    }
-    if (checkElementExists(locationX, locationY-16))
-    {
-        std::shared_ptr<Track> trackTempYM16 = getTrackAt(locationX,locationY-16);
-        std::shared_ptr<NamedElement> namedElementTempYM16 = getNamedElementAt(locationX,locationY-16);
+                std::shared_ptr<Track> trackTempYM16 = getTrackAt(locationX,locationY-16);
+                std::shared_ptr<Concourse> concourseTempYM16 = getConcourseAt(locationX,locationY-16);
 
-        if (trackTempYM16 != nullptr)
-        {
-            if (trackTempYM16->getPlatformAny())
-            {
-                if (!trackTempYM16->getNamed())
+                if (trackTempYM16 != nullptr)
                 {
-                linkLocalText(locationX, locationY-16, linkedText);
+                    if (trackTempYM16->getPlatformAny())
+                    {
+                        if (!trackTempYM16->getNamed())
+                        {
+                        linkLocalText(locationX, locationY-16, linkedText);
+                        }
+                    }
+                }
+                else if (concourseTempYM16 != nullptr)
+                {
+                    if (!concourseTempYM16->getNamed())
+                    {
+                        linkLocalText(locationX, locationY-16, linkedText);
+                    }
                 }
             }
-        }
-        else if (namedElementTempYM16 != nullptr)
-        {
-            if (!namedElementTempYM16->getNamed())
+            if (checkElementExists(locationX+16, locationY))
             {
-                linkLocalText(locationX, locationY-16, linkedText);
-            }
-        }
-    }
-    if (checkElementExists(locationX+16, locationY))
-    {
-        std::shared_ptr<Track> trackTempXP16 = getTrackAt(locationX+16,locationY);
-        std::shared_ptr<NamedElement> namedElementTempXP16 = getNamedElementAt(locationX+16,locationY);
+                std::shared_ptr<Track> trackTempXP16 = getTrackAt(locationX+16,locationY);
+                std::shared_ptr<Concourse> concourseTempXP16 = getConcourseAt(locationX+16,locationY);
 
-        if (trackTempXP16 != nullptr)
-        {
-            if (trackTempXP16->getPlatformAny())
-            {
-                if (!trackTempXP16->getNamed())
+                if (trackTempXP16 != nullptr)
                 {
-                linkLocalText(locationX+16, locationY, linkedText);
+                    if (trackTempXP16->getPlatformAny())
+                    {
+                        if (!trackTempXP16->getNamed())
+                        {
+                        linkLocalText(locationX+16, locationY, linkedText);
+                        }
+                    }
+                }
+                else if (concourseTempXP16 != nullptr)
+                {
+                    if (!concourseTempXP16->getNamed())
+                    {
+                        linkLocalText(locationX+16, locationY, linkedText);
+                    }
+                }
+            }
+            if (checkElementExists(locationX-16, locationY))
+            {
+                std::shared_ptr<Track> trackTempXM16 = getTrackAt(locationX-16,locationY);
+                std::shared_ptr<Concourse> concourseTempXM16 = getConcourseAt(locationX-16,locationY);
+                if (trackTempXM16 != nullptr)
+                {
+                    if (trackTempXM16->getPlatformAny())
+                    {
+                        if (!trackTempXM16->getNamed())
+                        {
+                        linkLocalText(locationX-16, locationY, linkedText);
+                        }
+                    }
+                }
+                else if (concourseTempXM16 != nullptr)
+                {
+                    if (!concourseTempXM16->getNamed())
+                    {
+                        linkLocalText(locationX-16, locationY, linkedText);
+                    }
                 }
             }
         }
-        else if (namedElementTempXP16 != nullptr)
+        else
         {
-            if (!namedElementTempXP16->getNamed())
+            if (checkElementExists(locationX, locationY+16))
             {
-                linkLocalText(locationX+16, locationY, linkedText);
-            }
-        }
-    }
-    if (checkElementExists(locationX-16, locationY))
-    {
-        std::shared_ptr<Track> trackTempXM16 = getTrackAt(locationX-16,locationY);
-        std::shared_ptr<NamedElement> namedElementTempXM16 = getNamedElementAt(locationX-16,locationY);
-        if (trackTempXM16 != nullptr)
-        {
-            if (trackTempXM16->getPlatformAny())
-            {
-                if (!trackTempXM16->getNamed())
+                std::shared_ptr<NamedLocation> namedLocationTempYP16 = getNamedLocationAt(locationX,locationY+16);
+                if (namedLocationTempYP16 != nullptr)
                 {
-                linkLocalText(locationX-16, locationY, linkedText);
+                    if (!namedLocationTempYP16->getNamed())
+                    {
+                        linkLocalText(locationX, locationY+16, linkedText);
+                    }
                 }
             }
-        }
-        else if (namedElementTempXM16 != nullptr)
-        {
-            if (!namedElementTempXM16->getNamed())
+            if (checkElementExists(locationX, locationY-16))
             {
-                linkLocalText(locationX-16, locationY, linkedText);
+                std::shared_ptr<NamedLocation> namedLocationYM16 = getNamedLocationAt(locationX,locationY-16);
+
+                if (namedLocationYM16 != nullptr)
+                {
+                    if (!namedLocationYM16->getNamed())
+                    {
+                        linkLocalText(locationX, locationY-16, linkedText);
+                    }
+                }
+            }
+            if (checkElementExists(locationX+16, locationY))
+            {
+                std::shared_ptr<NamedLocation> namedLocationXP16 = getNamedLocationAt(locationX+16,locationY);
+                if (namedLocationXP16 != nullptr)
+                {
+                    if (!namedLocationXP16->getNamed())
+                    {
+                        linkLocalText(locationX+16, locationY, linkedText);
+                    }
+                }
+            }
+            if (checkElementExists(locationX-16, locationY))
+            {
+                std::shared_ptr<NamedLocation> namedLocationTempXM16 = getNamedLocationAt(locationX-16,locationY);
+                if (namedLocationTempXM16 != nullptr)
+                {
+                    if (!namedLocationTempXM16->getNamed())
+                    {
+                        linkLocalText(locationX-16, locationY, linkedText);
+                    }
+                }
             }
         }
     }
 }
 
+void Map::linkNewBlockToText(int locationX, int locationY)
+{
+    std::shared_ptr<Track> track = getTrackAt(locationX,locationY);
+    std::shared_ptr<Concourse> concourse = getConcourseAt(locationX, locationY);
+    std::shared_ptr<NamedLocation> namedLocation = getNamedLocationAt(locationX, locationY);
+    std::shared_ptr<Text> textToLink = nullptr;
+    bool named = false;
+    if (namedLocation != nullptr)
+    {
+        if (checkElementExists(locationX, locationY+16))
+        {
+            std::shared_ptr<NamedLocation> namedLocationTempYP16 = getNamedLocationAt(locationX,locationY+16);
+            if (namedLocationTempYP16 != nullptr)
+            {
+                if (namedLocationTempYP16->getNamed())
+                {
+                    textToLink = namedLocationTempYP16->getText();
+                }
+            }
+        }
+        else if (checkElementExists(locationX, locationY-16))
+        {
+            std::shared_ptr<NamedLocation> namedLocationTempYM16 = getNamedLocationAt(locationX,locationY-16);
+            if (namedLocationTempYM16 != nullptr)
+            {
+                if (namedLocationTempYM16->getNamed())
+                {
+                    textToLink = namedLocationTempYM16->getText();
+                }
+            }
+        }
+        else if (checkElementExists(locationX+16, locationY))
+        {
+            std::shared_ptr<NamedLocation> namedLocationTempXP16 = getNamedLocationAt(locationX+16,locationY);
+            if (namedLocationTempXP16 != nullptr)
+            {
+                if (namedLocationTempXP16->getNamed())
+                {
+                    textToLink = namedLocationTempXP16->getText();
+                }
+            }
+        }
+        else if (checkElementExists(locationX-16, locationY))
+        {
+            std::shared_ptr<NamedLocation> namedLocationTempXM16 = getNamedLocationAt(locationX-16,locationY);
+            if (namedLocationTempXM16 != nullptr)
+            {
+                if (namedLocationTempXM16->getNamed())
+                {
+                    textToLink = namedLocationTempXM16->getText();
+                }
+            }
+        }
+        if (namedLocation != nullptr && textToLink != nullptr)
+        {
+                namedLocation->setText(textToLink);
+                namedLocation->setNamed(true);
+                //Recursive bit
+                if (checkElementExists(locationX, locationY+16))
+                {
+                    std::shared_ptr<NamedLocation> namedLocationTempYP16 = getNamedLocationAt(locationX,locationY+16);
+                    if (namedLocationTempYP16 != nullptr)
+                    {
+                        if (!namedLocationTempYP16->getNamed())
+                        {
+                            linkLocalText(locationX,locationY+16,textToLink);
+                        }
+                    }
+                }
+                if (checkElementExists(locationX, locationY-16))
+                {
+                    std::shared_ptr<NamedLocation> namedLocationTempYM16 = getNamedLocationAt(locationX,locationY-16);
+                    if (namedLocationTempYM16 != nullptr)
+                    {
+                        if (!namedLocationTempYM16->getNamed())
+                        {
+                            linkLocalText(locationX,locationY-16,textToLink);
+                        }
+                    }
+                }
+                if (checkElementExists(locationX+16, locationY))
+                {
+                    std::shared_ptr<NamedLocation> namedLocationTempXP16 = getNamedLocationAt(locationX+16,locationY);
+                    if (namedLocationTempXP16 != nullptr)
+                    {
+                        if (!namedLocationTempXP16->getNamed())
+                        {
+                            linkLocalText(locationX+16,locationY,textToLink);
+                        }
+                    }
+                }
+                if (checkElementExists(locationX-16, locationY))
+                {
+                    std::shared_ptr<NamedLocation> namedLocationTempXM16 = getNamedLocationAt(locationX-16,locationY);
+                    if (namedLocationTempXM16 != nullptr)
+                    {
+                        if (!namedLocationTempXM16->getNamed())
+                        {
+                            linkLocalText(locationX-16,locationY,textToLink);
+                        }
+                    }
+                }
+        }
+
+
+    }
+    else
+    {
+        if (checkElementExists(locationX, locationY+16))
+        {
+            std::shared_ptr<Track> trackTempYP16 = getTrackAt(locationX,locationY+16);
+            std::shared_ptr<Concourse> concourseTempYP16 = getConcourseAt(locationX,locationY+16);
+            if (trackTempYP16 != nullptr)
+            {
+                if (trackTempYP16->getNamed())
+                {
+                    textToLink = trackTempYP16->getText();
+                }
+            }
+            else
+            {
+                if (concourseTempYP16->getNamed())
+                {
+                    textToLink = concourseTempYP16->getText();
+                }
+
+            }
+        }
+        else if (checkElementExists(locationX, locationY-16))
+        {
+            std::shared_ptr<Track> trackTempYM16 = getTrackAt(locationX,locationY-16);
+            std::shared_ptr<Concourse> concourseTempYM16 = getConcourseAt(locationX,locationY-16);
+            if (trackTempYM16 != nullptr)
+            {
+                if (trackTempYM16->getNamed())
+                {
+                    textToLink = trackTempYM16->getText();
+                }
+            }
+            else
+            {
+                if (concourseTempYM16->getNamed())
+                {
+                    textToLink = concourseTempYM16->getText();
+                }
+            }
+
+        }
+        else if (checkElementExists(locationX+16, locationY))
+        {
+            std::shared_ptr<Track> trackTempXP16 = getTrackAt(locationX+16,locationY);
+            std::shared_ptr<Concourse> concourseTempXP16 = getConcourseAt(locationX+16,locationY);
+            if (trackTempXP16 != nullptr)
+            {
+                if (trackTempXP16->getNamed())
+                {
+                    textToLink = trackTempXP16->getText();
+                }
+            }
+            else
+            {
+                if (concourseTempXP16->getNamed())
+                {
+                    textToLink = concourseTempXP16->getText();
+                }
+            }
+
+        }
+        else if (checkElementExists(locationX-16, locationY))
+        {
+            std::shared_ptr<Track> trackTempXM16 = getTrackAt(locationX-16,locationY);
+            std::shared_ptr<Concourse> concourseTempXM16 = getConcourseAt(locationX-16,locationY);
+            if (trackTempXM16 != nullptr)
+            {
+                if (trackTempXM16->getNamed())
+                {
+                    textToLink = trackTempXM16->getText();
+                }
+            }
+            else
+            {
+                if (concourseTempXM16->getNamed())
+                {
+                    textToLink = concourseTempXM16->getText();
+                }
+            }
+
+        }
+        //Recursive bit
+        if (checkElementExists(locationX, locationY+16))
+        {
+            std::shared_ptr<Track> trackTempYP16 = getTrackAt(locationX,locationY+16);
+            std::shared_ptr<Concourse> concourseTempYP16 = getConcourseAt(locationX,locationY+16);
+            if (trackTempYP16 != nullptr)
+            {
+                if (!trackTempYP16->getNamed())
+                {
+                    linkNewBlockToText(locationX,locationY+16);
+                }
+            }
+            else
+            {
+                if (!concourseTempYP16->getNamed())
+                {
+                    linkNewBlockToText(locationX,locationY+16);
+                }
+
+            }
+        }
+        else if (checkElementExists(locationX, locationY-16))
+        {
+            std::shared_ptr<Track> trackTempYM16 = getTrackAt(locationX,locationY-16);
+            std::shared_ptr<Concourse> concourseTempYM16 = getConcourseAt(locationX,locationY-16);
+            if (trackTempYM16 != nullptr)
+            {
+                if (!trackTempYM16->getNamed())
+                {
+                    linkNewBlockToText(locationX,locationY-16);
+                }
+            }
+            else
+            {
+                if (!concourseTempYM16->getNamed())
+                {
+                    linkNewBlockToText(locationX,locationY-16);
+                }
+            }
+
+        }
+        else if (checkElementExists(locationX+16, locationY))
+        {
+            std::shared_ptr<Track> trackTempXP16 = getTrackAt(locationX+16,locationY);
+            std::shared_ptr<Concourse> concourseTempXP16 = getConcourseAt(locationX+16,locationY);
+            if (trackTempXP16 != nullptr)
+            {
+                if (!trackTempXP16->getNamed())
+                {
+                    linkNewBlockToText(locationX+16,locationY);
+                }
+            }
+            else
+            {
+                if (!concourseTempXP16->getNamed())
+                {
+                    linkNewBlockToText(locationX+16,locationY);
+                }
+            }
+
+        }
+        else if (checkElementExists(locationX-16, locationY))
+        {
+            std::shared_ptr<Track> trackTempXM16 = getTrackAt(locationX-16,locationY);
+            std::shared_ptr<Concourse> concourseTempXM16 = getConcourseAt(locationX-16,locationY);
+            if (trackTempXM16 != nullptr)
+            {
+                if (!trackTempXM16->getNamed())
+                {
+                    linkNewBlockToText(locationX-16,locationY);
+                }
+            }
+            else
+            {
+                if (!concourseTempXM16->getNamed())
+                {
+                    linkNewBlockToText(locationX-16,locationY);
+                }
+            }
+        }
+    }
+
+
+    if (track != nullptr && textToLink != nullptr)
+    {
+        track->setText(textToLink);
+        track->setNamed(true);
+    }
+    else if (concourse != nullptr && textToLink != nullptr)
+    {
+        concourse->setText(textToLink);
+        concourse->setNamed(true);
+    }
+
+}

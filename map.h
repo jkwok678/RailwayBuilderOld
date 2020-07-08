@@ -118,6 +118,7 @@ public:
     void addPlatform(Platform side, int locationX, int locationY);
     void addLevelCrossing( int locationX, int locationY);
     void linkLocalText(int locationX, int LocationY, std::shared_ptr<Text> linkedText);
+    void linkNewBlockToText(int locationX, int locationY);
 };
 
 #endif // MAP_H

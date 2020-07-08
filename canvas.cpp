@@ -997,32 +997,38 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 std::shared_ptr<NamedLocation> namedLocation(new NamedLocation(*canvasChosen, finalX, finalY));
                 drawnLayout->addNamedLocation(namedLocation);
+                drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
             case ElementType::CONCOURSE:
             {
                 std::shared_ptr<Concourse> concourse(new Concourse(*canvasChosen, finalX, finalY));
                 drawnLayout->addConcourse(concourse);
+                drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
             case ElementType::PLATFORMUP:
             {
                 drawnLayout->addPlatform(Platform::UP, finalX, finalY);
+                drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
             case ElementType::PLATFORMDOWN:
             {
                 drawnLayout->addPlatform(Platform::DOWN, finalX, finalY);
+                drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
             case ElementType::PLATFORMLEFT:
             {
                 drawnLayout->addPlatform(Platform::LEFT, finalX, finalY);
+                drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
             case ElementType::PLATFORMRIGHT:
             {
                 drawnLayout->addPlatform(Platform::RIGHT, finalX, finalY);
+                drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
             case ElementType::PARAPET1:
