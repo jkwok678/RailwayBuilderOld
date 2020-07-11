@@ -93,7 +93,7 @@ public:
 	void addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation);
     std::shared_ptr<NamedLocation> getNamedLocationAt(int locationX,int locationY);
 
-	std::vector<std::shared_ptr<Concourse> > getConcourseList() const;
+    std::vector<std::shared_ptr<Concourse> > getConcourseList() const;
 	void setConcourseList(const std::vector<std::shared_ptr<Concourse> >& newConcourseList);
 	void addConcourse(std::shared_ptr<Concourse> newConcourseTrack);
     std::shared_ptr<Concourse> getConcourseAt(int locationX,int locationY);
@@ -114,6 +114,7 @@ public:
     bool checkElementExists(int locationX, int locationY);
     bool checkTextExists(int locationX, int locationY);
 	bool deleteElement(int locationX, int locationY);
+    void deleteTextFromAllElement(std::shared_ptr<Text> textToDelete);
 
     void addPlatform(Platform side, int locationX, int locationY);
     void addLevelCrossing( int locationX, int locationY);

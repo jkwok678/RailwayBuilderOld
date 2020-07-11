@@ -85,7 +85,7 @@ private:
 
 protected:
     bool named { false };
-    std::shared_ptr<Text> text;
+    std::shared_ptr<Text> text {nullptr};
 
 
 public:
@@ -111,7 +111,6 @@ public:
     NamedLocation(ElementType newElementType, int newLocationX, int newLocationY);
 };
 
-
 class Concourse : public NamedElement
 {
 private:
@@ -124,6 +123,7 @@ public:
     Concourse(ElementType newElementType, int newLocationX, int newLocationY);
 
 };
+
 
 
 class Parapet : public Element
@@ -141,6 +141,7 @@ public:
 
 
 };
+
 
 
 

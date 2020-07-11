@@ -334,7 +334,6 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addStraightTrack(straightH);
-                std::cout<< straightH->getNamed() << std::flush;
                 break;
             }
             case ElementType::STRAIGHTV:

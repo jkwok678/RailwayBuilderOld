@@ -705,7 +705,6 @@ void Window::chooseUnderpass1()
 	if (windowChosen != ElementType::UNDERPASS1)
 	{
 		windowChosen = ElementType::UNDERPASS1;
-		std::cout << "hi " << std::flush;
 	}
 	else
 		windowChosen = ElementType::NONE;
