@@ -107,6 +107,7 @@ public:
 	void setTextList(const std::vector<std::shared_ptr<Text> >& newTextList);
 	void addText(std::shared_ptr<Text> newText);
 
+
     std::shared_ptr<Element> getElementAt( int locationX, int locationY);
     std::shared_ptr<NamedElement> getNamedElementAt( int locationX, int locationY);
     std::shared_ptr<Track> getTrackAt( int locationX, int locationY);

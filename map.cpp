@@ -736,6 +736,7 @@ void Map::addText(std::shared_ptr<Text> newText)
 
 }
 
+
 std::shared_ptr<Element> Map::getElementAt(int locationX, int locationY)
 {
     bool found = false;
@@ -1226,22 +1227,50 @@ bool Map::checkTextExists(int locationX, int locationY)
 
 bool Map::deleteElement(int locationX, int locationY)
 {
-	bool deleted = false;
-
+    bool deleted = false;
+    std::shared_ptr<Track> currentTrack = getTrackAt(locationX, locationY);
+    std::shared_ptr<Concourse> currentConcourse = getConcourseAt(locationX, locationY);
+    std::shared_ptr<NamedLocation> currentNamedLocation = getNamedLocationAt(locationX, locationY);
+    std::shared_ptr<Text> textToDelete = nullptr;
+    if (currentTrack != nullptr)
+    {
+        textToDelete = currentTrack->getText();
+        deleteTextFromAllElement(textToDelete);
+    }
+    else if (currentConcourse != nullptr)
+    {
+        textToDelete = currentConcourse->getText();
+        deleteTextFromAllElement(textToDelete);
+    }
+    else if (currentNamedLocation != nullptr)
+    {
+        textToDelete = currentNamedLocation->getText();
+        deleteTextFromAllElement(textToDelete);
+    }
+    if (textToDelete != nullptr)
+    {
+        for (int j=0; j< textList.size();j++)
+        {
+            if (textToDelete == textList[j])
+            {
+                textList.erase(textList.begin() + j);
+            }
+        }
+    }
     for (int i = 0; i < straightTrackList.size(); i++)
     {
-		std::shared_ptr<StraightTrack>& currentElement = straightTrackList[i];
-		int currentX = currentElement->getLocationX();
+        std::shared_ptr<StraightTrack>& currentElement = straightTrackList[i];
+        int currentX = currentElement->getLocationX();
         int currentY = currentElement->getLocationY();
         if (currentX == locationX && currentY == locationY)
         {
-			straightTrackList.erase(straightTrackList.begin() + i);
-			deleted = true;
+            straightTrackList.erase(straightTrackList.begin() + i);
+            deleted = true;
             break;
-		}
-
-	}
-    if (!deleted) {
+        }
+    }
+    if (!deleted)
+    {
         for (int i = 0; i < directTrackList.size(); i++)
         {
             std::shared_ptr<DirectTrack>& currentElement = directTrackList[i];
@@ -1269,7 +1298,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
     if (!deleted)
     {
         for (int i = 0; i < linkedTrackList.size(); i++)
@@ -1285,7 +1313,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
     if (!deleted)
     {
         for (int i = 0; i < exitTrackList.size(); i++)
@@ -1301,7 +1328,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
     if (!deleted)
     {
         for (int i = 0; i < bufferTrackList.size(); i++)
@@ -1317,7 +1343,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
     if (!deleted)
     {
         for (int i = 0; i < signalTrackList.size(); i++)
@@ -1333,7 +1358,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
     if (!deleted)
     {
         for (int i = 0; i < bridgeUnderpassTrackList.size(); i++)
@@ -1349,7 +1373,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
     if (!deleted)
     {
         for (int i = 0; i < switchTrackList.size(); i++)
@@ -1365,7 +1388,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
     if (!deleted)
     {
         for (int i = 0; i < crossoverTrackList.size(); i++)
@@ -1381,7 +1403,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
     if (!deleted)
     {
         for (int i = 0; i < flyoverTrackList.size(); i++)
@@ -1397,8 +1418,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
-
     if (!deleted)
     {
         for (int i = 0; i < namedLocationList.size(); i++)
@@ -1414,7 +1433,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
     if (!deleted)
     {
         for (int i = 0; i < concourseList.size(); i++)
@@ -1430,7 +1448,6 @@ bool Map::deleteElement(int locationX, int locationY)
 
         }
     }
-
     if (!deleted)
     {
         for (int i = 0; i < parapetList.size(); i++)
@@ -2124,6 +2141,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
                     }
                 }
             }
+            //See if there's a track on the right of it
             if (checkElementExists(locationX+16, locationY))
             {
                 std::shared_ptr<Track> trackTempXP16 = getTrackAt(locationX+16,locationY);
@@ -2147,6 +2165,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
                     }
                 }
             }
+            //See if there's a track on the left of it
             if (checkElementExists(locationX-16, locationY))
             {
                 std::shared_ptr<Track> trackTempXM16 = getTrackAt(locationX-16,locationY);
@@ -2170,6 +2189,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
                 }
             }
         }
+        //Same for namedLocation.
         else
         {
             if (checkElementExists(locationX, locationY+16))
@@ -2221,7 +2241,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
     }
 }
 
-void Map::linkNewBlockToText(int locationX, int locationY)
+void Map::linkNewBlockToText(int locationX, int     locationY)
 {
     //Get what's there currently
     std::shared_ptr<Track> track = getTrackAt(locationX,locationY);
@@ -2229,10 +2249,12 @@ void Map::linkNewBlockToText(int locationX, int locationY)
     std::shared_ptr<NamedLocation> namedLocation = getNamedLocationAt(locationX, locationY);
     std::shared_ptr<Text> textToLink = nullptr;
 
+    //Get what's above the current Element
     std::shared_ptr<NamedLocation> namedLocationTempYP16 = getNamedLocationAt(locationX,locationY+16);
     std::shared_ptr<Track> trackTempYP16 = getTrackAt(locationX,locationY+16);
     std::shared_ptr<Concourse> concourseTempYP16 = getConcourseAt(locationX,locationY+16);
     std::shared_ptr<Text> textTempYP16 = nullptr;
+    //Get the text that occupies that location
     if (namedLocationTempYP16 != nullptr)
     {
         if (namedLocationTempYP16->getNamed())
@@ -2255,7 +2277,8 @@ void Map::linkNewBlockToText(int locationX, int locationY)
             textTempYP16 = concourseTempYP16->getText();
         }
     }
-
+    //Get the surrounding track/elements if they exist
+    //Get what's below the current Element
     std::shared_ptr<NamedLocation> namedLocationTempYM16 = getNamedLocationAt(locationX,locationY-16);
     std::shared_ptr<Track> trackTempYM16 = getTrackAt(locationX,locationY-16);
     std::shared_ptr<Concourse> concourseTempYM16 = getConcourseAt(locationX,locationY-16);
@@ -2282,11 +2305,10 @@ void Map::linkNewBlockToText(int locationX, int locationY)
             textTempYM16 = concourseTempYM16->getText();
         }
     }
-
+    //Get what's right of the current element
     std::shared_ptr<NamedLocation> namedLocationTempXP16 = getNamedLocationAt(locationX+16,locationY);
     std::shared_ptr<Track> trackTempXP16 = getTrackAt(locationX+16,locationY);
     std::shared_ptr<Concourse> concourseTempXP16 = getConcourseAt(locationX+16,locationY);
-
     std::shared_ptr<Text> textTempXP16 = nullptr;
 
     if (namedLocationTempXP16 != nullptr)
@@ -2311,7 +2333,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
             textTempXP16 = concourseTempXP16->getText();
         }
     }
-
+    //Get what's left of the current element
     std::shared_ptr<NamedLocation> namedLocationTempXM16 = getNamedLocationAt(locationX-16,locationY);
     std::shared_ptr<Track> trackTempXM16 = getTrackAt(locationX-16,locationY);
     std::shared_ptr<Concourse> concourseTempXM16 = getConcourseAt(locationX-16,locationY);
@@ -2339,7 +2361,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
             textTempXM16 = concourseTempXM16->getText();
         }
     }
-
+    //Add it to a list of surrounding elements.
     std::vector<std::shared_ptr<Text>> surroundTextList;
     std::vector<std::shared_ptr<Text>> toDeleteTextList;
     if (textTempYP16 != nullptr)
@@ -2358,6 +2380,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
     {
         surroundTextList.push_back(textTempXM16);
     }
+    //Add to delete list if more than 1 text
     if (surroundTextList.size() >1)
     {
         for (int i = 0; i < surroundTextList.size(); i++)
@@ -2370,6 +2393,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
             }
         }
     }
+    //Delete that Text from all elements, then delete all trace of it
     if (toDeleteTextList.size() >0)
     {
         for (int i = 0; i < toDeleteTextList.size(); i++)
@@ -2392,7 +2416,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
     {
         if (checkElementExists(locationX, locationY+16))
         {
-            //get what exists above it, and set the textToLink to the same text as above
+            //Get what exists above it, and set the textToLink to the same text
             namedLocationTempYP16 = getNamedLocationAt(locationX,locationY+16);
             if (namedLocationTempYP16 != nullptr)
             {
@@ -2404,6 +2428,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
         }
         if (checkElementExists(locationX, locationY-16))
         {
+            //Get what exists below it, and set the textToLink to the same text
             namedLocationTempYM16 = getNamedLocationAt(locationX,locationY-16);
             if (namedLocationTempYM16 != nullptr)
             {
@@ -2415,6 +2440,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
         }
         if (checkElementExists(locationX+16, locationY))
         {
+            //Get what exists below it, and set the textToLink to the same text
             namedLocationTempXP16 = getNamedLocationAt(locationX+16,locationY);
             if (namedLocationTempXP16 != nullptr)
             {
@@ -2426,6 +2452,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
         }
         if (checkElementExists(locationX-16, locationY))
         {
+            //Get what exists on the left of it, and set the textToLink to the same text
             namedLocationTempXM16 = getNamedLocationAt(locationX-16,locationY);
             if (namedLocationTempXM16 != nullptr)
             {
@@ -2435,6 +2462,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
                 }
             }
         }
+        //If it is a namedlocation, and there is text around it, set it, and do it for surrounding namedLocations
         if (namedLocation != nullptr && textToLink != nullptr)
         {
             namedLocation->setText(textToLink);
@@ -2486,6 +2514,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
             }
         }
     }
+    //If it is a track or concourse, and there is text around it, set it, and do it for surrounding them too
     else
     {
         if (checkElementExists(locationX, locationY+16))
@@ -2568,6 +2597,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
             }
 
         }
+        //Set the track or concourse to the text
         if (track != nullptr && textToLink != nullptr)
         {
             track->setText(textToLink);
@@ -2661,10 +2691,7 @@ void Map::linkNewBlockToText(int locationX, int locationY)
                         linkLocalText(locationX+16,locationY, textToLink);
                     }
                 }
-
             }
-
         }
-
     }
 }
