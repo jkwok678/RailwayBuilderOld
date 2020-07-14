@@ -143,6 +143,11 @@ void Window::setChangeNamedLocation()
         windowChosen = ElementType::NONE;
 }
 
+void Window::openFontBox()
+{
+
+}
+
 void Window::toggleTrackID()
 {
     if (!showTrackID)
@@ -1592,6 +1597,15 @@ void Window::createBuildModifyMenu1()
     setChangeNamedLocationIcon = new QIcon(":/icons/icons/setChangeNamedLocation.png");
     setChangeNamedLocationButton->setIcon(*setChangeNamedLocationIcon);
     buildModifyMenuLayout1->addWidget(setChangeNamedLocationButton);
+
+    fontButton = new QToolButton();
+    fontButton->setMaximumSize(QSize(32, 32));
+    setFontAct = new QAction();
+    fontButton->setDefaultAction(setFontAct);
+    connect(setFontAct, &QAction::triggered, this, &Window::moveText);
+    setFontIcon = new QIcon(":/icons/icons/moveText.png");
+    fontButton->setIcon(*setFontIcon);
+    buildModifyMenuLayout1->addWidget(fontButton);
 }
 
 void Window::createElementMenu()

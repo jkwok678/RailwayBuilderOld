@@ -1464,9 +1464,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -1614,9 +1614,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -1695,9 +1695,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -1758,9 +1758,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -1821,9 +1821,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -1972,9 +1972,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -2179,9 +2179,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -2310,9 +2310,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -2669,9 +2669,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -2722,9 +2722,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -2805,9 +2805,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -2833,9 +2833,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -2861,9 +2861,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
@@ -3024,9 +3024,9 @@ void Canvas::paintEvent(QPaintEvent* event)
         int maxCoordinateY = (offsetY*canvasSizeY);;
         int minDisplayX = (offsetX * canvasSizeX);
         int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX > minCoordinateX && currentX < maxCoordinateX)
+        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
         {
-            if (currentY > minCoordinateY && currentY < maxCoordinateY)
+            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);

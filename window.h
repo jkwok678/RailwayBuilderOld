@@ -32,6 +32,7 @@ private slots:
 	void addEditRemoveText();
     void moveText();
     void setChangeNamedLocation();
+    void openFontBox();
 
     void toggleTrackID();
     void toggleMoreTrackInfo();
@@ -265,6 +266,10 @@ private:
     QToolButton* setChangeNamedLocationButton;
     QAction* setChangeNamedLocationAct;
     QIcon* setChangeNamedLocationIcon;
+
+    QToolButton* fontButton;
+    QAction* setFontAct;
+    QIcon* setFontIcon;
 
 	//Top menu 2
 
