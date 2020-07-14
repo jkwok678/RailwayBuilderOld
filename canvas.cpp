@@ -1238,13 +1238,12 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             }
             case ElementType::MOVETEXT:
             {
-                bool ok;
                 int textX = exactX + (offsetX*canvasSizeX);
                 int textY;
                 if (offsetY==0)
                 {
                     textY = 0 - ((exactY+ (offsetY*canvasSizeY)));
-                } else if (offsetY<0 || offsetY >0)
+                } else
                 {
                     textY = 0 - (exactY- (offsetY*canvasSizeY));
                 }
@@ -1252,8 +1251,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 {
                     moveText = drawnLayout->getTextAt(textX,textY);
                 }
-
-            break;
+                break;
             }
             case ElementType::SETCHANGENAMEDLOCATION:
             {
@@ -3063,16 +3061,20 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
         bool ok;
         int textX = exactX + (offsetX*canvasSizeX);
         int textY;
+
         if (offsetY==0)
         {
-            textY = 0 - ((exactY+ (offsetY*canvasSizeY)));
-        } else if (offsetY<0 || offsetY >0) {
+            textY = 0 - (exactY+ (offsetY*canvasSizeY));
+        } else {
             textY = 0 - (exactY- (offsetY*canvasSizeY));
         }
         if ( event->buttons() & Qt::LeftButton )
         {
+            int fontSize = moveText->getFontSize();
             moveText->setLocationX(textX);
             moveText->setLocationY(textY);
+            moveText->setEditableX(textX+fontSize);
+            moveText->setEditableY(textY+fontSize);
         }
     }
     update();

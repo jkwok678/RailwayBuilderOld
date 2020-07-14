@@ -1603,7 +1603,7 @@ void Window::createBuildModifyMenu1()
     setFontAct = new QAction();
     fontButton->setDefaultAction(setFontAct);
     connect(setFontAct, &QAction::triggered, this, &Window::moveText);
-    setFontIcon = new QIcon(":/icons/icons/moveText.png");
+    setFontIcon = new QIcon(":/icons/icons/changeFont.png");
     fontButton->setIcon(*setFontIcon);
     buildModifyMenuLayout1->addWidget(fontButton);
 }
