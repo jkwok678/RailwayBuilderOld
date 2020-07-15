@@ -34,7 +34,7 @@ void Element::setLocationY(int newLocationY) {
 	locationY = newLocationY;
 }
 
-Text::Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText)
+Text::Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText, QFont newFont)
 {
     elementType = newElementType;
     locationX = newLocationX;
@@ -42,6 +42,7 @@ Text::Text(ElementType newElementType, int newLocationX, int newLocationY, QStri
     readableText = newReadableText;
     editableX = locationX + fontSize;
     editableY = locationY + fontSize;
+    font = newFont;
 }
 
 int Text::getEditableX() const
@@ -82,6 +83,16 @@ QString Text::getReadableText() const
 void Text::setReadableText(const QString& newReadableText)
 {
     readableText = newReadableText;
+}
+
+QFont Text::getFont() const
+{
+    return font;
+}
+
+void Text::setFont(const QFont newFont)
+{
+    font = newFont;
 }
 
 

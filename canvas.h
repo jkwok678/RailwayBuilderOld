@@ -48,6 +48,9 @@ public:
     bool getCanvasShowMoreTrackInfo() const;
     void setCanvasShowMoreTrackInfo(bool& newShowMoreTrackInfo);
 
+    QFont getCurrentFont() const;
+    void setCurrentFont(QFont& newFont);
+
 
 public slots:
 
@@ -71,6 +74,7 @@ private:
 	int canvasAspect;
     bool canvasShowTrackID;
     bool canvasShowMoreTrackInfo;
+    QFont currentFont;
     std::shared_ptr<Text> moveText;
 
 
@@ -256,8 +260,6 @@ private:
 	//ELementBlock6Image
 	QImage* levelCrossingHImage;
 	QImage* levelCrossingVImage;
-
-
 
 };
 

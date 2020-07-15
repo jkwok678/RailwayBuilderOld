@@ -145,7 +145,9 @@ void Window::setChangeNamedLocation()
 
 void Window::openFontBox()
 {
-
+    bool ok;
+    QFont font = QFontDialog::getFont(&ok, QFont( "Calibri", 12 ),this,tr("Pick a font" ));
+    drawingSurface->setCurrentFont(font);
 }
 
 void Window::toggleTrackID()
@@ -1602,7 +1604,7 @@ void Window::createBuildModifyMenu1()
     fontButton->setMaximumSize(QSize(32, 32));
     setFontAct = new QAction();
     fontButton->setDefaultAction(setFontAct);
-    connect(setFontAct, &QAction::triggered, this, &Window::moveText);
+    connect(setFontAct, &QAction::triggered, this, &Window::openFontBox);
     setFontIcon = new QIcon(":/icons/icons/changeFont.png");
     fontButton->setIcon(*setFontIcon);
     buildModifyMenuLayout1->addWidget(fontButton);

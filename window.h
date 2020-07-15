@@ -10,6 +10,7 @@
 #include <QToolButton>
 #include <QStatusBar>
 #include <QLabel>
+#include <QFontDialog>
 #include <string>
 #include <iostream>
 #include <QSizePolicy>

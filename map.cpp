@@ -1452,7 +1452,7 @@ bool Map::deleteElement(int locationX, int locationY)
     {
         for (int i = 0; i < parapetList.size(); i++)
         {
-            std::shared_ptr<FlyoverTrack>& currentElement = flyoverTrackList[i];
+            std::shared_ptr<Parapet>& currentElement = parapetList[i];
             int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
@@ -1462,6 +1462,26 @@ bool Map::deleteElement(int locationX, int locationY)
             }
 
         }
+    }
+    return deleted;
+}
+
+bool Map::deleteText(std::shared_ptr<Text> textToDelete)
+{
+    bool deleted = false;
+    for (int i = 0; i < textList.size(); i++)
+    {
+        std::shared_ptr<Text>& currentText = textList[i];
+        int currentX = currentText->getLocationX();
+        int currentY = currentText->getLocationY();
+        if (currentText = textToDelete)
+        {
+            textList.erase(textList.begin() + i);
+            deleted = true;
+            break;
+
+        }
+
     }
     return deleted;
 }

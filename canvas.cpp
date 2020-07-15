@@ -11,9 +11,9 @@ Canvas::Canvas()
     canvasSizeX = width();
     canvasSizeY = height();
     setMouseTracking(true);
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    timer->start(100);
+    //QTimer *timer = new QTimer(this);
+    //connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    //timer->start(100);
 
     //ElementBlock1 images
     straightHImage = new QImage(":/graphics/graphics/straightH.png");
@@ -291,6 +291,16 @@ bool Canvas::getCanvasShowMoreTrackInfo() const
 void Canvas::setCanvasShowMoreTrackInfo(bool &newShowMoreTrackInfo)
 {
     canvasShowMoreTrackInfo = newShowMoreTrackInfo;
+}
+
+QFont Canvas::getCurrentFont() const
+{
+    return currentFont;
+}
+
+void Canvas::setCurrentFont(QFont &newFont)
+{
+    currentFont = newFont;
 }
 
 void Canvas::mousePressEvent(QMouseEvent* event)
@@ -1211,7 +1221,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 if (offsetY==0)
                 {
                     textY = 0 - ((exactY+ (offsetY*canvasSizeY)));
-                } else if (offsetY<0 || offsetY >0)
+                }
+                else
                 {
                     textY = 0 - (exactY- (offsetY*canvasSizeY));
                 }
@@ -1224,7 +1235,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                     }
                     if(!readableBit.isEmpty())
                     {
-                        std::shared_ptr<Text> text(new Text(*canvasChosen, textX, textY, readableBit));
+                        std::shared_ptr<Text> text(new Text(*canvasChosen, textX, textY, readableBit, currentFont));
                         drawnLayout->addText(text);
                     }
                 }
@@ -1232,7 +1243,20 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 {
                     std::shared_ptr<Text> text = drawnLayout->getTextAt(textX,textY);
                     QString newReadableBit = QInputDialog::getText(this, tr("Add text"), tr("Enter text:"), QLineEdit::Normal, text->getReadableText(), &ok);
-                    text->setReadableText(newReadableBit);
+                    if (newReadableBit.startsWith(" "))
+                    {
+                        newReadableBit.clear();
+
+                    }
+                    if(!newReadableBit.isEmpty())
+                    {
+                        text->setReadableText(newReadableBit);
+                    }
+                    else
+                    {
+                        drawnLayout->deleteText(text);
+                    }
+
                 }
                 break;
             }
@@ -1287,7 +1311,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                             }
                             if(!readableBit.isEmpty())
                             {
-                                std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                                std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit,currentFont));
                                 drawnLayout->addText(text);
                                 exist = true;
                                 drawnLayout->linkLocalText(finalX, finalY, text);
@@ -1309,7 +1333,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         }
                         if(!readableBit.isEmpty())
                         {
-                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit));
+                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit, currentFont));
                             drawnLayout->addText(text);
                             exist = true;
                             drawnLayout->linkLocalText(finalX, finalY, text);
@@ -1332,6 +1356,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }      
             }
         };
+        update();
     }
     else if (event->button() == Qt::RightButton)
     {
@@ -3028,7 +3053,7 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-
+                painter.setFont(currentElement->getFont());
                 painter.drawText(displayX, displayY, currentElement->getReadableText());
             }
         }
@@ -3092,7 +3117,7 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
         {
             finalY = 0 - ((roundedY+ (offsetY*canvasSizeY)));
         }
-        else if (offsetY<0 || offsetY >0)
+        else
         {
             finalY = 0 - (roundedY- (offsetY*canvasSizeY));
         }

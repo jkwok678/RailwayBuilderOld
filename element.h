@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QSharedPointer>
+#include <QFont>
 #include <memory>
 #include <string>
 #include <iostream>
@@ -58,6 +59,7 @@ private:
     int editableY;
     int fontSize{ 12 };
     QString readableText;
+    QFont font;
 
 
 
@@ -66,7 +68,7 @@ protected:
 
 
 public:
-    Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText);
+    Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText, QFont);
 
     int getEditableX() const;
     void setEditableX(int newEditableX);
@@ -76,6 +78,8 @@ public:
     void setFontSize(int newFontSize);
     QString getReadableText() const;
     void setReadableText(const QString& newReadableText);
+    QFont getFont() const;
+    void setFont(const QFont newFont);
 };
 
 class NamedElement : public Element

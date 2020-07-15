@@ -115,6 +115,7 @@ public:
     bool checkElementExists(int locationX, int locationY);
     bool checkTextExists(int locationX, int locationY);
 	bool deleteElement(int locationX, int locationY);
+    bool deleteText (std::shared_ptr<Text> textToDelete);
     void deleteTextFromAllElement(std::shared_ptr<Text> textToDelete);
 
     void addPlatform(Platform side, int locationX, int locationY);
