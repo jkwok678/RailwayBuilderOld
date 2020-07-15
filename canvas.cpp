@@ -1292,14 +1292,20 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         {
                             readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal
                             , track->getText()->getReadableText(), &ok);
+                            std::shared_ptr<Text> text = track->getText();
                             if (readableBit.startsWith(" "))
                             {
                                 readableBit.clear();
                             }
                             if(!readableBit.isEmpty())
                             {
-                                std::shared_ptr<Text> text = track->getText();
+
                                 text->setReadableText(readableBit);
+                            }
+                            else
+                            {
+                                drawnLayout->deleteTextFromAllElement(text);
+                                drawnLayout->deleteText(text);
                             }
                         }
                         else
@@ -1324,7 +1330,28 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 
                 if (namedElement != nullptr && exist == false)
                 {
-                    if (!namedElement->getNamed())
+                    if (namedElement->getNamed())
+                    {
+                        readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal
+                        , namedElement->getText()->getReadableText(), &ok);
+                        std::shared_ptr<Text> text = namedElement->getText();
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+
+                            text->setReadableText(readableBit);
+                        }
+                        else
+                        {
+                            drawnLayout->deleteTextFromAllElement(text);
+                            drawnLayout->deleteText(text);
+                        }
+                    }
+
+                    else
                     {
                         readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
                         if (readableBit.startsWith(" "))
@@ -1338,20 +1365,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                             exist = true;
                             drawnLayout->linkLocalText(finalX, finalY, text);
                         }
-                    }
-                    else
-                    {
-                        readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal
-                        , namedElement->getText()->getReadableText(), &ok);
-                        if (readableBit.startsWith(" "))
-                        {
-                            readableBit.clear();
-                        }
-                        if(!readableBit.isEmpty())
-                        {
-                            std::shared_ptr<Text> text = namedElement->getText();
-                            text->setReadableText(readableBit);
-                        }
+
                     }
                 }      
             }
