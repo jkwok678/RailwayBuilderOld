@@ -327,7 +327,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
     {
         finalY = 0 - (roundedY- (offsetY*canvasSizeY));
     }
-
+    bool addedTrack = false;
     if (event->button() == Qt::LeftButton)
     {
         switch (*canvasChosen)
@@ -344,72 +344,84 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addStraightTrack(straightH);
+                addedTrack = true;
                 break;
             }
             case ElementType::STRAIGHTV:
             {
                 std::shared_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addStraightTrack(straightV);
+                addedTrack = true;
                 break;
             }
             case ElementType::DIRECTLEFT:
             {
                 std::shared_ptr<DirectTrack> directLeft(new DirectTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addDirectTrack(directLeft);
+                addedTrack = true;
                 break;
             }
             case ElementType::DIRECTRIGHT:
             {
                 std::shared_ptr<DirectTrack> directRight(new DirectTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addDirectTrack(directRight);
+                addedTrack = true;
                 break;
             }
             case ElementType::DIRECTUP:
             {
                 std::shared_ptr<DirectTrack> directUp(new DirectTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addDirectTrack(directUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::DIRECTDOWN:
             {
                 std::shared_ptr<DirectTrack> directDown(new DirectTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addDirectTrack(directDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::STRIAGHTRIGHTUP:
             {
                 std::shared_ptr<StraightTrack> straightRightUp(new StraightTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addStraightTrack(straightRightUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::STRAIGHTLEFTUP:
             {
                 std::shared_ptr<StraightTrack> straightLeftUp(new StraightTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addStraightTrack(straightLeftUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::DIRECTRIGHTUP:
             {
                 std::shared_ptr<DirectTrack> directRightUp(new DirectTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addDirectTrack(directRightUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::DIRECTLEFTUP:
             {
                 std::shared_ptr<DirectTrack> directLeftUp(new DirectTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addDirectTrack(directLeftUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::DIRECTLEFTDOWN:
             {
                 std::shared_ptr<DirectTrack> directLeftDown(new DirectTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addDirectTrack(directLeftDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::DIRECTRIGHTDOWN:
             {
                 std::shared_ptr<DirectTrack> directRightDown(new DirectTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addDirectTrack(directRightDown);
+                addedTrack = true;
                 break;
             }
 
@@ -417,132 +429,154 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 std::shared_ptr<CurvedTrack> tightCurve1(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(tightCurve1);
+                addedTrack = true;
                 break;
             }
             case ElementType::TIGHTCURVE2:
             {
                 std::shared_ptr<CurvedTrack> tightCurve2(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(tightCurve2);
+                addedTrack = true;
                 break;
             }
             case ElementType::TIGHTCURVE3:
             {
                 std::shared_ptr<CurvedTrack> tightCurve3(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(tightCurve3);
+                addedTrack = true;
                 break;
             }
             case ElementType::TIGHTCURVE4:
             {
                 std::shared_ptr<CurvedTrack> tightCurve4(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(tightCurve4);
-                break;
+                addedTrack = true;
+                break;                
             }
             case ElementType::CURVE1:
             {
                 std::shared_ptr<CurvedTrack> curve1(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve1);
+                addedTrack = true;
                 break;
             }
             case ElementType::CURVE2:
             {
                 std::shared_ptr<CurvedTrack> curve2(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve2);
+                addedTrack = true;
                 break;
             }
             case ElementType::CURVE3:
             {
                 std::shared_ptr<CurvedTrack> curve3(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve3);
+                addedTrack = true;
                 break;
             }
             case ElementType::CURVE4:
             {
                 std::shared_ptr<CurvedTrack> curve4(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve4);
+                addedTrack = true;
                 break;
             }
             case ElementType::LINKLEFT:
             {
                 std::shared_ptr<LinkedTrack> linkLeft(new LinkedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkLeft);
+                addedTrack = true;
                 break;
             }
             case ElementType::LINKRIGHT:
             {
                 std::shared_ptr<LinkedTrack> linkRight(new LinkedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkRight);
+                addedTrack = true;
                 break;
             }
             case ElementType::LINKDOWN:
             {
                 std::shared_ptr<LinkedTrack> linkDown(new LinkedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::LINKUP:
             {
                 std::shared_ptr<LinkedTrack> linkUp(new LinkedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::LINKLEFTUP:
             {
                 std::shared_ptr<LinkedTrack> linkLeftUp(new LinkedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkLeftUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::LINKRIGHTUP:
             {
                 std::shared_ptr<LinkedTrack> linkRightUp(new LinkedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkRightUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::LINKRIGHTDOWN:
             {
                 std::shared_ptr<LinkedTrack> linkRightDown(new LinkedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkRightDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::LINKLEFTDOWN:
             {
                 std::shared_ptr<LinkedTrack> linkLeftDown(new LinkedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkLeftDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::EXITLEFT:
             {
                 std::shared_ptr<ExitTrack> exitLeft(new ExitTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addExitTrack(exitLeft);
+                addedTrack = true;
                 break;
             }
             case ElementType::EXITRIGHT:
             {
                 std::shared_ptr<ExitTrack> exitRight(new ExitTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addExitTrack(exitRight);
+                addedTrack = true;
                 break;
             }
             case ElementType::EXITDOWN:
             {
                 std::shared_ptr<ExitTrack> exitDown(new ExitTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addExitTrack(exitDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::EXITUP:
             {
                 std::shared_ptr<ExitTrack> exitUp(new ExitTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addExitTrack(exitUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::EXITLEFTUP:
             {
                 std::shared_ptr<ExitTrack> exitLeftUp(new ExitTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addExitTrack(exitLeftUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::EXITRIGHTUP:
             {
                 std::shared_ptr<ExitTrack> exitRightUp(new ExitTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addExitTrack(exitRightUp);
+                addedTrack = true;
                 break;
             }
 
@@ -550,456 +584,532 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 std::shared_ptr<ExitTrack> exitLeftDown(new ExitTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addExitTrack(exitLeftDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::EXITRIGHTDOWN:
             {
                 std::shared_ptr<ExitTrack> exitRightDown(new ExitTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addExitTrack(exitRightDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::CURVE5:
             {
                 std::shared_ptr<CurvedTrack> curve5(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve5);
+                addedTrack = true;
                 break;
             }
             case ElementType::CURVE6:
             {
                 std::shared_ptr<CurvedTrack> curve6(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve6);
+                addedTrack = true;
                 break;
             }
             case ElementType::CURVE7:
             {
                 std::shared_ptr<CurvedTrack> curve7(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve7);
+                addedTrack = true;
                 break;
             }
             case ElementType::CURVE8:
             {
                 std::shared_ptr<CurvedTrack> curve8(new CurvedTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve8);
+                addedTrack = true;
                 break;
             }
             case ElementType::BUFFERLEFT:
             {
                 std::shared_ptr<BufferTrack> bufferLeft(new BufferTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferLeft);
+                addedTrack = true;
                 break;
             }
             case ElementType::BUFFERRIGHT:
             {
                 std::shared_ptr<BufferTrack> bufferRight(new BufferTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferRight);
+                addedTrack = true;
                 break;
             }
             case ElementType::BUFFERDOWN:
             {
                 std::shared_ptr<BufferTrack> bufferDown(new BufferTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::BUFFERUP:
             {
                 std::shared_ptr<BufferTrack> bufferUp(new BufferTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::BUFFERLEFTUP:
             {
                 std::shared_ptr<BufferTrack> bufferLeftUp(new BufferTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferLeftUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::BUFFERRIGHTUP:
             {
                 std::shared_ptr<BufferTrack> bufferRightUp(new BufferTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferRightUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::BUFFERLEFTDOWN:
             {
                 std::shared_ptr<BufferTrack> bufferLeftDown(new BufferTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferLeftDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::BUFFERRIGHTDOWN:
             {
                 std::shared_ptr<BufferTrack> bufferRightDown(new BufferTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferRightDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::SIGNALLEFT:
             {
                 std::shared_ptr<SignalTrack> signalLeft(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalLeft);
+                addedTrack = true;
                 break;
             }
             case ElementType::SIGNALRIGHT:
             {
                 std::shared_ptr<SignalTrack> signalRight(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalRight);
+                addedTrack = true;
                 break;
             }
             case ElementType::SIGNALDOWN:
             {
                 std::shared_ptr<SignalTrack> signalDown(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::SIGNALUP:
             {
                 std::shared_ptr<SignalTrack> signalUp(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::SIGNALLEFTUP:
             {
                 std::shared_ptr<SignalTrack> signalLeftUp(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalLeftUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::SIGNALRIGHTUP:
             {
                 std::shared_ptr<SignalTrack> signalRightUp(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalRightUp);
+                addedTrack = true;
                 break;
             }
             case ElementType::SIGNALLEFTDOWN:
             {
                 std::shared_ptr<SignalTrack> signalLeftDown(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalLeftDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::SIGNALRIGHTDOWN:
             {
                 std::shared_ptr<SignalTrack> signalRightDown(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalRightDown);
+                addedTrack = true;
                 break;
             }
             case ElementType::BRIDGE1:
             {
                 std::shared_ptr<BridgeUnderpassTrack> bridge1(new BridgeUnderpassTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBridgeUnderpassTrack(bridge1);
+                addedTrack = true;
                 break;
             }
             case ElementType::BRIDGE2:
             {
                 std::shared_ptr<BridgeUnderpassTrack> bridge2(new BridgeUnderpassTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBridgeUnderpassTrack(bridge2);
+                addedTrack = true;
                 break;
             }
             case ElementType::UNDERPASS1:
             {
                 std::shared_ptr<BridgeUnderpassTrack> underpass1(new BridgeUnderpassTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBridgeUnderpassTrack(underpass1);
+                addedTrack = true;
                 break;
             }
             case ElementType::UNDERPASS2:
             {
                 std::shared_ptr<BridgeUnderpassTrack> underpass2(new BridgeUnderpassTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addBridgeUnderpassTrack(underpass2);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHTIGHT1:
             {
                 std::shared_ptr<SwitchTrack> switchTight1(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight1);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHTIGHT2:
             {
                 std::shared_ptr<SwitchTrack> switchTight2(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight2);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHTIGHT3:
             {
                 std::shared_ptr<SwitchTrack> switchTight3(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight3);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHTIGHT4:
             {
                 std::shared_ptr<SwitchTrack> switchTight4(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight4);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHTIGHT5:
             {
                 std::shared_ptr<SwitchTrack> switchTight5(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight5);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHTIGHT6:
             {
                 std::shared_ptr<SwitchTrack> switchTight6(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight6);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHTIGHT7:
             {
                 std::shared_ptr<SwitchTrack> switchTight7(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight7);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHTIGHT8:
             {
                 std::shared_ptr<SwitchTrack> switchTight8(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight8);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHSPLIT1:
             {
                 std::shared_ptr<SwitchTrack> switchSplit1(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit1);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHSPLIT2:
             {
                 std::shared_ptr<SwitchTrack> switchSplit2(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit2);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHSPLIT3:
             {
                 std::shared_ptr<SwitchTrack> switchSplit3(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit3);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH1:
             {
                 std::shared_ptr<SwitchTrack> switch1(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch1);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH2:
             {
                 std::shared_ptr<SwitchTrack> switch2(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch2);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH3:
             {
                 std::shared_ptr<SwitchTrack> switch3(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch3);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH4:
             {
                 std::shared_ptr<SwitchTrack> switch4(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch4);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH5:
             {
                 std::shared_ptr<SwitchTrack> switch5(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch5);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH6:
             {
                 std::shared_ptr<SwitchTrack> switch6(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch6);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH7:
             {
                 std::shared_ptr<SwitchTrack> switch7(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch7);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH8:
             {
                 std::shared_ptr<SwitchTrack> switch8(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch8);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHSPLIT4:
             {
                 std::shared_ptr<SwitchTrack> switchSplit4(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit4);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHSPLIT5:
             {
                 std::shared_ptr<SwitchTrack> switchSplit4(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit4);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHSPLIT6:
             {
                 std::shared_ptr<SwitchTrack> switchSplit5(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit5);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH9:
             {
                 std::shared_ptr<SwitchTrack> switch9(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch9);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH10:
             {
                 std::shared_ptr<SwitchTrack> switch10(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch10);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH11:
             {
                 std::shared_ptr<SwitchTrack> switch11(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch11);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH12:
             {
                 std::shared_ptr<SwitchTrack> switch12(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch12);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH13:
             {
                 std::shared_ptr<SwitchTrack> switch13(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch13);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH14:
             {
                 std::shared_ptr<SwitchTrack> switch14(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch14);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH15:
             {
                 std::shared_ptr<SwitchTrack> switch15(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch15);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCH16:
             {
                 std::shared_ptr<SwitchTrack> switch16(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch16);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHSPLIT7:
             {
                 std::shared_ptr<SwitchTrack> switchSplit7(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit7);
+                addedTrack = true;
                 break;
             }
             case ElementType::SWITCHSPLIT8:
             {
                 std::shared_ptr<SwitchTrack> switchSplit8(new SwitchTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit8);
+                addedTrack = true;
                 break;
             }
             case ElementType::CROSSOVER1:
             {
                 std::shared_ptr<CrossoverTrack> crossover1(new CrossoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover1);
+                addedTrack = true;
                 break;
             }
             case ElementType::CROSSOVER2:
             {
                 std::shared_ptr<CrossoverTrack> crossover2(new CrossoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover2);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER1:
             {
                 std::shared_ptr<FlyoverTrack> flyover1(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover1);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER2:
             {
                 std::shared_ptr<FlyoverTrack> flyover2(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover2);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER3:
             {
                 std::shared_ptr<FlyoverTrack> flyover3(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover3);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER4:
             {
                 std::shared_ptr<FlyoverTrack> flyover4(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover4);
+                addedTrack = true;
                 break;
             }
             case ElementType::CROSSOVER3:
             {
                 std::shared_ptr<CrossoverTrack> crossover3(new CrossoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover3);
+                addedTrack = true;
                 break;
             }
             case ElementType::CROSSOVER4:
             {
                 std::shared_ptr<CrossoverTrack> crossover4(new CrossoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover4);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER5:
             {
                 std::shared_ptr<FlyoverTrack> flyover5(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover5);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER6:
             {
                 std::shared_ptr<FlyoverTrack> flyover6(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover6);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER7:
             {
                 std::shared_ptr<FlyoverTrack> flyover7(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover7);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER8:
             {
                 std::shared_ptr<FlyoverTrack> flyover8(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover8);
+                addedTrack = true;
                 break;
             }
             case ElementType::CROSSOVER5:
             {
                 std::shared_ptr<CrossoverTrack> crossover5(new CrossoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover5);
+                addedTrack = true;
                 break;
             }
             case ElementType::CROSSOVER6:
             {
                 std::shared_ptr<CrossoverTrack> crossover6(new CrossoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover6);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER9:
             {
                 std::shared_ptr<FlyoverTrack> flyover9(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover9);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER10:
             {
                 std::shared_ptr<FlyoverTrack> flyover10(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover10);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER11:
             {
                 std::shared_ptr<FlyoverTrack> flyover11(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover11);
+                addedTrack = true;
                 break;
             }
             case ElementType::FLYOVER12:
             {
                 std::shared_ptr<FlyoverTrack> flyover12(new FlyoverTrack(*canvasChosen, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover12);
+                addedTrack = true;
                 break;
             }
             case ElementType::NAMEDLOCATION:
