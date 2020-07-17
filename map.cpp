@@ -1649,7 +1649,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     {
                         case Platform::UP:
                         {
-                            if (currentElement->getElementType() == ElementType::STRAIGHTH)
+                            if (currentElement->getStraightType() == StraightType::STRAIGHTH)
                             {
                                 currentElement->setPlatform1(true);
                                 added = true;
@@ -1658,7 +1658,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                         }
                         case Platform::DOWN:
                         {
-                            if (currentElement->getElementType() == ElementType::STRAIGHTH)
+                            if (currentElement->getStraightType() == StraightType::STRAIGHTH)
                             {
                                 currentElement->setPlatform2(true);
                                 added = true;
@@ -1667,7 +1667,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                         }
                         case Platform::LEFT:
                         {
-                            if (currentElement->getElementType() == ElementType::STRAIGHTV)
+                            if (currentElement->getStraightType() == StraightType::STRAIGHTV)
                             {
                                 currentElement->setPlatform1(true);
                                 added = true;
@@ -1676,7 +1676,7 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                         }
                         case Platform::RIGHT:
                         {
-                            if (currentElement->getElementType() == ElementType::STRAIGHTV)
+                            if (currentElement->getStraightType() == StraightType::STRAIGHTV)
                             {
                                 currentElement->setPlatform2(true);
                                 added = true;
@@ -1704,11 +1704,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                 {
                     case Platform::LEFT:
                     {
-                        if (currentElement->getElementType() == ElementType::DIRECTUP)
+                        if (currentElement->getDirectType() == DirectType::DIRECTUP)
                         {
                             currentElement->setPlatform1(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::DIRECTDOWN)
+                        else if (currentElement->getDirectType() == DirectType::DIRECTDOWN)
                         {
                             currentElement->setPlatform1(true);
                         }
@@ -1717,11 +1717,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::RIGHT:
                     {
-                        if (currentElement->getElementType() == ElementType::DIRECTUP)
+                        if (currentElement->getDirectType() == DirectType::DIRECTUP)
                         {
                             currentElement->setPlatform2(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::DIRECTDOWN)
+                        else if (currentElement->getDirectType() == DirectType::DIRECTDOWN)
                         {
                             currentElement->setPlatform2(true);
                         }
@@ -1730,11 +1730,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::UP:
                     {
-                        if (currentElement->getElementType() == ElementType::DIRECTLEFT)
+                        if (currentElement->getDirectType() == DirectType::DIRECTLEFT)
                         {
                             currentElement->setPlatform1(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::DIRECTRIGHT)
+                        else if (currentElement->getDirectType() == DirectType::DIRECTRIGHT)
                         {
                             currentElement->setPlatform1(true);
                         }
@@ -1743,11 +1743,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::DOWN:
                     {
-                        if (currentElement->getElementType() == ElementType::DIRECTLEFT)
+                        if (currentElement->getDirectType() == DirectType::DIRECTLEFT)
                         {
                             currentElement->setPlatform2(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::DIRECTRIGHT)
+                        else if (currentElement->getDirectType() == DirectType::DIRECTRIGHT)
                         {
                             currentElement->setPlatform2(true);
                         }
@@ -1779,11 +1779,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                 {
                     case Platform::LEFT:
                     {
-                        if (currentElement->getElementType() == ElementType::BUFFERUP)
+                        if (currentElement->getBufferType() == BufferType::BUFFERUP)
                         {
                             currentElement->setPlatform1(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::BUFFERDOWN)
+                        else if (currentElement->getBufferType() == BufferType::BUFFERDOWN)
                         {
                             currentElement->setPlatform1(true);
                         }
@@ -1792,11 +1792,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::RIGHT:
                     {
-                        if (currentElement->getElementType() == ElementType::BUFFERUP)
+                        if (currentElement->getBufferType() == BufferType::BUFFERUP)
                         {
                             currentElement->setPlatform2(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::BUFFERDOWN)
+                        else if (currentElement->getBufferType() == BufferType::BUFFERDOWN)
                         {
                             currentElement->setPlatform2(true);
                         }
@@ -1805,11 +1805,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::UP:
                     {
-                        if (currentElement->getElementType() == ElementType::BUFFERLEFT)
+                        if (currentElement->getBufferType() == BufferType::BUFFERLEFT)
                         {
                             currentElement->setPlatform1(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::BUFFERRIGHT)
+                        else if (currentElement->getBufferType() == BufferType::BUFFERRIGHT)
                         {
                             currentElement->setPlatform1(true);
                         }
@@ -1818,11 +1818,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::DOWN:
                     {
-                        if (currentElement->getElementType() == ElementType::BUFFERLEFT)
+                        if (currentElement->getBufferType() == BufferType::BUFFERLEFT)
                         {
                             currentElement->setPlatform2(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::BUFFERRIGHT)
+                        else if (currentElement->getBufferType() == BufferType::BUFFERRIGHT)
                         {
                             currentElement->setPlatform2(true);
                         }
@@ -1853,11 +1853,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                 {
                     case Platform::LEFT:
                     {
-                        if (currentElement->getElementType() == ElementType::SIGNALUP)
+                        if (currentElement->getSignalType() == SignalType::SIGNALUP)
                         {
                             currentElement->setPlatform1(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::SIGNALDOWN)
+                        else if (currentElement->getSignalType() == SignalType::SIGNALDOWN)
                         {
                             currentElement->setPlatform1(true);
                         }
@@ -1866,11 +1866,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::RIGHT:
                     {
-                        if (currentElement->getElementType() == ElementType::SIGNALUP)
+                        if (currentElement->getSignalType() == SignalType::SIGNALUP)
                         {
                             currentElement->setPlatform2(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::SIGNALDOWN)
+                        else if (currentElement->getSignalType() == SignalType::SIGNALDOWN)
                         {
                             currentElement->setPlatform2(true);
                         }
@@ -1879,11 +1879,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::UP:
                     {
-                        if (currentElement->getElementType() == ElementType::SIGNALLEFT)
+                        if (currentElement->getSignalType() == SignalType::SIGNALLEFT)
                         {
                             currentElement->setPlatform1(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::SIGNALRIGHT)
+                        else if (currentElement->getSignalType() == SignalType::SIGNALRIGHT)
                         {
                             currentElement->setPlatform1(true);
                         }
@@ -1892,11 +1892,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::DOWN:
                     {
-                        if (currentElement->getElementType() == ElementType::SIGNALLEFT)
+                        if (currentElement->getSignalType() == SignalType::SIGNALLEFT)
                         {
                             currentElement->setPlatform2(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::SIGNALRIGHT)
+                        else if (currentElement->getSignalType() == SignalType::SIGNALRIGHT)
                         {
                             currentElement->setPlatform2(true);
                         }
@@ -1927,11 +1927,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                 {
                     case Platform::LEFT:
                     {
-                        if (currentElement->getElementType() == ElementType::BRIDGE2)
+                        if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE2)
                         {
                            currentElement->setPlatform1(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::UNDERPASS2)
+                        else if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS2)
                         {
                             currentElement->setPlatform1(true);
                         }
@@ -1940,11 +1940,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::RIGHT:
                     {
-                        if (currentElement->getElementType() == ElementType::BRIDGE2)
+                        if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE2)
                         {
                             currentElement->setPlatform2(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::UNDERPASS2)
+                        else if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS2)
                         {
                             currentElement->setPlatform2(true);
                         }
@@ -1953,11 +1953,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::UP:
                     {
-                        if (currentElement->getElementType() == ElementType::BRIDGE1)
+                        if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE1)
                         {
                             currentElement->setPlatform1(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::UNDERPASS1)
+                        else if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS1)
                         {
                             currentElement->setPlatform1(true);
                         }
@@ -1966,11 +1966,11 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                     }
                     case Platform::DOWN:
                     {
-                        if (currentElement->getElementType() == ElementType::BRIDGE1)
+                        if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::BRIDGE1)
                         {
                             currentElement->setPlatform2(true);
                         }
-                        else if (currentElement->getElementType() == ElementType::UNDERPASS1)
+                        else if (currentElement->getBridgeUnderpassType() == BridgeUnderpassType::UNDERPASS1)
                         {
                             currentElement->setPlatform2(true);
                         }
@@ -1997,12 +1997,12 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
-                switch (currentElement->getElementType())
+                switch (currentElement->getSwitchType())
                 {
-                    case ElementType::SWITCHTIGHT1:
-                    case ElementType::SWITCHTIGHT2:
-                    case ElementType::SWITCH1:
-                    case ElementType::SWITCH2:
+                    case SwitchType::SWITCHTIGHT1:
+                    case SwitchType::SWITCHTIGHT2:
+                    case SwitchType::SWITCH1:
+                    case SwitchType::SWITCH2:
                     {
                         if (side == Platform::DOWN)
                         {
@@ -2011,10 +2011,10 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                         }
                         break;
                     }
-                    case ElementType::SWITCHTIGHT3:
-                    case ElementType::SWITCHTIGHT4:
-                    case ElementType::SWITCH3:
-                    case ElementType::SWITCH4:
+                    case SwitchType::SWITCHTIGHT3:
+                    case SwitchType::SWITCHTIGHT4:
+                    case SwitchType::SWITCH3:
+                    case SwitchType::SWITCH4:
                     {
                         if (side == Platform::UP)
                         {
@@ -2023,10 +2023,10 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                         }
                         break;
                     }
-                    case ElementType::SWITCHTIGHT5:
-                    case ElementType::SWITCHTIGHT7:
-                    case ElementType::SWITCH5:
-                    case ElementType::SWITCH7:
+                    case SwitchType::SWITCHTIGHT5:
+                    case SwitchType::SWITCHTIGHT7:
+                    case SwitchType::SWITCH5:
+                    case SwitchType::SWITCH7:
                     {
                         if (side == Platform::RIGHT)
                         {
@@ -2035,10 +2035,10 @@ void Map::addPlatform(Platform side, int locationX, int locationY)
                         }
                         break;
                     }
-                    case ElementType::SWITCHTIGHT6:
-                    case ElementType::SWITCHTIGHT8:
-                    case ElementType::SWITCH6:
-                    case ElementType::SWITCH8:
+                    case SwitchType::SWITCHTIGHT6:
+                    case SwitchType::SWITCHTIGHT8:
+                    case SwitchType::SWITCH6:
+                    case SwitchType::SWITCH8:
                     {
                         if (side == Platform::LEFT)
                         {

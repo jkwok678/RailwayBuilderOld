@@ -234,7 +234,7 @@ private slots:
 
 private:
 
-	ElementType windowChosen;
+    Mode modeChosen;
 	int aspect;
 	int windowOffsetX;
 	int windowOffsetY;

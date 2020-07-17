@@ -12,6 +12,7 @@
 #include "element.h"
 #include "map.h"
 #include "track.h"
+#include "window.h"
 
 
 
@@ -21,8 +22,8 @@ class Canvas : public QWidget
 public:
 
 	Canvas();
-	ElementType getElementType();
-	void setElementType(ElementType& newChosen);
+    Mode getMode();
+    void setMode(Mode& newChosen);
 
 	Map getMap();
 	void setMap(Map& map);
@@ -62,7 +63,7 @@ protected:
 
 
 private:
-	ElementType* canvasChosen;
+    Mode* canvasChosen;
 
 	Map* drawnLayout;
 	int imageSize;

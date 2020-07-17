@@ -5,10 +5,10 @@ Window::Window()
 {
 
 	//Set default chosen Element to nothing.
-	windowChosen = ElementType::NONE;
+    modeChosen = Mode::NONE;
 
 	drawingSurface = new Canvas;
-	drawingSurface->setElementType(windowChosen);
+    drawingSurface->setMode(modeChosen);
     setMinimumSize(960,544);
     resize(1024,768);
 	windowOffsetX = 0;
@@ -115,32 +115,32 @@ void Window::changeAspect()
 
 void Window::addEditRemoveText()
 {
-    if (windowChosen != ElementType::ADDCHANGETEXT)
-        windowChosen = ElementType::ADDCHANGETEXT;
+    if (modeChosen != Mode::ADDCHANGETEXT)
+        modeChosen = Mode::ADDCHANGETEXT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::moveText()
 {
-    if (windowChosen != ElementType::MOVETEXT)
+    if (modeChosen != Mode::MOVETEXT)
     {
-        windowChosen = ElementType::MOVETEXT;
+        modeChosen = Mode::MOVETEXT;
     }
     else
-        windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::setChangeNamedLocation()
 {
-    if (windowChosen != ElementType::SETCHANGENAMEDLOCATION)
+    if (modeChosen != Mode::SETCHANGENAMEDLOCATION)
     {
-        windowChosen = ElementType::SETCHANGENAMEDLOCATION;
+        modeChosen = Mode::SETCHANGENAMEDLOCATION;
     }
     else
-        windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::openFontBox()
@@ -213,1273 +213,1273 @@ void Window::moveDown()
 
 void Window::chooseStraightH()
 {
-	if (windowChosen != ElementType::STRAIGHTH)
-		windowChosen = ElementType::STRAIGHTH;
+    if (modeChosen != Mode::STRAIGHTH)
+        modeChosen = Mode::STRAIGHTH;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseStraightV()
 {
-	if (windowChosen != ElementType::STRAIGHTV)
-		windowChosen = ElementType::STRAIGHTV;
+    if (modeChosen != Mode::STRAIGHTV)
+        modeChosen = Mode::STRAIGHTV;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseDirectLeft()
 {
-	if (windowChosen != ElementType::DIRECTLEFT)
-		windowChosen = ElementType::DIRECTLEFT;
+    if (modeChosen != Mode::DIRECTLEFT)
+        modeChosen = Mode::DIRECTLEFT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseDirectRight()
 {
-	if (windowChosen != ElementType::DIRECTRIGHT)
-		windowChosen = ElementType::DIRECTRIGHT;
+    if (modeChosen != Mode::DIRECTRIGHT)
+        modeChosen = Mode::DIRECTRIGHT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseDirectUp()
 {
-	if (windowChosen != ElementType::DIRECTUP)
-		windowChosen = ElementType::DIRECTUP;
+    if (modeChosen != Mode::DIRECTUP)
+        modeChosen = Mode::DIRECTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseDirectDown()
 {
-	if (windowChosen != ElementType::DIRECTDOWN)
-		windowChosen = ElementType::DIRECTDOWN;
+    if (modeChosen != Mode::DIRECTDOWN)
+        modeChosen = Mode::DIRECTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseStraightLeftUp()
 {
-	if (windowChosen != ElementType::STRAIGHTLEFTUP)
-		windowChosen = ElementType::STRAIGHTLEFTUP;
+    if (modeChosen != Mode::STRAIGHTLEFTUP)
+        modeChosen = Mode::STRAIGHTLEFTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseStraightRightUp()
 {
-	if (windowChosen != ElementType::STRIAGHTRIGHTUP)
-		windowChosen = ElementType::STRIAGHTRIGHTUP;
+    if (modeChosen != Mode::STRIAGHTRIGHTUP)
+        modeChosen = Mode::STRIAGHTRIGHTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseDirectLeftUp()
 {
-	if (windowChosen != ElementType::DIRECTLEFTUP)
-		windowChosen = ElementType::DIRECTLEFTUP;
+    if (modeChosen != Mode::DIRECTLEFTUP)
+        modeChosen = Mode::DIRECTLEFTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseDirectRightUp()
 {
-	if (windowChosen != ElementType::DIRECTRIGHTUP)
-		windowChosen = ElementType::DIRECTRIGHTUP;
+    if (modeChosen != Mode::DIRECTRIGHTUP)
+        modeChosen = Mode::DIRECTRIGHTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseDirectLeftDown()
 {
-	if (windowChosen != ElementType::DIRECTLEFTDOWN)
-		windowChosen = ElementType::DIRECTLEFTDOWN;
+    if (modeChosen != Mode::DIRECTLEFTDOWN)
+        modeChosen = Mode::DIRECTLEFTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseDirectRightDown()
 {
-	if (windowChosen != ElementType::DIRECTRIGHTDOWN)
-		windowChosen = ElementType::DIRECTRIGHTDOWN;
+    if (modeChosen != Mode::DIRECTRIGHTDOWN)
+        modeChosen = Mode::DIRECTRIGHTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseTightCurve1()
 {
-	if (windowChosen != ElementType::TIGHTCURVE1)
-		windowChosen = ElementType::TIGHTCURVE1;
+    if (modeChosen != Mode::TIGHTCURVE1)
+        modeChosen = Mode::TIGHTCURVE1;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseTightCurve2()
 {
-	if (windowChosen != ElementType::TIGHTCURVE2)
-		windowChosen = ElementType::TIGHTCURVE2;
+    if (modeChosen != Mode::TIGHTCURVE2)
+        modeChosen = Mode::TIGHTCURVE2;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseTightCurve3()
 {
-	if (windowChosen != ElementType::TIGHTCURVE3)
-		windowChosen = ElementType::TIGHTCURVE3;
+    if (modeChosen != Mode::TIGHTCURVE3)
+        modeChosen = Mode::TIGHTCURVE3;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseTightCurve4()
 {
-	if (windowChosen != ElementType::TIGHTCURVE4)
-		windowChosen = ElementType::TIGHTCURVE4;
+    if (modeChosen != Mode::TIGHTCURVE4)
+        modeChosen = Mode::TIGHTCURVE4;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseCurve1()
 {
-	if (windowChosen != ElementType::CURVE1)
-		windowChosen = ElementType::CURVE1;
+    if (modeChosen != Mode::CURVE1)
+        modeChosen = Mode::CURVE1;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseCurve2()
 {
-	if (windowChosen != ElementType::CURVE2)
-		windowChosen = ElementType::CURVE2;
+    if (modeChosen != Mode::CURVE2)
+        modeChosen = Mode::CURVE2;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseCurve3()
 {
-	if (windowChosen != ElementType::CURVE3)
-		windowChosen = ElementType::CURVE3;
+    if (modeChosen != Mode::CURVE3)
+        modeChosen = Mode::CURVE3;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseCurve4()
 {
-	if (windowChosen != ElementType::CURVE4)
-		windowChosen = ElementType::CURVE4;
+    if (modeChosen != Mode::CURVE4)
+        modeChosen = Mode::CURVE4;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseLinkLeft()
 {
-	if (windowChosen != ElementType::LINKLEFT)
-		windowChosen = ElementType::LINKLEFT;
+    if (modeChosen != Mode::LINKLEFT)
+        modeChosen = Mode::LINKLEFT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseLinkRight()
 {
-	if (windowChosen != ElementType::LINKRIGHT)
-		windowChosen = ElementType::LINKRIGHT;
+    if (modeChosen != Mode::LINKRIGHT)
+        modeChosen = Mode::LINKRIGHT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseLinkDown()
 {
-	if (windowChosen != ElementType::LINKDOWN)
-		windowChosen = ElementType::LINKDOWN;
+    if (modeChosen != Mode::LINKDOWN)
+        modeChosen = Mode::LINKDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseLinkUp()
 {
-	if (windowChosen != ElementType::LINKUP)
-		windowChosen = ElementType::LINKUP;
+    if (modeChosen != Mode::LINKUP)
+        modeChosen = Mode::LINKUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseLinkLeftUp()
 {
-	if (windowChosen != ElementType::LINKLEFTUP)
-		windowChosen = ElementType::LINKLEFTUP;
+    if (modeChosen != Mode::LINKLEFTUP)
+        modeChosen = Mode::LINKLEFTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseLinkRightUp()
 {
-	if (windowChosen != ElementType::LINKRIGHTUP)
-		windowChosen = ElementType::LINKRIGHTUP;
+    if (modeChosen != Mode::LINKRIGHTUP)
+        modeChosen = Mode::LINKRIGHTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseLinkLeftDown()
 {
-	if (windowChosen != ElementType::LINKLEFTDOWN)
-		windowChosen = ElementType::LINKLEFTDOWN;
+    if (modeChosen != Mode::LINKLEFTDOWN)
+        modeChosen = Mode::LINKLEFTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseLinkRightDown()
 {
-	if (windowChosen != ElementType::LINKRIGHTDOWN)
-		windowChosen = ElementType::LINKRIGHTDOWN;
+    if (modeChosen != Mode::LINKRIGHTDOWN)
+        modeChosen = Mode::LINKRIGHTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseExitLeft()
 {
-	if (windowChosen != ElementType::EXITLEFT)
-		windowChosen = ElementType::EXITLEFT;
+    if (modeChosen != Mode::EXITLEFT)
+        modeChosen = Mode::EXITLEFT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseExitRight()
 {
-	if (windowChosen != ElementType::EXITRIGHT)
-		windowChosen = ElementType::EXITRIGHT;
+    if (modeChosen != Mode::EXITRIGHT)
+        modeChosen = Mode::EXITRIGHT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseExitDown()
 {
-	if (windowChosen != ElementType::EXITDOWN)
-		windowChosen = ElementType::EXITDOWN;
+    if (modeChosen != Mode::EXITDOWN)
+        modeChosen = Mode::EXITDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseExitUp()
 {
-	if (windowChosen != ElementType::EXITUP)
-		windowChosen = ElementType::EXITUP;
+    if (modeChosen != Mode::EXITUP)
+        modeChosen = Mode::EXITUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseExitLeftUp()
 {
-	if (windowChosen != ElementType::EXITLEFTUP)
-		windowChosen = ElementType::EXITLEFTUP;
+    if (modeChosen != Mode::EXITLEFTUP)
+        modeChosen = Mode::EXITLEFTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseExitRightUp()
 {
-	if (windowChosen != ElementType::EXITRIGHTUP)
-		windowChosen = ElementType::EXITRIGHTUP;
+    if (modeChosen != Mode::EXITRIGHTUP)
+        modeChosen = Mode::EXITRIGHTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseExitLeftDown()
 {
-	if (windowChosen != ElementType::EXITLEFTDOWN)
-		windowChosen = ElementType::EXITLEFTDOWN;
+    if (modeChosen != Mode::EXITLEFTDOWN)
+        modeChosen = Mode::EXITLEFTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseExitRightDown()
 {
-	if (windowChosen != ElementType::EXITRIGHTDOWN)
-		windowChosen = ElementType::EXITRIGHTDOWN;
+    if (modeChosen != Mode::EXITRIGHTDOWN)
+        modeChosen = Mode::EXITRIGHTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseCurve5()
 {
-	if (windowChosen != ElementType::CURVE5)
-		windowChosen = ElementType::CURVE5;
+    if (modeChosen != Mode::CURVE5)
+        modeChosen = Mode::CURVE5;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseCurve6()
 {
-	if (windowChosen != ElementType::CURVE6)
-		windowChosen = ElementType::CURVE6;
+    if (modeChosen != Mode::CURVE6)
+        modeChosen = Mode::CURVE6;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseCurve7()
 {
-	if (windowChosen != ElementType::CURVE7)
-		windowChosen = ElementType::CURVE7;
+    if (modeChosen != Mode::CURVE7)
+        modeChosen = Mode::CURVE7;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseCurve8()
 {
-	if (windowChosen != ElementType::CURVE8)
-		windowChosen = ElementType::CURVE8;
+    if (modeChosen != Mode::CURVE8)
+        modeChosen = Mode::CURVE8;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseBufferLeft()
 {
-	if (windowChosen != ElementType::BUFFERLEFT)
-		windowChosen = ElementType::BUFFERLEFT;
+    if (modeChosen != Mode::BUFFERLEFT)
+        modeChosen = Mode::BUFFERLEFT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseBufferRight()
 {
-	if (windowChosen != ElementType::BUFFERRIGHT)
-		windowChosen = ElementType::BUFFERRIGHT;
+    if (modeChosen != Mode::BUFFERRIGHT)
+        modeChosen = Mode::BUFFERRIGHT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseBufferDown()
 {
-	if (windowChosen != ElementType::BUFFERDOWN)
-		windowChosen = ElementType::BUFFERDOWN;
+    if (modeChosen != Mode::BUFFERDOWN)
+        modeChosen = Mode::BUFFERDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseBufferUp()
 {
-	if (windowChosen != ElementType::BUFFERUP)
-		windowChosen = ElementType::BUFFERUP;
+    if (modeChosen != Mode::BUFFERUP)
+        modeChosen = Mode::BUFFERUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseBufferLeftUp()
 {
-	if (windowChosen != ElementType::BUFFERLEFTUP)
-		windowChosen = ElementType::BUFFERLEFTUP;
+    if (modeChosen != Mode::BUFFERLEFTUP)
+        modeChosen = Mode::BUFFERLEFTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseBufferRightUp()
 {
-	if (windowChosen != ElementType::BUFFERRIGHTUP)
-		windowChosen = ElementType::BUFFERRIGHTUP;
+    if (modeChosen != Mode::BUFFERRIGHTUP)
+        modeChosen = Mode::BUFFERRIGHTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseBufferLeftDown()
 {
-	if (windowChosen != ElementType::BUFFERLEFTDOWN)
-		windowChosen = ElementType::BUFFERLEFTDOWN;
+    if (modeChosen != Mode::BUFFERLEFTDOWN)
+        modeChosen = Mode::BUFFERLEFTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseBufferRightDown()
 {
-	if (windowChosen != ElementType::BUFFERRIGHTDOWN)
-		windowChosen = ElementType::BUFFERRIGHTDOWN;
+    if (modeChosen != Mode::BUFFERRIGHTDOWN)
+        modeChosen = Mode::BUFFERRIGHTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSignalLeft()
 {
-	if (windowChosen != ElementType::SIGNALLEFT)
-		windowChosen = ElementType::SIGNALLEFT;
+    if (modeChosen != Mode::SIGNALLEFT)
+        modeChosen = Mode::SIGNALLEFT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 
 }
 
 void Window::chooseSignalRight()
 {
-	if (windowChosen != ElementType::SIGNALRIGHT)
-		windowChosen = ElementType::SIGNALRIGHT;
+    if (modeChosen != Mode::SIGNALRIGHT)
+        modeChosen = Mode::SIGNALRIGHT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSignalDown()
 {
-	if (windowChosen != ElementType::SIGNALDOWN)
-		windowChosen = ElementType::SIGNALDOWN;
+    if (modeChosen != Mode::SIGNALDOWN)
+        modeChosen = Mode::SIGNALDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSignalUp()
 {
-	if (windowChosen != ElementType::SIGNALUP)
-		windowChosen = ElementType::SIGNALUP;
+    if (modeChosen != Mode::SIGNALUP)
+        modeChosen = Mode::SIGNALUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSignalLeftUp()
 {
-	if (windowChosen != ElementType::SIGNALLEFTUP)
-		windowChosen = ElementType::SIGNALLEFTUP;
+    if (modeChosen != Mode::SIGNALLEFTUP)
+        modeChosen = Mode::SIGNALLEFTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSignalRightUp()
 {
-	if (windowChosen != ElementType::SIGNALRIGHTUP)
-		windowChosen = ElementType::SIGNALRIGHTUP;
+    if (modeChosen != Mode::SIGNALRIGHTUP)
+        modeChosen = Mode::SIGNALRIGHTUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSignalLeftDown()
 {
-	if (windowChosen != ElementType::SIGNALLEFTDOWN)
-		windowChosen = ElementType::SIGNALLEFTDOWN;
+    if (modeChosen != Mode::SIGNALLEFTDOWN)
+        modeChosen = Mode::SIGNALLEFTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSignalRightDown()
 {
-	if (windowChosen != ElementType::SIGNALRIGHTDOWN)
-		windowChosen = ElementType::SIGNALRIGHTDOWN;
+    if (modeChosen != Mode::SIGNALRIGHTDOWN)
+        modeChosen = Mode::SIGNALRIGHTDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseBridge1()
 {
-	if (windowChosen != ElementType::BRIDGE1)
-		windowChosen = ElementType::BRIDGE1;
+    if (modeChosen != Mode::BRIDGE1)
+        modeChosen = Mode::BRIDGE1;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseBridge2()
 {
-	if (windowChosen != ElementType::BRIDGE2)
-		windowChosen = ElementType::BRIDGE2;
+    if (modeChosen != Mode::BRIDGE2)
+        modeChosen = Mode::BRIDGE2;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 
 }
 
 void Window::chooseUnderpass1()
 {
-	if (windowChosen != ElementType::UNDERPASS1)
+    if (modeChosen != Mode::UNDERPASS1)
 	{
-		windowChosen = ElementType::UNDERPASS1;
+        modeChosen = Mode::UNDERPASS1;
 	}
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseUnderpass2()
 {
-	if (windowChosen != ElementType::UNDERPASS2)
-		windowChosen = ElementType::UNDERPASS2;
+    if (modeChosen != Mode::UNDERPASS2)
+        modeChosen = Mode::UNDERPASS2;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchTight1()
 {
-	if (windowChosen != ElementType::SWITCHTIGHT1)
-		windowChosen = ElementType::SWITCHTIGHT1;
+    if (modeChosen != Mode::SWITCHTIGHT1)
+        modeChosen = Mode::SWITCHTIGHT1;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchTight2()
 {
-	if (windowChosen != ElementType::SWITCHTIGHT2)
-		windowChosen = ElementType::SWITCHTIGHT2;
+    if (modeChosen != Mode::SWITCHTIGHT2)
+        modeChosen = Mode::SWITCHTIGHT2;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchTight3()
 {
-	if (windowChosen != ElementType::SWITCHTIGHT3)
-		windowChosen = ElementType::SWITCHTIGHT3;
+    if (modeChosen != Mode::SWITCHTIGHT3)
+        modeChosen = Mode::SWITCHTIGHT3;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchTight4()
 {
-	if (windowChosen != ElementType::SWITCHTIGHT4)
-		windowChosen = ElementType::SWITCHTIGHT4;
+    if (modeChosen != Mode::SWITCHTIGHT4)
+        modeChosen = Mode::SWITCHTIGHT4;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchTight5()
 {
-	if (windowChosen != ElementType::SWITCHTIGHT5)
-		windowChosen = ElementType::SWITCHTIGHT5;
+    if (modeChosen != Mode::SWITCHTIGHT5)
+        modeChosen = Mode::SWITCHTIGHT5;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchTight6()
 {
-	if (windowChosen != ElementType::SWITCHTIGHT6)
-		windowChosen = ElementType::SWITCHTIGHT6;
+    if (modeChosen != Mode::SWITCHTIGHT6)
+        modeChosen = Mode::SWITCHTIGHT6;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchTight7()
 {
-	if (windowChosen != ElementType::SWITCHTIGHT7)
-		windowChosen = ElementType::SWITCHTIGHT7;
+    if (modeChosen != Mode::SWITCHTIGHT7)
+        modeChosen = Mode::SWITCHTIGHT7;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchTight8()
 {
-	if (windowChosen != ElementType::SWITCHTIGHT8)
-		windowChosen = ElementType::SWITCHTIGHT8;
+    if (modeChosen != Mode::SWITCHTIGHT8)
+        modeChosen = Mode::SWITCHTIGHT8;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchSplit1()
 {
-	if (windowChosen != ElementType::SWITCHSPLIT1)
-		windowChosen = ElementType::SWITCHSPLIT1;
+    if (modeChosen != Mode::SWITCHSPLIT1)
+        modeChosen = Mode::SWITCHSPLIT1;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchSplit2()
 {
-	if (windowChosen != ElementType::SWITCHSPLIT2)
-		windowChosen = ElementType::SWITCHSPLIT2;
+    if (modeChosen != Mode::SWITCHSPLIT2)
+        modeChosen = Mode::SWITCHSPLIT2;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchSplit3()
 {
-	if (windowChosen != ElementType::SWITCHSPLIT3)
-		windowChosen = ElementType::SWITCHSPLIT3;
+    if (modeChosen != Mode::SWITCHSPLIT3)
+        modeChosen = Mode::SWITCHSPLIT3;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch1()
 {
-	if (windowChosen != ElementType::SWITCH1)
-		windowChosen = ElementType::SWITCH1;
+    if (modeChosen != Mode::SWITCH1)
+        modeChosen = Mode::SWITCH1;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch2()
 {
-	if (windowChosen != ElementType::SWITCH2)
-		windowChosen = ElementType::SWITCH2;
+    if (modeChosen != Mode::SWITCH2)
+        modeChosen = Mode::SWITCH2;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch3()
 {
-	if (windowChosen != ElementType::SWITCH3)
-		windowChosen = ElementType::SWITCH3;
+    if (modeChosen != Mode::SWITCH3)
+        modeChosen = Mode::SWITCH3;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch4()
 {
-	if (windowChosen != ElementType::SWITCH4)
-		windowChosen = ElementType::SWITCH4;
+    if (modeChosen != Mode::SWITCH4)
+        modeChosen = Mode::SWITCH4;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch5()
 {
-	if (windowChosen != ElementType::SWITCH5)
-		windowChosen = ElementType::SWITCH5;
+    if (modeChosen != Mode::SWITCH5)
+        modeChosen = Mode::SWITCH5;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch6()
 {
-	if (windowChosen != ElementType::SWITCH6)
-		windowChosen = ElementType::SWITCH6;
+    if (modeChosen != Mode::SWITCH6)
+        modeChosen = Mode::SWITCH6;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch7()
 {
-	if (windowChosen != ElementType::SWITCH7)
-		windowChosen = ElementType::SWITCH7;
+    if (modeChosen != Mode::SWITCH7)
+        modeChosen = Mode::SWITCH7;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch8()
 {
-	if (windowChosen != ElementType::SWITCH8)
-		windowChosen = ElementType::SWITCH8;
+    if (modeChosen != Mode::SWITCH8)
+        modeChosen = Mode::SWITCH8;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchSplit4()
 {
-	if (windowChosen != ElementType::SWITCHSPLIT4)
-		windowChosen = ElementType::SWITCHSPLIT4;
+    if (modeChosen != Mode::SWITCHSPLIT4)
+        modeChosen = Mode::SWITCHSPLIT4;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchSplit5()
 {
-	if (windowChosen != ElementType::SWITCHSPLIT5)
-		windowChosen = ElementType::SWITCHSPLIT5;
+    if (modeChosen != Mode::SWITCHSPLIT5)
+        modeChosen = Mode::SWITCHSPLIT5;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchSplit6()
 {
-	if (windowChosen != ElementType::SWITCHSPLIT6)
-		windowChosen = ElementType::SWITCHSPLIT6;
+    if (modeChosen != Mode::SWITCHSPLIT6)
+        modeChosen = Mode::SWITCHSPLIT6;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch9()
 {
-	if (windowChosen != ElementType::SWITCH9)
-		windowChosen = ElementType::SWITCH9;
+    if (modeChosen != Mode::SWITCH9)
+        modeChosen = Mode::SWITCH9;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch10()
 {
-	if (windowChosen != ElementType::SWITCH10)
-		windowChosen = ElementType::SWITCH10;
+    if (modeChosen != Mode::SWITCH10)
+        modeChosen = Mode::SWITCH10;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch11()
 {
-	if (windowChosen != ElementType::SWITCH11)
-		windowChosen = ElementType::SWITCH11;
+    if (modeChosen != Mode::SWITCH11)
+        modeChosen = Mode::SWITCH11;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch12()
 {
-	if (windowChosen != ElementType::SWITCH12)
-		windowChosen = ElementType::SWITCH12;
+    if (modeChosen != Mode::SWITCH12)
+        modeChosen = Mode::SWITCH12;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch13()
 {
-	if (windowChosen != ElementType::SWITCH13)
-		windowChosen = ElementType::SWITCH13;
+    if (modeChosen != Mode::SWITCH13)
+        modeChosen = Mode::SWITCH13;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch14()
 {
-	if (windowChosen != ElementType::SWITCH14)
-		windowChosen = ElementType::SWITCH14;
+    if (modeChosen != Mode::SWITCH14)
+        modeChosen = Mode::SWITCH14;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch15()
 {
-	if (windowChosen != ElementType::SWITCH15)
-		windowChosen = ElementType::SWITCH15;
+    if (modeChosen != Mode::SWITCH15)
+        modeChosen = Mode::SWITCH15;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitch16()
 {
-	if (windowChosen != ElementType::SWITCH16)
-		windowChosen = ElementType::SWITCH16;
+    if (modeChosen != Mode::SWITCH16)
+        modeChosen = Mode::SWITCH16;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchSplit7()
 {
-	if (windowChosen != ElementType::SWITCHSPLIT7)
-		windowChosen = ElementType::SWITCHSPLIT7;
+    if (modeChosen != Mode::SWITCHSPLIT7)
+        modeChosen = Mode::SWITCHSPLIT7;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseSwitchSplit8()
 {
-	if (windowChosen != ElementType::SWITCHSPLIT8)
-		windowChosen = ElementType::SWITCHSPLIT8;
+    if (modeChosen != Mode::SWITCHSPLIT8)
+        modeChosen = Mode::SWITCHSPLIT8;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseCrossover1()
 {
-	if (windowChosen != ElementType::CROSSOVER1)
-		windowChosen = ElementType::CROSSOVER1;
+    if (modeChosen != Mode::CROSSOVER1)
+        modeChosen = Mode::CROSSOVER1;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseCrossover2()
 {
-	if (windowChosen != ElementType::CROSSOVER2)
-		windowChosen = ElementType::CROSSOVER2;
+    if (modeChosen != Mode::CROSSOVER2)
+        modeChosen = Mode::CROSSOVER2;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover1()
 {
-	if (windowChosen != ElementType::FLYOVER1)
-		windowChosen = ElementType::FLYOVER1;
+    if (modeChosen != Mode::FLYOVER1)
+        modeChosen = Mode::FLYOVER1;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover2()
 {
-	if (windowChosen != ElementType::FLYOVER2)
-		windowChosen = ElementType::FLYOVER2;
+    if (modeChosen != Mode::FLYOVER2)
+        modeChosen = Mode::FLYOVER2;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseFlyover3()
 {
-	if (windowChosen != ElementType::FLYOVER3)
-		windowChosen = ElementType::FLYOVER3;
+    if (modeChosen != Mode::FLYOVER3)
+        modeChosen = Mode::FLYOVER3;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover4()
 {
-	if (windowChosen != ElementType::FLYOVER4)
-		windowChosen = ElementType::FLYOVER4;
+    if (modeChosen != Mode::FLYOVER4)
+        modeChosen = Mode::FLYOVER4;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseCrossover3()
 {
-	if (windowChosen != ElementType::CROSSOVER3)
-		windowChosen = ElementType::CROSSOVER3;
+    if (modeChosen != Mode::CROSSOVER3)
+        modeChosen = Mode::CROSSOVER3;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseCrossover4()
 {
-	if (windowChosen != ElementType::CROSSOVER4)
-		windowChosen = ElementType::CROSSOVER4;
+    if (modeChosen != Mode::CROSSOVER4)
+        modeChosen = Mode::CROSSOVER4;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover5()
 {
-	if (windowChosen != ElementType::FLYOVER5)
-		windowChosen = ElementType::FLYOVER5;
+    if (modeChosen != Mode::FLYOVER5)
+        modeChosen = Mode::FLYOVER5;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover6()
 {
-	if (windowChosen != ElementType::FLYOVER6)
-		windowChosen = ElementType::FLYOVER6;
+    if (modeChosen != Mode::FLYOVER6)
+        modeChosen = Mode::FLYOVER6;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover7()
 {
-	if (windowChosen != ElementType::FLYOVER7)
-		windowChosen = ElementType::FLYOVER7;
+    if (modeChosen != Mode::FLYOVER7)
+        modeChosen = Mode::FLYOVER7;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover8()
 {
-	if (windowChosen != ElementType::FLYOVER8)
-		windowChosen = ElementType::FLYOVER8;
+    if (modeChosen != Mode::FLYOVER8)
+        modeChosen = Mode::FLYOVER8;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseCrossover5()
 {
-	if (windowChosen != ElementType::CROSSOVER5)
-		windowChosen = ElementType::CROSSOVER5;
+    if (modeChosen != Mode::CROSSOVER5)
+        modeChosen = Mode::CROSSOVER5;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseCrossover6()
 {
-	if (windowChosen != ElementType::CROSSOVER6)
-		windowChosen = ElementType::CROSSOVER6;
+    if (modeChosen != Mode::CROSSOVER6)
+        modeChosen = Mode::CROSSOVER6;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover9()
 {
-	if (windowChosen != ElementType::FLYOVER9)
-		windowChosen = ElementType::FLYOVER9;
+    if (modeChosen != Mode::FLYOVER9)
+        modeChosen = Mode::FLYOVER9;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover10()
 {
-	if (windowChosen != ElementType::FLYOVER10)
-		windowChosen = ElementType::FLYOVER10;
+    if (modeChosen != Mode::FLYOVER10)
+        modeChosen = Mode::FLYOVER10;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover11()
 {
-	if (windowChosen != ElementType::FLYOVER11)
-		windowChosen = ElementType::FLYOVER11;
+    if (modeChosen != Mode::FLYOVER11)
+        modeChosen = Mode::FLYOVER11;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseFlyover12()
 {
-	if (windowChosen != ElementType::FLYOVER12)
-		windowChosen = ElementType::FLYOVER12;
+    if (modeChosen != Mode::FLYOVER12)
+        modeChosen = Mode::FLYOVER12;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseNamedLocation()
 {
-	if (windowChosen != ElementType::NAMEDLOCATION)
-		windowChosen = ElementType::NAMEDLOCATION;
+    if (modeChosen != Mode::NAMEDLOCATION)
+        modeChosen = Mode::NAMEDLOCATION;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseConcourse()
 {
-	if (windowChosen != ElementType::CONCOURSE)
-		windowChosen = ElementType::CONCOURSE;
+    if (modeChosen != Mode::CONCOURSE)
+        modeChosen = Mode::CONCOURSE;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::choosePlatformLeft()
 {
-	if (windowChosen != ElementType::PLATFORMLEFT)
-		windowChosen = ElementType::PLATFORMLEFT;
+    if (modeChosen != Mode::PLATFORMLEFT)
+        modeChosen = Mode::PLATFORMLEFT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::choosePlatformRight()
 {
-	if (windowChosen != ElementType::PLATFORMRIGHT)
-		windowChosen = ElementType::PLATFORMRIGHT;
+    if (modeChosen != Mode::PLATFORMRIGHT)
+        modeChosen = Mode::PLATFORMRIGHT;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::choosePlatformDown()
 {
-	if (windowChosen != ElementType::PLATFORMDOWN)
-		windowChosen = ElementType::PLATFORMDOWN;
+    if (modeChosen != Mode::PLATFORMDOWN)
+        modeChosen = Mode::PLATFORMDOWN;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::choosePlatformUp()
 {
-	if (windowChosen != ElementType::PLATFORMUP)
-		windowChosen = ElementType::PLATFORMUP;
+    if (modeChosen != Mode::PLATFORMUP)
+        modeChosen = Mode::PLATFORMUP;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet1()
 {
-	if (windowChosen != ElementType::PARAPET1)
-		windowChosen = ElementType::PARAPET1;
+    if (modeChosen != Mode::PARAPET1)
+        modeChosen = Mode::PARAPET1;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet2()
 {
-	if (windowChosen != ElementType::PARAPET2)
-		windowChosen = ElementType::PARAPET2;
+    if (modeChosen != Mode::PARAPET2)
+        modeChosen = Mode::PARAPET2;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet3()
 {
-	if (windowChosen != ElementType::PARAPET3)
-		windowChosen = ElementType::PARAPET3;
+    if (modeChosen != Mode::PARAPET3)
+        modeChosen = Mode::PARAPET3;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet4()
 {
-	if (windowChosen != ElementType::PARAPET4)
-		windowChosen = ElementType::PARAPET4;
+    if (modeChosen != Mode::PARAPET4)
+        modeChosen = Mode::PARAPET4;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet5()
 {
-	if (windowChosen != ElementType::PARAPET5)
-		windowChosen = ElementType::PARAPET5;
+    if (modeChosen != Mode::PARAPET5)
+        modeChosen = Mode::PARAPET5;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet6()
 {
-	if (windowChosen != ElementType::PARAPET6)
-		windowChosen = ElementType::PARAPET6;
+    if (modeChosen != Mode::PARAPET6)
+        modeChosen = Mode::PARAPET6;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet7()
 {
-	if (windowChosen != ElementType::PARAPET7)
-		windowChosen = ElementType::PARAPET7;
+    if (modeChosen != Mode::PARAPET7)
+        modeChosen = Mode::PARAPET7;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet8()
 {
-	if (windowChosen != ElementType::PARAPET8)
-		windowChosen = ElementType::PARAPET8;
+    if (modeChosen != Mode::PARAPET8)
+        modeChosen = Mode::PARAPET8;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet9()
 {
-	if (windowChosen != ElementType::PARAPET9)
-		windowChosen = ElementType::PARAPET9;
+    if (modeChosen != Mode::PARAPET9)
+        modeChosen = Mode::PARAPET9;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet10()
 {
-	if (windowChosen != ElementType::PARAPET10)
-		windowChosen = ElementType::PARAPET10;
+    if (modeChosen != Mode::PARAPET10)
+        modeChosen = Mode::PARAPET10;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet11()
 {
-	if (windowChosen != ElementType::PARAPET11)
-		windowChosen = ElementType::PARAPET11;
+    if (modeChosen != Mode::PARAPET11)
+        modeChosen = Mode::PARAPET11;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet12()
 {
-	if (windowChosen != ElementType::PARAPET12)
-		windowChosen = ElementType::PARAPET12;
+    if (modeChosen != Mode::PARAPET12)
+        modeChosen = Mode::PARAPET12;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet13()
 {
-	if (windowChosen != ElementType::PARAPET13)
-		windowChosen = ElementType::PARAPET13;
+    if (modeChosen != Mode::PARAPET13)
+        modeChosen = Mode::PARAPET13;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet14()
 {
-	if (windowChosen != ElementType::PARAPET14)
-		windowChosen = ElementType::PARAPET14;
+    if (modeChosen != Mode::PARAPET14)
+        modeChosen = Mode::PARAPET14;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet15()
 {
-	if (windowChosen != ElementType::PARAPET15)
-		windowChosen = ElementType::PARAPET15;
+    if (modeChosen != Mode::PARAPET15)
+        modeChosen = Mode::PARAPET15;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet16()
 {
-	if (windowChosen != ElementType::PARAPET16)
-		windowChosen = ElementType::PARAPET16;
+    if (modeChosen != Mode::PARAPET16)
+        modeChosen = Mode::PARAPET16;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet17()
 {
-	if (windowChosen != ElementType::PARAPET17)
-		windowChosen = ElementType::PARAPET17;
+    if (modeChosen != Mode::PARAPET17)
+        modeChosen = Mode::PARAPET17;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet18()
 {
-	if (windowChosen != ElementType::PARAPET18)
-		windowChosen = ElementType::PARAPET18;
+    if (modeChosen != Mode::PARAPET18)
+        modeChosen = Mode::PARAPET18;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet19()
 {
-	if (windowChosen != ElementType::PARAPET19)
-		windowChosen = ElementType::PARAPET19;
+    if (modeChosen != Mode::PARAPET19)
+        modeChosen = Mode::PARAPET19;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet20()
 {
-	if (windowChosen != ElementType::PARAPET20)
-		windowChosen = ElementType::PARAPET20;
+    if (modeChosen != Mode::PARAPET20)
+        modeChosen = Mode::PARAPET20;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 
 }
 
 void Window::chooseParapet21()
 {
-	if (windowChosen != ElementType::PARAPET21)
-		windowChosen = ElementType::PARAPET21;
+    if (modeChosen != Mode::PARAPET21)
+        modeChosen = Mode::PARAPET21;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseParapet22()
 {
-	if (windowChosen != ElementType::PARAPET22)
-		windowChosen = ElementType::PARAPET22;
+    if (modeChosen != Mode::PARAPET22)
+        modeChosen = Mode::PARAPET22;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseParapet23()
 {
-	if (windowChosen != ElementType::PARAPET23)
-		windowChosen = ElementType::PARAPET23;
+    if (modeChosen != Mode::PARAPET23)
+        modeChosen = Mode::PARAPET23;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseParapet24()
 {
-	if (windowChosen != ElementType::PARAPET24)
-		windowChosen = ElementType::PARAPET24;
+    if (modeChosen != Mode::PARAPET24)
+        modeChosen = Mode::PARAPET24;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseParapet25()
 {
-	if (windowChosen != ElementType::PARAPET25)
-		windowChosen = ElementType::PARAPET25;
+    if (modeChosen != Mode::PARAPET25)
+        modeChosen = Mode::PARAPET25;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseParapet26()
 {
-	if (windowChosen != ElementType::PARAPET26)
-		windowChosen = ElementType::PARAPET26;
+    if (modeChosen != Mode::PARAPET26)
+        modeChosen = Mode::PARAPET26;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseParapet27()
 {
-	if (windowChosen != ElementType::PARAPET27)
-		windowChosen = ElementType::PARAPET27;
+    if (modeChosen != Mode::PARAPET27)
+        modeChosen = Mode::PARAPET27;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseParapet28()
 {
-	if (windowChosen != ElementType::PARAPET28)
-		windowChosen = ElementType::PARAPET28;
+    if (modeChosen != Mode::PARAPET28)
+        modeChosen = Mode::PARAPET28;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::chooseLevelCrossing()
 {
-	if (windowChosen != ElementType::LEVELCROSSING)
-		windowChosen = ElementType::LEVELCROSSING;
+    if (modeChosen != Mode::LEVELCROSSING)
+        modeChosen = Mode::LEVELCROSSING;
 	else
-		windowChosen = ElementType::NONE;
+        modeChosen = Mode::NONE;
 }
 
 void Window::createMenuBar()

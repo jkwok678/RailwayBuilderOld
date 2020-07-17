@@ -10,14 +10,6 @@ Element::Element(int currentX, int currentY) {
 
 }
 
-ElementType Element::getElementType() const {
-	return elementType;
-}
-
-void Element::setElementType(const ElementType& newElementType) {
-	elementType = newElementType;
-}
-
 int Element::getLocationX() const {
 	return locationX;
 }
@@ -34,9 +26,8 @@ void Element::setLocationY(int newLocationY) {
 	locationY = newLocationY;
 }
 
-Text::Text(ElementType newElementType, int newLocationX, int newLocationY, QString newReadableText, QFont newFont)
+Text::Text(int newLocationX, int newLocationY, QString newReadableText, QFont newFont)
 {
-    elementType = newElementType;
     locationX = newLocationX;
     locationY = newLocationY;
     readableText = newReadableText;
@@ -121,9 +112,8 @@ void NamedElement::setText(std::shared_ptr<Text> &newText)
 }
 
 
-NamedLocation::NamedLocation(ElementType newElementType, int newLocationX, int newLocationY)
+NamedLocation::NamedLocation(int newLocationX, int newLocationY)
 {
-	elementType = newElementType;
 	locationX = newLocationX;
 	locationY = newLocationY;
 	named = false;
@@ -133,9 +123,8 @@ NamedLocation::NamedLocation(ElementType newElementType, int newLocationX, int n
 }
 
 
-Concourse::Concourse(ElementType newElementType, int newLocationX, int newLocationY)
+Concourse::Concourse(int newLocationX, int newLocationY)
 {
-    elementType = newElementType;
 	locationX = newLocationX;
 	locationY = newLocationY;
 	named = false;
@@ -143,11 +132,21 @@ Concourse::Concourse(ElementType newElementType, int newLocationX, int newLocati
 
 }
 
-Parapet::Parapet(ElementType newElementType, int newLocationX, int newLocationY)
+Parapet::Parapet(ParapetType newParapetType, int newLocationX, int newLocationY)
 {
-	elementType = newElementType;
-	locationX = newLocationX;
-	locationY = newLocationY;
+    parapetType = newParapetType;
+    locationX = newLocationX;
+    locationY = newLocationY;
+}
+
+ParapetType Parapet::getParapetType() const
+{
+    return parapetType;
+}
+
+void Parapet::setParapetType(const ParapetType &newParapetType)
+{
+    parapetType = newParapetType;
 }
 
 

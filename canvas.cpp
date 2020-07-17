@@ -203,12 +203,12 @@ Canvas::Canvas()
     setPalette(pal);
 }
 
-ElementType Canvas::getElementType()
+Mode Canvas::getMode()
 {
     return *canvasChosen;
 }
 
-void Canvas::setElementType(ElementType& newChosen)
+void Canvas::setMode(Mode &newChosen)
 {
     canvasChosen = &newChosen;
 }
@@ -332,7 +332,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
     {
         switch (*canvasChosen)
         {
-            case ElementType::NONE:
+            case Mode::NONE:
             {
                 QMessageBox noELementSelected;
                 noELementSelected.setIcon(QMessageBox::Critical);
@@ -340,990 +340,990 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 noELementSelected.exec();
                 break;
             }
-            case ElementType::STRAIGHTH:
+            case Mode::STRAIGHTH:
             {
-                std::shared_ptr<StraightTrack> straightH(new StraightTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<StraightTrack> straightH(new StraightTrack(StraightType::STRAIGHTH, finalX, finalY));
                 drawnLayout->addStraightTrack(straightH);
                 addedTrack = true;
                 break;
             }
-            case ElementType::STRAIGHTV:
+            case Mode::STRAIGHTV:
             {
-                std::shared_ptr<StraightTrack> straightV(new StraightTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<StraightTrack> straightV(new StraightTrack(StraightType::STRAIGHTV, finalX, finalY));
                 drawnLayout->addStraightTrack(straightV);
                 addedTrack = true;
                 break;
             }
-            case ElementType::DIRECTLEFT:
+            case Mode::DIRECTLEFT:
             {
-                std::shared_ptr<DirectTrack> directLeft(new DirectTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<DirectTrack> directLeft(new DirectTrack(DirectType::DIRECTLEFT, finalX, finalY));
                 drawnLayout->addDirectTrack(directLeft);
                 addedTrack = true;
                 break;
             }
-            case ElementType::DIRECTRIGHT:
+            case Mode::DIRECTRIGHT:
             {
-                std::shared_ptr<DirectTrack> directRight(new DirectTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<DirectTrack> directRight(new DirectTrack(DirectType::DIRECTRIGHT, finalX, finalY));
                 drawnLayout->addDirectTrack(directRight);
                 addedTrack = true;
                 break;
             }
-            case ElementType::DIRECTUP:
+            case Mode::DIRECTUP:
             {
-                std::shared_ptr<DirectTrack> directUp(new DirectTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<DirectTrack> directUp(new DirectTrack(DirectType::DIRECTUP, finalX, finalY));
                 drawnLayout->addDirectTrack(directUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::DIRECTDOWN:
+            case Mode::DIRECTDOWN:
             {
-                std::shared_ptr<DirectTrack> directDown(new DirectTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<DirectTrack> directDown(new DirectTrack(DirectType::DIRECTDOWN, finalX, finalY));
                 drawnLayout->addDirectTrack(directDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::STRIAGHTRIGHTUP:
+            case Mode::STRIAGHTRIGHTUP:
             {
-                std::shared_ptr<StraightTrack> straightRightUp(new StraightTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<StraightTrack> straightRightUp(new StraightTrack(StraightType::STRIAGHTRIGHTUP, finalX, finalY));
                 drawnLayout->addStraightTrack(straightRightUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::STRAIGHTLEFTUP:
+            case Mode::STRAIGHTLEFTUP:
             {
-                std::shared_ptr<StraightTrack> straightLeftUp(new StraightTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<StraightTrack> straightLeftUp(new StraightTrack(StraightType::STRAIGHTLEFTUP, finalX, finalY));
                 drawnLayout->addStraightTrack(straightLeftUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::DIRECTRIGHTUP:
+            case Mode::DIRECTRIGHTUP:
             {
-                std::shared_ptr<DirectTrack> directRightUp(new DirectTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<DirectTrack> directRightUp(new DirectTrack(DirectType::DIRECTRIGHTUP, finalX, finalY));
                 drawnLayout->addDirectTrack(directRightUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::DIRECTLEFTUP:
+            case Mode::DIRECTLEFTUP:
             {
-                std::shared_ptr<DirectTrack> directLeftUp(new DirectTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<DirectTrack> directLeftUp(new DirectTrack(DirectType::DIRECTLEFTUP, finalX, finalY));
                 drawnLayout->addDirectTrack(directLeftUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::DIRECTLEFTDOWN:
+            case Mode::DIRECTLEFTDOWN:
             {
-                std::shared_ptr<DirectTrack> directLeftDown(new DirectTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<DirectTrack> directLeftDown(new DirectTrack(DirectType::DIRECTLEFTDOWN, finalX, finalY));
                 drawnLayout->addDirectTrack(directLeftDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::DIRECTRIGHTDOWN:
+            case Mode::DIRECTRIGHTDOWN:
             {
-                std::shared_ptr<DirectTrack> directRightDown(new DirectTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<DirectTrack> directRightDown(new DirectTrack(DirectType::DIRECTRIGHTDOWN, finalX, finalY));
                 drawnLayout->addDirectTrack(directRightDown);
                 addedTrack = true;
                 break;
             }
 
-            case ElementType::TIGHTCURVE1:
+            case Mode::TIGHTCURVE1:
             {
-                std::shared_ptr<CurvedTrack> tightCurve1(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> tightCurve1(new CurvedTrack(CurvedType::TIGHTCURVE1, finalX, finalY));
                 drawnLayout->addCurvedTrack(tightCurve1);
                 addedTrack = true;
                 break;
             }
-            case ElementType::TIGHTCURVE2:
+            case Mode::TIGHTCURVE2:
             {
-                std::shared_ptr<CurvedTrack> tightCurve2(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> tightCurve2(new CurvedTrack(CurvedType::TIGHTCURVE2, finalX, finalY));
                 drawnLayout->addCurvedTrack(tightCurve2);
                 addedTrack = true;
                 break;
             }
-            case ElementType::TIGHTCURVE3:
+            case Mode::TIGHTCURVE3:
             {
-                std::shared_ptr<CurvedTrack> tightCurve3(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> tightCurve3(new CurvedTrack(CurvedType::TIGHTCURVE3, finalX, finalY));
                 drawnLayout->addCurvedTrack(tightCurve3);
                 addedTrack = true;
                 break;
             }
-            case ElementType::TIGHTCURVE4:
+            case Mode::TIGHTCURVE4:
             {
-                std::shared_ptr<CurvedTrack> tightCurve4(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> tightCurve4(new CurvedTrack(CurvedType::TIGHTCURVE4, finalX, finalY));
                 drawnLayout->addCurvedTrack(tightCurve4);
                 addedTrack = true;
                 break;                
             }
-            case ElementType::CURVE1:
+            case Mode::CURVE1:
             {
-                std::shared_ptr<CurvedTrack> curve1(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> curve1(new CurvedTrack(CurvedType::CURVE1, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve1);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CURVE2:
+            case Mode::CURVE2:
             {
-                std::shared_ptr<CurvedTrack> curve2(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> curve2(new CurvedTrack(CurvedType::CURVE2, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve2);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CURVE3:
+            case Mode::CURVE3:
             {
-                std::shared_ptr<CurvedTrack> curve3(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> curve3(new CurvedTrack(CurvedType::CURVE3, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve3);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CURVE4:
+            case Mode::CURVE4:
             {
-                std::shared_ptr<CurvedTrack> curve4(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> curve4(new CurvedTrack(CurvedType::CURVE4, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve4);
                 addedTrack = true;
                 break;
             }
-            case ElementType::LINKLEFT:
+            case Mode::LINKLEFT:
             {
-                std::shared_ptr<LinkedTrack> linkLeft(new LinkedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<LinkedTrack> linkLeft(new LinkedTrack(LinkedType::LINKLEFT, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkLeft);
                 addedTrack = true;
                 break;
             }
-            case ElementType::LINKRIGHT:
+            case Mode::LINKRIGHT:
             {
-                std::shared_ptr<LinkedTrack> linkRight(new LinkedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<LinkedTrack> linkRight(new LinkedTrack(LinkedType::LINKRIGHT, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkRight);
                 addedTrack = true;
                 break;
             }
-            case ElementType::LINKDOWN:
+            case Mode::LINKDOWN:
             {
-                std::shared_ptr<LinkedTrack> linkDown(new LinkedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<LinkedTrack> linkDown(new LinkedTrack(LinkedType::LINKDOWN, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::LINKUP:
+            case Mode::LINKUP:
             {
-                std::shared_ptr<LinkedTrack> linkUp(new LinkedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<LinkedTrack> linkUp(new LinkedTrack(LinkedType::LINKUP, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::LINKLEFTUP:
+            case Mode::LINKLEFTUP:
             {
-                std::shared_ptr<LinkedTrack> linkLeftUp(new LinkedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<LinkedTrack> linkLeftUp(new LinkedTrack(LinkedType::LINKLEFTUP, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkLeftUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::LINKRIGHTUP:
+            case Mode::LINKRIGHTUP:
             {
-                std::shared_ptr<LinkedTrack> linkRightUp(new LinkedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<LinkedTrack> linkRightUp(new LinkedTrack(LinkedType::LINKRIGHTUP, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkRightUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::LINKRIGHTDOWN:
+            case Mode::LINKRIGHTDOWN:
             {
-                std::shared_ptr<LinkedTrack> linkRightDown(new LinkedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<LinkedTrack> linkRightDown(new LinkedTrack(LinkedType::LINKRIGHTDOWN, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkRightDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::LINKLEFTDOWN:
+            case Mode::LINKLEFTDOWN:
             {
-                std::shared_ptr<LinkedTrack> linkLeftDown(new LinkedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<LinkedTrack> linkLeftDown(new LinkedTrack(LinkedType::LINKLEFTDOWN, finalX, finalY));
                 drawnLayout->addLinkedTrack(linkLeftDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::EXITLEFT:
+            case Mode::EXITLEFT:
             {
-                std::shared_ptr<ExitTrack> exitLeft(new ExitTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<ExitTrack> exitLeft(new ExitTrack(ExitType::EXITLEFT, finalX, finalY));
                 drawnLayout->addExitTrack(exitLeft);
                 addedTrack = true;
                 break;
             }
-            case ElementType::EXITRIGHT:
+            case Mode::EXITRIGHT:
             {
-                std::shared_ptr<ExitTrack> exitRight(new ExitTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<ExitTrack> exitRight(new ExitTrack(ExitType::EXITRIGHT, finalX, finalY));
                 drawnLayout->addExitTrack(exitRight);
                 addedTrack = true;
                 break;
             }
-            case ElementType::EXITDOWN:
+            case Mode::EXITDOWN:
             {
-                std::shared_ptr<ExitTrack> exitDown(new ExitTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<ExitTrack> exitDown(new ExitTrack(ExitType::EXITDOWN, finalX, finalY));
                 drawnLayout->addExitTrack(exitDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::EXITUP:
+            case Mode::EXITUP:
             {
-                std::shared_ptr<ExitTrack> exitUp(new ExitTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<ExitTrack> exitUp(new ExitTrack(ExitType::EXITUP, finalX, finalY));
                 drawnLayout->addExitTrack(exitUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::EXITLEFTUP:
+            case Mode::EXITLEFTUP:
             {
-                std::shared_ptr<ExitTrack> exitLeftUp(new ExitTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<ExitTrack> exitLeftUp(new ExitTrack(ExitType::EXITLEFTUP, finalX, finalY));
                 drawnLayout->addExitTrack(exitLeftUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::EXITRIGHTUP:
+            case Mode::EXITRIGHTUP:
             {
-                std::shared_ptr<ExitTrack> exitRightUp(new ExitTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<ExitTrack> exitRightUp(new ExitTrack(ExitType::EXITRIGHTUP, finalX, finalY));
                 drawnLayout->addExitTrack(exitRightUp);
                 addedTrack = true;
                 break;
             }
 
-            case ElementType::EXITLEFTDOWN:
+            case Mode::EXITLEFTDOWN:
             {
-                std::shared_ptr<ExitTrack> exitLeftDown(new ExitTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<ExitTrack> exitLeftDown(new ExitTrack(ExitType::EXITLEFTDOWN, finalX, finalY));
                 drawnLayout->addExitTrack(exitLeftDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::EXITRIGHTDOWN:
+            case Mode::EXITRIGHTDOWN:
             {
-                std::shared_ptr<ExitTrack> exitRightDown(new ExitTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<ExitTrack> exitRightDown(new ExitTrack(ExitType::EXITRIGHTDOWN, finalX, finalY));
                 drawnLayout->addExitTrack(exitRightDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CURVE5:
+            case Mode::CURVE5:
             {
-                std::shared_ptr<CurvedTrack> curve5(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> curve5(new CurvedTrack(CurvedType::CURVE5, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve5);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CURVE6:
+            case Mode::CURVE6:
             {
-                std::shared_ptr<CurvedTrack> curve6(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> curve6(new CurvedTrack(CurvedType::CURVE6, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve6);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CURVE7:
+            case Mode::CURVE7:
             {
-                std::shared_ptr<CurvedTrack> curve7(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> curve7(new CurvedTrack(CurvedType::CURVE7, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve7);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CURVE8:
+            case Mode::CURVE8:
             {
-                std::shared_ptr<CurvedTrack> curve8(new CurvedTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CurvedTrack> curve8(new CurvedTrack(CurvedType::CURVE8, finalX, finalY));
                 drawnLayout->addCurvedTrack(curve8);
                 addedTrack = true;
                 break;
             }
-            case ElementType::BUFFERLEFT:
+            case Mode::BUFFERLEFT:
             {
-                std::shared_ptr<BufferTrack> bufferLeft(new BufferTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BufferTrack> bufferLeft(new BufferTrack(BufferType::BUFFERLEFT, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferLeft);
                 addedTrack = true;
                 break;
             }
-            case ElementType::BUFFERRIGHT:
+            case Mode::BUFFERRIGHT:
             {
-                std::shared_ptr<BufferTrack> bufferRight(new BufferTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BufferTrack> bufferRight(new BufferTrack(BufferType::BUFFERRIGHT, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferRight);
                 addedTrack = true;
                 break;
             }
-            case ElementType::BUFFERDOWN:
+            case Mode::BUFFERDOWN:
             {
-                std::shared_ptr<BufferTrack> bufferDown(new BufferTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BufferTrack> bufferDown(new BufferTrack(BufferType::BUFFERDOWN, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::BUFFERUP:
+            case Mode::BUFFERUP:
             {
-                std::shared_ptr<BufferTrack> bufferUp(new BufferTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BufferTrack> bufferUp(new BufferTrack(BufferType::BUFFERUP, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::BUFFERLEFTUP:
+            case Mode::BUFFERLEFTUP:
             {
-                std::shared_ptr<BufferTrack> bufferLeftUp(new BufferTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BufferTrack> bufferLeftUp(new BufferTrack(BufferType::BUFFERLEFTUP, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferLeftUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::BUFFERRIGHTUP:
+            case Mode::BUFFERRIGHTUP:
             {
-                std::shared_ptr<BufferTrack> bufferRightUp(new BufferTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BufferTrack> bufferRightUp(new BufferTrack(BufferType::BUFFERRIGHTUP, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferRightUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::BUFFERLEFTDOWN:
+            case Mode::BUFFERLEFTDOWN:
             {
-                std::shared_ptr<BufferTrack> bufferLeftDown(new BufferTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BufferTrack> bufferLeftDown(new BufferTrack(BufferType::BUFFERLEFTDOWN, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferLeftDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::BUFFERRIGHTDOWN:
+            case Mode::BUFFERRIGHTDOWN:
             {
-                std::shared_ptr<BufferTrack> bufferRightDown(new BufferTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BufferTrack> bufferRightDown(new BufferTrack(BufferType::BUFFERRIGHTDOWN, finalX, finalY));
                 drawnLayout->addBufferTrack(bufferRightDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SIGNALLEFT:
+            case Mode::SIGNALLEFT:
             {
-                std::shared_ptr<SignalTrack> signalLeft(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
+                std::shared_ptr<SignalTrack> signalLeft(new SignalTrack(SignalType::SIGNALLEFT, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalLeft);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SIGNALRIGHT:
+            case Mode::SIGNALRIGHT:
             {
-                std::shared_ptr<SignalTrack> signalRight(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
+                std::shared_ptr<SignalTrack> signalRight(new SignalTrack(SignalType::SIGNALRIGHT, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalRight);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SIGNALDOWN:
+            case Mode::SIGNALDOWN:
             {
-                std::shared_ptr<SignalTrack> signalDown(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
+                std::shared_ptr<SignalTrack> signalDown(new SignalTrack(SignalType::SIGNALDOWN, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SIGNALUP:
+            case Mode::SIGNALUP:
             {
-                std::shared_ptr<SignalTrack> signalUp(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
+                std::shared_ptr<SignalTrack> signalUp(new SignalTrack(SignalType::SIGNALUP, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SIGNALLEFTUP:
+            case Mode::SIGNALLEFTUP:
             {
-                std::shared_ptr<SignalTrack> signalLeftUp(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
+                std::shared_ptr<SignalTrack> signalLeftUp(new SignalTrack(SignalType::SIGNALLEFTUP, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalLeftUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SIGNALRIGHTUP:
+            case Mode::SIGNALRIGHTUP:
             {
-                std::shared_ptr<SignalTrack> signalRightUp(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
+                std::shared_ptr<SignalTrack> signalRightUp(new SignalTrack(SignalType::SIGNALRIGHTUP, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalRightUp);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SIGNALLEFTDOWN:
+            case Mode::SIGNALLEFTDOWN:
             {
-                std::shared_ptr<SignalTrack> signalLeftDown(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
+                std::shared_ptr<SignalTrack> signalLeftDown(new SignalTrack(SignalType::SIGNALLEFTDOWN, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalLeftDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SIGNALRIGHTDOWN:
+            case Mode::SIGNALRIGHTDOWN:
             {
-                std::shared_ptr<SignalTrack> signalRightDown(new SignalTrack(*canvasChosen, canvasAspect, finalX, finalY));
+                std::shared_ptr<SignalTrack> signalRightDown(new SignalTrack(SignalType::SIGNALRIGHTDOWN, canvasAspect, finalX, finalY));
                 drawnLayout->addSignalTrack(signalRightDown);
                 addedTrack = true;
                 break;
             }
-            case ElementType::BRIDGE1:
+            case Mode::BRIDGE1:
             {
-                std::shared_ptr<BridgeUnderpassTrack> bridge1(new BridgeUnderpassTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BridgeUnderpassTrack> bridge1(new BridgeUnderpassTrack(BridgeUnderpassType::BRIDGE1, finalX, finalY));
                 drawnLayout->addBridgeUnderpassTrack(bridge1);
                 addedTrack = true;
                 break;
             }
-            case ElementType::BRIDGE2:
+            case Mode::BRIDGE2:
             {
-                std::shared_ptr<BridgeUnderpassTrack> bridge2(new BridgeUnderpassTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BridgeUnderpassTrack> bridge2(new BridgeUnderpassTrack(BridgeUnderpassType::BRIDGE2, finalX, finalY));
                 drawnLayout->addBridgeUnderpassTrack(bridge2);
                 addedTrack = true;
                 break;
             }
-            case ElementType::UNDERPASS1:
+            case Mode::UNDERPASS1:
             {
-                std::shared_ptr<BridgeUnderpassTrack> underpass1(new BridgeUnderpassTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BridgeUnderpassTrack> underpass1(new BridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS1, finalX, finalY));
                 drawnLayout->addBridgeUnderpassTrack(underpass1);
                 addedTrack = true;
                 break;
             }
-            case ElementType::UNDERPASS2:
+            case Mode::UNDERPASS2:
             {
-                std::shared_ptr<BridgeUnderpassTrack> underpass2(new BridgeUnderpassTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<BridgeUnderpassTrack> underpass2(new BridgeUnderpassTrack(BridgeUnderpassType::UNDERPASS2, finalX, finalY));
                 drawnLayout->addBridgeUnderpassTrack(underpass2);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHTIGHT1:
+            case Mode::SWITCHTIGHT1:
             {
-                std::shared_ptr<SwitchTrack> switchTight1(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchTight1(new SwitchTrack(SwitchType::SWITCHTIGHT1, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight1);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHTIGHT2:
+            case Mode::SWITCHTIGHT2:
             {
-                std::shared_ptr<SwitchTrack> switchTight2(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchTight2(new SwitchTrack(SwitchType::SWITCHTIGHT2, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight2);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHTIGHT3:
+            case Mode::SWITCHTIGHT3:
             {
-                std::shared_ptr<SwitchTrack> switchTight3(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchTight3(new SwitchTrack(SwitchType::SWITCHTIGHT3, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight3);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHTIGHT4:
+            case Mode::SWITCHTIGHT4:
             {
-                std::shared_ptr<SwitchTrack> switchTight4(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchTight4(new SwitchTrack(SwitchType::SWITCHTIGHT4, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight4);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHTIGHT5:
+            case Mode::SWITCHTIGHT5:
             {
-                std::shared_ptr<SwitchTrack> switchTight5(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchTight5(new SwitchTrack(SwitchType::SWITCHTIGHT5, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight5);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHTIGHT6:
+            case Mode::SWITCHTIGHT6:
             {
-                std::shared_ptr<SwitchTrack> switchTight6(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchTight6(new SwitchTrack(SwitchType::SWITCHTIGHT6, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight6);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHTIGHT7:
+            case Mode::SWITCHTIGHT7:
             {
-                std::shared_ptr<SwitchTrack> switchTight7(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchTight7(new SwitchTrack(SwitchType::SWITCHTIGHT7, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight7);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHTIGHT8:
+            case Mode::SWITCHTIGHT8:
             {
-                std::shared_ptr<SwitchTrack> switchTight8(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchTight8(new SwitchTrack(SwitchType::SWITCHTIGHT8, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchTight8);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHSPLIT1:
+            case Mode::SWITCHSPLIT1:
             {
-                std::shared_ptr<SwitchTrack> switchSplit1(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchSplit1(new SwitchTrack(SwitchType::SWITCHSPLIT1, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit1);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHSPLIT2:
+            case Mode::SWITCHSPLIT2:
             {
-                std::shared_ptr<SwitchTrack> switchSplit2(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchSplit2(new SwitchTrack(SwitchType::SWITCHSPLIT2, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit2);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHSPLIT3:
+            case Mode::SWITCHSPLIT3:
             {
-                std::shared_ptr<SwitchTrack> switchSplit3(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchSplit3(new SwitchTrack(SwitchType::SWITCHSPLIT3, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit3);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH1:
+            case Mode::SWITCH1:
             {
-                std::shared_ptr<SwitchTrack> switch1(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch1(new SwitchTrack(SwitchType::SWITCH1, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch1);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH2:
+            case Mode::SWITCH2:
             {
-                std::shared_ptr<SwitchTrack> switch2(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch2(new SwitchTrack(SwitchType::SWITCH2, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch2);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH3:
+            case Mode::SWITCH3:
             {
-                std::shared_ptr<SwitchTrack> switch3(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch3(new SwitchTrack(SwitchType::SWITCH3, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch3);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH4:
+            case Mode::SWITCH4:
             {
-                std::shared_ptr<SwitchTrack> switch4(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch4(new SwitchTrack(SwitchType::SWITCH4, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch4);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH5:
+            case Mode::SWITCH5:
             {
-                std::shared_ptr<SwitchTrack> switch5(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch5(new SwitchTrack(SwitchType::SWITCH5, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch5);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH6:
+            case Mode::SWITCH6:
             {
-                std::shared_ptr<SwitchTrack> switch6(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch6(new SwitchTrack(SwitchType::SWITCH6, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch6);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH7:
+            case Mode::SWITCH7:
             {
-                std::shared_ptr<SwitchTrack> switch7(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch7(new SwitchTrack(SwitchType::SWITCH7, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch7);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH8:
+            case Mode::SWITCH8:
             {
-                std::shared_ptr<SwitchTrack> switch8(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch8(new SwitchTrack(SwitchType::SWITCH8, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch8);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHSPLIT4:
+            case Mode::SWITCHSPLIT4:
             {
-                std::shared_ptr<SwitchTrack> switchSplit4(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchSplit4(new SwitchTrack(SwitchType::SWITCHSPLIT4, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit4);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHSPLIT5:
+            case Mode::SWITCHSPLIT5:
             {
-                std::shared_ptr<SwitchTrack> switchSplit4(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchSplit4(new SwitchTrack(SwitchType::SWITCHSPLIT5, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit4);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHSPLIT6:
+            case Mode::SWITCHSPLIT6:
             {
-                std::shared_ptr<SwitchTrack> switchSplit5(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchSplit5(new SwitchTrack(SwitchType::SWITCHSPLIT6, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit5);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH9:
+            case Mode::SWITCH9:
             {
-                std::shared_ptr<SwitchTrack> switch9(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch9(new SwitchTrack(SwitchType::SWITCH9, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch9);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH10:
+            case Mode::SWITCH10:
             {
-                std::shared_ptr<SwitchTrack> switch10(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch10(new SwitchTrack(SwitchType::SWITCH10, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch10);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH11:
+            case Mode::SWITCH11:
             {
-                std::shared_ptr<SwitchTrack> switch11(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch11(new SwitchTrack(SwitchType::SWITCH11, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch11);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH12:
+            case Mode::SWITCH12:
             {
-                std::shared_ptr<SwitchTrack> switch12(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch12(new SwitchTrack(SwitchType::SWITCH12, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch12);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH13:
+            case Mode::SWITCH13:
             {
-                std::shared_ptr<SwitchTrack> switch13(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch13(new SwitchTrack(SwitchType::SWITCH13, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch13);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH14:
+            case Mode::SWITCH14:
             {
-                std::shared_ptr<SwitchTrack> switch14(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch14(new SwitchTrack(SwitchType::SWITCH14, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch14);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH15:
+            case Mode::SWITCH15:
             {
-                std::shared_ptr<SwitchTrack> switch15(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch15(new SwitchTrack(SwitchType::SWITCH15, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch15);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCH16:
+            case Mode::SWITCH16:
             {
-                std::shared_ptr<SwitchTrack> switch16(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switch16(new SwitchTrack(SwitchType::SWITCH16, finalX, finalY));
                 drawnLayout->addSwitchTrack(switch16);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHSPLIT7:
+            case Mode::SWITCHSPLIT7:
             {
-                std::shared_ptr<SwitchTrack> switchSplit7(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchSplit7(new SwitchTrack(SwitchType::SWITCHSPLIT7, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit7);
                 addedTrack = true;
                 break;
             }
-            case ElementType::SWITCHSPLIT8:
+            case Mode::SWITCHSPLIT8:
             {
-                std::shared_ptr<SwitchTrack> switchSplit8(new SwitchTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<SwitchTrack> switchSplit8(new SwitchTrack(SwitchType::SWITCHSPLIT8, finalX, finalY));
                 drawnLayout->addSwitchTrack(switchSplit8);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CROSSOVER1:
+            case Mode::CROSSOVER1:
             {
-                std::shared_ptr<CrossoverTrack> crossover1(new CrossoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CrossoverTrack> crossover1(new CrossoverTrack(CrossoverType::CROSSOVER1, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover1);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CROSSOVER2:
+            case Mode::CROSSOVER2:
             {
-                std::shared_ptr<CrossoverTrack> crossover2(new CrossoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CrossoverTrack> crossover2(new CrossoverTrack(CrossoverType::CROSSOVER2, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover2);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER1:
+            case Mode::FLYOVER1:
             {
-                std::shared_ptr<FlyoverTrack> flyover1(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover1(new FlyoverTrack(FlyoverType::FLYOVER1, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover1);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER2:
+            case Mode::FLYOVER2:
             {
-                std::shared_ptr<FlyoverTrack> flyover2(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover2(new FlyoverTrack(FlyoverType::FLYOVER2, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover2);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER3:
+            case Mode::FLYOVER3:
             {
-                std::shared_ptr<FlyoverTrack> flyover3(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover3(new FlyoverTrack(FlyoverType::FLYOVER3, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover3);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER4:
+            case Mode::FLYOVER4:
             {
-                std::shared_ptr<FlyoverTrack> flyover4(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover4(new FlyoverTrack(FlyoverType::FLYOVER4, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover4);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CROSSOVER3:
+            case Mode::CROSSOVER3:
             {
-                std::shared_ptr<CrossoverTrack> crossover3(new CrossoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CrossoverTrack> crossover3(new CrossoverTrack(CrossoverType::CROSSOVER3, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover3);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CROSSOVER4:
+            case Mode::CROSSOVER4:
             {
-                std::shared_ptr<CrossoverTrack> crossover4(new CrossoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CrossoverTrack> crossover4(new CrossoverTrack(CrossoverType::CROSSOVER4, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover4);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER5:
+            case Mode::FLYOVER5:
             {
-                std::shared_ptr<FlyoverTrack> flyover5(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover5(new FlyoverTrack(FlyoverType::FLYOVER5, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover5);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER6:
+            case Mode::FLYOVER6:
             {
-                std::shared_ptr<FlyoverTrack> flyover6(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover6(new FlyoverTrack(FlyoverType::FLYOVER6, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover6);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER7:
+            case Mode::FLYOVER7:
             {
-                std::shared_ptr<FlyoverTrack> flyover7(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover7(new FlyoverTrack(FlyoverType::FLYOVER7, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover7);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER8:
+            case Mode::FLYOVER8:
             {
-                std::shared_ptr<FlyoverTrack> flyover8(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover8(new FlyoverTrack(FlyoverType::FLYOVER8, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover8);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CROSSOVER5:
+            case Mode::CROSSOVER5:
             {
-                std::shared_ptr<CrossoverTrack> crossover5(new CrossoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CrossoverTrack> crossover5(new CrossoverTrack(CrossoverType::CROSSOVER5, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover5);
                 addedTrack = true;
                 break;
             }
-            case ElementType::CROSSOVER6:
+            case Mode::CROSSOVER6:
             {
-                std::shared_ptr<CrossoverTrack> crossover6(new CrossoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<CrossoverTrack> crossover6(new CrossoverTrack(CrossoverType::CROSSOVER6, finalX, finalY));
                 drawnLayout->addCrossoverTrack(crossover6);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER9:
+            case Mode::FLYOVER9:
             {
-                std::shared_ptr<FlyoverTrack> flyover9(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover9(new FlyoverTrack(FlyoverType::FLYOVER9, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover9);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER10:
+            case Mode::FLYOVER10:
             {
-                std::shared_ptr<FlyoverTrack> flyover10(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover10(new FlyoverTrack(FlyoverType::FLYOVER10, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover10);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER11:
+            case Mode::FLYOVER11:
             {
-                std::shared_ptr<FlyoverTrack> flyover11(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover11(new FlyoverTrack(FlyoverType::FLYOVER11, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover11);
                 addedTrack = true;
                 break;
             }
-            case ElementType::FLYOVER12:
+            case Mode::FLYOVER12:
             {
-                std::shared_ptr<FlyoverTrack> flyover12(new FlyoverTrack(*canvasChosen, finalX, finalY));
+                std::shared_ptr<FlyoverTrack> flyover12(new FlyoverTrack(FlyoverType::FLYOVER12, finalX, finalY));
                 drawnLayout->addFlyoverTrack(flyover12);
                 addedTrack = true;
                 break;
             }
-            case ElementType::NAMEDLOCATION:
+            case Mode::NAMEDLOCATION:
             {
-                std::shared_ptr<NamedLocation> namedLocation(new NamedLocation(*canvasChosen, finalX, finalY));
+                std::shared_ptr<NamedLocation> namedLocation(new NamedLocation(finalX, finalY));
                 drawnLayout->addNamedLocation(namedLocation);
                 drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
-            case ElementType::CONCOURSE:
+            case Mode::CONCOURSE:
             {
-                std::shared_ptr<Concourse> concourse(new Concourse(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Concourse> concourse(new Concourse(finalX, finalY));
                 drawnLayout->addConcourse(concourse);
                 drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
-            case ElementType::PLATFORMUP:
+            case Mode::PLATFORMUP:
             {
                 drawnLayout->addPlatform(Platform::UP, finalX, finalY);
                 drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
-            case ElementType::PLATFORMDOWN:
+            case Mode::PLATFORMDOWN:
             {
                 drawnLayout->addPlatform(Platform::DOWN, finalX, finalY);
                 drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
-            case ElementType::PLATFORMLEFT:
+            case Mode::PLATFORMLEFT:
             {
                 drawnLayout->addPlatform(Platform::LEFT, finalX, finalY);
                 drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
-            case ElementType::PLATFORMRIGHT:
+            case Mode::PLATFORMRIGHT:
             {
                 drawnLayout->addPlatform(Platform::RIGHT, finalX, finalY);
                 drawnLayout->linkNewBlockToText(finalX,finalY);
                 break;
             }
-            case ElementType::PARAPET1:
+            case Mode::PARAPET1:
             {
-                std::shared_ptr<Parapet> parapet1(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet1(new Parapet(ParapetType::PARAPET1, finalX, finalY));
                 drawnLayout->addParapet(parapet1);
                 break;
             }
-            case ElementType::PARAPET2:
+            case Mode::PARAPET2:
             {
-                std::shared_ptr<Parapet> parapet2(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet2(new Parapet(ParapetType::PARAPET2, finalX, finalY));
                 drawnLayout->addParapet(parapet2);
                 break;
             }
-            case ElementType::PARAPET3:
+            case Mode::PARAPET3:
             {
-                std::shared_ptr<Parapet> parapet3(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet3(new Parapet(ParapetType::PARAPET3, finalX, finalY));
                 drawnLayout->addParapet(parapet3);
                 break;
             }
-            case ElementType::PARAPET4:
+            case Mode::PARAPET4:
             {
-                std::shared_ptr<Parapet> parapet4(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet4(new Parapet(ParapetType::PARAPET4, finalX, finalY));
                 drawnLayout->addParapet(parapet4);
                 break;
             }
-            case ElementType::PARAPET5:
+            case Mode::PARAPET5:
             {
-                std::shared_ptr<Parapet> parapet5(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet5(new Parapet(ParapetType::PARAPET5, finalX, finalY));
                 drawnLayout->addParapet(parapet5);
                 break;
             }
-            case ElementType::PARAPET6:
+            case Mode::PARAPET6:
             {
-                std::shared_ptr<Parapet> parapet6(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet6(new Parapet(ParapetType::PARAPET6, finalX, finalY));
                 drawnLayout->addParapet(parapet6);
                 break;
             }
-            case ElementType::PARAPET7:
+            case Mode::PARAPET7:
             {
-                std::shared_ptr<Parapet> parapet7(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet7(new Parapet(ParapetType::PARAPET7, finalX, finalY));
                 drawnLayout->addParapet(parapet7);
                 break;
             }
-            case ElementType::PARAPET8:
+            case Mode::PARAPET8:
             {
-                std::shared_ptr<Parapet> parapet8(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet8(new Parapet(ParapetType::PARAPET8, finalX, finalY));
                 drawnLayout->addParapet(parapet8);
                 break;
             }
-            case ElementType::PARAPET9:
+            case Mode::PARAPET9:
             {
-                std::shared_ptr<Parapet> parapet9(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet9(new Parapet(ParapetType::PARAPET9, finalX, finalY));
                 drawnLayout->addParapet(parapet9);
                 break;
             }
-            case ElementType::PARAPET10:
+            case Mode::PARAPET10:
             {
-                std::shared_ptr<Parapet> parapet10(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet10(new Parapet(ParapetType::PARAPET10, finalX, finalY));
                 drawnLayout->addParapet(parapet10);
                 break;
             }
-            case ElementType::PARAPET11:
+            case Mode::PARAPET11:
             {
-                std::shared_ptr<Parapet> parapet11(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet11(new Parapet(ParapetType::PARAPET11, finalX, finalY));
                 drawnLayout->addParapet(parapet11);
                 break;
             }
-            case ElementType::PARAPET12:
+            case Mode::PARAPET12:
             {
-                std::shared_ptr<Parapet> parapet12(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet12(new Parapet(ParapetType::PARAPET12, finalX, finalY));
                 drawnLayout->addParapet(parapet12);
                 break;
             }
-            case ElementType::PARAPET13:
+            case Mode::PARAPET13:
             {
-                std::shared_ptr<Parapet> parapet13(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet13(new Parapet(ParapetType::PARAPET13, finalX, finalY));
                 drawnLayout->addParapet(parapet13);
                 break;
             }
-            case ElementType::PARAPET14:
+            case Mode::PARAPET14:
             {
-                std::shared_ptr<Parapet> parapet14(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet14(new Parapet(ParapetType::PARAPET14, finalX, finalY));
                 drawnLayout->addParapet(parapet14);
                 break;
             }
-            case ElementType::PARAPET15:
+            case Mode::PARAPET15:
             {
-                std::shared_ptr<Parapet> parapet15(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet15(new Parapet(ParapetType::PARAPET15, finalX, finalY));
                 drawnLayout->addParapet(parapet15);
                 break;
             }
-            case ElementType::PARAPET16:
+            case Mode::PARAPET16:
             {
-                std::shared_ptr<Parapet> parapet16(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet16(new Parapet(ParapetType::PARAPET16, finalX, finalY));
                 drawnLayout->addParapet(parapet16);
                 break;
             }
-            case ElementType::PARAPET17:
+            case Mode::PARAPET17:
             {
-                std::shared_ptr<Parapet> parapet17(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet17(new Parapet(ParapetType::PARAPET17, finalX, finalY));
                 drawnLayout->addParapet(parapet17);
                 break;
             }
-            case ElementType::PARAPET18:
+            case Mode::PARAPET18:
             {
-                std::shared_ptr<Parapet> parapet18(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet18(new Parapet(ParapetType::PARAPET18, finalX, finalY));
                 drawnLayout->addParapet(parapet18);
                 break;
             }
-            case ElementType::PARAPET19:
+            case Mode::PARAPET19:
             {
-                std::shared_ptr<Parapet> parapet19(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet19(new Parapet(ParapetType::PARAPET19, finalX, finalY));
                 drawnLayout->addParapet(parapet19);
                 break;
             }
-            case ElementType::PARAPET20:
+            case Mode::PARAPET20:
             {
-                std::shared_ptr<Parapet> parapet20(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet20(new Parapet(ParapetType::PARAPET20, finalX, finalY));
                 drawnLayout->addParapet(parapet20);
                 break;
             }
-            case ElementType::PARAPET21:
+            case Mode::PARAPET21:
             {
-                std::shared_ptr<Parapet> parapet21(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet21(new Parapet(ParapetType::PARAPET21, finalX, finalY));
                 drawnLayout->addParapet(parapet21);
                 break;
             }
-            case ElementType::PARAPET22:
+            case Mode::PARAPET22:
             {
-                std::shared_ptr<Parapet> parapet22(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet22(new Parapet(ParapetType::PARAPET22, finalX, finalY));
                 drawnLayout->addParapet(parapet22);
                 break;
             }
-            case ElementType::PARAPET23:
+            case Mode::PARAPET23:
             {
-                std::shared_ptr<Parapet> parapet23(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet23(new Parapet(ParapetType::PARAPET23, finalX, finalY));
                 drawnLayout->addParapet(parapet23);
                 break;
             }
-            case ElementType::PARAPET24:
+            case Mode::PARAPET24:
             {
-                std::shared_ptr<Parapet> parapet24(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet24(new Parapet(ParapetType::PARAPET24, finalX, finalY));
                 drawnLayout->addParapet(parapet24);
                 break;
             }
-            case ElementType::PARAPET25:
+            case Mode::PARAPET25:
             {
-                std::shared_ptr<Parapet> parapet25(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet25(new Parapet(ParapetType::PARAPET25, finalX, finalY));
                 drawnLayout->addParapet(parapet25);
                 break;
             }
-            case ElementType::PARAPET26:
+            case Mode::PARAPET26:
             {
-                std::shared_ptr<Parapet> parapet26(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet26(new Parapet(ParapetType::PARAPET26, finalX, finalY));
                 drawnLayout->addParapet(parapet26);
                 break;
             }
-            case ElementType::PARAPET27:
+            case Mode::PARAPET27:
             {
-                std::shared_ptr<Parapet> parapet27(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet27(new Parapet(ParapetType::PARAPET27, finalX, finalY));
                 drawnLayout->addParapet(parapet27);
                 break;
             }
-            case ElementType::PARAPET28:
+            case Mode::PARAPET28:
             {
-                std::shared_ptr<Parapet> parapet28(new Parapet(*canvasChosen, finalX, finalY));
+                std::shared_ptr<Parapet> parapet28(new Parapet(ParapetType::PARAPET28, finalX, finalY));
                 drawnLayout->addParapet(parapet28);
                 break;
             }
-            case ElementType::LEVELCROSSING:
+            case Mode::LEVELCROSSING:
             {
                 drawnLayout->addLevelCrossing(finalX, finalY);
                 break;
             }
-            case ElementType::ADDCHANGETEXT:
+            case Mode::ADDCHANGETEXT:
             {
                 bool ok;
                 int textX = exactX + (offsetX*canvasSizeX);
@@ -1345,7 +1345,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                     }
                     if(!readableBit.isEmpty())
                     {
-                        std::shared_ptr<Text> text(new Text(*canvasChosen, textX, textY, readableBit, currentFont));
+                        std::shared_ptr<Text> text(new Text(textX, textY, readableBit, currentFont));
                         drawnLayout->addText(text);
                     }
                 }
@@ -1370,7 +1370,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }
                 break;
             }
-            case ElementType::MOVETEXT:
+            case Mode::MOVETEXT:
             {
                 int textX = exactX + (offsetX*canvasSizeX);
                 int textY;
@@ -1387,7 +1387,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }
                 break;
             }
-            case ElementType::SETCHANGENAMEDLOCATION:
+            case Mode::SETCHANGENAMEDLOCATION:
             {
                 bool exist = false;
                 bool ok = false;
@@ -1427,7 +1427,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                             }
                             if(!readableBit.isEmpty())
                             {
-                                std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit,currentFont));
+                                std::shared_ptr<Text> text(new Text(finalX, finalY, readableBit,currentFont));
                                 drawnLayout->addText(text);
                                 exist = true;
                                 drawnLayout->linkLocalText(finalX, finalY, text);
@@ -1470,7 +1470,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         }
                         if(!readableBit.isEmpty())
                         {
-                            std::shared_ptr<Text> text(new Text(*canvasChosen, finalX, finalY, readableBit, currentFont));
+                            std::shared_ptr<Text> text(new Text(finalX, finalY, readableBit, currentFont));
                             drawnLayout->addText(text);
                             exist = true;
                             drawnLayout->linkLocalText(finalX, finalY, text);
@@ -1519,9 +1519,9 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getStraightType())
                 {
-                    case ElementType::STRAIGHTH:
+                    case StraightType::STRAIGHTH:
                     {
                         //std::cout<< currentElement->getNamed() << std::flush;
                         painter.drawImage(displayX, displayY, *straightHImage);
@@ -1554,7 +1554,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::STRAIGHTV:
+                    case StraightType::STRAIGHTV:
                     {
                         painter.drawImage(displayX, displayY, *straightVImage);
                         if (currentElement->getPlatform1())
@@ -1586,12 +1586,12 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::STRIAGHTRIGHTUP:
+                    case StraightType::STRIAGHTRIGHTUP:
                     {
                         painter.drawImage(displayX, displayY, *straightRightUpImage);
                         break;
                     }
-                    case ElementType::STRAIGHTLEFTUP:
+                    case StraightType::STRAIGHTLEFTUP:
                     {
                         painter.drawImage(displayX, displayY, *straightLeftUpImage);
                         break;
@@ -1617,9 +1617,9 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getDirectType())
                 {
-                    case ElementType::DIRECTLEFT:
+                    case DirectType::DIRECTLEFT:
                     {
                         painter.drawImage(displayX, displayY, *directLeftImage);
                         if (currentElement->getPlatform1())
@@ -1646,7 +1646,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::DIRECTRIGHT:
+                    case DirectType::DIRECTRIGHT:
                     {
                         painter.drawImage(displayX, displayY, *directRightImage);
                         if (currentElement->getPlatform1())
@@ -1673,7 +1673,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::DIRECTUP:
+                    case DirectType::DIRECTUP:
                     {
                         painter.drawImage(displayX, displayY, *directUpImage);
                         if (currentElement->getPlatform1())
@@ -1699,7 +1699,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::DIRECTDOWN:
+                    case DirectType::DIRECTDOWN:
                     {
                         painter.drawImage(displayX, displayY, *directDownImage);
                         if (currentElement->getPlatform1())
@@ -1726,22 +1726,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::DIRECTRIGHTUP:
+                    case DirectType::DIRECTRIGHTUP:
                     {
                         painter.drawImage(displayX, displayY, *directRightUpImage);
                         break;
                     }
-                    case ElementType::DIRECTLEFTUP:
+                    case DirectType::DIRECTLEFTUP:
                     {
                         painter.drawImage(displayX, displayY, *directLeftUpImage);
                         break;
                     }
-                    case ElementType::DIRECTLEFTDOWN:
+                    case DirectType::DIRECTLEFTDOWN:
                     {
                         painter.drawImage(displayX, displayY, *directLeftDownImage);
                         break;
                     }
-                    case ElementType::DIRECTRIGHTDOWN:
+                    case DirectType::DIRECTRIGHTDOWN:
                     {
                         painter.drawImage(displayX, displayY, *directRightDownIamge);
                         break;
@@ -1767,62 +1767,62 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getCurvedType())
                 {
-                    case ElementType::TIGHTCURVE1:
+                    case CurvedType::TIGHTCURVE1:
                     {
                         painter.drawImage(displayX, displayY, *tightCurve1Image);
                         break;
                     }
-                    case ElementType::TIGHTCURVE2:
+                    case CurvedType::TIGHTCURVE2:
                     {
                         painter.drawImage(displayX, displayY, *tightCurve2Image);
                         break;
                     }
-                    case ElementType::TIGHTCURVE3:
+                    case CurvedType::TIGHTCURVE3:
                     {
                         painter.drawImage(displayX, displayY, *tightCurve3Image);
                         break;
                     }
-                    case ElementType::TIGHTCURVE4:
+                    case CurvedType::TIGHTCURVE4:
                         painter.drawImage(displayX, displayY, *tightCurve4Image);
                         break;
-                    case ElementType::CURVE1:
+                    case CurvedType::CURVE1:
                     {
                         painter.drawImage(displayX, displayY, *curve1Image);
                         break;
                     }
-                    case ElementType::CURVE2:
+                    case CurvedType::CURVE2:
                     {
                         painter.drawImage(displayX, displayY, *curve2Image);
                         break;
                     }
-                    case ElementType::CURVE3:
+                    case CurvedType::CURVE3:
                     {
                         painter.drawImage(displayX, displayY, *curve3Image);
                         break;
                     }
-                    case ElementType::CURVE4:
+                    case CurvedType::CURVE4:
                     {
                         painter.drawImage(displayX, displayY, *curve4Image);
                         break;
                     }
-                    case ElementType::CURVE5:
+                    case CurvedType::CURVE5:
                     {
                         painter.drawImage(displayX, displayY, *curve5Image);
                         break;
                     }
-                    case ElementType::CURVE6:
+                    case CurvedType::CURVE6:
                     {
                         painter.drawImage(displayX, displayY, *curve6Image);
                         break;
                     }
-                    case ElementType::CURVE7:
+                    case CurvedType::CURVE7:
                     {
                         painter.drawImage(displayX, displayY, *curve7Image);
                         break;
                     }
-                    case ElementType::CURVE8:
+                    case CurvedType::CURVE8:
                     {
                         painter.drawImage(displayX, displayY, *curve8Image);
                         break;
@@ -1848,44 +1848,44 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getLinkedType())
                 {
-                    case ElementType::LINKLEFT:
+                    case LinkedType::LINKLEFT:
                     {
                         painter.drawImage(displayX, displayY, *linkLeftImage);
                         break;
                     }
-                    case ElementType::LINKRIGHT:
+                    case LinkedType::LINKRIGHT:
                     {
                         painter.drawImage(displayX, displayY, *linkRightImage);
                         break;
                     }
-                    case ElementType::LINKDOWN:
+                    case LinkedType::LINKDOWN:
                     {
                         painter.drawImage(displayX, displayY, *linkDownImage);
                         break;
                     }
-                    case ElementType::LINKUP:
+                    case LinkedType::LINKUP:
                     {
                         painter.drawImage(displayX, displayY, *linkUpImage);
                         break;
                     }
-                    case ElementType::LINKLEFTUP:
+                    case LinkedType::LINKLEFTUP:
                     {
                         painter.drawImage(displayX, displayY, *linkLeftUpImage);
                         break;
                     }
-                    case ElementType::LINKRIGHTUP:
+                    case LinkedType::LINKRIGHTUP:
                     {
                         painter.drawImage(displayX, displayY, *linkRightUpImage);
                         break;
                     }
-                    case ElementType::LINKRIGHTDOWN:
+                    case LinkedType::LINKRIGHTDOWN:
                     {
                         painter.drawImage(displayX, displayY, *linkRightDownImage);
                         break;
                     }
-                    case ElementType::LINKLEFTDOWN:
+                    case LinkedType::LINKLEFTDOWN:
                     {
                         painter.drawImage(displayX, displayY, *linkLeftDownImage);
                         break;
@@ -1911,44 +1911,44 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getExitType())
                 {
-                    case ElementType::EXITLEFT:
+                    case ExitType::EXITLEFT:
                     {
                         painter.drawImage(displayX, displayY, *exitLeftImage);
                         break;
                     }
-                    case ElementType::EXITRIGHT:
+                    case ExitType::EXITRIGHT:
                     {
                         painter.drawImage(displayX, displayY, *exitRightImage);
                         break;
                     }
-                    case ElementType::EXITDOWN:
+                    case ExitType::EXITDOWN:
                     {
                         painter.drawImage(displayX, displayY, *exitDownImage);
                         break;
                     }
-                    case ElementType::EXITUP:
+                    case ExitType::EXITUP:
                     {
                         painter.drawImage(displayX, displayY, *exitUpImage);
                         break;
                     }
-                    case ElementType::EXITLEFTUP:
+                    case ExitType::EXITLEFTUP:
                     {
                         painter.drawImage(displayX, displayY, *exitLeftUpImage);
                         break;
                     }
-                    case ElementType::EXITRIGHTUP:
+                    case ExitType::EXITRIGHTUP:
                     {
                         painter.drawImage(displayX, displayY, *exitRightUpImage);
                         break;
                     }
-                    case ElementType::EXITLEFTDOWN:
+                    case ExitType::EXITLEFTDOWN:
                     {
                         painter.drawImage(displayX, displayY, *exitLeftDownImage);
                         break;
                     }
-                    case ElementType::EXITRIGHTDOWN:
+                    case ExitType::EXITRIGHTDOWN:
                     {
                         painter.drawImage(displayX, displayY, *exitRightDownImage);
                         break;
@@ -1974,9 +1974,9 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getBufferType())
                 {
-                    case ElementType::BUFFERLEFT:
+                    case BufferType::BUFFERLEFT:
                     {
                         painter.drawImage(displayX, displayY, *bufferLeftImage);
                         if (currentElement->getPlatform1())
@@ -2003,7 +2003,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::BUFFERRIGHT:
+                    case BufferType::BUFFERRIGHT:
                     {
                         painter.drawImage(displayX, displayY, *bufferRightImage);
                         if (currentElement->getPlatform1())
@@ -2030,7 +2030,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::BUFFERDOWN:
+                    case BufferType::BUFFERDOWN:
                     {
                         painter.drawImage(displayX, displayY, *bufferDownImage);
                         if (currentElement->getPlatform1())
@@ -2057,7 +2057,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::BUFFERUP:
+                    case BufferType::BUFFERUP:
                     {
                         painter.drawImage(displayX, displayY, *bufferUpImage);
                         if (currentElement->getPlatform1())
@@ -2084,22 +2084,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::BUFFERLEFTUP:
+                    case BufferType::BUFFERLEFTUP:
                     {
                         painter.drawImage(displayX, displayY, *bufferLeftUpImage);
                         break;
                     }
-                    case ElementType::BUFFERRIGHTUP:
+                    case BufferType::BUFFERRIGHTUP:
                     {
                         painter.drawImage(displayX, displayY, *bufferRightUpImage);
                         break;
                     }
-                    case ElementType::BUFFERLEFTDOWN:
+                    case BufferType::BUFFERLEFTDOWN:
                     {
                         painter.drawImage(displayX, displayY, *bufferLeftDownImage);
                         break;
                     }
-                    case ElementType::BUFFERRIGHTDOWN:
+                    case BufferType::BUFFERRIGHTDOWN:
                     {
                         painter.drawImage(displayX, displayY, *bufferRightDownImage);
                         break;
@@ -2125,9 +2125,9 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getSignalType())
                 {
-                    case ElementType::SIGNALLEFT:
+                    case SignalType::SIGNALLEFT:
                     {
                         if (currentElement->getAspect() == 1)
                         {
@@ -2161,7 +2161,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SIGNALRIGHT:
+                    case SignalType::SIGNALRIGHT:
                     {
                         if (currentElement->getAspect() == 1)
                         {
@@ -2195,7 +2195,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SIGNALDOWN:
+                    case SignalType::SIGNALDOWN:
                     {
                         if (currentElement->getAspect() == 1)
                         {
@@ -2229,7 +2229,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SIGNALUP:
+                    case SignalType::SIGNALUP:
                     {
                         if (currentElement->getAspect() == 1)
                         {
@@ -2263,7 +2263,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SIGNALLEFTUP:
+                    case SignalType::SIGNALLEFTUP:
                     {
                         if (currentElement->getAspect() == 1)
                         {
@@ -2275,7 +2275,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SIGNALRIGHTUP:
+                    case SignalType::SIGNALRIGHTUP:
                     {
                         if (currentElement->getAspect() == 1)
                         {
@@ -2287,7 +2287,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SIGNALLEFTDOWN:
+                    case SignalType::SIGNALLEFTDOWN:
                     {
                         if (currentElement->getAspect() == 1)
                         {
@@ -2299,7 +2299,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SIGNALRIGHTDOWN:
+                    case SignalType::SIGNALRIGHTDOWN:
                     {
                         if (currentElement->getAspect() == 1)
                         {
@@ -2332,9 +2332,9 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getBridgeUnderpassType())
                 {
-                    case ElementType::BRIDGE1:
+                    case BridgeUnderpassType::BRIDGE1:
                     {
                         painter.drawImage(displayX, displayY, *bridgeUnset1Image);
                         if (currentElement->getPlatform1())
@@ -2361,7 +2361,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::BRIDGE2:
+                    case BridgeUnderpassType::BRIDGE2:
                     {
                         painter.drawImage(displayX, displayY, *bridgeUnset2Image);
                         if (currentElement->getPlatform1())
@@ -2388,7 +2388,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::UNDERPASS1:
+                    case BridgeUnderpassType::UNDERPASS1:
                     {
                         painter.drawImage(displayX, displayY, *underpassUnset1Image);
                         if (currentElement->getPlatform1())
@@ -2415,7 +2415,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::UNDERPASS2:
+                    case BridgeUnderpassType::UNDERPASS2:
                     {
                         painter.drawImage(displayX, displayY, *underpassUnset2Image);
                         if (currentElement->getPlatform1())
@@ -2463,9 +2463,9 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getSwitchType())
                 {
-                    case ElementType::SWITCHTIGHT1:
+                    case SwitchType::SWITCHTIGHT1:
                     {
                         painter.drawImage(displayX, displayY, *switchTight1Image);
                         if (currentElement->getPlatform2())
@@ -2481,7 +2481,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCHTIGHT2:
+                    case SwitchType::SWITCHTIGHT2:
                     {
                         painter.drawImage(displayX, displayY, *switchTight2Image);
                         if (currentElement->getPlatform2())
@@ -2497,7 +2497,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCHTIGHT3:
+                    case SwitchType::SWITCHTIGHT3:
                     {
                         painter.drawImage(displayX, displayY, *switchTight3Image);
                         if (currentElement->getPlatform1())
@@ -2513,7 +2513,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCHTIGHT4:
+                    case SwitchType::SWITCHTIGHT4:
                     {
                         painter.drawImage(displayX, displayY, *switchTight4Image);
                         if (currentElement->getPlatform1())
@@ -2529,7 +2529,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCHTIGHT5:
+                    case SwitchType::SWITCHTIGHT5:
                     {
                         painter.drawImage(displayX, displayY, *switchTight5Image);
                         if (currentElement->getPlatform2())
@@ -2545,7 +2545,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCHTIGHT6:
+                    case SwitchType::SWITCHTIGHT6:
                     {
                         painter.drawImage(displayX, displayY, *switchTight6Image);
                         if (currentElement->getPlatform1())
@@ -2561,7 +2561,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCHTIGHT7:
+                    case SwitchType::SWITCHTIGHT7:
                     {
                         painter.drawImage(displayX, displayY, *switchTight7Image);
                         if (currentElement->getPlatform2())
@@ -2577,7 +2577,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCHTIGHT8:
+                    case SwitchType::SWITCHTIGHT8:
                     {
                         painter.drawImage(displayX, displayY, *switchTight8Image);
                         if (currentElement->getPlatform1())
@@ -2593,22 +2593,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCHSPLIT1:
+                    case SwitchType::SWITCHSPLIT1:
                     {
                         painter.drawImage(displayX, displayY, *switchSplit1Image);
                         break;
                     }
-                    case ElementType::SWITCHSPLIT2:
+                    case SwitchType::SWITCHSPLIT2:
                     {
                         painter.drawImage(displayX, displayY, *switchSplit2Image);
                         break;
                     }
-                    case ElementType::SWITCHSPLIT3:
+                    case SwitchType::SWITCHSPLIT3:
                     {
                         painter.drawImage(displayX, displayY, *switchSplit3Image);
                         break;
                     }
-                    case ElementType::SWITCH1:
+                    case SwitchType::SWITCH1:
                     {
                         painter.drawImage(displayX, displayY, *switch1Image);
                         if (currentElement->getPlatform2())
@@ -2624,7 +2624,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCH2:
+                    case SwitchType::SWITCH2:
                     {
                         painter.drawImage(displayX, displayY, *switch2Image);
                         if (currentElement->getPlatform2())
@@ -2640,7 +2640,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCH3:
+                    case SwitchType::SWITCH3:
                     {
                         painter.drawImage(displayX, displayY, *switch3Image);
                         if (currentElement->getPlatform1())
@@ -2656,7 +2656,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCH4:
+                    case SwitchType::SWITCH4:
                     {
                         painter.drawImage(displayX, displayY, *switch4Image);
                         if (currentElement->getPlatform1())
@@ -2672,7 +2672,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCH5:
+                    case SwitchType::SWITCH5:
                     {
                         painter.drawImage(displayX, displayY, *switch5Image);
                         if (currentElement->getPlatform2())
@@ -2688,7 +2688,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCH6:
+                    case SwitchType::SWITCH6:
                     {
                         painter.drawImage(displayX, displayY, *switch6Image);
                         if (currentElement->getPlatform1())
@@ -2704,7 +2704,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCH7:
+                    case SwitchType::SWITCH7:
                     {
                         painter.drawImage(displayX, displayY, *switch7Image);
                         if (currentElement->getPlatform2())
@@ -2720,7 +2720,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCH8:
+                    case SwitchType::SWITCH8:
                     {
                         painter.drawImage(displayX, displayY, *switch8Image);
                         if (currentElement->getPlatform1())
@@ -2736,67 +2736,67 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         break;
                     }
-                    case ElementType::SWITCHSPLIT4:
+                    case SwitchType::SWITCHSPLIT4:
                     {
                         painter.drawImage(displayX, displayY, *switchSplit4Image);
                         break;
                     }
-                    case ElementType::SWITCHSPLIT5:
+                    case SwitchType::SWITCHSPLIT5:
                     {
                         painter.drawImage(displayX, displayY, *switchSplit5Image);
                         break;
                     }
-                    case ElementType::SWITCHSPLIT6:
+                    case SwitchType::SWITCHSPLIT6:
                     {
                         painter.drawImage(displayX, displayY, *switchSplit6Image);
                         break;
                     }
-                    case ElementType::SWITCH9:
+                    case SwitchType::SWITCH9:
                     {
                         painter.drawImage(displayX, displayY, *switch9Image);
                         break;
                     }
-                    case ElementType::SWITCH10:
+                    case SwitchType::SWITCH10:
                     {
                         painter.drawImage(displayX, displayY, *switch10Image);
                         break;
                     }
-                    case ElementType::SWITCH11:
+                    case SwitchType::SWITCH11:
                     {
                         painter.drawImage(displayX, displayY, *switch11Image);
                         break;
                     }
-                    case ElementType::SWITCH12:
+                    case SwitchType::SWITCH12:
                     {
                         painter.drawImage(displayX, displayY, *switch12Image);
                         break;
                     }
-                    case ElementType::SWITCH13:
+                    case SwitchType::SWITCH13:
                     {
                         painter.drawImage(displayX, displayY, *switch13Image);
                         break;
                     }
-                    case ElementType::SWITCH14:
+                    case SwitchType::SWITCH14:
                     {
                         painter.drawImage(displayX, displayY, *switch14Image);
                         break;
                     }
-                    case ElementType::SWITCH15:
+                    case SwitchType::SWITCH15:
                     {
                         painter.drawImage(displayX, displayY, *switch15Image);
                         break;
                     }
-                    case ElementType::SWITCH16:
+                    case SwitchType::SWITCH16:
                     {
                         painter.drawImage(displayX, displayY, *switch16Image);
                         break;
                     }
-                    case ElementType::SWITCHSPLIT7:
+                    case SwitchType::SWITCHSPLIT7:
                     {
                         painter.drawImage(displayX, displayY, *switchSplit7Image);
                         break;
                     }
-                    case ElementType::SWITCHSPLIT8:
+                    case SwitchType::SWITCHSPLIT8:
                     {
                         painter.drawImage(displayX, displayY, *switchSplit8Image);
                         break;
@@ -2822,34 +2822,34 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getCrossoverType())
                 {
-                   case ElementType::CROSSOVER1:
+                   case CrossoverType::CROSSOVER1:
                     {
                        painter.drawImage(displayX, displayY, *crossover1Image);
                        break;
                     }
-                   case ElementType::CROSSOVER2:
+                   case CrossoverType::CROSSOVER2:
                     {
                        painter.drawImage(displayX, displayY, *crossover2Image);
                        break;
                     }
-                   case ElementType::CROSSOVER3:
+                   case CrossoverType::CROSSOVER3:
                     {
                        painter.drawImage(displayX, displayY, *crossover3Image);
                        break;
                     }
-                   case ElementType::CROSSOVER4:
+                   case CrossoverType::CROSSOVER4:
                     {
                        painter.drawImage(displayX, displayY, *crossover4Image);
                        break;
                     }
-                   case ElementType::CROSSOVER5:
+                   case CrossoverType::CROSSOVER5:
                     {
                        painter.drawImage(displayX, displayY, *crossover5Image);
                        break;
                     }
-                   case ElementType::CROSSOVER6:
+                   case CrossoverType::CROSSOVER6:
                     {
                        painter.drawImage(displayX, displayY, *crossover6Image);
                        break;
@@ -2875,64 +2875,64 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getFlyoverType())
                 {
-                    case ElementType::FLYOVER1:
+                    case FlyoverType::FLYOVER1:
                     {
                         painter.drawImage(displayX, displayY, *flyover1Image);
                         break;
                     }
-                    case ElementType::FLYOVER2:
+                    case FlyoverType::FLYOVER2:
                     {
                         painter.drawImage(displayX, displayY, *flyover2Image);
                         break;
                     }
-                    case ElementType::FLYOVER3:
+                    case FlyoverType::FLYOVER3:
                     {
                         painter.drawImage(displayX, displayY, *flyover3Image);
                         break;
                     }
-                    case ElementType::FLYOVER4:
+                    case FlyoverType::FLYOVER4:
                     {
                         painter.drawImage(displayX, displayY, *flyover4Image);
                         break;
                     }
-                    case ElementType::FLYOVER5:
+                    case FlyoverType::FLYOVER5:
                     {
                         painter.drawImage(displayX, displayY, *flyover5Image);
                         break;
                     }
-                    case ElementType::FLYOVER6:
+                    case FlyoverType::FLYOVER6:
                     {
                         painter.drawImage(displayX, displayY, *flyover6Image);
                         break;
                     }
-                    case ElementType::FLYOVER7:
+                    case FlyoverType::FLYOVER7:
                     {
                         painter.drawImage(displayX, displayY, *flyover7Image);
                         break;
                     }
-                    case ElementType::FLYOVER8:
+                    case FlyoverType::FLYOVER8:
                     {
                         painter.drawImage(displayX, displayY, *flyover8Image);
                         break;
                     }
-                    case ElementType::FLYOVER9:
+                    case FlyoverType::FLYOVER9:
                     {
                         painter.drawImage(displayX, displayY, *flyover9Image);
                         break;
                     }
-                    case ElementType::FLYOVER10:
+                    case FlyoverType::FLYOVER10:
                     {
                         painter.drawImage(displayX, displayY, *flyover10Image);
                         break;
                     }
-                    case ElementType::FLYOVER11:
+                    case FlyoverType::FLYOVER11:
                     {
                         painter.drawImage(displayX, displayY, *flyover11Image);
                         break;
                     }
-                    case ElementType::FLYOVER12:
+                    case FlyoverType::FLYOVER12:
                     {
                         painter.drawImage(displayX, displayY, *flyover12Image);
                         break;
@@ -3014,144 +3014,144 @@ void Canvas::paintEvent(QPaintEvent* event)
             {
                 int displayX = currentX- minDisplayX;
                 int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getElementType())
+                switch (currentElement->getParapetType())
                 {
-                    case ElementType::PARAPET1:
+                    case ParapetType::PARAPET1:
                     {
                         painter.drawImage(displayX, displayY, *parapet1Image);
                         break;
                     }
-                    case ElementType::PARAPET2:
+                    case ParapetType::PARAPET2:
                     {
                         painter.drawImage(displayX, displayY, *parapet2Image);
                         break;
                     }
-                    case ElementType::PARAPET3:
+                    case ParapetType::PARAPET3:
                     {
                         painter.drawImage(displayX, displayY, *parapet3Image);
                         break;
                     }
-                    case ElementType::PARAPET4:
+                    case ParapetType::PARAPET4:
                     {
                         painter.drawImage(displayX, displayY, *parapet4Image);
                         break;
                     }
-                    case ElementType::PARAPET5:
+                    case ParapetType::PARAPET5:
                     {
                         painter.drawImage(displayX, displayY, *parapet5Image);
                         break;
                     }
-                    case ElementType::PARAPET6:
+                    case ParapetType::PARAPET6:
                     {
                         painter.drawImage(displayX, displayY, *parapet6Image);
                         break;
                     }
-                    case ElementType::PARAPET7:
+                    case ParapetType::PARAPET7:
                     {
                         painter.drawImage(displayX, displayY, *parapet7Image);
                         break;
                     }
-                    case ElementType::PARAPET8:
+                    case ParapetType::PARAPET8:
                     {
                         painter.drawImage(displayX, displayY, *parapet8Image);
                         break;
                     }
-                    case ElementType::PARAPET9:
+                    case ParapetType::PARAPET9:
                     {
                         painter.drawImage(displayX, displayY, *parapet9Image);
                         break;
                     }
-                    case ElementType::PARAPET10:
+                    case ParapetType::PARAPET10:
                     {
                         painter.drawImage(displayX, displayY, *parapet10Image);
                         break;
                     }
-                    case ElementType::PARAPET11:
+                    case ParapetType::PARAPET11:
                     {
                         painter.drawImage(displayX, displayY, *parapet11Image);
                         break;
                     }
-                    case ElementType::PARAPET12:
+                    case ParapetType::PARAPET12:
                     {
                         painter.drawImage(displayX, displayY, *parapet12Image);
                         break;
                     }
-                    case ElementType::PARAPET13:
+                    case ParapetType::PARAPET13:
                     {
                         painter.drawImage(displayX, displayY, *parapet13Image);
                         break;
                     }
-                    case ElementType::PARAPET14:
+                    case ParapetType::PARAPET14:
                     {
                         painter.drawImage(displayX, displayY, *parapet14Image);
                         break;
                     }
-                    case ElementType::PARAPET15:
+                    case ParapetType::PARAPET15:
                     {
                         painter.drawImage(displayX, displayY, *parapet15Image);
                         break;
                     }
-                    case ElementType::PARAPET16:
+                    case ParapetType::PARAPET16:
                     {
                         painter.drawImage(displayX, displayY, *parapet16Image);
                         break;
                     }
-                    case ElementType::PARAPET17:
+                    case ParapetType::PARAPET17:
                     {
                         painter.drawImage(displayX, displayY, *parapet17Image);
                         break;
                     }
-                    case ElementType::PARAPET18:
+                    case ParapetType::PARAPET18:
                     {
                         painter.drawImage(displayX, displayY, *parapet18Image);
                         break;
                     }
-                    case ElementType::PARAPET19:
+                    case ParapetType::PARAPET19:
                     {
                         painter.drawImage(displayX, displayY, *parapet19Image);
                         break;
                     }
-                    case ElementType::PARAPET20:
+                    case ParapetType::PARAPET20:
                     {
                         painter.drawImage(displayX, displayY, *parapet20Image);
                         break;
                     }
-                    case ElementType::PARAPET21:
+                    case ParapetType::PARAPET21:
                     {
                         painter.drawImage(displayX, displayY, *parapet21Image);
                         break;
                     }
-                    case ElementType::PARAPET22:
+                    case ParapetType::PARAPET22:
                     {
                         painter.drawImage(displayX, displayY, *parapet22Image);
                         break;
                     }
-                    case ElementType::PARAPET23:
+                    case ParapetType::PARAPET23:
                     {
                         painter.drawImage(displayX, displayY, *parapet23Image);
                         break;
                     }
-                    case ElementType::PARAPET24:
+                    case ParapetType::PARAPET24:
                     {
                         painter.drawImage(displayX, displayY, *parapet24Image);
                         break;
                     }
-                    case ElementType::PARAPET25:
+                    case ParapetType::PARAPET25:
                     {
                         painter.drawImage(displayX, displayY, *parapet25Image);
                         break;
                     }
-                    case ElementType::PARAPET26:
+                    case ParapetType::PARAPET26:
                     {
                         painter.drawImage(displayX, displayY, *parapet26Image);
                         break;
                     }
-                    case ElementType::PARAPET27:
+                    case ParapetType::PARAPET27:
                     {
                         painter.drawImage(displayX, displayY, *parapet27Image);
                         break;
                     }
-                    case ElementType::PARAPET28:
+                    case ParapetType::PARAPET28:
                     {
                         painter.drawImage(displayX, displayY, *parapet28Image);
                         break;
@@ -3201,7 +3201,7 @@ void Canvas::resizeEvent(QResizeEvent *event)
 
 void Canvas::mouseMoveEvent(QMouseEvent *event)
 {
-    if (*canvasChosen == ElementType::MOVETEXT)
+    if (*canvasChosen == Mode::MOVETEXT)
     {
         canvasSizeX = width();
         canvasSizeY = height();
