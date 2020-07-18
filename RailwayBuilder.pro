@@ -29,6 +29,7 @@ HEADERS += \
     canvas.h \
     element.h \
     map.h \
+    mode.h \
     track.h \
     window.h
 
