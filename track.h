@@ -82,7 +82,7 @@ protected:
     bool platformAny{ false };
     bool platform1{ false };
     bool platform2{ false };
-    int endings [9];
+    bool links [9]{false, false, false, false, false, false, false, false, false};
 
 
 
