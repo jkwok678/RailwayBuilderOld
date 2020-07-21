@@ -11,9 +11,9 @@ Canvas::Canvas()
     canvasSizeX = width();
     canvasSizeY = height();
     setMouseTracking(true);
-    //QTimer *timer = new QTimer(this);
-    //connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    //timer->start(100);
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    timer->start(100);
 
     //ElementBlock1 images
     straightHImage = new QImage(":/graphics/graphics/straightH.png");
@@ -3226,6 +3226,7 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
             moveText->setEditableY(textY+fontSize);
         }
     }
+
     update();
     if (canvasShowTrackID)
     {

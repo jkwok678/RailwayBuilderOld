@@ -280,11 +280,14 @@ void CurvedTrack::setCurvedType(const CurvedType &newCurvedType)
 
 
 
+
+
 LinkedTrack::LinkedTrack(LinkedType newLinkedType, int newLocationX, int newLocationY)
 {
     linkedType = newLinkedType;
     locationX = newLocationX;
     locationY = newLocationY;
+    linked = false;
     switch(linkedType)
     {
         case LinkedType::LINKLEFT:
@@ -326,6 +329,16 @@ LinkedType LinkedTrack::getLinkedType() const
 void LinkedTrack::setLinkedType(const LinkedType &newLinkedType)
 {
     linkedType = newLinkedType;
+}
+
+bool LinkedTrack::getLinked() const
+{
+    return linked;
+}
+
+void LinkedTrack::setLinked(bool value)
+{
+    linked = value;
 }
 
 LinkedTrack *LinkedTrack::getOtherLinkedTrack() const

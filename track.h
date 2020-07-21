@@ -163,6 +163,7 @@ class LinkedTrack : public Track
 {
 private:
     LinkedType linkedType;
+    bool linked;
     LinkedTrack* otherLinkTrack{nullptr};
 
 
@@ -175,8 +176,11 @@ public:
     LinkedTrack(LinkedType newLinkedType, int newLocationX, int newLocationY);
     LinkedType getLinkedType() const;
     void setLinkedType(const LinkedType &newLinkedType);
+    bool getLinked() const;
+    void setLinked(bool newLinked);
     LinkedTrack *getOtherLinkedTrack() const;
     void setOtherLinkedTrack(LinkedTrack *newOtherLinkedTrack);
+
 };
 
 class ExitTrack : public Track
