@@ -328,6 +328,16 @@ void LinkedTrack::setLinkedType(const LinkedType &newLinkedType)
     linkedType = newLinkedType;
 }
 
+LinkedTrack *LinkedTrack::getOtherLinkedTrack() const
+{
+    return otherLinkTrack;
+}
+
+void LinkedTrack::setOtherLinkedTrack(LinkedTrack *newOtherLinkTrack)
+{
+    otherLinkTrack = newOtherLinkTrack;
+}
+
 
 
 ExitTrack::ExitTrack(ExitType newExitType, int newLocationX, int newLocationY)

@@ -63,53 +63,31 @@ void Window::openBuildModifyMenu()
 
 void Window::openElementMenu()
 {
-	if (allMenus->currentIndex() == 0) {
+    if (allMenus->currentIndex() == 0)
+    {
 		allMenus->setCurrentIndex(1);
 	}
-	else {
+    else
+    {
 		allMenus->setCurrentIndex(0);
 	}
 
 }
 
-void Window::changeAspect()
+void Window::connectLinkedTrack()
 {
-	if (aspect == 4) {
-		aspect = 3;
-		drawingSurface->setAspect(aspect);
-		aspectButton->setIcon(*aspect3Icon);
-	}
-	else if (aspect == 3) {
-		aspect = 2;
-		drawingSurface->setAspect(aspect);
-		aspectButton->setIcon(*aspect2Icon);
-	}
-	else if (aspect == 2) {
-		aspect = 1;
-		drawingSurface->setAspect(aspect);
-		aspectButton->setIcon(*aspectShuntIcon);
-		signalLeftButton->setIcon(*shuntLeftIcon);
-		signalRightButton->setIcon(*shuntRightIcon);
-		signalDownButton->setIcon(*shuntDownIcon);
-		signalUpButton->setIcon(*shuntUpIcon);
-		signalLeftUpButton->setIcon(*shuntLeftUpIcon);
-		signalRightUpButton->setIcon(*shuntRightUpIcon);
-		signalLeftDownButton->setIcon(*shuntLeftDownIcon);
-		signalRightDownButton->setIcon(*shuntRightDownIcon);
-	}
-	else if (aspect == 1) {
-		aspect = 4;
-		drawingSurface->setAspect(aspect);
-		aspectButton->setIcon(*aspect4Icon);
-		signalLeftButton->setIcon(*signalLeftIcon);
-		signalRightButton->setIcon(*signalRightIcon);
-		signalDownButton->setIcon(*signalDownIcon);
-		signalUpButton->setIcon(*signalUpIcon);
-		signalLeftUpButton->setIcon(*signalLeftUpIcon);
-		signalRightUpButton->setIcon(*signalRightUpIcon);
-		signalLeftDownButton->setIcon(*signalLeftDownIcon);
-		signalRightDownButton->setIcon(*signalRightDownIcon);
-	}
+    if (modeChosen != Mode::LINKLINKEDTRACK)
+    {
+        modeChosen = Mode::LINKLINKEDTRACK;
+    }
+    else
+    {
+        modeChosen = Mode::NONE;
+    }
+}
+
+void Window::checkAllTrack()
+{
 
 }
 
@@ -148,6 +126,47 @@ void Window::openFontBox()
     bool ok;
     QFont font = QFontDialog::getFont(&ok, QFont( "Calibri", 12 ),this,tr("Pick a font" ));
     drawingSurface->setCurrentFont(font);
+}
+
+void Window::changeAspect()
+{
+    if (aspect == 4) {
+        aspect = 3;
+        drawingSurface->setAspect(aspect);
+        aspectButton->setIcon(*aspect3Icon);
+    }
+    else if (aspect == 3) {
+        aspect = 2;
+        drawingSurface->setAspect(aspect);
+        aspectButton->setIcon(*aspect2Icon);
+    }
+    else if (aspect == 2) {
+        aspect = 1;
+        drawingSurface->setAspect(aspect);
+        aspectButton->setIcon(*aspectShuntIcon);
+        signalLeftButton->setIcon(*shuntLeftIcon);
+        signalRightButton->setIcon(*shuntRightIcon);
+        signalDownButton->setIcon(*shuntDownIcon);
+        signalUpButton->setIcon(*shuntUpIcon);
+        signalLeftUpButton->setIcon(*shuntLeftUpIcon);
+        signalRightUpButton->setIcon(*shuntRightUpIcon);
+        signalLeftDownButton->setIcon(*shuntLeftDownIcon);
+        signalRightDownButton->setIcon(*shuntRightDownIcon);
+    }
+    else if (aspect == 1) {
+        aspect = 4;
+        drawingSurface->setAspect(aspect);
+        aspectButton->setIcon(*aspect4Icon);
+        signalLeftButton->setIcon(*signalLeftIcon);
+        signalRightButton->setIcon(*signalRightIcon);
+        signalDownButton->setIcon(*signalDownIcon);
+        signalUpButton->setIcon(*signalUpIcon);
+        signalLeftUpButton->setIcon(*signalLeftUpIcon);
+        signalRightUpButton->setIcon(*signalRightUpIcon);
+        signalLeftDownButton->setIcon(*signalLeftDownIcon);
+        signalRightDownButton->setIcon(*signalRightDownIcon);
+    }
+
 }
 
 void Window::toggleTrackID()
@@ -1532,7 +1551,7 @@ void Window::createOverallMenu()
 	createBuildModifyMenu1();
 
 	QPalette pal2 = palette();
-	pal2.setColor(QPalette::Background, Qt::red);
+    pal2.setColor(QPalette::Window, Qt::red);
 	buildModifyMenu1->setAutoFillBackground(true);
 	buildModifyMenu1->setPalette(pal2);
 	buildModifyMenu1->setLayout(buildModifyMenuLayout1);
@@ -1558,20 +1577,29 @@ void Window::createBuildModifyMenu1()
 	connect(openElementMenuAct, &QAction::triggered, this, &Window::openElementMenu);
 	trackIcon = new QIcon(":/icons/icons/buildMenuIcon.png");
 	elementMenuButton->setIcon(*trackIcon);
-
 	buildModifyMenuLayout1->addWidget(elementMenuButton);
 
-	aspectButton = new QToolButton();
-	aspectButton->setMaximumSize(QSize(32, 32));
-	changeAspectAct = new QAction();
-	aspectButton->setDefaultAction(changeAspectAct);
-	connect(changeAspectAct, &QAction::triggered, this, &Window::changeAspect);
-	aspect4Icon = new QIcon(":/icons/icons/aspect4.png");
-	aspect3Icon = new QIcon(":/icons/icons/aspect3.png");
-	aspect2Icon = new QIcon(":/icons/icons/aspect2.png");
-	aspectShuntIcon = new QIcon(":/icons/icons/aspectShunt.png");
-	aspectButton->setIcon(*aspect4Icon);
-	buildModifyMenuLayout1->addWidget(aspectButton);
+    connectLinkedTrackButton = new QToolButton();
+    connectLinkedTrackButton->setMaximumSize(QSize(32, 32));
+    connectLinkedTrackAct = new QAction();
+    connectLinkedTrackButton->setDefaultAction(connectLinkedTrackAct);
+    connect(connectLinkedTrackAct, &QAction::triggered, this, &Window::connectLinkedTrack);
+    connectLinkedTrackIcon = new QIcon(":/icons/icons/connectLinkTrack.png");
+    connectLinkedTrackButton->setIcon(*connectLinkedTrackIcon);
+    buildModifyMenuLayout1->addWidget(connectLinkedTrackButton);
+    connectLinkedTrackButton->setEnabled(false);
+
+    checkAllTrackButton = new QToolButton();
+    checkAllTrackButton->setMaximumSize(QSize(32, 32));
+    checkAllTrackAct = new QAction();
+    checkAllTrackButton->setDefaultAction(checkAllTrackAct);
+    connect(checkAllTrackAct, &QAction::triggered, this, &Window::checkAllTrack);
+    checkAllTrackIcon = new QIcon(":/icons/icons/checkAllTrackLinked.png");
+    checkAllTrackButton->setIcon(*checkAllTrackIcon);
+    buildModifyMenuLayout1->addWidget(checkAllTrackButton);
+    checkAllTrackButton->setEnabled(false);
+
+
 
 	addEditRemoveTextButton = new QToolButton();
 	addEditRemoveTextButton->setMaximumSize(QSize(32, 32));
@@ -1608,6 +1636,18 @@ void Window::createBuildModifyMenu1()
     setFontIcon = new QIcon(":/icons/icons/changeFont.png");
     fontButton->setIcon(*setFontIcon);
     buildModifyMenuLayout1->addWidget(fontButton);
+
+    aspectButton = new QToolButton();
+    aspectButton->setMaximumSize(QSize(32, 32));
+    changeAspectAct = new QAction();
+    aspectButton->setDefaultAction(changeAspectAct);
+    connect(changeAspectAct, &QAction::triggered, this, &Window::changeAspect);
+    aspect4Icon = new QIcon(":/icons/icons/aspect4.png");
+    aspect3Icon = new QIcon(":/icons/icons/aspect3.png");
+    aspect2Icon = new QIcon(":/icons/icons/aspect2.png");
+    aspectShuntIcon = new QIcon(":/icons/icons/aspectShunt.png");
+    aspectButton->setIcon(*aspect4Icon);
+    buildModifyMenuLayout1->addWidget(aspectButton);
 }
 
 void Window::createElementMenu()
@@ -1615,7 +1655,7 @@ void Window::createElementMenu()
 
 	elementMenu = new QWidget;
 	QPalette pal = palette();
-	pal.setColor(QPalette::Background, Qt::green);
+    pal.setColor(QPalette::Window, Qt::green);
 	elementMenu->setAutoFillBackground(true);
 	elementMenu->setPalette(pal);
 	elementMenuLayout = new QHBoxLayout;

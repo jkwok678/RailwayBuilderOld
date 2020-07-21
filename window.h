@@ -28,14 +28,19 @@ private slots:
 	void openRailway();
 	void openBuildModifyMenu();
 	void openElementMenu();
-	void changeAspect();
+    void connectLinkedTrack();
+    void checkAllTrack();
+
 	void addEditRemoveText();
     void moveText();
     void setChangeNamedLocation();
     void openFontBox();
+    void changeAspect();
 
     void toggleTrackID();
     void toggleMoreTrackInfo();
+
+
 
 	void moveRight();
 	void moveLeft();
@@ -248,12 +253,13 @@ private:
 	QAction* openElementMenuAct;
 	QIcon* trackIcon;
 
-	QToolButton* aspectButton;
-	QAction* changeAspectAct;
-	QIcon* aspect4Icon;
-	QIcon* aspect3Icon;
-	QIcon* aspect2Icon;
-	QIcon* aspectShuntIcon;
+    QToolButton* connectLinkedTrackButton;
+    QAction* connectLinkedTrackAct;
+    QIcon* connectLinkedTrackIcon;
+
+    QToolButton* checkAllTrackButton;
+    QAction* checkAllTrackAct;
+    QIcon* checkAllTrackIcon;
 
 	QToolButton* addEditRemoveTextButton;
 	QAction* addEditRemoveTextAct;
@@ -270,6 +276,13 @@ private:
     QToolButton* fontButton;
     QAction* setFontAct;
     QIcon* setFontIcon;
+
+    QToolButton* aspectButton;
+    QAction* changeAspectAct;
+    QIcon* aspect4Icon;
+    QIcon* aspect3Icon;
+    QIcon* aspect2Icon;
+    QIcon* aspectShuntIcon;
 
 	//Top menu 2
 
