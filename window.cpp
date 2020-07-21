@@ -76,9 +76,9 @@ void Window::openElementMenu()
 
 void Window::connectLinkedTrack()
 {
-    if (modeChosen != Mode::LINKLINKEDTRACK)
+    if (modeChosen != Mode::CONNECTLINKEDTRACK)
     {
-        modeChosen = Mode::LINKLINKEDTRACK;
+        modeChosen = Mode::CONNECTLINKEDTRACK;
     }
     else
     {
