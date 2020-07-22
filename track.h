@@ -164,7 +164,7 @@ class LinkedTrack : public Track
 private:
     LinkedType linkedType;
     bool linked;
-    LinkedTrack* otherLinkTrack{nullptr};
+    std::shared_ptr<LinkedTrack> otherLinkTrack{nullptr};
 
 
 
@@ -178,9 +178,10 @@ public:
     void setLinkedType(const LinkedType &newLinkedType);
     bool getLinked() const;
     void setLinked(bool newLinked);
-    LinkedTrack *getOtherLinkedTrack() const;
-    void setOtherLinkedTrack(LinkedTrack *newOtherLinkedTrack);
 
+
+    std::shared_ptr<LinkedTrack> getOtherLinkTrack();
+    void setOtherLinkTrack(std::shared_ptr<LinkedTrack> &newLinkedTrack);
 };
 
 class ExitTrack : public Track

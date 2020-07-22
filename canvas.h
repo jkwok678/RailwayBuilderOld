@@ -101,14 +101,22 @@ private:
 	QImage* curve2Image;
 	QImage* curve3Image;
 	QImage* curve4Image;
-	QImage* linkLeftImage;
-	QImage* linkRightImage;
-	QImage* linkDownImage;
-	QImage* linkUpImage;
-	QImage* linkLeftUpImage;
-	QImage* linkRightUpImage;
-	QImage* linkRightDownImage;
-	QImage* linkLeftDownImage;
+    QImage* linkLeftUnsetImage;
+    QImage* linkRightUnsetImage;
+    QImage* linkDownUnsetImage;
+    QImage* linkUpUnsetImage;
+    QImage* linkLeftUpUnsetImage;
+    QImage* linkRightUpUnsetImage;
+    QImage* linkRightDownUnsetImage;
+    QImage* linkLeftDownUnsetImage;
+    QImage* linkLeftSetImage;
+    QImage* linkRightSetImage;
+    QImage* linkDownSetImage;
+    QImage* linkUpSetImage;
+    QImage* linkLeftUpSetImage;
+    QImage* linkRightUpSetImage;
+    QImage* linkRightDownSetImage;
+    QImage* linkLeftDownSetImage;
 	QImage* exitLeftImage;
 	QImage* exitRightImage;
 	QImage* exitDownImage;
@@ -261,6 +269,11 @@ private:
 	//ELementBlock6Image
 	QImage* levelCrossingHImage;
 	QImage* levelCrossingVImage;
+
+    //Hints
+    QImage* selectRed;
+    QImage* selectGreen;
+    QImage* selectBlue;
 
 };
 

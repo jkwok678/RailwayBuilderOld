@@ -11,9 +11,6 @@ Canvas::Canvas()
     canvasSizeX = width();
     canvasSizeY = height();
     setMouseTracking(true);
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    timer->start(100);
 
     //ElementBlock1 images
     straightHImage = new QImage(":/graphics/graphics/straightH.png");
@@ -37,14 +34,22 @@ Canvas::Canvas()
     curve3Image = new QImage(":/graphics/graphics/curve3.png");
     curve4Image = new QImage(":/graphics/graphics/curve4.png");
 
-    linkLeftImage = new QImage(":/graphics/graphics/linkLeftUnset.png");
-    linkRightImage = new QImage(":/graphics/graphics/linkRightUnset.png");
-    linkDownImage = new QImage(":/graphics/graphics/linkDownUnset.png");
-    linkUpImage = new QImage(":/graphics/graphics/linkUpUnset.png");
-    linkLeftUpImage = new QImage(":/graphics/graphics/linkLeftUpUnset.png");
-    linkRightUpImage = new QImage(":/graphics/graphics/linkRightUpUnset.png");
-    linkRightDownImage = new QImage(":/graphics/graphics/linkRightDownUnset.png");
-    linkLeftDownImage = new QImage(":/graphics/graphics/linkLeftDownUnset.png");
+    linkLeftUnsetImage = new QImage(":/graphics/graphics/linkLeftUnset.png");
+    linkRightUnsetImage = new QImage(":/graphics/graphics/linkRightUnset.png");
+    linkDownUnsetImage = new QImage(":/graphics/graphics/linkDownUnset.png");
+    linkUpUnsetImage = new QImage(":/graphics/graphics/linkUpUnset.png");
+    linkLeftUpUnsetImage = new QImage(":/graphics/graphics/linkLeftUpUnset.png");
+    linkRightUpUnsetImage = new QImage(":/graphics/graphics/linkRightUpUnset.png");
+    linkRightDownUnsetImage = new QImage(":/graphics/graphics/linkRightDownUnset.png");
+    linkLeftDownUnsetImage = new QImage(":/graphics/graphics/linkLeftDownUnset.png");
+    linkLeftSetImage = new QImage(":/graphics/graphics/linkLeftSet.png");
+    linkRightSetImage = new QImage(":/graphics/graphics/linkRightSet.png");
+    linkDownSetImage = new QImage(":/graphics/graphics/linkDownSet.png");
+    linkUpSetImage = new QImage(":/graphics/graphics/linkUpSet.png");
+    linkLeftUpSetImage = new QImage(":/graphics/graphics/linkLeftUpSet.png");
+    linkRightUpSetImage = new QImage(":/graphics/graphics/linkRightUpSet.png");
+    linkRightDownSetImage = new QImage(":/graphics/graphics/linkRightDownSet.png");
+    linkLeftDownSetImage = new QImage(":/graphics/graphics/linkLeftDownSet.png");
     exitLeftImage = new QImage(":/graphics/graphics/exitLeft.png");
     exitRightImage = new QImage(":/graphics/graphics/exitRight.png");
     exitDownImage = new QImage(":/graphics/graphics/exitDown.png");
@@ -198,6 +203,11 @@ Canvas::Canvas()
     //ElementBlock6Image
     levelCrossingHImage = new QImage(":/graphics/graphics/levelCrossingH.png");
     levelCrossingVImage = new QImage(":/graphics/graphics/levelCrossingV.png");
+
+    //Hints
+    selectRed = new QImage(":/graphics/graphics/select1.png");
+    selectGreen = new QImage(":/graphics/graphics/select2.png");
+    selectBlue = new QImage(":/graphics/graphics/select3.png");
 
     setAutoFillBackground(true);
     setPalette(pal);
@@ -1479,6 +1489,38 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                     }
                 }      
             }
+            case Mode::CONNECTLINKEDTRACK:
+            {
+                if (drawnLayout->getLinkedTrack1() == nullptr)
+                {
+                    if (drawnLayout->haslinkTrackAt(finalX,finalY))
+                    {
+                        std::shared_ptr<LinkedTrack> temp1 = drawnLayout->getLinkedTrackAt(finalX, finalY);
+                        if (!temp1->getLinked())
+                        {
+                            drawnLayout->setLinkedTrack1(drawnLayout->getLinkedTrackAt(finalX, finalY));
+                        }
+                    }
+                }
+                else if (drawnLayout->getLinkedTrack2() == nullptr && drawnLayout->getLinkedTrack1() != nullptr)
+                {
+                    if (drawnLayout->checkElementExists(finalX,finalY))
+                    {
+                        std::shared_ptr<LinkedTrack> temp2 = drawnLayout->getLinkedTrackAt(finalX, finalY);
+                        if (temp2 != drawnLayout->getLinkedTrack1())
+                        {
+                            if (!temp2->getLinked())
+                            {
+                                drawnLayout->setLinkedTrack2(drawnLayout->getLinkedTrackAt(finalX, finalY));
+                                drawnLayout->connectLinkedTrack();
+                            }
+
+                        }
+                    }
+
+                }
+
+            }
         };
         update();
     }
@@ -1852,44 +1894,120 @@ void Canvas::paintEvent(QPaintEvent* event)
                 {
                     case LinkedType::LINKLEFT:
                     {
-                        painter.drawImage(displayX, displayY, *linkLeftImage);
+                        if (!currentElement->getLinked())
+                        {
+                            painter.drawImage(displayX, displayY, *linkLeftUnsetImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *linkLeftSetImage);
+                        }
+
                         break;
                     }
                     case LinkedType::LINKRIGHT:
                     {
-                        painter.drawImage(displayX, displayY, *linkRightImage);
+                        if (!currentElement->getLinked())
+                        {
+                            painter.drawImage(displayX, displayY, *linkRightUnsetImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *linkRightSetImage);
+                        }
                         break;
                     }
                     case LinkedType::LINKDOWN:
                     {
-                        painter.drawImage(displayX, displayY, *linkDownImage);
+                        if (!currentElement->getLinked())
+                        {
+                            painter.drawImage(displayX, displayY, *linkDownUnsetImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *linkDownSetImage);
+                        }
                         break;
                     }
                     case LinkedType::LINKUP:
                     {
-                        painter.drawImage(displayX, displayY, *linkUpImage);
+                        if (!currentElement->getLinked())
+                        {
+                            painter.drawImage(displayX, displayY, *linkUpUnsetImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *linkUpSetImage);
+                        }
                         break;
                     }
                     case LinkedType::LINKLEFTUP:
                     {
-                        painter.drawImage(displayX, displayY, *linkLeftUpImage);
+                        if (!currentElement->getLinked())
+                        {
+                            painter.drawImage(displayX, displayY, *linkLeftUpUnsetImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *linkLeftUpSetImage);
+                        }
                         break;
                     }
                     case LinkedType::LINKRIGHTUP:
                     {
-                        painter.drawImage(displayX, displayY, *linkRightUpImage);
+                        if (!currentElement->getLinked())
+                        {
+                            painter.drawImage(displayX, displayY, *linkRightUpUnsetImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *linkRightUpSetImage);
+                        }
                         break;
                     }
                     case LinkedType::LINKRIGHTDOWN:
                     {
-                        painter.drawImage(displayX, displayY, *linkRightDownImage);
+                        if (!currentElement->getLinked())
+                        {
+                            painter.drawImage(displayX, displayY, *linkRightDownUnsetImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *linkRightDownSetImage);
+                        }
                         break;
                     }
                     case LinkedType::LINKLEFTDOWN:
                     {
-                        painter.drawImage(displayX, displayY, *linkLeftDownImage);
+                        if (!currentElement->getLinked())
+                        {
+                            painter.drawImage(displayX, displayY, *linkLeftDownUnsetImage);
+                        }
+                        else
+                        {
+                            painter.drawImage(displayX, displayY, *linkLeftDownSetImage);
+                        }
                         break;
                     }
+                }
+                if (*canvasChosen == Mode::CONNECTLINKEDTRACK)
+                {
+                    if (currentElement == drawnLayout->getLinkedTrack1() || currentElement == drawnLayout->getLinkedTrack2())
+                    {
+                        painter.drawImage(displayX,displayY,*selectBlue);
+                    }
+                    else if (!currentElement->getLinked())
+                    {
+                        painter.drawImage(displayX,displayY,*selectRed);
+                    }
+                    else if (currentElement->getLinked())
+                    {
+                        painter.drawImage(displayX,displayY, * selectGreen);
+                        painter.drawLine(displayX+8, displayY+8,
+                        currentElement->getOtherLinkTrack()->getLocationX()+8- minDisplayX,
+                        0-(currentElement->getOtherLinkTrack()->getLocationY()-8 - maxDisplayY));
+                    }
+
                 }
             }
         }

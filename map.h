@@ -3,6 +3,8 @@
 #include <vector>
 #include <memory>
 #include <QMessageBox>
+#include <thread>
+#include <chrono>
 #include  "element.h"
 #include "track.h"
 
@@ -26,8 +28,8 @@ private:
 	std::vector<std::shared_ptr<Parapet>> parapetList;
 	std::vector<std::shared_ptr<Text>> textList;
 
-
-
+    std::shared_ptr<LinkedTrack> linkedTrack1{nullptr};
+    std::shared_ptr<LinkedTrack> linkedTrack2{nullptr};
 
 
 public:
@@ -52,6 +54,7 @@ public:
 	void setLinkedTrackList(const std::vector<std::shared_ptr<LinkedTrack> >& newLinkedTrackList);
 	void addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack);
     std::shared_ptr<LinkedTrack> getLinkedTrackAt(int locationX,int locationY);
+    bool haslinkTrackAt(int locationX, int locationY);
 
 	std::vector<std::shared_ptr<ExitTrack> > getExitTrackList() const;
 	void setExitTrackList(const std::vector<std::shared_ptr<ExitTrack> >& newExitTrackList);
@@ -122,6 +125,12 @@ public:
     void addLevelCrossing( int locationX, int locationY);
     void linkLocalText(int locationX, int LocationY, std::shared_ptr<Text> linkedText);
     void linkNewBlockToText(int locationX, int locationY);
+
+    std::shared_ptr<LinkedTrack> getLinkedTrack1() const;
+    void setLinkedTrack1(const std::shared_ptr<LinkedTrack> &newLinkedTrack1);
+    std::shared_ptr<LinkedTrack> getLinkedTrack2() const;
+    void setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2);
+    void connectLinkedTrack();
 };
 
 #endif // MAP_H

@@ -42,10 +42,23 @@ Window::Window()
     layout->addWidget(status, BorderLayout::South);
 
     setLayout(layout);
+
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(timerRun()));
+    timer->start(100);
 }
 
 
 // Private slots
+
+void Window::timerRun()
+{
+    drawingSurface->update();
+    if (drawingSurface->getMap().getLinkedTrackList().size()>0)
+    {
+        connectLinkedTrackButton->setEnabled(true);
+    }
+}
 
 void Window::openRailway()
 {
@@ -1982,6 +1995,8 @@ void Window::chooseLevelCrossing()
         modeChosen = Mode::NONE;
     }
 }
+
+
 
 void Window::createMenuBar()
 {

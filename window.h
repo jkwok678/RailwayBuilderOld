@@ -17,14 +17,17 @@
 #include "borderlayout.h"
 #include "canvas.h"
 #include "element.h"
+#include "map.h"
 
 
 class Window : public QWidget
 {
+    Q_OBJECT
 public:
 	Window();
 
 private slots:
+    void timerRun();
 	void openRailway();
 	void openBuildModifyMenu();
 	void openElementMenu();
@@ -227,6 +230,8 @@ private:
 	Canvas* drawingSurface;
     bool showTrackID;
     bool showMoreTrackInfo;
+
+
 
 	void createMenuBar();
 	void createFileMenu();

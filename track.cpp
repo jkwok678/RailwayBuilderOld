@@ -280,8 +280,6 @@ void CurvedTrack::setCurvedType(const CurvedType &newCurvedType)
 
 
 
-
-
 LinkedTrack::LinkedTrack(LinkedType newLinkedType, int newLocationX, int newLocationY)
 {
     linkedType = newLinkedType;
@@ -341,16 +339,15 @@ void LinkedTrack::setLinked(bool value)
     linked = value;
 }
 
-LinkedTrack *LinkedTrack::getOtherLinkedTrack() const
+std::shared_ptr<LinkedTrack> LinkedTrack::getOtherLinkTrack()
 {
     return otherLinkTrack;
 }
 
-void LinkedTrack::setOtherLinkedTrack(LinkedTrack *newOtherLinkTrack)
+void LinkedTrack::setOtherLinkTrack(std::shared_ptr<LinkedTrack> &newLinkedTrack)
 {
-    otherLinkTrack = newOtherLinkTrack;
+    otherLinkTrack = newLinkedTrack;
 }
-
 
 
 ExitTrack::ExitTrack(ExitType newExitType, int newLocationX, int newLocationY)

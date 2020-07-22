@@ -199,6 +199,7 @@
         <file>graphics/levelCrossingV.png</file>
         <file>graphics/select1.png</file>
         <file>graphics/select2.png</file>
+        <file>graphics/select3.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>

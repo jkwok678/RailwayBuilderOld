@@ -1,13 +1,14 @@
 #include "map.h"
 
+
 Map::Map()
 {
-
+    
 }
 
 std::vector<std::shared_ptr<StraightTrack> > Map::getStraightTrackList() const
 {
-	return straightTrackList;
+    return straightTrackList;
 }
 
 void Map::setStraightTrackList(const std::vector<std::shared_ptr<StraightTrack> >& newSignalTrackList)
@@ -202,6 +203,24 @@ std::shared_ptr<LinkedTrack> Map::getLinkedTrackAt(int locationX, int locationY)
         }
     }
     return linkedTrack;
+}
+
+bool Map::haslinkTrackAt(int locationX, int locationY)
+{
+    bool found = false;
+    if (!linkedTrackList.empty())
+    {
+        for (std::shared_ptr<LinkedTrack>& currentTrack : linkedTrackList)
+        {
+            int currentX = currentTrack->getLocationX();
+            int currentY = currentTrack->getLocationY();
+            if (currentX == locationX && currentY == locationY)
+            {
+                found = true;
+            }
+        }
+    }
+    return found;
 }
 
 
@@ -1307,6 +1326,13 @@ bool Map::deleteElement(int locationX, int locationY)
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
+                if (currentElement->getLinked())
+                {
+                    std::shared_ptr<LinkedTrack> temp = currentElement->getOtherLinkTrack();
+                    temp->setLinked(false);
+                    std::shared_ptr<LinkedTrack> empty = nullptr;
+                    temp->setOtherLinkTrack(empty);
+                }
                 linkedTrackList.erase(linkedTrackList.begin() + i);
                 deleted = true;
             }
@@ -2715,3 +2741,34 @@ void Map::linkNewBlockToText(int locationX, int     locationY)
         }
     }
 }
+
+std::shared_ptr<LinkedTrack> Map::getLinkedTrack1() const
+{
+    return linkedTrack1;
+}
+
+void Map::setLinkedTrack1(const std::shared_ptr<LinkedTrack> &value)
+{
+    linkedTrack1 = value;
+}
+
+std::shared_ptr<LinkedTrack> Map::getLinkedTrack2() const
+{
+    return linkedTrack2;
+}
+
+void Map::setLinkedTrack2(const std::shared_ptr<LinkedTrack> &value)
+{
+    linkedTrack2 = value;
+}
+
+void Map::connectLinkedTrack()
+{
+    linkedTrack1->setOtherLinkTrack(linkedTrack2);
+    linkedTrack2->setOtherLinkTrack(linkedTrack1);
+    linkedTrack1->setLinked(true);
+    linkedTrack2->setLinked(true);
+    linkedTrack1 = nullptr;
+    linkedTrack2 = nullptr;
+}
+
