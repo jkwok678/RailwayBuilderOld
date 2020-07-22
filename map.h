@@ -11,7 +11,7 @@
 class Map
 {
 private:
-
+    int totalTrack{0};
 	std::vector<std::shared_ptr<StraightTrack>> straightTrackList;
 	std::vector<std::shared_ptr<DirectTrack>> directTrackList;
 	std::vector<std::shared_ptr<CurvedTrack>> curvedTrackList;
@@ -34,6 +34,9 @@ private:
 
 public:
 	Map();
+
+    int getTotalTrack() const;
+    void setTotalTrack(int newTrackTotal);
 
 	std::vector<std::shared_ptr<StraightTrack> > getStraightTrackList() const;
 	void setStraightTrackList(const std::vector<std::shared_ptr<StraightTrack> >& newStraightTrackList);
@@ -131,6 +134,7 @@ public:
     std::shared_ptr<LinkedTrack> getLinkedTrack2() const;
     void setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2);
     void connectLinkedTrack();
+
 };
 
 #endif // MAP_H

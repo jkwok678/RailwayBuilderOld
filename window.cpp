@@ -58,6 +58,10 @@ void Window::timerRun()
     {
         connectLinkedTrackButton->setEnabled(true);
     }
+    if (drawingSurface->getMap().getTotalTrack()>0)
+    {
+        checkAllTrackButton->setEnabled(true);
+    }
 }
 
 void Window::openRailway()
@@ -88,7 +92,20 @@ void Window::connectLinkedTrack()
 {
     if (modeChosen != Mode::CONNECTLINKEDTRACK)
     {
-        modeChosen = Mode::CONNECTLINKEDTRACK;
+        int linkTrackNum =  drawingSurface->getMap().getLinkedTrackList().size();
+        std::cout<< linkTrackNum << std::flush;
+        if ((linkTrackNum % 2) == 0)
+        {
+            modeChosen = Mode::CONNECTLINKEDTRACK;
+        }
+        else
+        {
+            QMessageBox oddNumOfLinkTrack;
+            oddNumOfLinkTrack.setIcon(QMessageBox::Critical);
+            oddNumOfLinkTrack.setText("Cannot link track. Odd number of LinkedTrack");
+            oddNumOfLinkTrack.exec();
+        }
+
     }
     else
     {
