@@ -1045,178 +1045,176 @@ std::shared_ptr<Text> Map::getTextAt(int locationX, int locationY)
 
 bool Map::checkElementExists(int locationX, int locationY)
 {
-	bool found = false;
-	if (!straightTrackList.empty())
-	{
+    bool found = false;
+    if (!straightTrackList.empty())
+    {
         for (std::shared_ptr<StraightTrack>& currentElement : straightTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
-					found = true;
+                found = true;
             }
-		}
-	}
+        }
+    }
 
-	if (!directTrackList.empty() && found == false)
-	{
+    if (!directTrackList.empty() && found == false)
+    {
         for (std::shared_ptr<DirectTrack>& currentElement : directTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
-			}
-		}
-	}
+            }
+        }
+    }
 
-	if (!curvedTrackList.empty() && found == false)
-	{
+    if (!curvedTrackList.empty() && found == false)
+    {
         for (std::shared_ptr<CurvedTrack>& currentElement : curvedTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
             }
-		}
-	}
+        }
+    }
 
-	if (!linkedTrackList.empty() && found == false)
-	{
+    if (!linkedTrackList.empty() && found == false)
+    {
         for (std::shared_ptr<LinkedTrack>& currentElement : linkedTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
             }
-		}
-	}
+        }
+    }
 
-	if (!exitTrackList.empty() && found == false)
-	{
+    if (!exitTrackList.empty() && found == false)
+    {
         for (std::shared_ptr<ExitTrack>& currentElement : exitTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
-					found = true;
-			}
-		}
-	}
+                found = true;
+            }
+        }
+    }
 
-	if (!bufferTrackList.empty() && found == false)
-	{
+    if (!bufferTrackList.empty() && found == false)
+    {
         for (std::shared_ptr<BufferTrack>& currentElement : bufferTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
-			}
-		}
-	}
+            }
+        }
+    }
 
-	if (!signalTrackList.empty() && found == false)
-	{
+    if (!signalTrackList.empty() && found == false)
+    {
         for (std::shared_ptr<SignalTrack>& currentElement : signalTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
             }
-		}
-	}
+        }
+    }
 
-	if (!bridgeUnderpassTrackList.empty() && found == false)
-	{
+    if (!bridgeUnderpassTrackList.empty() && found == false)
+    {
         for (std::shared_ptr<BridgeUnderpassTrack>& currentElement : bridgeUnderpassTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
-			}
-		}
-	}
+            }
+        }
+    }
 
-	if (!switchTrackList.empty() && found == false)
-	{
+    if (!switchTrackList.empty() && found == false)
+    {
         for (std::shared_ptr<SwitchTrack>& currentElement : switchTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
             }
-		}
-	}
-
-	if (!crossoverTrackList.empty() && found == false)
-	{
+        }
+    }
+    if (!crossoverTrackList.empty() && found == false)
+    {
         for (std::shared_ptr<CrossoverTrack>& currentElement : crossoverTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
             }
-		}
-	}
+        }
+    }
 
-	if (!flyoverTrackList.empty() && found == false)
-	{
+    if (!flyoverTrackList.empty() && found == false)
+    {
         for (std::shared_ptr<FlyoverTrack>& currentElement : flyoverTrackList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
-			}
-		}
-	}
+            }
+        }
+    }
 
-	if (!namedLocationList.empty() && found == false)
-	{
+    if (!namedLocationList.empty() && found == false)
+    {
         for (std::shared_ptr<NamedLocation>& currentElement : namedLocationList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
             }
-		}
-	}
+        }
+    }
 
-	if (!concourseList.empty() && found == false)
-	{
+    if (!concourseList.empty() && found == false)
+    {
         for (std::shared_ptr<Concourse>& currentElement : concourseList)
         {
-			int currentX = currentElement->getLocationX();
+            int currentX = currentElement->getLocationX();
             int currentY = currentElement->getLocationY();
             if (currentX == locationX && currentY == locationY)
             {
                 found = true;
             }
-		}
-	}
-
-	if (!parapetList.empty() && found == false)
-	{
+        }
+    }
+    if (!parapetList.empty() && found == false)
+    {
         for (std::shared_ptr<Parapet>& currentElement : parapetList)
         {
 			int currentX = currentElement->getLocationX();
@@ -1225,12 +1223,9 @@ bool Map::checkElementExists(int locationX, int locationY)
             {
                 found = true;
             }
-		}
-	}
-
-
-	return found;
-
+        }
+    }
+    return found;
 }
 
 bool Map::checkTextExists(int locationX, int locationY)
@@ -1315,7 +1310,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 --totalTrack;
                 break;
             }
-
         }
     }
     if (!deleted) {
@@ -1331,7 +1325,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 --totalTrack;
                 break;
             }
-
         }
     }
     if (!deleted)
@@ -1355,7 +1348,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 --totalTrack;
                 break;
             }
-
         }
     }
     if (!deleted)
@@ -1389,7 +1381,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 --totalTrack;
                 break;
             }
-
         }
     }
     if (!deleted)
@@ -1406,7 +1397,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 --totalTrack;
                 break;
             }
-
         }
     }
     if (!deleted)
@@ -1423,7 +1413,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 --totalTrack;
                 break;
             }
-
         }
     }
     if (!deleted)
@@ -1440,7 +1429,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 --totalTrack;
                 break;
             }
-
         }
     }
     if (!deleted)
@@ -1457,7 +1445,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 --totalTrack;
                 break;
             }
-
         }
     }
     if (!deleted)
@@ -1474,7 +1461,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 --totalTrack;
                 break;
             }
-
         }
     }
     if (!deleted)
@@ -1489,7 +1475,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 namedLocationList.erase(namedLocationList.begin() + i);
                 deleted = true;
             }
-
         }
     }
     if (!deleted)
@@ -1504,7 +1489,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 concourseList.erase(concourseList.begin() + i);
                 deleted = true;
             }
-
         }
     }
     if (!deleted)
@@ -1519,7 +1503,6 @@ bool Map::deleteElement(int locationX, int locationY)
                 parapetList.erase(parapetList.begin() + i);
                 deleted = true;
             }
-
         }
     }
     return deleted;
@@ -1536,9 +1519,7 @@ bool Map::deleteText(std::shared_ptr<Text> textToDelete)
             textList.erase(textList.begin() + i);
             deleted = true;
             break;
-
         }
-
     }
     return deleted;
 }
@@ -2841,6 +2822,8 @@ void Map::checkAllLinkTrackLinked()
     }
 }
 
+
+
 std::vector<std::shared_ptr<Track> > Map::makeTrackList()
 {
     std::vector<std::shared_ptr<Track>> tempTrackList;
@@ -3040,3 +3023,22 @@ void Map::checkAllTracks()
 
 }
 
+bool Map::getAllLinkedTrackLinked() const
+{
+    return allLinkedTrackLinked;
+}
+
+void Map::setAllLinkedTrackLinked(bool newAllLinkedTrackLinked)
+{
+    allLinkedTrackLinked = newAllLinkedTrackLinked;
+}
+
+bool Map::getAllConnected() const
+{
+    return allConnected;
+}
+
+void Map::setAllConnected(bool newAllConnected)
+{
+    allConnected = newAllConnected;
+}

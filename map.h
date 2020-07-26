@@ -148,6 +148,10 @@ public:
 
     void checkAllTracks();
 
+    bool getAllLinkedTrackLinked() const;
+    void setAllLinkedTrackLinked(bool newAllLinkedTrackLinked);
+    bool getAllConnected() const;
+    void setAllConnected(bool newAllConnected);
 };
 
 #endif // MAP_H

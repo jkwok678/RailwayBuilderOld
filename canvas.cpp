@@ -1523,11 +1523,20 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             }
         };
         update();
+        if (addedTrack)
+        {
+
+        }
     }
     else if (event->button() == Qt::RightButton)
     {
-        drawnLayout->deleteElement(finalX, finalY);
-        update();
+        if (drawnLayout->checkElementExists(finalX, finalY))
+        {
+            drawnLayout->deleteElement(finalX, finalY);
+            update();
+            drawnLayout->setAllConnected(false);
+        }
+
     }
 }
 
