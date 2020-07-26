@@ -76,14 +76,13 @@ private:
 protected:
 	int trackSpeed{ 200 };
 	int trackLength{ 100 };
-	bool trackLinks[9];
 	//For vertical tracks, platform1 is left, platform2 is right
     //For Horizontal tracks platform1 is up, platform2 is down
     bool platformAny{ false };
     bool platform1{ false };
     bool platform2{ false };
     bool links [9]{false, false, false, false, false, false, false, false, false};
-
+    bool found;
 
 
 public:
@@ -99,6 +98,18 @@ public:
 	bool getPlatform2() const;
 	void setPlatform2(bool newPlatform);
 
+    bool getLink0();
+    bool getLink1();
+    bool getLink2();
+    bool getLink3();
+    bool getLink4();
+    bool getLink5();
+    bool getLink6();
+    bool getLink7();
+    bool getLink8();
+
+    bool getFound() const;
+    void setFound(bool newFound);
 };
 
 class StraightTrack : public Track

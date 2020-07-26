@@ -2825,3 +2825,218 @@ void Map::connectLinkedTrack()
     linkedTrack2 = nullptr;
 }
 
+void Map::checkAllLinkTrackLinked()
+{
+    allLinkedTrackLinked = true;
+    if (linkedTrackList.size() % 2 ==0)
+    {
+        for (std::shared_ptr<LinkedTrack> linkedTrack: linkedTrackList)
+        {
+            if (!linkedTrack->getLinked())
+            {
+                allLinkedTrackLinked = false;
+                break;
+            }
+        }
+    }
+}
+
+std::vector<std::shared_ptr<Track> > Map::makeTrackList()
+{
+    std::vector<std::shared_ptr<Track>> tempTrackList;
+    if (!straightTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : straightTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    if (!directTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : directTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    if (!curvedTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : curvedTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    if (!linkedTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : linkedTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    if (!exitTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : exitTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    if (!bufferTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : bufferTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    if (!signalTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : signalTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    if (!bridgeUnderpassTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : bridgeUnderpassTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    if (!switchTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : switchTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    if (!crossoverTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : crossoverTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    if (!flyoverTrackList.empty())
+    {
+        for (std::shared_ptr<Track> track : flyoverTrackList)
+        {
+            tempTrackList.push_back(track);
+        }
+    }
+    return tempTrackList;
+}
+
+std::shared_ptr<Track> Map::findTopLeftTrack()
+{
+    std::shared_ptr<Track> track = nullptr;
+    std::vector<std::shared_ptr<Track>> tempTrackList = makeTrackList();
+    if (!tempTrackList.empty())
+    {
+        track = tempTrackList[0];
+        for (std::shared_ptr<Track> currentTrack: tempTrackList)
+        {
+            if (currentTrack->getLocationX() < track->getLocationX())
+            {
+                if (currentTrack->getLocationY() > track->getLocationY())
+                {
+                    track = currentTrack;
+                }
+            }
+        }
+    }
+    return track;
+}
+
+void Map::checkAllTracks()
+{
+    std::shared_ptr<Track> startTrack = findTopLeftTrack();
+    trackList = makeTrackList();
+    allConnected = true;
+    checkAllLinkTrackLinked();
+    for (std::shared_ptr<Track> currentTrack : trackList)
+    {
+        int centreTrackX = currentTrack->getLocationX();
+        int centreTrackY = currentTrack->getLocationY();
+        if (currentTrack->getLink0())
+        {
+            std::shared_ptr<Track> leftUpTrack = getTrackAt(centreTrackX-16, centreTrackY+16);
+            if (leftUpTrack == nullptr)
+            {
+                allConnected = false;
+            }
+        }
+        if (currentTrack->getLink1() && allConnected)
+        {
+            std::shared_ptr<Track> upTrack = getTrackAt(centreTrackX, centreTrackY+16);
+            if (upTrack == nullptr)
+            {
+                allConnected = false;
+            }
+        }
+        if (currentTrack->getLink2() && allConnected)
+        {
+            std::shared_ptr<Track> rightUpTrack = getTrackAt(centreTrackX+16, centreTrackY+16);
+            if (rightUpTrack == nullptr)
+            {
+                allConnected = false;
+            }
+        }
+        if (currentTrack->getLink3() && allConnected)
+        {
+            std::shared_ptr<Track> leftTrack = getTrackAt(centreTrackX-16, centreTrackY);
+            if (leftTrack == nullptr)
+            {
+                allConnected = false;
+            }
+        }
+        if (currentTrack->getLink5() && allConnected)
+        {
+            std::shared_ptr<Track> rightTrack = getTrackAt(centreTrackX+16, centreTrackY);
+            if (rightTrack == nullptr)
+            {
+                allConnected = false;
+            }
+        }
+        if (currentTrack->getLink6() && allConnected)
+        {
+            std::shared_ptr<Track> rightDownTrack = getTrackAt(centreTrackX-16, centreTrackY-16);
+            if (rightDownTrack == nullptr)
+            {
+                allConnected = false;
+            }
+        }
+        if (currentTrack->getLink7() && allConnected)
+        {
+            std::shared_ptr<Track> downTrack = getTrackAt(centreTrackX, centreTrackY-16);
+            if (downTrack == nullptr)
+            {
+                allConnected = false;
+            }
+        }
+        if (currentTrack->getLink8() && allConnected)
+        {
+            std::shared_ptr<Track> rightDownTrack = getTrackAt(centreTrackX+16, centreTrackY-16);
+            if (rightDownTrack == nullptr)
+            {
+                allConnected = false;
+            }
+        }
+        if (!allConnected)
+        {
+            break;
+        }
+
+    }
+    if (allConnected && allLinkedTrackLinked)
+    {
+        QMessageBox allConnectedBox;
+        allConnectedBox.setText("All track connected");
+        allConnectedBox.exec();
+    }
+    else
+    {
+        QMessageBox notConnectedBox;
+        notConnectedBox.setText("Not all track connected");
+        notConnectedBox.exec();
+    }
+
+}
+

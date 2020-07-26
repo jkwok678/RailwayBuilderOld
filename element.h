@@ -20,8 +20,6 @@ class Element
 private:
 
 protected:
-	int offsetX;
-	int offsetY;
 	int locationX;
 	int locationY;
 

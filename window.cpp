@@ -115,7 +115,7 @@ void Window::connectLinkedTrack()
 
 void Window::checkAllTrack()
 {
-
+    drawingSurface->getMap().checkAllTracks();
 }
 
 void Window::addEditRemoveText()

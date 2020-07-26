@@ -28,8 +28,18 @@ private:
 	std::vector<std::shared_ptr<Parapet>> parapetList;
 	std::vector<std::shared_ptr<Text>> textList;
 
+    std::vector<std::shared_ptr<Track>> trackList;
+
     std::shared_ptr<LinkedTrack> linkedTrack1{nullptr};
     std::shared_ptr<LinkedTrack> linkedTrack2{nullptr};
+
+    std::vector<std::shared_ptr<Track>> makeTrackList();
+    std::shared_ptr<Track> findTopLeftTrack();
+
+    void checkAllLinkTrackLinked();
+
+    bool allLinkedTrackLinked;
+    bool allConnected;
 
 
 public:
@@ -134,6 +144,9 @@ public:
     std::shared_ptr<LinkedTrack> getLinkedTrack2() const;
     void setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2);
     void connectLinkedTrack();
+
+
+    void checkAllTracks();
 
 };
 

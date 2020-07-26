@@ -1,6 +1,7 @@
 #include "track.h"
 #include "element.h"
 
+
 Track::Track()
 {
     
@@ -56,7 +57,60 @@ void Track::setPlatform2(bool newPlatform)
     platform2 = newPlatform;
 }
 
+bool Track::getLink0()
+{
+    return links[0];
+}
 
+bool Track::getLink1()
+{
+     return links[1];
+}
+
+bool Track::getLink2()
+{
+     return links[2];
+}
+
+bool Track::getLink3()
+{
+     return links[3];
+}
+
+bool Track::getLink4()
+{
+     return links[4];
+}
+
+bool Track::getLink5()
+{
+     return links[5];
+}
+
+bool Track::getLink6()
+{
+     return links[6];
+}
+
+bool Track::getLink7()
+{
+     return links[7];
+}
+
+bool Track::getLink8()
+{
+     return links[8];
+}
+
+bool Track::getFound() const
+{
+    return found;
+}
+
+void Track::setFound(bool newFound)
+{
+    found = newFound;
+}
 
 StraightTrack::StraightTrack()
 {
@@ -289,30 +343,42 @@ LinkedTrack::LinkedTrack(LinkedType newLinkedType, int newLocationX, int newLoca
     switch(linkedType)
     {
         case LinkedType::LINKLEFT:
-        case LinkedType::LINKRIGHT:
         {
-            links[3] = true;
             links[5] = true;
             break;
         }
-        case LinkedType::LINKUP:
-        case LinkedType::LINKDOWN:
+        case LinkedType::LINKRIGHT:
         {
-            links[1] = true;
+            links[3] = true;
+            break;
+        }
+        case LinkedType::LINKUP:
+        {
             links[7] = true;
             break;
         }
-        case LinkedType::LINKLEFTUP:
-        case LinkedType::LINKRIGHTDOWN:
+        case LinkedType::LINKDOWN:
         {
-            links[0] = true;
+            links[1] = true;
+            break;
+        }
+        case LinkedType::LINKLEFTUP:
+        {
             links[8] = true;
             break;
         }
+        case LinkedType::LINKRIGHTDOWN:
+        {
+            links[0] = true;
+            break;
+        }
         case LinkedType::LINKLEFTDOWN:
-        case LinkedType::LINKRIGHTUP:
         {
             links[2] = true;
+            break;
+        }
+        case LinkedType::LINKRIGHTUP:
+        {
             links[6] = true;
             break;
         }
