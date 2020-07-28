@@ -173,6 +173,15 @@ void Window::openTrackLengthSpeedPanel()
     {
         allMenus->setCurrentIndex(0);
     }
+    if (modeChosen != Mode::SETTRACKLENGTHSPEED)
+    {
+        modeChosen = Mode::SETTRACKLENGTHSPEED;
+    }
+    else
+    {
+        modeChosen = Mode::NONE;
+    }
+
 }
 
 void Window::convertMilesYardMetres()
