@@ -77,7 +77,7 @@ void Window::openBuildModifyMenu()
 
 void Window::openElementMenu()
 {
-    if (allMenus->currentIndex() == 0)
+    if (allMenus->currentIndex() != 1)
     {
         allMenus->setCurrentIndex(1);
     }
@@ -160,6 +160,51 @@ void Window::openFontBox()
     bool ok;
     QFont font = QFontDialog::getFont(&ok, QFont( "Calibri", 12 ),this,tr("Pick a font" ));
     drawingSurface->setCurrentFont(font);
+}
+
+void Window::openTrackLengthSpeedPanel()
+{
+    if (allMenus->currentIndex() != 2)
+    {
+        allMenus->setCurrentIndex(2);
+    }
+    else
+    {
+        allMenus->setCurrentIndex(0);
+    }
+}
+
+void Window::convertMilesYardMetres()
+{
+    if (!milesEntry->text().isEmpty())
+    {
+        bool ok = false;
+        double tempD = milesEntry->text().toDouble(&ok);
+        if (ok)
+        {
+             miles = tempD;
+        }
+    }
+    else
+    {
+        miles = 0;
+    }
+    if (!yardsEntry->text().isEmpty())
+    {
+        bool ok = false;
+        double tempD = yardsEntry->text().toDouble(&ok);
+        if (ok)
+        {
+             yards = tempD;
+        }
+    }
+    else
+    {
+        yards = 0;
+    }
+    int metres = round((miles* MILE_FACTOR) + (yards* YARD_FACTOR));
+    actualMetres->setNum(metres);
+
 }
 
 void Window::changeAspect()
@@ -2079,6 +2124,9 @@ void Window::createOverallMenu()
     allMenus->setCurrentIndex(0);
     //overallMenuLayout->addWidget(allMenus);
 
+    createSetTrackLengthSpeedMenu();
+    allMenus->addWidget(setTrackLengthSpeedMenu);
+
 }
 
 void Window::createBuildModifyMenu1()
@@ -2148,6 +2196,15 @@ void Window::createBuildModifyMenu1()
     fontButton->setIcon(*setFontIcon);
     buildModifyMenuLayout1->addWidget(fontButton);
 
+    openTrackLengthSpeedPanelButton = new QToolButton();
+    openTrackLengthSpeedPanelButton->setMaximumSize(QSize(32, 32));
+    openTrackLengthSpeedPanelAct = new QAction();
+    openTrackLengthSpeedPanelButton->setDefaultAction(openTrackLengthSpeedPanelAct);
+    connect(openTrackLengthSpeedPanelAct, &QAction::triggered, this, &Window::openTrackLengthSpeedPanel);
+    openTrackLengthSpeedPanelIcon = new QIcon(":/icons/icons/setDistanceSpeed.png");
+    openTrackLengthSpeedPanelButton->setIcon(*openTrackLengthSpeedPanelIcon);
+    buildModifyMenuLayout1->addWidget(openTrackLengthSpeedPanelButton);
+
     aspectButton = new QToolButton();
     aspectButton->setMaximumSize(QSize(32, 32));
     changeAspectAct = new QAction();
@@ -2190,7 +2247,6 @@ void Window::createElementMenu()
 
 
 }
-
 
 void Window::createElementBlock1()
 {
@@ -3567,6 +3623,51 @@ void Window::createElementBlock6()
     elementBlock6->addItem(spacer2, 2, 0);
 
 }
+
+void Window::createSetTrackLengthSpeedMenu()
+{
+    setTrackLengthSpeedMenu = new QWidget;
+    QPalette pal = palette();
+    pal.setColor(QPalette::Window, Qt::green);
+    setTrackLengthSpeedMenu->setAutoFillBackground(true);
+    setTrackLengthSpeedMenu->setPalette(pal);
+    setTrackLengthSpeedLayout = new QHBoxLayout;
+    keyGraphicImage = new QLabel;
+    keyImage = new QImage(":/icons/icons/keyGraphic.png");
+    keyGraphicImage->setPixmap(QPixmap::fromImage(*keyImage));
+    keyGraphicImage->setScaledContents(true);
+    keyGraphicImage->setMaximumHeight(120);
+    keyGraphicImage->setMaximumWidth(500);
+    setTrackLengthSpeedLayout->addWidget(keyGraphicImage);
+
+    convertorGrid = new QGridLayout;
+    milesLabel = new QLabel;
+    milesLabel->setText(tr("Miles"));
+    milesEntry = new QLineEdit;
+    milesEntry->setMaximumWidth(100);
+    yardsLabel = new QLabel;
+    yardsLabel->setText(tr("Yards"));
+    yardsEntry = new QLineEdit;
+    yardsEntry->setMaximumWidth(100);
+    metresLabel = new QLabel;
+    metresLabel->setText(tr("Metres"));
+    actualMetres = new QLabel;
+    connect(milesEntry, &QLineEdit::textChanged, this, &Window::convertMilesYardMetres);
+    connect(yardsEntry, &QLineEdit::textChanged, this, &Window::convertMilesYardMetres);
+
+    convertorGrid->addWidget(milesLabel,0,0);
+    convertorGrid->addWidget(milesEntry,1,0);
+    convertorGrid->addWidget(yardsLabel,2,0);
+    convertorGrid->addWidget(yardsEntry,3,0);
+    convertorGrid->addWidget(metresLabel,1,1);
+    convertorGrid->addWidget(actualMetres,2,1);
+
+    setTrackLengthSpeedLayout->addLayout(convertorGrid);
+
+    setTrackLengthSpeedMenu->setLayout(setTrackLengthSpeedLayout);
+
+}
+
 
 void Window::createRightMenu()
 {

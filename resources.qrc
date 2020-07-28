@@ -22,6 +22,8 @@
         <file>icons/namedLocationAllSet.png</file>
         <file>icons/namedLocationNotSet.png</file>
         <file>icons/connectLinkTrack.png</file>
+        <file>icons/keyGraphic.png</file>
+        <file>icons/setDistanceSpeed.png</file>
     </qresource>
     <qresource prefix="/graphics">
         <file>graphics/bridgeSet1.png</file>

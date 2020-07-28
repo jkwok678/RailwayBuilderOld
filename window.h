@@ -38,6 +38,9 @@ private slots:
     void moveText();
     void setChangeNamedLocation();
     void openFontBox();
+
+    void openTrackLengthSpeedPanel();
+    void convertMilesYardMetres();
     void changeAspect();
 
     void toggleTrackID();
@@ -281,6 +284,10 @@ private:
     QToolButton* fontButton;
     QAction* setFontAct;
     QIcon* setFontIcon;
+
+    QToolButton* openTrackLengthSpeedPanelButton;
+    QAction* openTrackLengthSpeedPanelAct;
+    QIcon* openTrackLengthSpeedPanelIcon;
 
     QToolButton* aspectButton;
     QAction* changeAspectAct;
@@ -1064,6 +1071,24 @@ private:
 	QToolButton* levelCrossingButton;
 	QAction* chooseLevelCrossingAct;
 	QIcon* levelCrossingIcon;
+
+
+    void createSetTrackLengthSpeedMenu();
+    QWidget* setTrackLengthSpeedMenu;
+    QHBoxLayout* setTrackLengthSpeedLayout;
+    QLabel* keyGraphicImage;
+    QImage* keyImage;
+    QGridLayout* convertorGrid;
+    QLabel* milesLabel;
+    QLineEdit* milesEntry;
+    QLabel* yardsLabel;
+    QLineEdit* yardsEntry;
+    QLabel* metresLabel;
+    QLabel* actualMetres;
+    double miles;
+    const double MILE_FACTOR = 1609.34;
+    double yards;
+    const double YARD_FACTOR = 0.9144;
 
 
 	void createRightMenu();
