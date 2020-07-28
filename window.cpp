@@ -4,6 +4,7 @@
 Window::Window()
 {
     //Set default chosen Element to nothing.
+    viewColour = Colour::LIGHT;
     modeChosen = Mode::NONE;
     drawingSurface = new Canvas;
     drawingSurface->setMode(modeChosen);
@@ -281,6 +282,27 @@ void Window::toggleMoreTrackInfo()
         showMoreTrackInfoAct->setText("Show more track information");
     }
     drawingSurface->setCanvasShowMoreTrackInfo(showMoreTrackInfo);
+}
+
+void Window::canvasToWhite()
+{
+    drawingSurface->setCanvasColour(Colour::LIGHT);
+    drawingSurface->canvasChangeColour();
+    drawingSurface->trackChangeColour();
+}
+
+void Window::canvasToDarkBlue()
+{
+    drawingSurface->setCanvasColour(Colour::DARKBLUE);
+    drawingSurface->canvasChangeColour();
+    drawingSurface->trackChangeColour();
+}
+
+void Window::canvasToBlack()
+{
+    drawingSurface->setCanvasColour(Colour::BLACK);
+    drawingSurface->canvasChangeColour();
+    drawingSurface->trackChangeColour();
 }
 
 void Window::moveRight()
@@ -2089,6 +2111,18 @@ void Window::createModeMenu()
     openBuildModifyAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_B));
     connect(openBuildModifyAct, &QAction::triggered, this, &Window::openBuildModifyMenu);
     modeMenu->addAction(openBuildModifyAct);
+
+    toWhiteBackgroundAct = new QAction(tr("&White Background"), this);
+    connect(toWhiteBackgroundAct, &QAction::triggered, this, &Window::canvasToWhite);
+    modeMenu->addAction(toWhiteBackgroundAct);
+
+    toDarkBlueBackgroundAct = new QAction(tr("&Dark Blue Background"), this);
+    connect(toDarkBlueBackgroundAct, &QAction::triggered, this, &Window::canvasToDarkBlue);
+    modeMenu->addAction(toDarkBlueBackgroundAct);
+
+    toBlackBackgroundAct = new QAction(tr("&Black Background"), this);
+    connect(toBlackBackgroundAct, &QAction::triggered, this, &Window::canvasToBlack);
+    modeMenu->addAction(toBlackBackgroundAct);
 }
 
 void Window::createInformationMenu()

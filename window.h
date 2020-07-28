@@ -46,7 +46,9 @@ private slots:
     void toggleTrackID();
     void toggleMoreTrackInfo();
 
-
+    void canvasToWhite();
+    void canvasToDarkBlue();
+    void canvasToBlack();
 
 	void moveRight();
 	void moveLeft();
@@ -226,6 +228,7 @@ private slots:
 
 private:
 
+    Colour viewColour;
     Mode modeChosen;
 	int aspect;
 	int windowOffsetX;
@@ -243,6 +246,9 @@ private:
 	QMenuBar* menuBar;
 	QMenu* fileMenu;
 	QMenu* modeMenu;
+    QAction* toWhiteBackgroundAct;
+    QAction* toDarkBlueBackgroundAct;
+    QAction* toBlackBackgroundAct;
     QMenu* informationMenu;
 	QAction* openRailwayAct;
 	QAction* openBuildModifyAct;

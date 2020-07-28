@@ -6,6 +6,7 @@
 #include <QMouseEvent>
 #include <QInputDialog>
 #include <QTimer>
+#include <QColor>
 #include <memory>
 #include <string>
 #include <iostream>
@@ -22,6 +23,10 @@ class Canvas : public QWidget
 public:
 
 	Canvas();
+
+    void loadAllTrackImages();
+    void fillImageList();
+
     Mode getMode();
     void setMode(Mode& newChosen);
 
@@ -52,19 +57,27 @@ public:
     QFont getCurrentFont() const;
     void setCurrentFont(QFont& newFont);
 
+    Colour getCanvasColour() const;
+    void setCanvasColour(const Colour & newColour);
+
+    void canvasChangeColour();
+    void trackChangeColour();
 
 public slots:
 
 protected:
-	void mousePressEvent(QMouseEvent* event) override;
+    void mousePressEvent(QMouseEvent* event) override;
 	void paintEvent(QPaintEvent* event) override;
     void resizeEvent(QResizeEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
 
 
 private:
+    QPalette pal;
+    Colour canvasColour;
     Mode* canvasChosen;
 
+    std::vector<QImage*> imageList;
 	Map* drawnLayout;
 	int imageSize;
 	bool modified = false;
@@ -274,6 +287,8 @@ private:
     QImage* selectRed;
     QImage* selectGreen;
     QImage* selectBlue;
+
+
 
 };
 
