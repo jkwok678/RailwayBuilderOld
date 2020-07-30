@@ -213,7 +213,50 @@ void Window::convertMilesYardMetres()
         yards = 0;
     }
     int metres = round((miles* MILE_FACTOR) + (yards* YARD_FACTOR));
-    actualMetres->setNum(metres);
+    metres = std::ceil(metres * 100.0) / 100.0;
+    actualMetres->setText(QString::number(metres));
+
+}
+
+void Window::swapSpeedLabel()
+{
+    QString temp = speedLabel1->text();
+    speedLabel1->setText(speedLabel2->text());
+    speedLabel2->setText(temp);
+    if (mphToKmh)
+    {
+        mphToKmh = false;
+    }
+    else
+    {
+        mphToKmh = true;
+    }
+    convertMPHKMH();
+}
+
+void Window::convertMPHKMH()
+{
+    double result;
+    double temp;
+    if (!speedEntry1->text().isEmpty())
+    {
+        bool ok = false;
+        double tempD = speedEntry1->text().toDouble(&ok);
+        if (ok)
+        {
+             temp = tempD;
+        }
+        if (mphToKmh)
+        {
+            result = temp * MPH_TO_KMH;
+        }
+        else
+        {
+            result = temp / MPH_TO_KMH;
+        }
+        result = std::ceil(result * 100.0) / 100.0;
+        speedResult->setText(QString::number(result));
+    }
 
 }
 
@@ -3674,14 +3717,14 @@ void Window::createSetTrackLengthSpeedMenu()
     pal.setColor(QPalette::Window, Qt::green);
     setTrackLengthSpeedMenu->setAutoFillBackground(true);
     setTrackLengthSpeedMenu->setPalette(pal);
-    setTrackLengthSpeedLayout = new QHBoxLayout;
+    setTrackLengthSpeedLayout1 = new QHBoxLayout;
     keyGraphicImage = new QLabel;
     keyImage = new QImage(":/icons/icons/keyGraphic.png");
     keyGraphicImage->setPixmap(QPixmap::fromImage(*keyImage));
     keyGraphicImage->setScaledContents(true);
     keyGraphicImage->setMaximumHeight(120);
     keyGraphicImage->setMaximumWidth(500);
-    setTrackLengthSpeedLayout->addWidget(keyGraphicImage);
+    setTrackLengthSpeedLayout1->addWidget(keyGraphicImage);
 
     convertorGrid = new QGridLayout;
     milesLabel = new QLabel;
@@ -3694,7 +3737,11 @@ void Window::createSetTrackLengthSpeedMenu()
     yardsEntry->setMaximumWidth(100);
     metresLabel = new QLabel;
     metresLabel->setText(tr("Metres"));
-    actualMetres = new QLabel;
+    actualMetres = new QLineEdit;
+    actualMetres->setMaximumWidth(150);
+    actualMetres->setReadOnly(true);
+    actualMetres->setDisabled(true);
+
     connect(milesEntry, &QLineEdit::textChanged, this, &Window::convertMilesYardMetres);
     connect(yardsEntry, &QLineEdit::textChanged, this, &Window::convertMilesYardMetres);
 
@@ -3705,9 +3752,34 @@ void Window::createSetTrackLengthSpeedMenu()
     convertorGrid->addWidget(metresLabel,1,1);
     convertorGrid->addWidget(actualMetres,2,1);
 
-    setTrackLengthSpeedLayout->addLayout(convertorGrid);
 
-    setTrackLengthSpeedMenu->setLayout(setTrackLengthSpeedLayout);
+    speedLabel1 = new QLabel;
+    speedLabel1->setText(tr("mph"));
+    speedEntry1 = new QLineEdit;
+
+    speedEntry1->setMaximumWidth(150);
+    swapLabelButton = new QPushButton;
+    swapLabelButton->setText(tr("Swap"));
+    swapLabelButton->setMinimumWidth(30);
+    swapLabelButton->setMaximumWidth(75);
+    connect(swapLabelButton, SIGNAL (released()),this, SLOT (swapSpeedLabel()));
+
+    speedLabel2 = new QLabel;
+    speedLabel2->setText(tr("km/h"));
+    speedResult = new QLineEdit;
+    speedResult->setMaximumWidth(150);
+    speedResult->setDisabled(true);
+    connect(speedEntry1, &QLineEdit::textChanged, this, &Window::convertMPHKMH);
+
+    convertorGrid->addWidget(speedLabel1,0,2);
+    convertorGrid->addWidget(speedEntry1,1,2);
+    convertorGrid->addWidget(speedLabel2,2,2);
+    convertorGrid->addWidget(swapLabelButton,2,3);
+    convertorGrid->addWidget(speedResult,3,2);
+
+
+    setTrackLengthSpeedLayout1->addLayout(convertorGrid);
+    setTrackLengthSpeedMenu->setLayout(setTrackLengthSpeedLayout1);
 
 }
 

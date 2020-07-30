@@ -1763,1768 +1763,3589 @@ void Canvas::paintEvent(QPaintEvent* event)
     canvasSizeY = height();
     QPainter painter(this);
     //painter.drawImage(0, 704, *straightHImage);
-    for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList())
+    if (*canvasChosen == Mode::SETTRACKLENGTHSPEED)
     {
-        //Get the stored location of track relative to the canvas widget.
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-
-        //Find the area you want to output, by using the offset and the size of the canvas widget.
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayX = ((offsetX+1) * canvasSizeX);
-        int minDisplayY = ((offsetY-1) * canvasSizeY);
-        int maxDisplayY = (offsetY*canvasSizeY);
-
-        //Find the location on the canvas where you will draw
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            //Get the stored location of track relative to the canvas widget.
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+
+            //Find the area you want to output, by using the offset and the size of the canvas widget.
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayX = ((offsetX+1) * canvasSizeX);
+            int minDisplayY = ((offsetY-1) * canvasSizeY);
+            int maxDisplayY = (offsetY*canvasSizeY);
+
+
+            //Find the location on the canvas where you will draw
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getStraightType())
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
                 {
-                    case StraightType::STRAIGHTH:
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getStraightType())
                     {
-                        //std::cout<< currentElement->getNamed() << std::flush;
-                        painter.drawImage(displayX, displayY, *straightHImage);
-                        if (currentElement->getPlatform1())
+                        case StraightType::STRAIGHTH:
                         {
-                            if (currentElement->getNamed())
+                            //std::cout<< currentElement->getNamed() << std::flush;
+
+                            int height = straightHImage->height();
+                            int width = straightHImage->width();
+                            QColor black =  QColor(0,0,0,255);
+                            QColor white = QColor(255,255,255,255);
+                            QColor red =  QColor(255,0,0,255);
+                            QColor green =  QColor(0,255,0,255);
+                            QColor blue =  QColor(0,0,255,255);
+                            if (currentElement->getTrackLength() == 100 && currentElement->getTrackSpeed() != 200)
                             {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                for (int y=0; y<height; y++)
+                                {
+                                    for (int x=0; x<width;x++)
+                                    {
+                                        if (straightHImage->pixelColor(x,y) == black || straightHImage->pixelColor(x,y) == white)
+                                        {
+                                            straightHImage->setPixelColor(x,y,red);
+                                        }
+                                    }
+                                }
                             }
-                            else
+                            else if (currentElement->getTrackLength() != 100 && currentElement->getTrackSpeed() == 200)
                             {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                for (int y=0; y<height; y++)
+                                {
+                                    for (int x=0; x<width;x++)
+                                    {
+                                        if (straightHImage->pixelColor(x,y) == black || straightHImage->pixelColor(x,y) == white)
+                                        {
+                                            straightHImage->setPixelColor(x,y,green);
+                                        }
+                                    }
+                                }
+                            }
+                            else if (currentElement->getTrackLength() != 100 && currentElement->getTrackSpeed() != 200)
+                            {
+                                for (int y=0; y<height; y++)
+                                {
+                                    for (int x=0; x<width;x++)
+                                    {
+                                        if (straightHImage->pixelColor(x,y) == black || straightHImage->pixelColor(x,y) == white)
+                                        {
+                                            straightHImage->setPixelColor(x,y,blue);
+                                        }
+                                    }
+                                }
                             }
 
-                        }
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
+                            painter.drawImage(displayX, displayY, *straightHImage);
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
-                            }
-                        }
-                        if (currentElement->hasLevelCrossing())
-                        {
-                            painter.drawImage(displayX, displayY, *levelCrossingHImage);
-                        }
-                        break;
-                    }
-                    case StraightType::STRAIGHTV:
-                    {
-                        painter.drawImage(displayX, displayY, *straightVImage);
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
-                            }
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
 
-                        }
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
                             }
-                            else
+                            if (currentElement->getPlatform2())
                             {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
                             }
+                            if (currentElement->hasLevelCrossing())
+                            {
+                                painter.drawImage(displayX, displayY, *levelCrossingHImage);
+                            }
+                            break;
                         }
-                        if (currentElement->hasLevelCrossing())
+                        case StraightType::STRAIGHTV:
                         {
-                            painter.drawImage(displayX, displayY, *levelCrossingVImage);
+                            painter.drawImage(displayX, displayY, *straightVImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            if (currentElement->hasLevelCrossing())
+                            {
+                                painter.drawImage(displayX, displayY, *levelCrossingVImage);
+                            }
+                            break;
                         }
-                        break;
-                    }
-                    case StraightType::STRIAGHTRIGHTUP:
-                    {
-                        painter.drawImage(displayX, displayY, *straightRightUpImage);
-                        break;
-                    }
-                    case StraightType::STRAIGHTLEFTUP:
-                    {
-                        painter.drawImage(displayX, displayY, *straightLeftUpImage);
-                        break;
+                        case StraightType::STRIAGHTRIGHTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *straightRightUpImage);
+                            break;
+                        }
+                        case StraightType::STRAIGHTLEFTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *straightLeftUpImage);
+                            break;
+                        }
                     }
                 }
             }
         }
+
+        for (std::shared_ptr<DirectTrack> currentElement : drawnLayout->getDirectTrackList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getDirectType())
+                    {
+                        case DirectType::DIRECTLEFT:
+                        {
+                            painter.drawImage(displayX, displayY, *directLeftImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+
+                            }
+                            if (currentElement->getPlatform2()) {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case DirectType::DIRECTRIGHT:
+                        {
+                            painter.drawImage(displayX, displayY, *directRightImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case DirectType::DIRECTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *directUpImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2()) {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case DirectType::DIRECTDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *directDownImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case DirectType::DIRECTRIGHTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *directRightUpImage);
+                            break;
+                        }
+                        case DirectType::DIRECTLEFTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *directLeftUpImage);
+                            break;
+                        }
+                        case DirectType::DIRECTLEFTDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *directLeftDownImage);
+                            break;
+                        }
+                        case DirectType::DIRECTRIGHTDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *directRightDownIamge);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<CurvedTrack> currentElement : drawnLayout->getCurvedTrackList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getCurvedType())
+                    {
+                        case CurvedType::TIGHTCURVE1:
+                        {
+                            painter.drawImage(displayX, displayY, *tightCurve1Image);
+                            break;
+                        }
+                        case CurvedType::TIGHTCURVE2:
+                        {
+                            painter.drawImage(displayX, displayY, *tightCurve2Image);
+                            break;
+                        }
+                        case CurvedType::TIGHTCURVE3:
+                        {
+                            painter.drawImage(displayX, displayY, *tightCurve3Image);
+                            break;
+                        }
+                        case CurvedType::TIGHTCURVE4:
+                            painter.drawImage(displayX, displayY, *tightCurve4Image);
+                            break;
+                        case CurvedType::CURVE1:
+                        {
+                            painter.drawImage(displayX, displayY, *curve1Image);
+                            break;
+                        }
+                        case CurvedType::CURVE2:
+                        {
+                            painter.drawImage(displayX, displayY, *curve2Image);
+                            break;
+                        }
+                        case CurvedType::CURVE3:
+                        {
+                            painter.drawImage(displayX, displayY, *curve3Image);
+                            break;
+                        }
+                        case CurvedType::CURVE4:
+                        {
+                            painter.drawImage(displayX, displayY, *curve4Image);
+                            break;
+                        }
+                        case CurvedType::CURVE5:
+                        {
+                            painter.drawImage(displayX, displayY, *curve5Image);
+                            break;
+                        }
+                        case CurvedType::CURVE6:
+                        {
+                            painter.drawImage(displayX, displayY, *curve6Image);
+                            break;
+                        }
+                        case CurvedType::CURVE7:
+                        {
+                            painter.drawImage(displayX, displayY, *curve7Image);
+                            break;
+                        }
+                        case CurvedType::CURVE8:
+                        {
+                            painter.drawImage(displayX, displayY, *curve8Image);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<LinkedTrack> currentElement : drawnLayout->getLinkedTrackList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getLinkedType())
+                    {
+                        case LinkedType::LINKLEFT:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkLeftUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkLeftSetImage);
+                            }
+
+                            break;
+                        }
+                        case LinkedType::LINKRIGHT:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkRightUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkRightSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKDOWN:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkDownUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkDownSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKUP:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkUpUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkUpSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKLEFTUP:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkLeftUpUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkLeftUpSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKRIGHTUP:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkRightUpUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkRightUpSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKRIGHTDOWN:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkRightDownUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkRightDownSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKLEFTDOWN:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkLeftDownUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkLeftDownSetImage);
+                            }
+                            break;
+                        }
+                    }
+                    if (*canvasChosen == Mode::CONNECTLINKEDTRACK)
+                    {
+                        if (currentElement == drawnLayout->getLinkedTrack1() || currentElement == drawnLayout->getLinkedTrack2())
+                        {
+                            painter.drawImage(displayX,displayY,*selectBlue);
+                        }
+                        else if (!currentElement->getLinked())
+                        {
+                            painter.drawImage(displayX,displayY,*selectRed);
+                        }
+                        else if (currentElement->getLinked())
+                        {
+                            painter.drawImage(displayX,displayY, * selectGreen);
+                            painter.drawLine(displayX+8, displayY+8,
+                            currentElement->getOtherLinkTrack()->getLocationX()+8- minDisplayX,
+                            0-(currentElement->getOtherLinkTrack()->getLocationY()-8 - maxDisplayY));
+                        }
+
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<ExitTrack> currentElement : drawnLayout->getExitTrackList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getExitType())
+                    {
+                        case ExitType::EXITLEFT:
+                        {
+                            painter.drawImage(displayX, displayY, *exitLeftImage);
+                            break;
+                        }
+                        case ExitType::EXITRIGHT:
+                        {
+                            painter.drawImage(displayX, displayY, *exitRightImage);
+                            break;
+                        }
+                        case ExitType::EXITDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *exitDownImage);
+                            break;
+                        }
+                        case ExitType::EXITUP:
+                        {
+                            painter.drawImage(displayX, displayY, *exitUpImage);
+                            break;
+                        }
+                        case ExitType::EXITLEFTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *exitLeftUpImage);
+                            break;
+                        }
+                        case ExitType::EXITRIGHTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *exitRightUpImage);
+                            break;
+                        }
+                        case ExitType::EXITLEFTDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *exitLeftDownImage);
+                            break;
+                        }
+                        case ExitType::EXITRIGHTDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *exitRightDownImage);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<BufferTrack> currentElement : drawnLayout->getBufferTrackList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getBufferType())
+                    {
+                        case BufferType::BUFFERLEFT:
+                        {
+                            painter.drawImage(displayX, displayY, *bufferLeftImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case BufferType::BUFFERRIGHT:
+                        {
+                            painter.drawImage(displayX, displayY, *bufferRightImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case BufferType::BUFFERDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *bufferDownImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case BufferType::BUFFERUP:
+                        {
+                            painter.drawImage(displayX, displayY, *bufferUpImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case BufferType::BUFFERLEFTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *bufferLeftUpImage);
+                            break;
+                        }
+                        case BufferType::BUFFERRIGHTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *bufferRightUpImage);
+                            break;
+                        }
+                        case BufferType::BUFFERLEFTDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *bufferLeftDownImage);
+                            break;
+                        }
+                        case BufferType::BUFFERRIGHTDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *bufferRightDownImage);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<SignalTrack> currentElement : drawnLayout->getSignalTrackList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getSignalType())
+                    {
+                        case SignalType::SIGNALLEFT:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntLeftImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *signalLeftImage);
+                            }
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALRIGHT:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntRightImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *signalRightImage);
+                            }
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALDOWN:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntDownImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *signalDownImage);
+                            }
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALUP:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntUpImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *signalUpImage);
+                            }
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALLEFTUP:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntLeftUpImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *signalLeftUpImage);
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALRIGHTUP:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntRightUpImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *signalRightUpImage);
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALLEFTDOWN:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntLeftDownImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *signalLeftDownImage);
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALRIGHTDOWN:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntRightDownImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *signalRightDownImage);
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<BridgeUnderpassTrack> currentElement : drawnLayout->getBridgeUnderpassTrackList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getBridgeUnderpassType())
+                    {
+                        case BridgeUnderpassType::BRIDGE1:
+                        {
+                            painter.drawImage(displayX, displayY, *bridgeUnset1Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case BridgeUnderpassType::BRIDGE2:
+                        {
+                            painter.drawImage(displayX, displayY, *bridgeUnset2Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case BridgeUnderpassType::UNDERPASS1:
+                        {
+                            painter.drawImage(displayX, displayY, *underpassUnset1Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case BridgeUnderpassType::UNDERPASS2:
+                        {
+                            painter.drawImage(displayX, displayY, *underpassUnset2Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<SwitchTrack> currentElement : drawnLayout->getSwitchTrackList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getSwitchType())
+                    {
+                        case SwitchType::SWITCHTIGHT1:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight1Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT2:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight2Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT3:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight3Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT4:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight4Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT5:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight5Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT6:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight6Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT7:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight7Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT8:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight8Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT1:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit1Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT2:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit2Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT3:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit3Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH1:
+                        {
+                            painter.drawImage(displayX, displayY, *switch1Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH2:
+                        {
+                            painter.drawImage(displayX, displayY, *switch2Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH3:
+                        {
+                            painter.drawImage(displayX, displayY, *switch3Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH4:
+                        {
+                            painter.drawImage(displayX, displayY, *switch4Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH5:
+                        {
+                            painter.drawImage(displayX, displayY, *switch5Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH6:
+                        {
+                            painter.drawImage(displayX, displayY, *switch6Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH7:
+                        {
+                            painter.drawImage(displayX, displayY, *switch7Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH8:
+                        {
+                            painter.drawImage(displayX, displayY, *switch8Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT4:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit4Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT5:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit5Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT6:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit6Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH9:
+                        {
+                            painter.drawImage(displayX, displayY, *switch9Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH10:
+                        {
+                            painter.drawImage(displayX, displayY, *switch10Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH11:
+                        {
+                            painter.drawImage(displayX, displayY, *switch11Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH12:
+                        {
+                            painter.drawImage(displayX, displayY, *switch12Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH13:
+                        {
+                            painter.drawImage(displayX, displayY, *switch13Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH14:
+                        {
+                            painter.drawImage(displayX, displayY, *switch14Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH15:
+                        {
+                            painter.drawImage(displayX, displayY, *switch15Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH16:
+                        {
+                            painter.drawImage(displayX, displayY, *switch16Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT7:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit7Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT8:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit8Image);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<CrossoverTrack> currentElement : drawnLayout->getCrossoverTrackList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getCrossoverType())
+                    {
+                       case CrossoverType::CROSSOVER1:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover1Image);
+                           break;
+                        }
+                       case CrossoverType::CROSSOVER2:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover2Image);
+                           break;
+                        }
+                       case CrossoverType::CROSSOVER3:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover3Image);
+                           break;
+                        }
+                       case CrossoverType::CROSSOVER4:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover4Image);
+                           break;
+                        }
+                       case CrossoverType::CROSSOVER5:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover5Image);
+                           break;
+                        }
+                       case CrossoverType::CROSSOVER6:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover6Image);
+                           break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<FlyoverTrack> currentElement : drawnLayout->getFlyoverTrackList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getFlyoverType())
+                    {
+                        case FlyoverType::FLYOVER1:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover1Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER2:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover2Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER3:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover3Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER4:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover4Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER5:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover5Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER6:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover6Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER7:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover7Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER8:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover8Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER9:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover9Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER10:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover10Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER11:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover11Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER12:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover12Image);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<NamedLocation> currentElement : drawnLayout->getNamedLocationList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    if (currentElement->getNamed())
+                    {
+                        painter.drawImage(displayX, displayY, *namedLocationSetImage);
+                    }
+                    else
+                    {
+                        painter.drawImage(displayX, displayY, *namedLocationUnsetImage);
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<Concourse> currentElement : drawnLayout->getConcourseList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    if (currentElement->getNamed())
+                    {
+                        painter.drawImage(displayX, displayY, *concourseSetImage);
+                    }
+                    else
+                    {
+                        painter.drawImage(displayX, displayY, *concourseUnsetImage);
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<Parapet> currentElement : drawnLayout->getParapetList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getParapetType())
+                    {
+                        case ParapetType::PARAPET1:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet1Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET2:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet2Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET3:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet3Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET4:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet4Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET5:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet5Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET6:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet6Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET7:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet7Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET8:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet8Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET9:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet9Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET10:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet10Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET11:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet11Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET12:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet12Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET13:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet13Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET14:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet14Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET15:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet15Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET16:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet16Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET17:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet17Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET18:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet18Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET19:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet19Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET20:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet20Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET21:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet21Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET22:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet22Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET23:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet23Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET24:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet24Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET25:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet25Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET26:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet26Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET27:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet27Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET28:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet28Image);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<Text> currentElement : drawnLayout->getTextList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    painter.setFont(currentElement->getFont());
+                    painter.drawText(displayX, displayY, currentElement->getReadableText());
+                }
+            }
+        }
+
     }
-
-    for (std::shared_ptr<DirectTrack> currentElement : drawnLayout->getDirectTrackList())
+    else
     {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
-        {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
-            {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getDirectType())
-                {
-                    case DirectType::DIRECTLEFT:
-                    {
-                        painter.drawImage(displayX, displayY, *directLeftImage);
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
-                            }
 
-                        }
-                        if (currentElement->getPlatform2()) {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case DirectType::DIRECTRIGHT:
+        for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList())
+        {
+            //Get the stored location of track relative to the canvas widget.
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+
+            //Find the area you want to output, by using the offset and the size of the canvas widget.
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayX = ((offsetX+1) * canvasSizeX);
+            int minDisplayY = ((offsetY-1) * canvasSizeY);
+            int maxDisplayY = (offsetY*canvasSizeY);
+
+            //Find the location on the canvas where you will draw
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getStraightType())
                     {
-                        painter.drawImage(displayX, displayY, *directRightImage);
-                        if (currentElement->getPlatform1())
+                        case StraightType::STRAIGHTH:
                         {
-                            if (currentElement->getNamed())
+                            //std::cout<< currentElement->getNamed() << std::flush;
+                            painter.drawImage(displayX, displayY, *straightHImage);
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+
                             }
-                            else
+                            if (currentElement->getPlatform2())
                             {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
                             }
+                            if (currentElement->hasLevelCrossing())
+                            {
+                                painter.drawImage(displayX, displayY, *levelCrossingHImage);
+                            }
+                            break;
                         }
-                        if (currentElement->getPlatform2())
+                        case StraightType::STRAIGHTV:
                         {
-                            if (currentElement->getNamed())
+                            painter.drawImage(displayX, displayY, *straightVImage);
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+
                             }
-                            else
+                            if (currentElement->getPlatform2())
                             {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
                             }
+                            if (currentElement->hasLevelCrossing())
+                            {
+                                painter.drawImage(displayX, displayY, *levelCrossingVImage);
+                            }
+                            break;
                         }
-                        break;
-                    }
-                    case DirectType::DIRECTUP:
-                    {
-                        painter.drawImage(displayX, displayY, *directUpImage);
-                        if (currentElement->getPlatform1())
+                        case StraightType::STRIAGHTRIGHTUP:
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
-                            }
+                            painter.drawImage(displayX, displayY, *straightRightUpImage);
+                            break;
                         }
-                        if (currentElement->getPlatform2()) {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case DirectType::DIRECTDOWN:
-                    {
-                        painter.drawImage(displayX, displayY, *directDownImage);
-                        if (currentElement->getPlatform1())
+                        case StraightType::STRAIGHTLEFTUP:
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
-                            }
+                            painter.drawImage(displayX, displayY, *straightLeftUpImage);
+                            break;
                         }
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case DirectType::DIRECTRIGHTUP:
-                    {
-                        painter.drawImage(displayX, displayY, *directRightUpImage);
-                        break;
-                    }
-                    case DirectType::DIRECTLEFTUP:
-                    {
-                        painter.drawImage(displayX, displayY, *directLeftUpImage);
-                        break;
-                    }
-                    case DirectType::DIRECTLEFTDOWN:
-                    {
-                        painter.drawImage(displayX, displayY, *directLeftDownImage);
-                        break;
-                    }
-                    case DirectType::DIRECTRIGHTDOWN:
-                    {
-                        painter.drawImage(displayX, displayY, *directRightDownIamge);
-                        break;
                     }
                 }
             }
         }
-    }
 
-    for (std::shared_ptr<CurvedTrack> currentElement : drawnLayout->getCurvedTrackList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<DirectTrack> currentElement : drawnLayout->getDirectTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getCurvedType())
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
                 {
-                    case CurvedType::TIGHTCURVE1:
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getDirectType())
                     {
-                        painter.drawImage(displayX, displayY, *tightCurve1Image);
-                        break;
-                    }
-                    case CurvedType::TIGHTCURVE2:
-                    {
-                        painter.drawImage(displayX, displayY, *tightCurve2Image);
-                        break;
-                    }
-                    case CurvedType::TIGHTCURVE3:
-                    {
-                        painter.drawImage(displayX, displayY, *tightCurve3Image);
-                        break;
-                    }
-                    case CurvedType::TIGHTCURVE4:
-                        painter.drawImage(displayX, displayY, *tightCurve4Image);
-                        break;
-                    case CurvedType::CURVE1:
-                    {
-                        painter.drawImage(displayX, displayY, *curve1Image);
-                        break;
-                    }
-                    case CurvedType::CURVE2:
-                    {
-                        painter.drawImage(displayX, displayY, *curve2Image);
-                        break;
-                    }
-                    case CurvedType::CURVE3:
-                    {
-                        painter.drawImage(displayX, displayY, *curve3Image);
-                        break;
-                    }
-                    case CurvedType::CURVE4:
-                    {
-                        painter.drawImage(displayX, displayY, *curve4Image);
-                        break;
-                    }
-                    case CurvedType::CURVE5:
-                    {
-                        painter.drawImage(displayX, displayY, *curve5Image);
-                        break;
-                    }
-                    case CurvedType::CURVE6:
-                    {
-                        painter.drawImage(displayX, displayY, *curve6Image);
-                        break;
-                    }
-                    case CurvedType::CURVE7:
-                    {
-                        painter.drawImage(displayX, displayY, *curve7Image);
-                        break;
-                    }
-                    case CurvedType::CURVE8:
-                    {
-                        painter.drawImage(displayX, displayY, *curve8Image);
-                        break;
+                        case DirectType::DIRECTLEFT:
+                        {
+                            painter.drawImage(displayX, displayY, *directLeftImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+
+                            }
+                            if (currentElement->getPlatform2()) {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case DirectType::DIRECTRIGHT:
+                        {
+                            painter.drawImage(displayX, displayY, *directRightImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case DirectType::DIRECTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *directUpImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2()) {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case DirectType::DIRECTDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *directDownImage);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case DirectType::DIRECTRIGHTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *directRightUpImage);
+                            break;
+                        }
+                        case DirectType::DIRECTLEFTUP:
+                        {
+                            painter.drawImage(displayX, displayY, *directLeftUpImage);
+                            break;
+                        }
+                        case DirectType::DIRECTLEFTDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *directLeftDownImage);
+                            break;
+                        }
+                        case DirectType::DIRECTRIGHTDOWN:
+                        {
+                            painter.drawImage(displayX, displayY, *directRightDownIamge);
+                            break;
+                        }
                     }
                 }
             }
         }
-    }
 
-    for (std::shared_ptr<LinkedTrack> currentElement : drawnLayout->getLinkedTrackList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<CurvedTrack> currentElement : drawnLayout->getCurvedTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getLinkedType())
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
                 {
-                    case LinkedType::LINKLEFT:
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getCurvedType())
                     {
-                        if (!currentElement->getLinked())
+                        case CurvedType::TIGHTCURVE1:
                         {
-                            painter.drawImage(displayX, displayY, *linkLeftUnsetImage);
+                            painter.drawImage(displayX, displayY, *tightCurve1Image);
+                            break;
                         }
-                        else
+                        case CurvedType::TIGHTCURVE2:
                         {
-                            painter.drawImage(displayX, displayY, *linkLeftSetImage);
+                            painter.drawImage(displayX, displayY, *tightCurve2Image);
+                            break;
                         }
-
-                        break;
-                    }
-                    case LinkedType::LINKRIGHT:
-                    {
-                        if (!currentElement->getLinked())
+                        case CurvedType::TIGHTCURVE3:
                         {
-                            painter.drawImage(displayX, displayY, *linkRightUnsetImage);
+                            painter.drawImage(displayX, displayY, *tightCurve3Image);
+                            break;
                         }
-                        else
+                        case CurvedType::TIGHTCURVE4:
+                            painter.drawImage(displayX, displayY, *tightCurve4Image);
+                            break;
+                        case CurvedType::CURVE1:
                         {
-                            painter.drawImage(displayX, displayY, *linkRightSetImage);
+                            painter.drawImage(displayX, displayY, *curve1Image);
+                            break;
                         }
-                        break;
-                    }
-                    case LinkedType::LINKDOWN:
-                    {
-                        if (!currentElement->getLinked())
+                        case CurvedType::CURVE2:
                         {
-                            painter.drawImage(displayX, displayY, *linkDownUnsetImage);
+                            painter.drawImage(displayX, displayY, *curve2Image);
+                            break;
                         }
-                        else
+                        case CurvedType::CURVE3:
                         {
-                            painter.drawImage(displayX, displayY, *linkDownSetImage);
+                            painter.drawImage(displayX, displayY, *curve3Image);
+                            break;
                         }
-                        break;
-                    }
-                    case LinkedType::LINKUP:
-                    {
-                        if (!currentElement->getLinked())
+                        case CurvedType::CURVE4:
                         {
-                            painter.drawImage(displayX, displayY, *linkUpUnsetImage);
+                            painter.drawImage(displayX, displayY, *curve4Image);
+                            break;
                         }
-                        else
+                        case CurvedType::CURVE5:
                         {
-                            painter.drawImage(displayX, displayY, *linkUpSetImage);
+                            painter.drawImage(displayX, displayY, *curve5Image);
+                            break;
                         }
-                        break;
-                    }
-                    case LinkedType::LINKLEFTUP:
-                    {
-                        if (!currentElement->getLinked())
+                        case CurvedType::CURVE6:
                         {
-                            painter.drawImage(displayX, displayY, *linkLeftUpUnsetImage);
+                            painter.drawImage(displayX, displayY, *curve6Image);
+                            break;
                         }
-                        else
+                        case CurvedType::CURVE7:
                         {
-                            painter.drawImage(displayX, displayY, *linkLeftUpSetImage);
+                            painter.drawImage(displayX, displayY, *curve7Image);
+                            break;
                         }
-                        break;
-                    }
-                    case LinkedType::LINKRIGHTUP:
-                    {
-                        if (!currentElement->getLinked())
+                        case CurvedType::CURVE8:
                         {
-                            painter.drawImage(displayX, displayY, *linkRightUpUnsetImage);
+                            painter.drawImage(displayX, displayY, *curve8Image);
+                            break;
                         }
-                        else
-                        {
-                            painter.drawImage(displayX, displayY, *linkRightUpSetImage);
-                        }
-                        break;
-                    }
-                    case LinkedType::LINKRIGHTDOWN:
-                    {
-                        if (!currentElement->getLinked())
-                        {
-                            painter.drawImage(displayX, displayY, *linkRightDownUnsetImage);
-                        }
-                        else
-                        {
-                            painter.drawImage(displayX, displayY, *linkRightDownSetImage);
-                        }
-                        break;
-                    }
-                    case LinkedType::LINKLEFTDOWN:
-                    {
-                        if (!currentElement->getLinked())
-                        {
-                            painter.drawImage(displayX, displayY, *linkLeftDownUnsetImage);
-                        }
-                        else
-                        {
-                            painter.drawImage(displayX, displayY, *linkLeftDownSetImage);
-                        }
-                        break;
-                    }
-                }
-                if (*canvasChosen == Mode::CONNECTLINKEDTRACK)
-                {
-                    if (currentElement == drawnLayout->getLinkedTrack1() || currentElement == drawnLayout->getLinkedTrack2())
-                    {
-                        painter.drawImage(displayX,displayY,*selectBlue);
-                    }
-                    else if (!currentElement->getLinked())
-                    {
-                        painter.drawImage(displayX,displayY,*selectRed);
-                    }
-                    else if (currentElement->getLinked())
-                    {
-                        painter.drawImage(displayX,displayY, * selectGreen);
-                        painter.drawLine(displayX+8, displayY+8,
-                        currentElement->getOtherLinkTrack()->getLocationX()+8- minDisplayX,
-                        0-(currentElement->getOtherLinkTrack()->getLocationY()-8 - maxDisplayY));
-                    }
-
-                }
-            }
-        }
-    }
-
-    for (std::shared_ptr<ExitTrack> currentElement : drawnLayout->getExitTrackList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
-        {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
-            {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getExitType())
-                {
-                    case ExitType::EXITLEFT:
-                    {
-                        painter.drawImage(displayX, displayY, *exitLeftImage);
-                        break;
-                    }
-                    case ExitType::EXITRIGHT:
-                    {
-                        painter.drawImage(displayX, displayY, *exitRightImage);
-                        break;
-                    }
-                    case ExitType::EXITDOWN:
-                    {
-                        painter.drawImage(displayX, displayY, *exitDownImage);
-                        break;
-                    }
-                    case ExitType::EXITUP:
-                    {
-                        painter.drawImage(displayX, displayY, *exitUpImage);
-                        break;
-                    }
-                    case ExitType::EXITLEFTUP:
-                    {
-                        painter.drawImage(displayX, displayY, *exitLeftUpImage);
-                        break;
-                    }
-                    case ExitType::EXITRIGHTUP:
-                    {
-                        painter.drawImage(displayX, displayY, *exitRightUpImage);
-                        break;
-                    }
-                    case ExitType::EXITLEFTDOWN:
-                    {
-                        painter.drawImage(displayX, displayY, *exitLeftDownImage);
-                        break;
-                    }
-                    case ExitType::EXITRIGHTDOWN:
-                    {
-                        painter.drawImage(displayX, displayY, *exitRightDownImage);
-                        break;
                     }
                 }
             }
         }
-    }
 
-    for (std::shared_ptr<BufferTrack> currentElement : drawnLayout->getBufferTrackList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<LinkedTrack> currentElement : drawnLayout->getLinkedTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getBufferType())
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
                 {
-                    case BufferType::BUFFERLEFT:
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getLinkedType())
                     {
-                        painter.drawImage(displayX, displayY, *bufferLeftImage);
-                        if (currentElement->getPlatform1())
+                        case LinkedType::LINKLEFT:
                         {
-                            if (currentElement->getNamed())
+                            if (!currentElement->getLinked())
                             {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                painter.drawImage(displayX, displayY, *linkLeftUnsetImage);
                             }
                             else
                             {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                painter.drawImage(displayX, displayY, *linkLeftSetImage);
                             }
+
+                            break;
                         }
-                        if (currentElement->getPlatform2())
+                        case LinkedType::LINKRIGHT:
                         {
-                            if (currentElement->getNamed())
+                            if (!currentElement->getLinked())
                             {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                painter.drawImage(displayX, displayY, *linkRightUnsetImage);
                             }
                             else
                             {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                painter.drawImage(displayX, displayY, *linkRightSetImage);
                             }
+                            break;
                         }
-                        break;
+                        case LinkedType::LINKDOWN:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkDownUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkDownSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKUP:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkUpUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkUpSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKLEFTUP:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkLeftUpUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkLeftUpSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKRIGHTUP:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkRightUpUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkRightUpSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKRIGHTDOWN:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkRightDownUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkRightDownSetImage);
+                            }
+                            break;
+                        }
+                        case LinkedType::LINKLEFTDOWN:
+                        {
+                            if (!currentElement->getLinked())
+                            {
+                                painter.drawImage(displayX, displayY, *linkLeftDownUnsetImage);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *linkLeftDownSetImage);
+                            }
+                            break;
+                        }
                     }
-                    case BufferType::BUFFERRIGHT:
+                    if (*canvasChosen == Mode::CONNECTLINKEDTRACK)
                     {
-                        painter.drawImage(displayX, displayY, *bufferRightImage);
-                        if (currentElement->getPlatform1())
+                        if (currentElement == drawnLayout->getLinkedTrack1() || currentElement == drawnLayout->getLinkedTrack2())
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
-                            }
+                            painter.drawImage(displayX,displayY,*selectBlue);
                         }
-                        if (currentElement->getPlatform2())
+                        else if (!currentElement->getLinked())
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
-                            }
+                            painter.drawImage(displayX,displayY,*selectRed);
                         }
-                        break;
-                    }
-                    case BufferType::BUFFERDOWN:
-                    {
-                        painter.drawImage(displayX, displayY, *bufferDownImage);
-                        if (currentElement->getPlatform1())
+                        else if (currentElement->getLinked())
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
-                            }
+                            painter.drawImage(displayX,displayY, * selectGreen);
+                            painter.drawLine(displayX+8, displayY+8,
+                            currentElement->getOtherLinkTrack()->getLocationX()+8- minDisplayX,
+                            0-(currentElement->getOtherLinkTrack()->getLocationY()-8 - maxDisplayY));
                         }
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case BufferType::BUFFERUP:
-                    {
-                        painter.drawImage(displayX, displayY, *bufferUpImage);
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
-                            }
-                        }
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case BufferType::BUFFERLEFTUP:
-                    {
-                        painter.drawImage(displayX, displayY, *bufferLeftUpImage);
-                        break;
-                    }
-                    case BufferType::BUFFERRIGHTUP:
-                    {
-                        painter.drawImage(displayX, displayY, *bufferRightUpImage);
-                        break;
-                    }
-                    case BufferType::BUFFERLEFTDOWN:
-                    {
-                        painter.drawImage(displayX, displayY, *bufferLeftDownImage);
-                        break;
-                    }
-                    case BufferType::BUFFERRIGHTDOWN:
-                    {
-                        painter.drawImage(displayX, displayY, *bufferRightDownImage);
-                        break;
+
                     }
                 }
             }
         }
-    }
 
-    for (std::shared_ptr<SignalTrack> currentElement : drawnLayout->getSignalTrackList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<ExitTrack> currentElement : drawnLayout->getExitTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getSignalType())
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
                 {
-                    case SignalType::SIGNALLEFT:
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getExitType())
                     {
-                        if (currentElement->getAspect() == 1)
+                        case ExitType::EXITLEFT:
                         {
-                            painter.drawImage(displayX, displayY, *shuntLeftImage);
+                            painter.drawImage(displayX, displayY, *exitLeftImage);
+                            break;
                         }
-                        else
+                        case ExitType::EXITRIGHT:
                         {
-                            painter.drawImage(displayX, displayY, *signalLeftImage);
+                            painter.drawImage(displayX, displayY, *exitRightImage);
+                            break;
                         }
-                        if (currentElement->getPlatform1())
+                        case ExitType::EXITDOWN:
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
-                            }
+                            painter.drawImage(displayX, displayY, *exitDownImage);
+                            break;
                         }
-                        if (currentElement->getPlatform2())
+                        case ExitType::EXITUP:
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
-                            }
+                            painter.drawImage(displayX, displayY, *exitUpImage);
+                            break;
                         }
-                        break;
-                    }
-                    case SignalType::SIGNALRIGHT:
-                    {
-                        if (currentElement->getAspect() == 1)
+                        case ExitType::EXITLEFTUP:
                         {
-                            painter.drawImage(displayX, displayY, *shuntRightImage);
+                            painter.drawImage(displayX, displayY, *exitLeftUpImage);
+                            break;
                         }
-                        else
+                        case ExitType::EXITRIGHTUP:
                         {
-                            painter.drawImage(displayX, displayY, *signalRightImage);
+                            painter.drawImage(displayX, displayY, *exitRightUpImage);
+                            break;
                         }
-                        if (currentElement->getPlatform1())
+                        case ExitType::EXITLEFTDOWN:
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
-                            }
+                            painter.drawImage(displayX, displayY, *exitLeftDownImage);
+                            break;
                         }
-                        if (currentElement->getPlatform2())
+                        case ExitType::EXITRIGHTDOWN:
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
-                            }
+                            painter.drawImage(displayX, displayY, *exitRightDownImage);
+                            break;
                         }
-                        break;
-                    }
-                    case SignalType::SIGNALDOWN:
-                    {
-                        if (currentElement->getAspect() == 1)
-                        {
-                            painter.drawImage(displayX, displayY, *shuntDownImage);
-                        }
-                        else
-                        {
-                            painter.drawImage(displayX, displayY, *signalDownImage);
-                        }
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
-                            }
-                        }
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case SignalType::SIGNALUP:
-                    {
-                        if (currentElement->getAspect() == 1)
-                        {
-                            painter.drawImage(displayX, displayY, *shuntUpImage);
-                        }
-                        else
-                        {
-                            painter.drawImage(displayX, displayY, *signalUpImage);
-                        }
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
-                            }
-                        }
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case SignalType::SIGNALLEFTUP:
-                    {
-                        if (currentElement->getAspect() == 1)
-                        {
-                            painter.drawImage(displayX, displayY, *shuntLeftUpImage);
-                        }
-                        else
-                        {
-                            painter.drawImage(displayX, displayY, *signalLeftUpImage);
-                        }
-                        break;
-                    }
-                    case SignalType::SIGNALRIGHTUP:
-                    {
-                        if (currentElement->getAspect() == 1)
-                        {
-                            painter.drawImage(displayX, displayY, *shuntRightUpImage);
-                        }
-                        else
-                        {
-                            painter.drawImage(displayX, displayY, *signalRightUpImage);
-                        }
-                        break;
-                    }
-                    case SignalType::SIGNALLEFTDOWN:
-                    {
-                        if (currentElement->getAspect() == 1)
-                        {
-                            painter.drawImage(displayX, displayY, *shuntLeftDownImage);
-                        }
-                        else
-                        {
-                            painter.drawImage(displayX, displayY, *signalLeftDownImage);
-                        }
-                        break;
-                    }
-                    case SignalType::SIGNALRIGHTDOWN:
-                    {
-                        if (currentElement->getAspect() == 1)
-                        {
-                            painter.drawImage(displayX, displayY, *shuntRightDownImage);
-                        }
-                        else
-                        {
-                            painter.drawImage(displayX, displayY, *signalRightDownImage);
-                        }
-                        break;
                     }
                 }
             }
         }
-    }
 
-    for (std::shared_ptr<BridgeUnderpassTrack> currentElement : drawnLayout->getBridgeUnderpassTrackList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<BufferTrack> currentElement : drawnLayout->getBufferTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getBridgeUnderpassType())
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
                 {
-                    case BridgeUnderpassType::BRIDGE1:
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getBufferType())
                     {
-                        painter.drawImage(displayX, displayY, *bridgeUnset1Image);
-                        if (currentElement->getPlatform1())
+                        case BufferType::BUFFERLEFT:
                         {
-                            if (currentElement->getNamed())
+                            painter.drawImage(displayX, displayY, *bufferLeftImage);
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
                             }
-                            else
+                            if (currentElement->getPlatform2())
                             {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
                             }
+                            break;
                         }
-                        if (currentElement->getPlatform2())
+                        case BufferType::BUFFERRIGHT:
                         {
-                            if (currentElement->getNamed())
+                            painter.drawImage(displayX, displayY, *bufferRightImage);
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
                             }
-                            else
+                            if (currentElement->getPlatform2())
                             {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
                             }
+                            break;
                         }
-                        break;
-                    }
-                    case BridgeUnderpassType::BRIDGE2:
-                    {
-                        painter.drawImage(displayX, displayY, *bridgeUnset2Image);
-                        if (currentElement->getPlatform1())
+                        case BufferType::BUFFERDOWN:
                         {
-                            if (currentElement->getNamed())
+                            painter.drawImage(displayX, displayY, *bufferDownImage);
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
                             }
-                            else
+                            if (currentElement->getPlatform2())
                             {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
                             }
+                            break;
                         }
-                        if (currentElement->getPlatform2())
+                        case BufferType::BUFFERUP:
                         {
-                            if (currentElement->getNamed())
+                            painter.drawImage(displayX, displayY, *bufferUpImage);
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
                             }
-                            else
+                            if (currentElement->getPlatform2())
                             {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
                             }
+                            break;
                         }
-                        break;
-                    }
-                    case BridgeUnderpassType::UNDERPASS1:
-                    {
-                        painter.drawImage(displayX, displayY, *underpassUnset1Image);
-                        if (currentElement->getPlatform1())
+                        case BufferType::BUFFERLEFTUP:
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
-                            }
+                            painter.drawImage(displayX, displayY, *bufferLeftUpImage);
+                            break;
                         }
-                        if (currentElement->getPlatform2())
+                        case BufferType::BUFFERRIGHTUP:
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
-                            }
+                            painter.drawImage(displayX, displayY, *bufferRightUpImage);
+                            break;
                         }
-                        break;
-                    }
-                    case BridgeUnderpassType::UNDERPASS2:
-                    {
-                        painter.drawImage(displayX, displayY, *underpassUnset2Image);
-                        if (currentElement->getPlatform1())
+                        case BufferType::BUFFERLEFTDOWN:
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
-                            }
+                            painter.drawImage(displayX, displayY, *bufferLeftDownImage);
+                            break;
                         }
-                        if (currentElement->getPlatform2())
+                        case BufferType::BUFFERRIGHTDOWN:
                         {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
-                            }
+                            painter.drawImage(displayX, displayY, *bufferRightDownImage);
+                            break;
                         }
-                        break;
                     }
                 }
             }
         }
-    }
 
-    for (std::shared_ptr<SwitchTrack> currentElement : drawnLayout->getSwitchTrackList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<SignalTrack> currentElement : drawnLayout->getSignalTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getSwitchType())
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
                 {
-                    case SwitchType::SWITCHTIGHT1:
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getSignalType())
                     {
-                        painter.drawImage(displayX, displayY, *switchTight1Image);
-                        if (currentElement->getPlatform2())
+                        case SignalType::SIGNALLEFT:
                         {
-                            if (currentElement->getNamed())
+                            if (currentElement->getAspect() == 1)
                             {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                painter.drawImage(displayX, displayY, *shuntLeftImage);
                             }
                             else
                             {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                painter.drawImage(displayX, displayY, *signalLeftImage);
                             }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCHTIGHT2:
-                    {
-                        painter.drawImage(displayX, displayY, *switchTight2Image);
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALRIGHT:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntRightImage);
                             }
                             else
                             {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                painter.drawImage(displayX, displayY, *signalRightImage);
                             }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCHTIGHT3:
-                    {
-                        painter.drawImage(displayX, displayY, *switchTight3Image);
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALDOWN:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntDownImage);
                             }
                             else
                             {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                painter.drawImage(displayX, displayY, *signalDownImage);
                             }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCHTIGHT4:
-                    {
-                        painter.drawImage(displayX, displayY, *switchTight4Image);
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALUP:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntUpImage);
                             }
                             else
                             {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                painter.drawImage(displayX, displayY, *signalUpImage);
                             }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCHTIGHT5:
-                    {
-                        painter.drawImage(displayX, displayY, *switchTight5Image);
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
+                            if (currentElement->getPlatform1())
                             {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SignalType::SIGNALLEFTUP:
+                        {
+                            if (currentElement->getAspect() == 1)
+                            {
+                                painter.drawImage(displayX, displayY, *shuntLeftUpImage);
                             }
                             else
                             {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                painter.drawImage(displayX, displayY, *signalLeftUpImage);
                             }
+                            break;
                         }
-                        break;
-                    }
-                    case SwitchType::SWITCHTIGHT6:
-                    {
-                        painter.drawImage(displayX, displayY, *switchTight6Image);
-                        if (currentElement->getPlatform1())
+                        case SignalType::SIGNALRIGHTUP:
                         {
-                            if (currentElement->getNamed())
+                            if (currentElement->getAspect() == 1)
                             {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                painter.drawImage(displayX, displayY, *shuntRightUpImage);
                             }
                             else
                             {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                painter.drawImage(displayX, displayY, *signalRightUpImage);
                             }
+                            break;
                         }
-                        break;
-                    }
-                    case SwitchType::SWITCHTIGHT7:
-                    {
-                        painter.drawImage(displayX, displayY, *switchTight7Image);
-                        if (currentElement->getPlatform2())
+                        case SignalType::SIGNALLEFTDOWN:
                         {
-                            if (currentElement->getNamed())
+                            if (currentElement->getAspect() == 1)
                             {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                painter.drawImage(displayX, displayY, *shuntLeftDownImage);
                             }
                             else
                             {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                painter.drawImage(displayX, displayY, *signalLeftDownImage);
                             }
+                            break;
                         }
-                        break;
-                    }
-                    case SwitchType::SWITCHTIGHT8:
-                    {
-                        painter.drawImage(displayX, displayY, *switchTight8Image);
-                        if (currentElement->getPlatform1())
+                        case SignalType::SIGNALRIGHTDOWN:
                         {
-                            if (currentElement->getNamed())
+                            if (currentElement->getAspect() == 1)
                             {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                painter.drawImage(displayX, displayY, *shuntRightDownImage);
                             }
                             else
                             {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                painter.drawImage(displayX, displayY, *signalRightDownImage);
                             }
+                            break;
                         }
-                        break;
-                    }
-                    case SwitchType::SWITCHSPLIT1:
-                    {
-                        painter.drawImage(displayX, displayY, *switchSplit1Image);
-                        break;
-                    }
-                    case SwitchType::SWITCHSPLIT2:
-                    {
-                        painter.drawImage(displayX, displayY, *switchSplit2Image);
-                        break;
-                    }
-                    case SwitchType::SWITCHSPLIT3:
-                    {
-                        painter.drawImage(displayX, displayY, *switchSplit3Image);
-                        break;
-                    }
-                    case SwitchType::SWITCH1:
-                    {
-                        painter.drawImage(displayX, displayY, *switch1Image);
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCH2:
-                    {
-                        painter.drawImage(displayX, displayY, *switch2Image);
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformDownUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCH3:
-                    {
-                        painter.drawImage(displayX, displayY, *switch3Image);
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCH4:
-                    {
-                        painter.drawImage(displayX, displayY, *switch4Image);
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformUpUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCH5:
-                    {
-                        painter.drawImage(displayX, displayY, *switch5Image);
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCH6:
-                    {
-                        painter.drawImage(displayX, displayY, *switch6Image);
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCH7:
-                    {
-                        painter.drawImage(displayX, displayY, *switch7Image);
-                        if (currentElement->getPlatform2())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformRightUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCH8:
-                    {
-                        painter.drawImage(displayX, displayY, *switch8Image);
-                        if (currentElement->getPlatform1())
-                        {
-                            if (currentElement->getNamed())
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftSetImage);
-                            }
-                            else
-                            {
-                                painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
-                            }
-                        }
-                        break;
-                    }
-                    case SwitchType::SWITCHSPLIT4:
-                    {
-                        painter.drawImage(displayX, displayY, *switchSplit4Image);
-                        break;
-                    }
-                    case SwitchType::SWITCHSPLIT5:
-                    {
-                        painter.drawImage(displayX, displayY, *switchSplit5Image);
-                        break;
-                    }
-                    case SwitchType::SWITCHSPLIT6:
-                    {
-                        painter.drawImage(displayX, displayY, *switchSplit6Image);
-                        break;
-                    }
-                    case SwitchType::SWITCH9:
-                    {
-                        painter.drawImage(displayX, displayY, *switch9Image);
-                        break;
-                    }
-                    case SwitchType::SWITCH10:
-                    {
-                        painter.drawImage(displayX, displayY, *switch10Image);
-                        break;
-                    }
-                    case SwitchType::SWITCH11:
-                    {
-                        painter.drawImage(displayX, displayY, *switch11Image);
-                        break;
-                    }
-                    case SwitchType::SWITCH12:
-                    {
-                        painter.drawImage(displayX, displayY, *switch12Image);
-                        break;
-                    }
-                    case SwitchType::SWITCH13:
-                    {
-                        painter.drawImage(displayX, displayY, *switch13Image);
-                        break;
-                    }
-                    case SwitchType::SWITCH14:
-                    {
-                        painter.drawImage(displayX, displayY, *switch14Image);
-                        break;
-                    }
-                    case SwitchType::SWITCH15:
-                    {
-                        painter.drawImage(displayX, displayY, *switch15Image);
-                        break;
-                    }
-                    case SwitchType::SWITCH16:
-                    {
-                        painter.drawImage(displayX, displayY, *switch16Image);
-                        break;
-                    }
-                    case SwitchType::SWITCHSPLIT7:
-                    {
-                        painter.drawImage(displayX, displayY, *switchSplit7Image);
-                        break;
-                    }
-                    case SwitchType::SWITCHSPLIT8:
-                    {
-                        painter.drawImage(displayX, displayY, *switchSplit8Image);
-                        break;
                     }
                 }
             }
         }
-    }
 
-    for (std::shared_ptr<CrossoverTrack> currentElement : drawnLayout->getCrossoverTrackList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<BridgeUnderpassTrack> currentElement : drawnLayout->getBridgeUnderpassTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getCrossoverType())
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
                 {
-                   case CrossoverType::CROSSOVER1:
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getBridgeUnderpassType())
                     {
-                       painter.drawImage(displayX, displayY, *crossover1Image);
-                       break;
-                    }
-                   case CrossoverType::CROSSOVER2:
-                    {
-                       painter.drawImage(displayX, displayY, *crossover2Image);
-                       break;
-                    }
-                   case CrossoverType::CROSSOVER3:
-                    {
-                       painter.drawImage(displayX, displayY, *crossover3Image);
-                       break;
-                    }
-                   case CrossoverType::CROSSOVER4:
-                    {
-                       painter.drawImage(displayX, displayY, *crossover4Image);
-                       break;
-                    }
-                   case CrossoverType::CROSSOVER5:
-                    {
-                       painter.drawImage(displayX, displayY, *crossover5Image);
-                       break;
-                    }
-                   case CrossoverType::CROSSOVER6:
-                    {
-                       painter.drawImage(displayX, displayY, *crossover6Image);
-                       break;
+                        case BridgeUnderpassType::BRIDGE1:
+                        {
+                            painter.drawImage(displayX, displayY, *bridgeUnset1Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case BridgeUnderpassType::BRIDGE2:
+                        {
+                            painter.drawImage(displayX, displayY, *bridgeUnset2Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case BridgeUnderpassType::UNDERPASS1:
+                        {
+                            painter.drawImage(displayX, displayY, *underpassUnset1Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case BridgeUnderpassType::UNDERPASS2:
+                        {
+                            painter.drawImage(displayX, displayY, *underpassUnset2Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
                     }
                 }
             }
         }
-    }
 
-    for (std::shared_ptr<FlyoverTrack> currentElement : drawnLayout->getFlyoverTrackList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<SwitchTrack> currentElement : drawnLayout->getSwitchTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getFlyoverType())
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
                 {
-                    case FlyoverType::FLYOVER1:
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getSwitchType())
                     {
-                        painter.drawImage(displayX, displayY, *flyover1Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER2:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover2Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER3:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover3Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER4:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover4Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER5:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover5Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER6:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover6Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER7:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover7Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER8:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover8Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER9:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover9Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER10:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover10Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER11:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover11Image);
-                        break;
-                    }
-                    case FlyoverType::FLYOVER12:
-                    {
-                        painter.drawImage(displayX, displayY, *flyover12Image);
-                        break;
+                        case SwitchType::SWITCHTIGHT1:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight1Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT2:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight2Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT3:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight3Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT4:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight4Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT5:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight5Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT6:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight6Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT7:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight7Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHTIGHT8:
+                        {
+                            painter.drawImage(displayX, displayY, *switchTight8Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT1:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit1Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT2:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit2Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT3:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit3Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH1:
+                        {
+                            painter.drawImage(displayX, displayY, *switch1Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH2:
+                        {
+                            painter.drawImage(displayX, displayY, *switch2Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformDownUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH3:
+                        {
+                            painter.drawImage(displayX, displayY, *switch3Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH4:
+                        {
+                            painter.drawImage(displayX, displayY, *switch4Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformUpUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH5:
+                        {
+                            painter.drawImage(displayX, displayY, *switch5Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH6:
+                        {
+                            painter.drawImage(displayX, displayY, *switch6Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH7:
+                        {
+                            painter.drawImage(displayX, displayY, *switch7Image);
+                            if (currentElement->getPlatform2())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformRightUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCH8:
+                        {
+                            painter.drawImage(displayX, displayY, *switch8Image);
+                            if (currentElement->getPlatform1())
+                            {
+                                if (currentElement->getNamed())
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftSetImage);
+                                }
+                                else
+                                {
+                                    painter.drawImage(displayX, displayY, *platformLeftUnsetImage);
+                                }
+                            }
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT4:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit4Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT5:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit5Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT6:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit6Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH9:
+                        {
+                            painter.drawImage(displayX, displayY, *switch9Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH10:
+                        {
+                            painter.drawImage(displayX, displayY, *switch10Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH11:
+                        {
+                            painter.drawImage(displayX, displayY, *switch11Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH12:
+                        {
+                            painter.drawImage(displayX, displayY, *switch12Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH13:
+                        {
+                            painter.drawImage(displayX, displayY, *switch13Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH14:
+                        {
+                            painter.drawImage(displayX, displayY, *switch14Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH15:
+                        {
+                            painter.drawImage(displayX, displayY, *switch15Image);
+                            break;
+                        }
+                        case SwitchType::SWITCH16:
+                        {
+                            painter.drawImage(displayX, displayY, *switch16Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT7:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit7Image);
+                            break;
+                        }
+                        case SwitchType::SWITCHSPLIT8:
+                        {
+                            painter.drawImage(displayX, displayY, *switchSplit8Image);
+                            break;
+                        }
                     }
                 }
             }
         }
-    }
 
-    for (std::shared_ptr<NamedLocation> currentElement : drawnLayout->getNamedLocationList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<CrossoverTrack> currentElement : drawnLayout->getCrossoverTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                if (currentElement->getNamed())
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
                 {
-                    painter.drawImage(displayX, displayY, *namedLocationSetImage);
-                }
-                else
-                {
-                    painter.drawImage(displayX, displayY, *namedLocationUnsetImage);
-                }
-            }
-        }
-    }
-
-    for (std::shared_ptr<Concourse> currentElement : drawnLayout->getConcourseList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
-        {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
-            {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                if (currentElement->getNamed())
-                {
-                    painter.drawImage(displayX, displayY, *concourseSetImage);
-                }
-                else
-                {
-                    painter.drawImage(displayX, displayY, *concourseUnsetImage);
-                }
-            }
-        }
-    }
-
-    for (std::shared_ptr<Parapet> currentElement : drawnLayout->getParapetList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
-        {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
-            {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                switch (currentElement->getParapetType())
-                {
-                    case ParapetType::PARAPET1:
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getCrossoverType())
                     {
-                        painter.drawImage(displayX, displayY, *parapet1Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET2:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet2Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET3:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet3Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET4:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet4Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET5:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet5Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET6:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet6Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET7:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet7Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET8:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet8Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET9:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet9Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET10:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet10Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET11:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet11Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET12:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet12Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET13:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet13Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET14:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet14Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET15:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet15Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET16:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet16Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET17:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet17Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET18:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet18Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET19:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet19Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET20:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet20Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET21:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet21Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET22:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet22Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET23:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet23Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET24:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet24Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET25:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet25Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET26:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet26Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET27:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet27Image);
-                        break;
-                    }
-                    case ParapetType::PARAPET28:
-                    {
-                        painter.drawImage(displayX, displayY, *parapet28Image);
-                        break;
+                       case CrossoverType::CROSSOVER1:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover1Image);
+                           break;
+                        }
+                       case CrossoverType::CROSSOVER2:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover2Image);
+                           break;
+                        }
+                       case CrossoverType::CROSSOVER3:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover3Image);
+                           break;
+                        }
+                       case CrossoverType::CROSSOVER4:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover4Image);
+                           break;
+                        }
+                       case CrossoverType::CROSSOVER5:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover5Image);
+                           break;
+                        }
+                       case CrossoverType::CROSSOVER6:
+                        {
+                           painter.drawImage(displayX, displayY, *crossover6Image);
+                           break;
+                        }
                     }
                 }
             }
         }
-    }
 
-    for (std::shared_ptr<Text> currentElement : drawnLayout->getTextList())
-    {
-        int currentX = currentElement->getLocationX();
-        int currentY = currentElement->getLocationY();
-        int minCoordinateX = (offsetX * canvasSizeX);
-        int maxCoordinateX = ((offsetX+1) * canvasSizeX);
-        int minCoordinateY = ((offsetY-1) * canvasSizeY);
-        int maxCoordinateY = (offsetY*canvasSizeY);;
-        int minDisplayX = (offsetX * canvasSizeX);
-        int maxDisplayY = (offsetY*canvasSizeY);
-        if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+        for (std::shared_ptr<FlyoverTrack> currentElement : drawnLayout->getFlyoverTrackList())
         {
-            if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
             {
-                int displayX = currentX- minDisplayX;
-                int displayY = 0-(currentY - maxDisplayY);
-                painter.setFont(currentElement->getFont());
-                painter.drawText(displayX, displayY, currentElement->getReadableText());
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getFlyoverType())
+                    {
+                        case FlyoverType::FLYOVER1:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover1Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER2:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover2Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER3:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover3Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER4:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover4Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER5:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover5Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER6:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover6Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER7:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover7Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER8:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover8Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER9:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover9Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER10:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover10Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER11:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover11Image);
+                            break;
+                        }
+                        case FlyoverType::FLYOVER12:
+                        {
+                            painter.drawImage(displayX, displayY, *flyover12Image);
+                            break;
+                        }
+                    }
+                }
             }
         }
+
+        for (std::shared_ptr<NamedLocation> currentElement : drawnLayout->getNamedLocationList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    if (currentElement->getNamed())
+                    {
+                        painter.drawImage(displayX, displayY, *namedLocationSetImage);
+                    }
+                    else
+                    {
+                        painter.drawImage(displayX, displayY, *namedLocationUnsetImage);
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<Concourse> currentElement : drawnLayout->getConcourseList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    if (currentElement->getNamed())
+                    {
+                        painter.drawImage(displayX, displayY, *concourseSetImage);
+                    }
+                    else
+                    {
+                        painter.drawImage(displayX, displayY, *concourseUnsetImage);
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<Parapet> currentElement : drawnLayout->getParapetList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    switch (currentElement->getParapetType())
+                    {
+                        case ParapetType::PARAPET1:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet1Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET2:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet2Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET3:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet3Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET4:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet4Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET5:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet5Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET6:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet6Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET7:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet7Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET8:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet8Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET9:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet9Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET10:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet10Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET11:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet11Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET12:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet12Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET13:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet13Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET14:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet14Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET15:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet15Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET16:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet16Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET17:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet17Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET18:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet18Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET19:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet19Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET20:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet20Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET21:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet21Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET22:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet22Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET23:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet23Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET24:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet24Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET25:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet25Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET26:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet26Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET27:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet27Image);
+                            break;
+                        }
+                        case ParapetType::PARAPET28:
+                        {
+                            painter.drawImage(displayX, displayY, *parapet28Image);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (std::shared_ptr<Text> currentElement : drawnLayout->getTextList())
+        {
+            int currentX = currentElement->getLocationX();
+            int currentY = currentElement->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    painter.setFont(currentElement->getFont());
+                    painter.drawText(displayX, displayY, currentElement->getReadableText());
+                }
+            }
+        }
+
     }
 
 }

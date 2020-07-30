@@ -41,6 +41,8 @@ private slots:
 
     void openTrackLengthSpeedPanel();
     void convertMilesYardMetres();
+    void swapSpeedLabel();
+    void convertMPHKMH();
     void changeAspect();
 
     void toggleTrackID();
@@ -1081,7 +1083,7 @@ private:
 
     void createSetTrackLengthSpeedMenu();
     QWidget* setTrackLengthSpeedMenu;
-    QHBoxLayout* setTrackLengthSpeedLayout;
+    QHBoxLayout* setTrackLengthSpeedLayout1;
     QLabel* keyGraphicImage;
     QImage* keyImage;
     QGridLayout* convertorGrid;
@@ -1090,11 +1092,19 @@ private:
     QLabel* yardsLabel;
     QLineEdit* yardsEntry;
     QLabel* metresLabel;
-    QLabel* actualMetres;
+    QLineEdit* actualMetres;
     double miles;
-    const double MILE_FACTOR = 1609.34;
+    const double MILE_FACTOR{1609.34};
     double yards;
-    const double YARD_FACTOR = 0.9144;
+    const double YARD_FACTOR{0.9144};
+
+    QLabel* speedLabel1;
+    QLineEdit* speedEntry1;
+    QPushButton* swapLabelButton;
+    QLabel* speedLabel2;
+    QLineEdit* speedResult;
+    bool mphToKmh{true};
+    const double MPH_TO_KMH{1.60934};
 
 
 	void createRightMenu();
@@ -1115,12 +1125,6 @@ private:
 	QIcon* downIcon;
 
     QStatusBar* status;
-
-
-
-
-
-
 
 };
 
