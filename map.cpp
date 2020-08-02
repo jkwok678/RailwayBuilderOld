@@ -2824,6 +2824,9 @@ void Map::checkAllLinkTrackLinked()
 
 
 
+
+
+
 std::vector<std::shared_ptr<Track> > Map::makeTrackList()
 {
     std::vector<std::shared_ptr<Track>> tempTrackList;
@@ -3041,4 +3044,25 @@ bool Map::getAllConnected() const
 void Map::setAllConnected(bool newAllConnected)
 {
     allConnected = newAllConnected;
+}
+
+std::shared_ptr<Track> Map::getTrack1() const
+{
+    return track1;
+}
+
+void Map::setTrack1(const std::shared_ptr<Track> &newTrack)
+{
+    track1 = newTrack;
+}
+
+
+std::shared_ptr<Track> Map::getTrack2() const
+{
+    return track2;
+}
+
+void Map::setTrack2(const std::shared_ptr<Track> &newTrack)
+{
+    track2 = newTrack;
 }

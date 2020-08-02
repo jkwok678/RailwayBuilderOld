@@ -312,7 +312,6 @@ private:
 	void createElementBlock3();
 	void createElementBlock4();
 	void createElementBlock5();
-	void createElementBlock6();
 
 	QStackedWidget* allMenus;
 
@@ -324,7 +323,6 @@ private:
 	QGridLayout* elementBlock3;
 	QGridLayout* elementBlock4;
 	QGridLayout* elementBlock5;
-	QGridLayout* elementBlock6;
 
 	/*
 	 * ElementBlock1 buttons
@@ -1105,6 +1103,16 @@ private:
     QLineEdit* speedResult;
     bool mphToKmh{true};
     const double MPH_TO_KMH{1.60934};
+
+    QGridLayout* setSpeedLengthLayout;
+    QLabel* lengthLabel;
+    QLabel* speedLabel;
+    QLineEdit* newLengthEntry;
+    QLineEdit* newSpeedEntry;
+    QPushButton* restoreAllDefaultButton;
+    QPushButton* restoreSelectionButton;
+    QPushButton* cancelSetLengthSpeedButton;
+    QPushButton* confirmNewLengthSpeedButton;
 
 
 	void createRightMenu();

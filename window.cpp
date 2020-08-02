@@ -2319,19 +2319,19 @@ void Window::createElementMenu()
     createElementBlock3();
     createElementBlock4();
     createElementBlock5();
-    createElementBlock6();
 
     elementMenuLayout->addLayout(elementBlock1);
     elementMenuLayout->addLayout(elementBlock2);
     elementMenuLayout->addLayout(elementBlock3);
     elementMenuLayout->addLayout(elementBlock4);
     elementMenuLayout->addLayout(elementBlock5);
-    elementMenuLayout->addLayout(elementBlock6);
+    elementMenuLayout->setAlignment(elementBlock1, Qt::AlignLeft);
+    elementMenuLayout->setAlignment(elementBlock2, Qt::AlignLeft);
+    elementMenuLayout->setAlignment(elementBlock3, Qt::AlignLeft);
+    elementMenuLayout->setAlignment(elementBlock4, Qt::AlignLeft);
+    elementMenuLayout->setAlignment(elementBlock5, Qt::AlignLeft);
 
-    elementMenuLayout->setAlignment(elementBlock6, Qt::AlignLeft);
     elementMenu->setLayout(elementMenuLayout);
-
-
 }
 
 void Window::createElementBlock1()
@@ -3685,15 +3685,8 @@ void Window::createElementBlock5()
     parapet28Icon = new QIcon(":/graphics/graphics/parapet28.png");
     parapet28Button->setIcon(*parapet28Icon);
     elementBlock5->addWidget(parapet28Button, 2, 8);
-}
-
-void Window::createElementBlock6()
-{
-    elementBlock6 = new QGridLayout;
 
     levelCrossingButton = new QToolButton();
-    //levelCrossingButton->setFixedSize(QSize(32,32));
-
     levelCrossingButton->setMaximumSize(QSize(32, 32));
     chooseLevelCrossingAct = new QAction();
     levelCrossingButton->setDefaultAction(chooseLevelCrossingAct);
@@ -3701,14 +3694,9 @@ void Window::createElementBlock6()
     levelCrossingIcon = new QIcon(":/graphics/graphics/levelCrossingIcon.png");
     levelCrossingButton->setIcon(*levelCrossingIcon);
     //levelCrossingButton->setAutoRaise(true);
-    elementBlock6->addWidget(levelCrossingButton, 0, 0);
-
-    QSpacerItem* spacer1 = new QSpacerItem(16, 16, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    QSpacerItem* spacer2 = new QSpacerItem(16, 16, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    elementBlock6->addItem(spacer1, 1, 0);
-    elementBlock6->addItem(spacer2, 2, 0);
-
+    elementBlock5->addWidget(levelCrossingButton, 0, 11);
 }
+
 
 void Window::createSetTrackLengthSpeedMenu()
 {
@@ -3776,9 +3764,43 @@ void Window::createSetTrackLengthSpeedMenu()
     convertorGrid->addWidget(speedLabel2,2,2);
     convertorGrid->addWidget(swapLabelButton,2,3);
     convertorGrid->addWidget(speedResult,3,2);
+    convertorGrid->setVerticalSpacing(1);
 
 
     setTrackLengthSpeedLayout1->addLayout(convertorGrid);
+    setTrackLengthSpeedLayout1->setAlignment(convertorGrid, Qt::AlignLeft);
+
+    setSpeedLengthLayout = new QGridLayout;
+    lengthLabel = new QLabel;
+    speedLabel = new QLabel;
+    lengthLabel->setText(tr("Length (metres)"));
+    speedLabel->setText(tr("Speed Limit (km/h)"));
+    newLengthEntry = new QLineEdit;
+    newLengthEntry->setMaximumWidth(150);
+    newSpeedEntry = new QLineEdit;
+    newSpeedEntry->setMaximumWidth(150);
+    restoreAllDefaultButton = new QPushButton;
+    restoreAllDefaultButton->setText(tr("Restore ALL defaults?"));
+    restoreSelectionButton = new QPushButton;
+    restoreSelectionButton->setText(tr("Restore selection defaults?"));
+    cancelSetLengthSpeedButton = new QPushButton;
+    cancelSetLengthSpeedButton->setText(tr("Cancel"));
+    confirmNewLengthSpeedButton = new QPushButton;
+    confirmNewLengthSpeedButton->setText(tr("Ok?"));
+
+    setSpeedLengthLayout->addWidget(lengthLabel,0,0);
+    setSpeedLengthLayout->addWidget(speedLabel,1,0);
+    setSpeedLengthLayout->addWidget(newLengthEntry,0,1);
+    setSpeedLengthLayout->addWidget(newSpeedEntry,1,1);
+    setSpeedLengthLayout->addWidget(restoreAllDefaultButton,0,2);
+    setSpeedLengthLayout->addWidget(restoreSelectionButton,1,2);
+    setSpeedLengthLayout->addWidget(cancelSetLengthSpeedButton,0,3);
+    setSpeedLengthLayout->addWidget(confirmNewLengthSpeedButton,1,3);
+
+    setTrackLengthSpeedLayout1->addLayout(setSpeedLengthLayout);
+    //setTrackLengthSpeedLayout1->setAlignment(setSpeedLengthLayout, Qt::AlignLeft);
+
+
     setTrackLengthSpeedMenu->setLayout(setTrackLengthSpeedLayout1);
 
 }
