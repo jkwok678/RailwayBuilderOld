@@ -2824,9 +2824,6 @@ void Map::checkAllLinkTrackLinked()
 
 
 
-
-
-
 std::vector<std::shared_ptr<Track> > Map::makeTrackList()
 {
     std::vector<std::shared_ptr<Track>> tempTrackList;
@@ -3065,4 +3062,36 @@ std::shared_ptr<Track> Map::getTrack2() const
 void Map::setTrack2(const std::shared_ptr<Track> &newTrack)
 {
     track2 = newTrack;
+}
+
+std::vector<std::shared_ptr<Track> > Map::getSetTrackSpeedLengthList() const
+{
+    return setTrackSpeedLengthList;
+}
+
+void Map::setSetTrackSpeedLengthList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedLengthList)
+{
+    setTrackSpeedLengthList = newSetTrackSpeedLengthList;
+}
+
+void Map::fillSetTrackSpeedLengthList()
+{
+    setTrackSpeedLengthList.push_back(track1);
+    int startX = track1->getLocationX();
+    int startY = track1->getLocationY();
+    int destinationX = track2->getLocationX();
+    int destinationY = track2->getLocationY();
+    int currentX = startX;
+    int currentY = startY;
+
+    while (currentX != destinationX)
+    {
+        while (currentY != destinationY)
+        {
+            if (currentX < destinationX)
+            {
+
+            }
+        }
+    }
 }

@@ -112,6 +112,7 @@ void Window::connectLinkedTrack()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::checkAllTrack()
@@ -124,12 +125,13 @@ void Window::addEditRemoveText()
     if (modeChosen != Mode::ADDCHANGETEXT)
     {
         modeChosen = Mode::ADDCHANGETEXT;
+        drawingSurface->setMode(modeChosen);
     }
     else
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::moveText()
@@ -142,6 +144,7 @@ void Window::moveText()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::setChangeNamedLocation()
@@ -149,11 +152,13 @@ void Window::setChangeNamedLocation()
     if (modeChosen != Mode::SETCHANGENAMEDLOCATION)
     {
         modeChosen = Mode::SETCHANGENAMEDLOCATION;
+
     }
     else
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::openFontBox()
@@ -176,12 +181,13 @@ void Window::openTrackLengthSpeedPanel()
     if (modeChosen != Mode::SETTRACKLENGTHSPEED)
     {
         modeChosen = Mode::SETTRACKLENGTHSPEED;
+
     }
     else
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::convertMilesYardMetres()
@@ -392,6 +398,7 @@ void Window::chooseStraightH()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseStraightV()
@@ -404,6 +411,7 @@ void Window::chooseStraightV()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseDirectLeft()
@@ -416,6 +424,7 @@ void Window::chooseDirectLeft()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseDirectRight()
@@ -428,6 +437,7 @@ void Window::chooseDirectRight()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseDirectUp()
@@ -440,6 +450,7 @@ void Window::chooseDirectUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseDirectDown()
@@ -452,6 +463,7 @@ void Window::chooseDirectDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseStraightLeftUp()
@@ -464,6 +476,7 @@ void Window::chooseStraightLeftUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseStraightRightUp()
@@ -476,6 +489,7 @@ void Window::chooseStraightRightUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseDirectLeftUp()
@@ -488,6 +502,7 @@ void Window::chooseDirectLeftUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseDirectRightUp()
@@ -500,6 +515,7 @@ void Window::chooseDirectRightUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseDirectLeftDown()
@@ -512,6 +528,7 @@ void Window::chooseDirectLeftDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseDirectRightDown()
@@ -524,6 +541,7 @@ void Window::chooseDirectRightDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseTightCurve1()
@@ -536,6 +554,7 @@ void Window::chooseTightCurve1()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseTightCurve2()
@@ -548,6 +567,7 @@ void Window::chooseTightCurve2()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseTightCurve3()
@@ -560,6 +580,7 @@ void Window::chooseTightCurve3()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseTightCurve4()
@@ -572,6 +593,7 @@ void Window::chooseTightCurve4()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCurve1()
@@ -584,6 +606,7 @@ void Window::chooseCurve1()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCurve2()
@@ -596,6 +619,7 @@ void Window::chooseCurve2()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCurve3()
@@ -608,6 +632,7 @@ void Window::chooseCurve3()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCurve4()
@@ -620,6 +645,7 @@ void Window::chooseCurve4()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseLinkLeft()
@@ -632,6 +658,7 @@ void Window::chooseLinkLeft()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseLinkRight()
@@ -644,6 +671,7 @@ void Window::chooseLinkRight()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseLinkDown()
@@ -656,6 +684,7 @@ void Window::chooseLinkDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseLinkUp()
@@ -668,6 +697,7 @@ void Window::chooseLinkUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseLinkLeftUp()
@@ -680,6 +710,7 @@ void Window::chooseLinkLeftUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseLinkRightUp()
@@ -692,6 +723,7 @@ void Window::chooseLinkRightUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseLinkLeftDown()
@@ -704,6 +736,7 @@ void Window::chooseLinkLeftDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseLinkRightDown()
@@ -716,6 +749,7 @@ void Window::chooseLinkRightDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseExitLeft()
@@ -728,7 +762,7 @@ void Window::chooseExitLeft()
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseExitRight()
@@ -741,6 +775,7 @@ void Window::chooseExitRight()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseExitDown()
@@ -753,6 +788,7 @@ void Window::chooseExitDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseExitUp()
@@ -765,6 +801,7 @@ void Window::chooseExitUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseExitLeftUp()
@@ -777,7 +814,7 @@ void Window::chooseExitLeftUp()
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseExitRightUp()
@@ -790,6 +827,7 @@ void Window::chooseExitRightUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseExitLeftDown()
@@ -802,6 +840,7 @@ void Window::chooseExitLeftDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseExitRightDown()
@@ -814,7 +853,7 @@ void Window::chooseExitRightDown()
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCurve5()
@@ -827,6 +866,7 @@ void Window::chooseCurve5()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCurve6()
@@ -839,6 +879,7 @@ void Window::chooseCurve6()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCurve7()
@@ -851,6 +892,7 @@ void Window::chooseCurve7()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCurve8()
@@ -863,6 +905,7 @@ void Window::chooseCurve8()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseBufferLeft()
@@ -875,7 +918,7 @@ void Window::chooseBufferLeft()
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseBufferRight()
@@ -888,7 +931,7 @@ void Window::chooseBufferRight()
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseBufferDown()
@@ -901,7 +944,7 @@ void Window::chooseBufferDown()
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseBufferUp()
@@ -914,7 +957,7 @@ void Window::chooseBufferUp()
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseBufferLeftUp()
@@ -927,7 +970,7 @@ void Window::chooseBufferLeftUp()
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseBufferRightUp()
@@ -940,7 +983,7 @@ void Window::chooseBufferRightUp()
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseBufferLeftDown()
@@ -953,6 +996,7 @@ void Window::chooseBufferLeftDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseBufferRightDown()
@@ -965,6 +1009,7 @@ void Window::chooseBufferRightDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSignalLeft()
@@ -977,6 +1022,7 @@ void Window::chooseSignalLeft()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSignalRight()
@@ -989,6 +1035,7 @@ void Window::chooseSignalRight()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSignalDown()
@@ -1001,6 +1048,7 @@ void Window::chooseSignalDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSignalUp()
@@ -1013,6 +1061,7 @@ void Window::chooseSignalUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSignalLeftUp()
@@ -1025,6 +1074,7 @@ void Window::chooseSignalLeftUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSignalRightUp()
@@ -1037,6 +1087,7 @@ void Window::chooseSignalRightUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSignalLeftDown()
@@ -1049,6 +1100,7 @@ void Window::chooseSignalLeftDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSignalRightDown()
@@ -1061,6 +1113,7 @@ void Window::chooseSignalRightDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseBridge1()
@@ -1073,6 +1126,7 @@ void Window::chooseBridge1()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseBridge2()
@@ -1085,7 +1139,7 @@ void Window::chooseBridge2()
     {
         modeChosen = Mode::NONE;
     }
-
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseUnderpass1()
@@ -1098,6 +1152,7 @@ void Window::chooseUnderpass1()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseUnderpass2()
@@ -1110,6 +1165,7 @@ void Window::chooseUnderpass2()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchTight1()
@@ -1122,6 +1178,7 @@ void Window::chooseSwitchTight1()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchTight2()
@@ -1134,6 +1191,7 @@ void Window::chooseSwitchTight2()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchTight3()
@@ -1146,6 +1204,7 @@ void Window::chooseSwitchTight3()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchTight4()
@@ -1158,6 +1217,7 @@ void Window::chooseSwitchTight4()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchTight5()
@@ -1170,6 +1230,7 @@ void Window::chooseSwitchTight5()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchTight6()
@@ -1182,6 +1243,7 @@ void Window::chooseSwitchTight6()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchTight7()
@@ -1194,6 +1256,7 @@ void Window::chooseSwitchTight7()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchTight8()
@@ -1206,6 +1269,7 @@ void Window::chooseSwitchTight8()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchSplit1()
@@ -1218,6 +1282,7 @@ void Window::chooseSwitchSplit1()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchSplit2()
@@ -1230,6 +1295,7 @@ void Window::chooseSwitchSplit2()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchSplit3()
@@ -1242,6 +1308,7 @@ void Window::chooseSwitchSplit3()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch1()
@@ -1254,6 +1321,7 @@ void Window::chooseSwitch1()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch2()
@@ -1266,6 +1334,7 @@ void Window::chooseSwitch2()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch3()
@@ -1278,6 +1347,7 @@ void Window::chooseSwitch3()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch4()
@@ -1290,6 +1360,7 @@ void Window::chooseSwitch4()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch5()
@@ -1302,6 +1373,7 @@ void Window::chooseSwitch5()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch6()
@@ -1314,6 +1386,7 @@ void Window::chooseSwitch6()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch7()
@@ -1326,6 +1399,7 @@ void Window::chooseSwitch7()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch8()
@@ -1338,6 +1412,7 @@ void Window::chooseSwitch8()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchSplit4()
@@ -1350,6 +1425,7 @@ void Window::chooseSwitchSplit4()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchSplit5()
@@ -1362,6 +1438,7 @@ void Window::chooseSwitchSplit5()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchSplit6()
@@ -1374,6 +1451,7 @@ void Window::chooseSwitchSplit6()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch9()
@@ -1386,6 +1464,7 @@ void Window::chooseSwitch9()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch10()
@@ -1398,6 +1477,7 @@ void Window::chooseSwitch10()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch11()
@@ -1410,6 +1490,7 @@ void Window::chooseSwitch11()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch12()
@@ -1422,6 +1503,7 @@ void Window::chooseSwitch12()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch13()
@@ -1434,6 +1516,7 @@ void Window::chooseSwitch13()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch14()
@@ -1446,6 +1529,7 @@ void Window::chooseSwitch14()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch15()
@@ -1458,6 +1542,7 @@ void Window::chooseSwitch15()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitch16()
@@ -1470,6 +1555,7 @@ void Window::chooseSwitch16()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchSplit7()
@@ -1482,6 +1568,7 @@ void Window::chooseSwitchSplit7()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseSwitchSplit8()
@@ -1494,6 +1581,7 @@ void Window::chooseSwitchSplit8()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCrossover1()
@@ -1506,6 +1594,7 @@ void Window::chooseCrossover1()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCrossover2()
@@ -1518,6 +1607,7 @@ void Window::chooseCrossover2()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover1()
@@ -1530,6 +1620,7 @@ void Window::chooseFlyover1()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover2()
@@ -1542,6 +1633,7 @@ void Window::chooseFlyover2()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover3()
@@ -1554,6 +1646,7 @@ void Window::chooseFlyover3()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover4()
@@ -1566,6 +1659,7 @@ void Window::chooseFlyover4()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCrossover3()
@@ -1578,6 +1672,7 @@ void Window::chooseCrossover3()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCrossover4()
@@ -1590,6 +1685,7 @@ void Window::chooseCrossover4()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover5()
@@ -1602,6 +1698,7 @@ void Window::chooseFlyover5()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover6()
@@ -1614,6 +1711,7 @@ void Window::chooseFlyover6()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover7()
@@ -1626,6 +1724,7 @@ void Window::chooseFlyover7()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover8()
@@ -1638,6 +1737,7 @@ void Window::chooseFlyover8()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCrossover5()
@@ -1650,6 +1750,7 @@ void Window::chooseCrossover5()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseCrossover6()
@@ -1662,6 +1763,7 @@ void Window::chooseCrossover6()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover9()
@@ -1674,6 +1776,7 @@ void Window::chooseFlyover9()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover10()
@@ -1686,6 +1789,7 @@ void Window::chooseFlyover10()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover11()
@@ -1698,6 +1802,7 @@ void Window::chooseFlyover11()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseFlyover12()
@@ -1710,6 +1815,7 @@ void Window::chooseFlyover12()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseNamedLocation()
@@ -1722,6 +1828,7 @@ void Window::chooseNamedLocation()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseConcourse()
@@ -1734,6 +1841,7 @@ void Window::chooseConcourse()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::choosePlatformLeft()
@@ -1746,6 +1854,7 @@ void Window::choosePlatformLeft()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::choosePlatformRight()
@@ -1758,6 +1867,7 @@ void Window::choosePlatformRight()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::choosePlatformDown()
@@ -1770,6 +1880,7 @@ void Window::choosePlatformDown()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::choosePlatformUp()
@@ -1782,6 +1893,7 @@ void Window::choosePlatformUp()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet1()
@@ -1794,6 +1906,7 @@ void Window::chooseParapet1()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet2()
@@ -1806,6 +1919,7 @@ void Window::chooseParapet2()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet3()
@@ -1818,6 +1932,7 @@ void Window::chooseParapet3()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet4()
@@ -1830,6 +1945,7 @@ void Window::chooseParapet4()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet5()
@@ -1842,6 +1958,7 @@ void Window::chooseParapet5()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet6()
@@ -1854,6 +1971,7 @@ void Window::chooseParapet6()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet7()
@@ -1866,6 +1984,7 @@ void Window::chooseParapet7()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet8()
@@ -1878,6 +1997,7 @@ void Window::chooseParapet8()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet9()
@@ -1890,6 +2010,7 @@ void Window::chooseParapet9()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet10()
@@ -1902,6 +2023,7 @@ void Window::chooseParapet10()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet11()
@@ -1914,6 +2036,7 @@ void Window::chooseParapet11()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet12()
@@ -1926,6 +2049,7 @@ void Window::chooseParapet12()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet13()
@@ -1938,6 +2062,7 @@ void Window::chooseParapet13()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet14()
@@ -1950,6 +2075,7 @@ void Window::chooseParapet14()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet15()
@@ -1962,6 +2088,7 @@ void Window::chooseParapet15()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet16()
@@ -1974,6 +2101,7 @@ void Window::chooseParapet16()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet17()
@@ -1986,6 +2114,7 @@ void Window::chooseParapet17()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet18()
@@ -1998,6 +2127,7 @@ void Window::chooseParapet18()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet19()
@@ -2010,6 +2140,7 @@ void Window::chooseParapet19()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet20()
@@ -2022,6 +2153,7 @@ void Window::chooseParapet20()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet21()
@@ -2034,6 +2166,7 @@ void Window::chooseParapet21()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet22()
@@ -2046,6 +2179,7 @@ void Window::chooseParapet22()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet23()
@@ -2058,6 +2192,7 @@ void Window::chooseParapet23()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet24()
@@ -2070,6 +2205,7 @@ void Window::chooseParapet24()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet25()
@@ -2082,6 +2218,7 @@ void Window::chooseParapet25()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet26()
@@ -2094,6 +2231,7 @@ void Window::chooseParapet26()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet27()
@@ -2106,6 +2244,7 @@ void Window::chooseParapet27()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseParapet28()
@@ -2118,6 +2257,7 @@ void Window::chooseParapet28()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 void Window::chooseLevelCrossing()
@@ -2130,6 +2270,7 @@ void Window::chooseLevelCrossing()
     {
         modeChosen = Mode::NONE;
     }
+    drawingSurface->setMode(modeChosen);
 }
 
 

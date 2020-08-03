@@ -28,7 +28,7 @@ public:
     void fillImageList();
 
     Mode getMode();
-    void setMode(Mode& newChosen);
+    void setMode(Mode newChosen);
 
 	Map getMap();
 	void setMap(Map& map);
@@ -75,7 +75,7 @@ protected:
 private:
     QPalette pal;
     Colour canvasColour;
-    Mode* canvasChosen;
+    Mode canvasChosen;
 
     std::vector<QImage*> imageList;
 	Map* drawnLayout;

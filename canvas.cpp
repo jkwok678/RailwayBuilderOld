@@ -377,12 +377,12 @@ void Canvas::fillImageList()
 
 Mode Canvas::getMode()
 {
-    return *canvasChosen;
+    return canvasChosen;
 }
 
-void Canvas::setMode(Mode &newChosen)
+void Canvas::setMode(Mode newChosen)
 {
-    canvasChosen = &newChosen;
+    canvasChosen = newChosen;
 }
 
 Map Canvas::getMap()
@@ -557,7 +557,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
     bool addedTrack = false;
     if (event->button() == Qt::LeftButton)
     {
-        switch (*canvasChosen)
+        switch (canvasChosen)
         {
             case Mode::NONE:
             {
@@ -1738,6 +1738,22 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 }
 
             }
+            case Mode::SETTRACKLENGTHSPEED:
+            {
+                if (drawnLayout->getTrackAt(finalX, finalY) != nullptr)
+                {
+                    if (drawnLayout->getTrack1() == nullptr)
+                    {
+                        drawnLayout->setTrack1(drawnLayout->getTrackAt(finalX, finalY));
+                    }
+                    else
+                    {
+                        drawnLayout->setTrack2(drawnLayout->getTrackAt(finalX,finalY));
+
+                    }
+
+                }
+            }
         };
         update();
         if (addedTrack)
@@ -1763,7 +1779,7 @@ void Canvas::paintEvent(QPaintEvent* event)
     canvasSizeY = height();
     QPainter painter(this);
     //painter.drawImage(0, 704, *straightHImage);
-    if (*canvasChosen == Mode::SETTRACKLENGTHSPEED)
+    if (canvasChosen == Mode::SETTRACKLENGTHSPEED)
     {
         for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList())
         {
@@ -2267,7 +2283,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             break;
                         }
                     }
-                    if (*canvasChosen == Mode::CONNECTLINKEDTRACK)
+                    if (canvasChosen == Mode::CONNECTLINKEDTRACK)
                     {
                         if (currentElement == drawnLayout->getLinkedTrack1() || currentElement == drawnLayout->getLinkedTrack2())
                         {
@@ -3578,6 +3594,48 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
 
+        if (drawnLayout->getTrack1() != nullptr)
+        {
+
+            int currentX = drawnLayout->getTrack1()->getLocationX();
+            int currentY = drawnLayout->getTrack1()->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    painter.drawImage(displayX,displayY,*selectBlue);
+                }
+            }
+        }
+
+        if (drawnLayout->getTrack2() != nullptr)
+        {
+            int currentX = drawnLayout->getTrack2()->getLocationX();
+            int currentY = drawnLayout->getTrack2()->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    painter.drawImage(displayX,displayY,*selectBlue);
+                }
+            }
+        }
     }
     else
     {
@@ -4035,7 +4093,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             break;
                         }
                     }
-                    if (*canvasChosen == Mode::CONNECTLINKEDTRACK)
+                    if (canvasChosen == Mode::CONNECTLINKEDTRACK)
                     {
                         if (currentElement == drawnLayout->getLinkedTrack1() || currentElement == drawnLayout->getLinkedTrack2())
                         {
@@ -5366,7 +5424,7 @@ void Canvas::resizeEvent(QResizeEvent *event)
 
 void Canvas::mouseMoveEvent(QMouseEvent *event)
 {
-    if (*canvasChosen == Mode::MOVETEXT)
+    if (canvasChosen == Mode::MOVETEXT)
     {
         canvasSizeX = width();
         canvasSizeY = height();
