@@ -1819,7 +1819,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             QColor red =  QColor(255,0,0,255);
                             QColor green =  QColor(0,255,0,255);
                             QColor blue =  QColor(0,0,255,255);
-                            if (currentElement->getTrackLength() == 100 && currentElement->getTrackSpeed() != 200)
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
                                 for (int y=0; y<height; y++)
                                 {
@@ -1832,7 +1832,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                                     }
                                 }
                             }
-                            else if (currentElement->getTrackLength() != 100 && currentElement->getTrackSpeed() == 200)
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
                                 for (int y=0; y<height; y++)
                                 {
@@ -1845,7 +1845,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                                     }
                                 }
                             }
-                            else if (currentElement->getTrackLength() != 100 && currentElement->getTrackSpeed() != 200)
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
                                 for (int y=0; y<height; y++)
                                 {
@@ -5482,8 +5482,8 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
                 ID = "Track ID = ";
                 ID = ID.append(QString::number(finalX/16)).append(",").append(QString::number(finalY/16));
                 if (canvasShowMoreTrackInfo) {
-                   QString text2 = tr("\n").append("Track length = ").append(QString::number(track->getTrackLength())).append(" m");
-                   QString text3 = tr("\n").append("Track speed = ").append(QString::number(track->getTrackSpeed())).append(" km/h");
+                   QString text2 = tr("\n").append("Track length = ").append(QString::number(track->getTrackMainLength())).append(" m");
+                   QString text3 = tr("\n").append("Track speed = ").append(QString::number(track->getTrackMainSpeed())).append(" km/h");
                    finalText = ID.append(text2).append(text3);
                 }
                 finalText = ID;

@@ -1,30 +1,50 @@
 #include "track.h"
 #include "element.h"
 
-
 Track::Track()
 {
     
 };
 
-int Track::getTrackSpeed() const
+int Track::getTrackMainSpeed() const
 {
-    return trackSpeed;
+    return trackMainSpeed;
 }
 
-void Track::setTrackSpeed(int value)
+void Track::setTrackMainSpeed(int value)
 {
-    trackSpeed = value;
+    trackMainSpeed = value;
 }
 
-int Track::getTrackLength() const
+int Track::getTrackMainLength() const
 {
-    return trackLength;
+    return trackMainLength;
 }
 
-void Track::setTrackLength(int value)
+void Track::setTrackMainLength(int value)
 {
-    trackLength = value;
+    trackMainLength = value;
+}
+
+int Track::getTrackSecondarySpeed() const
+{
+    return trackSecondarySpeed;
+}
+
+void Track::setTrackSecondarySpeed(int value)
+{
+    trackSecondarySpeed = value;
+}
+
+
+int Track::getTrackSecondaryLength() const
+{
+    return trackSecondaryLength;
+}
+
+void Track::setTrackSecondaryLength(int value)
+{
+    trackSecondaryLength = value;
 }
 
 bool Track::getPlatformAny() const

@@ -74,8 +74,10 @@ private:
 
 
 protected:
-	int trackSpeed{ 200 };
-	int trackLength{ 100 };
+    int trackMainSpeed{ 200 };
+    int trackMainLength{ 100 };
+    int trackSecondarySpeed;
+    int trackSecondaryLength;
 	//For vertical tracks, platform1 is left, platform2 is right
     //For Horizontal tracks platform1 is up, platform2 is down
     bool platformAny{ false };
@@ -87,10 +89,10 @@ protected:
 
 public:
 	Track();
-    int getTrackSpeed() const;
-    void setTrackSpeed(int value);
-    int getTrackLength() const;
-    void setTrackLength(int value);
+    int getTrackMainSpeed() const;
+    void setTrackMainSpeed(int value);
+    int getTrackMainLength() const;
+    void setTrackMainLength(int value);
     bool getPlatformAny() const;
     void setPlatformAny(bool value);
 	bool getPlatform1() const;
@@ -110,6 +112,10 @@ public:
 
     bool getFound() const;
     void setFound(bool newFound);
+    int getTrackSecondarySpeed() const;
+    void setTrackSecondarySpeed(int value);
+    int getTrackSecondaryLength() const;
+    void setTrackSecondaryLength(int value);
 };
 
 class StraightTrack : public Track
