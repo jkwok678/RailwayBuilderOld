@@ -150,7 +150,6 @@ public:
     void setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2);
     void connectLinkedTrack();
 
-
     void checkAllTracks();
 
     bool getAllLinkedTrackLinked() const;
@@ -165,7 +164,8 @@ public:
 
     std::vector<std::shared_ptr<Track> > getSetTrackSpeedLengthList() const;
     void setSetTrackSpeedLengthList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedLengthList);
-    void fillSetTrackSpeedLengthList();
+    void fillSetTrackSpeedLengthList(std::shared_ptr<Track> track);
+    void setSectionSpeedLength();
 };
 
 #endif // MAP_H

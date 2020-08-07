@@ -3074,24 +3074,28 @@ void Map::setSetTrackSpeedLengthList(const std::vector<std::shared_ptr<Track> > 
     setTrackSpeedLengthList = newSetTrackSpeedLengthList;
 }
 
-void Map::fillSetTrackSpeedLengthList()
+void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
 {
-    setTrackSpeedLengthList.push_back(track1);
-    int startX = track1->getLocationX();
-    int startY = track1->getLocationY();
+
+    int currentX = track->getLocationX();
+    int currentY = track->getLocationY();
     int destinationX = track2->getLocationX();
     int destinationY = track2->getLocationY();
-    int currentX = startX;
-    int currentY = startY;
 
-    while (currentX != destinationX)
+    if (currentX != destinationX || currentY != destinationY)
     {
-        while (currentY != destinationY)
+        if (currentX < destinationX )
         {
-            if (currentX < destinationX)
+            if (track->getLink2())
             {
 
             }
         }
+        if ()
     }
+}
+
+void Map::setSectionSpeedLength()
+{
+    setTrackSpeedLengthList.push_back(track1);
 }
