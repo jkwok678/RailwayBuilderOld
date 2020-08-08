@@ -177,12 +177,8 @@ void Window::openTrackLengthSpeedPanel()
     else
     {
         allMenus->setCurrentIndex(0);
+        drawingSurface->getMap().resetSetTrackSpeedLengthMechanics();
 
-        std::shared_ptr<Track> track{nullptr};
-        std::shared_ptr<Track> track2{nullptr};
-        drawingSurface->getMap().setTrack1(track);
-        drawingSurface->getMap().setTrack2(track2);
-        drawingSurface->getMap().getSetTrackSpeedLengthList().clear();
     }
     if (modeChosen != Mode::SETTRACKLENGTHSPEED)
     {

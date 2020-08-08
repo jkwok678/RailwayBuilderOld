@@ -45,6 +45,7 @@ private:
     bool allConnected;
 
     std::vector<std::shared_ptr<Track>> setTrackSpeedLengthList;
+
     int setTrackSpeedLengthCounter{1000};
 
 
@@ -167,6 +168,7 @@ public:
     void setSetTrackSpeedLengthList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedLengthList);
     void fillSetTrackSpeedLengthList(std::shared_ptr<Track> track);
     void setSectionSpeedLength();
+    void resetSetTrackSpeedLengthMechanics();
 };
 
 #endif // MAP_H

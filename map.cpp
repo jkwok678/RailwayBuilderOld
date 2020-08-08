@@ -2824,6 +2824,8 @@ void Map::checkAllLinkTrackLinked()
 
 
 
+
+
 std::vector<std::shared_ptr<Track> > Map::makeTrackList()
 {
     std::vector<std::shared_ptr<Track>> tempTrackList;
@@ -3094,10 +3096,6 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
      *
      */
 
-    while (currentX != destinationX || currentY != destinationY)
-    {
-
-    }
 
 
     if (currentX != destinationX || currentY != destinationY)
@@ -3119,7 +3117,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track2);
                     track2->setFound(true);
-                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2);
                     }
@@ -3131,7 +3129,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track5);
                     track5->setFound(true);
-                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5);
                     }
@@ -3143,7 +3141,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track1);
                     track1->setFound(true);
-                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1);
                     }
@@ -3155,7 +3153,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track8);
                     track8->setFound(true);
-                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8);
                     }
@@ -3168,7 +3166,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track0);
                     track0->setFound(true);
-                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0);
                     }
@@ -3180,7 +3178,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track3);
                     track3->setFound(true);
-                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3);
                     }
@@ -3193,7 +3191,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track7);
                     track7->setFound(true);
-                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7);
                     }
@@ -3206,7 +3204,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track6);
                     track6->setFound(true);
-                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6);
                     }
@@ -3233,7 +3231,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track6);
                     track6->setFound(true);
-                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6);
                     }
@@ -3245,7 +3243,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track3);
                     track3->setFound(true);
-                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3);
                     }
@@ -3257,7 +3255,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track7);
                     track7->setFound(true);
-                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7);
                     }
@@ -3269,7 +3267,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track8);
                     track8->setFound(true);
-                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8);
                     }
@@ -3282,7 +3280,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track0);
                     track0->setFound(true);
-                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0);
                     }
@@ -3294,7 +3292,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track5);
                     track5->setFound(true);
-                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5);
                     }
@@ -3307,7 +3305,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track1);
                     track1->setFound(true);
-                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1);
                     }
@@ -3320,7 +3318,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track2);
                     track2->setFound(true);
-                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2);
                     }
@@ -3346,7 +3344,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track0);
                     track0->setFound(true);
-                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0);
                     }
@@ -3358,7 +3356,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track3);
                     track3->setFound(true);
-                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3);
                     }
@@ -3370,7 +3368,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track1);
                     track1->setFound(true);
-                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1);
                     }
@@ -3382,7 +3380,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track2);
                     track2->setFound(true);
-                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2);
                     }
@@ -3395,7 +3393,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track6);
                     track6->setFound(true);
-                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6);
                     }
@@ -3407,7 +3405,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track5);
                     track5->setFound(true);
-                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5);
                     }
@@ -3420,7 +3418,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track7);
                     track7->setFound(true);
-                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7);
                     }
@@ -3433,7 +3431,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track8);
                     track8->setFound(true);
-                    if (track8->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    if (track8->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8);
                     }
@@ -3459,7 +3457,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track8);
                     track8->setFound(true);
-                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8);
                     }
@@ -3471,7 +3469,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track5);
                     track5->setFound(true);
-                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5);
                     }
@@ -3483,7 +3481,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track7);
                     track7->setFound(true);
-                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7);
                     }
@@ -3495,7 +3493,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track2);
                     track2->setFound(true);
-                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2);
                     }
@@ -3508,7 +3506,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track6);
                     track6->setFound(true);
-                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6);
                     }
@@ -3520,7 +3518,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track3);
                     track3->setFound(true);
-                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3);
                     }
@@ -3533,7 +3531,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track1);
                     track1->setFound(true);
-                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1);
                     }
@@ -3546,7 +3544,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track0);
                     track0->setFound(true);
-                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0);
                     }
@@ -3571,7 +3569,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track1);
                     track1->setFound(true);
-                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1);
                     }
@@ -3583,7 +3581,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track0);
                     track0->setFound(true);
-                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0);
                     }
@@ -3595,7 +3593,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track2);
                     track2->setFound(true);
-                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2);
                     }
@@ -3607,7 +3605,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track3);
                     track3->setFound(true);
-                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3);
                     }
@@ -3620,7 +3618,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track5);
                     track5->setFound(true);
-                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5);
                     }
@@ -3632,7 +3630,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track6);
                     track6->setFound(true);
-                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6);
                     }
@@ -3645,7 +3643,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track7);
                     track7->setFound(true);
-                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7);
                     }
@@ -3658,7 +3656,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track8);
                     track8->setFound(true);
-                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8);
                     }
@@ -3684,7 +3682,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track7);
                     track7->setFound(true);
-                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7);
                     }
@@ -3696,7 +3694,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track8);
                     track8->setFound(true);
-                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8);
                     }
@@ -3708,7 +3706,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track6);
                     track6->setFound(true);
-                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6);
                     }
@@ -3720,7 +3718,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track5);
                     track5->setFound(true);
-                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5);
                     }
@@ -3733,7 +3731,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track3);
                     track3->setFound(true);
-                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3);
                     }
@@ -3745,7 +3743,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track1);
                     track1->setFound(true);
-                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1);
                     }
@@ -3758,7 +3756,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track0);
                     track0->setFound(true);
-                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0);
                     }
@@ -3771,7 +3769,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track2);
                     track2->setFound(true);
-                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2);
                     }
@@ -3796,7 +3794,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track5);
                     track5->setFound(true);
-                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5);
                     }
@@ -3808,7 +3806,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track2);
                     track2->setFound(true);
-                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2);
                     }
@@ -3820,7 +3818,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track8);
                     track8->setFound(true);
-                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8);
                     }
@@ -3832,7 +3830,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track1);
                     track1->setFound(true);
-                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1);
                     }
@@ -3845,7 +3843,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track7);
                     track7->setFound(true);
-                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7);
                     }
@@ -3857,7 +3855,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track3);
                     track3->setFound(true);
-                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3);
                     }
@@ -3870,7 +3868,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track0);
                     track0->setFound(true);
-                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0);
                     }
@@ -3883,7 +3881,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track6);
                     track6->setFound(true);
-                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6);
                     }
@@ -3908,7 +3906,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track3);
                     track3->setFound(true);
-                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3);
                     }
@@ -3920,7 +3918,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track0);
                     track0->setFound(true);
-                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0);
                     }
@@ -3932,7 +3930,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track6);
                     track6->setFound(true);
-                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6);
                     }
@@ -3944,7 +3942,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track1);
                     track1->setFound(true);
-                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1);
                     }
@@ -3957,7 +3955,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track7);
                     track7->setFound(true);
-                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7);
                     }
@@ -3969,7 +3967,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track5);
                     track5->setFound(true);
-                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5);
                     }
@@ -3982,7 +3980,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track2);
                     track2->setFound(true);
-                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2);
                     }
@@ -3995,7 +3993,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
                 {
                     setTrackSpeedLengthList.push_back(track8);
                     track8->setFound(true);
-                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8);
                     }
@@ -4016,4 +4014,14 @@ void Map::setSectionSpeedLength()
 {
     setTrackSpeedLengthList.push_back(track1);
     fillSetTrackSpeedLengthList(track1);
+}
+
+void Map::resetSetTrackSpeedLengthMechanics()
+{
+    std::shared_ptr<Track> track{nullptr};
+    std::shared_ptr<Track> track2Temp{nullptr};
+
+    track1 = track;
+    track2 = track2Temp;
+    setTrackSpeedLengthList.clear();
 }
