@@ -45,6 +45,7 @@ private:
     bool allConnected;
 
     std::vector<std::shared_ptr<Track>> setTrackSpeedLengthList;
+    int setTrackSpeedLengthCounter{1000};
 
 
 public:

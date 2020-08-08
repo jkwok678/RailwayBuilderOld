@@ -3082,20 +3082,938 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
     int destinationX = track2->getLocationX();
     int destinationY = track2->getLocationY();
 
+    /*
+     *
+     *  -------
+     *  |0|1|2|
+     *  -------
+     *  |3|4|5|
+     *  -------
+     *  |6|7|8|
+     *  -------
+     *
+     */
+
+    while (currentX != destinationX || currentY != destinationY)
+    {
+
+    }
+
+
     if (currentX != destinationX || currentY != destinationY)
     {
-        if (currentX < destinationX )
+        if (currentX < destinationX  && currentY < destinationY)
         {
+            std::shared_ptr<Track> track0 = getTrackAt(currentX-16, currentY+16);
+            std::shared_ptr<Track> track1 = getTrackAt(currentX, currentY+16);;
+            std::shared_ptr<Track> track2 = getTrackAt(currentX+16, currentY+16);
+            std::shared_ptr<Track> track3 = getTrackAt(currentX-16, currentY);
+            std::shared_ptr<Track> track5 = getTrackAt(currentX+16, currentY);
+            std::shared_ptr<Track> track6 = getTrackAt(currentX-16, currentY-16);
+            std::shared_ptr<Track> track7 = getTrackAt(currentX, currentY-16);
+            std::shared_ptr<Track> track8 = getTrackAt(currentX+16, currentY-16);
+
             if (track->getLink2())
             {
+                if (!track2->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track2);
+                    track2->setFound(true);
+                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track2);
+                    }
+                }
+            }
+            else if (track->getLink5())
+            {
+                if (!track5->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track5);
+                    track5->setFound(true);
+                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track5);
+                    }
+                }
+            }
+            else if (track->getLink1())
+            {
+                if (!track1->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track1);
+                    track1->setFound(true);
+                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track1);
+                    }
+                }
+            }
+            else if (track->getLink8())
+            {
+                if (!track8->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track8);
+                    track8->setFound(true);
+                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track8);
+                    }
+                }
+
+            }
+            else if (track->getLink0())
+            {
+                if (!track0->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track0);
+                    track0->setFound(true);
+                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track0);
+                    }
+                }
+            }
+            else if (track->getLink3())
+            {
+                if (!track3->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track3);
+                    track3->setFound(true);
+                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track3);
+                    }
+                }
+
+            }
+            else if (track->getLink7() )
+            {
+                if(!track7->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track7);
+                    track7->setFound(true);
+                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track7);
+                    }
+                }
+
+            }
+            else if (track->getLink6())
+            {
+                if (!track6->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track6);
+                    track6->setFound(true);
+                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track6);
+                    }
+                }
+
+            }
+
+
+        }
+        else if (currentX > destinationX && currentY > destinationY)
+        {
+            std::shared_ptr<Track> track0 = getTrackAt(currentX-16, currentY+16);
+            std::shared_ptr<Track> track1 = getTrackAt(currentX, currentY+16);;
+            std::shared_ptr<Track> track2 = getTrackAt(currentX+16, currentY+16);
+            std::shared_ptr<Track> track3 = getTrackAt(currentX-16, currentY);
+            std::shared_ptr<Track> track5 = getTrackAt(currentX+16, currentY);
+            std::shared_ptr<Track> track6 = getTrackAt(currentX-16, currentY-16);
+            std::shared_ptr<Track> track7 = getTrackAt(currentX, currentY-16);
+            std::shared_ptr<Track> track8 = getTrackAt(currentX+16, currentY-16);
+
+            if (track->getLink6())
+            {
+                if (!track6->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track6);
+                    track6->setFound(true);
+                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track6);
+                    }
+                }
+            }
+            else if (track->getLink3())
+            {
+                if (!track3->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track3);
+                    track3->setFound(true);
+                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track3);
+                    }
+                }
+            }
+            else if (track->getLink7())
+            {
+                if (!track7->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track7);
+                    track7->setFound(true);
+                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track7);
+                    }
+                }
+            }
+            else if (track->getLink8())
+            {
+                if (!track8->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track8);
+                    track8->setFound(true);
+                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track8);
+                    }
+                }
+
+            }
+            else if (track->getLink0())
+            {
+                if (!track0->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track0);
+                    track0->setFound(true);
+                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track0);
+                    }
+                }
+            }
+            else if (track->getLink5())
+            {
+                if (!track5->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track5);
+                    track5->setFound(true);
+                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track5);
+                    }
+                }
+
+            }
+            else if (track->getLink1() )
+            {
+                if(!track1->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track1);
+                    track1->setFound(true);
+                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track1);
+                    }
+                }
+
+            }
+            else if (track->getLink2())
+            {
+                if (!track2->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track2);
+                    track2->setFound(true);
+                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track2);
+                    }
+                }
+
+            }
+
+        }
+        else if (currentX > destinationX && currentY < destinationY)
+        {
+            std::shared_ptr<Track> track0 = getTrackAt(currentX-16, currentY+16);
+            std::shared_ptr<Track> track1 = getTrackAt(currentX, currentY+16);;
+            std::shared_ptr<Track> track2 = getTrackAt(currentX+16, currentY+16);
+            std::shared_ptr<Track> track3 = getTrackAt(currentX-16, currentY);
+            std::shared_ptr<Track> track5 = getTrackAt(currentX+16, currentY);
+            std::shared_ptr<Track> track6 = getTrackAt(currentX-16, currentY-16);
+            std::shared_ptr<Track> track7 = getTrackAt(currentX, currentY-16);
+            std::shared_ptr<Track> track8 = getTrackAt(currentX+16, currentY-16);
+
+            if (track->getLink0())
+            {
+                if (!track0->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track0);
+                    track0->setFound(true);
+                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track0);
+                    }
+                }
+            }
+            else if (track->getLink3())
+            {
+                if (!track3->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track3);
+                    track3->setFound(true);
+                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track3);
+                    }
+                }
+            }
+            else if (track->getLink1())
+            {
+                if (!track1->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track1);
+                    track1->setFound(true);
+                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track1);
+                    }
+                }
+            }
+            else if (track->getLink2())
+            {
+                if (!track2->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track2);
+                    track2->setFound(true);
+                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track2);
+                    }
+                }
+
+            }
+            else if (track->getLink6())
+            {
+                if (!track6->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track6);
+                    track6->setFound(true);
+                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track6);
+                    }
+                }
+            }
+            else if (track->getLink5())
+            {
+                if (!track5->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track5);
+                    track5->setFound(true);
+                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track5);
+                    }
+                }
+
+            }
+            else if (track->getLink7() )
+            {
+                if(!track7->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track7);
+                    track7->setFound(true);
+                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track7);
+                    }
+                }
+
+            }
+            else if (track->getLink8())
+            {
+                if (!track8->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track8);
+                    track8->setFound(true);
+                    if (track8->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track8);
+                    }
+                }
+
+            }
+
+        }
+        else if (currentX < destinationX && currentY > destinationY)
+        {
+            std::shared_ptr<Track> track0 = getTrackAt(currentX-16, currentY+16);
+            std::shared_ptr<Track> track1 = getTrackAt(currentX, currentY+16);;
+            std::shared_ptr<Track> track2 = getTrackAt(currentX+16, currentY+16);
+            std::shared_ptr<Track> track3 = getTrackAt(currentX-16, currentY);
+            std::shared_ptr<Track> track5 = getTrackAt(currentX+16, currentY);
+            std::shared_ptr<Track> track6 = getTrackAt(currentX-16, currentY-16);
+            std::shared_ptr<Track> track7 = getTrackAt(currentX, currentY-16);
+            std::shared_ptr<Track> track8 = getTrackAt(currentX+16, currentY-16);
+
+            if (track->getLink8())
+            {
+                if (!track8->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track8);
+                    track8->setFound(true);
+                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track8);
+                    }
+                }
+            }
+            else if (track->getLink5())
+            {
+                if (!track5->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track5);
+                    track5->setFound(true);
+                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track5);
+                    }
+                }
+            }
+            else if (track->getLink7())
+            {
+                if (!track7->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track7);
+                    track7->setFound(true);
+                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track7);
+                    }
+                }
+            }
+            else if (track->getLink2())
+            {
+                if (!track2->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track2);
+                    track2->setFound(true);
+                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track2);
+                    }
+                }
+
+            }
+            else if (track->getLink6())
+            {
+                if (!track6->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track6);
+                    track6->setFound(true);
+                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track6);
+                    }
+                }
+            }
+            else if (track->getLink3())
+            {
+                if (!track3->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track3);
+                    track3->setFound(true);
+                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track3);
+                    }
+                }
+
+            }
+            else if (track->getLink1() )
+            {
+                if(!track1->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track1);
+                    track1->setFound(true);
+                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track1);
+                    }
+                }
+
+            }
+            else if (track->getLink0())
+            {
+                if (!track0->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track0);
+                    track0->setFound(true);
+                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track0);
+                    }
+                }
 
             }
         }
-        if ()
+        else if (currentX == destinationX && currentY < destinationY)
+        {
+            std::shared_ptr<Track> track0 = getTrackAt(currentX-16, currentY+16);
+            std::shared_ptr<Track> track1 = getTrackAt(currentX, currentY+16);;
+            std::shared_ptr<Track> track2 = getTrackAt(currentX+16, currentY+16);
+            std::shared_ptr<Track> track3 = getTrackAt(currentX-16, currentY);
+            std::shared_ptr<Track> track5 = getTrackAt(currentX+16, currentY);
+            std::shared_ptr<Track> track6 = getTrackAt(currentX-16, currentY-16);
+            std::shared_ptr<Track> track7 = getTrackAt(currentX, currentY-16);
+            std::shared_ptr<Track> track8 = getTrackAt(currentX+16, currentY-16);
+
+            if (track->getLink1())
+            {
+                if (!track1->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track1);
+                    track1->setFound(true);
+                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track1);
+                    }
+                }
+            }
+            else if (track->getLink0())
+            {
+                if (!track0->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track0);
+                    track0->setFound(true);
+                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track0);
+                    }
+                }
+            }
+            else if (track->getLink2())
+            {
+                if (!track2->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track2);
+                    track2->setFound(true);
+                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track2);
+                    }
+                }
+            }
+            else if (track->getLink3())
+            {
+                if (!track3->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track3);
+                    track3->setFound(true);
+                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track3);
+                    }
+                }
+
+            }
+            else if (track->getLink5())
+            {
+                if (!track5->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track5);
+                    track5->setFound(true);
+                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track5);
+                    }
+                }
+            }
+            else if (track->getLink6())
+            {
+                if (!track6->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track6);
+                    track6->setFound(true);
+                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track6);
+                    }
+                }
+
+            }
+            else if (track->getLink7() )
+            {
+                if(!track7->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track7);
+                    track7->setFound(true);
+                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track7);
+                    }
+                }
+
+            }
+            else if (track->getLink8())
+            {
+                if (!track8->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track8);
+                    track8->setFound(true);
+                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track8);
+                    }
+                }
+
+            }
+
+        }
+        else if (currentX == destinationX && currentY > destinationY)
+        {
+            std::shared_ptr<Track> track0 = getTrackAt(currentX-16, currentY+16);
+            std::shared_ptr<Track> track1 = getTrackAt(currentX, currentY+16);;
+            std::shared_ptr<Track> track2 = getTrackAt(currentX+16, currentY+16);
+            std::shared_ptr<Track> track3 = getTrackAt(currentX-16, currentY);
+            std::shared_ptr<Track> track5 = getTrackAt(currentX+16, currentY);
+            std::shared_ptr<Track> track6 = getTrackAt(currentX-16, currentY-16);
+            std::shared_ptr<Track> track7 = getTrackAt(currentX, currentY-16);
+            std::shared_ptr<Track> track8 = getTrackAt(currentX+16, currentY-16);
+
+            if (track->getLink7())
+            {
+                if (!track7->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track7);
+                    track7->setFound(true);
+                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track7);
+                    }
+                }
+            }
+            else if (track->getLink8())
+            {
+                if (!track8->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track8);
+                    track8->setFound(true);
+                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track8);
+                    }
+                }
+            }
+            else if (track->getLink6())
+            {
+                if (!track6->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track6);
+                    track6->setFound(true);
+                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track6);
+                    }
+                }
+            }
+            else if (track->getLink5())
+            {
+                if (!track5->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track5);
+                    track5->setFound(true);
+                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track5);
+                    }
+                }
+
+            }
+            else if (track->getLink3())
+            {
+                if (!track3->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track3);
+                    track3->setFound(true);
+                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track3);
+                    }
+                }
+            }
+            else if (track->getLink1())
+            {
+                if (!track1->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track1);
+                    track1->setFound(true);
+                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track1);
+                    }
+                }
+
+            }
+            else if (track->getLink0() )
+            {
+                if(!track0->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track0);
+                    track0->setFound(true);
+                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track0);
+                    }
+                }
+
+            }
+            else if (track->getLink2())
+            {
+                if (!track2->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track2);
+                    track2->setFound(true);
+                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track2);
+                    }
+                }
+
+            }
+        }
+        else if (currentX < destinationX && currentY == destinationY)
+        {
+            std::shared_ptr<Track> track0 = getTrackAt(currentX-16, currentY+16);
+            std::shared_ptr<Track> track1 = getTrackAt(currentX, currentY+16);;
+            std::shared_ptr<Track> track2 = getTrackAt(currentX+16, currentY+16);
+            std::shared_ptr<Track> track3 = getTrackAt(currentX-16, currentY);
+            std::shared_ptr<Track> track5 = getTrackAt(currentX+16, currentY);
+            std::shared_ptr<Track> track6 = getTrackAt(currentX-16, currentY-16);
+            std::shared_ptr<Track> track7 = getTrackAt(currentX, currentY-16);
+            std::shared_ptr<Track> track8 = getTrackAt(currentX+16, currentY-16);
+
+            if (track->getLink5())
+            {
+                if (!track5->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track5);
+                    track5->setFound(true);
+                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track5);
+                    }
+                }
+            }
+            else if (track->getLink2())
+            {
+                if (!track2->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track2);
+                    track2->setFound(true);
+                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track2);
+                    }
+                }
+            }
+            else if (track->getLink8())
+            {
+                if (!track8->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track8);
+                    track8->setFound(true);
+                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track8);
+                    }
+                }
+            }
+            else if (track->getLink1())
+            {
+                if (!track1->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track1);
+                    track1->setFound(true);
+                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track1);
+                    }
+                }
+
+            }
+            else if (track->getLink7())
+            {
+                if (!track7->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track7);
+                    track7->setFound(true);
+                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track7);
+                    }
+                }
+            }
+            else if (track->getLink3())
+            {
+                if (!track3->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track3);
+                    track3->setFound(true);
+                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track3);
+                    }
+                }
+
+            }
+            else if (track->getLink0() )
+            {
+                if(!track0->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track0);
+                    track0->setFound(true);
+                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track0);
+                    }
+                }
+
+            }
+            else if (track->getLink6())
+            {
+                if (!track6->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track6);
+                    track6->setFound(true);
+                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track6);
+                    }
+                }
+
+            }
+        }
+        else if (currentX > destinationX && currentY == destinationY)
+        {
+            std::shared_ptr<Track> track0 = getTrackAt(currentX-16, currentY+16);
+            std::shared_ptr<Track> track1 = getTrackAt(currentX, currentY+16);;
+            std::shared_ptr<Track> track2 = getTrackAt(currentX+16, currentY+16);
+            std::shared_ptr<Track> track3 = getTrackAt(currentX-16, currentY);
+            std::shared_ptr<Track> track5 = getTrackAt(currentX+16, currentY);
+            std::shared_ptr<Track> track6 = getTrackAt(currentX-16, currentY-16);
+            std::shared_ptr<Track> track7 = getTrackAt(currentX, currentY-16);
+            std::shared_ptr<Track> track8 = getTrackAt(currentX+16, currentY-16);
+
+            if (track->getLink3())
+            {
+                if (!track3->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track3);
+                    track3->setFound(true);
+                    if (track3->getLocationX() != destinationX && track3->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track3);
+                    }
+                }
+            }
+            else if (track->getLink0())
+            {
+                if (!track0->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track0);
+                    track0->setFound(true);
+                    if (track0->getLocationX() != destinationX && track0->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track0);
+                    }
+                }
+            }
+            else if (track->getLink6())
+            {
+                if (!track6->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track6);
+                    track6->setFound(true);
+                    if (track6->getLocationX() != destinationX && track6->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track6);
+                    }
+                }
+            }
+            else if (track->getLink1())
+            {
+                if (!track1->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track1);
+                    track1->setFound(true);
+                    if (track1->getLocationX() != destinationX && track1->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track1);
+                    }
+                }
+
+            }
+            else if (track->getLink7())
+            {
+                if (!track7->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track7);
+                    track7->setFound(true);
+                    if (track7->getLocationX() != destinationX && track7->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track7);
+                    }
+                }
+            }
+            else if (track->getLink5())
+            {
+                if (!track5->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track5);
+                    track5->setFound(true);
+                    if (track5->getLocationX() != destinationX && track5->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track5);
+                    }
+                }
+
+            }
+            else if (track->getLink2() )
+            {
+                if(!track2->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track2);
+                    track2->setFound(true);
+                    if (track2->getLocationX() != destinationX && track2->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track2);
+                    }
+                }
+
+            }
+            else if (track->getLink8())
+            {
+                if (!track8->getFound())
+                {
+                    setTrackSpeedLengthList.push_back(track8);
+                    track8->setFound(true);
+                    if (track8->getLocationX() != destinationX && track8->getLocationY() != destinationY)
+                    {
+                        fillSetTrackSpeedLengthList(track8);
+                    }
+                }
+
+            }
+
+        }
+        else
+        {
+
+        }
+
     }
 }
 
 void Map::setSectionSpeedLength()
 {
     setTrackSpeedLengthList.push_back(track1);
+    fillSetTrackSpeedLengthList(track1);
 }
