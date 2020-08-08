@@ -44,9 +44,9 @@ Window::Window()
 
     setLayout(layout);
 
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(timerRun()));
-    timer->start(100);
+    //QTimer *timer = new QTimer(this);
+    //connect(timer, SIGNAL(timeout()), this, SLOT(timerRun()));
+    //timer->start(100);
 }
 
 
@@ -178,7 +178,6 @@ void Window::openTrackLengthSpeedPanel()
     {
         allMenus->setCurrentIndex(0);
         drawingSurface->getMap().resetSetTrackSpeedLengthMechanics();
-
     }
     if (modeChosen != Mode::SETTRACKLENGTHSPEED)
     {
@@ -189,6 +188,7 @@ void Window::openTrackLengthSpeedPanel()
     {
         modeChosen = Mode::NONE;
     }
+
     drawingSurface->setMode(modeChosen);
 }
 
