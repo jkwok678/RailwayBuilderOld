@@ -26,6 +26,7 @@ class Window : public QWidget
 public:
 	Window();
 
+
 private slots:
     void timerRun();
 	void openRailway();
@@ -40,10 +41,10 @@ private slots:
     void openFontBox();
 
     void openTrackLengthSpeedPanel();
-    void cancelSetTrackSpeedLength();
     void convertMilesYardMetres();
     void swapSpeedLabel();
     void convertMPHKMH();
+    void showSetTrackSpeedLengthMenu();
     void changeAspect();
 
     void toggleTrackID();

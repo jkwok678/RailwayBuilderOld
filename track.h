@@ -76,8 +76,8 @@ private:
 protected:
     int trackMainSpeed{ 200 };
     int trackMainLength{ 100 };
-    int trackSecondarySpeed;
-    int trackSecondaryLength;
+    int trackSecondarySpeed{-1};
+    int trackSecondaryLength{-1};
 	//For vertical tracks, platform1 is left, platform2 is right
     //For Horizontal tracks platform1 is up, platform2 is down
     bool platformAny{ false };

@@ -49,7 +49,6 @@ Window::Window()
     timer->start(100);
 }
 
-
 // Private slots
 
 void Window::timerRun()
@@ -62,6 +61,10 @@ void Window::timerRun()
     if (drawingSurface->getMap().getTotalTrack()>0)
     {
         checkAllTrackButton->setEnabled(true);
+    }
+    if (drawingSurface->getMap().getStart() != nullptr)
+    {
+        showSetTrackSpeedLengthMenu();
     }
 
 }
@@ -193,11 +196,6 @@ void Window::openTrackLengthSpeedPanel()
     drawingSurface->setMode(modeChosen);
 }
 
-void Window::cancelSetTrackSpeedLength()
-{
-
-}
-
 void Window::convertMilesYardMetres()
 {
     if (!milesEntry->text().isEmpty())
@@ -272,6 +270,45 @@ void Window::convertMPHKMH()
         speedResult->setText(QString::number(result));
     }
 
+}
+
+void Window::showSetTrackSpeedLengthMenu()
+{
+
+    lengthLabel->setVisible(true);
+
+    speedLabel->setVisible(true);
+    int length =0;
+    int speed = drawingSurface->getMap().getStart()->getTrackMainSpeed();
+    bool sameSpeed = true;
+    for (std::shared_ptr<Track> track : drawingSurface->getMap().getSetTrackSpeedLengthList())
+    {
+        int tempLength = track->getTrackMainLength();
+
+        length += tempLength;
+        if (sameSpeed == true)
+        {
+            if (track->getTrackMainSpeed() != speed)
+            {
+                sameSpeed = false;
+            }
+        }
+
+    }
+    newLengthEntry->setVisible(true);
+    newLengthEntry->setText(QString::number(length));
+    newSpeedEntry->setVisible(true);
+    if (sameSpeed)
+    {
+        newSpeedEntry->setText(QString::number(speed));
+    }
+    restoreAllDefaultButton->setVisible(true);
+
+    restoreSelectionButton->setVisible(true);
+
+    cancelSetLengthSpeedButton->setVisible(true);
+
+    confirmNewLengthSpeedButton->setVisible(true);
 }
 
 void Window::changeAspect()
@@ -3921,22 +3958,32 @@ void Window::createSetTrackLengthSpeedMenu()
 
     setSpeedLengthLayout = new QGridLayout;
     lengthLabel = new QLabel;
-    speedLabel = new QLabel;
     lengthLabel->setText(tr("Length (metres)"));
+    lengthLabel->setVisible(false);
+    speedLabel = new QLabel;
+    speedLabel->setVisible(false);
     speedLabel->setText(tr("Speed Limit (km/h)"));
     newLengthEntry = new QLineEdit;
     newLengthEntry->setMaximumWidth(150);
+    newLengthEntry->setVisible(false);
     newSpeedEntry = new QLineEdit;
     newSpeedEntry->setMaximumWidth(150);
+    newSpeedEntry->setVisible(false);
     restoreAllDefaultButton = new QPushButton;
     restoreAllDefaultButton->setText(tr("Restore ALL defaults?"));
+    restoreAllDefaultButton->setVisible(false);
     restoreSelectionButton = new QPushButton;
     restoreSelectionButton->setText(tr("Restore selection defaults?"));
+    restoreSelectionButton->setVisible(false);
     cancelSetLengthSpeedButton = new QPushButton;
     cancelSetLengthSpeedButton->setText(tr("Cancel"));
+    cancelSetLengthSpeedButton->setVisible(false);
     connect(cancelSetLengthSpeedButton,SIGNAL (released()),drawingSurface, SLOT (stopSetTrackSpeedLength()));
     confirmNewLengthSpeedButton = new QPushButton;
     confirmNewLengthSpeedButton->setText(tr("Ok?"));
+    confirmNewLengthSpeedButton->setVisible(false);
+
+
 
     setSpeedLengthLayout->addWidget(lengthLabel,0,0);
     setSpeedLengthLayout->addWidget(speedLabel,1,0);
