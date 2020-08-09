@@ -168,6 +168,7 @@ public:
     void setSetTrackSpeedLengthList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedLengthList);
     void fillSetTrackSpeedLengthList(std::shared_ptr<Track> track);
     void setSectionSpeedLength();
+    void clearSetTrackSpeedLengthList();
     void resetSetTrackSpeedLengthMechanics();
 
 

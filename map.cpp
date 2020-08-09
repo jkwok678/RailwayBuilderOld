@@ -2809,6 +2809,8 @@ void Map::connectLinkedTrack()
 void Map::checkAllLinkTrackLinked()
 {
     allLinkedTrackLinked = true;
+    //Make sure there's an even number of Linked Tracks.
+    //Then go through all and see if they've been set.
     if (linkedTrackList.size() % 2 ==0)
     {
         for (std::shared_ptr<LinkedTrack> linkedTrack: linkedTrackList)
@@ -2829,6 +2831,7 @@ void Map::checkAllLinkTrackLinked()
 
 std::vector<std::shared_ptr<Track> > Map::makeTrackList()
 {
+    //Method to just add all existing tracks into 1 vector
     std::vector<std::shared_ptr<Track>> tempTrackList;
     if (!straightTrackList.empty())
     {
@@ -2936,7 +2939,9 @@ void Map::checkAllTracks()
     std::shared_ptr<Track> startTrack = findTopLeftTrack();
     trackList = makeTrackList();
     allConnected = true;
+    //First check if all Linked Tracks are linked.
     checkAllLinkTrackLinked();
+    //Now check all other tracks
     for (std::shared_ptr<Track> currentTrack : trackList)
     {
         int centreTrackX = currentTrack->getLocationX();
@@ -3100,7 +3105,9 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
      */
 
 
-
+    // If the current X and Y is not equal to the destination, check all links around the track and see which
+    // one takes you closest to the destination, e.g. a StraightH track would favor links 5, then 2 and 8,
+    // then 1 and 7, then 0 and 6, then 3.
     if (currentX != destinationX || currentY != destinationY)
     {
         if (currentX < destinationX  && currentY < destinationY)
@@ -4019,6 +4026,11 @@ void Map::setSectionSpeedLength()
     fillSetTrackSpeedLengthList(start);
 }
 
+void Map::clearSetTrackSpeedLengthList()
+{
+    setTrackSpeedLengthList.clear();
+}
+
 void Map::resetSetTrackSpeedLengthMechanics()
 {
     std::shared_ptr<Track> track{nullptr};
@@ -4027,4 +4039,5 @@ void Map::resetSetTrackSpeedLengthMechanics()
     start = track;
     end = track2Temp;
     setTrackSpeedLengthList.clear();
+
 }

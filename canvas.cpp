@@ -1749,6 +1749,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                     else
                     {
                         drawnLayout->setEnd(drawnLayout->getTrackAt(finalX,finalY));
+                        drawnLayout->clearSetTrackSpeedLengthList();
                         drawnLayout->setSectionSpeedLength();
                     }
 
@@ -3607,10 +3608,11 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
 
+        std::vector<std::shared_ptr<Track>> chosenList = drawnLayout->getSetTrackSpeedLengthList();
 
-        if (!drawnLayout->getSetTrackSpeedLengthList().empty())
+        if (!chosenList.empty())
         {
-            for (std::shared_ptr<Track> track : drawnLayout->getSetTrackSpeedLengthList())
+            for (std::shared_ptr<Track> track : chosenList)
             {
                 int currentX = track->getLocationX();
                 int currentY = track->getLocationY();
@@ -3648,7 +3650,27 @@ void Canvas::paintEvent(QPaintEvent* event)
                 {
                     int displayX = currentX- minDisplayX;
                     int displayY = 0-(currentY - maxDisplayY);
-                    painter.drawImage(displayX,displayY,*selectBlue);
+                    //painter.drawImage(displayX,displayY,*selectRed);
+                }
+            }
+        }
+        if (drawnLayout->getEnd() != nullptr)
+        {
+            int currentX = drawnLayout->getEnd()->getLocationX();
+            int currentY = drawnLayout->getEnd()->getLocationY();
+            int minCoordinateX = (offsetX * canvasSizeX);
+            int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+            int minCoordinateY = ((offsetY-1) * canvasSizeY);
+            int maxCoordinateY = (offsetY*canvasSizeY);;
+            int minDisplayX = (offsetX * canvasSizeX);
+            int maxDisplayY = (offsetY*canvasSizeY);
+            if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+            {
+                if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                {
+                    int displayX = currentX- minDisplayX;
+                    int displayY = 0-(currentY - maxDisplayY);
+                    //painter.drawImage(displayX,displayY,*selectGreen);
                 }
             }
         }
