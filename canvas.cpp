@@ -1742,17 +1742,21 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 if (drawnLayout->getTrackAt(finalX, finalY) != nullptr)
                 {
-                    if (drawnLayout->getTrack1() == nullptr)
+                    std::shared_ptr<Track> track = drawnLayout->getTrackAt(finalX, finalY);
+                    if (drawnLayout->getStart() == nullptr)
                     {
-                        drawnLayout->setTrack1(drawnLayout->getTrackAt(finalX, finalY));
+                        drawnLayout->setStart(track);
                     }
                     else
                     {
-                        drawnLayout->setTrack2(drawnLayout->getTrackAt(finalX,finalY));
+                        drawnLayout->setEnd(track);
                         drawnLayout->setSectionSpeedLength();
+                        drawnLayout->resetFoundForAllTrack();
+
                     }
 
                 }
+                break;
             }
         };
         update();
@@ -1763,6 +1767,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
     }
     else if (event->button() == Qt::RightButton)
     {
+        drawnLayout->resetSetTrackSpeedLengthMechanics();
         if (drawnLayout->checkElementExists(finalX, finalY))
         {
             switch (canvasChosen)
@@ -1772,6 +1777,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 case Mode::CONNECTLINKEDTRACK:
                 case Mode::SETTRACKLENGTHSPEED:
                 {
+
                     break;
                 }
                 default:
@@ -3631,11 +3637,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                 }
             }
         }
-        if (drawnLayout->getTrack1() != nullptr)
+        if (drawnLayout->getStart() != nullptr)
         {
 
-            int currentX = drawnLayout->getTrack1()->getLocationX();
-            int currentY = drawnLayout->getTrack1()->getLocationY();
+            int currentX = drawnLayout->getStart()->getLocationX();
+            int currentY = drawnLayout->getStart()->getLocationY();
             int minCoordinateX = (offsetX * canvasSizeX);
             int maxCoordinateX = ((offsetX+1) * canvasSizeX);
             int minCoordinateY = ((offsetY-1) * canvasSizeY);
@@ -3648,7 +3654,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                 {
                     int displayX = currentX- minDisplayX;
                     int displayY = 0-(currentY - maxDisplayY);
-                    painter.drawImage(displayX,displayY,*selectBlue);
+                    painter.drawImage(displayX,displayY,*selectRed);
                 }
             }
         }
