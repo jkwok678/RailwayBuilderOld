@@ -530,6 +530,11 @@ void Canvas::trackChangeColour()
     }
 }
 
+void Canvas::stopSetTrackSpeedLength()
+{
+    drawnLayout->resetSetTrackSpeedLengthMechanics();
+}
+
 void Canvas::mousePressEvent(QMouseEvent* event)
 {
     //Get size of the current Canvas Widget.
@@ -1704,7 +1709,8 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         }
 
                     }
-                }      
+                }
+                break;
             }
             case Mode::CONNECTLINKEDTRACK:
             {
@@ -1736,7 +1742,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                     }
 
                 }
-
+                break;
             }
             case Mode::SETTRACKLENGTHSPEED:
             {
@@ -3684,6 +3690,7 @@ void Canvas::paintEvent(QPaintEvent* event)
     }
     else
     {
+        drawnLayout->resetSetTrackSpeedLengthMechanics();
 
         for (std::shared_ptr<StraightTrack> currentElement : drawnLayout->getStraightTrackList())
         {

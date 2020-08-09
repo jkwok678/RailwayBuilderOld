@@ -30,7 +30,7 @@ public:
     Mode getMode();
     void setMode(Mode newChosen);
 
-	Map getMap();
+    Map getMap();
 	void setMap(Map& map);
 
 	int getImageSize() const;
@@ -63,7 +63,12 @@ public:
     void canvasChangeColour();
     void trackChangeColour();
 
+
+
 public slots:
+
+    void stopSetTrackSpeedLength();
+
 
 protected:
     void mousePressEvent(QMouseEvent* event) override;

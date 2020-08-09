@@ -40,6 +40,7 @@ private slots:
     void openFontBox();
 
     void openTrackLengthSpeedPanel();
+    void cancelSetTrackSpeedLength();
     void convertMilesYardMetres();
     void swapSpeedLabel();
     void convertMPHKMH();

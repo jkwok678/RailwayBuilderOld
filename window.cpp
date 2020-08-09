@@ -44,9 +44,9 @@ Window::Window()
 
     setLayout(layout);
 
-    //QTimer *timer = new QTimer(this);
-    //connect(timer, SIGNAL(timeout()), this, SLOT(timerRun()));
-    //timer->start(100);
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(timerRun()));
+    timer->start(100);
 }
 
 
@@ -63,6 +63,7 @@ void Window::timerRun()
     {
         checkAllTrackButton->setEnabled(true);
     }
+
 }
 
 void Window::openRailway()
@@ -177,7 +178,7 @@ void Window::openTrackLengthSpeedPanel()
     else
     {
         allMenus->setCurrentIndex(0);
-        drawingSurface->getMap().resetSetTrackSpeedLengthMechanics();
+        //drawingSurface->setMap(newMap);
     }
     if (modeChosen != Mode::SETTRACKLENGTHSPEED)
     {
@@ -190,6 +191,11 @@ void Window::openTrackLengthSpeedPanel()
     }
 
     drawingSurface->setMode(modeChosen);
+}
+
+void Window::cancelSetTrackSpeedLength()
+{
+
 }
 
 void Window::convertMilesYardMetres()
@@ -3928,6 +3934,7 @@ void Window::createSetTrackLengthSpeedMenu()
     restoreSelectionButton->setText(tr("Restore selection defaults?"));
     cancelSetLengthSpeedButton = new QPushButton;
     cancelSetLengthSpeedButton->setText(tr("Cancel"));
+    connect(cancelSetLengthSpeedButton,SIGNAL (released()),drawingSurface, SLOT (stopSetTrackSpeedLength()));
     confirmNewLengthSpeedButton = new QPushButton;
     confirmNewLengthSpeedButton->setText(tr("Ok?"));
 
