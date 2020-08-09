@@ -1742,18 +1742,21 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 if (drawnLayout->getTrackAt(finalX, finalY) != nullptr)
                 {
+                    std::shared_ptr<Track> track = drawnLayout->getTrackAt(finalX, finalY);
                     if (drawnLayout->getStart() == nullptr)
                     {
-                        drawnLayout->setStart(drawnLayout->getTrackAt(finalX, finalY));
+                        drawnLayout->setStart(track);
                     }
                     else
                     {
-                        drawnLayout->setEnd(drawnLayout->getTrackAt(finalX,finalY));
-                        drawnLayout->clearSetTrackSpeedLengthList();
+                        drawnLayout->setEnd(track);
                         drawnLayout->setSectionSpeedLength();
+                        drawnLayout->resetFoundForAllTrack();
+
                     }
 
                 }
+                break;
             }
         };
         update();
@@ -1764,6 +1767,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
     }
     else if (event->button() == Qt::RightButton)
     {
+        drawnLayout->resetSetTrackSpeedLengthMechanics();
         if (drawnLayout->checkElementExists(finalX, finalY))
         {
             switch (canvasChosen)
@@ -1773,6 +1777,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 case Mode::CONNECTLINKEDTRACK:
                 case Mode::SETTRACKLENGTHSPEED:
                 {
+
                     break;
                 }
                 default:
@@ -3650,7 +3655,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                 {
                     int displayX = currentX- minDisplayX;
                     int displayY = 0-(currentY - maxDisplayY);
-                    //painter.drawImage(displayX,displayY,*selectRed);
+                    painter.drawImage(displayX,displayY,*selectRed);
                 }
             }
         }
@@ -3671,6 +3676,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                     int displayX = currentX- minDisplayX;
                     int displayY = 0-(currentY - maxDisplayY);
                     //painter.drawImage(displayX,displayY,*selectGreen);
+                    painter.drawImage(displayX,displayY,*selectRed);
                 }
             }
         }
