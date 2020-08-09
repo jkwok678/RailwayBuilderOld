@@ -2826,6 +2826,7 @@ void Map::checkAllLinkTrackLinked()
 
 
 
+
 std::vector<std::shared_ptr<Track> > Map::makeTrackList()
 {
     std::vector<std::shared_ptr<Track>> tempTrackList;
@@ -3045,26 +3046,28 @@ void Map::setAllConnected(bool newAllConnected)
     allConnected = newAllConnected;
 }
 
-std::shared_ptr<Track> Map::getTrack1() const
-{
-    return track1;
-}
-
-void Map::setTrack1(const std::shared_ptr<Track> &newTrack)
-{
-    track1 = newTrack;
-}
 
 
-std::shared_ptr<Track> Map::getTrack2() const
+std::shared_ptr<Track> Map::getStart() const
 {
-    return track2;
+    return start;
 }
 
-void Map::setTrack2(const std::shared_ptr<Track> &newTrack)
+void Map::setStart(const std::shared_ptr<Track> &newStart)
 {
-    track2 = newTrack;
+    start = newStart;
 }
+
+std::shared_ptr<Track> Map::getEnd() const
+{
+    return end;
+}
+
+void Map::setEnd(const std::shared_ptr<Track> &newEnd)
+{
+    end = newEnd;
+}
+
 
 std::vector<std::shared_ptr<Track> > Map::getSetTrackSpeedLengthList() const
 {
@@ -3081,8 +3084,8 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
 
     int currentX = track->getLocationX();
     int currentY = track->getLocationY();
-    int destinationX = track2->getLocationX();
-    int destinationY = track2->getLocationY();
+    int destinationX = end->getLocationX();
+    int destinationY = end->getLocationY();
 
     /*
      *
@@ -4012,8 +4015,8 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track)
 
 void Map::setSectionSpeedLength()
 {
-    setTrackSpeedLengthList.push_back(track1);
-    fillSetTrackSpeedLengthList(track1);
+    setTrackSpeedLengthList.push_back(start);
+    fillSetTrackSpeedLengthList(start);
 }
 
 void Map::resetSetTrackSpeedLengthMechanics()
@@ -4021,7 +4024,7 @@ void Map::resetSetTrackSpeedLengthMechanics()
     std::shared_ptr<Track> track{nullptr};
     std::shared_ptr<Track> track2Temp{nullptr};
 
-    track1 = track;
-    track2 = track2Temp;
+    start = track;
+    end = track2Temp;
     setTrackSpeedLengthList.clear();
 }

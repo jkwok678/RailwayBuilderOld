@@ -1742,13 +1742,13 @@ void Canvas::mousePressEvent(QMouseEvent* event)
             {
                 if (drawnLayout->getTrackAt(finalX, finalY) != nullptr)
                 {
-                    if (drawnLayout->getTrack1() == nullptr)
+                    if (drawnLayout->getStart() == nullptr)
                     {
-                        drawnLayout->setTrack1(drawnLayout->getTrackAt(finalX, finalY));
+                        drawnLayout->setStart(drawnLayout->getTrackAt(finalX, finalY));
                     }
                     else
                     {
-                        drawnLayout->setTrack2(drawnLayout->getTrackAt(finalX,finalY));
+                        drawnLayout->setEnd(drawnLayout->getTrackAt(finalX,finalY));
                         drawnLayout->setSectionSpeedLength();
                     }
 
@@ -3631,11 +3631,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                 }
             }
         }
-        if (drawnLayout->getTrack1() != nullptr)
+        if (drawnLayout->getStart() != nullptr)
         {
 
-            int currentX = drawnLayout->getTrack1()->getLocationX();
-            int currentY = drawnLayout->getTrack1()->getLocationY();
+            int currentX = drawnLayout->getStart()->getLocationX();
+            int currentY = drawnLayout->getStart()->getLocationY();
             int minCoordinateX = (offsetX * canvasSizeX);
             int maxCoordinateX = ((offsetX+1) * canvasSizeX);
             int minCoordinateY = ((offsetY-1) * canvasSizeY);
