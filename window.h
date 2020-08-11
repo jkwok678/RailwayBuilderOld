@@ -26,6 +26,12 @@ class Window : public QWidget
 public:
 	Window();
 
+    int getNewLength() const;
+    void setNewLength(int newestLength);
+
+    int getNewSpeed() const;
+    void setNewSpeed(int newestSpeed);
+
 
 private slots:
     void timerRun();
@@ -45,6 +51,9 @@ private slots:
     void swapSpeedLabel();
     void convertMPHKMH();
     void showSetTrackSpeedLengthMenu();
+    void hideSetTrackSpeedLengthMenu();
+    void updateSetTrackSpeedLengthMenu();
+    void confirmNewLengthSpeed();
     void changeAspect();
 
     void toggleTrackID();
@@ -1110,7 +1119,9 @@ private:
     QLabel* lengthLabel;
     QLabel* speedLabel;
     QLineEdit* newLengthEntry;
+    int newLength;
     QLineEdit* newSpeedEntry;
+    int newSpeed;
     QPushButton* restoreAllDefaultButton;
     QPushButton* restoreSelectionButton;
     QPushButton* cancelSetLengthSpeedButton;

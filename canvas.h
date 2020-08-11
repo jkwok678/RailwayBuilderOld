@@ -63,11 +63,13 @@ public:
     void canvasChangeColour();
     void trackChangeColour();
 
-
+signals:
+    void moreTracksAdded();
 
 public slots:
 
     void stopSetTrackSpeedLength();
+    void setTrackSpeedLength(int length, int speed);
 
 
 protected:

@@ -54,6 +54,7 @@ Window::Window()
 void Window::timerRun()
 {
     drawingSurface->update();
+
     if (drawingSurface->getMap().getLinkedTrackList().size()>0)
     {
         connectLinkedTrackButton->setEnabled(true);
@@ -278,30 +279,11 @@ void Window::showSetTrackSpeedLengthMenu()
     lengthLabel->setVisible(true);
 
     speedLabel->setVisible(true);
-    int length =0;
-    int speed = drawingSurface->getMap().getStart()->getTrackMainSpeed();
-    bool sameSpeed = true;
-    for (std::shared_ptr<Track> track : drawingSurface->getMap().getSetTrackSpeedLengthList())
-    {
-        int tempLength = track->getTrackMainLength();
 
-        length += tempLength;
-        if (sameSpeed == true)
-        {
-            if (track->getTrackMainSpeed() != speed)
-            {
-                sameSpeed = false;
-            }
-        }
-
-    }
     newLengthEntry->setVisible(true);
-    newLengthEntry->setText(QString::number(length));
+
     newSpeedEntry->setVisible(true);
-    if (sameSpeed)
-    {
-        newSpeedEntry->setText(QString::number(speed));
-    }
+
     restoreAllDefaultButton->setVisible(true);
 
     restoreSelectionButton->setVisible(true);
@@ -309,6 +291,78 @@ void Window::showSetTrackSpeedLengthMenu()
     cancelSetLengthSpeedButton->setVisible(true);
 
     confirmNewLengthSpeedButton->setVisible(true);
+
+}
+
+void Window::hideSetTrackSpeedLengthMenu()
+{
+    lengthLabel->setVisible(false);
+
+    speedLabel->setVisible(false);
+
+    newLengthEntry->setVisible(false);
+
+    newSpeedEntry->setVisible(false);
+
+    restoreAllDefaultButton->setVisible(false);
+
+    restoreSelectionButton->setVisible(false);
+
+    cancelSetLengthSpeedButton->setVisible(false);
+
+    confirmNewLengthSpeedButton->setVisible(false);
+}
+
+void Window::updateSetTrackSpeedLengthMenu()
+{
+    int length =0;
+    int speed = drawingSurface->getMap().getStart()->getTrackMainSpeed();
+    bool sameSpeed = true;
+
+    if (drawingSurface->getMap().getStart() != nullptr && drawingSurface->getMap().getEnd() != nullptr)
+    {
+        for (std::shared_ptr<Track> track : drawingSurface->getMap().getSetTrackSpeedLengthList())
+        {
+            int tempLength = track->getTrackMainLength();
+
+            length += tempLength;
+            if (sameSpeed == true)
+            {
+                if (track->getTrackMainSpeed() != speed)
+                {
+                    sameSpeed = false;
+                }
+            }
+
+        }
+        newLengthEntry->setText(QString::number(length));
+        if (sameSpeed)
+        {
+            newSpeedEntry->setText(QString::number(speed));
+        }
+    }
+    else if (drawingSurface->getMap().getStart() != nullptr && drawingSurface->getMap().getEnd() == nullptr)
+    {
+        newLengthEntry->setText(QString::number(drawingSurface->getMap().getStart()->getTrackMainLength()));
+        newSpeedEntry->setText(QString::number(drawingSurface->getMap().getStart()->getTrackMainSpeed()));
+    }
+
+
+    if (drawingSurface->getMap().getSetTrackSpeedLengthList().size() <1)
+    {
+        newLengthEntry->setText(tr("No track"));
+        newSpeedEntry->setText(tr("No track"));
+    }
+
+}
+
+void Window::confirmNewLengthSpeed()
+{
+    newLength = newLengthEntry->text().toInt();
+    newSpeed = newSpeedEntry->text().toInt();
+    drawingSurface->setTrackSpeedLength(newLength, newSpeed);
+    hideSetTrackSpeedLengthMenu();
+
 }
 
 void Window::changeAspect()
@@ -3978,10 +4032,13 @@ void Window::createSetTrackLengthSpeedMenu()
     cancelSetLengthSpeedButton = new QPushButton;
     cancelSetLengthSpeedButton->setText(tr("Cancel"));
     cancelSetLengthSpeedButton->setVisible(false);
-    connect(cancelSetLengthSpeedButton,SIGNAL (released()),drawingSurface, SLOT (stopSetTrackSpeedLength()));
+    connect(cancelSetLengthSpeedButton,&QPushButton::released,drawingSurface, &Canvas::stopSetTrackSpeedLength);
+    connect(cancelSetLengthSpeedButton,&QPushButton::released,this, &Window::hideSetTrackSpeedLengthMenu);
     confirmNewLengthSpeedButton = new QPushButton;
     confirmNewLengthSpeedButton->setText(tr("Ok?"));
     confirmNewLengthSpeedButton->setVisible(false);
+    connect(confirmNewLengthSpeedButton, SIGNAL(released()), this, SLOT (confirmNewLengthSpeed()));
+    connect(drawingSurface, &Canvas::moreTracksAdded, this,  &Window::updateSetTrackSpeedLengthMenu);
 
 
 
@@ -4001,6 +4058,28 @@ void Window::createSetTrackLengthSpeedMenu()
     setTrackLengthSpeedMenu->setLayout(setTrackLengthSpeedLayout1);
 
 }
+
+int Window::getNewLength() const
+{
+    return newLength;
+}
+
+void Window::setNewLength(int newestLength)
+{
+    newLength = newestLength;
+}
+
+int Window::getNewSpeed() const
+{
+    return newSpeed;
+}
+
+void Window::setNewSpeed(int newestSpeed)
+{
+    newSpeed = newestSpeed;
+}
+
+
 
 
 void Window::createRightMenu()

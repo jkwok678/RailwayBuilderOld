@@ -3069,6 +3069,8 @@ void Map::setEnd(const std::shared_ptr<Track> &value)
     end = value;
 }
 
+
+
 std::vector<std::shared_ptr<Track> > Map::getSetTrackSpeedLengthList() const
 {
     return setTrackSpeedLengthList;
@@ -3815,4 +3817,23 @@ void Map::resetFoundForAllTrack()
     {
         track->setFound(false);
     }
+}
+
+void Map::setLengthSpeed(int newLength, int newSpeed)
+{
+    int size = setTrackSpeedLengthList.size();
+    int lengthPerTrack = 0;
+    if (size>0)
+    {
+        lengthPerTrack = newLength/size;
+        for (std::shared_ptr<Track> track : setTrackSpeedLengthList)
+        {
+            track->setTrackMainLength(lengthPerTrack);
+            track->setTrackMainSpeed(newSpeed);
+        }
+    }
+    start = nullptr;
+    end = nullptr;
+    setTrackSpeedLengthList.clear();
+
 }

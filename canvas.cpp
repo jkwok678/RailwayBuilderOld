@@ -535,6 +535,11 @@ void Canvas::stopSetTrackSpeedLength()
     drawnLayout->resetSetTrackSpeedLengthMechanics();
 }
 
+void Canvas::setTrackSpeedLength(int length, int speed)
+{
+    drawnLayout->setLengthSpeed(length, speed);
+}
+
 void Canvas::mousePressEvent(QMouseEvent* event)
 {
     //Get size of the current Canvas Widget.
@@ -1758,7 +1763,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                         drawnLayout->setEnd(track);
                         drawnLayout->setSectionSpeedLength();
                         drawnLayout->resetFoundForAllTrack();
-
+                        emit moreTracksAdded();
                     }
 
                 }

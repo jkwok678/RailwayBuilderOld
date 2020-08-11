@@ -173,6 +173,8 @@ public:
     void setStart(const std::shared_ptr<Track> &value);
     std::shared_ptr<Track> getEnd() const;
     void setEnd(const std::shared_ptr<Track> &value);
+
+    void setLengthSpeed(int newLength, int newSpeed);
 };
 
 #endif // MAP_H
