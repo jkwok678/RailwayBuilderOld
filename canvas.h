@@ -70,6 +70,8 @@ public slots:
 
     void stopSetTrackSpeedLength();
     void setTrackSpeedLength(int length, int speed);
+    void resetAllTrackSpeedLength();
+    void resetSelectedTrackSpeedLength();
 
 
 protected:

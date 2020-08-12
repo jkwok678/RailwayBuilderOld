@@ -52,6 +52,8 @@ private slots:
     void convertMPHKMH();
     void showSetTrackSpeedLengthMenu();
     void hideSetTrackSpeedLengthMenu();
+    void restoreAllDefaultLengthSpeed();
+    void restoreSelectedDefaultLengthSpeed();
     void updateSetTrackSpeedLengthMenu();
     void confirmNewLengthSpeed();
     void changeAspect();

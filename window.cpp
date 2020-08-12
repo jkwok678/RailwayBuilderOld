@@ -313,10 +313,27 @@ void Window::hideSetTrackSpeedLengthMenu()
     confirmNewLengthSpeedButton->setVisible(false);
 }
 
+void Window::restoreAllDefaultLengthSpeed()
+{
+    drawingSurface->resetAllTrackSpeedLength();
+    updateSetTrackSpeedLengthMenu();
+}
+
+void Window::restoreSelectedDefaultLengthSpeed()
+{
+    drawingSurface->resetSelectedTrackSpeedLength();
+    updateSetTrackSpeedLengthMenu();
+}
+
 void Window::updateSetTrackSpeedLengthMenu()
 {
     int length =0;
-    int speed = drawingSurface->getMap().getStart()->getTrackMainSpeed();
+    int speed = 0;
+    if (drawingSurface->getMap().getStart() != nullptr)
+    {
+        speed = drawingSurface->getMap().getStart()->getTrackMainSpeed();
+    }
+
     bool sameSpeed = true;
 
     if (drawingSurface->getMap().getStart() != nullptr && drawingSurface->getMap().getEnd() != nullptr)
@@ -4026,9 +4043,11 @@ void Window::createSetTrackLengthSpeedMenu()
     restoreAllDefaultButton = new QPushButton;
     restoreAllDefaultButton->setText(tr("Restore ALL defaults?"));
     restoreAllDefaultButton->setVisible(false);
+    connect(restoreAllDefaultButton, &QPushButton::released, this, &Window::restoreAllDefaultLengthSpeed);
     restoreSelectionButton = new QPushButton;
     restoreSelectionButton->setText(tr("Restore selection defaults?"));
     restoreSelectionButton->setVisible(false);
+    connect(restoreSelectionButton,&QPushButton::released, this, &Window::restoreSelectedDefaultLengthSpeed);
     cancelSetLengthSpeedButton = new QPushButton;
     cancelSetLengthSpeedButton->setText(tr("Cancel"));
     cancelSetLengthSpeedButton->setVisible(false);

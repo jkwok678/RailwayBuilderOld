@@ -540,6 +540,29 @@ void Canvas::setTrackSpeedLength(int length, int speed)
     drawnLayout->setLengthSpeed(length, speed);
 }
 
+void Canvas::resetAllTrackSpeedLength()
+{
+    drawnLayout->makeTrackList();
+    for (std::shared_ptr<Track> track : drawnLayout->getTrackList())
+    {
+        drawnLayout->restoreDefaultLengthSpeed(track);
+    }
+    //drawnLayout->resetSetTrackSpeedLengthMechanics();
+}
+
+void Canvas::resetSelectedTrackSpeedLength()
+{
+    if (drawnLayout->getSetTrackSpeedLengthList().size()>0)
+    {
+        for (std::shared_ptr<Track> track : drawnLayout->getSetTrackSpeedLengthList())
+        {
+            drawnLayout->restoreDefaultLengthSpeed(track);
+        }
+    }
+    //drawnLayout->resetSetTrackSpeedLengthMechanics();
+
+}
+
 void Canvas::mousePressEvent(QMouseEvent* event)
 {
     //Get size of the current Canvas Widget.

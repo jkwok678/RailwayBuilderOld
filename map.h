@@ -35,7 +35,7 @@ private:
 
 
 
-    std::vector<std::shared_ptr<Track>> makeTrackList();
+
     std::shared_ptr<Track> findTopLeftTrack();
 
     void checkAllLinkTrackLinked();
@@ -154,6 +154,9 @@ public:
     void setLinkedTrack2(const std::shared_ptr<LinkedTrack> &newLinkedTrack2);
     void connectLinkedTrack();
 
+    std::vector<std::shared_ptr<Track> > getTrackList() const;
+    std::vector<std::shared_ptr<Track>> makeTrackList();
+    void setTrackList(const std::vector<std::shared_ptr<Track> > &value);
     void checkAllTracks();
 
     bool getAllLinkedTrackLinked() const;
@@ -175,6 +178,8 @@ public:
     void setEnd(const std::shared_ptr<Track> &value);
 
     void setLengthSpeed(int newLength, int newSpeed);
+    void restoreDefaultLengthSpeed(std::shared_ptr<Track> track);
+    void clearSetTraclSpeedLengthList();
 };
 
 #endif // MAP_H

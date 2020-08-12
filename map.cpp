@@ -2828,6 +2828,16 @@ void Map::checkAllLinkTrackLinked()
 
 
 
+std::vector<std::shared_ptr<Track> > Map::getTrackList() const
+{
+    return trackList;
+}
+
+void Map::setTrackList(const std::vector<std::shared_ptr<Track> > &value)
+{
+    trackList = value;
+}
+
 std::vector<std::shared_ptr<Track> > Map::makeTrackList()
 {
     std::vector<std::shared_ptr<Track>> tempTrackList;
@@ -3826,8 +3836,18 @@ void Map::setLengthSpeed(int newLength, int newSpeed)
     if (size>0)
     {
         lengthPerTrack = newLength/size;
-        for (std::shared_ptr<Track> track : setTrackSpeedLengthList)
+        int extra = newLength - (lengthPerTrack * size);
+
+        for (int i=0; i<setTrackSpeedLengthList.size(); i++)
         {
+            std::shared_ptr<Track> track = setTrackSpeedLengthList[i];
+            if (i == setTrackSpeedLengthList.size()-1)
+            {
+                if (extra > 0)
+                {
+                    lengthPerTrack = lengthPerTrack + extra;
+                }
+            }
             track->setTrackMainLength(lengthPerTrack);
             track->setTrackMainSpeed(newSpeed);
         }
@@ -3836,4 +3856,10 @@ void Map::setLengthSpeed(int newLength, int newSpeed)
     end = nullptr;
     setTrackSpeedLengthList.clear();
 
+}
+
+void Map::restoreDefaultLengthSpeed(std::shared_ptr<Track> track)
+{
+    track->setTrackMainLength(100);
+    track->setTrackMainSpeed(200);
 }
