@@ -2141,7 +2141,16 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
         std::shared_ptr<Track> track = getTrackAt(locationX,locationY);
         std::shared_ptr<Concourse> concourse = getConcourseAt(locationX, locationY);
         std::shared_ptr<NamedLocation> namedLocation = getNamedLocationAt(locationX, locationY);
+        std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack = getBridgeUnderpassTrack(locationX, locationY);
         //link text to it
+        if (bridgeUnderpassTrack != nullptr)
+        {
+            if (!bridgeUnderpassTrack->getNamed())
+            {
+                bridgeUnderpassTrack->setText(linkedText);
+                bridgeUnderpassTrack->setNamed(true);
+            }
+        }
         if (track != nullptr)
         {
             if (track->getPlatformAny())
@@ -2173,6 +2182,7 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
             {
                 std::shared_ptr<Track> trackTempYP16 = getTrackAt(locationX,locationY+16);
                 std::shared_ptr<Concourse> concourseTempYP16 = getConcourseAt(locationX,locationY+16);
+                std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTempYP16 = getBridgeUnderpassTrack(locationX,locationY+16);
                 //Try link the track to text if it has a platform.
                 //Try link if the the element isn't named yet.
                 if (trackTempYP16 != nullptr)
@@ -2193,12 +2203,20 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
                         linkLocalText(locationX, locationY+16, linkedText);
                     }
                 }
+                if (bridgeUnderpassTempYP16 != nullptr)
+                {
+                    if (!bridgeUnderpassTempYP16->getNamed())
+                    {
+                        linkLocalText(locationX, locationY+16, linkedText);
+                    }
+                }
             }
             //See if there's a track underneath
             if (checkElementExists(locationX, locationY-16))
             {
                 std::shared_ptr<Track> trackTempYM16 = getTrackAt(locationX,locationY-16);
                 std::shared_ptr<Concourse> concourseTempYM16 = getConcourseAt(locationX,locationY-16);
+                std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTempYM16 = getBridgeUnderpassTrack(locationX,locationY-16);
 
                 if (trackTempYM16 != nullptr)
                 {
@@ -2217,12 +2235,21 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
                         linkLocalText(locationX, locationY-16, linkedText);
                     }
                 }
+                if (bridgeUnderpassTempYM16 != nullptr)
+                {
+                    if (!bridgeUnderpassTempYM16->getNamed())
+                    {
+                        linkLocalText(locationX, locationY-16, linkedText);
+                    }
+                }
+
             }
             //See if there's a track on the right of it
             if (checkElementExists(locationX+16, locationY))
             {
                 std::shared_ptr<Track> trackTempXP16 = getTrackAt(locationX+16,locationY);
                 std::shared_ptr<Concourse> concourseTempXP16 = getConcourseAt(locationX+16,locationY);
+                std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTempXP16 = getBridgeUnderpassTrack(locationX+16,locationY);
 
                 if (trackTempXP16 != nullptr)
                 {
@@ -2241,12 +2268,20 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
                         linkLocalText(locationX+16, locationY, linkedText);
                     }
                 }
+                if (bridgeUnderpassTempXP16 != nullptr)
+                {
+                    if (!bridgeUnderpassTempXP16->getNamed())
+                    {
+                        linkLocalText(locationX+16, locationY, linkedText);
+                    }
+                }
             }
             //See if there's a track on the left of it
             if (checkElementExists(locationX-16, locationY))
             {
                 std::shared_ptr<Track> trackTempXM16 = getTrackAt(locationX-16,locationY);
                 std::shared_ptr<Concourse> concourseTempXM16 = getConcourseAt(locationX-16,locationY);
+                std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTempXM16 = getBridgeUnderpassTrack(locationX-16,locationY);
                 if (trackTempXM16 != nullptr)
                 {
                     if (trackTempXM16->getPlatformAny())
@@ -2260,6 +2295,13 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
                 else if (concourseTempXM16 != nullptr)
                 {
                     if (!concourseTempXM16->getNamed())
+                    {
+                        linkLocalText(locationX-16, locationY, linkedText);
+                    }
+                }
+                if (bridgeUnderpassTempXM16 != nullptr)
+                {
+                    if (!bridgeUnderpassTempXM16->getNamed())
                     {
                         linkLocalText(locationX-16, locationY, linkedText);
                     }
@@ -2318,12 +2360,13 @@ void Map::linkLocalText(int locationX, int locationY, std::shared_ptr<Text> link
     }
 }
 
-void Map::linkNewBlockToText(int locationX, int     locationY)
+void Map::linkNewBlockToText(int locationX, int locationY)
 {
     //Get what's there currently
     std::shared_ptr<Track> track = getTrackAt(locationX,locationY);
     std::shared_ptr<Concourse> concourse = getConcourseAt(locationX, locationY);
     std::shared_ptr<NamedLocation> namedLocation = getNamedLocationAt(locationX, locationY);
+
     std::shared_ptr<Text> textToLink = nullptr;
 
     //Get what's above the current Element

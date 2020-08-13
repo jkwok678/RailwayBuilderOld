@@ -1653,6 +1653,7 @@ void Canvas::mousePressEvent(QMouseEvent* event)
                 bool ok = false;
                 std::shared_ptr<Track> track = drawnLayout->getTrackAt(finalX,finalY);
                 std::shared_ptr<NamedElement> namedElement = drawnLayout->getNamedElementAt(finalX,finalY);
+                std::shared_ptr<BridgeUnderpassTrack> bridgeUnderpassTrack = drawnLayout->getBridgeUnderpassTrack(finalX, finalY);
                 QString readableBit;
                 if (track != nullptr)
                 {
@@ -1697,6 +1698,45 @@ void Canvas::mousePressEvent(QMouseEvent* event)
 
                     }
                 }
+                if (bridgeUnderpassTrack != nullptr)
+                {
+                    if (bridgeUnderpassTrack->getNamed())
+                    {
+                        readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal
+                        , track->getText()->getReadableText(), &ok);
+                        std::shared_ptr<Text> text = track->getText();
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+
+                            text->setReadableText(readableBit);
+                        }
+                        else
+                        {
+                            drawnLayout->deleteTextFromAllElement(text);
+                            drawnLayout->deleteText(text);
+                        }
+                    }
+                    else
+                    {
+                        readableBit = QInputDialog::getText(this, tr("Add location"), tr("Enter location:"), QLineEdit::Normal, tr(""), &ok);
+                        if (readableBit.startsWith(" "))
+                        {
+                            readableBit.clear();
+                        }
+                        if(!readableBit.isEmpty())
+                        {
+                            std::shared_ptr<Text> text(new Text(finalX, finalY, readableBit,currentFont));
+                            drawnLayout->addText(text);
+                            exist = true;
+                            drawnLayout->linkLocalText(finalX, finalY, text);
+                        }
+                    }
+                }
+
 
                 if (namedElement != nullptr && exist == false)
                 {
@@ -4637,7 +4677,15 @@ void Canvas::paintEvent(QPaintEvent* event)
                     {
                         case BridgeUnderpassType::BRIDGE1:
                         {
-                            painter.drawImage(displayX, displayY, *bridgeUnset1Image);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *bridgeSet1Image);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *bridgeUnset1Image);
+                            }
+
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4664,7 +4712,14 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case BridgeUnderpassType::BRIDGE2:
                         {
-                            painter.drawImage(displayX, displayY, *bridgeUnset2Image);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *bridgeSet2Image);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *bridgeUnset2Image);
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4691,7 +4746,14 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case BridgeUnderpassType::UNDERPASS1:
                         {
-                            painter.drawImage(displayX, displayY, *underpassUnset1Image);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *underpassSet1Image);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *underpassUnset1Image);
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4718,7 +4780,14 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case BridgeUnderpassType::UNDERPASS2:
                         {
-                            painter.drawImage(displayX, displayY, *underpassUnset2Image);
+                            if (currentElement->getNamed())
+                            {
+                                painter.drawImage(displayX, displayY, *underpassSet2Image);
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *underpassUnset2Image);
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
