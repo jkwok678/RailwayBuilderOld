@@ -542,24 +542,46 @@ void Canvas::setTrackSpeedLength(int length, int speed)
 
 void Canvas::resetAllTrackSpeedLength()
 {
-    drawnLayout->makeTrackList();
-    for (std::shared_ptr<Track> track : drawnLayout->getTrackList())
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Warning");
+    msgBox.setIcon(QMessageBox::Warning);
+    msgBox.setText("This will reset all current Track speeds and lengths. Continue?");
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    int ret = msgBox.exec();
+    if (ret == QMessageBox::Yes)
     {
-        drawnLayout->restoreDefaultLengthSpeed(track);
+        drawnLayout->makeTrackList();
+        for (std::shared_ptr<Track> track : drawnLayout->getTrackList())
+        {
+            drawnLayout->restoreDefaultLengthSpeed(track);
+        }
+        drawnLayout->resetSetTrackSpeedLengthMechanics();
     }
-    //drawnLayout->resetSetTrackSpeedLengthMechanics();
+
+
 }
 
 void Canvas::resetSelectedTrackSpeedLength()
 {
-    if (drawnLayout->getSetTrackSpeedLengthList().size()>0)
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Warning");
+    msgBox.setIcon(QMessageBox::Warning);
+    msgBox.setText("This will reset the selected Track speeds and lengths. Continue?");
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    int ret = msgBox.exec();
+    if (ret == QMessageBox::Yes)
     {
-        for (std::shared_ptr<Track> track : drawnLayout->getSetTrackSpeedLengthList())
+        if (drawnLayout->getSetTrackSpeedLengthList().size()>0)
         {
-            drawnLayout->restoreDefaultLengthSpeed(track);
+            for (std::shared_ptr<Track> track : drawnLayout->getSetTrackSpeedLengthList())
+            {
+                drawnLayout->restoreDefaultLengthSpeed(track);
+            }
         }
+        drawnLayout->resetSetTrackSpeedLengthMechanics();
     }
-    //drawnLayout->resetSetTrackSpeedLengthMechanics();
 
 }
 

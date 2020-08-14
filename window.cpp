@@ -63,7 +63,7 @@ void Window::timerRun()
     {
         checkAllTrackButton->setEnabled(true);
     }
-    if (drawingSurface->getMap().getStart() != nullptr)
+    if (drawingSurface->getMap().getEnd() != nullptr)
     {
         showSetTrackSpeedLengthMenu();
     }
@@ -317,12 +317,14 @@ void Window::restoreAllDefaultLengthSpeed()
 {
     drawingSurface->resetAllTrackSpeedLength();
     updateSetTrackSpeedLengthMenu();
+    hideSetTrackSpeedLengthMenu();
 }
 
 void Window::restoreSelectedDefaultLengthSpeed()
 {
     drawingSurface->resetSelectedTrackSpeedLength();
     updateSetTrackSpeedLengthMenu();
+    hideSetTrackSpeedLengthMenu();
 }
 
 void Window::updateSetTrackSpeedLengthMenu()

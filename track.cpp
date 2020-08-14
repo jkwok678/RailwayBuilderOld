@@ -665,6 +665,8 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
     switchType = newSwitchType;
     locationX = newLocationX;
     locationY = newLocationY;
+    trackSecondaryLength = 100;
+    trackSecondarySpeed = 200;
     switch (switchType)
     {
         case SwitchType::SWITCHTIGHT1:
@@ -887,6 +889,8 @@ CrossoverTrack::CrossoverTrack(CrossoverType newCrossoverType, int newLocationX,
     crossoverType = newCrossoverType;
     locationX = newLocationX;
     locationY = newLocationY;
+    trackSecondaryLength = 100;
+    trackSecondaryLength = 200;
     switch (crossoverType)
     {
         case CrossoverType::CROSSOVER1:
@@ -958,6 +962,8 @@ FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int new
     flyoverType = newFlyoverType;
     locationX = newLocationX;
     locationY = newLocationY;
+    trackSecondaryLength = 100;
+    trackSecondaryLength = 200;
     switch (flyoverType)
     {
         case FlyoverType::FLYOVER1:
