@@ -167,7 +167,7 @@ public:
 
     std::vector<std::shared_ptr<Track> > getSetTrackSpeedLengthList() const;
     void setSetTrackSpeedLengthList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedLengthList);
-    void fillSetTrackSpeedLengthList(std::shared_ptr<Track> track);
+    void fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int LastLink);
     void setSectionSpeedLength();
     void addToSetTrackSpeedLengthList(std::shared_ptr<Track> track);
     void resetSetTrackSpeedLengthMechanics();

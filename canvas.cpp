@@ -3755,6 +3755,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                 }
             }
         }
+        /*
         if (drawnLayout->getEnd() != nullptr)
         {
             int currentX = drawnLayout->getEnd()->getLocationX();
@@ -3776,6 +3777,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                 }
             }
         }
+        */
 
     }
     else
