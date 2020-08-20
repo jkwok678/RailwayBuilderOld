@@ -63,6 +63,9 @@ public:
     void canvasChangeColour();
     void trackChangeColour();
 
+    bool getGrid() const;
+    void setGrid(bool value);
+
 signals:
     void moreTracksAdded();
 
@@ -89,7 +92,7 @@ private:
     std::vector<QImage*> imageList;
 	Map* drawnLayout;
 	int imageSize;
-	bool modified = false;
+    bool modified{false};
     int offsetX;
     int offsetY;
     int canvasSizeX;
@@ -99,6 +102,7 @@ private:
     bool canvasShowMoreTrackInfo;
     QFont currentFont;
     std::shared_ptr<Text> moveText;
+    bool grid{false};
 
 
 

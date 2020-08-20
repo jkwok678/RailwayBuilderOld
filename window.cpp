@@ -384,6 +384,19 @@ void Window::confirmNewLengthSpeed()
 
 }
 
+void Window::toggleGrid()
+{
+    if (grid)
+    {
+        grid = false;
+    }
+    else
+    {
+        grid = true;
+    }
+    drawingSurface->setGrid(grid);
+}
+
 void Window::changeAspect()
 {
     if (aspect == 4)
@@ -2549,6 +2562,15 @@ void Window::createBuildModifyMenu1()
     openTrackLengthSpeedPanelIcon = new QIcon(":/icons/icons/setDistanceSpeed.png");
     openTrackLengthSpeedPanelButton->setIcon(*openTrackLengthSpeedPanelIcon);
     buildModifyMenuLayout1->addWidget(openTrackLengthSpeedPanelButton);
+
+    toggleGridButton = new QToolButton();
+    toggleGridButton->setMaximumSize(QSize(32, 32));
+    toggleGridAct = new QAction();
+    toggleGridButton->setDefaultAction(toggleGridAct);
+    connect(toggleGridAct, &QAction::triggered, this, &Window::toggleGrid);
+    toggleGridIcon = new QIcon(":/icons/icons/grid.png");
+    toggleGridButton->setIcon(*toggleGridIcon);
+    buildModifyMenuLayout1->addWidget(toggleGridButton);
 
     aspectButton = new QToolButton();
     aspectButton->setMaximumSize(QSize(32, 32));

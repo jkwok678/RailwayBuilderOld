@@ -56,6 +56,7 @@ private slots:
     void restoreSelectedDefaultLengthSpeed();
     void updateSetTrackSpeedLengthMenu();
     void confirmNewLengthSpeed();
+    void toggleGrid();
     void changeAspect();
 
     void toggleTrackID();
@@ -245,13 +246,10 @@ private:
 
     Colour viewColour;
     Mode modeChosen;
-	int aspect;
+
 	int windowOffsetX;
 	int windowOffsetY;
 	Canvas* drawingSurface;
-    bool showTrackID;
-    bool showMoreTrackInfo;
-
 
 
 	void createMenuBar();
@@ -267,8 +265,11 @@ private:
     QMenu* informationMenu;
 	QAction* openRailwayAct;
 	QAction* openBuildModifyAct;
+
     QAction* showTrackIDAct;
+    bool showTrackID;
     QAction* showMoreTrackInfoAct;
+    bool showMoreTrackInfo;
 
 	//Top menu 1
 
@@ -310,12 +311,18 @@ private:
     QAction* openTrackLengthSpeedPanelAct;
     QIcon* openTrackLengthSpeedPanelIcon;
 
+    QToolButton* toggleGridButton;
+    QAction* toggleGridAct;
+    QIcon* toggleGridIcon;
+    bool grid;
+
     QToolButton* aspectButton;
     QAction* changeAspectAct;
     QIcon* aspect4Icon;
     QIcon* aspect3Icon;
     QIcon* aspect2Icon;
     QIcon* aspectShuntIcon;
+    int aspect;
 
 	//Top menu 2
 

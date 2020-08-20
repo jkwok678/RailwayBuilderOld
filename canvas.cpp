@@ -540,6 +540,17 @@ void Canvas::setTrackSpeedLength(int length, int speed)
     drawnLayout->setLengthSpeed(length, speed);
 }
 
+bool Canvas::getGrid() const
+{
+    return grid;
+}
+
+void Canvas::setGrid(bool newGrid)
+{
+    grid = newGrid;
+}
+
+
 void Canvas::resetAllTrackSpeedLength()
 {
     QMessageBox msgBox;
@@ -5579,6 +5590,25 @@ void Canvas::paintEvent(QPaintEvent* event)
 
     }
 
+    if (grid)
+    {
+        if (canvasColour == Colour::LIGHT)
+        {
+            painter.setPen(Qt::black);
+        }
+        else
+        {
+            painter.setPen(Qt::white);
+        }
+        for (int x = 16; x < canvasSizeX;x = x+16)
+        {
+            painter.drawLine(x,0,x,canvasSizeY);
+        }
+        for (int y = 16; y < canvasSizeY;y = y+16)
+        {
+            painter.drawLine(0,y,canvasSizeX,y);
+        }
+    }
 }
 
 void Canvas::resizeEvent(QResizeEvent *event)
@@ -5671,6 +5701,7 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
         }
     }
 }
+
 
 
 
