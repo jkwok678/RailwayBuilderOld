@@ -5592,6 +5592,7 @@ void Canvas::paintEvent(QPaintEvent* event)
 
     if (grid)
     {
+
         if (canvasColour == Colour::LIGHT)
         {
             painter.setPen(Qt::black);
@@ -5600,6 +5601,7 @@ void Canvas::paintEvent(QPaintEvent* event)
         {
             painter.setPen(Qt::white);
         }
+
         for (int x = 16; x < canvasSizeX;x = x+16)
         {
             painter.drawLine(x,0,x,canvasSizeY);
