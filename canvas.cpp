@@ -5595,18 +5595,28 @@ void Canvas::paintEvent(QPaintEvent* event)
 
         if (canvasColour == Colour::LIGHT)
         {
-            painter.setPen(Qt::black);
+            QPen penLight;  // creates a default pen
+
+            penLight.setStyle(Qt::DashLine);
+            penLight.setWidth(1);
+            penLight.setBrush(Qt::darkGray);
+            painter.setPen(penLight);
         }
         else
         {
-            painter.setPen(Qt::white);
+            QPen penDark;  // creates a default pen
+
+            penDark.setStyle(Qt::DashLine);
+            penDark.setWidth(1);
+            penDark.setBrush(Qt::lightGray);
+            painter.setPen(penDark);
         }
 
-        for (int x = 16; x < canvasSizeX;x = x+16)
+        for (int x = 0; x < canvasSizeX+1;x = x+16)
         {
             painter.drawLine(x,0,x,canvasSizeY);
         }
-        for (int y = 16; y < canvasSizeY;y = y+16)
+        for (int y = 0; y < canvasSizeY+1;y = y+16)
         {
             painter.drawLine(0,y,canvasSizeX,y);
         }

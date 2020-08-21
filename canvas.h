@@ -86,7 +86,7 @@ protected:
 
 private:
     QPalette pal;
-    Colour canvasColour;
+    Colour canvasColour{Colour::LIGHT};
     Mode canvasChosen;
 
     std::vector<QImage*> imageList;
