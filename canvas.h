@@ -25,6 +25,10 @@ public:
 	Canvas();
 
     void loadAllTrackImages();
+    void loadAllRedTrackImages();
+    void loadAllGreenTrackImages();
+    void loadAllBlueTrackImages();
+    void loadMixColourTrackImages();
     void fillImageList();
 
     Mode getMode();
@@ -301,7 +305,146 @@ private:
     QImage* selectGreen;
     QImage* selectBlue;
 
+    //Green images
+    //ElementBlock1 images
+    QImage* straightHGreenImage;
+    QImage* straightVGreenImage;
+    QImage* directLeftGreenImage;
+    QImage* directRightGreenImage;
+    QImage* directUpGreenImage;
+    QImage* directDownGreenImage;
+    QImage* straightRightUpGreenImage;
+    QImage* straightLeftUpGreenImage;
+    QImage* directRightUpGreenImage;
+    QImage* directLeftUpGreenImage;
+    QImage* directLeftDownGreenImage;
+    QImage* directRightDownGreenIamge;
+    QImage* tightCurve1GreenImage;
+    QImage* tightCurve2GreenImage;
+    QImage* tightCurve3GreenImage;
+    QImage* tightCurve4GreenImage;
+    QImage* curve1GreenImage;
+    QImage* curve2GreenImage;
+    QImage* curve3GreenImage;
+    QImage* curve4GreenImage;
+    QImage* linkLeftUnsetGreenImage;
+    QImage* linkRightUnsetGreenImage;
+    QImage* linkDownUnsetGreenImage;
+    QImage* linkUpUnsetGreenImage;
+    QImage* linkLeftUpUnsetGreenImage;
+    QImage* linkRightUpUnsetGreenImage;
+    QImage* linkRightDownUnsetGreenImage;
+    QImage* linkLeftDownUnsetGreenImage;
+    QImage* linkLeftSetGreenImage;
+    QImage* linkRightSetGreenImage;
+    QImage* linkDownSetGreenImage;
+    QImage* linkUpSetGreenImage;
+    QImage* linkLeftUpSetGreenImage;
+    QImage* linkRightUpSetGreenImage;
+    QImage* linkRightDownSetGreenImage;
+    QImage* linkLeftDownSetGreenImage;
+    QImage* exitLeftGreenImage;
+    QImage* exitRightGreenImage;
+    QImage* exitDownGreenImage;
+    QImage* exitUpGreenImage;
+    QImage* exitLeftUpGreenImage;
+    QImage* exitRightUpGreenImage;
+    QImage* exitLeftDownGreenImage;
+    QImage* exitRightDownGreenImage;
+    QImage* curve5GreenImage;
+    QImage* curve6GreenImage;
+    QImage* curve7GreenImage;
+    QImage* curve8GreenImage;
+    QImage* bufferLeftGreenImage;
+    QImage* bufferRightGreenImage;
+    QImage* bufferDownGreenImage;
+    QImage* bufferUpGreenImage;
+    QImage* bufferLeftUpGreenImage;
+    QImage* bufferRightUpGreenImage;
+    QImage* bufferLeftDownGreenImage;
+    QImage* bufferRightDownGreenImage;
+    QImage* signalLeftGreenImage;
+    QImage* signalRightGreenImage;
+    QImage* signalDownGreenImage;
+    QImage* signalUpGreenImage;
+    QImage* signalLeftUpGreenImage;
+    QImage* signalRightUpGreenImage;
+    QImage* signalLeftDownGreenImage;
+    QImage* signalRightDownGreenImage;
+    QImage* shuntLeftGreenImage;
+    QImage* shuntRightGreenImage;
+    QImage* shuntDownGreenImage;
+    QImage* shuntUpGreenImage;
+    QImage* shuntLeftUpGreenImage;
+    QImage* shuntRightUpGreenImage;
+    QImage* shuntLeftDownGreenImage;
+    QImage* shuntRightDownGreenImage;
+    QImage* bridgeUnset1GreenImage;
+    QImage* bridgeUnset2GreenImage;
+    QImage* underpassUnset1GreenImage;
+    QImage* underpassUnset2GreenImage;
+    QImage* bridgeSet1GreenImage;
+    QImage* bridgeSet2GreenImage;
+    QImage* underpassSet1GreenImage;
+    QImage* underpassSet2GreenImage;
 
+    //ElementBlock2 images
+    QImage* switchTight1GreenImage;
+    QImage* switchTight2GreenImage;
+    QImage* switchTight3GreenImage;
+    QImage* switchTight4GreenImage;
+    QImage* switchTight5GreenImage;
+    QImage* switchTight6GreenImage;
+    QImage* switchTight7GreenImage;
+    QImage* switchTight8GreenImage;
+    QImage* switchSplit1GreenImage;
+    QImage* switchSplit2GreenImage;
+    QImage* switchSplit3GreenImage;
+
+    QImage* switch1GreenImage;
+    QImage* switch2GreenImage;
+    QImage* switch3GreenImage;
+    QImage* switch4GreenImage;
+    QImage* switch5GreenImage;
+    QImage* switch6GreenImage;
+    QImage* switch7GreenImage;
+    QImage* switch8GreenImage;
+    QImage* switchSplit4GreenImage;
+    QImage* switchSplit5GreenImage;
+    QImage* switchSplit6GreenImage;
+
+    QImage* switch9GreenImage;
+    QImage* switch10GreenImage;
+    QImage* switch11GreenImage;
+    QImage* switch12GreenImage;
+    QImage* switch13GreenImage;
+    QImage* switch14GreenImage;
+    QImage* switch15GreenImage;
+    QImage* switch16GreenImage;
+    QImage* switchSplit7GreenImage;
+    QImage* switchSplit8GreenImage;
+
+    //ElementBlock3Images
+    QImage* crossover1GreenImage;
+    QImage* crossover2GreenImage;
+    QImage* flyover1GreenImage;
+    QImage* flyover2GreenImage;
+    QImage* flyover3GreenImage;
+    QImage* flyover4GreenImage;
+
+    QImage* crossover3GreenImage;
+    QImage* crossover4GreenImage;
+    QImage* flyover5GreenImage;
+    QImage* flyover6GreenImage;
+    QImage* flyover7GreenImage;
+    QImage* flyover8GreenImage;
+
+    QImage* crossover5GreenImage;
+    QImage* crossover6GreenImage;
+    QImage* flyover9GreenImage;
+    QImage* flyover10GreenImage;
+    QImage* flyover11GreenImage;
+    QImage* flyover12GreenImage;
 
 };
 

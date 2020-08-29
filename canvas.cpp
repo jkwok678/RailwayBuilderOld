@@ -15,6 +15,10 @@ Canvas::Canvas()
     canvasSizeY = height();
     setMouseTracking(true);
     loadAllTrackImages();
+    loadAllRedTrackImages();
+    loadAllGreenTrackImages();
+    loadAllBlueTrackImages();
+    loadMixColourTrackImages();
     fillImageList();
 
 
@@ -40,7 +44,7 @@ void Canvas::loadAllTrackImages()
     straightRightUpImage = new QImage(":/graphics/graphics/straightRightUp.png");
     directLeftUpImage = new QImage(":/graphics/graphics/directLeftUp.png");
     directRightUpImage = new QImage(":/graphics/graphics/directRightUp.png");
-    directRightDownIamge = new QImage(":/graphics/graphics/directRightDown.png");
+    directRightDownImage = new QImage(":/graphics/graphics/directRightDown.png");
     directLeftDownImage = new QImage(":/graphics/graphics/directLeftDown.png");
     tightCurve1Image = new QImage(":/graphics/graphics/tightCurve1.png");
     tightCurve2Image = new QImage(":/graphics/graphics/tightCurve2.png");
@@ -222,6 +226,167 @@ void Canvas::loadAllTrackImages()
     levelCrossingVImage = new QImage(":/graphics/graphics/levelCrossingV.png");
 }
 
+void Canvas::loadAllRedTrackImages()
+{
+
+}
+
+void Canvas::loadAllGreenTrackImages()
+{
+    //ElementBlock1 images
+    straightHGreenImage = new QImage(":/graphics/graphics/straightHGreen.png");
+    straightVGreenImage = new QImage(":/graphics/graphics/straightVGreen.png");
+    directLeftGreenImage = new QImage(":/graphics/graphics/directLeftGreen.png");
+    directRightGreenImage = new QImage(":/graphics/graphics/directRightGreen.png");
+    directUpGreenImage = new QImage(":/graphics/graphics/directUpGreen.png");
+    directDownGreenImage = new QImage(":/graphics/graphics/directDownGreen.png");
+    straightLeftUpGreenImage = new QImage(":/graphics/graphics/straightLeftUpGreen.png");
+    straightRightUpGreenImage = new QImage(":/graphics/graphics/straightRightUpGreen.png");
+    directLeftUpGreenImage = new QImage(":/graphics/graphics/directLeftUpGreen.png");
+    directRightUpGreenImage = new QImage(":/graphics/graphics/directRightUpGreen.png");
+    directRightDownGreenImage = new QImage(":/graphics/graphics/directRightDownGreen.png");
+    directLeftDownGreenImage = new QImage(":/graphics/graphics/directLeftDownGreen.png");
+    tightCurve1GreenImage = new QImage(":/graphics/graphics/tightCurve1Green.png");
+    tightCurve2GreenImage = new QImage(":/graphics/graphics/tightCurve2Green.png");
+    tightCurve3GreenImage = new QImage(":/graphics/graphics/tightCurve3Green.png");
+    tightCurve4GreenImage = new QImage(":/graphics/graphics/tightCurve4Green.png");
+    curve1GreenImage = new QImage(":/graphics/graphics/curve1Green.png");
+    curve2GreenImage = new QImage(":/graphics/graphics/curve2Green.png");
+    curve3GreenImage = new QImage(":/graphics/graphics/curve3Green.png");
+    curve4GreenImage = new QImage(":/graphics/graphics/curve4Green.png");
+
+    linkLeftUnsetGreenImage = new QImage(":/graphics/graphics/linkLeftUnsetGreen.png");
+    linkRightUnsetGreenImage = new QImage(":/graphics/graphics/linkRightUnsetGreen.png");
+    linkDownUnsetGreenImage = new QImage(":/graphics/graphics/linkDownUnsetGreen.png");
+    linkUpUnsetGreenImage = new QImage(":/graphics/graphics/linkUpUnsetGreen.png");
+    linkLeftUpUnsetGreenImage = new QImage(":/graphics/graphics/linkLeftUpUnsetGreen.png");
+    linkRightUpUnsetGreenImage = new QImage(":/graphics/graphics/linkRightUpUnsetGreen.png");
+    linkRightDownUnsetGreenImage = new QImage(":/graphics/graphics/linkRightDownUnsetGreen.png");
+    linkLeftDownUnsetGreenImage = new QImage(":/graphics/graphics/linkLeftDownUnsetGreen.png");
+    linkLeftSetGreenImage = new QImage(":/graphics/graphics/linkLeftSetGreen.png");
+    linkRightSetGreenImage = new QImage(":/graphics/graphics/linkRightSetGreen.png");
+    linkDownSetGreenImage = new QImage(":/graphics/graphics/linkDownSetGreen.png");
+    linkUpSetGreenImage = new QImage(":/graphics/graphics/linkUpSetGreen.png");
+    linkLeftUpSetGreenImage = new QImage(":/graphics/graphics/linkLeftUpSetGreen.png");
+    linkRightUpSetGreenImage = new QImage(":/graphics/graphics/linkRightUpSetGreen.png");
+    linkRightDownSetGreenImage = new QImage(":/graphics/graphics/linkRightDownSetGreen.png");
+    linkLeftDownSetGreenImage = new QImage(":/graphics/graphics/linkLeftDownSetGreen.png");
+    exitLeftGreenImage = new QImage(":/graphics/graphics/exitLeftGreen.png");
+    exitRightGreenImage = new QImage(":/graphics/graphics/exitRightGreen.png");
+    exitDownGreenImage = new QImage(":/graphics/graphics/exitDownGreen.png");
+    exitUpGreenImage = new QImage(":/graphics/graphics/exitUpGreen.png");
+    exitLeftUpGreenImage = new QImage(":/graphics/graphics/exitLeftUpGreen.png");
+    exitRightUpGreenImage = new QImage(":/graphics/graphics/exitRightUpGreen.png");
+    exitLeftDownGreenImage = new QImage(":/graphics/graphics/exitLeftDownGreen.png");
+    exitRightDownGreenImage = new QImage(":/graphics/graphics/exitRightDownGreen.png");
+    curve5GreenImage = new QImage(":/graphics/graphics/curve5Green.png");
+    curve6GreenImage = new QImage(":/graphics/graphics/curve6Green.png");
+    curve7GreenImage = new QImage(":/graphics/graphics/curve7Green.png");
+    curve8GreenImage = new QImage(":/graphics/graphics/curve8Green.png");
+
+    bufferLeftGreenImage = new QImage(":/graphics/graphics/bufferLeftGreen.png");
+    bufferRightGreenImage = new QImage(":/graphics/graphics/bufferRightGreen.png");
+    bufferDownGreenImage = new QImage(":/graphics/graphics/bufferDownGreen.png");
+    bufferUpGreenImage = new QImage(":/graphics/graphics/bufferUpGreen.png");
+    bufferLeftUpGreenImage = new QImage(":/graphics/graphics/bufferLeftUpGreen.png");
+    bufferRightUpGreenImage = new QImage(":/graphics/graphics/bufferRightUpGreen.png");
+    bufferLeftDownGreenImage = new QImage(":/graphics/graphics/bufferLeftDownGreen.png");
+    bufferRightDownGreenImage = new QImage(":/graphics/graphics/bufferRightDownGreen.png");
+    signalLeftGreenImage = new QImage(":/graphics/graphics/signalLeftGreen.png");
+    signalRightGreenImage = new QImage(":/graphics/graphics/signalRightGreen.png");
+    signalDownGreenImage = new QImage(":/graphics/graphics/signalDownGreen.png");
+    signalUpGreenImage = new QImage(":/graphics/graphics/signalUpGreen.png");
+    signalLeftUpGreenImage = new QImage(":/graphics/graphics/signalLeftUpGreen.png");
+    signalRightUpGreenImage = new QImage(":/graphics/graphics/signalRightUpGreen.png");
+    signalLeftDownGreenImage = new QImage(":/graphics/graphics/signalLeftDownGreen.png");
+    signalRightDownGreenImage = new QImage(":/graphics/graphics/signalRightDownGreen.png");
+    shuntLeftGreenImage = new QImage(":/graphics/graphics/shuntLeftRedGreen.png");
+    shuntRightGreenImage = new QImage(":/graphics/graphics/shuntRightRedGreen.png");
+    shuntDownGreenImage = new QImage(":/graphics/graphics/shuntDownRedGreen.png");
+    shuntUpGreenImage = new QImage(":/graphics/graphics/shuntUpRedGreen.png");
+    shuntLeftUpGreenImage = new QImage(":/graphics/graphics/shuntLeftUpRedGreen.png");
+    shuntRightUpGreenImage = new QImage(":/graphics/graphics/shuntRightUpRedGreen.png");
+    shuntLeftDownGreenImage = new QImage(":/graphics/graphics/shuntLeftDownRedGreen.png");
+    shuntRightDownGreenImage = new QImage(":/graphics/graphics/shuntRightDownRedGreen.png");
+    bridgeUnset1GreenImage = new QImage(":/graphics/graphics/bridgeUnset1Green.png");
+    bridgeUnset2GreenImage = new QImage(":/graphics/graphics/bridgeUnset2Green.png");
+    underpassUnset1GreenImage = new QImage(":/graphics/graphics/underpassUnset1Green.png");
+    underpassUnset2GreenImage = new QImage(":/graphics/graphics/underpassUnset2Green.png");
+    bridgeSet1GreenImage = new QImage(":/graphics/graphics/brdigeSet1Green.png");
+    bridgeSet2GreenImage = new QImage(":/graphics/graphics/bridgeSet2Green.png");
+    underpassSet1GreenImage = new QImage(":/graphics/graphics/underpassSet1Green.png");
+    underpassSet2GreenImage = new QImage(":/graphics/graphics/underpassSet2Green.png");
+
+    //ElementBlock2 images
+    switchTight1GreenImage = new QImage(":/graphics/graphics/switchTight1Green.png");
+    switchTight2GreenImage = new QImage(":/graphics/graphics/switchTight2Green.png");
+    switchTight3GreenImage = new QImage(":/graphics/graphics/switchTight3Green.png");
+    switchTight4GreenImage = new QImage(":/graphics/graphics/switchTight4Green.png");
+    switchTight5GreenImage = new QImage(":/graphics/graphics/switchTight5Green.png");
+    switchTight6GreenImage = new QImage(":/graphics/graphics/switchTight6Green.png");
+    switchTight7GreenImage = new QImage(":/graphics/graphics/switchTight7Green.png");
+    switchTight8GreenImage = new QImage(":/graphics/graphics/switchTight8Green.png");
+    switchSplit1GreenImage = new QImage(":/graphics/graphics/switchSplit1Green.png");
+    switchSplit2GreenImage = new QImage(":/graphics/graphics/switchSplit2Green.png");
+    switchSplit3GreenImage = new QImage(":/graphics/graphics/switchSplit3Green.png");
+
+    switch1GreenImage = new QImage(":/graphics/graphics/switch1Green.png");
+    switch2GreenImage = new QImage(":/graphics/graphics/switch2Green.png");
+    switch3GreenImage = new QImage(":/graphics/graphics/switch3Green.png");
+    switch4GreenImage = new QImage(":/graphics/graphics/switch4Green.png");
+    switch5GreenImage = new QImage(":/graphics/graphics/switch5Green.png");
+    switch6GreenImage = new QImage(":/graphics/graphics/switch6Green.png");
+    switch7GreenImage = new QImage(":/graphics/graphics/switch7Green.png");
+    switch8GreenImage = new QImage(":/graphics/graphics/switch8Green.png");
+    switchSplit4GreenImage = new QImage(":/graphics/graphics/switchSplit4Green.png");
+    switchSplit5GreenImage = new QImage(":/graphics/graphics/switchSplit5Green.png");
+    switchSplit6GreenImage = new QImage(":/graphics/graphics/switchSplit6Green.png");
+
+    switch9GreenImage = new QImage(":/graphics/graphics/switch9Green.png");
+    switch10GreenImage = new QImage(":/graphics/graphics/switch10Green.png");
+    switch11GreenImage = new QImage(":/graphics/graphics/switch11Green.png");
+    switch12GreenImage = new QImage(":/graphics/graphics/switch12Green.png");
+    switch13GreenImage = new QImage(":/graphics/graphics/switch13Green.png");
+    switch14GreenImage = new QImage(":/graphics/graphics/switch14Green.png");
+    switch15GreenImage = new QImage(":/graphics/graphics/switch15Green.png");
+    switch16GreenImage = new QImage(":/graphics/graphics/switch16Green.png");
+    switchSplit7GreenImage = new QImage(":/graphics/graphics/switchSplit7Green.png");
+    switchSplit8GreenImage = new QImage(":/graphics/graphics/switchSplit8Green.png");
+
+    //ElementBlock3 images
+    crossover1GreenImage = new QImage(":/graphics/graphics/crossover1Green.png");
+    crossover2GreenImage = new QImage(":/graphics/graphics/crossover2Green.png");
+    flyover1GreenImage = new QImage(":/graphics/graphics/flyover1Green.png");
+    flyover2GreenImage = new QImage(":/graphics/graphics/flyover2Green.png");
+    flyover3GreenImage = new QImage(":/graphics/graphics/flyover3Green.png");
+    flyover4GreenImage = new QImage(":/graphics/graphics/flyover4Green.png");
+
+    crossover3GreenImage = new QImage(":/graphics/graphics/crossover3Green.png");
+    crossover4GreenImage = new QImage(":/graphics/graphics/crossover4Green.png");
+    flyover5GreenImage = new QImage(":/graphics/graphics/flyover5Green.png");
+    flyover6GreenImage = new QImage(":/graphics/graphics/flyover6Green.png");
+    flyover7GreenImage = new QImage(":/graphics/graphics/flyover7Green.png");
+    flyover8GreenImage = new QImage(":/graphics/graphics/flyover8Green.png");
+
+    crossover5GreenImage = new QImage(":/graphics/graphics/crossover5Green.png");
+    crossover6GreenImage = new QImage(":/graphics/graphics/crossover6Green.png");
+    flyover9GreenImage = new QImage(":/graphics/graphics/flyover9Green.png");
+    flyover10GreenImage = new QImage(":/graphics/graphics/flyover10Green.png");
+    flyover11GreenImage = new QImage(":/graphics/graphics/flyover11Green.png");
+    flyover12GreenImage = new QImage(":/graphics/graphics/flyover12Green.png");
+
+}
+
+void Canvas::loadAllBlueTrackImages()
+{
+
+}
+
+void Canvas::loadMixColourTrackImages()
+{
+
+}
+
 void Canvas::fillImageList()
 {
     //ElementBlock1 images
@@ -235,7 +400,7 @@ void Canvas::fillImageList()
     imageList.push_back(straightRightUpImage);
     imageList.push_back(directLeftUpImage);
     imageList.push_back(directRightUpImage);
-    imageList.push_back(directRightDownIamge);
+    imageList.push_back(directRightDownImage);
     imageList.push_back(directLeftDownImage);
     imageList.push_back(tightCurve1Image);
     imageList.push_back(tightCurve2Image);
@@ -1937,55 +2102,23 @@ void Canvas::paintEvent(QPaintEvent* event)
                         case StraightType::STRAIGHTH:
                         {
                             //std::cout<< currentElement->getNamed() << std::flush;
-
-                            int height = straightHImage->height();
-                            int width = straightHImage->width();
-                            QColor black =  QColor(0,0,0,255);
-                            QColor white = QColor(255,255,255,255);
-                            QColor red =  QColor(255,0,0,255);
-                            QColor green =  QColor(0,255,0,255);
-                            QColor blue =  QColor(0,0,255,255);
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-                                for (int y=0; y<height; y++)
-                                {
-                                    for (int x=0; x<width;x++)
-                                    {
-                                        if (straightHImage->pixelColor(x,y) == black || straightHImage->pixelColor(x,y) == white)
-                                        {
-                                            straightHImage->setPixelColor(x,y,red);
-                                        }
-                                    }
-                                }
+
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
-                                for (int y=0; y<height; y++)
-                                {
-                                    for (int x=0; x<width;x++)
-                                    {
-                                        if (straightHImage->pixelColor(x,y) == black || straightHImage->pixelColor(x,y) == white)
-                                        {
-                                            straightHImage->setPixelColor(x,y,green);
-                                        }
-                                    }
-                                }
+                                painter.drawImage(displayX, displayY, *straightHGreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-                                for (int y=0; y<height; y++)
-                                {
-                                    for (int x=0; x<width;x++)
-                                    {
-                                        if (straightHImage->pixelColor(x,y) == black || straightHImage->pixelColor(x,y) == white)
-                                        {
-                                            straightHImage->setPixelColor(x,y,blue);
-                                        }
-                                    }
-                                }
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *straightHImage);
                             }
 
-                            painter.drawImage(displayX, displayY, *straightHImage);
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -2017,7 +2150,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case StraightType::STRAIGHTV:
                         {
-                            painter.drawImage(displayX, displayY, *straightVImage);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *straightVGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *straightVImage);
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -2049,12 +2197,42 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case StraightType::STRIAGHTRIGHTUP:
                         {
-                            painter.drawImage(displayX, displayY, *straightRightUpImage);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *straightRightUpGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *straightRightUpImage);
+                            }
                             break;
                         }
                         case StraightType::STRAIGHTLEFTUP:
                         {
-                            painter.drawImage(displayX, displayY, *straightLeftUpImage);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *straightLeftUpGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *straightLeftUpImage);
+                            }
                             break;
                         }
                     }
@@ -2082,7 +2260,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                     {
                         case DirectType::DIRECTLEFT:
                         {
-                            painter.drawImage(displayX, displayY, *directLeftImage);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *directLeftGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *directLeftImage);
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -2109,7 +2302,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case DirectType::DIRECTRIGHT:
                         {
-                            painter.drawImage(displayX, displayY, *directRightImage);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *directRightGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *directRightImage);
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -2136,7 +2344,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case DirectType::DIRECTUP:
                         {
-                            painter.drawImage(displayX, displayY, *directUpImage);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *directUpGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *directUpImage);
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -2162,7 +2385,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case DirectType::DIRECTDOWN:
                         {
-                            painter.drawImage(displayX, displayY, *directDownImage);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *directDownGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *directDownImage);
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -2189,22 +2427,82 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case DirectType::DIRECTRIGHTUP:
                         {
-                            painter.drawImage(displayX, displayY, *directRightUpImage);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *directRightUpGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *directRightUpImage);
+                            }
                             break;
                         }
                         case DirectType::DIRECTLEFTUP:
                         {
-                            painter.drawImage(displayX, displayY, *directLeftUpImage);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *directLeftUpGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *directLeftUpImage);
+                            }
                             break;
                         }
                         case DirectType::DIRECTLEFTDOWN:
                         {
-                            painter.drawImage(displayX, displayY, *directLeftDownImage);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *directLeftDownGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *directLeftDownImage);
+                            }
                             break;
                         }
                         case DirectType::DIRECTRIGHTDOWN:
                         {
-                            painter.drawImage(displayX, displayY, *directRightDownIamge);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *directRightDownGreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *directRightDownImage);
+                            }
                             break;
                         }
                     }
@@ -2232,60 +2530,242 @@ void Canvas::paintEvent(QPaintEvent* event)
                     {
                         case CurvedType::TIGHTCURVE1:
                         {
-                            painter.drawImage(displayX, displayY, *tightCurve1Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *tightCurve1GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *tightCurve1Image);
+                            }
                             break;
                         }
                         case CurvedType::TIGHTCURVE2:
                         {
-                            painter.drawImage(displayX, displayY, *tightCurve2Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *tightCurve2GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *tightCurve2Image);
+                            }
                             break;
                         }
                         case CurvedType::TIGHTCURVE3:
                         {
-                            painter.drawImage(displayX, displayY, *tightCurve3Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *tightCurve3GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *tightCurve3Image);
+                            }
                             break;
                         }
                         case CurvedType::TIGHTCURVE4:
-                            painter.drawImage(displayX, displayY, *tightCurve4Image);
+                        {
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *tightCurve4GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *tightCurve4Image);
+                            }
                             break;
+                        }
                         case CurvedType::CURVE1:
                         {
-                            painter.drawImage(displayX, displayY, *curve1Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *curve1GreenImage);
+                            }
+                                else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *curve1Image);
+                            }
                             break;
                         }
                         case CurvedType::CURVE2:
                         {
-                            painter.drawImage(displayX, displayY, *curve2Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *curve2GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *curve2Image);
+                            }
                             break;
                         }
                         case CurvedType::CURVE3:
                         {
-                            painter.drawImage(displayX, displayY, *curve3Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *curve3GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *curve3Image);
+                            }
                             break;
                         }
                         case CurvedType::CURVE4:
                         {
-                            painter.drawImage(displayX, displayY, *curve4Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *curve4GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *curve4Image);
+                            }
                             break;
                         }
                         case CurvedType::CURVE5:
                         {
-                            painter.drawImage(displayX, displayY, *curve5Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *curve5GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *curve5Image);
+                            }
                             break;
                         }
                         case CurvedType::CURVE6:
                         {
-                            painter.drawImage(displayX, displayY, *curve6Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *curve6GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *curve6Image);
+                            }
                             break;
                         }
                         case CurvedType::CURVE7:
                         {
-                            painter.drawImage(displayX, displayY, *curve7Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *curve7GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *curve7Image);
+                            }
                             break;
                         }
                         case CurvedType::CURVE8:
                         {
-                            painter.drawImage(displayX, displayY, *curve8Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
+                            {
+                                painter.drawImage(displayX, displayY, *curve8GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
+                            {
+
+                            }
+                            else
+                            {
+                                painter.drawImage(displayX, displayY, *curve8Image);
+                            }
                             break;
                         }
                     }
@@ -4043,7 +4523,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case DirectType::DIRECTRIGHTDOWN:
                         {
-                            painter.drawImage(displayX, displayY, *directRightDownIamge);
+                            painter.drawImage(displayX, displayY, *directRightDownImage);
                             break;
                         }
                     }
@@ -5604,7 +6084,7 @@ void Canvas::paintEvent(QPaintEvent* event)
         }
         else
         {
-            QPen penDark;  // creates a default pen
+            QPen penDark;
 
             penDark.setStyle(Qt::DashLine);
             penDark.setWidth(1);
