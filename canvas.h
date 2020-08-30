@@ -122,7 +122,7 @@ private:
 	QImage* directRightUpImage;
 	QImage* directLeftUpImage;
 	QImage* directLeftDownImage;
-	QImage* directRightDownIamge;
+    QImage* directRightDownImage;
 	QImage* tightCurve1Image;
 	QImage* tightCurve2Image;
 	QImage* tightCurve3Image;
@@ -318,7 +318,7 @@ private:
     QImage* directRightUpGreenImage;
     QImage* directLeftUpGreenImage;
     QImage* directLeftDownGreenImage;
-    QImage* directRightDownGreenIamge;
+    QImage* directRightDownGreenImage;
     QImage* tightCurve1GreenImage;
     QImage* tightCurve2GreenImage;
     QImage* tightCurve3GreenImage;
