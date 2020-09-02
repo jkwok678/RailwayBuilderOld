@@ -4406,7 +4406,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCHTIGHT2:
                         {
-                            painter.drawImage(displayX, displayY, *switchTight2Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchTight2Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchTight2GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform2())
                             {
                                 if (currentElement->getNamed())
@@ -4422,7 +4503,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCHTIGHT3:
                         {
-                            painter.drawImage(displayX, displayY, *switchTight3Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchTight3Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchTight3GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                        }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4438,7 +4600,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCHTIGHT4:
                         {
-                            painter.drawImage(displayX, displayY, *switchTight4Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchTight4Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchTight4GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4454,7 +4697,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCHTIGHT5:
                         {
-                            painter.drawImage(displayX, displayY, *switchTight5Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchTight5Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                            //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchTight5GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform2())
                             {
                                 if (currentElement->getNamed())
@@ -4470,7 +4794,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCHTIGHT6:
                         {
-                            painter.drawImage(displayX, displayY, *switchTight6Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchTight6Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchTight6GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4486,7 +4891,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCHTIGHT7:
                         {
-                            painter.drawImage(displayX, displayY, *switchTight7Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchTight7Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchTight7GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform2())
                             {
                                 if (currentElement->getNamed())
@@ -4502,7 +4988,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCHTIGHT8:
                         {
-                            painter.drawImage(displayX, displayY, *switchTight8Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchTight8Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                                else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                            painter.drawImage(displayX, displayY, *switchTight8GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4518,22 +5085,346 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCHSPLIT1:
                         {
-                            painter.drawImage(displayX, displayY, *switchSplit1Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchSplit1Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchSplit1GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCHSPLIT2:
                         {
-                            painter.drawImage(displayX, displayY, *switchSplit2Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchSplit2Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchSplit2GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCHSPLIT3:
                         {
-                            painter.drawImage(displayX, displayY, *switchSplit3Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchSplit3Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchSplit3GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCH1:
                         {
-                            painter.drawImage(displayX, displayY, *switch1Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch1Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch1GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform2())
                             {
                                 if (currentElement->getNamed())
@@ -4549,7 +5440,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCH2:
                         {
-                            painter.drawImage(displayX, displayY, *switch2Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch2Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch2GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                            //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform2())
                             {
                                 if (currentElement->getNamed())
@@ -4565,7 +5537,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCH3:
                         {
-                            painter.drawImage(displayX, displayY, *switch3Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch3Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch3GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4581,7 +5634,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCH4:
                         {
-                            painter.drawImage(displayX, displayY, *switch4Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch4Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch4GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4597,7 +5731,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCH5:
                         {
-                            painter.drawImage(displayX, displayY, *switch5Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch5Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch5GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform2())
                             {
                                 if (currentElement->getNamed())
@@ -4613,7 +5828,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCH6:
                         {
-                            painter.drawImage(displayX, displayY, *switch6Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch6Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch6GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4629,7 +5925,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCH7:
                         {
-                            painter.drawImage(displayX, displayY, *switch7Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch7Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch7GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform2())
                             {
                                 if (currentElement->getNamed())
@@ -4645,7 +6022,88 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCH8:
                         {
-                            painter.drawImage(displayX, displayY, *switch8Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch8Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                            //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                                {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch8GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             if (currentElement->getPlatform1())
                             {
                                 if (currentElement->getNamed())
@@ -4661,67 +6119,1120 @@ void Canvas::paintEvent(QPaintEvent* event)
                         }
                         case SwitchType::SWITCHSPLIT4:
                         {
-                            painter.drawImage(displayX, displayY, *switchSplit4Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchSplit4Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchSplit4GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCHSPLIT5:
                         {
-                            painter.drawImage(displayX, displayY, *switchSplit5Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchSplit5Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchSplit5GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCHSPLIT6:
                         {
-                            painter.drawImage(displayX, displayY, *switchSplit6Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchSplit6Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchSplit6GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCH9:
                         {
-                            painter.drawImage(displayX, displayY, *switch9Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch9Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch9GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCH10:
                         {
-                            painter.drawImage(displayX, displayY, *switch10Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch10Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch10GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCH11:
                         {
-                            painter.drawImage(displayX, displayY, *switch11Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch11Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch11GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCH12:
                         {
-                            painter.drawImage(displayX, displayY, *switch12Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch12Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch12GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCH13:
                         {
-                            painter.drawImage(displayX, displayY, *switch13Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch13Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch13GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCH14:
                         {
-                            painter.drawImage(displayX, displayY, *switch14Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch14Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch14GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCH15:
                         {
-                            painter.drawImage(displayX, displayY, *switch15Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch15Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch15GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCH16:
                         {
-                            painter.drawImage(displayX, displayY, *switch16Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switch16Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switch16GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCHSPLIT7:
                         {
-                            painter.drawImage(displayX, displayY, *switchSplit7Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchSplit7Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchSplit7GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case SwitchType::SWITCHSPLIT8:
                         {
-                            painter.drawImage(displayX, displayY, *switchSplit8Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *switchSplit8Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *switchSplit8GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                     }
@@ -4749,32 +7260,518 @@ void Canvas::paintEvent(QPaintEvent* event)
                     {
                        case CrossoverType::CROSSOVER1:
                         {
-                           painter.drawImage(displayX, displayY, *crossover1Image);
+                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *crossover1Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *crossover1GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                            break;
                         }
                        case CrossoverType::CROSSOVER2:
                         {
-                           painter.drawImage(displayX, displayY, *crossover2Image);
+                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *crossover2Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *crossover2GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                            break;
                         }
                        case CrossoverType::CROSSOVER3:
                         {
-                           painter.drawImage(displayX, displayY, *crossover3Image);
+                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *crossover3Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *crossover3GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                            break;
                         }
                        case CrossoverType::CROSSOVER4:
                         {
-                           painter.drawImage(displayX, displayY, *crossover4Image);
+                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *crossover4Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *crossover4GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                            break;
                         }
                        case CrossoverType::CROSSOVER5:
                         {
-                           painter.drawImage(displayX, displayY, *crossover5Image);
+                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *crossover5Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *crossover5GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                            break;
                         }
                        case CrossoverType::CROSSOVER6:
                         {
-                           painter.drawImage(displayX, displayY, *crossover6Image);
+                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *crossover6Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *crossover6GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                            break;
                         }
                     }
@@ -4802,62 +7799,1034 @@ void Canvas::paintEvent(QPaintEvent* event)
                     {
                         case FlyoverType::FLYOVER1:
                         {
-                            painter.drawImage(displayX, displayY, *flyover1Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover1Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover1GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER2:
                         {
-                            painter.drawImage(displayX, displayY, *flyover2Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover2Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover2GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER3:
                         {
-                            painter.drawImage(displayX, displayY, *flyover3Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover3Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover3GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER4:
                         {
-                            painter.drawImage(displayX, displayY, *flyover4Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover4Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover4GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER5:
                         {
-                            painter.drawImage(displayX, displayY, *flyover5Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover5Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover5GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER6:
                         {
-                            painter.drawImage(displayX, displayY, *flyover6Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover6Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover6GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER7:
                         {
-                            painter.drawImage(displayX, displayY, *flyover7Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover7Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover7GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER8:
                         {
-                            painter.drawImage(displayX, displayY, *flyover8Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover8Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover8GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER9:
                         {
-                            painter.drawImage(displayX, displayY, *flyover9Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover9Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover9GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER10:
                         {
-                            painter.drawImage(displayX, displayY, *flyover10Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover10Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover10GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER11:
                         {
-                            painter.drawImage(displayX, displayY, *flyover11Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover11Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover11GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                         case FlyoverType::FLYOVER12:
                         {
-                            painter.drawImage(displayX, displayY, *flyover12Image);
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both white
+                                painter.drawImage(displayX, displayY, *flyover12Image);
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                    //Main is white, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is white, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both red
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is red, Secondary Green
+                            }
+                            else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is red, Secondary Blue
+                                }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Track both green
+                                painter.drawImage(displayX, displayY, *flyover12GreenImage);
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is green, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is green, Secondary Blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Track both blue
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary White
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
+                            {
+                                //Main is blue, Secondary Red
+                            }
+                            else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
+                            && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
+                            {
+                                //Main is blue, Secondary Green
+                            }
                             break;
                         }
                     }
