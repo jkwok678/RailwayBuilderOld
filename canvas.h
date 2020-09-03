@@ -305,6 +305,147 @@ private:
     QImage* selectGreen;
     QImage* selectBlue;
 
+    //Red images
+    //ElementBlock1 images
+    QImage* straightHRedImage;
+    QImage* straightVRedImage;
+    QImage* directLeftRedImage;
+    QImage* directRightRedImage;
+    QImage* directUpRedImage;
+    QImage* directDownRedImage;
+    QImage* straightRightUpRedImage;
+    QImage* straightLeftUpRedImage;
+    QImage* directRightUpRedImage;
+    QImage* directLeftUpRedImage;
+    QImage* directLeftDownRedImage;
+    QImage* directRightDownRedImage;
+    QImage* tightCurve1RedImage;
+    QImage* tightCurve2RedImage;
+    QImage* tightCurve3RedImage;
+    QImage* tightCurve4RedImage;
+    QImage* curve1RedImage;
+    QImage* curve2RedImage;
+    QImage* curve3RedImage;
+    QImage* curve4RedImage;
+    QImage* linkLeftUnsetRedImage;
+    QImage* linkRightUnsetRedImage;
+    QImage* linkDownUnsetRedImage;
+    QImage* linkUpUnsetRedImage;
+    QImage* linkLeftUpUnsetRedImage;
+    QImage* linkRightUpUnsetRedImage;
+    QImage* linkRightDownUnsetRedImage;
+    QImage* linkLeftDownUnsetRedImage;
+    QImage* linkLeftSetRedImage;
+    QImage* linkRightSetRedImage;
+    QImage* linkDownSetRedImage;
+    QImage* linkUpSetRedImage;
+    QImage* linkLeftUpSetRedImage;
+    QImage* linkRightUpSetRedImage;
+    QImage* linkRightDownSetRedImage;
+    QImage* linkLeftDownSetRedImage;
+    QImage* exitLeftRedImage;
+    QImage* exitRightRedImage;
+    QImage* exitDownRedImage;
+    QImage* exitUpRedImage;
+    QImage* exitLeftUpRedImage;
+    QImage* exitRightUpRedImage;
+    QImage* exitLeftDownRedImage;
+    QImage* exitRightDownRedImage;
+    QImage* curve5RedImage;
+    QImage* curve6RedImage;
+    QImage* curve7RedImage;
+    QImage* curve8RedImage;
+    QImage* bufferLeftRedImage;
+    QImage* bufferRightRedImage;
+    QImage* bufferDownRedImage;
+    QImage* bufferUpRedImage;
+    QImage* bufferLeftUpRedImage;
+    QImage* bufferRightUpRedImage;
+    QImage* bufferLeftDownRedImage;
+    QImage* bufferRightDownRedImage;
+    QImage* signalLeftRedImage;
+    QImage* signalRightRedImage;
+    QImage* signalDownRedImage;
+    QImage* signalUpRedImage;
+    QImage* signalLeftUpRedImage;
+    QImage* signalRightUpRedImage;
+    QImage* signalLeftDownRedImage;
+    QImage* signalRightDownRedImage;
+    QImage* shuntLeftRedImage;
+    QImage* shuntRightRedImage;
+    QImage* shuntDownRedImage;
+    QImage* shuntUpRedImage;
+    QImage* shuntLeftUpRedImage;
+    QImage* shuntRightUpRedImage;
+    QImage* shuntLeftDownRedImage;
+    QImage* shuntRightDownRedImage;
+    QImage* bridgeUnset1RedImage;
+    QImage* bridgeUnset2RedImage;
+    QImage* underpassUnset1RedImage;
+    QImage* underpassUnset2RedImage;
+    QImage* bridgeSet1RedImage;
+    QImage* bridgeSet2RedImage;
+    QImage* underpassSet1RedImage;
+    QImage* underpassSet2RedImage;
+
+    //ElementBlock2 images
+    QImage* switchTight1RedImage;
+    QImage* switchTight2RedImage;
+    QImage* switchTight3RedImage;
+    QImage* switchTight4RedImage;
+    QImage* switchTight5RedImage;
+    QImage* switchTight6RedImage;
+    QImage* switchTight7RedImage;
+    QImage* switchTight8RedImage;
+    QImage* switchSplit1RedImage;
+    QImage* switchSplit2RedImage;
+    QImage* switchSplit3RedImage;
+
+    QImage* switch1RedImage;
+    QImage* switch2RedImage;
+    QImage* switch3RedImage;
+    QImage* switch4RedImage;
+    QImage* switch5RedImage;
+    QImage* switch6RedImage;
+    QImage* switch7RedImage;
+    QImage* switch8RedImage;
+    QImage* switchSplit4RedImage;
+    QImage* switchSplit5RedImage;
+    QImage* switchSplit6RedImage;
+
+    QImage* switch9RedImage;
+    QImage* switch10RedImage;
+    QImage* switch11RedImage;
+    QImage* switch12RedImage;
+    QImage* switch13RedImage;
+    QImage* switch14RedImage;
+    QImage* switch15RedImage;
+    QImage* switch16RedImage;
+    QImage* switchSplit7RedImage;
+    QImage* switchSplit8RedImage;
+
+    //ElementBlock3Images
+    QImage* crossover1RedImage;
+    QImage* crossover2RedImage;
+    QImage* flyover1RedImage;
+    QImage* flyover2RedImage;
+    QImage* flyover3RedImage;
+    QImage* flyover4RedImage;
+
+    QImage* crossover3RedImage;
+    QImage* crossover4RedImage;
+    QImage* flyover5RedImage;
+    QImage* flyover6RedImage;
+    QImage* flyover7RedImage;
+    QImage* flyover8RedImage;
+
+    QImage* crossover5RedImage;
+    QImage* crossover6RedImage;
+    QImage* flyover9RedImage;
+    QImage* flyover10RedImage;
+    QImage* flyover11RedImage;
+    QImage* flyover12RedImage;
+
     //Green images
     //ElementBlock1 images
     QImage* straightHGreenImage;
@@ -446,6 +587,147 @@ private:
     QImage* flyover11GreenImage;
     QImage* flyover12GreenImage;
 
+
+    //Blue images
+    //ElementBlock1 images
+    QImage* straightHBlueImage;
+    QImage* straightVBlueImage;
+    QImage* directLeftBlueImage;
+    QImage* directRightBlueImage;
+    QImage* directUpBlueImage;
+    QImage* directDownBlueImage;
+    QImage* straightRightUpBlueImage;
+    QImage* straightLeftUpBlueImage;
+    QImage* directRightUpBlueImage;
+    QImage* directLeftUpBlueImage;
+    QImage* directLeftDownBlueImage;
+    QImage* directRightDownBlueImage;
+    QImage* tightCurve1BlueImage;
+    QImage* tightCurve2BlueImage;
+    QImage* tightCurve3BlueImage;
+    QImage* tightCurve4BlueImage;
+    QImage* curve1BlueImage;
+    QImage* curve2BlueImage;
+    QImage* curve3BlueImage;
+    QImage* curve4BlueImage;
+    QImage* linkLeftUnsetBlueImage;
+    QImage* linkRightUnsetBlueImage;
+    QImage* linkDownUnsetBlueImage;
+    QImage* linkUpUnsetBlueImage;
+    QImage* linkLeftUpUnsetBlueImage;
+    QImage* linkRightUpUnsetBlueImage;
+    QImage* linkRightDownUnsetBlueImage;
+    QImage* linkLeftDownUnsetBlueImage;
+    QImage* linkLeftSetBlueImage;
+    QImage* linkRightSetBlueImage;
+    QImage* linkDownSetBlueImage;
+    QImage* linkUpSetBlueImage;
+    QImage* linkLeftUpSetBlueImage;
+    QImage* linkRightUpSetBlueImage;
+    QImage* linkRightDownSetBlueImage;
+    QImage* linkLeftDownSetBlueImage;
+    QImage* exitLeftBlueImage;
+    QImage* exitRightBlueImage;
+    QImage* exitDownBlueImage;
+    QImage* exitUpBlueImage;
+    QImage* exitLeftUpBlueImage;
+    QImage* exitRightUpBlueImage;
+    QImage* exitLeftDownBlueImage;
+    QImage* exitRightDownBlueImage;
+    QImage* curve5BlueImage;
+    QImage* curve6BlueImage;
+    QImage* curve7BlueImage;
+    QImage* curve8BlueImage;
+    QImage* bufferLeftBlueImage;
+    QImage* bufferRightBlueImage;
+    QImage* bufferDownBlueImage;
+    QImage* bufferUpBlueImage;
+    QImage* bufferLeftUpBlueImage;
+    QImage* bufferRightUpBlueImage;
+    QImage* bufferLeftDownBlueImage;
+    QImage* bufferRightDownBlueImage;
+    QImage* signalLeftBlueImage;
+    QImage* signalRightBlueImage;
+    QImage* signalDownBlueImage;
+    QImage* signalUpBlueImage;
+    QImage* signalLeftUpBlueImage;
+    QImage* signalRightUpBlueImage;
+    QImage* signalLeftDownBlueImage;
+    QImage* signalRightDownBlueImage;
+    QImage* shuntLeftBlueImage;
+    QImage* shuntRightBlueImage;
+    QImage* shuntDownBlueImage;
+    QImage* shuntUpBlueImage;
+    QImage* shuntLeftUpBlueImage;
+    QImage* shuntRightUpBlueImage;
+    QImage* shuntLeftDownBlueImage;
+    QImage* shuntRightDownBlueImage;
+    QImage* bridgeUnset1BlueImage;
+    QImage* bridgeUnset2BlueImage;
+    QImage* underpassUnset1BlueImage;
+    QImage* underpassUnset2BlueImage;
+    QImage* bridgeSet1BlueImage;
+    QImage* bridgeSet2BlueImage;
+    QImage* underpassSet1BlueImage;
+    QImage* underpassSet2BlueImage;
+
+    //ElementBlock2 images
+    QImage* switchTight1BlueImage;
+    QImage* switchTight2BlueImage;
+    QImage* switchTight3BlueImage;
+    QImage* switchTight4BlueImage;
+    QImage* switchTight5BlueImage;
+    QImage* switchTight6BlueImage;
+    QImage* switchTight7BlueImage;
+    QImage* switchTight8BlueImage;
+    QImage* switchSplit1BlueImage;
+    QImage* switchSplit2BlueImage;
+    QImage* switchSplit3BlueImage;
+
+    QImage* switch1BlueImage;
+    QImage* switch2BlueImage;
+    QImage* switch3BlueImage;
+    QImage* switch4BlueImage;
+    QImage* switch5BlueImage;
+    QImage* switch6BlueImage;
+    QImage* switch7BlueImage;
+    QImage* switch8BlueImage;
+    QImage* switchSplit4BlueImage;
+    QImage* switchSplit5BlueImage;
+    QImage* switchSplit6BlueImage;
+
+    QImage* switch9BlueImage;
+    QImage* switch10BlueImage;
+    QImage* switch11BlueImage;
+    QImage* switch12BlueImage;
+    QImage* switch13BlueImage;
+    QImage* switch14BlueImage;
+    QImage* switch15BlueImage;
+    QImage* switch16BlueImage;
+    QImage* switchSplit7BlueImage;
+    QImage* switchSplit8BlueImage;
+
+    //ElementBlock3Images
+    QImage* crossover1BlueImage;
+    QImage* crossover2BlueImage;
+    QImage* flyover1BlueImage;
+    QImage* flyover2BlueImage;
+    QImage* flyover3BlueImage;
+    QImage* flyover4BlueImage;
+
+    QImage* crossover3BlueImage;
+    QImage* crossover4BlueImage;
+    QImage* flyover5BlueImage;
+    QImage* flyover6BlueImage;
+    QImage* flyover7BlueImage;
+    QImage* flyover8BlueImage;
+
+    QImage* crossover5BlueImage;
+    QImage* crossover6BlueImage;
+    QImage* flyover9BlueImage;
+    QImage* flyover10BlueImage;
+    QImage* flyover11BlueImage;
+    QImage* flyover12BlueImage;
 };
 
 #endif // CANVAS_H

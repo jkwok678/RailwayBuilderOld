@@ -228,7 +228,147 @@ void Canvas::loadAllTrackImages()
 
 void Canvas::loadAllRedTrackImages()
 {
+    //ElementBlock1 images
+    straightHRedImage = new QImage(":/graphicsRed/graphicsRed/straightHRed.png");
+    straightVRedImage = new QImage(":/graphicsRed/graphicsRed/straightVRed.png");
+    directLeftRedImage = new QImage(":/graphicsRed/graphicsRed/directLeftRed.png");
+    directRightRedImage = new QImage(":/graphicsRed/graphicsRed/directRightRed.png");
+    directUpRedImage = new QImage(":/graphicsRed/graphicsRed/directUpRed.png");
+    directDownRedImage = new QImage(":/graphicsRed/graphicsRed/directDownRed.png");
+    straightLeftUpRedImage = new QImage(":/graphicsRed/graphicsRed/straightLeftUpRed.png");
+    straightRightUpRedImage = new QImage(":/graphicsRed/graphicsRed/straightRightUpRed.png");
+    directLeftUpRedImage = new QImage(":/graphicsRed/graphicsRed/directLeftUpRed.png");
+    directRightUpRedImage = new QImage(":/graphicsRed/graphicsRed/directRightUpRed.png");
+    directRightDownRedImage = new QImage(":/graphicsRed/graphicsRed/directRightDownRed.png");
+    directLeftDownRedImage = new QImage(":/graphicsRed/graphicsRed/directLeftDownRed.png");
+    tightCurve1RedImage = new QImage(":/graphicsRed/graphicsRed/tightCurve1Red.png");
+    tightCurve2RedImage = new QImage(":/graphicsRed/graphicsRed/tightCurve2Red.png");
+    tightCurve3RedImage = new QImage(":/graphicsRed/graphicsRed/tightCurve3Red.png");
+    tightCurve4RedImage = new QImage(":/graphicsRed/graphicsRed/tightCurve4Red.png");
+    curve1RedImage = new QImage(":/graphicsRed/graphicsRed/curve1Red.png");
+    curve2RedImage = new QImage(":/graphicsRed/graphicsRed/curve2Red.png");
+    curve3RedImage = new QImage(":/graphicsRed/graphicsRed/curve3Red.png");
+    curve4RedImage = new QImage(":/graphicsRed/graphicsRed/curve4Red.png");
 
+    linkLeftUnsetRedImage = new QImage(":/graphicsRed/graphicsRed/linkLeftUnsetRed.png");
+    linkRightUnsetRedImage = new QImage(":/graphicsRed/graphicsRed/linkRightUnsetRed.png");
+    linkDownUnsetRedImage = new QImage(":/graphicsRed/graphicsRed/linkDownUnsetRed.png");
+    linkUpUnsetRedImage = new QImage(":/graphicsRed/graphicsRed/linkUpUnsetRed.png");
+    linkLeftUpUnsetRedImage = new QImage(":/graphicsRed/graphicsRed/linkLeftUpUnsetRed.png");
+    linkRightUpUnsetRedImage = new QImage(":/graphicsRed/graphicsRed/linkRightUpUnsetRed.png");
+    linkRightDownUnsetRedImage = new QImage(":/graphicsRed/graphicsRed/linkRightDownUnsetRed.png");
+    linkLeftDownUnsetRedImage = new QImage(":/graphicsRed/graphicsRed/linkLeftDownUnsetRed.png");
+    linkLeftSetRedImage = new QImage(":/graphicsRed/graphicsRed/linkLeftSetRed.png");
+    linkRightSetRedImage = new QImage(":/graphicsRed/graphicsRed/linkRightSetRed.png");
+    linkDownSetRedImage = new QImage(":/graphicsRed/graphicsRed/linkDownSetRed.png");
+    linkUpSetRedImage = new QImage(":/graphicsRed/graphicsRed/linkUpSetRed.png");
+    linkLeftUpSetRedImage = new QImage(":/graphicsRed/graphicsRed/linkLeftUpSetRed.png");
+    linkRightUpSetRedImage = new QImage(":/graphicsRed/graphicsRed/linkRightUpSetRed.png");
+    linkRightDownSetRedImage = new QImage(":/graphicsRed/graphicsRed/linkRightDownSetRed.png");
+    linkLeftDownSetRedImage = new QImage(":/graphicsRed/graphicsRed/linkLeftDownSetRed.png");
+    exitLeftRedImage = new QImage(":/graphicsRed/graphicsRed/exitLeftRed.png");
+    exitRightRedImage = new QImage(":/graphicsRed/graphicsRed/exitRightRed.png");
+    exitDownRedImage = new QImage(":/graphicsRed/graphicsRed/exitDownRed.png");
+    exitUpRedImage = new QImage(":/graphicsRed/graphicsRed/exitUpRed.png");
+    exitLeftUpRedImage = new QImage(":/graphicsRed/graphicsRed/exitLeftUpRed.png");
+    exitRightUpRedImage = new QImage(":/graphicsRed/graphicsRed/exitRightUpRed.png");
+    exitLeftDownRedImage = new QImage(":/graphicsRed/graphicsRed/exitLeftDownRed.png");
+    exitRightDownRedImage = new QImage(":/graphicsRed/graphicsRed/exitRightDownRed.png");
+    curve5RedImage = new QImage(":/graphicsRed/graphicsRed/curve5Red.png");
+    curve6RedImage = new QImage(":/graphicsRed/graphicsRed/curve6Red.png");
+    curve7RedImage = new QImage(":/graphicsRed/graphicsRed/curve7Red.png");
+    curve8RedImage = new QImage(":/graphicsRed/graphicsRed/curve8Red.png");
+
+    bufferLeftRedImage = new QImage(":/graphicsRed/graphicsRed/bufferLeftRed.png");
+    bufferRightRedImage = new QImage(":/graphicsRed/graphicsRed/bufferRightRed.png");
+    bufferDownRedImage = new QImage(":/graphicsRed/graphicsRed/bufferDownRed.png");
+    bufferUpRedImage = new QImage(":/graphicsRed/graphicsRed/bufferUpRed.png");
+    bufferLeftUpRedImage = new QImage(":/graphicsRed/graphicsRed/bufferLeftUpRed.png");
+    bufferRightUpRedImage = new QImage(":/graphicsRed/graphicsRed/bufferRightUpRed.png");
+    bufferLeftDownRedImage = new QImage(":/graphicsRed/graphicsRed/bufferLeftDownRed.png");
+    bufferRightDownRedImage = new QImage(":/graphicsRed/graphicsRed/bufferRightDownRed.png");
+    signalLeftRedImage = new QImage(":/graphicsRed/graphicsRed/signalLeftRed.png");
+    signalRightRedImage = new QImage(":/graphicsRed/graphicsRed/signalRightRed.png");
+    signalDownRedImage = new QImage(":/graphicsRed/graphicsRed/signalDownRed.png");
+    signalUpRedImage = new QImage(":/graphicsRed/graphicsRed/signalUpRed.png");
+    signalLeftUpRedImage = new QImage(":/graphicsRed/graphicsRed/signalLeftUpRed.png");
+    signalRightUpRedImage = new QImage(":/graphicsRed/graphicsRed/signalRightUpRed.png");
+    signalLeftDownRedImage = new QImage(":/graphicsRed/graphicsRed/signalLeftDownRed.png");
+    signalRightDownRedImage = new QImage(":/graphicsRed/graphicsRed/signalRightDownRed.png");
+    shuntLeftRedImage = new QImage(":/graphicsRed/graphicsRed/shuntLeftRedRed.png");
+    shuntRightRedImage = new QImage(":/graphicsRed/graphicsRed/shuntRightRedRed.png");
+    shuntDownRedImage = new QImage(":/graphicsRed/graphicsRed/shuntDownRedRed.png");
+    shuntUpRedImage = new QImage(":/graphicsRed/graphicsRed/shuntUpRedRed.png");
+    shuntLeftUpRedImage = new QImage(":/graphicsRed/graphicsRed/shuntLeftUpRedRed.png");
+    shuntRightUpRedImage = new QImage(":/graphicsRed/graphicsRed/shuntRightUpRedRed.png");
+    shuntLeftDownRedImage = new QImage(":/graphicsRed/graphicsRed/shuntLeftDownRedRed.png");
+    shuntRightDownRedImage = new QImage(":/graphicsRed/graphicsRed/shuntRightDownRedRed.png");
+    bridgeUnset1RedImage = new QImage(":/graphicsRed/graphicsRed/bridgeUnset1Red.png");
+    bridgeUnset2RedImage = new QImage(":/graphicsRed/graphicsRed/bridgeUnset2Red.png");
+    underpassUnset1RedImage = new QImage(":/graphicsRed/graphicsRed/underpassUnset1Red.png");
+    underpassUnset2RedImage = new QImage(":/graphicsRed/graphicsRed/underpassUnset2Red.png");
+    bridgeSet1RedImage = new QImage(":/graphicsRed/graphicsRed/brdigeSet1Red.png");
+    bridgeSet2RedImage = new QImage(":/graphicsRed/graphicsRed/bridgeSet2Red.png");
+    underpassSet1RedImage = new QImage(":/graphicsRed/graphicsRed/underpassSet1Red.png");
+    underpassSet2RedImage = new QImage(":/graphicsRed/graphicsRed/underpassSet2Red.png");
+
+    //ElementBlock2 images
+    switchTight1RedImage = new QImage(":/graphicsRed/graphicsRed/switchTight1Red.png");
+    switchTight2RedImage = new QImage(":/graphicsRed/graphicsRed/switchTight2Red.png");
+    switchTight3RedImage = new QImage(":/graphicsRed/graphicsRed/switchTight3Red.png");
+    switchTight4RedImage = new QImage(":/graphicsRed/graphicsRed/switchTight4Red.png");
+    switchTight5RedImage = new QImage(":/graphicsRed/graphicsRed/switchTight5Red.png");
+    switchTight6RedImage = new QImage(":/graphicsRed/graphicsRed/switchTight6Red.png");
+    switchTight7RedImage = new QImage(":/graphicsRed/graphicsRed/switchTight7Red.png");
+    switchTight8RedImage = new QImage(":/graphicsRed/graphicsRed/switchTight8Red.png");
+    switchSplit1RedImage = new QImage(":/graphicsRed/graphicsRed/switchSplit1Red.png");
+    switchSplit2RedImage = new QImage(":/graphicsRed/graphicsRed/switchSplit2Red.png");
+    switchSplit3RedImage = new QImage(":/graphicsRed/graphicsRed/switchSplit3Red.png");
+
+    switch1RedImage = new QImage(":/graphicsRed/graphicsRed/switch1Red.png");
+    switch2RedImage = new QImage(":/graphicsRed/graphicsRed/switch2Red.png");
+    switch3RedImage = new QImage(":/graphicsRed/graphicsRed/switch3Red.png");
+    switch4RedImage = new QImage(":/graphicsRed/graphicsRed/switch4Red.png");
+    switch5RedImage = new QImage(":/graphicsRed/graphicsRed/switch5Red.png");
+    switch6RedImage = new QImage(":/graphicsRed/graphicsRed/switch6Red.png");
+    switch7RedImage = new QImage(":/graphicsRed/graphicsRed/switch7Red.png");
+    switch8RedImage = new QImage(":/graphicsRed/graphicsRed/switch8Red.png");
+    switchSplit4RedImage = new QImage(":/graphicsRed/graphicsRed/switchSplit4Red.png");
+    switchSplit5RedImage = new QImage(":/graphicsRed/graphicsRed/switchSplit5Red.png");
+    switchSplit6RedImage = new QImage(":/graphicsRed/graphicsRed/switchSplit6Red.png");
+
+    switch9RedImage = new QImage(":/graphicsRed/graphicsRed/switch9Red.png");
+    switch10RedImage = new QImage(":/graphicsRed/graphicsRed/switch10Red.png");
+    switch11RedImage = new QImage(":/graphicsRed/graphicsRed/switch11Red.png");
+    switch12RedImage = new QImage(":/graphicsRed/graphicsRed/switch12Red.png");
+    switch13RedImage = new QImage(":/graphicsRed/graphicsRed/switch13Red.png");
+    switch14RedImage = new QImage(":/graphicsRed/graphicsRed/switch14Red.png");
+    switch15RedImage = new QImage(":/graphicsRed/graphicsRed/switch15Red.png");
+    switch16RedImage = new QImage(":/graphicsRed/graphicsRed/switch16Red.png");
+    switchSplit7RedImage = new QImage(":/graphicsRed/graphicsRed/switchSplit7Red.png");
+    switchSplit8RedImage = new QImage(":/graphicsRed/graphicsRed/switchSplit8Red.png");
+
+    //ElementBlock3 images
+    crossover1RedImage = new QImage(":/graphicsRed/graphicsRed/crossover1Red.png");
+    crossover2RedImage = new QImage(":/graphicsRed/graphicsRed/crossover2Red.png");
+    flyover1RedImage = new QImage(":/graphicsRed/graphicsRed/flyover1Red.png");
+    flyover2RedImage = new QImage(":/graphicsRed/graphicsRed/flyover2Red.png");
+    flyover3RedImage = new QImage(":/graphicsRed/graphicsRed/flyover3Red.png");
+    flyover4RedImage = new QImage(":/graphicsRed/graphicsRed/flyover4Red.png");
+
+    crossover3RedImage = new QImage(":/graphicsRed/graphicsRed/crossover3Red.png");
+    crossover4RedImage = new QImage(":/graphicsRed/graphicsRed/crossover4Red.png");
+    flyover5RedImage = new QImage(":/graphicsRed/graphicsRed/flyover5Red.png");
+    flyover6RedImage = new QImage(":/graphicsRed/graphicsRed/flyover6Red.png");
+    flyover7RedImage = new QImage(":/graphicsRed/graphicsRed/flyover7Red.png");
+    flyover8RedImage = new QImage(":/graphicsRed/graphicsRed/flyover8Red.png");
+
+    crossover5RedImage = new QImage(":/graphicsRed/graphicsRed/crossover5Red.png");
+    crossover6RedImage = new QImage(":/graphicsRed/graphicsRed/crossover6Red.png");
+    flyover9RedImage = new QImage(":/graphicsRed/graphicsRed/flyover9Red.png");
+    flyover10RedImage = new QImage(":/graphicsRed/graphicsRed/flyover10Red.png");
+    flyover11RedImage = new QImage(":/graphicsRed/graphicsRed/flyover11Red.png");
+    flyover12RedImage = new QImage(":/graphicsRed/graphicsRed/flyover12Red.png");
 }
 
 void Canvas::loadAllGreenTrackImages()
@@ -379,7 +519,147 @@ void Canvas::loadAllGreenTrackImages()
 
 void Canvas::loadAllBlueTrackImages()
 {
+    //ElementBlock1 images
+    straightHBlueImage = new QImage(":/graphicsBlue/graphicsBlue/straightHBlue.png");
+    straightVBlueImage = new QImage(":/graphicsBlue/graphicsBlue/straightVBlue.png");
+    directLeftBlueImage = new QImage(":/graphicsBlue/graphicsBlue/directLeftBlue.png");
+    directRightBlueImage = new QImage(":/graphicsBlue/graphicsBlue/directRightBlue.png");
+    directUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/directUpBlue.png");
+    directDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/directDownBlue.png");
+    straightLeftUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/straightLeftUpBlue.png");
+    straightRightUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/straightRightUpBlue.png");
+    directLeftUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/directLeftUpBlue.png");
+    directRightUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/directRightUpBlue.png");
+    directRightDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/directRightDownBlue.png");
+    directLeftDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/directLeftDownBlue.png");
+    tightCurve1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/tightCurve1Blue.png");
+    tightCurve2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/tightCurve2Blue.png");
+    tightCurve3BlueImage = new QImage(":/graphicsBlue/graphicsBlue/tightCurve3Blue.png");
+    tightCurve4BlueImage = new QImage(":/graphicsBlue/graphicsBlue/tightCurve4Blue.png");
+    curve1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/curve1Blue.png");
+    curve2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/curve2Blue.png");
+    curve3BlueImage = new QImage(":/graphicsBlue/graphicsBlue/curve3Blue.png");
+    curve4BlueImage = new QImage(":/graphicsBlue/graphicsBlue/curve4Blue.png");
 
+    linkLeftUnsetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkLeftUnsetBlue.png");
+    linkRightUnsetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkRightUnsetBlue.png");
+    linkDownUnsetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkDownUnsetBlue.png");
+    linkUpUnsetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkUpUnsetBlue.png");
+    linkLeftUpUnsetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkLeftUpUnsetBlue.png");
+    linkRightUpUnsetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkRightUpUnsetBlue.png");
+    linkRightDownUnsetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkRightDownUnsetBlue.png");
+    linkLeftDownUnsetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkLeftDownUnsetBlue.png");
+    linkLeftSetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkLeftSetBlue.png");
+    linkRightSetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkRightSetBlue.png");
+    linkDownSetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkDownSetBlue.png");
+    linkUpSetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkUpSetBlue.png");
+    linkLeftUpSetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkLeftUpSetBlue.png");
+    linkRightUpSetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkRightUpSetBlue.png");
+    linkRightDownSetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkRightDownSetBlue.png");
+    linkLeftDownSetBlueImage = new QImage(":/graphicsBlue/graphicsBlue/linkLeftDownSetBlue.png");
+    exitLeftBlueImage = new QImage(":/graphicsBlue/graphicsBlue/exitLeftBlue.png");
+    exitRightBlueImage = new QImage(":/graphicsBlue/graphicsBlue/exitRightBlue.png");
+    exitDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/exitDownBlue.png");
+    exitUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/exitUpBlue.png");
+    exitLeftUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/exitLeftUpBlue.png");
+    exitRightUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/exitRightUpBlue.png");
+    exitLeftDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/exitLeftDownBlue.png");
+    exitRightDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/exitRightDownBlue.png");
+    curve5BlueImage = new QImage(":/graphicsBlue/graphicsBlue/curve5Blue.png");
+    curve6BlueImage = new QImage(":/graphicsBlue/graphicsBlue/curve6Blue.png");
+    curve7BlueImage = new QImage(":/graphicsBlue/graphicsBlue/curve7Blue.png");
+    curve8BlueImage = new QImage(":/graphicsBlue/graphicsBlue/curve8Blue.png");
+
+    bufferLeftBlueImage = new QImage(":/graphicsBlue/graphicsBlue/bufferLeftBlue.png");
+    bufferRightBlueImage = new QImage(":/graphicsBlue/graphicsBlue/bufferRightBlue.png");
+    bufferDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/bufferDownBlue.png");
+    bufferUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/bufferUpBlue.png");
+    bufferLeftUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/bufferLeftUpBlue.png");
+    bufferRightUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/bufferRightUpBlue.png");
+    bufferLeftDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/bufferLeftDownBlue.png");
+    bufferRightDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/bufferRightDownBlue.png");
+    signalLeftBlueImage = new QImage(":/graphicsBlue/graphicsBlue/signalLeftBlue.png");
+    signalRightBlueImage = new QImage(":/graphicsBlue/graphicsBlue/signalRightBlue.png");
+    signalDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/signalDownBlue.png");
+    signalUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/signalUpBlue.png");
+    signalLeftUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/signalLeftUpBlue.png");
+    signalRightUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/signalRightUpBlue.png");
+    signalLeftDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/signalLeftDownBlue.png");
+    signalRightDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/signalRightDownBlue.png");
+    shuntLeftBlueImage = new QImage(":/graphicsBlue/graphicsBlue/shuntLeftRedBlue.png");
+    shuntRightBlueImage = new QImage(":/graphicsBlue/graphicsBlue/shuntRightRedBlue.png");
+    shuntDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/shuntDownRedBlue.png");
+    shuntUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/shuntUpRedBlue.png");
+    shuntLeftUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/shuntLeftUpRedBlue.png");
+    shuntRightUpBlueImage = new QImage(":/graphicsBlue/graphicsBlue/shuntRightUpRedBlue.png");
+    shuntLeftDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/shuntLeftDownRedBlue.png");
+    shuntRightDownBlueImage = new QImage(":/graphicsBlue/graphicsBlue/shuntRightDownRedBlue.png");
+    bridgeUnset1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/bridgeUnset1Blue.png");
+    bridgeUnset2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/bridgeUnset2Blue.png");
+    underpassUnset1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/underpassUnset1Blue.png");
+    underpassUnset2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/underpassUnset2Blue.png");
+    bridgeSet1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/brdigeSet1Blue.png");
+    bridgeSet2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/bridgeSet2Blue.png");
+    underpassSet1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/underpassSet1Blue.png");
+    underpassSet2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/underpassSet2Blue.png");
+
+    //ElementBlock2 images
+    switchTight1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchTight1Blue.png");
+    switchTight2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchTight2Blue.png");
+    switchTight3BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchTight3Blue.png");
+    switchTight4BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchTight4Blue.png");
+    switchTight5BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchTight5Blue.png");
+    switchTight6BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchTight6Blue.png");
+    switchTight7BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchTight7Blue.png");
+    switchTight8BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchTight8Blue.png");
+    switchSplit1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchSplit1Blue.png");
+    switchSplit2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchSplit2Blue.png");
+    switchSplit3BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchSplit3Blue.png");
+
+    switch1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch1Blue.png");
+    switch2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch2Blue.png");
+    switch3BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch3Blue.png");
+    switch4BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch4Blue.png");
+    switch5BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch5Blue.png");
+    switch6BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch6Blue.png");
+    switch7BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch7Blue.png");
+    switch8BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch8Blue.png");
+    switchSplit4BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchSplit4Blue.png");
+    switchSplit5BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchSplit5Blue.png");
+    switchSplit6BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchSplit6Blue.png");
+
+    switch9BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch9Blue.png");
+    switch10BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch10Blue.png");
+    switch11BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch11Blue.png");
+    switch12BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch12Blue.png");
+    switch13BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch13Blue.png");
+    switch14BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch14Blue.png");
+    switch15BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch15Blue.png");
+    switch16BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switch16Blue.png");
+    switchSplit7BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchSplit7Blue.png");
+    switchSplit8BlueImage = new QImage(":/graphicsBlue/graphicsBlue/switchSplit8Blue.png");
+
+    //ElementBlock3 images
+    crossover1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/crossover1Blue.png");
+    crossover2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/crossover2Blue.png");
+    flyover1BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover1Blue.png");
+    flyover2BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover2Blue.png");
+    flyover3BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover3Blue.png");
+    flyover4BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover4Blue.png");
+
+    crossover3BlueImage = new QImage(":/graphicsBlue/graphicsBlue/crossover3Blue.png");
+    crossover4BlueImage = new QImage(":/graphicsBlue/graphicsBlue/crossover4Blue.png");
+    flyover5BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover5Blue.png");
+    flyover6BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover6Blue.png");
+    flyover7BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover7Blue.png");
+    flyover8BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover8Blue.png");
+
+    crossover5BlueImage = new QImage(":/graphicsBlue/graphicsBlue/crossover5Blue.png");
+    crossover6BlueImage = new QImage(":/graphicsBlue/graphicsBlue/crossover6Blue.png");
+    flyover9BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover9Blue.png");
+    flyover10BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover10Blue.png");
+    flyover11BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover11Blue.png");
+    flyover12BlueImage = new QImage(":/graphicsBlue/graphicsBlue/flyover12Blue.png");
 }
 
 void Canvas::loadMixColourTrackImages()
