@@ -134,6 +134,7 @@ void Window::connectLinkedTrack()
     {
         modeChosen = Mode::NONE;
     }
+    //Set the drawingSurface to the new mode.
     drawingSurface->setMode(modeChosen);
 }
 
