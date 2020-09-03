@@ -6,6 +6,7 @@ Window::Window()
     //Set default chosen Element to nothing.
     viewColour = Colour::LIGHT;
     modeChosen = Mode::NONE;
+    //Make canvas
     drawingSurface = new Canvas;
     drawingSurface->setMode(modeChosen);
     setMinimumSize(960,544);
@@ -32,7 +33,7 @@ Window::Window()
     QWidget *left = new QWidget();
     left->setFixedHeight(10);
 
-
+    //Add widgets here
     BorderLayout* layout = new BorderLayout;
     layout->addWidget(drawingSurface, BorderLayout::Center);
     layout->addWidget(menuBar, BorderLayout::North);
@@ -53,16 +54,29 @@ Window::Window()
 
 void Window::timerRun()
 {
+    //Refresh(Redraw) drawingSurface.
     drawingSurface->update();
 
+    //If there is at least 1 linked Track unblock the ConnectLinkedTrackButton.
+    //Otherwise grey it out.
     if (drawingSurface->getMap().getLinkedTrackList().size()>0)
     {
         connectLinkedTrackButton->setEnabled(true);
     }
+    else
+    {
+        connectLinkedTrackButton->setEnabled(false);
+    }
+    //If there is at least 1 track added enable checkAllTrackButton.
     if (drawingSurface->getMap().getTotalTrack()>0)
     {
         checkAllTrackButton->setEnabled(true);
     }
+    else
+    {
+        checkAllTrackButton->setEnabled(false);
+    }
+    //If 2 tracks('end' variable) have been selected then show the setTrackSpeedMenu.
     if (drawingSurface->getMap().getEnd() != nullptr)
     {
         showSetTrackSpeedLengthMenu();
@@ -83,6 +97,7 @@ void Window::openBuildModifyMenu()
 
 void Window::openElementMenu()
 {
+    //If not on menu1 change it to menu1 otherwise show 0(Nothing).
     if (allMenus->currentIndex() != 1)
     {
         allMenus->setCurrentIndex(1);
@@ -96,10 +111,12 @@ void Window::openElementMenu()
 
 void Window::connectLinkedTrack()
 {
+    //If the mode is not CONNECTLINKEDTRACK get number of linkedTrack.
     if (modeChosen != Mode::CONNECTLINKEDTRACK)
     {
         int linkTrackNum =  drawingSurface->getMap().getLinkedTrackList().size();
-        std::cout<< linkTrackNum << std::flush;
+        //If the number is even, change the mode to CONNECTLINKEDTRACK.
+        //Otherwise show oddNumOfLinkTrack error box.
         if ((linkTrackNum % 2) == 0)
         {
             modeChosen = Mode::CONNECTLINKEDTRACK;
@@ -377,10 +394,22 @@ void Window::updateSetTrackSpeedLengthMenu()
 
 void Window::confirmNewLengthSpeed()
 {
+    //Store user inputted length and speed as int.
     newLength = newLengthEntry->text().toInt();
     newSpeed = newSpeedEntry->text().toInt();
-    drawingSurface->setTrackSpeedLength(newLength, newSpeed);
-    hideSetTrackSpeedLengthMenu();
+    if (newLength >0 && newSpeed >0)
+    {
+        drawingSurface->setTrackSpeedLength(newLength, newSpeed);
+        hideSetTrackSpeedLengthMenu();
+    }
+    else
+    {
+        //Output error dialog box.
+        QMessageBox badLengthSpeedBox;
+        badLengthSpeedBox.setText("Cannot set negative length or speed.");
+        badLengthSpeedBox.exec();
+    }
+
 
 }
 
