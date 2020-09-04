@@ -2386,21 +2386,24 @@ void Canvas::paintEvent(QPaintEvent* event)
                     {
                         case StraightType::STRAIGHTH:
                         {
-                            //std::cout<< currentElement->getNamed() << std::flush;
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                //Track is red
+                                painter.drawImage(displayX, displayY, *straightHRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
+                                //Track is green
                                 painter.drawImage(displayX, displayY, *straightHGreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                //Track is blue
+                                painter.drawImage(displayX, displayY, *straightHBlueImage);
                             }
                             else
                             {
+                                //Track is white
                                 painter.drawImage(displayX, displayY, *straightHImage);
                             }
 
@@ -2437,7 +2440,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *straightVRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2445,7 +2448,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *straightHBlueImage);
                             }
                             else
                             {
@@ -2484,7 +2487,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *straightRightUpRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2492,7 +2495,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *straightRightUpBlueImage);
                             }
                             else
                             {
@@ -2504,7 +2507,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *straightLeftUpRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2512,7 +2515,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *straightLeftUpBlueImage);
                             }
                             else
                             {
@@ -2547,18 +2550,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                //Track is red
+                                painter.drawImage(displayX, displayY, *directLeftRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
+                                //Track is green
                                 painter.drawImage(displayX, displayY, *directLeftGreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                //Track is blue
+                                painter.drawImage(displayX, displayY, *directLeftBlueImage);
                             }
                             else
                             {
+                                //Track is white
                                 painter.drawImage(displayX, displayY, *directLeftImage);
                             }
                             if (currentElement->getPlatform1())
@@ -2589,7 +2596,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directRightRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2597,7 +2604,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directRightBlueImage);
                             }
                             else
                             {
@@ -2631,7 +2638,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directUpRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2639,7 +2646,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directUpBlueImage);
                             }
                             else
                             {
@@ -2672,7 +2679,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directDownRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2680,7 +2687,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directDownBlueImage);
                             }
                             else
                             {
@@ -2714,7 +2721,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directRightUpRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2722,7 +2729,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directRightUpBlueImage);
                             }
                             else
                             {
@@ -2734,7 +2741,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directLeftUpRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2742,7 +2749,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directLeftUpBlueImage);
                             }
                             else
                             {
@@ -2754,7 +2761,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directLeftDownRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2762,7 +2769,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directLeftDownBlueImage);
                             }
                             else
                             {
@@ -2774,7 +2781,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directRightDownRedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2782,7 +2789,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *directRightDownBlueImage);
                             }
                             else
                             {
@@ -2817,18 +2824,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                //Track is red
+                                painter.drawImage(displayX, displayY, *tightCurve1RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
+                                //Track is green
                                 painter.drawImage(displayX, displayY, *tightCurve1GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                //Track is blue
+                                painter.drawImage(displayX, displayY, *tightCurve1BlueImage);
                             }
                             else
                             {
+                                //Track is white
                                 painter.drawImage(displayX, displayY, *tightCurve1Image);
                             }
                             break;
@@ -2837,7 +2848,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *tightCurve2RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2845,7 +2856,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *tightCurve2BlueImage);
                             }
                             else
                             {
@@ -2857,7 +2868,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *tightCurve3RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2865,7 +2876,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *tightCurve3BlueImage);
                             }
                             else
                             {
@@ -2877,7 +2888,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *tightCurve4RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2885,7 +2896,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *tightCurve4BlueImage);
                             }
                             else
                             {
@@ -2897,7 +2908,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve1RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2905,7 +2916,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                                 else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve1BlueImage);
                             }
                             else
                             {
@@ -2917,7 +2928,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve2RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2925,7 +2936,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve2BlueImage);
                             }
                             else
                             {
@@ -2937,7 +2948,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve3RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2945,7 +2956,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve3BlueImage);
                             }
                             else
                             {
@@ -2957,7 +2968,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve4RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2965,7 +2976,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve4BlueImage);
                             }
                             else
                             {
@@ -2977,7 +2988,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve5RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -2985,7 +2996,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve5BlueImage);
                             }
                             else
                             {
@@ -2997,7 +3008,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve6RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -3005,7 +3016,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve6BlueImage);
                             }
                             else
                             {
@@ -3017,7 +3028,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve7RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -3025,7 +3036,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve7BlueImage);
                             }
                             else
                             {
@@ -3037,7 +3048,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve8RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
@@ -3045,7 +3056,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
-
+                                painter.drawImage(displayX, displayY, *curve8BlueImage);
                             }
                             else
                             {
@@ -3080,17 +3091,19 @@ void Canvas::paintEvent(QPaintEvent* event)
                         {
                             if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200)
                             {
+                                //Track is red
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftUnsetRedImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftSetRedImage);
                                 }
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
                             {
+                                //Track is green
                                 if (!currentElement->getLinked())
                                 {
                                     painter.drawImage(displayX, displayY, *linkLeftUnsetGreenImage);
@@ -3102,17 +3115,19 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200)
                             {
+                                //Track is blue
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftUnsetBlueImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftSetBlueImage);
                                 }
                             }
                             else
                             {
+                                //Track is white
                                 if (!currentElement->getLinked())
                                 {
                                     painter.drawImage(displayX, displayY, *linkLeftUnsetImage);
@@ -3131,11 +3146,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightUnsetRedImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightSetRedImage);
                                 }
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
@@ -3153,11 +3168,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightUnsetBlueImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightSetBlueImage);
                                 }
                             }
                             else
@@ -3179,11 +3194,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkDownUnsetRedImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkDownSetRedImage);
                                 }
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
@@ -3201,11 +3216,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkDownUnsetBlueImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkDownSetBlueImage);
                                 }
                             }
                             else
@@ -3227,11 +3242,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkUpUnsetRedImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkUpSetRedImage);
                                 }
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
@@ -3249,11 +3264,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkUpUnsetBlueImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkUpSetBlueImage);
                                 }
                             }
                             else
@@ -3275,11 +3290,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftUpUnsetRedImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftUpSetRedImage);
                                 }
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
@@ -3297,11 +3312,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftUpUnsetBlueImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftUpSetBlueImage);
                                 }
                             }
                                 else
@@ -3323,11 +3338,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightUpUnsetRedImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightUpSetRedImage);
                                 }
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
@@ -3345,11 +3360,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightUpUnsetBlueImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightUpSetBlueImage);
                                 }
                             }
                             else
@@ -3371,11 +3386,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightDownUnsetRedImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightDownSetRedImage);
                                 }
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
@@ -3393,11 +3408,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightDownUnsetBlueImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkRightDownSetBlueImage);
                                 }
                             }
                             else
@@ -3419,11 +3434,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftDownUnsetRedImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftDownSetRedImage);
                                 }
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200)
@@ -3441,11 +3456,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 if (!currentElement->getLinked())
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftDownUnsetBlueImage);
                                 }
                                 else
                                 {
-
+                                    painter.drawImage(displayX, displayY, *linkLeftDownSetBlueImage);
                                 }
                             }
                             else
@@ -3461,25 +3476,6 @@ void Canvas::paintEvent(QPaintEvent* event)
                             }
                             break;
                         }
-                    }
-                    if (canvasChosen == Mode::CONNECTLINKEDTRACK)
-                    {
-                        if (currentElement == drawnLayout->getLinkedTrack1() || currentElement == drawnLayout->getLinkedTrack2())
-                        {
-                            painter.drawImage(displayX,displayY,*selectBlue);
-                        }
-                        else if (!currentElement->getLinked())
-                        {
-                            painter.drawImage(displayX,displayY,*selectRed);
-                        }
-                        else if (currentElement->getLinked())
-                        {
-                            painter.drawImage(displayX,displayY, * selectGreen);
-                            painter.drawLine(displayX+8, displayY+8,
-                            currentElement->getOtherLinkTrack()->getLocationX()+8- minDisplayX,
-                            0-(currentElement->getOtherLinkTrack()->getLocationY()-8 - maxDisplayY));
-                        }
-
                     }
                 }
             }

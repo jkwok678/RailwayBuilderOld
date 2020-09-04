@@ -4054,6 +4054,7 @@ void Window::createElementBlock5()
 
 void Window::createSetTrackLengthSpeedMenu()
 {
+    //Create the GUI for the user to set track length and speed.
     setTrackLengthSpeedMenu = new QWidget;
     QPalette pal = palette();
     pal.setColor(QPalette::Window, Qt::green);
@@ -4200,6 +4201,7 @@ void Window::setNewSpeed(int newestSpeed)
 
 void Window::createRightMenu()
 {
+    //Create menu on the right side.
     rightMenu = new QWidget;
     rightMenuLayout = new QVBoxLayout;
 
