@@ -2477,6 +2477,7 @@ void Window::chooseLevelCrossing()
 
 void Window::createMenuBar()
 {
+    //Make top menu bar and add 'File', 'Mode' and 'Information' tab.
     menuBar = new QMenuBar();
     fileMenu = new QMenu("File");
     modeMenu = new QMenu("Mode");
@@ -2491,6 +2492,7 @@ void Window::createMenuBar()
 
 void Window::createFileMenu()
 {
+    //Actions you can do in the File Menu tab.
     openRailwayAct = new QAction(tr("&Open Railway"), this);
     openRailwayAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
     openRailwayAct->setStatusTip(tr("Open an existing railway"));
@@ -2500,6 +2502,7 @@ void Window::createFileMenu()
 
 void Window::createModeMenu()
 {
+    //Actions you can do in the Mode menu tab.
     openBuildModifyAct = new QAction(tr("&Build/Modify Menu"), this);
     openBuildModifyAct->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_B));
     connect(openBuildModifyAct, &QAction::triggered, this, &Window::openBuildModifyMenu);
@@ -2520,6 +2523,7 @@ void Window::createModeMenu()
 
 void Window::createInformationMenu()
 {
+    //Actions you can do in the information tab.
     showTrackIDAct = new QAction(tr("&Show trackID"), this);
     connect(showTrackIDAct, &QAction::triggered, this, &Window::toggleTrackID);
     informationMenu->addAction(showTrackIDAct);
@@ -2541,8 +2545,6 @@ void Window::createOverallMenu()
     buildModifyMenu1->setPalette(pal2);
     buildModifyMenu1->setLayout(buildModifyMenuLayout1);
 
-    //overallMenuLayout->setAlignment(buildModifyMenu1,Qt::AlignTop);
-
     //Create second half of Menu.
     allMenus = new QStackedWidget;
     createElementMenu();
@@ -2558,6 +2560,7 @@ void Window::createOverallMenu()
 
 void Window::createBuildModifyMenu1()
 {
+    //Create an add the elements in the top half menu
     elementMenuButton = new QToolButton();
     elementMenuButton->setMaximumSize(QSize(32, 32));
     openElementMenuAct = new QAction();
@@ -2656,7 +2659,7 @@ void Window::createBuildModifyMenu1()
 
 void Window::createElementMenu()
 {
-
+    //Make the menu where you can select all the tracks pieces.
     elementMenu = new QWidget;
     QPalette pal = palette();
     pal.setColor(QPalette::Window, Qt::green);
@@ -2664,6 +2667,7 @@ void Window::createElementMenu()
     elementMenu->setPalette(pal);
     elementMenuLayout = new QHBoxLayout;
 
+    //Makes all the buttons for this section.
     createElementBlock1();
     createElementBlock2();
     createElementBlock3();
