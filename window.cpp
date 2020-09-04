@@ -116,13 +116,13 @@ void Window::connectLinkedTrack()
     {
         int linkTrackNum =  drawingSurface->getMap().getLinkedTrackList().size();
         //If the number is even, change the mode to CONNECTLINKEDTRACK.
-        //Otherwise show oddNumOfLinkTrack error box.
         if ((linkTrackNum % 2) == 0)
         {
             modeChosen = Mode::CONNECTLINKEDTRACK;
         }
         else
         {
+            //Show oddNumOfLinkTrack error box.
             QMessageBox oddNumOfLinkTrack;
             oddNumOfLinkTrack.setIcon(QMessageBox::Critical);
             oddNumOfLinkTrack.setText("Cannot link track. Odd number of LinkedTrack");
@@ -140,11 +140,13 @@ void Window::connectLinkedTrack()
 
 void Window::checkAllTrack()
 {
-    drawingSurface->getMap().checkAllTracks();
+    //Run checkAllTrack
+    drawingSurface->checkAllTracks();
 }
 
 void Window::addEditRemoveText()
 {
+    //If the mode isn't ADDCHANGETEXT, make it that.
     if (modeChosen != Mode::ADDCHANGETEXT)
     {
         modeChosen = Mode::ADDCHANGETEXT;
@@ -152,6 +154,7 @@ void Window::addEditRemoveText()
     }
     else
     {
+        //Otherwise go to default.
         modeChosen = Mode::NONE;
     }
     drawingSurface->setMode(modeChosen);
@@ -159,12 +162,14 @@ void Window::addEditRemoveText()
 
 void Window::moveText()
 {
+    //If the mode isn't MOVETEXT, make it that.
     if (modeChosen != Mode::MOVETEXT)
     {
         modeChosen = Mode::MOVETEXT;
     }
     else
     {
+        //Otherwise go to default.
         modeChosen = Mode::NONE;
     }
     drawingSurface->setMode(modeChosen);
@@ -172,6 +177,7 @@ void Window::moveText()
 
 void Window::setChangeNamedLocation()
 {
+    //If the mode isn't SETCHANGENAMEDLOCATION, make it that.
     if (modeChosen != Mode::SETCHANGENAMEDLOCATION)
     {
         modeChosen = Mode::SETCHANGENAMEDLOCATION;
@@ -179,6 +185,7 @@ void Window::setChangeNamedLocation()
     }
     else
     {
+        //Otherwise go to default
         modeChosen = Mode::NONE;
     }
     drawingSurface->setMode(modeChosen);
@@ -186,13 +193,16 @@ void Window::setChangeNamedLocation()
 
 void Window::openFontBox()
 {
+    //Get a new font from QFontDialog box, the default is font is there.
     bool ok;
     QFont font = QFontDialog::getFont(&ok, QFont( "Calibri", 12 ),this,tr("Pick a font" ));
+    //Make sure that the canvas is using this font.
     drawingSurface->setCurrentFont(font);
 }
 
 void Window::openTrackLengthSpeedPanel()
 {
+    //If the current menu isn't the TrackLengthSpeedMenu change it to that.
     if (allMenus->currentIndex() != 2)
     {
         allMenus->setCurrentIndex(2);
@@ -202,10 +212,10 @@ void Window::openTrackLengthSpeedPanel()
         allMenus->setCurrentIndex(0);
         //drawingSurface->setMap(newMap);
     }
+    //If the mode isn't SETTRACKELENGTHSPEED, make it that.
     if (modeChosen != Mode::SETTRACKLENGTHSPEED)
     {
         modeChosen = Mode::SETTRACKLENGTHSPEED;
-
     }
     else
     {
@@ -217,6 +227,10 @@ void Window::openTrackLengthSpeedPanel()
 
 void Window::convertMilesYardMetres()
 {
+    /*If the miles text entry isn't empty, try make it a double.
+     * Then make it equal to the double that was inputted by the user.
+     * Otherwise make miles = 0.
+     */
     if (!milesEntry->text().isEmpty())
     {
         bool ok = false;
@@ -230,6 +244,10 @@ void Window::convertMilesYardMetres()
     {
         miles = 0;
     }
+    /*If the yards text entry isn't empty, try make it a double.
+     * Then make it equal to the double that was inputted by the user.
+     * Otherwise make yards = 0.
+     */
     if (!yardsEntry->text().isEmpty())
     {
         bool ok = false;
@@ -243,14 +261,18 @@ void Window::convertMilesYardMetres()
     {
         yards = 0;
     }
+    //Calculate miles + yards in metres.
     int metres = round((miles* MILE_FACTOR) + (yards* YARD_FACTOR));
     metres = std::ceil(metres * 100.0) / 100.0;
+    //Display it to user
     actualMetres->setText(QString::number(metres));
 
 }
 
 void Window::swapSpeedLabel()
 {
+    //Swap the 2 texts on the labels
+    //Then reconvert the numbers
     QString temp = speedLabel1->text();
     speedLabel1->setText(speedLabel2->text());
     speedLabel2->setText(temp);
@@ -267,8 +289,10 @@ void Window::swapSpeedLabel()
 
 void Window::convertMPHKMH()
 {
+    //Convert mph to kmh or vice versa
     double result;
     double temp;
+    //If a speed is entered, try convert it to a double.
     if (!speedEntry1->text().isEmpty())
     {
         bool ok = false;
@@ -285,6 +309,7 @@ void Window::convertMPHKMH()
         {
             result = temp / MPH_TO_KMH;
         }
+        //Round up the result and display it.
         result = std::ceil(result * 100.0) / 100.0;
         speedResult->setText(QString::number(result));
     }
@@ -294,6 +319,7 @@ void Window::convertMPHKMH()
 void Window::showSetTrackSpeedLengthMenu()
 {
 
+    //Show all aspects of the GUI.
     lengthLabel->setVisible(true);
 
     speedLabel->setVisible(true);
@@ -314,6 +340,7 @@ void Window::showSetTrackSpeedLengthMenu()
 
 void Window::hideSetTrackSpeedLengthMenu()
 {
+    //Hide all aspects of the GUI.
     lengthLabel->setVisible(false);
 
     speedLabel->setVisible(false);
@@ -333,6 +360,7 @@ void Window::hideSetTrackSpeedLengthMenu()
 
 void Window::restoreAllDefaultLengthSpeed()
 {
+    //Resets all track lengths and hides the setTrackSpeedLength menu.
     drawingSurface->resetAllTrackSpeedLength();
     updateSetTrackSpeedLengthMenu();
     hideSetTrackSpeedLengthMenu();
@@ -340,6 +368,7 @@ void Window::restoreAllDefaultLengthSpeed()
 
 void Window::restoreSelectedDefaultLengthSpeed()
 {
+    //Resets the selected track lengths and hides the setTrackSpeedLength menu.
     drawingSurface->resetSelectedTrackSpeedLength();
     updateSetTrackSpeedLengthMenu();
     hideSetTrackSpeedLengthMenu();
@@ -349,13 +378,15 @@ void Window::updateSetTrackSpeedLengthMenu()
 {
     int length =0;
     int speed = 0;
+    //If a track is already chosen display it's speed.
     if (drawingSurface->getMap().getStart() != nullptr)
     {
         speed = drawingSurface->getMap().getStart()->getTrackMainSpeed();
     }
 
     bool sameSpeed = true;
-
+    //If start and end exist, go through the setTrackSpeedLengthList, add up length.
+    //Also check if the speed is the same for all tracks.
     if (drawingSurface->getMap().getStart() != nullptr && drawingSurface->getMap().getEnd() != nullptr)
     {
         for (std::shared_ptr<Track> track : drawingSurface->getMap().getSetTrackSpeedLengthList())
@@ -372,6 +403,7 @@ void Window::updateSetTrackSpeedLengthMenu()
             }
 
         }
+        //Display the current length and speed for this section.
         newLengthEntry->setText(QString::number(length));
         if (sameSpeed)
         {
@@ -380,15 +412,15 @@ void Window::updateSetTrackSpeedLengthMenu()
     }
     else if (drawingSurface->getMap().getStart() != nullptr && drawingSurface->getMap().getEnd() == nullptr)
     {
+        //Display the current length and speed for the single track.
         newLengthEntry->setText(QString::number(drawingSurface->getMap().getStart()->getTrackMainLength()));
         newSpeedEntry->setText(QString::number(drawingSurface->getMap().getStart()->getTrackMainSpeed()));
     }
 
-
     if (drawingSurface->getMap().getSetTrackSpeedLengthList().size() <1)
     {
-        newLengthEntry->setText(tr("No track"));
-        newSpeedEntry->setText(tr("No track"));
+        newLengthEntry->setText(tr("N/A"));
+        newSpeedEntry->setText(tr("N/A"));
     }
 
 }
@@ -416,6 +448,7 @@ void Window::confirmNewLengthSpeed()
 
 void Window::toggleGrid()
 {
+    //Change whether grid is on or off.
     if (grid)
     {
         grid = false;
@@ -429,6 +462,8 @@ void Window::toggleGrid()
 
 void Window::changeAspect()
 {
+    //Change aspect from 4 -> 3 -> 2 -> 1 then back to 4.
+    //Also change button icons along the way.
     if (aspect == 4)
     {
         aspect = 3;
@@ -474,6 +509,8 @@ void Window::changeAspect()
 
 void Window::toggleTrackID()
 {
+    //If showTrackID is false then show TrackID on canvas and change the label.
+    //Otherwise don't show and change the label.
     if (!showTrackID)
     {
         showTrackID = true;
@@ -490,6 +527,8 @@ void Window::toggleTrackID()
 
 void Window::toggleMoreTrackInfo()
 {
+    //If showMoreTrackInfo is false then show more TrackInfo on canvas and change the label.
+    //Otherwise don't show and change the label.
     if (!showMoreTrackInfo)
     {
         showMoreTrackInfo = true;

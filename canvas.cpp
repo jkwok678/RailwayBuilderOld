@@ -995,6 +995,11 @@ void Canvas::setGrid(bool newGrid)
     grid = newGrid;
 }
 
+void Canvas::checkAllTracks()
+{
+    drawnLayout->checkAllTracks();
+}
+
 
 void Canvas::resetAllTrackSpeedLength()
 {

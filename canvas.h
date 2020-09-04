@@ -70,6 +70,8 @@ public:
     bool getGrid() const;
     void setGrid(bool value);
 
+    void checkAllTracks();
+
 signals:
     void moreTracksAdded();
 
