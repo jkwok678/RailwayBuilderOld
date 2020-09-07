@@ -7774,9 +7774,9 @@ void Canvas::paintEvent(QPaintEvent* event)
                     int displayY = 0-(currentY - maxDisplayY);
                     switch (currentElement->getCrossoverType())
                     {
-                       case CrossoverType::CROSSOVER1:
+                        case CrossoverType::CROSSOVER1:
                         {
-                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Track both white
@@ -7790,7 +7790,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -7801,6 +7801,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *crossover1RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -7816,7 +7817,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -7842,6 +7843,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *crossover1BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -7858,11 +7860,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 //Main is blue, Secondary Green
                             }
-                           break;
+                            break;
                         }
-                       case CrossoverType::CROSSOVER2:
+                        case CrossoverType::CROSSOVER2:
                         {
-                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Track both white
@@ -7876,7 +7878,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -7887,6 +7889,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *crossover2RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -7902,7 +7905,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -7928,6 +7931,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *crossover2BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -7944,11 +7948,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 //Main is blue, Secondary Green
                             }
-                           break;
+                            break;
                         }
-                       case CrossoverType::CROSSOVER3:
+                        case CrossoverType::CROSSOVER3:
                         {
-                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Track both white
@@ -7962,7 +7966,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -7973,6 +7977,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *crossover3RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -7988,7 +7993,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8014,6 +8019,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *crossover3BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8030,11 +8036,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 //Main is blue, Secondary Green
                             }
-                           break;
+                            break;
                         }
-                       case CrossoverType::CROSSOVER4:
+                        case CrossoverType::CROSSOVER4:
                         {
-                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Track both white
@@ -8048,7 +8054,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8059,6 +8065,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *crossover4RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8074,7 +8081,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8100,6 +8107,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *crossover4BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8116,11 +8124,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 //Main is blue, Secondary Green
                             }
-                           break;
+                            break;
                         }
-                       case CrossoverType::CROSSOVER5:
+                        case CrossoverType::CROSSOVER5:
                         {
-                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Track both white
@@ -8134,7 +8142,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8145,6 +8153,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *crossover5RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8160,7 +8169,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8186,6 +8195,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *crossover5BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8202,11 +8212,11 @@ void Canvas::paintEvent(QPaintEvent* event)
                             {
                                 //Main is blue, Secondary Green
                             }
-                           break;
+                            break;
                         }
-                       case CrossoverType::CROSSOVER6:
+                        case CrossoverType::CROSSOVER6:
                         {
-                           if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
+                            if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Track both white
@@ -8220,7 +8230,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8231,6 +8241,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *crossover6RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8246,7 +8257,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8272,6 +8283,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *crossover6BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8329,7 +8341,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8340,6 +8352,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover1RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8355,7 +8368,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8381,6 +8394,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover1BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8415,7 +8429,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8426,6 +8440,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover2RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8441,7 +8456,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8467,6 +8482,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover2BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8501,7 +8517,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8512,6 +8528,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover3RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8527,7 +8544,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8553,6 +8570,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover3BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8587,7 +8605,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8598,6 +8616,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover4RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8613,7 +8632,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8639,6 +8658,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover4BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8673,7 +8693,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8684,6 +8704,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover5RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8699,7 +8720,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8725,6 +8746,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover5BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8759,7 +8781,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8770,6 +8792,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover6RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8785,7 +8808,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8811,6 +8834,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover6BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8845,7 +8869,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8856,6 +8880,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover7RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8871,7 +8896,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8897,6 +8922,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover7BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8931,7 +8957,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8942,6 +8968,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover8RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -8957,7 +8984,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -8983,6 +9010,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover8BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -9017,7 +9045,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -9028,6 +9056,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover9RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -9043,7 +9072,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -9069,6 +9098,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover9BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -9103,7 +9133,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -9114,6 +9144,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover10RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -9129,7 +9160,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -9155,6 +9186,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover10BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -9189,7 +9221,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -9200,6 +9232,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover11RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -9215,7 +9248,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -9241,6 +9274,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover11BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -9275,7 +9309,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is white, Secondary Green
+                                //Main is white, Secondary Green
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -9286,6 +9320,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both red
+                                painter.drawImage(displayX, displayY, *flyover12RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -9301,7 +9336,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
-                                }
+                            }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
@@ -9327,6 +9362,7 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Track both blue
+                                painter.drawImage(displayX, displayY, *flyover12BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
