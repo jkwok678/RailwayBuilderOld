@@ -703,6 +703,7 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
         }
         case SwitchType::SWITCHSPLIT1:
         {
+            //Left diverging is main, right diverging is secondary.
             links[2] = true;
             links[3] = true;
             links[8] = true;
@@ -710,6 +711,7 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
         }
         case SwitchType::SWITCHSPLIT2:
         {
+            //Left diverging is main, Right diverging is secondary.
             links[0] = true;
             links[5] = true;
             links[6] = true;
@@ -717,6 +719,7 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
         }
         case SwitchType::SWITCHSPLIT3:
         {
+            //Left diverging is main, right diverging is secondary.
             links[2] = true;
             links[3] = true;
             links[7] = true;
@@ -724,6 +727,7 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
         }
         case SwitchType::SWITCHSPLIT4:
         {
+            //Left diverging is main, right diverging is secondary.
             links[1] = true;
             links[5] = true;
             links[6] = true;
@@ -731,6 +735,7 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
         }
         case SwitchType::SWITCHSPLIT5:
         {
+            //Left diverging is main, right diverging is secondary.
             links[1] = true;
             links[3] = true;
             links[8] = true;
@@ -738,6 +743,7 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
         }
         case SwitchType::SWITCHSPLIT6:
         {
+            //Left diverging is main, right diverging is secondary.
             links[0] = true;
             links[5] = true;
             links[7] = true;
@@ -745,6 +751,7 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
         }
         case SwitchType::SWITCHSPLIT7:
         {
+            //Left diverging is main, right diverging is secondary.
             links[0] = true;
             links[2] = true;
             links[7] = true;
@@ -752,6 +759,7 @@ SwitchTrack::SwitchTrack(SwitchType newSwitchType, int newLocationX, int newLoca
         }
         case SwitchType::SWITCHSPLIT8:
         {
+            //Left diverging is main, right diverging is secondary.
             links[1] = true;
             links[6] = true;
             links[8] = true;
@@ -895,6 +903,7 @@ CrossoverTrack::CrossoverTrack(CrossoverType newCrossoverType, int newLocationX,
     {
         case CrossoverType::CROSSOVER1:
         {
+            //Horizontal is main, vertical is secondary
             links[1] = true;
             links[3] = true;
             links[5] = true;
@@ -903,6 +912,7 @@ CrossoverTrack::CrossoverTrack(CrossoverType newCrossoverType, int newLocationX,
         }
         case CrossoverType::CROSSOVER2:
         {
+            //Top left to Bottom right is main, other is secondary
             links[0] = true;
             links[2] = true;
             links[6] = true;
@@ -911,6 +921,7 @@ CrossoverTrack::CrossoverTrack(CrossoverType newCrossoverType, int newLocationX,
         }
         case CrossoverType::CROSSOVER3:
         {
+            //Vertical is main, other is secondary
             links[0] = true;
             links[1] = true;
             links[7] = true;
@@ -919,6 +930,7 @@ CrossoverTrack::CrossoverTrack(CrossoverType newCrossoverType, int newLocationX,
         }
         case CrossoverType::CROSSOVER4:
         {
+            //Vertical is main, other is secondary
             links[1] = true;
             links[2] = true;
             links[6] = true;
@@ -927,6 +939,7 @@ CrossoverTrack::CrossoverTrack(CrossoverType newCrossoverType, int newLocationX,
         }
         case CrossoverType::CROSSOVER5:
         {
+            //Horizontal is main, other is secondary
             links[0] = true;
             links[3] = true;
             links[5] = true;
@@ -935,6 +948,7 @@ CrossoverTrack::CrossoverTrack(CrossoverType newCrossoverType, int newLocationX,
         }
         case CrossoverType::CROSSOVER6:
         {
+            //Horizontal is main, other is secondary
             links[2] = true;
             links[3] = true;
             links[5] = true;
@@ -969,6 +983,8 @@ FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int new
         case FlyoverType::FLYOVER1:
         case FlyoverType::FLYOVER2:
         {
+            //For Flyover 1, vertical is the Top Track and the main track.
+            //For Flyover 2, horizontal is the Top Track and the main track.
             links[1] = true;
             links[3] = true;
             links[5] = true;
@@ -978,6 +994,8 @@ FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int new
         case FlyoverType::FLYOVER3:
         case FlyoverType::FLYOVER4:
         {
+            //For Flyover 3, top left to bottom right is the Top Track and the main track.
+            //For Flyover 4, top right to bottom left is the Top Track and the main track.
             links[0] = true;
             links[2] = true;
             links[6] = true;
@@ -987,6 +1005,8 @@ FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int new
         case FlyoverType::FLYOVER5:
         case FlyoverType::FLYOVER7:
         {
+            //For Flyover 5, Vertical is the Top Track and the main track.
+            //For Flyover 7, top left to bottom right is the Top Track and the main track.
             links[0] = true;
             links[1] = true;
             links[7] = true;
@@ -996,6 +1016,8 @@ FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int new
         case FlyoverType::FLYOVER6:
         case FlyoverType::FLYOVER8:
         {
+            //For Flyover 6, Vertical is the Top Track and the main track.
+            //For Flyover 8, top right to bottom left is the Top Track and the main track.
             links[1] = true;
             links[2] = true;
             links[6] = true;
@@ -1005,6 +1027,8 @@ FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int new
         case FlyoverType::FLYOVER9:
         case FlyoverType::FLYOVER11:
         {
+            //For Flyover 9, Horizontal is the Top Track and the main track.
+            //For Flyover 11, top left to bottom right is the Top Track and the main track.
             links[0] = true;
             links[3] = true;
             links[5] = true;
@@ -1014,6 +1038,8 @@ FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int new
         case FlyoverType::FLYOVER10:
         case FlyoverType::FLYOVER12:
         {
+            //For Flyover 10, Horizontal is the Top Track and the main track.
+            //For Flyover 12, top right to bottom left Top Track and the main track.
             links[2] = true;
             links[3] = true;
             links[5] = true;

@@ -11599,16 +11599,94 @@ void Canvas::mouseMoveEvent(QMouseEvent *event)
             element = drawnLayout->getElementAt(finalX,finalY);
             if (element== nullptr)
             {
-                std::shared_ptr<Track> track = nullptr;
-                track = drawnLayout->getTrackAt(finalX,finalY);
+                std::shared_ptr<Track> track = drawnLayout->getTrackAt(finalX,finalY);;
+                std::shared_ptr<SwitchTrack> switchTrack = drawnLayout->getSwitchTrackAt(finalX,finalY);
+                std::shared_ptr<FlyoverTrack> flyoverTrack = drawnLayout->getFlyoverTrackAt(finalX,finalY);
+                std::shared_ptr<CrossoverTrack> crossoverTrack = drawnLayout->getCrossoverTrackAt(finalX,finalY);
+
                 ID = "Track ID = ";
                 ID = ID.append(QString::number(finalX/16)).append(",").append(QString::number(finalY/16));
                 if (canvasShowMoreTrackInfo) {
-                   QString text2 = tr("\n").append("Track length = ").append(QString::number(track->getTrackMainLength())).append(" m");
-                   QString text3 = tr("\n").append("Track speed = ").append(QString::number(track->getTrackMainSpeed())).append(" km/h");
-                   finalText = ID.append(text2).append(text3);
+                    QString text2;
+                    QString text3;
+                    QString text2a;
+                    QString text3a;
+                    if (switchTrack != nullptr)
+                    {
+                        if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 || switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 ||
+                            switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 || switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 ||
+                            switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 || switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 ||
+                            switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 || switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8)
+                        {
+                            text2 = tr("\n").append("Left diverging track length = ").append(QString::number(track->getTrackMainLength())).append(" m");
+                            text3 = tr("\n").append("Left diverging track speed = ").append(QString::number(track->getTrackMainSpeed())).append(" km/h");
+                            text2a = tr("\n").append("Right diverging Track length = ").append(QString::number(track->getTrackSecondaryLength())).append(" m");
+                            text3a = tr("\n").append("Right diverging Track speed = ").append(QString::number(track->getTrackSecondarySpeed())).append(" km/h");
+                        }
+                        else
+                        {
+                            text2 = tr("\n").append("Main track length = ").append(QString::number(track->getTrackMainLength())).append(" m");
+                            text3 = tr("\n").append("Main track speed = ").append(QString::number(track->getTrackMainSpeed())).append(" km/h");
+                            text2a = tr("\n").append("Diverging Track length = ").append(QString::number(track->getTrackSecondaryLength())).append(" m");
+                            text3a = tr("\n").append("Diverging Track speed = ").append(QString::number(track->getTrackSecondarySpeed())).append(" km/h");
+                        }
+
+                        finalText = ID.append(text2).append(text3).append(text2a).append(text3a);
+                    }
+                    else if (flyoverTrack != nullptr)
+                    {
+                        text2 = tr("\n").append("Top track length = ").append(QString::number(track->getTrackMainLength())).append(" m");
+                        text3 = tr("\n").append("Top track speed = ").append(QString::number(track->getTrackMainSpeed())).append(" km/h");
+                        text2a = tr("\n").append("Bottom track length = ").append(QString::number(track->getTrackSecondaryLength())).append(" m");
+                        text3a = tr("\n").append("Bottom track speed = ").append(QString::number(track->getTrackSecondarySpeed())).append(" km/h");
+                        finalText = ID.append(text2).append(text3).append(text2a).append(text3a);
+                    }
+                    else if (crossoverTrack != nullptr)
+                    {
+                        if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                        {
+                            //Horizontal is main, vertical is secondary
+                            text2 = tr("\n").append("Horizontal track length = ").append(QString::number(track->getTrackMainLength())).append(" m");
+                            text3 = tr("\n").append("Horizontal track speed = ").append(QString::number(track->getTrackMainSpeed())).append(" km/h");
+                            text2a = tr("\n").append("Vertical Track length = ").append(QString::number(track->getTrackSecondaryLength())).append(" m");
+                            text3a = tr("\n").append("Vertical Track speed = ").append(QString::number(track->getTrackSecondarySpeed())).append(" km/h");
+                        }
+                        else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                        {
+                            //Top left to Bottom right is main, other is secondary
+                            text2 = tr("\n").append("Top left to Bottom right track length = ").append(QString::number(track->getTrackMainLength())).append(" m");
+                            text3 = tr("\n").append("Top left to Bottom right track speed = ").append(QString::number(track->getTrackMainSpeed())).append(" km/h");
+                            text2a = tr("\n").append("Other Track length = ").append(QString::number(track->getTrackSecondaryLength())).append(" m");
+                            text3a = tr("\n").append("Other Track speed = ").append(QString::number(track->getTrackSecondarySpeed())).append(" km/h");
+                        }
+                        else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3 ||
+                                 crossoverTrack->getCrossoverType() ==  CrossoverType::CROSSOVER4)
+                        {
+                            //Vertical is main, other is secondary
+                            //
+                            text2 = tr("\n").append("Vertical track length = ").append(QString::number(track->getTrackMainLength())).append(" m");
+                            text3 = tr("\n").append("Vertical track speed = ").append(QString::number(track->getTrackMainSpeed())).append(" km/h");
+                            text2a = tr("\n").append("Other Track length = ").append(QString::number(track->getTrackSecondaryLength())).append(" m");
+                            text3a = tr("\n").append("Other Track speed = ").append(QString::number(track->getTrackSecondarySpeed())).append(" km/h");
+                        }
+                        else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5 ||
+                                 crossoverTrack->getCrossoverType() ==  CrossoverType::CROSSOVER6)
+                        {
+                            //Horizontal is main, other is secondary
+                            text2 = tr("\n").append("Horizontal track length = ").append(QString::number(track->getTrackMainLength())).append(" m");
+                            text3 = tr("\n").append("Horizontal track speed = ").append(QString::number(track->getTrackMainSpeed())).append(" km/h");
+                            text2a = tr("\n").append("Other Track length = ").append(QString::number(track->getTrackSecondaryLength())).append(" m");
+                            text3a = tr("\n").append("Other Track speed = ").append(QString::number(track->getTrackSecondarySpeed())).append(" km/h");
+                        }
+                        finalText = ID.append(text2).append(text3).append(text2a).append(text3a);
+                    }
+                    else
+                    {
+                        text2 = tr("\n").append("Track length = ").append(QString::number(track->getTrackMainLength())).append(" m");
+                        text3 = tr("\n").append("Track speed = ").append(QString::number(track->getTrackMainSpeed())).append(" km/h");
+                        finalText = ID.append(text2).append(text3);
+                    }
                 }
-                finalText = ID;
             }
             else
             {

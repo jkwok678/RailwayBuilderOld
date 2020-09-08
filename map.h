@@ -46,6 +46,7 @@ private:
     std::shared_ptr<Track> start{nullptr};
     std::shared_ptr<Track> end{nullptr};
     std::vector<std::shared_ptr<Track>> setTrackSpeedLengthList;
+    std::vector<std::shared_ptr<bool>> mainSecondaryList;
 
 
     int setTrackSpeedLengthCounter{1000};
