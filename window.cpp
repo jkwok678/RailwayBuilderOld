@@ -383,26 +383,82 @@ void Window::updateSetTrackSpeedLengthMenu()
     {
         speed = drawingSurface->getMap().getStart()->getTrackMainSpeed();
     }
-
+    std::vector<std::shared_ptr<Track>> mainList = drawingSurface->getMap().getSetTrackSpeedLengthMainList();
+    std::vector<std::shared_ptr<Track>> secondaryList = drawingSurface->getMap().getSetTrackSpeedLengthSecondaryList();
     bool sameSpeed = true;
     //If start and end exist, go through the setTrackSpeedLengthList, add up length.
     //Also check if the speed is the same for all tracks.
     if (drawingSurface->getMap().getStart() != nullptr && drawingSurface->getMap().getEnd() != nullptr)
     {
-        for (std::shared_ptr<Track> track : drawingSurface->getMap().getSetTrackSpeedLengthList())
+
+        int sizeMain = drawingSurface->getMap().getSetTrackSpeedLengthMainList().size();
+        int sizeSecondary = drawingSurface->getMap().getSetTrackSpeedLengthSecondaryList().size();
+        if (sizeMain > 0 && sizeSecondary > 0)
         {
-            int tempLength = track->getTrackMainLength();
-
-            length += tempLength;
-            if (sameSpeed == true)
+            for (std::shared_ptr<Track> track : mainList)
             {
-                if (track->getTrackMainSpeed() != speed)
-                {
-                    sameSpeed = false;
-                }
-            }
+                int tempLength = track->getTrackMainLength();
 
+                length += tempLength;
+                if (sameSpeed == true)
+                {
+                    if (track->getTrackMainSpeed() != speed)
+                    {
+                        sameSpeed = false;
+                    }
+                }
+
+            }
+            for (std::shared_ptr<Track> track : secondaryList)
+            {
+                int tempLength = track->getTrackSecondaryLength();
+                std::cout << tempLength << std::flush;
+                length += tempLength;
+                if (sameSpeed == true)
+                {
+                    if (track->getTrackSecondarySpeed() != speed)
+                    {
+                        sameSpeed = false;
+                    }
+                }
+
+            }
         }
+        else if (sizeMain > 0 && sizeSecondary == 0)
+        {
+            for (std::shared_ptr<Track> track : mainList)
+            {
+                int tempLength = track->getTrackMainLength();
+
+                length += tempLength;
+                if (sameSpeed == true)
+                {
+                    if (track->getTrackMainSpeed() != speed)
+                    {
+                        sameSpeed = false;
+                    }
+                }
+
+            }
+        }
+        else if (sizeMain == 0 && sizeSecondary > 0)
+        {
+            for (std::shared_ptr<Track> track : secondaryList)
+            {
+                int tempLength = track->getTrackSecondaryLength();
+
+                length += tempLength;
+                if (sameSpeed == true)
+                {
+                    if (track->getTrackSecondarySpeed() != speed)
+                    {
+                        sameSpeed = false;
+                    }
+                }
+
+            }
+        }
+
         //Display the current length and speed for this section.
         newLengthEntry->setText(QString::number(length));
         if (sameSpeed)
@@ -417,7 +473,7 @@ void Window::updateSetTrackSpeedLengthMenu()
         newSpeedEntry->setText(QString::number(drawingSurface->getMap().getStart()->getTrackMainSpeed()));
     }
 
-    if (drawingSurface->getMap().getSetTrackSpeedLengthList().size() <1)
+    if (mainList.size() <1 && secondaryList.size() <1)
     {
         newLengthEntry->setText(tr("N/A"));
         newSpeedEntry->setText(tr("N/A"));

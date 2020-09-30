@@ -30,21 +30,20 @@ void Map::setStraightTrackList(const std::vector<std::shared_ptr<StraightTrack> 
 
 void Map::addStraightTrack(std::shared_ptr<StraightTrack> newStraightTrack)
 {
-
-	int tempLocationX = newStraightTrack->getLocationX();
+    int tempLocationX = newStraightTrack->getLocationX();
     int templocationY = newStraightTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		straightTrackList.push_back(newStraightTrack);
+        straightTrackList.push_back(newStraightTrack);
         ++totalTrack;
-	}
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<StraightTrack> Map::getStraightTrackAt(int locationX, int locationY)
@@ -81,20 +80,20 @@ void Map::setDirectTrackList(const std::vector<std::shared_ptr<DirectTrack> >& n
 
 void Map::addDirectTrack(std::shared_ptr<DirectTrack> newDirectTrack)
 {
-	int tempLocationX = newDirectTrack->getLocationX();
+    int tempLocationX = newDirectTrack->getLocationX();
     int templocationY = newDirectTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		directTrackList.push_back(newDirectTrack);
+        directTrackList.push_back(newDirectTrack);
         ++totalTrack;
-	}
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<DirectTrack> Map::getDirectTrackAt(int locationX, int locationY)
@@ -131,20 +130,20 @@ void Map::setCurvedTrackList(const std::vector<std::shared_ptr<CurvedTrack> >& n
 
 void Map::addCurvedTrack(std::shared_ptr<CurvedTrack> newCurvedTrack)
 {
-	int tempLocationX = newCurvedTrack->getLocationX();
+    int tempLocationX = newCurvedTrack->getLocationX();
     int templocationY = newCurvedTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		curvedTrackList.push_back(newCurvedTrack);
+        curvedTrackList.push_back(newCurvedTrack);
         ++totalTrack;
-	}
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<CurvedTrack> Map::getCurvedTrackAt(int locationX, int locationY)
@@ -182,20 +181,20 @@ void Map::setLinkedTrackList(const std::vector<std::shared_ptr<LinkedTrack> >& n
 
 void Map::addLinkedTrack(std::shared_ptr<LinkedTrack> newLinkedTrack)
 {
-	int tempLocationX = newLinkedTrack->getLocationX();
+    int tempLocationX = newLinkedTrack->getLocationX();
     int templocationY = newLinkedTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		linkedTrackList.push_back(newLinkedTrack);
+        linkedTrackList.push_back(newLinkedTrack);
         ++totalTrack;
-	}
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<LinkedTrack> Map::getLinkedTrackAt(int locationX, int locationY)
@@ -250,20 +249,19 @@ void Map::setExitTrackList(const std::vector<std::shared_ptr<ExitTrack> >& newEx
 
 void Map::addExitTrack(std::shared_ptr<ExitTrack> newExitTrack)
 {
-	int tempLocationX = newExitTrack->getLocationX();
+    int tempLocationX = newExitTrack->getLocationX();
     int templocationY = newExitTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		exitTrackList.push_back(newExitTrack);
-	}
+        exitTrackList.push_back(newExitTrack);
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<ExitTrack> Map::getExitTrackAt(int locationX, int locationY)
@@ -301,20 +299,20 @@ void Map::setBufferTrackList(const std::vector<std::shared_ptr<BufferTrack> >& n
 
 void Map::addBufferTrack(std::shared_ptr<BufferTrack> newBufferTrack)
 {
-	int tempLocationX = newBufferTrack->getLocationX();
+    int tempLocationX = newBufferTrack->getLocationX();
     int templocationY = newBufferTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		bufferTrackList.push_back(newBufferTrack);
+        bufferTrackList.push_back(newBufferTrack);
         ++totalTrack;
-	}
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<BufferTrack> Map::getBufferTrackAt(int locationX, int locationY)
@@ -351,20 +349,20 @@ void Map::setSignalTrackList(const std::vector<std::shared_ptr<SignalTrack> >& n
 
 void Map::addSignalTrack(std::shared_ptr<SignalTrack> newSignalTrack)
 {
-	int tempLocationX = newSignalTrack->getLocationX();
+    int tempLocationX = newSignalTrack->getLocationX();
     int templocationY = newSignalTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		signalTrackList.push_back(newSignalTrack);
+        signalTrackList.push_back(newSignalTrack);
         ++totalTrack;
-	}
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<SignalTrack> Map::getSignalTrackAt(int locationX, int locationY)
@@ -402,21 +400,20 @@ void Map::setBridgeUnderpassTrackList(const std::vector<std::shared_ptr<BridgeUn
 void Map::addBridgeUnderpassTrack(std::shared_ptr<BridgeUnderpassTrack> newBridgeUnderpassTrack)
 {
 
-	int tempLocationX = newBridgeUnderpassTrack->getLocationX();
+    int tempLocationX = newBridgeUnderpassTrack->getLocationX();
     int templocationY = newBridgeUnderpassTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		bridgeUnderpassTrackList.push_back(newBridgeUnderpassTrack);
+        bridgeUnderpassTrackList.push_back(newBridgeUnderpassTrack);
         ++totalTrack;
-	}
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<BridgeUnderpassTrack> Map::getBridgeUnderpassTrack(int locationX, int locationY)
@@ -453,20 +450,20 @@ void Map::setSwitchTrackList(const std::vector<std::shared_ptr<SwitchTrack> >& n
 
 void Map::addSwitchTrack(std::shared_ptr<SwitchTrack> newSwitchTrack)
 {
-	int tempLocationX = newSwitchTrack->getLocationX();
+    int tempLocationX = newSwitchTrack->getLocationX();
     int templocationY = newSwitchTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		switchTrackList.push_back(newSwitchTrack);
+        switchTrackList.push_back(newSwitchTrack);
         ++totalTrack;
-	}
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<SwitchTrack> Map::getSwitchTrackAt(int locationX, int locationY)
@@ -503,20 +500,20 @@ void Map::setCrossoverTrackList(const std::vector<std::shared_ptr<CrossoverTrack
 
 void Map::addCrossoverTrack(std::shared_ptr<CrossoverTrack> newCrossoverTrack)
 {
-	int tempLocationX = newCrossoverTrack->getLocationX();
+    int tempLocationX = newCrossoverTrack->getLocationX();
     int templocationY = newCrossoverTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		crossoverTrackList.push_back(newCrossoverTrack);
+        crossoverTrackList.push_back(newCrossoverTrack);
         ++totalTrack;
-	}
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<CrossoverTrack> Map::getCrossoverTrackAt(int locationX, int locationY)
@@ -556,21 +553,20 @@ void Map::setFlyoverTrackList(const std::vector<std::shared_ptr<FlyoverTrack> >&
 
 void Map::addFlyoverTrack(std::shared_ptr<FlyoverTrack> newFlyoverTrack)
 {
-	int tempLocationX = newFlyoverTrack->getLocationX();
+    int tempLocationX = newFlyoverTrack->getLocationX();
     int templocationY = newFlyoverTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		flyoverTrackList.push_back(newFlyoverTrack);
+        flyoverTrackList.push_back(newFlyoverTrack);
         ++totalTrack;
-	}
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<FlyoverTrack> Map::getFlyoverTrackAt(int locationX, int locationY)
@@ -609,18 +605,18 @@ void Map::setNamedLocationList(const std::vector<std::shared_ptr<NamedLocation> 
 
 void Map::addNamedLocation(std::shared_ptr<NamedLocation> newNamedLocation)
 {
-	int tempLocationX = newNamedLocation->getLocationX();
+    int tempLocationX = newNamedLocation->getLocationX();
     int templocationY = newNamedLocation->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		namedLocationList.push_back(newNamedLocation);
-	}
+        namedLocationList.push_back(newNamedLocation);
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
     }
 }
 
@@ -658,20 +654,19 @@ void Map::setConcourseList(const std::vector<std::shared_ptr<Concourse> >& newCo
 
 void Map::addConcourse(std::shared_ptr<Concourse> newConcourseTrack)
 {
-	int tempLocationX = newConcourseTrack->getLocationX();
+    int tempLocationX = newConcourseTrack->getLocationX();
     int templocationY = newConcourseTrack->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		concourseList.push_back(newConcourseTrack);
-	}
+        concourseList.push_back(newConcourseTrack);
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
-
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 }
 
 std::shared_ptr<Concourse> Map::getConcourseAt(int locationX, int locationY)
@@ -709,19 +704,19 @@ void Map::setParapetList(const std::vector<std::shared_ptr<Parapet> >& newParape
 void Map::addParapet(std::shared_ptr<Parapet> newParapet)
 {
 
-	int tempLocationX = newParapet->getLocationX();
+    int tempLocationX = newParapet->getLocationX();
     int templocationY = newParapet->getLocationY();
     if (!checkElementExists(tempLocationX, templocationY))
     {
-		parapetList.push_back(newParapet);
-	}
+        parapetList.push_back(newParapet);
+    }
     else
     {
-		QMessageBox elementExistsAlreadyAlert;
-		elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
-		elementExistsAlreadyAlert.setText("An element already exists here.");
-		elementExistsAlreadyAlert.exec();
-	}
+        QMessageBox elementExistsAlreadyAlert;
+        elementExistsAlreadyAlert.setIcon(QMessageBox::Critical);
+        elementExistsAlreadyAlert.setText("An element already exists here.");
+        elementExistsAlreadyAlert.exec();
+    }
 
 }
 
@@ -2871,6 +2866,8 @@ void Map::checkAllLinkTrackLinked()
 
 
 
+
+
 std::vector<std::shared_ptr<Track> > Map::getTrackList() const
 {
     return trackList;
@@ -3124,14 +3121,26 @@ void Map::setEnd(const std::shared_ptr<Track> &value)
 
 
 
-std::vector<std::shared_ptr<Track> > Map::getSetTrackSpeedLengthList() const
+
+
+std::vector<std::shared_ptr<Track> > Map::getSetTrackSpeedLengthMainList() const
 {
-    return setTrackSpeedLengthList;
+    return setTrackSpeedLengthMainList;
 }
 
-void Map::setSetTrackSpeedLengthList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedLengthList)
+void Map::setSetTrackSpeedLengthMainList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedLengthMainList)
 {
-    setTrackSpeedLengthList = newSetTrackSpeedLengthList;
+    setTrackSpeedLengthMainList = newSetTrackSpeedLengthMainList;
+}
+
+std::vector<std::shared_ptr<Track> > Map::getSetTrackSpeedLengthSecondaryList() const
+{
+    return setTrackSpeedLengthSecondaryList;
+}
+
+void Map::setSetTrackSpeedLengthSecondaryList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedLengthSecondaryList)
+{
+    setTrackSpeedLengthSecondaryList = newSetTrackSpeedLengthSecondaryList;
 }
 
 void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink)
@@ -3177,8 +3186,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((switchTrack->getLink2() && !track2->getFound()) && (lastLink != 8 && lastLink != 7 && lastLink != 3 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -3186,8 +3242,88 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink5() && !track5->getFound()) && (lastLink != 6 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -3195,8 +3331,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink1() && !track1->getFound()) && (lastLink != 8 && lastLink != 6))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -3204,8 +3419,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink8() && !track8->getFound()) && (lastLink != 1 && lastLink != 3 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -3214,8 +3476,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink0() && !track0->getFound()) && (lastLink != 7 && lastLink != 5 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -3223,8 +3532,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink3() && !track3->getFound()) && (lastLink != 8 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -3232,17 +3620,144 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink7() && !track7->getFound()) && (lastLink != 2 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
                     }
+
                 }
                 else if ((switchTrack->getLink6() && !track6->getFound()) && (lastLink != 5 && lastLink != 1 && lastLink != 8 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7 )
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                             fillSetTrackSpeedLengthList(track6, 6);
@@ -3260,8 +3775,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((switchTrack->getLink6() && !track6->getFound()) && (lastLink != 5 && lastLink != 1 && lastLink != 8 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7 )
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -3269,8 +3831,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink3() && !track3->getFound()) && (lastLink != 8 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -3278,8 +3919,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink7() && !track7->getFound()) && (lastLink != 2 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -3287,8 +4007,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink8() && !track8->getFound()) && (lastLink != 1 && lastLink != 3 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -3296,8 +4063,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink0() && !track0->getFound()) && (lastLink != 7 && lastLink != 5 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -3305,8 +4119,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink5() && !track5->getFound()) && (lastLink != 6 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -3314,8 +4207,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink1() && !track1->getFound()) && (lastLink != 8 && lastLink != 6))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -3323,8 +4295,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink2() && !track2->getFound()) && (lastLink != 8 && lastLink != 7 && lastLink != 3 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -3342,8 +4361,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((switchTrack->getLink0() && !track0->getFound()) && (lastLink != 7 && lastLink != 5 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -3351,8 +4417,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink3() && !track3->getFound()) && (lastLink != 8 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -3360,8 +4505,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink1() && !track1->getFound()) && (lastLink != 8 && lastLink != 6))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -3369,8 +4593,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink2() && !track2->getFound()) && (lastLink != 8 && lastLink != 7 && lastLink != 3 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -3378,8 +4649,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink6() && !track6->getFound()) && (lastLink != 5 && lastLink != 1 && lastLink != 8 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7 )
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -3387,8 +4705,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink5() && !track5->getFound()) && (lastLink != 6 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -3396,8 +4793,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink7() && !track7->getFound()) && (lastLink != 2 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -3405,8 +4881,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink8() && !track8->getFound()) && (lastLink != 1 && lastLink != 3 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -3424,8 +4947,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((switchTrack->getLink8() && !track8->getFound()) && (lastLink != 1 && lastLink != 3 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -3433,8 +5003,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink5() && !track5->getFound()) && (lastLink != 6 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -3442,8 +5091,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink7() && !track7->getFound()) && (lastLink != 2 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -3451,8 +5179,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink2() && !track2->getFound()) && (lastLink != 8 && lastLink != 7 && lastLink != 3 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -3461,8 +5236,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink6() && !track6->getFound()) && (lastLink != 5 && lastLink != 1 && lastLink != 8 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7 )
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -3470,8 +5292,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink3() && !track3->getFound()) && (lastLink != 8 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -3479,8 +5380,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink1() && !track1->getFound()) && (lastLink != 8 && lastLink != 6))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -3488,8 +5468,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink0() && !track0->getFound()) && (lastLink != 7 && lastLink != 5 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -3507,8 +5534,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((switchTrack->getLink1() && !track1->getFound()) && (lastLink != 8 && lastLink != 6))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -3516,8 +5622,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink0() && !track0->getFound()) && (lastLink != 7 && lastLink != 5 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -3525,8 +5678,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink2() && !track2->getFound()) && (lastLink != 8 && lastLink != 7 && lastLink != 3 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -3534,8 +5734,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink3() && !track3->getFound()) && (lastLink != 8 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -3543,8 +5822,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink5() && !track5->getFound()) && (lastLink != 6 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -3552,8 +5910,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink6() && !track6->getFound()) && (lastLink != 5 && lastLink != 1 && lastLink != 8 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7 )
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -3561,8 +5966,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink7() && !track7->getFound()) && (lastLink != 2 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -3570,8 +6054,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink8() && !track8->getFound()) && (lastLink != 1 && lastLink != 3 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -3589,8 +6120,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((switchTrack->getLink7() && !track7->getFound()) && (lastLink != 2 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -3598,8 +6208,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink8() && !track8->getFound()) && (lastLink != 1 && lastLink != 3 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -3607,8 +6264,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink6() && !track6->getFound()) && (lastLink != 5 && lastLink != 1 && lastLink != 8 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7 )
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -3616,8 +6320,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink5() && !track5->getFound()) && (lastLink != 6 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -3625,8 +6408,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink3() && !track3->getFound()) && (lastLink != 8 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -3634,8 +6496,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink1() && !track1->getFound()) && (lastLink != 8 && lastLink != 6))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -3643,8 +6584,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink0() && !track0->getFound()) && (lastLink != 7 && lastLink != 5 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -3652,8 +6640,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink2() && !track2->getFound()) && (lastLink != 8 && lastLink != 7 && lastLink != 3 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -3671,8 +6706,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((switchTrack->getLink5() && !track5->getFound()) && (lastLink != 6 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -3680,8 +6794,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink2() && !track2->getFound()) && (lastLink != 8 && lastLink != 7 && lastLink != 3 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -3689,8 +6850,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink8() && !track8->getFound()) && (lastLink != 1 && lastLink != 3 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                          fillSetTrackSpeedLengthList(track8, 8);
@@ -3698,8 +6906,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink1() && !track1->getFound()) && (lastLink != 8 && lastLink != 6))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -3707,8 +6994,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink7() && !track7->getFound()) && (lastLink != 2 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -3716,8 +7082,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink3() && !track3->getFound()) && (lastLink != 8 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -3725,8 +7170,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink0() && !track0->getFound()) && (lastLink != 7 && lastLink != 5 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -3734,8 +7226,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink6() && !track6->getFound()) && (lastLink != 5 && lastLink != 1 && lastLink != 8 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7 )
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -3753,8 +7292,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((switchTrack->getLink3() && !track3->getFound()) && (lastLink != 8 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -3762,8 +7380,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink0() && !track0->getFound()) && (lastLink != 7 && lastLink != 5 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -3771,8 +7436,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink6() && !track6->getFound()) && (lastLink != 5 && lastLink != 1 && lastLink != 8 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7 )
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -3780,8 +7492,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink1() && !track1->getFound()) && (lastLink != 8 && lastLink != 6))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==0)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -3789,8 +7580,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink7() && !track7->getFound()) && (lastLink != 2 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH5 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink ==6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -3798,8 +7668,87 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink5() && !track5->getFound()) && (lastLink != 6 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT2 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT4 && lastLink ==2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT6 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT6 && lastLink ==1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -3807,8 +7756,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink2() && !track2->getFound()) && (lastLink != 8 && lastLink != 7 && lastLink != 3 && lastLink != 0))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH6 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH10 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH11 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH14 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink == 5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT7 && lastLink == 1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -3816,8 +7812,55 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((switchTrack->getLink8() && !track8->getFound()) && (lastLink != 1 && lastLink != 3 && lastLink != 6 && lastLink != 2))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH9 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH12 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCH16 && lastLink ==8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT8 && lastLink ==7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -3844,8 +7887,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((crossoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -3853,8 +7907,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -3862,8 +7927,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -3871,8 +7947,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -3881,8 +7968,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -3890,8 +7988,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -3899,8 +8008,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -3908,8 +8028,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                             fillSetTrackSpeedLengthList(track6, 6);
@@ -3927,8 +8058,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((crossoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track, 6);
@@ -3936,8 +8078,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -3945,8 +8098,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -3954,8 +8118,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -3963,8 +8138,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -3972,8 +8158,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -3981,8 +8178,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -3990,8 +8198,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4009,8 +8228,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((crossoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4018,8 +8248,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4027,8 +8268,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4036,8 +8288,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4045,8 +8308,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -4054,8 +8328,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4063,8 +8348,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4072,8 +8368,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4091,8 +8398,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((crossoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4100,8 +8418,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4109,8 +8438,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4118,8 +8458,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4128,8 +8479,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -4137,8 +8499,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4146,8 +8519,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4155,8 +8539,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4174,8 +8569,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((crossoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4183,8 +8589,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4192,8 +8609,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4201,8 +8629,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4210,8 +8649,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4219,8 +8669,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -4228,8 +8689,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4237,8 +8709,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4256,8 +8739,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((crossoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4265,8 +8759,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4274,8 +8779,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -4283,8 +8799,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4292,8 +8819,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4301,8 +8839,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4310,8 +8859,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4319,8 +8879,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4338,8 +8909,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((crossoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4347,8 +8929,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4356,8 +8949,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4365,8 +8969,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4374,8 +8989,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4383,8 +9009,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4392,8 +9029,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4401,8 +9049,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -4420,8 +9079,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((crossoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4429,8 +9099,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4438,8 +9119,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -4447,8 +9139,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4456,8 +9159,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4465,8 +9179,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4474,8 +9199,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4483,8 +9219,19 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((crossoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (crossoverTrack->getCrossoverType() == CrossoverType::CROSSOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4509,8 +9256,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4518,8 +9288,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4527,8 +9320,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4536,8 +9352,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4546,8 +9385,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4555,8 +9417,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4564,8 +9449,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4573,8 +9481,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                             fillSetTrackSpeedLengthList(track6, 6);
@@ -4592,8 +9523,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track, 6);
@@ -4601,8 +9555,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4610,8 +9587,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4619,8 +9619,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4628,8 +9651,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4637,8 +9683,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4646,8 +9715,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4655,8 +9747,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4674,8 +9789,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4683,8 +9821,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4692,8 +9853,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4701,8 +9885,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4710,8 +9917,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -4719,8 +9949,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4728,8 +9981,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4737,8 +10013,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4756,8 +10055,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4765,8 +10087,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4774,8 +10119,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4783,8 +10151,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4793,8 +10184,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -4802,8 +10216,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4811,8 +10248,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4820,8 +10280,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4839,8 +10322,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4848,8 +10354,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4857,8 +10386,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -4866,8 +10418,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4875,8 +10450,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4884,8 +10482,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -4893,8 +10514,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4902,8 +10546,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4921,8 +10588,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -4930,8 +10620,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -4939,8 +10652,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -4948,8 +10684,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -4957,8 +10716,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -4966,8 +10748,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -4975,8 +10780,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -4984,8 +10812,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -5003,8 +10854,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -5012,8 +10886,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -5021,8 +10918,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -5030,8 +10950,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -5039,8 +10982,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -5048,8 +11014,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -5057,8 +11046,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -5066,8 +11078,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -5085,8 +11120,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
@@ -5094,8 +11152,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
@@ -5103,8 +11184,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
@@ -5112,8 +11216,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
@@ -5121,8 +11248,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
@@ -5130,8 +11280,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER1)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER2)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
@@ -5139,8 +11312,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER6)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER8)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER10)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER12)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
@@ -5148,8 +11344,31 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER3)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER4)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER5)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER7)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER9)
+                    {
+                        setTrackSpeedLengthSecondaryList.push_back(track);
+                    }
+                    else if (flyoverTrack->getFlyoverType() == FlyoverType::FLYOVER11)
+                    {
+                        setTrackSpeedLengthMainList.push_back(track);
+                    }
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
@@ -5174,75 +11393,106 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if (track->getLink2() && !track2->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track2);
+                    }
                 }
                 else if (track->getLink5() && !track5->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track5);
+                    }
                 }
                 else if (track->getLink1() && !track1->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track1);
+                    }
                 }
                 else if (track->getLink8() && !track8->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
                     }
-
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track8);
+                    }
                 }
                 else if (track->getLink0() && !track0->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track0);
+                    }
                 }
                 else if (track->getLink3() && !track3->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
                 }
                 else if (track->getLink7() && !track7->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track7);
+                    }
                 }
                 else if (track->getLink6() && !track6->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                             fillSetTrackSpeedLengthList(track6, 6);
+                    }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track6);
                     }
                 }
                 else
@@ -5257,74 +11507,106 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if (track->getLink6() && !track6->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track, 6);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track6);
+                    }
                 }
                 else if (track->getLink3() && !track3->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
                 }
                 else if (track->getLink7() && !track7->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track7);
+                    }
                 }
                 else if (track->getLink8() && !track8->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track8);
+                    }
                 }
                 else if (track->getLink0() && !track0->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track0);
+                    }
                 }
                 else if (track->getLink5() && !track5->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track5);
+                    }
                 }
                 else if (track->getLink1() && !track1->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track1);
+                    }
                 }
                 else if (track->getLink2() && !track2->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
+                    }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track2);
                     }
                 }
                 else
@@ -5339,74 +11621,106 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if (track->getLink0() && !track0->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track0);
+                    }
                 }
                 else if (track->getLink3() && !track3->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
                 }
                 else if (track->getLink1() && !track1->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track1);
+                    }
                 }
                 else if (track->getLink2() && !track2->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track2);
+                    }
                 }
                 else if (track->getLink6() && !track6->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track6);
+                    }
                 }
                 else if (track->getLink5() && !track5->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track5);
+                    }
                 }
                 else if (track->getLink7() && !track7->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track7);
+                    }
                 }
                 else if (track->getLink8() && !track8->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
+                    }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track8);
                     }
                 }
                 else
@@ -5421,75 +11735,107 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if (track->getLink8() && !track8->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track8);
+                    }
                 }
                 else if (track->getLink5() && !track5->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track5);
+                    }
                 }
                 else if (track->getLink7() && !track7->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track7);
+                    }
                 }
                 else if (track->getLink2() && !track2->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
+                    }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track2);
                     }
 
                 }
                 else if (track->getLink6() && !track6->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track6);
+                    }
                 }
                 else if (track->getLink3() && !track3->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
                 }
                 else if (track->getLink1() && !track1->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track1);
+                    }
                 }
                 else if (track->getLink0() && !track0->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
+                    }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track0);
                     }
                 }
                 else
@@ -5504,74 +11850,106 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if (track->getLink1() && !track1->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track1);
+                    }
                 }
                 else if (track->getLink0() && !track0->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track0);
+                    }
                 }
                 else if (track->getLink2() && !track2->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track2);
+                    }
                 }
                 else if (track->getLink3() && !track3->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
                 }
                 else if (track->getLink5() && !track5->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track5);
+                    }
                 }
                 else if (track->getLink6() && !track6->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track6);
+                    }
                 }
                 else if (track->getLink7() && !track7->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track7);
+                    }
                 }
                 else if (track->getLink8() && !track8->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
+                    }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track8);
                     }
                 }
                 else
@@ -5586,74 +11964,106 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if (track->getLink7() && !track7->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track7);
+                    }
                 }
                 else if (track->getLink8() && !track8->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track8);
+                    }
                 }
                 else if (track->getLink6() && !track6->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track6);
+                    }
                 }
                 else if (track->getLink5() && !track5->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track5);
+                    }
                 }
                 else if (track->getLink3() && !track3->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
                 }
                 else if (track->getLink1() && !track1->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track1);
+                    }
                 }
                 else if (track->getLink0() && !track0->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track0);
+                    }
                 }
                 else if (track->getLink2() && !track2->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
+                    }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track2);
                     }
                 }
                 else
@@ -5668,74 +12078,106 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if (track->getLink5() && !track5->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track5);
-                    track5->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track5);
+                    }
                 }
                 else if (track->getLink2() && !track2->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track2);
-                    track2->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
-                     }
+                    }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track2);
+                    }
                 }
                 else if (track->getLink8() && !track8->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track8);
-                    track8->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track8);
+                    }
                 }
                 else if (track->getLink1() && !track1->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track1);
-                    track1->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track1);
+                    }
                 }
                 else if (track->getLink7() && !track7->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track7);
+                    }
                 }
                 else if (track->getLink3() && !track3->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
                 }
                 else if (track->getLink0() && !track0->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track0);
-                    track0->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track0);
+                    }
                 }
                 else if (track->getLink6() && !track6->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
+                    }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track6);
                     }
                 }
                 else
@@ -5750,74 +12192,106 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
             {
                 if (track->getLink3() && !track3->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track3);
-                    track3->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track3, 3);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track3);
+                    }
                 }
                 else if (track->getLink0() && !track0->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track0);
+                    setTrackSpeedLengthMainList.push_back(track0);
                     track0->setFound(true);
                     if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track0, 0);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track0);
+                    }
                 }
                 else if (track->getLink6() && !track6->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track6);
-                    track6->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track6, 6);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track6);
+                    }
                 }
                 else if (track->getLink1() && !track1->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track1);
+                    setTrackSpeedLengthMainList.push_back(track1);
                     track1->setFound(true);
                     if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track1, 1);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track1);
+                    }
                 }
                 else if (track->getLink7() && !track7->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track7);
-                    track7->setFound(true);
+                    setTrackSpeedLengthMainList.push_back(track);
+                    track->setFound(true);
                     if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track7, 7);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track7);
+                    }
                 }
                 else if (track->getLink5() && !track5->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track5);
+                    setTrackSpeedLengthMainList.push_back(track5);
                     track5->setFound(true);
                     if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track5, 5);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track5);
+                    }
                 }
                 else if (track->getLink2() && !track2->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track2);
+                    setTrackSpeedLengthMainList.push_back(track2);
                     track2->setFound(true);
                     if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track2, 2);
                     }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track2);
+                    }
                 }
                 else if (track->getLink8() && !track8->getFound())
                 {
-                    setTrackSpeedLengthList.push_back(track8);
+                    setTrackSpeedLengthMainList.push_back(track8);
                     track8->setFound(true);
                     if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
                     {
                         fillSetTrackSpeedLengthList(track8, 8);
+                    }
+                    else
+                    {
+                        setTrackSpeedLengthMainList.push_back(track8);
                     }
                 }
                 else
@@ -5833,34 +12307,34 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
 
             }
         }
-
-
     }
+
 }
 
 void Map::setSectionSpeedLength()
 {
-    setTrackSpeedLengthList.clear();
-    setTrackSpeedLengthList.push_back(start);
-    fillSetTrackSpeedLengthList(setTrackSpeedLengthList[0], -1);
+    setTrackSpeedLengthMainList.clear();
+    setTrackSpeedLengthSecondaryList.clear();
+    fillSetTrackSpeedLengthList(start, -1);
 }
 
-void Map::addToSetTrackSpeedLengthList(std::shared_ptr<Track> track)
-{
-    setTrackSpeedLengthList.push_back(track);
-}
 
 void Map::resetSetTrackSpeedLengthMechanics()
 {
 
-    setTrackSpeedLengthList.clear();
+    setTrackSpeedLengthMainList.clear();
+    setTrackSpeedLengthSecondaryList.clear();
     start = nullptr;
     end = nullptr;
 }
 
 void Map::resetFoundForAllTrack()
 {
-    for (std::shared_ptr<Track> track : setTrackSpeedLengthList)
+    for (std::shared_ptr<Track> track : setTrackSpeedLengthMainList)
+    {
+        track->setFound(false);
+    }
+    for (std::shared_ptr<Track> track : setTrackSpeedLengthSecondaryList)
     {
         track->setFound(false);
     }
@@ -5868,17 +12342,51 @@ void Map::resetFoundForAllTrack()
 
 void Map::setLengthSpeed(int newLength, int newSpeed)
 {
-    int size = setTrackSpeedLengthList.size();
+    int sizeMain = setTrackSpeedLengthMainList.size();
+    int sizeSecondary = setTrackSpeedLengthSecondaryList.size();
+    int overallSize = sizeMain + sizeSecondary;
     int lengthPerTrack = 0;
-    if (size>0)
+    if (sizeMain > 0 && sizeSecondary > 0)
     {
-        lengthPerTrack = newLength/size;
-        int extra = newLength - (lengthPerTrack * size);
+        lengthPerTrack = newLength/overallSize;
+        int extra = newLength - (lengthPerTrack * overallSize);
 
-        for (int i=0; i<setTrackSpeedLengthList.size(); i++)
+        for (int i=0; i<setTrackSpeedLengthMainList.size(); i++)
         {
-            std::shared_ptr<Track> track = setTrackSpeedLengthList[i];
-            if (i == setTrackSpeedLengthList.size()-1)
+            std::shared_ptr<Track> track = setTrackSpeedLengthMainList[i];
+            if (i == setTrackSpeedLengthMainList.size()-1)
+            {
+                if (extra > 0)
+                {
+                    lengthPerTrack = lengthPerTrack + extra;
+                }
+            }
+            track->setTrackMainLength(lengthPerTrack);
+            track->setTrackMainSpeed(newSpeed);
+        }
+        for (int i=0; i<setTrackSpeedLengthSecondaryList.size(); i++)
+        {
+            std::shared_ptr<Track> track = setTrackSpeedLengthSecondaryList[i];
+            if (i == setTrackSpeedLengthSecondaryList.size()-1)
+            {
+                if (extra > 0)
+                {
+                    lengthPerTrack = lengthPerTrack + extra;
+                }
+            }
+            track->setTrackSecondaryLength(lengthPerTrack);
+            track->setTrackSecondarySpeed(newSpeed);
+        }
+    }
+    else if (sizeMain > 0 && sizeSecondary == 0)
+    {
+        lengthPerTrack = newLength/sizeMain;
+        int extra = newLength - (lengthPerTrack * sizeMain);
+
+        for (int i=0; i<setTrackSpeedLengthMainList.size(); i++)
+        {
+            std::shared_ptr<Track> track = setTrackSpeedLengthMainList[i];
+            if (i == setTrackSpeedLengthMainList.size()-1)
             {
                 if (extra > 0)
                 {
@@ -5889,9 +12397,29 @@ void Map::setLengthSpeed(int newLength, int newSpeed)
             track->setTrackMainSpeed(newSpeed);
         }
     }
+    else if (sizeMain == 0 && sizeSecondary > 0)
+    {
+        lengthPerTrack = newLength/sizeSecondary;
+        int extra = newLength - (lengthPerTrack * sizeSecondary);
+
+        for (int i=0; i<setTrackSpeedLengthSecondaryList.size(); i++)
+        {
+            std::shared_ptr<Track> track = setTrackSpeedLengthSecondaryList[i];
+            if (i == setTrackSpeedLengthSecondaryList.size()-1)
+            {
+                if (extra > 0)
+                {
+                    lengthPerTrack = lengthPerTrack + extra;
+                }
+            }
+            track->setTrackSecondaryLength(lengthPerTrack);
+            track->setTrackSecondarySpeed(newSpeed);
+        }
+    }
     start = nullptr;
     end = nullptr;
-    setTrackSpeedLengthList.clear();
+    setTrackSpeedLengthMainList.clear();
+    setTrackSpeedLengthSecondaryList.clear();
 
 }
 

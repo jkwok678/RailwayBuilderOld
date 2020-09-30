@@ -45,8 +45,8 @@ private:
 
     std::shared_ptr<Track> start{nullptr};
     std::shared_ptr<Track> end{nullptr};
-    std::vector<std::shared_ptr<Track>> setTrackSpeedLengthList;
-    std::vector<std::shared_ptr<bool>> mainSecondaryList;
+    std::vector<std::shared_ptr<Track>> setTrackSpeedLengthMainList;
+    std::vector<std::shared_ptr<Track>> setTrackSpeedLengthSecondaryList;
 
 
     int setTrackSpeedLengthCounter{1000};
@@ -165,12 +165,13 @@ public:
     bool getAllConnected() const;
     void setAllConnected(bool newAllConnected);
 
+    std::vector<std::shared_ptr<Track> > getSetTrackSpeedLengthMainList() const;
+    void setSetTrackSpeedLengthMainList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedMainLengthList);
+    std::vector<std::shared_ptr<Track> > getSetTrackSpeedLengthSecondaryList() const;
+    void setSetTrackSpeedLengthSecondaryList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedSecondaryLengthList);
 
-    std::vector<std::shared_ptr<Track> > getSetTrackSpeedLengthList() const;
-    void setSetTrackSpeedLengthList(const std::vector<std::shared_ptr<Track> > &newSetTrackSpeedLengthList);
     void fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int LastLink);
     void setSectionSpeedLength();
-    void addToSetTrackSpeedLengthList(std::shared_ptr<Track> track);
     void resetSetTrackSpeedLengthMechanics();
     void resetFoundForAllTrack();
     std::shared_ptr<Track> getStart() const;
@@ -181,6 +182,7 @@ public:
     void setLengthSpeed(int newLength, int newSpeed);
     void restoreDefaultLengthSpeed(std::shared_ptr<Track> track);
     void clearSetTraclSpeedLengthList();
+
 };
 
 #endif // MAP_H

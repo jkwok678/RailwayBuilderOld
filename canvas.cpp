@@ -1034,9 +1034,16 @@ void Canvas::resetSelectedTrackSpeedLength()
     int ret = msgBox.exec();
     if (ret == QMessageBox::Yes)
     {
-        if (drawnLayout->getSetTrackSpeedLengthList().size()>0)
+        if (drawnLayout->getSetTrackSpeedLengthMainList().size()>0)
         {
-            for (std::shared_ptr<Track> track : drawnLayout->getSetTrackSpeedLengthList())
+            for (std::shared_ptr<Track> track : drawnLayout->getSetTrackSpeedLengthMainList())
+            {
+                drawnLayout->restoreDefaultLengthSpeed(track);
+            }
+        }
+        if (drawnLayout->getSetTrackSpeedLengthSecondaryList().size()>0)
+        {
+            for (std::shared_ptr<Track> track : drawnLayout->getSetTrackSpeedLengthSecondaryList())
             {
                 drawnLayout->restoreDefaultLengthSpeed(track);
             }
@@ -9627,11 +9634,35 @@ void Canvas::paintEvent(QPaintEvent* event)
             }
         }
 
-        std::vector<std::shared_ptr<Track>> chosenList = drawnLayout->getSetTrackSpeedLengthList();
+        std::vector<std::shared_ptr<Track>> chosenMainList = drawnLayout->getSetTrackSpeedLengthMainList();
+        std::vector<std::shared_ptr<Track>> chosenSecondaryList = drawnLayout->getSetTrackSpeedLengthSecondaryList();
 
-        if (!chosenList.empty())
+        if (!chosenMainList.empty())
         {
-            for (std::shared_ptr<Track> track : chosenList)
+            for (std::shared_ptr<Track> track : chosenMainList)
+            {
+                int currentX = track->getLocationX();
+                int currentY = track->getLocationY();
+                int minCoordinateX = (offsetX * canvasSizeX);
+                int maxCoordinateX = ((offsetX+1) * canvasSizeX);
+                int minCoordinateY = ((offsetY-1) * canvasSizeY);
+                int maxCoordinateY = (offsetY*canvasSizeY);;
+                int minDisplayX = (offsetX * canvasSizeX);
+                int maxDisplayY = (offsetY*canvasSizeY);
+                if (currentX >= minCoordinateX && currentX <= maxCoordinateX)
+                {
+                    if (currentY >= minCoordinateY && currentY <= maxCoordinateY)
+                    {
+                        int displayX = currentX- minDisplayX;
+                        int displayY = 0-(currentY - maxDisplayY);
+                        painter.drawImage(displayX,displayY,*selectBlue);
+                    }
+                }
+            }
+        }
+        if (!chosenSecondaryList.empty())
+        {
+            for (std::shared_ptr<Track> track : chosenSecondaryList)
             {
                 int currentX = track->getLocationX();
                 int currentY = track->getLocationY();

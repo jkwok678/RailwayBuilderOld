@@ -978,6 +978,7 @@ FlyoverTrack::FlyoverTrack(FlyoverType newFlyoverType, int newLocationX, int new
     locationY = newLocationY;
     trackSecondaryLength = 100;
     trackSecondaryLength = 200;
+    //Bottom track is secondary
     switch (flyoverType)
     {
         case FlyoverType::FLYOVER1:
