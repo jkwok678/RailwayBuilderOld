@@ -8893,10 +8893,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track2, 2);
-                    }
+                    fillSetTrackSpeedLengthList(track2, 2);
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
@@ -8925,10 +8922,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track5, 5);
-                    }
+                    fillSetTrackSpeedLengthList(track5, 5);
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
@@ -8957,10 +8951,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track1, 1);
-                    }
+                    fillSetTrackSpeedLengthList(track1, 1);
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
@@ -8989,11 +8980,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track8, 8);
-                    }
-
+                    fillSetTrackSpeedLengthList(track8, 8);
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
@@ -9022,10 +9009,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track0, 0);
-                    }
+                    fillSetTrackSpeedLengthList(track0, 0);
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
@@ -9054,10 +9038,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track3, 3);
-                    }
+                    fillSetTrackSpeedLengthList(track3, 3);
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
@@ -9086,10 +9067,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track7, 7);
-                    }
+                    fillSetTrackSpeedLengthList(track7, 7);
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
@@ -9118,10 +9096,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
-                    {
-                            fillSetTrackSpeedLengthList(track6, 6);
-                    }
+                    fillSetTrackSpeedLengthList(track6, 6);
                 }
                 else
                 {
@@ -9160,10 +9135,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track, 6);
-                    }
+                    fillSetTrackSpeedLengthList(track, 6);
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
@@ -9192,10 +9164,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track3, 3);
-                    }
+                    fillSetTrackSpeedLengthList(track3, 3);
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
@@ -9224,10 +9193,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track7, 7);
-                    }
+                    fillSetTrackSpeedLengthList(track7, 7);
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
@@ -9256,10 +9222,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track8, 8);
-                    }
+                    fillSetTrackSpeedLengthList(track8, 8);
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
@@ -9288,10 +9251,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track0, 0);
-                    }
+                    fillSetTrackSpeedLengthList(track0, 0);
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
@@ -9320,10 +9280,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track5, 5);
-                    }
+                    fillSetTrackSpeedLengthList(track5, 5);
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
@@ -9352,10 +9309,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track1, 1);
-                    }
+                    fillSetTrackSpeedLengthList(track1, 1);
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
@@ -9384,10 +9338,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track2, 2);
-                    }
+                    fillSetTrackSpeedLengthList(track2, 2);
                 }
                 else
                 {
@@ -9426,10 +9377,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track0, 0);
-                    }
+                    fillSetTrackSpeedLengthList(track0, 0);
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
@@ -9458,10 +9406,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track3, 3);
-                    }
+                    fillSetTrackSpeedLengthList(track3, 3);
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
@@ -9490,10 +9435,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track1, 1);
-                    }
+                    fillSetTrackSpeedLengthList(track1, 1);
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
@@ -9522,10 +9464,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track2, 2);
-                    }
+                    fillSetTrackSpeedLengthList(track2, 2);
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
@@ -9554,10 +9493,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track6, 6);
-                    }
+                    fillSetTrackSpeedLengthList(track6, 6);
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
@@ -9586,10 +9522,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track5, 5);
-                    }
+                    fillSetTrackSpeedLengthList(track5, 5);
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
@@ -9618,10 +9551,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track7, 7);
-                    }
+                    fillSetTrackSpeedLengthList(track7, 7);
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
@@ -9650,10 +9580,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track8->getLocationX() != destinationX || track2->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track8, 8);
-                    }
+                    fillSetTrackSpeedLengthList(track8, 8);
                 }
                 else
                 {
@@ -9692,10 +9619,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track8, 8);
-                    }
+                    fillSetTrackSpeedLengthList(track8, 8);
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
@@ -9724,10 +9648,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track5, 5);
-                    }
+                    fillSetTrackSpeedLengthList(track5, 5);
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
@@ -9756,10 +9677,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track7, 7);
-                    }
+                    fillSetTrackSpeedLengthList(track7, 7);
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
@@ -9788,11 +9706,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track2, 2);
-                    }
-
+                    fillSetTrackSpeedLengthList(track2, 2);
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
@@ -9821,10 +9735,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track6, 6);
-                    }
+                    fillSetTrackSpeedLengthList(track6, 6);
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
@@ -9853,10 +9764,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track3, 3);
-                    }
+                    fillSetTrackSpeedLengthList(track3, 3);
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
@@ -9885,10 +9793,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track1, 1);
-                    }
+                    fillSetTrackSpeedLengthList(track1, 1);
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
@@ -9917,10 +9822,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track0, 0);
-                    }
+                    fillSetTrackSpeedLengthList(track0, 0);
                 }
                 else
                 {
@@ -9959,10 +9861,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track1, 1);
-                    }
+                    fillSetTrackSpeedLengthList(track1, 1);
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
@@ -9991,10 +9890,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track0, 0);
-                    }
+                    fillSetTrackSpeedLengthList(track0, 0);
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
@@ -10023,10 +9919,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track2, 2);
-                    }
+                    fillSetTrackSpeedLengthList(track2, 2);
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
@@ -10055,10 +9948,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track3, 3);
-                    }
+                    fillSetTrackSpeedLengthList(track3, 3);
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
@@ -10087,10 +9977,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track5, 5);
-                    }
+                    fillSetTrackSpeedLengthList(track5, 5);
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
@@ -10119,10 +10006,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track6, 6);
-                    }
+                    fillSetTrackSpeedLengthList(track6, 6);
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
@@ -10151,10 +10035,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track7, 7);
-                    }
+                    fillSetTrackSpeedLengthList(track7, 7);
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
@@ -10183,10 +10064,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track8, 8);
-                    }
+                    fillSetTrackSpeedLengthList(track8, 8);
                 }
                 else
                 {
@@ -10225,10 +10103,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track7, 7);
-                    }
+                    fillSetTrackSpeedLengthList(track7, 7);
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
@@ -10257,10 +10132,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track8, 8);
-                    }
+                    fillSetTrackSpeedLengthList(track8, 8);
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
@@ -10289,10 +10161,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track6, 6);
-                    }
+                    fillSetTrackSpeedLengthList(track6, 6);
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
@@ -10321,10 +10190,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track5, 5);
-                    }
+                    fillSetTrackSpeedLengthList(track5, 5);
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
@@ -10353,10 +10219,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track3, 3);
-                    }
+                    fillSetTrackSpeedLengthList(track3, 3);
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
@@ -10385,10 +10248,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track1, 1);
-                    }
+                    fillSetTrackSpeedLengthList(track1, 1);
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
@@ -10417,10 +10277,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track0, 0);
-                    }
+                    fillSetTrackSpeedLengthList(track0, 0);
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
@@ -10449,10 +10306,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track2, 2);
-                    }
+                    fillSetTrackSpeedLengthList(track2, 2);
                 }
                 else
                 {
@@ -10491,10 +10345,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track5, 5);
-                    }
+                    fillSetTrackSpeedLengthList(track5, 5);
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
@@ -10523,10 +10374,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track2, 2);
-                     }
+                    fillSetTrackSpeedLengthList(track2, 2);
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
@@ -10555,10 +10403,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track8, 8);
-                    }
+                    fillSetTrackSpeedLengthList(track8, 8);
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
@@ -10587,10 +10432,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track1, 1);
-                    }
+                    fillSetTrackSpeedLengthList(track1, 1);
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
@@ -10619,10 +10461,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track7, 7);
-                    }
+                    fillSetTrackSpeedLengthList(track7, 7);
                 }
                 else if ((flyoverTrack->getLink3() && !track3->getFound()) && (lastLink == 3))
                 {
@@ -10651,10 +10490,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track3, 3);
-                    }
+                    fillSetTrackSpeedLengthList(track3, 3);
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
@@ -10683,10 +10519,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track0, 0);
-                    }
+                    fillSetTrackSpeedLengthList(track0, 0);
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
@@ -10715,10 +10548,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track6, 6);
-                    }
+                    fillSetTrackSpeedLengthList(track6, 6);
                 }
                 else
                 {
@@ -10757,10 +10587,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track3->getLocationX() != destinationX || track3->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track3, 3);
-                    }
+                    fillSetTrackSpeedLengthList(track3, 3);
                 }
                 else if ((flyoverTrack->getLink0() && !track0->getFound()) && (lastLink == 0))
                 {
@@ -10789,10 +10616,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track0->getLocationX() != destinationX || track0->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track0, 0);
-                    }
+                    fillSetTrackSpeedLengthList(track0, 0);
                 }
                 else if ((flyoverTrack->getLink6() && !track6->getFound()) && (lastLink == 6))
                 {
@@ -10821,10 +10645,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track6->getLocationX() != destinationX || track6->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track6, 6);
-                    }
+                    fillSetTrackSpeedLengthList(track6, 6);
                 }
                 else if ((flyoverTrack->getLink1() && !track1->getFound()) && (lastLink == 1))
                 {
@@ -10853,10 +10674,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track1->getLocationX() != destinationX || track1->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track1, 1);
-                    }
+                    fillSetTrackSpeedLengthList(track1, 1);
                 }
                 else if ((flyoverTrack->getLink7() && !track7->getFound()) && (lastLink == 7))
                 {
@@ -10885,10 +10703,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track7->getLocationX() != destinationX || track7->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track7, 7);
-                    }
+                    fillSetTrackSpeedLengthList(track7, 7);
                 }
                 else if ((flyoverTrack->getLink5() && !track5->getFound()) && (lastLink == 5))
                 {
@@ -10917,10 +10732,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track5->getLocationX() != destinationX || track5->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track5, 5);
-                    }
+                    fillSetTrackSpeedLengthList(track5, 5);
                 }
                 else if ((flyoverTrack->getLink2() && !track2->getFound()) && (lastLink == 2))
                 {
@@ -10949,10 +10761,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track2->getLocationX() != destinationX || track2->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track2, 2);
-                    }
+                    fillSetTrackSpeedLengthList(track2, 2);
                 }
                 else if ((flyoverTrack->getLink8() && !track8->getFound()) && (lastLink == 8))
                 {
@@ -10981,10 +10790,7 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                         setTrackSpeedLengthMainList.push_back(track);
                     }
                     track->setFound(true);
-                    if (track8->getLocationX() != destinationX || track8->getLocationY() != destinationY)
-                    {
-                        fillSetTrackSpeedLengthList(track8, 8);
-                    }
+                    fillSetTrackSpeedLengthList(track8, 8);
                 }
                 else
                 {
