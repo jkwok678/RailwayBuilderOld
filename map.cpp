@@ -6276,83 +6276,83 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 {
                     if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
                     fillSetTrackSpeedLengthList(track3, 3);
@@ -6923,83 +6923,83 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 {
                     if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
                     fillSetTrackSpeedLengthList(track3, 3);
@@ -7124,83 +7124,83 @@ void Map::fillSetTrackSpeedLengthList(std::shared_ptr<Track> track, int lastLink
                 {
                     if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH1 && lastLink ==6)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH2 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH3 && lastLink ==0)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH4 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH13 && lastLink ==0)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCH15 && lastLink ==6)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==6)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT1 && lastLink ==0)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT3 && lastLink ==6)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHSPLIT5 && lastLink ==0)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT1 && lastLink ==7)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT2 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT3 && lastLink ==1)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT4 && lastLink ==3)
                     {
-                        setTrackSpeedLengthMainList.push_back(track3);
+                        setTrackSpeedLengthMainList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT5 && lastLink ==1)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     else if (switchTrack->getSwitchType() == SwitchType::SWITCHTIGHT7 && lastLink ==7)
                     {
-                        setTrackSpeedLengthSecondaryList.push_back(track3);
+                        setTrackSpeedLengthSecondaryList.push_back(track);
                     }
                     track->setFound(true);
                     fillSetTrackSpeedLengthList(track3, 3);
@@ -11743,7 +11743,7 @@ void Map::setSectionSpeedLength()
 
 void Map::resetSetTrackSpeedLengthMechanics()
 {
-
+    resetFoundForAllTrack();
     setTrackSpeedLengthMainList.clear();
     setTrackSpeedLengthSecondaryList.clear();
     start = nullptr;
@@ -11776,28 +11776,29 @@ void Map::setLengthSpeed(int newLength, int newSpeed)
         for (int i=0; i<setTrackSpeedLengthMainList.size(); i++)
         {
             std::shared_ptr<Track> track = setTrackSpeedLengthMainList[i];
-            if (i == setTrackSpeedLengthMainList.size()-1)
-            {
-                if (extra > 0)
-                {
-                    lengthPerTrack = lengthPerTrack + extra;
-                }
-            }
             track->setTrackMainLength(lengthPerTrack);
             track->setTrackMainSpeed(newSpeed);
         }
         for (int i=0; i<setTrackSpeedLengthSecondaryList.size(); i++)
         {
             std::shared_ptr<Track> track = setTrackSpeedLengthSecondaryList[i];
-            if (i == setTrackSpeedLengthSecondaryList.size()-1)
-            {
-                if (extra > 0)
-                {
-                    lengthPerTrack = lengthPerTrack + extra;
-                }
-            }
             track->setTrackSecondaryLength(lengthPerTrack);
             track->setTrackSecondarySpeed(newSpeed);
+        }
+        if (extra > 0)
+        {
+            if (setTrackSpeedLengthMainList.size() > 0)
+            {
+                std::shared_ptr<Track> track = setTrackSpeedLengthMainList[setTrackSpeedLengthMainList.size()-1];
+                int currentLength = track->getTrackMainLength();
+                track->setTrackMainLength(currentLength+extra);
+            }
+            else
+            {
+                std::shared_ptr<Track> track = setTrackSpeedLengthSecondaryList[setTrackSpeedLengthSecondaryList.size()-1];
+                int currentLength = track->getTrackSecondaryLength();
+                track->setTrackSecondaryLength(currentLength+extra);
+            }
         }
     }
     else if (sizeMain > 0 && sizeSecondary == 0)
