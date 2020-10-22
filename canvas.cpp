@@ -6894,16 +6894,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is white, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve1RedImage);
+                                painter.drawImage(displayX, displayY, *curve6Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is white, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve1GreenImage);
+                                painter.drawImage(displayX, displayY, *curve6Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is white, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve1BlueImage);
+                                painter.drawImage(displayX, displayY, *curve6Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -6915,16 +6921,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is red, Secondary White
+                                painter.drawImage(displayX, displayY, *curve1Image);
+                                painter.drawImage(displayX, displayY, *curve6RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is red, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve1GreenImage);
+                                painter.drawImage(displayX, displayY, *curve6RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve1BlueImage);
+                                painter.drawImage(displayX, displayY, *curve6RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -6935,17 +6947,23 @@ void Canvas::paintEvent(QPaintEvent* event)
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
-                                    //Main is green, Secondary White
+                                //Main is green, Secondary White
+                                painter.drawImage(displayX, displayY, *curve1Image);
+                                painter.drawImage(displayX, displayY, *curve6GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is green, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve1RedImage);
+                                painter.drawImage(displayX, displayY, *curve6GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is green, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve1BlueImage);
+                                painter.drawImage(displayX, displayY, *curve6GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -6957,16 +6975,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is blue, Secondary White
+                                painter.drawImage(displayX, displayY, *curve1Image);
+                                painter.drawImage(displayX, displayY, *curve6BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is blue, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve1RedImage);
+                                painter.drawImage(displayX, displayY, *curve6BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is blue, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve1GreenImage);
+                                painter.drawImage(displayX, displayY, *curve6BlueImage);
                             }
                             break;
                         }
@@ -6982,16 +7006,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is white, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve5RedImage);
+                                painter.drawImage(displayX, displayY, *curve2Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is white, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve5GreenImage);
+                                painter.drawImage(displayX, displayY, *curve2Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is white, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve5BlueImage);
+                                painter.drawImage(displayX, displayY, *curve2Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -7003,16 +7033,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is red, Secondary White
+                                painter.drawImage(displayX, displayY, *curve5Image);
+                                painter.drawImage(displayX, displayY, *curve2RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is red, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve5GreenImage);
+                                painter.drawImage(displayX, displayY, *curve2RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve5BlueImage);
+                                painter.drawImage(displayX, displayY, *curve2RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -7024,16 +7060,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is green, Secondary White
+                                painter.drawImage(displayX, displayY, *curve5Image);
+                                painter.drawImage(displayX, displayY, *curve2GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is green, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve5RedImage);
+                                painter.drawImage(displayX, displayY, *curve2GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is green, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve5BlueImage);
+                                painter.drawImage(displayX, displayY, *curve2GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -7045,16 +7087,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is blue, Secondary White
+                                painter.drawImage(displayX, displayY, *curve5Image);
+                                painter.drawImage(displayX, displayY, *curve2BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is blue, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve5RedImage);
+                                painter.drawImage(displayX, displayY, *curve2BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is blue, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve5GreenImage);
+                                painter.drawImage(displayX, displayY, *curve2BlueImage);
                             }
                             break;
                         }
@@ -7070,16 +7118,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is white, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve8RedImage);
+                                painter.drawImage(displayX, displayY, *curve3Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is white, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve8GreenImage);
+                                painter.drawImage(displayX, displayY, *curve3Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is white, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve8BlueImage);
+                                painter.drawImage(displayX, displayY, *curve3Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -7091,16 +7145,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is red, Secondary White
+                                painter.drawImage(displayX, displayY, *curve8Image);
+                                painter.drawImage(displayX, displayY, *curve3RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is red, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve8GreenImage);
+                                painter.drawImage(displayX, displayY, *curve3RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve8BlueImage);
+                                painter.drawImage(displayX, displayY, *curve3RedImage);
                                 }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -7112,16 +7172,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is green, Secondary White
+                                painter.drawImage(displayX, displayY, *curve8Image);
+                                painter.drawImage(displayX, displayY, *curve3GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is green, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve8RedImage);
+                                painter.drawImage(displayX, displayY, *curve3GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is green, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve8BlueImage);
+                                painter.drawImage(displayX, displayY, *curve3GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -7133,16 +7199,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is blue, Secondary White
+                                painter.drawImage(displayX, displayY, *curve8Image);
+                                painter.drawImage(displayX, displayY, *curve3BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is blue, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve8RedImage);
+                                painter.drawImage(displayX, displayY, *curve3BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is blue, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve8GreenImage);
+                                painter.drawImage(displayX, displayY, *curve3BlueImage);
                             }
                             break;
                         }
@@ -7862,16 +7934,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is white, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve7RedImage);
+                                painter.drawImage(displayX, displayY, *curve8Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is white, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve7GreenImage);
+                                painter.drawImage(displayX, displayY, *curve8Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is white, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve7BlueImage);
+                                painter.drawImage(displayX, displayY, *curve8Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -7883,16 +7961,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is red, Secondary White
+                                painter.drawImage(displayX, displayY, *curve7Image);
+                                painter.drawImage(displayX, displayY, *curve8RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is red, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve7GreenImage);
+                                painter.drawImage(displayX, displayY, *curve8RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve7BlueImage);
+                                painter.drawImage(displayX, displayY, *curve8RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -7904,16 +7988,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is green, Secondary White
+                                painter.drawImage(displayX, displayY, *curve7Image);
+                                painter.drawImage(displayX, displayY, *curve8GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is green, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve7RedImage);
+                                painter.drawImage(displayX, displayY, *curve8GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is green, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve7BlueImage);
+                                painter.drawImage(displayX, displayY, *curve8GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -7925,16 +8015,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is blue, Secondary White
+                                painter.drawImage(displayX, displayY, *curve7Image);
+                                painter.drawImage(displayX, displayY, *curve8BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is blue, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve7RedImage);
+                                painter.drawImage(displayX, displayY, *curve8BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is blue, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve7GreenImage);
+                                painter.drawImage(displayX, displayY, *curve8BlueImage);
                             }
                             break;
                         }
@@ -7950,16 +8046,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is white, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve6RedImage);
+                                painter.drawImage(displayX, displayY, *curve5Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is white, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve6GreenImage);
+                                painter.drawImage(displayX, displayY, *curve5Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is white, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve6BlueImage);
+                                painter.drawImage(displayX, displayY, *curve5Image);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -7971,16 +8073,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is red, Secondary White
+                                painter.drawImage(displayX, displayY, *curve6Image);
+                                painter.drawImage(displayX, displayY, *curve5RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is red, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve6GreenImage);
+                                painter.drawImage(displayX, displayY, *curve5RedImage);
                             }
                             else if (currentElement->getTrackMainLength() == 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is red, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve6BlueImage);
+                                painter.drawImage(displayX, displayY, *curve5RedImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
@@ -7992,16 +8100,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is green, Secondary White
+                                painter.drawImage(displayX, displayY, *curve6Image);
+                                painter.drawImage(displayX, displayY, *curve5GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is green, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve6RedImage);
+                                painter.drawImage(displayX, displayY, *curve5GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() == 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is green, Secondary Blue
+                                painter.drawImage(displayX, displayY, *curve6BlueImage);
+                                painter.drawImage(displayX, displayY, *curve5GreenImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() != 200)
@@ -8013,16 +8127,22 @@ void Canvas::paintEvent(QPaintEvent* event)
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is blue, Secondary White
+                                painter.drawImage(displayX, displayY, *curve6Image);
+                                painter.drawImage(displayX, displayY, *curve5BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() == 100 && currentElement->getTrackSecondarySpeed() != 200)
                             {
                                 //Main is blue, Secondary Red
+                                painter.drawImage(displayX, displayY, *curve6RedImage);
+                                painter.drawImage(displayX, displayY, *curve5BlueImage);
                             }
                             else if (currentElement->getTrackMainLength() != 100 && currentElement->getTrackMainSpeed() != 200
                             && currentElement->getTrackSecondaryLength() != 100 && currentElement->getTrackSecondarySpeed() == 200)
                             {
                                 //Main is blue, Secondary Green
+                                painter.drawImage(displayX, displayY, *curve6GreenImage);
+                                painter.drawImage(displayX, displayY, *curve5BlueImage);
                             }
                             break;
                         }
