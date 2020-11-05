@@ -952,7 +952,24 @@ void Canvas::trackChangeColour()
 {
     if (canvasColour == Colour::LIGHT)
     {
-        loadAllTrackImages();
+        for (QImage* image : imageList)
+        {
+            int height = image->height();
+            int width = image->width();
+            QColor white =  QColor(1,1,1,255);
+            QColor black =  QColor(0,0,0,0);
+            for (int y=0; y<height; y++)
+            {
+                for (int x=0; x<width;x++)
+                {
+                    if (image->pixelColor(x,y) == Qt::white)
+                    {
+                        image->setPixelColor(x,y,Qt::black);
+                    }
+
+                }
+            }
+        }
     }
     else
     {
@@ -965,10 +982,11 @@ void Canvas::trackChangeColour()
             {
                 for (int x=0; x<width;x++)
                 {
-                    if (image->pixelColor(x,y) == black)
+                    if (image->pixelColor(x,y) == Qt::black)
                     {
                         image->setPixelColor(x,y,Qt::white);
                     }
+
                 }
             }
         }
