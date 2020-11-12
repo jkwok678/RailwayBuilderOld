@@ -313,6 +313,10 @@ void Window::convertMPHKMH()
         result = std::ceil(result * 100.0) / 100.0;
         speedResult->setText(QString::number(result));
     }
+    else
+    {
+        speedResult->setText("");
+    }
 
 }
 
