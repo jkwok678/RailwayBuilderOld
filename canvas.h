@@ -16,18 +16,40 @@
 #include "mode.h"
 
 
-
+/**
+ * @brief The Canvas class
+ * @author Jonathan Kwok
+ * A class based on QWidgetfor drawing the layout, by adding the images to the screen
+ *
+ */
 class Canvas : public QWidget
 {
 	Q_OBJECT
 public:
 
+    /**
+     * @brief Canvas constructor.
+     */
 	Canvas();
-
+    /**
+     * @brief A method to load all normal track images from storage.
+     */
     void loadAllTrackImages();
+    /**
+     * @brief A method to load all red track images from storage.
+     */
     void loadAllRedTrackImages();
+    /**
+     * @brief A method to load all green track images from storage.
+     */
     void loadAllGreenTrackImages();
+    /**
+     * @brief A method to load all blue track images from storage.
+     */
     void loadAllBlueTrackImages();
+    /**
+     * @brief A method to load all track images with multiple colours from storage.
+     */
     void loadMixColourTrackImages();
     void fillImageList();
 
