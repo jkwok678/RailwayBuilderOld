@@ -1,0 +1,10 @@
+<map id="StraightTrack" name="StraightTrack">
+<area shape="rect" id="node1" title=" " alt="" coords="233,229,331,256"/>
+<area shape="rect" id="node5" href="$class_bridge_underpass_track.html" title=" " alt="" coords="5,304,159,331"/>
+<area shape="rect" id="node6" href="$class_buffer_track.html" title=" " alt="" coords="183,304,269,331"/>
+<area shape="rect" id="node7" href="$class_direct_track.html" title=" " alt="" coords="294,304,382,331"/>
+<area shape="rect" id="node8" href="$class_signal_track.html" title=" " alt="" coords="406,304,497,331"/>
+<area shape="rect" id="node2" href="$class_track.html" title=" " alt="" coords="255,155,309,181"/>
+<area shape="rect" id="node3" href="$class_named_element.html" title=" " alt="" coords="227,80,337,107"/>
+<area shape="rect" id="node4" href="$class_element.html" title=" " alt="" coords="247,5,317,32"/>
+</map>
