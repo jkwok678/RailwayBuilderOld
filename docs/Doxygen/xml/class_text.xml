@@ -1,0 +1,311 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_text" kind="class" language="C++" prot="public">
+    <compoundname>Text</compoundname>
+    <basecompoundref refid="class_element" prot="public" virt="non-virtual">Element</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_text_1a6a03e1ee2d65fd9b1834e5b5846cc87b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Text::editableX</definition>
+        <argsstring></argsstring>
+        <name>editableX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="38" column="9" bodyfile="element.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_text_1a3e00c23dd6bec3ac14f8debe4c057215" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Text::editableY</definition>
+        <argsstring></argsstring>
+        <name>editableY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="39" column="9" bodyfile="element.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_text_1af1b0c4c5d94f1a5338398f37e7b9ebbe" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Text::fontSize</definition>
+        <argsstring></argsstring>
+        <name>fontSize</name>
+        <initializer>{ 12 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="40" column="9" bodyfile="element.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_text_1ab0e8701abd00e19a3c5c3ba759a8cdad" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Text::readableText</definition>
+        <argsstring></argsstring>
+        <name>readableText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="41" column="13" bodyfile="element.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_text_1aafbc87056bd5a3250299f2459078bf67" prot="private" static="no" mutable="no">
+        <type>QFont</type>
+        <definition>QFont Text::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="42" column="11" bodyfile="element.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_text_1aca33ee8c5ae2369e474e46744283afc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Text::Text</definition>
+        <argsstring>(int newLocationX, int newLocationY, QString newReadableText, QFont)</argsstring>
+        <name>Text</name>
+        <param>
+          <type>int</type>
+          <declname>newLocationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>newLocationY</declname>
+        </param>
+        <param>
+          <type>QString</type>
+          <declname>newReadableText</declname>
+        </param>
+        <param>
+          <type>QFont</type>
+          <defname>newFont</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="51" column="5" bodyfile="element.cpp" bodystart="29" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_text_1adc7fe0bba667db27c4f144c878d9d79a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Text::getEditableX</definition>
+        <argsstring>() const</argsstring>
+        <name>getEditableX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="53" column="9" bodyfile="element.cpp" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_text_1a1b9d4f25034b8eeb73b496b1491492db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Text::setEditableX</definition>
+        <argsstring>(int newEditableX)</argsstring>
+        <name>setEditableX</name>
+        <param>
+          <type>int</type>
+          <declname>newEditableX</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="54" column="10" bodyfile="element.cpp" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_text_1ad634960c8b73d4868bc922f134896307" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Text::getEditableY</definition>
+        <argsstring>() const</argsstring>
+        <name>getEditableY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="55" column="9" bodyfile="element.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_text_1ac918d17109f3ba3429dc0d6c255ae2b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Text::setEditableY</definition>
+        <argsstring>(int newEditableY)</argsstring>
+        <name>setEditableY</name>
+        <param>
+          <type>int</type>
+          <declname>newEditableY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="56" column="10" bodyfile="element.cpp" bodystart="54" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_text_1af6db01e16738de0391ad928c54334f0e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Text::getFontSize</definition>
+        <argsstring>() const</argsstring>
+        <name>getFontSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="57" column="9" bodyfile="element.cpp" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_text_1a6a923e01ef9f837f4163762aac7d8aaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Text::setFontSize</definition>
+        <argsstring>(int newFontSize)</argsstring>
+        <name>setFontSize</name>
+        <param>
+          <type>int</type>
+          <declname>newFontSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="58" column="10" bodyfile="element.cpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_text_1affa33f9940a10a0c56f815aeb0d70c03" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Text::getReadableText</definition>
+        <argsstring>() const</argsstring>
+        <name>getReadableText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="59" column="13" bodyfile="element.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_text_1aca0e534a424c620ceed5aaa742ad4f51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Text::setReadableText</definition>
+        <argsstring>(const QString &amp;newReadableText)</argsstring>
+        <name>setReadableText</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>newReadableText</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="60" column="10" bodyfile="element.cpp" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_text_1ace6ab02148fe23efffcd3f7c3dde9183" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QFont</type>
+        <definition>QFont Text::getFont</definition>
+        <argsstring>() const</argsstring>
+        <name>getFont</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="61" column="11" bodyfile="element.cpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_text_1a9402632775c86c48360baa500d81cf6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Text::setFont</definition>
+        <argsstring>(const QFont newFont)</argsstring>
+        <name>setFont</name>
+        <param>
+          <type>const QFont</type>
+          <declname>newFont</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="62" column="10" bodyfile="element.cpp" bodystart="84" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Text</label>
+        <link refid="class_text"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Text</label>
+        <link refid="class_text"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+    </collaborationgraph>
+    <location file="element.h" line="35" column="1" bodyfile="element.h" bodystart="36" bodyend="63"/>
+    <listofallmembers>
+      <member refid="class_text_1a6a03e1ee2d65fd9b1834e5b5846cc87b" prot="private" virt="non-virtual"><scope>Text</scope><name>editableX</name></member>
+      <member refid="class_text_1a3e00c23dd6bec3ac14f8debe4c057215" prot="private" virt="non-virtual"><scope>Text</scope><name>editableY</name></member>
+      <member refid="class_element_1ab0d0e20be9a36ae676202db753faeec9" prot="public" virt="non-virtual"><scope>Text</scope><name>Element</name></member>
+      <member refid="class_element_1a30320015284f3ac5c1717e40be18cbe0" prot="public" virt="non-virtual"><scope>Text</scope><name>Element</name></member>
+      <member refid="class_text_1aafbc87056bd5a3250299f2459078bf67" prot="private" virt="non-virtual"><scope>Text</scope><name>font</name></member>
+      <member refid="class_text_1af1b0c4c5d94f1a5338398f37e7b9ebbe" prot="private" virt="non-virtual"><scope>Text</scope><name>fontSize</name></member>
+      <member refid="class_text_1adc7fe0bba667db27c4f144c878d9d79a" prot="public" virt="non-virtual"><scope>Text</scope><name>getEditableX</name></member>
+      <member refid="class_text_1ad634960c8b73d4868bc922f134896307" prot="public" virt="non-virtual"><scope>Text</scope><name>getEditableY</name></member>
+      <member refid="class_text_1ace6ab02148fe23efffcd3f7c3dde9183" prot="public" virt="non-virtual"><scope>Text</scope><name>getFont</name></member>
+      <member refid="class_text_1af6db01e16738de0391ad928c54334f0e" prot="public" virt="non-virtual"><scope>Text</scope><name>getFontSize</name></member>
+      <member refid="class_element_1a5d0e23ab49cac51ba1834bd9b3ad98e1" prot="public" virt="non-virtual"><scope>Text</scope><name>getLocationX</name></member>
+      <member refid="class_element_1a76ba22891795956f10eefad81135f3eb" prot="public" virt="non-virtual"><scope>Text</scope><name>getLocationY</name></member>
+      <member refid="class_text_1affa33f9940a10a0c56f815aeb0d70c03" prot="public" virt="non-virtual"><scope>Text</scope><name>getReadableText</name></member>
+      <member refid="class_element_1aad99bef1925b4aeab2193f043e65b397" prot="protected" virt="non-virtual"><scope>Text</scope><name>locationX</name></member>
+      <member refid="class_element_1aaf92e16cbdf7560d86bbd8b2bb572130" prot="protected" virt="non-virtual"><scope>Text</scope><name>locationY</name></member>
+      <member refid="class_text_1ab0e8701abd00e19a3c5c3ba759a8cdad" prot="private" virt="non-virtual"><scope>Text</scope><name>readableText</name></member>
+      <member refid="class_text_1a1b9d4f25034b8eeb73b496b1491492db" prot="public" virt="non-virtual"><scope>Text</scope><name>setEditableX</name></member>
+      <member refid="class_text_1ac918d17109f3ba3429dc0d6c255ae2b6" prot="public" virt="non-virtual"><scope>Text</scope><name>setEditableY</name></member>
+      <member refid="class_text_1a9402632775c86c48360baa500d81cf6b" prot="public" virt="non-virtual"><scope>Text</scope><name>setFont</name></member>
+      <member refid="class_text_1a6a923e01ef9f837f4163762aac7d8aaa" prot="public" virt="non-virtual"><scope>Text</scope><name>setFontSize</name></member>
+      <member refid="class_element_1aeb8176e1394b9f20d7ec84d5d5b894fe" prot="public" virt="non-virtual"><scope>Text</scope><name>setLocationX</name></member>
+      <member refid="class_element_1aea0a5c3b8a7fdaa00b219df32838f21e" prot="public" virt="non-virtual"><scope>Text</scope><name>setLocationY</name></member>
+      <member refid="class_text_1aca0e534a424c620ceed5aaa742ad4f51" prot="public" virt="non-virtual"><scope>Text</scope><name>setReadableText</name></member>
+      <member refid="class_text_1aca33ee8c5ae2369e474e46744283afc0" prot="public" virt="non-virtual"><scope>Text</scope><name>Text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

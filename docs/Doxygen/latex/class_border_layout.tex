@@ -1,0 +1,83 @@
+\hypertarget{class_border_layout}{}\doxysection{Border\+Layout Class Reference}
+\label{class_border_layout}\index{BorderLayout@{BorderLayout}}
+
+
+Inheritance diagram for Border\+Layout\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{class_border_layout__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Border\+Layout\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{class_border_layout__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_border_layout_a59e0cbfaa0f96a9a8d251850e24d68e8}\label{class_border_layout_a59e0cbfaa0f96a9a8d251850e24d68e8}} 
+enum {\bfseries Position} \{ \newline
+{\bfseries West}
+, {\bfseries North}
+, {\bfseries South}
+, {\bfseries East}
+, \newline
+{\bfseries Center}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_border_layout_a68e256ce50591e2376fd7b278695a2cf}\label{class_border_layout_a68e256ce50591e2376fd7b278695a2cf}} 
+{\bfseries Border\+Layout} (QWidget $\ast$parent, const QMargins \&margins=QMargins(), int spacing=-\/1)
+\item 
+\mbox{\Hypertarget{class_border_layout_a792cfa38e28f6d78510a901e278dd3fc}\label{class_border_layout_a792cfa38e28f6d78510a901e278dd3fc}} 
+{\bfseries Border\+Layout} (int spacing=-\/1)
+\item 
+\mbox{\Hypertarget{class_border_layout_ae4f7827cbbce1717da73357935ea63b6}\label{class_border_layout_ae4f7827cbbce1717da73357935ea63b6}} 
+void {\bfseries add\+Item} (QLayout\+Item $\ast$item) override
+\item 
+\mbox{\Hypertarget{class_border_layout_ab91bbd264a21368e18d332bfa9046d3f}\label{class_border_layout_ab91bbd264a21368e18d332bfa9046d3f}} 
+void {\bfseries add\+Widget} (QWidget $\ast$widget, Position position)
+\item 
+\mbox{\Hypertarget{class_border_layout_a3fb1f597c46796fdf3c2908d06496b69}\label{class_border_layout_a3fb1f597c46796fdf3c2908d06496b69}} 
+Qt\+::\+Orientations {\bfseries expanding\+Directions} () const override
+\item 
+\mbox{\Hypertarget{class_border_layout_acb4118c5253948863bcc66a2cf367274}\label{class_border_layout_acb4118c5253948863bcc66a2cf367274}} 
+bool {\bfseries has\+Height\+For\+Width} () const override
+\item 
+\mbox{\Hypertarget{class_border_layout_a651de1981984f2722632d7c749f57a32}\label{class_border_layout_a651de1981984f2722632d7c749f57a32}} 
+int {\bfseries count} () const override
+\item 
+\mbox{\Hypertarget{class_border_layout_ade0f066e805cfcd3e1b4adfb8996b796}\label{class_border_layout_ade0f066e805cfcd3e1b4adfb8996b796}} 
+QLayout\+Item $\ast$ {\bfseries item\+At} (int index) const override
+\item 
+\mbox{\Hypertarget{class_border_layout_a9afbd8b49ce6044777e52822abc0388a}\label{class_border_layout_a9afbd8b49ce6044777e52822abc0388a}} 
+QSize {\bfseries minimum\+Size} () const override
+\item 
+\mbox{\Hypertarget{class_border_layout_ab625a50851e8cc4aed10b82cedc1f42c}\label{class_border_layout_ab625a50851e8cc4aed10b82cedc1f42c}} 
+void {\bfseries set\+Geometry} (const QRect \&rect) override
+\item 
+\mbox{\Hypertarget{class_border_layout_a0c564ebc4b1a11c45f7e9fcc958fa511}\label{class_border_layout_a0c564ebc4b1a11c45f7e9fcc958fa511}} 
+QSize {\bfseries size\+Hint} () const override
+\item 
+\mbox{\Hypertarget{class_border_layout_a224f073342dc2b454e66add0f1cdf462}\label{class_border_layout_a224f073342dc2b454e66add0f1cdf462}} 
+QLayout\+Item $\ast$ {\bfseries take\+At} (int index) override
+\item 
+\mbox{\Hypertarget{class_border_layout_a3935fd55950b18d465c7612d49c91ad6}\label{class_border_layout_a3935fd55950b18d465c7612d49c91ad6}} 
+void {\bfseries add} (QLayout\+Item $\ast$item, Position position)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projects/\+Railway\+Builder/borderlayout.\+h\item 
+D\+:/\+Projects/\+Railway\+Builder/borderlayout.\+cpp\end{DoxyCompactItemize}

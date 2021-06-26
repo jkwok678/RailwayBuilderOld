@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_parapet" kind="class" language="C++" prot="public">
+    <compoundname>Parapet</compoundname>
+    <basecompoundref refid="class_element" prot="public" virt="non-virtual">Element</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_parapet_1ae251f54bd87c992c0808f42c84e76a70" prot="private" static="no" mutable="no">
+        <type>ParapetType</type>
+        <definition>ParapetType Parapet::parapetType</definition>
+        <argsstring></argsstring>
+        <name>parapetType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="116" column="17" bodyfile="element.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_parapet_1a8b84fd2c79bb34ed04c713e663ace1cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Parapet::Parapet</definition>
+        <argsstring>(ParapetType newParapetType, int newLocationX, int newLocationY)</argsstring>
+        <name>Parapet</name>
+        <param>
+          <type>ParapetType</type>
+          <declname>newParapetType</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>newLocationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>newLocationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="124" column="5" bodyfile="element.cpp" bodystart="135" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="class_parapet_1ae8866258abc04229bd9de77fe4025033" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ParapetType</type>
+        <definition>ParapetType Parapet::getParapetType</definition>
+        <argsstring>() const</argsstring>
+        <name>getParapetType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="125" column="17" bodyfile="element.cpp" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="class_parapet_1a0ff99cdc864f632332799a3d84caae14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parapet::setParapetType</definition>
+        <argsstring>(const ParapetType &amp;newParapetType)</argsstring>
+        <name>setParapetType</name>
+        <param>
+          <type>const ParapetType &amp;</type>
+          <declname>newParapetType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="126" column="10" bodyfile="element.cpp" bodystart="147" bodyend="150"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+      <node id="1">
+        <label>Parapet</label>
+        <link refid="class_parapet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+      <node id="1">
+        <label>Parapet</label>
+        <link refid="class_parapet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="element.h" line="113" column="1" bodyfile="element.h" bodystart="114" bodyend="127"/>
+    <listofallmembers>
+      <member refid="class_element_1ab0d0e20be9a36ae676202db753faeec9" prot="public" virt="non-virtual"><scope>Parapet</scope><name>Element</name></member>
+      <member refid="class_element_1a30320015284f3ac5c1717e40be18cbe0" prot="public" virt="non-virtual"><scope>Parapet</scope><name>Element</name></member>
+      <member refid="class_element_1a5d0e23ab49cac51ba1834bd9b3ad98e1" prot="public" virt="non-virtual"><scope>Parapet</scope><name>getLocationX</name></member>
+      <member refid="class_element_1a76ba22891795956f10eefad81135f3eb" prot="public" virt="non-virtual"><scope>Parapet</scope><name>getLocationY</name></member>
+      <member refid="class_parapet_1ae8866258abc04229bd9de77fe4025033" prot="public" virt="non-virtual"><scope>Parapet</scope><name>getParapetType</name></member>
+      <member refid="class_element_1aad99bef1925b4aeab2193f043e65b397" prot="protected" virt="non-virtual"><scope>Parapet</scope><name>locationX</name></member>
+      <member refid="class_element_1aaf92e16cbdf7560d86bbd8b2bb572130" prot="protected" virt="non-virtual"><scope>Parapet</scope><name>locationY</name></member>
+      <member refid="class_parapet_1a8b84fd2c79bb34ed04c713e663ace1cb" prot="public" virt="non-virtual"><scope>Parapet</scope><name>Parapet</name></member>
+      <member refid="class_parapet_1ae251f54bd87c992c0808f42c84e76a70" prot="private" virt="non-virtual"><scope>Parapet</scope><name>parapetType</name></member>
+      <member refid="class_element_1aeb8176e1394b9f20d7ec84d5d5b894fe" prot="public" virt="non-virtual"><scope>Parapet</scope><name>setLocationX</name></member>
+      <member refid="class_element_1aea0a5c3b8a7fdaa00b219df32838f21e" prot="public" virt="non-virtual"><scope>Parapet</scope><name>setLocationY</name></member>
+      <member refid="class_parapet_1a0ff99cdc864f632332799a3d84caae14" prot="public" virt="non-virtual"><scope>Parapet</scope><name>setParapetType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

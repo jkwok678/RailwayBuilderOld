@@ -17,10 +17,10 @@
 
 
 /**
- * @brief The Canvas class
- * @author Jonathan Kwok
- * A class based on QWidgetfor drawing the layout, by adding the images to the screen
+ * @brief The Canvas that is used to draw the tracks on.
+ * @author Jonathan Kwok.
  *
+ * A class based on QWidget for drawing the layout, by adding the images to the screen.
  */
 class Canvas : public QWidget
 {
@@ -51,8 +51,15 @@ public:
      * @brief A method to load all track images with multiple colours from storage.
      */
     void loadMixColourTrackImages();
+    /**
+     * @brief A method to add all track images onto a vector.
+     */
     void fillImageList();
 
+    /**
+     * @brief getMode
+     * @return
+     */
     Mode getMode();
     void setMode(Mode newChosen);
 

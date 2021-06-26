@@ -1,0 +1,672 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_track" kind="class" language="C++" prot="public">
+    <compoundname>Track</compoundname>
+    <basecompoundref refid="class_named_element" prot="public" virt="non-virtual">NamedElement</basecompoundref>
+    <derivedcompoundref refid="class_crossover_track" prot="public" virt="non-virtual">CrossoverTrack</derivedcompoundref>
+    <derivedcompoundref refid="class_curved_track" prot="public" virt="non-virtual">CurvedTrack</derivedcompoundref>
+    <derivedcompoundref refid="class_exit_track" prot="public" virt="non-virtual">ExitTrack</derivedcompoundref>
+    <derivedcompoundref refid="class_flyover_track" prot="public" virt="non-virtual">FlyoverTrack</derivedcompoundref>
+    <derivedcompoundref refid="class_linked_track" prot="public" virt="non-virtual">LinkedTrack</derivedcompoundref>
+    <derivedcompoundref refid="class_straight_track" prot="public" virt="non-virtual">StraightTrack</derivedcompoundref>
+    <derivedcompoundref refid="class_switch_track" prot="public" virt="non-virtual">SwitchTrack</derivedcompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_track_1a0fbdeaf47b0250f0f5782472ac4884cf" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Track::trackMainSpeed</definition>
+        <argsstring></argsstring>
+        <name>trackMainSpeed</name>
+        <initializer>{ 200 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="77" column="9" bodyfile="track.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_track_1a41b6fdb0b034430775b6a16e24e3240d" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Track::trackMainLength</definition>
+        <argsstring></argsstring>
+        <name>trackMainLength</name>
+        <initializer>{ 100 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="78" column="9" bodyfile="track.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_track_1a0659473e7778925bb689da55a283b218" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Track::trackSecondarySpeed</definition>
+        <argsstring></argsstring>
+        <name>trackSecondarySpeed</name>
+        <initializer>{-1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="79" column="9" bodyfile="track.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_track_1ab5498db633872c734c32e1f32c7fd461" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Track::trackSecondaryLength</definition>
+        <argsstring></argsstring>
+        <name>trackSecondaryLength</name>
+        <initializer>{-1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="80" column="9" bodyfile="track.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_track_1a11facb86b69cde3e84ce3053e4914a50" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Track::platformAny</definition>
+        <argsstring></argsstring>
+        <name>platformAny</name>
+        <initializer>{ false }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="83" column="10" bodyfile="track.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_track_1a732a61e6b7bed06bb24032108fbe4750" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Track::platform1</definition>
+        <argsstring></argsstring>
+        <name>platform1</name>
+        <initializer>{ false }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="84" column="10" bodyfile="track.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_track_1a729ef68abb99f42e7facc3eed24c1e85" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Track::platform2</definition>
+        <argsstring></argsstring>
+        <name>platform2</name>
+        <initializer>{ false }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="85" column="10" bodyfile="track.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_track_1acc590bc83c9903eed37d5938d2da272f" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Track::links[9]</definition>
+        <argsstring>[9]</argsstring>
+        <name>links</name>
+        <initializer>{false, false, false, false, false, false, false, false, false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="86" column="10" bodyfile="track.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_track_1a5aea5b4e7af80b589bcf6f9fc17d69d3" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Track::found</definition>
+        <argsstring></argsstring>
+        <name>found</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="87" column="10" bodyfile="track.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_track_1a11457bcda8be04595018c11173d8241c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Track::Track</definition>
+        <argsstring>()</argsstring>
+        <name>Track</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="91" column="1" bodyfile="track.cpp" bodystart="4" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a71eb6e3bcccf2a137623211e92bfc9b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Track::getTrackMainSpeed</definition>
+        <argsstring>() const</argsstring>
+        <name>getTrackMainSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="92" column="9" bodyfile="track.cpp" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a25755a807260bebbd465f8917cb336db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Track::setTrackMainSpeed</definition>
+        <argsstring>(int value)</argsstring>
+        <name>setTrackMainSpeed</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="93" column="10" bodyfile="track.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a353baee51fb5a1c24ab5d198f331306a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Track::getTrackMainLength</definition>
+        <argsstring>() const</argsstring>
+        <name>getTrackMainLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="94" column="9" bodyfile="track.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a218259a8ea8c69b46e765c111b4117b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Track::setTrackMainLength</definition>
+        <argsstring>(int value)</argsstring>
+        <name>setTrackMainLength</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="95" column="10" bodyfile="track.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1abe05984036500fce90cd2c3589a9dcad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getPlatformAny</definition>
+        <argsstring>() const</argsstring>
+        <name>getPlatformAny</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="96" column="10" bodyfile="track.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1acd0fad01eeb4409d260f28ba60dd5fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Track::setPlatformAny</definition>
+        <argsstring>(bool value)</argsstring>
+        <name>setPlatformAny</name>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="97" column="10" bodyfile="track.cpp" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a32f6756ae40b57334f3bbe5a82b7b55d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getPlatform1</definition>
+        <argsstring>() const</argsstring>
+        <name>getPlatform1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="98" column="6" bodyfile="track.cpp" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1ac26ff28942b37f10f0720c13c754197d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Track::setPlatform1</definition>
+        <argsstring>(bool newPlatform)</argsstring>
+        <name>setPlatform1</name>
+        <param>
+          <type>bool</type>
+          <declname>newPlatform</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="99" column="6" bodyfile="track.cpp" bodystart="65" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a95c928c73f9d6bcbdcbe3ecb8c8e4276" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getPlatform2</definition>
+        <argsstring>() const</argsstring>
+        <name>getPlatform2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="100" column="6" bodyfile="track.cpp" bodystart="70" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a145c5f810c2d15a2fe6a7fa4d25d23cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Track::setPlatform2</definition>
+        <argsstring>(bool newPlatform)</argsstring>
+        <name>setPlatform2</name>
+        <param>
+          <type>bool</type>
+          <declname>newPlatform</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="101" column="6" bodyfile="track.cpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1ac92990c20e197b15f031ae39f86d0af6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getLink0</definition>
+        <argsstring>()</argsstring>
+        <name>getLink0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="103" column="10" bodyfile="track.cpp" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a73824bfaa54c095d95a31e2453e15c6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getLink1</definition>
+        <argsstring>()</argsstring>
+        <name>getLink1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="104" column="10" bodyfile="track.cpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a9a89bb8ba0bb38ce297204d10a8be814" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getLink2</definition>
+        <argsstring>()</argsstring>
+        <name>getLink2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="105" column="10" bodyfile="track.cpp" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a7881e6215661c7cc9c32b0101ceff6ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getLink3</definition>
+        <argsstring>()</argsstring>
+        <name>getLink3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="106" column="10" bodyfile="track.cpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1abe989ddb3caf72b6de2765a4e244dec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getLink4</definition>
+        <argsstring>()</argsstring>
+        <name>getLink4</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="107" column="10" bodyfile="track.cpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a584d39a5cc70c58cd209b0d56842d3d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getLink5</definition>
+        <argsstring>()</argsstring>
+        <name>getLink5</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="108" column="10" bodyfile="track.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1aa6ccc1986b452c1a3fda6103b9becf6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getLink6</definition>
+        <argsstring>()</argsstring>
+        <name>getLink6</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="109" column="10" bodyfile="track.cpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a66a0bc8d535484f51b291dfe73100274" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getLink7</definition>
+        <argsstring>()</argsstring>
+        <name>getLink7</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="110" column="10" bodyfile="track.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1aaab9c686a421427bed4bf21648bcd4e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getLink8</definition>
+        <argsstring>()</argsstring>
+        <name>getLink8</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="111" column="10" bodyfile="track.cpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1abbf88dbb37f3789bd1e21782a752403b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Track::getFound</definition>
+        <argsstring>() const</argsstring>
+        <name>getFound</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="113" column="10" bodyfile="track.cpp" bodystart="125" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a2d7271aa80403962ccf5fb1700c7caab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Track::setFound</definition>
+        <argsstring>(bool newFound)</argsstring>
+        <name>setFound</name>
+        <param>
+          <type>bool</type>
+          <declname>newFound</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="114" column="10" bodyfile="track.cpp" bodystart="130" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a4e2ebd72dfd2572b213663b6af6a9b7e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Track::getTrackSecondarySpeed</definition>
+        <argsstring>() const</argsstring>
+        <name>getTrackSecondarySpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="115" column="9" bodyfile="track.cpp" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1aa1b8a1a7fa9fd40edcb63f641f6c4bfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Track::setTrackSecondarySpeed</definition>
+        <argsstring>(int value)</argsstring>
+        <name>setTrackSecondarySpeed</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="116" column="10" bodyfile="track.cpp" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1af1882622c1cea75ec19e3492efbf99df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Track::getTrackSecondaryLength</definition>
+        <argsstring>() const</argsstring>
+        <name>getTrackSecondaryLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="117" column="9" bodyfile="track.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_track_1a7bb019f81a80262609f46643c6ef7874" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Track::setTrackSecondaryLength</definition>
+        <argsstring>(int value)</argsstring>
+        <name>setTrackSecondaryLength</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="118" column="10" bodyfile="track.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="14">
+        <label>SwitchTrack</label>
+        <link refid="class_switch_track"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ExitTrack</label>
+        <link refid="class_exit_track"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>StraightTrack</label>
+        <link refid="class_straight_track"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NamedElement</label>
+        <link refid="class_named_element"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>BridgeUnderpassTrack</label>
+        <link refid="class_bridge_underpass_track"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>SignalTrack</label>
+        <link refid="class_signal_track"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>BufferTrack</label>
+        <link refid="class_buffer_track"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CrossoverTrack</label>
+        <link refid="class_crossover_track"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>LinkedTrack</label>
+        <link refid="class_linked_track"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>FlyoverTrack</label>
+        <link refid="class_flyover_track"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>DirectTrack</label>
+        <link refid="class_direct_track"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+      <node id="5">
+        <label>CurvedTrack</label>
+        <link refid="class_curved_track"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Track</label>
+        <link refid="class_track"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>NamedElement</label>
+        <link refid="class_named_element"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+      <node id="1">
+        <label>Track</label>
+        <link refid="class_track"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="track.h" line="71" column="1" bodyfile="track.h" bodystart="72" bodyend="119"/>
+    <listofallmembers>
+      <member refid="class_element_1ab0d0e20be9a36ae676202db753faeec9" prot="public" virt="non-virtual"><scope>Track</scope><name>Element</name></member>
+      <member refid="class_element_1a30320015284f3ac5c1717e40be18cbe0" prot="public" virt="non-virtual"><scope>Track</scope><name>Element</name></member>
+      <member refid="class_track_1a5aea5b4e7af80b589bcf6f9fc17d69d3" prot="protected" virt="non-virtual"><scope>Track</scope><name>found</name></member>
+      <member refid="class_track_1abbf88dbb37f3789bd1e21782a752403b" prot="public" virt="non-virtual"><scope>Track</scope><name>getFound</name></member>
+      <member refid="class_track_1ac92990c20e197b15f031ae39f86d0af6" prot="public" virt="non-virtual"><scope>Track</scope><name>getLink0</name></member>
+      <member refid="class_track_1a73824bfaa54c095d95a31e2453e15c6f" prot="public" virt="non-virtual"><scope>Track</scope><name>getLink1</name></member>
+      <member refid="class_track_1a9a89bb8ba0bb38ce297204d10a8be814" prot="public" virt="non-virtual"><scope>Track</scope><name>getLink2</name></member>
+      <member refid="class_track_1a7881e6215661c7cc9c32b0101ceff6ed" prot="public" virt="non-virtual"><scope>Track</scope><name>getLink3</name></member>
+      <member refid="class_track_1abe989ddb3caf72b6de2765a4e244dec8" prot="public" virt="non-virtual"><scope>Track</scope><name>getLink4</name></member>
+      <member refid="class_track_1a584d39a5cc70c58cd209b0d56842d3d6" prot="public" virt="non-virtual"><scope>Track</scope><name>getLink5</name></member>
+      <member refid="class_track_1aa6ccc1986b452c1a3fda6103b9becf6d" prot="public" virt="non-virtual"><scope>Track</scope><name>getLink6</name></member>
+      <member refid="class_track_1a66a0bc8d535484f51b291dfe73100274" prot="public" virt="non-virtual"><scope>Track</scope><name>getLink7</name></member>
+      <member refid="class_track_1aaab9c686a421427bed4bf21648bcd4e2" prot="public" virt="non-virtual"><scope>Track</scope><name>getLink8</name></member>
+      <member refid="class_element_1a5d0e23ab49cac51ba1834bd9b3ad98e1" prot="public" virt="non-virtual"><scope>Track</scope><name>getLocationX</name></member>
+      <member refid="class_element_1a76ba22891795956f10eefad81135f3eb" prot="public" virt="non-virtual"><scope>Track</scope><name>getLocationY</name></member>
+      <member refid="class_named_element_1a82cca4c8c821f1875e135a95f808f288" prot="public" virt="non-virtual"><scope>Track</scope><name>getNamed</name></member>
+      <member refid="class_track_1a32f6756ae40b57334f3bbe5a82b7b55d" prot="public" virt="non-virtual"><scope>Track</scope><name>getPlatform1</name></member>
+      <member refid="class_track_1a95c928c73f9d6bcbdcbe3ecb8c8e4276" prot="public" virt="non-virtual"><scope>Track</scope><name>getPlatform2</name></member>
+      <member refid="class_track_1abe05984036500fce90cd2c3589a9dcad" prot="public" virt="non-virtual"><scope>Track</scope><name>getPlatformAny</name></member>
+      <member refid="class_named_element_1abad0f275ff7a5babfb9eb147d4859808" prot="public" virt="non-virtual"><scope>Track</scope><name>getText</name></member>
+      <member refid="class_track_1a353baee51fb5a1c24ab5d198f331306a" prot="public" virt="non-virtual"><scope>Track</scope><name>getTrackMainLength</name></member>
+      <member refid="class_track_1a71eb6e3bcccf2a137623211e92bfc9b4" prot="public" virt="non-virtual"><scope>Track</scope><name>getTrackMainSpeed</name></member>
+      <member refid="class_track_1af1882622c1cea75ec19e3492efbf99df" prot="public" virt="non-virtual"><scope>Track</scope><name>getTrackSecondaryLength</name></member>
+      <member refid="class_track_1a4e2ebd72dfd2572b213663b6af6a9b7e" prot="public" virt="non-virtual"><scope>Track</scope><name>getTrackSecondarySpeed</name></member>
+      <member refid="class_track_1acc590bc83c9903eed37d5938d2da272f" prot="protected" virt="non-virtual"><scope>Track</scope><name>links</name></member>
+      <member refid="class_element_1aad99bef1925b4aeab2193f043e65b397" prot="protected" virt="non-virtual"><scope>Track</scope><name>locationX</name></member>
+      <member refid="class_element_1aaf92e16cbdf7560d86bbd8b2bb572130" prot="protected" virt="non-virtual"><scope>Track</scope><name>locationY</name></member>
+      <member refid="class_named_element_1a43e36d5aa516564d7e2bdc2ae2baf405" prot="protected" virt="non-virtual"><scope>Track</scope><name>named</name></member>
+      <member refid="class_named_element_1aaee39c5f8f1de8115396b4d363708836" prot="public" virt="non-virtual"><scope>Track</scope><name>NamedElement</name></member>
+      <member refid="class_track_1a732a61e6b7bed06bb24032108fbe4750" prot="protected" virt="non-virtual"><scope>Track</scope><name>platform1</name></member>
+      <member refid="class_track_1a729ef68abb99f42e7facc3eed24c1e85" prot="protected" virt="non-virtual"><scope>Track</scope><name>platform2</name></member>
+      <member refid="class_track_1a11facb86b69cde3e84ce3053e4914a50" prot="protected" virt="non-virtual"><scope>Track</scope><name>platformAny</name></member>
+      <member refid="class_track_1a2d7271aa80403962ccf5fb1700c7caab" prot="public" virt="non-virtual"><scope>Track</scope><name>setFound</name></member>
+      <member refid="class_element_1aeb8176e1394b9f20d7ec84d5d5b894fe" prot="public" virt="non-virtual"><scope>Track</scope><name>setLocationX</name></member>
+      <member refid="class_element_1aea0a5c3b8a7fdaa00b219df32838f21e" prot="public" virt="non-virtual"><scope>Track</scope><name>setLocationY</name></member>
+      <member refid="class_named_element_1aa8fa8cffaa4a5acec97f29b8a3ee11b4" prot="public" virt="non-virtual"><scope>Track</scope><name>setNamed</name></member>
+      <member refid="class_track_1ac26ff28942b37f10f0720c13c754197d" prot="public" virt="non-virtual"><scope>Track</scope><name>setPlatform1</name></member>
+      <member refid="class_track_1a145c5f810c2d15a2fe6a7fa4d25d23cb" prot="public" virt="non-virtual"><scope>Track</scope><name>setPlatform2</name></member>
+      <member refid="class_track_1acd0fad01eeb4409d260f28ba60dd5fdc" prot="public" virt="non-virtual"><scope>Track</scope><name>setPlatformAny</name></member>
+      <member refid="class_named_element_1a530fcd4c9efe28265700a20d21976e5e" prot="public" virt="non-virtual"><scope>Track</scope><name>setText</name></member>
+      <member refid="class_track_1a218259a8ea8c69b46e765c111b4117b6" prot="public" virt="non-virtual"><scope>Track</scope><name>setTrackMainLength</name></member>
+      <member refid="class_track_1a25755a807260bebbd465f8917cb336db" prot="public" virt="non-virtual"><scope>Track</scope><name>setTrackMainSpeed</name></member>
+      <member refid="class_track_1a7bb019f81a80262609f46643c6ef7874" prot="public" virt="non-virtual"><scope>Track</scope><name>setTrackSecondaryLength</name></member>
+      <member refid="class_track_1aa1b8a1a7fa9fd40edcb63f641f6c4bfd" prot="public" virt="non-virtual"><scope>Track</scope><name>setTrackSecondarySpeed</name></member>
+      <member refid="class_named_element_1a598fe70703d4a775eea5f2c701fd1126" prot="protected" virt="non-virtual"><scope>Track</scope><name>text</name></member>
+      <member refid="class_track_1a11457bcda8be04595018c11173d8241c" prot="public" virt="non-virtual"><scope>Track</scope><name>Track</name></member>
+      <member refid="class_track_1a41b6fdb0b034430775b6a16e24e3240d" prot="protected" virt="non-virtual"><scope>Track</scope><name>trackMainLength</name></member>
+      <member refid="class_track_1a0fbdeaf47b0250f0f5782472ac4884cf" prot="protected" virt="non-virtual"><scope>Track</scope><name>trackMainSpeed</name></member>
+      <member refid="class_track_1ab5498db633872c734c32e1f32c7fd461" prot="protected" virt="non-virtual"><scope>Track</scope><name>trackSecondaryLength</name></member>
+      <member refid="class_track_1a0659473e7778925bb689da55a283b218" prot="protected" virt="non-virtual"><scope>Track</scope><name>trackSecondarySpeed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

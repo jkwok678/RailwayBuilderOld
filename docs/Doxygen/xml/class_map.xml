@@ -1,0 +1,2277 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_map" kind="class" language="C++" prot="public">
+    <compoundname>Map</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_map_1a05f5633cc9d6bd54b5f61ec202d63133" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Map::totalTrack</definition>
+        <argsstring></argsstring>
+        <name>totalTrack</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="14" column="9" bodyfile="map.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a77bb5f609ed69e85342b01a2f0e55b12" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_straight_track" kindref="compound">StraightTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;StraightTrack&gt; &gt; Map::straightTrackList</definition>
+        <argsstring></argsstring>
+        <name>straightTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="15" column="17" bodyfile="map.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a98016142799d9d4e4c4799deddffabf9" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_direct_track" kindref="compound">DirectTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;DirectTrack&gt; &gt; Map::directTrackList</definition>
+        <argsstring></argsstring>
+        <name>directTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="16" column="17" bodyfile="map.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a7606af8077c854427e7ef680446591d8" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_curved_track" kindref="compound">CurvedTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;CurvedTrack&gt; &gt; Map::curvedTrackList</definition>
+        <argsstring></argsstring>
+        <name>curvedTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="17" column="17" bodyfile="map.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1ae8db4a2dbc6aef1c58201a1b0264cef4" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;LinkedTrack&gt; &gt; Map::linkedTrackList</definition>
+        <argsstring></argsstring>
+        <name>linkedTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="18" column="17" bodyfile="map.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a1c4bf95ce4a3da38f5edb2726636c4ba" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_exit_track" kindref="compound">ExitTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;ExitTrack&gt; &gt; Map::exitTrackList</definition>
+        <argsstring></argsstring>
+        <name>exitTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="19" column="17" bodyfile="map.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a6fb0e6573ac60277254f19e8a48e2a56" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_buffer_track" kindref="compound">BufferTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;BufferTrack&gt; &gt; Map::bufferTrackList</definition>
+        <argsstring></argsstring>
+        <name>bufferTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="20" column="17" bodyfile="map.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a24c9ee01e64c4e39152b4f3ef761e421" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_signal_track" kindref="compound">SignalTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;SignalTrack&gt; &gt; Map::signalTrackList</definition>
+        <argsstring></argsstring>
+        <name>signalTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="21" column="17" bodyfile="map.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a76712e1ef32ac636c23d00795c0c0e4b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_bridge_underpass_track" kindref="compound">BridgeUnderpassTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;BridgeUnderpassTrack&gt; &gt; Map::bridgeUnderpassTrackList</definition>
+        <argsstring></argsstring>
+        <name>bridgeUnderpassTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="22" column="17" bodyfile="map.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a0bca4ad58b1f7732b608a5453f8840aa" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_switch_track" kindref="compound">SwitchTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;SwitchTrack&gt; &gt; Map::switchTrackList</definition>
+        <argsstring></argsstring>
+        <name>switchTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="23" column="17" bodyfile="map.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1aee5921c3ac1dbf8a185bf71e21fa5602" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_crossover_track" kindref="compound">CrossoverTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;CrossoverTrack&gt; &gt; Map::crossoverTrackList</definition>
+        <argsstring></argsstring>
+        <name>crossoverTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="24" column="17" bodyfile="map.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1ab3bf7707f8fff24dff0454365458dd6e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_flyover_track" kindref="compound">FlyoverTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;FlyoverTrack&gt; &gt; Map::flyoverTrackList</definition>
+        <argsstring></argsstring>
+        <name>flyoverTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="25" column="17" bodyfile="map.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a1046a076cdc5ff906c45df4eea5801c0" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_named_location" kindref="compound">NamedLocation</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;NamedLocation&gt; &gt; Map::namedLocationList</definition>
+        <argsstring></argsstring>
+        <name>namedLocationList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="26" column="17" bodyfile="map.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a03bcfdc5329cc57e8f7791401ccf2320" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_concourse" kindref="compound">Concourse</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;Concourse&gt; &gt; Map::concourseList</definition>
+        <argsstring></argsstring>
+        <name>concourseList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="27" column="17" bodyfile="map.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a826813afc92d134b5bfbc1cbd2e15c26" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_parapet" kindref="compound">Parapet</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;Parapet&gt; &gt; Map::parapetList</definition>
+        <argsstring></argsstring>
+        <name>parapetList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="28" column="17" bodyfile="map.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a1c037b86b4c4ae85e2b8ffa1772ba32e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_text" kindref="compound">Text</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;Text&gt; &gt; Map::textList</definition>
+        <argsstring></argsstring>
+        <name>textList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="29" column="17" bodyfile="map.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a19712d927d0533f4df76b99cc6c78731" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;Track&gt; &gt; Map::trackList</definition>
+        <argsstring></argsstring>
+        <name>trackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="31" column="17" bodyfile="map.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a8952df29aa773d538e3d95f4ec4ec757" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;LinkedTrack&gt; Map::linkedTrack1</definition>
+        <argsstring></argsstring>
+        <name>linkedTrack1</name>
+        <initializer>{nullptr}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="33" column="21" bodyfile="map.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a79584515e68050cf5e62b4805417b0b3" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;LinkedTrack&gt; Map::linkedTrack2</definition>
+        <argsstring></argsstring>
+        <name>linkedTrack2</name>
+        <initializer>{nullptr}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="34" column="21" bodyfile="map.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a8c62d131523ca38807c51bcf8fa3d753" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Map::allLinkedTrackLinked</definition>
+        <argsstring></argsstring>
+        <name>allLinkedTrackLinked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="43" column="10" bodyfile="map.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a0189e6d8b0936740ab314d5bb35f93a2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Map::allConnected</definition>
+        <argsstring></argsstring>
+        <name>allConnected</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="44" column="10" bodyfile="map.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1acb0a1a369fb831fa656609543c873572" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Track&gt; Map::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <initializer>{nullptr}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="46" column="21" bodyfile="map.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a09c2f69d28314d7cf5de0f64b6f40b0c" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Track&gt; Map::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <initializer>{nullptr}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="47" column="21" bodyfile="map.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1af95c873106d9b8a3a733897b2d51ff42" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;Track&gt; &gt; Map::setTrackSpeedLengthMainList</definition>
+        <argsstring></argsstring>
+        <name>setTrackSpeedLengthMainList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="48" column="17" bodyfile="map.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a863f69962eeb16b64c8e80f8c1f37242" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;Track&gt; &gt; Map::setTrackSpeedLengthSecondaryList</definition>
+        <argsstring></argsstring>
+        <name>setTrackSpeedLengthSecondaryList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="49" column="17" bodyfile="map.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_map_1a9ed6679cb30c402edb600d7bcae84599" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Map::setTrackSpeedLengthCounter</definition>
+        <argsstring></argsstring>
+        <name>setTrackSpeedLengthCounter</name>
+        <initializer>{1000}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="52" column="9" bodyfile="map.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_map_1a2c95f6cd176934215df782c5ff0a0d49" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Track &gt; Map::findTopLeftTrack</definition>
+        <argsstring>()</argsstring>
+        <name>findTopLeftTrack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="39" column="21" bodyfile="map.cpp" bodystart="2964" bodyend="2983"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1af69cf018a2b403f2ee05d06442251ade" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::checkAllLinkTrackLinked</definition>
+        <argsstring>()</argsstring>
+        <name>checkAllLinkTrackLinked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="41" column="10" bodyfile="map.cpp" bodystart="2847" bodyend="2861"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_map_1a0f5ad0fd4563497b4214038cbca8b582" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Map::Map</definition>
+        <argsstring>()</argsstring>
+        <name>Map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="56" column="5" bodyfile="map.cpp" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a935ba7fd2b7cd83323285de0bbb47e6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Map::getTotalTrack</definition>
+        <argsstring>() const</argsstring>
+        <name>getTotalTrack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="58" column="9" bodyfile="map.cpp" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a501da9e0ba3da08dd5c93ee9441fa430" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setTotalTrack</definition>
+        <argsstring>(int newTrackTotal)</argsstring>
+        <name>setTotalTrack</name>
+        <param>
+          <type>int</type>
+          <declname>newTrackTotal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="59" column="10" bodyfile="map.cpp" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1acb9a49b28ab74401f320d2304bc85aa4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_straight_track" kindref="compound">StraightTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; StraightTrack &gt; &gt; Map::getStraightTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getStraightTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="61" column="17" bodyfile="map.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a8b5de34898fd1db511b0743061eb052b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setStraightTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; StraightTrack &gt; &gt; &amp;newStraightTrackList)</argsstring>
+        <name>setStraightTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_straight_track" kindref="compound">StraightTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newStraightTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="62" column="10" bodyfile="map.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ae06827fc434a7b46939d45eb8037b460" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addStraightTrack</definition>
+        <argsstring>(std::shared_ptr&lt; StraightTrack &gt; newStraightTrack)</argsstring>
+        <name>addStraightTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_straight_track" kindref="compound">StraightTrack</ref> &gt;</type>
+          <declname>newStraightTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="63" column="10" bodyfile="map.cpp" bodystart="31" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a145399f21e8df57392ebf01b463edece" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_straight_track" kindref="compound">StraightTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; StraightTrack &gt; Map::getStraightTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getStraightTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="64" column="21" bodyfile="map.cpp" bodystart="49" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ada295c2532eaab2f3f2c1c3e0d003eda" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_direct_track" kindref="compound">DirectTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; DirectTrack &gt; &gt; Map::getDirectTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getDirectTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="66" column="17" bodyfile="map.cpp" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a901620ecdd7eb7ff517d9e8375c15548" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setDirectTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; DirectTrack &gt; &gt; &amp;newDirectTrackList)</argsstring>
+        <name>setDirectTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_direct_track" kindref="compound">DirectTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newDirectTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="67" column="10" bodyfile="map.cpp" bodystart="76" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a052ff84e435706dcf2bf516815ba1a0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addDirectTrack</definition>
+        <argsstring>(std::shared_ptr&lt; DirectTrack &gt; newDirectTrack)</argsstring>
+        <name>addDirectTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_direct_track" kindref="compound">DirectTrack</ref> &gt;</type>
+          <declname>newDirectTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="68" column="10" bodyfile="map.cpp" bodystart="81" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1aa3785dff093da5489ef25447c89d1b18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_direct_track" kindref="compound">DirectTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; DirectTrack &gt; Map::getDirectTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getDirectTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="69" column="21" bodyfile="map.cpp" bodystart="99" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a3e5a09425452747004918017c05294a8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_curved_track" kindref="compound">CurvedTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; CurvedTrack &gt; &gt; Map::getCurvedTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getCurvedTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="71" column="17" bodyfile="map.cpp" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a46deb0262a311530c88dca7afd1d7f12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setCurvedTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; CurvedTrack &gt; &gt; &amp;newCurvedTrackList)</argsstring>
+        <name>setCurvedTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_curved_track" kindref="compound">CurvedTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newCurvedTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="72" column="10" bodyfile="map.cpp" bodystart="126" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a2f89be64d1b8a565570f0b7f9dda817e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addCurvedTrack</definition>
+        <argsstring>(std::shared_ptr&lt; CurvedTrack &gt; newCurvedTrack)</argsstring>
+        <name>addCurvedTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_curved_track" kindref="compound">CurvedTrack</ref> &gt;</type>
+          <declname>newCurvedTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="73" column="10" bodyfile="map.cpp" bodystart="131" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a82f74b03ee7503f91e60721fc77f50eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_curved_track" kindref="compound">CurvedTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; CurvedTrack &gt; Map::getCurvedTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getCurvedTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="74" column="21" bodyfile="map.cpp" bodystart="149" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a6b9cffdf63896bc3eebbd41d0b928484" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; LinkedTrack &gt; &gt; Map::getLinkedTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getLinkedTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="76" column="17" bodyfile="map.cpp" bodystart="172" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a868d6c884d5968877999aa8f463752c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setLinkedTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; LinkedTrack &gt; &gt; &amp;newLinkedTrackList)</argsstring>
+        <name>setLinkedTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newLinkedTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="77" column="10" bodyfile="map.cpp" bodystart="177" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a8c7d13c431b638b9572e9a59e746b63a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addLinkedTrack</definition>
+        <argsstring>(std::shared_ptr&lt; LinkedTrack &gt; newLinkedTrack)</argsstring>
+        <name>addLinkedTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt;</type>
+          <declname>newLinkedTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="78" column="10" bodyfile="map.cpp" bodystart="182" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ac02f8df54b4c1e045407be5c2419513d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; LinkedTrack &gt; Map::getLinkedTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getLinkedTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="79" column="21" bodyfile="map.cpp" bodystart="200" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1abbba65cc03294a4af9eaa053c611a812" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Map::haslinkTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>haslinkTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="80" column="10" bodyfile="map.cpp" bodystart="219" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a33796bd388b7d6f2ef3024cdc0e211c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_exit_track" kindref="compound">ExitTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; ExitTrack &gt; &gt; Map::getExitTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getExitTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="82" column="17" bodyfile="map.cpp" bodystart="240" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a89bb09d0d03e7e770f9b8e1028e27a9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setExitTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; ExitTrack &gt; &gt; &amp;newExitTrackList)</argsstring>
+        <name>setExitTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_exit_track" kindref="compound">ExitTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newExitTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="83" column="10" bodyfile="map.cpp" bodystart="245" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a3e31b91a4a73a9b67796b93c336ef306" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addExitTrack</definition>
+        <argsstring>(std::shared_ptr&lt; ExitTrack &gt; newExitTrack)</argsstring>
+        <name>addExitTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_exit_track" kindref="compound">ExitTrack</ref> &gt;</type>
+          <declname>newExitTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="84" column="10" bodyfile="map.cpp" bodystart="250" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a3ee5650170ae1b8f0622c8ffd2de4097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_exit_track" kindref="compound">ExitTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; ExitTrack &gt; Map::getExitTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getExitTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="85" column="21" bodyfile="map.cpp" bodystart="267" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a1ccb86014c6d082f6669ea50b38000fd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_buffer_track" kindref="compound">BufferTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; BufferTrack &gt; &gt; Map::getBufferTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getBufferTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="87" column="17" bodyfile="map.cpp" bodystart="290" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1af49d45f98aa14eed2ba3cad7c6aa9cfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setBufferTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; BufferTrack &gt; &gt; &amp;newBufferTrackList)</argsstring>
+        <name>setBufferTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_buffer_track" kindref="compound">BufferTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newBufferTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="88" column="10" bodyfile="map.cpp" bodystart="295" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a7793cb889c9d98026e42ce03f03d71a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addBufferTrack</definition>
+        <argsstring>(std::shared_ptr&lt; BufferTrack &gt; newBufferTrack)</argsstring>
+        <name>addBufferTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_buffer_track" kindref="compound">BufferTrack</ref> &gt;</type>
+          <declname>newBufferTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="89" column="10" bodyfile="map.cpp" bodystart="300" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a5bc7e6aed1f75b4669d24fe7b3b6ad62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_buffer_track" kindref="compound">BufferTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; BufferTrack &gt; Map::getBufferTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getBufferTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="90" column="21" bodyfile="map.cpp" bodystart="318" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a3495248c2044b30355b9aad3f42a7a1c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_signal_track" kindref="compound">SignalTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; SignalTrack &gt; &gt; Map::getSignalTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getSignalTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="92" column="17" bodyfile="map.cpp" bodystart="340" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a8a866f7d84740229e11910150b66df35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setSignalTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; SignalTrack &gt; &gt; &amp;newSignalTrackList)</argsstring>
+        <name>setSignalTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_signal_track" kindref="compound">SignalTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newSignalTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="93" column="10" bodyfile="map.cpp" bodystart="345" bodyend="348"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a337e4ebeb6302c3bb658939c1492532e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addSignalTrack</definition>
+        <argsstring>(std::shared_ptr&lt; SignalTrack &gt; newSignalTrack)</argsstring>
+        <name>addSignalTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_signal_track" kindref="compound">SignalTrack</ref> &gt;</type>
+          <declname>newSignalTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="94" column="10" bodyfile="map.cpp" bodystart="350" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a3d7e7970292a0eb4c0886fc19223f5c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_signal_track" kindref="compound">SignalTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; SignalTrack &gt; Map::getSignalTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getSignalTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="95" column="21" bodyfile="map.cpp" bodystart="368" bodyend="385"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a21661968cc3141482dcdef8290a3f79a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_bridge_underpass_track" kindref="compound">BridgeUnderpassTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; BridgeUnderpassTrack &gt; &gt; Map::getBridgeUnderpassTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getBridgeUnderpassTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="97" column="17" bodyfile="map.cpp" bodystart="390" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a14b6df5ff9df55b7f9ca75b53ac09709" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setBridgeUnderpassTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; BridgeUnderpassTrack &gt; &gt; &amp;newBridgeUnderpassTrackList)</argsstring>
+        <name>setBridgeUnderpassTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_bridge_underpass_track" kindref="compound">BridgeUnderpassTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newBridgeUnderpassTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="98" column="10" bodyfile="map.cpp" bodystart="395" bodyend="398"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a3562f87c0af4bf743956284885635a80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addBridgeUnderpassTrack</definition>
+        <argsstring>(std::shared_ptr&lt; BridgeUnderpassTrack &gt; newBridgeUnderpassTrack)</argsstring>
+        <name>addBridgeUnderpassTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_bridge_underpass_track" kindref="compound">BridgeUnderpassTrack</ref> &gt;</type>
+          <declname>newBridgeUnderpassTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="99" column="10" bodyfile="map.cpp" bodystart="400" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a3c37aa632ea00233be8de850c1be3a85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_bridge_underpass_track" kindref="compound">BridgeUnderpassTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; BridgeUnderpassTrack &gt; Map::getBridgeUnderpassTrack</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getBridgeUnderpassTrack</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="100" column="21" bodyfile="map.cpp" bodystart="419" bodyend="436"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a994bc1a291dee77dba1280f39a950049" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_switch_track" kindref="compound">SwitchTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; SwitchTrack &gt; &gt; Map::getSwitchTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getSwitchTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="102" column="17" bodyfile="map.cpp" bodystart="441" bodyend="444"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1afb0def6674267ab663163fc1e6265fb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setSwitchTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; SwitchTrack &gt; &gt; &amp;newSwitchTrackList)</argsstring>
+        <name>setSwitchTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_switch_track" kindref="compound">SwitchTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newSwitchTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="103" column="10" bodyfile="map.cpp" bodystart="446" bodyend="449"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a34ecacf9e280dba22f934251be6c458d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addSwitchTrack</definition>
+        <argsstring>(std::shared_ptr&lt; SwitchTrack &gt; newSwitchTrack)</argsstring>
+        <name>addSwitchTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_switch_track" kindref="compound">SwitchTrack</ref> &gt;</type>
+          <declname>newSwitchTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="104" column="10" bodyfile="map.cpp" bodystart="451" bodyend="467"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a5807be3e24b2a96ab519dbe18a8234bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_switch_track" kindref="compound">SwitchTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; SwitchTrack &gt; Map::getSwitchTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getSwitchTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="105" column="21" bodyfile="map.cpp" bodystart="469" bodyend="486"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1acdaf3eb23de854a79b6a3ad51a26e459" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_crossover_track" kindref="compound">CrossoverTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; CrossoverTrack &gt; &gt; Map::getCrossoverTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getCrossoverTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="107" column="17" bodyfile="map.cpp" bodystart="491" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1acb4273c29e00c72d11d67f2dc7c1f779" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setCrossoverTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; CrossoverTrack &gt; &gt; &amp;newCrossoverTrackList)</argsstring>
+        <name>setCrossoverTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_crossover_track" kindref="compound">CrossoverTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newCrossoverTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="108" column="10" bodyfile="map.cpp" bodystart="496" bodyend="499"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1aef95cecadca9d1fbd578e29d84b4a00f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addCrossoverTrack</definition>
+        <argsstring>(std::shared_ptr&lt; CrossoverTrack &gt; newCrossoverTrack)</argsstring>
+        <name>addCrossoverTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_crossover_track" kindref="compound">CrossoverTrack</ref> &gt;</type>
+          <declname>newCrossoverTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="109" column="10" bodyfile="map.cpp" bodystart="501" bodyend="517"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ac3e9f5f39bf73cb5a240a937fa7c40bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_crossover_track" kindref="compound">CrossoverTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; CrossoverTrack &gt; Map::getCrossoverTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getCrossoverTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="110" column="21" bodyfile="map.cpp" bodystart="519" bodyend="539"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ae70b775a7d54783c699506b5679cc70c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_flyover_track" kindref="compound">FlyoverTrack</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; FlyoverTrack &gt; &gt; Map::getFlyoverTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getFlyoverTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="112" column="17" bodyfile="map.cpp" bodystart="544" bodyend="547"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a105e1ea0bf0330c3697034e53033abbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setFlyoverTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; FlyoverTrack &gt; &gt; &amp;newFlyoverTrackList)</argsstring>
+        <name>setFlyoverTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_flyover_track" kindref="compound">FlyoverTrack</ref> &gt; &gt; &amp;</type>
+          <declname>newFlyoverTrackList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="113" column="10" bodyfile="map.cpp" bodystart="549" bodyend="552"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a2846b72fa8bab573d765f54089b7f4c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addFlyoverTrack</definition>
+        <argsstring>(std::shared_ptr&lt; FlyoverTrack &gt; newFlyoverTrack)</argsstring>
+        <name>addFlyoverTrack</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_flyover_track" kindref="compound">FlyoverTrack</ref> &gt;</type>
+          <declname>newFlyoverTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="114" column="10" bodyfile="map.cpp" bodystart="554" bodyend="570"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a448450ca2ed1766ba007bbfe766a04f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_flyover_track" kindref="compound">FlyoverTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; FlyoverTrack &gt; Map::getFlyoverTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getFlyoverTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="115" column="21" bodyfile="map.cpp" bodystart="572" bodyend="591"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a5351dfe5e350e4222ba0ce5d3635386c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_named_location" kindref="compound">NamedLocation</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; NamedLocation &gt; &gt; Map::getNamedLocationList</definition>
+        <argsstring>() const</argsstring>
+        <name>getNamedLocationList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="117" column="17" bodyfile="map.cpp" bodystart="596" bodyend="599"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ae59e29168a8ca2ab1c712a95ca7f6ce2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setNamedLocationList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; NamedLocation &gt; &gt; &amp;newNamedLocationList)</argsstring>
+        <name>setNamedLocationList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_named_location" kindref="compound">NamedLocation</ref> &gt; &gt; &amp;</type>
+          <declname>newNamedLocationList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="118" column="10" bodyfile="map.cpp" bodystart="601" bodyend="604"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a518aa06f7839f933677919961f3ea16e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addNamedLocation</definition>
+        <argsstring>(std::shared_ptr&lt; NamedLocation &gt; newNamedLocation)</argsstring>
+        <name>addNamedLocation</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_named_location" kindref="compound">NamedLocation</ref> &gt;</type>
+          <declname>newNamedLocation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="119" column="10" bodyfile="map.cpp" bodystart="606" bodyend="621"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a29145d61b38eca5dca5b039ed3504cf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_named_location" kindref="compound">NamedLocation</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; NamedLocation &gt; Map::getNamedLocationAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getNamedLocationAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="120" column="21" bodyfile="map.cpp" bodystart="623" bodyend="640"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a9d1e8495cc0d34fe389f92f0f802967e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_concourse" kindref="compound">Concourse</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; Concourse &gt; &gt; Map::getConcourseList</definition>
+        <argsstring>() const</argsstring>
+        <name>getConcourseList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="122" column="17" bodyfile="map.cpp" bodystart="645" bodyend="648"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a2d21e57e21b898ad9161d477418dfc12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setConcourseList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; Concourse &gt; &gt; &amp;newConcourseList)</argsstring>
+        <name>setConcourseList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_concourse" kindref="compound">Concourse</ref> &gt; &gt; &amp;</type>
+          <declname>newConcourseList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="123" column="10" bodyfile="map.cpp" bodystart="650" bodyend="653"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1aa07d0f238b342b850a47148c34b01e50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addConcourse</definition>
+        <argsstring>(std::shared_ptr&lt; Concourse &gt; newConcourseTrack)</argsstring>
+        <name>addConcourse</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_concourse" kindref="compound">Concourse</ref> &gt;</type>
+          <declname>newConcourseTrack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="124" column="10" bodyfile="map.cpp" bodystart="655" bodyend="670"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1aaf3f1d2d2c469bb8543724d685b0e6e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_concourse" kindref="compound">Concourse</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Concourse &gt; Map::getConcourseAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getConcourseAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="125" column="21" bodyfile="map.cpp" bodystart="672" bodyend="689"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1afdf146458c0f99d365156b0bdceed61c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_parapet" kindref="compound">Parapet</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; Parapet &gt; &gt; Map::getParapetList</definition>
+        <argsstring>() const</argsstring>
+        <name>getParapetList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="127" column="17" bodyfile="map.cpp" bodystart="694" bodyend="697"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a1b1697edc4eae496d0c59b911a10f422" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setParapetList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; Parapet &gt; &gt; &amp;newParapetList)</argsstring>
+        <name>setParapetList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_parapet" kindref="compound">Parapet</ref> &gt; &gt; &amp;</type>
+          <declname>newParapetList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="128" column="10" bodyfile="map.cpp" bodystart="699" bodyend="702"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a305d009a64ad1520aa2b83f76e135b5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addParapet</definition>
+        <argsstring>(std::shared_ptr&lt; Parapet &gt; newParapet)</argsstring>
+        <name>addParapet</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_parapet" kindref="compound">Parapet</ref> &gt;</type>
+          <declname>newParapet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="129" column="10" bodyfile="map.cpp" bodystart="704" bodyend="721"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1afd6c6f6502225bae2e2155798e2965cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_parapet" kindref="compound">Parapet</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Parapet &gt; Map::getParapetAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getParapetAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="130" column="21" bodyfile="map.cpp" bodystart="723" bodyend="742"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1af4c2d38555649bc7b670dc75846226f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_text" kindref="compound">Text</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; Text &gt; &gt; Map::getTextList</definition>
+        <argsstring>() const</argsstring>
+        <name>getTextList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="132" column="17" bodyfile="map.cpp" bodystart="747" bodyend="750"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1af3aac12b7e13ff1ab826d642ce00e357" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setTextList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; Text &gt; &gt; &amp;newTextList)</argsstring>
+        <name>setTextList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_text" kindref="compound">Text</ref> &gt; &gt; &amp;</type>
+          <declname>newTextList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="133" column="10" bodyfile="map.cpp" bodystart="752" bodyend="755"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1aadfc8185767ad2bc2bc2abf3b6546818" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addText</definition>
+        <argsstring>(std::shared_ptr&lt; Text &gt; newText)</argsstring>
+        <name>addText</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_text" kindref="compound">Text</ref> &gt;</type>
+          <declname>newText</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="134" column="10" bodyfile="map.cpp" bodystart="757" bodyend="761"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a4fc8f64e33d6412dd27780aa957afae1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_element" kindref="compound">Element</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Element &gt; Map::getElementAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getElementAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="137" column="21" bodyfile="map.cpp" bodystart="766" bodyend="812"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1adb432b6335ee2bdb5722db5eba84b9ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_named_element" kindref="compound">NamedElement</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; NamedElement &gt; Map::getNamedElementAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getNamedElementAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="138" column="21" bodyfile="map.cpp" bodystart="814" bodyend="846"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a329f43f11dc7b7d534388e6fbf36f8c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Track &gt; Map::getTrackAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getTrackAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="139" column="21" bodyfile="map.cpp" bodystart="848" bodyend="1015"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1af35e8897d7d2d0907b3f00d641ba58ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_text" kindref="compound">Text</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Text &gt; Map::getTextAt</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>getTextAt</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="140" column="21" bodyfile="map.cpp" bodystart="1017" bodyend="1039"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ae45327046290871cab2c0eab6b8b1e87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Map::checkElementExists</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>checkElementExists</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="141" column="10" bodyfile="map.cpp" bodystart="1041" bodyend="1224"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ade5bc8b05767b38d7bc191b1de34c621" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Map::checkTextExists</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>checkTextExists</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="142" column="10" bodyfile="map.cpp" bodystart="1226" bodyend="1247"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a95fd1eeba7668278d52fb6d1b17e5261" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Map::deleteElement</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>deleteElement</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="143" column="10" bodyfile="map.cpp" bodystart="1249" bodyend="1504"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a3e61566baee1056f0abd133c7889cddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Map::deleteText</definition>
+        <argsstring>(std::shared_ptr&lt; Text &gt; textToDelete)</argsstring>
+        <name>deleteText</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_text" kindref="compound">Text</ref> &gt;</type>
+          <declname>textToDelete</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="144" column="10" bodyfile="map.cpp" bodystart="1506" bodyend="1520"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a3891c462ab42894e8b3bf35d84cdd1cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::deleteTextFromAllElement</definition>
+        <argsstring>(std::shared_ptr&lt; Text &gt; textToDelete)</argsstring>
+        <name>deleteTextFromAllElement</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_text" kindref="compound">Text</ref> &gt;</type>
+          <declname>textToDelete</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="145" column="10" bodyfile="map.cpp" bodystart="1522" bodyend="1665"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1adeffa14dee2785be18cf66776c61cffe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addPlatform</definition>
+        <argsstring>(Platform side, int locationX, int locationY)</argsstring>
+        <name>addPlatform</name>
+        <param>
+          <type>Platform</type>
+          <declname>side</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="147" column="10" bodyfile="map.cpp" bodystart="1667" bodyend="2110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a3e3d64ba6fd160b4d0e206c50f8cf603" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::addLevelCrossing</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>addLevelCrossing</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="148" column="10" bodyfile="map.cpp" bodystart="2112" bodyend="2129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1af1b2ba65da191b1c26639b60b131cc19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::linkLocalText</definition>
+        <argsstring>(int locationX, int LocationY, std::shared_ptr&lt; Text &gt; linkedText)</argsstring>
+        <name>linkLocalText</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>LocationY</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_text" kindref="compound">Text</ref> &gt;</type>
+          <declname>linkedText</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="149" column="10" bodyfile="map.cpp" bodystart="2131" bodyend="2356"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1aef3a8c77575a572731c92b491b0d35fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::linkNewBlockToText</definition>
+        <argsstring>(int locationX, int locationY)</argsstring>
+        <name>linkNewBlockToText</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="150" column="10" bodyfile="map.cpp" bodystart="2358" bodyend="2812"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ad766fc2ab45342ba2c1c2ec9f44f4726" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; LinkedTrack &gt; Map::getLinkedTrack1</definition>
+        <argsstring>() const</argsstring>
+        <name>getLinkedTrack1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="152" column="21" bodyfile="map.cpp" bodystart="2817" bodyend="2820"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1afee678c0e711df8307f025ec7a0cbee4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setLinkedTrack1</definition>
+        <argsstring>(const std::shared_ptr&lt; LinkedTrack &gt; &amp;newLinkedTrack1)</argsstring>
+        <name>setLinkedTrack1</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt; &amp;</type>
+          <declname>newLinkedTrack1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="153" column="10" bodyfile="map.cpp" bodystart="2822" bodyend="2825"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1adaeaa86dc45e04c44c8f51e8ee6c78f1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; LinkedTrack &gt; Map::getLinkedTrack2</definition>
+        <argsstring>() const</argsstring>
+        <name>getLinkedTrack2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="154" column="21" bodyfile="map.cpp" bodystart="2827" bodyend="2830"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a6d9ed3ab82b5ecba4656649775ba12a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setLinkedTrack2</definition>
+        <argsstring>(const std::shared_ptr&lt; LinkedTrack &gt; &amp;newLinkedTrack2)</argsstring>
+        <name>setLinkedTrack2</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="class_linked_track" kindref="compound">LinkedTrack</ref> &gt; &amp;</type>
+          <declname>newLinkedTrack2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="155" column="10" bodyfile="map.cpp" bodystart="2832" bodyend="2835"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a54124c7bbf3621616582b0f984773e22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::connectLinkedTrack</definition>
+        <argsstring>()</argsstring>
+        <name>connectLinkedTrack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="156" column="10" bodyfile="map.cpp" bodystart="2837" bodyend="2845"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a43baa39fc073165fcbb8868798a3c07a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; Track &gt; &gt; Map::getTrackList</definition>
+        <argsstring>() const</argsstring>
+        <name>getTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="158" column="17" bodyfile="map.cpp" bodystart="2871" bodyend="2874"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a066e844097714b1af1506c89d759bf33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; Track &gt; &gt; Map::makeTrackList</definition>
+        <argsstring>()</argsstring>
+        <name>makeTrackList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="159" column="17" bodyfile="map.cpp" bodystart="2881" bodyend="2962"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ad9a1e17e7f8139774878c61f4b442786" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setTrackList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; Track &gt; &gt; &amp;value)</argsstring>
+        <name>setTrackList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &gt; &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="160" column="10" bodyfile="map.cpp" bodystart="2876" bodyend="2879"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1aadab594a9a9d7813e36bf0523a0615cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::checkAllTracks</definition>
+        <argsstring>()</argsstring>
+        <name>checkAllTracks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="161" column="10" bodyfile="map.cpp" bodystart="2985" bodyend="3078"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1adf0d99120b9bc32514a5039d0797108b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Map::getAllLinkedTrackLinked</definition>
+        <argsstring>() const</argsstring>
+        <name>getAllLinkedTrackLinked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="163" column="10" bodyfile="map.cpp" bodystart="3080" bodyend="3083"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a5428442cce80d482d226f1a96de36a1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setAllLinkedTrackLinked</definition>
+        <argsstring>(bool newAllLinkedTrackLinked)</argsstring>
+        <name>setAllLinkedTrackLinked</name>
+        <param>
+          <type>bool</type>
+          <declname>newAllLinkedTrackLinked</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="164" column="10" bodyfile="map.cpp" bodystart="3085" bodyend="3088"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1aedbc6b808a23877b98699b17c26ef8b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Map::getAllConnected</definition>
+        <argsstring>() const</argsstring>
+        <name>getAllConnected</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="165" column="10" bodyfile="map.cpp" bodystart="3090" bodyend="3093"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a99fcc78e21258fc3888b0b73d28a2326" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setAllConnected</definition>
+        <argsstring>(bool newAllConnected)</argsstring>
+        <name>setAllConnected</name>
+        <param>
+          <type>bool</type>
+          <declname>newAllConnected</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="166" column="10" bodyfile="map.cpp" bodystart="3095" bodyend="3098"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a2c5ed7557ba03c23933efe7b4af2cc76" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; Track &gt; &gt; Map::getSetTrackSpeedLengthMainList</definition>
+        <argsstring>() const</argsstring>
+        <name>getSetTrackSpeedLengthMainList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="168" column="17" bodyfile="map.cpp" bodystart="3126" bodyend="3129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1ab8ac2e5290e55eaa09388dbef728d108" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setSetTrackSpeedLengthMainList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; Track &gt; &gt; &amp;newSetTrackSpeedMainLengthList)</argsstring>
+        <name>setSetTrackSpeedLengthMainList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &gt; &amp;</type>
+          <declname>newSetTrackSpeedMainLengthList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="169" column="10" bodyfile="map.cpp" bodystart="3131" bodyend="3134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a59f5da00767feee91ccd78a811d65260" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; Track &gt; &gt; Map::getSetTrackSpeedLengthSecondaryList</definition>
+        <argsstring>() const</argsstring>
+        <name>getSetTrackSpeedLengthSecondaryList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="170" column="17" bodyfile="map.cpp" bodystart="3136" bodyend="3139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a6d0456a9ee68117a03d660f1c406284a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setSetTrackSpeedLengthSecondaryList</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; Track &gt; &gt; &amp;newSetTrackSpeedSecondaryLengthList)</argsstring>
+        <name>setSetTrackSpeedLengthSecondaryList</name>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &gt; &amp;</type>
+          <declname>newSetTrackSpeedSecondaryLengthList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="171" column="10" bodyfile="map.cpp" bodystart="3141" bodyend="3144"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a550e46579dca87ad3de44a08c3203c04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::fillSetTrackSpeedLengthList</definition>
+        <argsstring>(std::shared_ptr&lt; Track &gt; track, int LastLink)</argsstring>
+        <name>fillSetTrackSpeedLengthList</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt;</type>
+          <declname>track</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>LastLink</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="173" column="10" bodyfile="map.cpp" bodystart="3146" bodyend="11734"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1aed8cd1a8b6bc9d86028aa516f6a6f663" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setSectionSpeedLength</definition>
+        <argsstring>()</argsstring>
+        <name>setSectionSpeedLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="174" column="10" bodyfile="map.cpp" bodystart="11736" bodyend="11741"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a5eefdc8bfa81ae8a3e1c6942841f3f98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::resetSetTrackSpeedLengthMechanics</definition>
+        <argsstring>()</argsstring>
+        <name>resetSetTrackSpeedLengthMechanics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="175" column="10" bodyfile="map.cpp" bodystart="11744" bodyend="11751"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1af537c3af2f5159385bcf97a99fcd94a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::resetFoundForAllTrack</definition>
+        <argsstring>()</argsstring>
+        <name>resetFoundForAllTrack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="176" column="10" bodyfile="map.cpp" bodystart="11753" bodyend="11763"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a8645429de152a5d9b3ee2384580882c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Track &gt; Map::getStart</definition>
+        <argsstring>() const</argsstring>
+        <name>getStart</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="177" column="21" bodyfile="map.cpp" bodystart="3102" bodyend="3105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a9eea2afc41a1e6dbef3ddad3aad56829" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setStart</definition>
+        <argsstring>(const std::shared_ptr&lt; Track &gt; &amp;value)</argsstring>
+        <name>setStart</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="178" column="10" bodyfile="map.cpp" bodystart="3107" bodyend="3110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a8eeb866128d67d541c64f4bf8330ba1f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Track &gt; Map::getEnd</definition>
+        <argsstring>() const</argsstring>
+        <name>getEnd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="179" column="21" bodyfile="map.cpp" bodystart="3112" bodyend="3115"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1aa1c2b96f6e633af757a61814ce0ae5d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setEnd</definition>
+        <argsstring>(const std::shared_ptr&lt; Track &gt; &amp;value)</argsstring>
+        <name>setEnd</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt; &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="180" column="10" bodyfile="map.cpp" bodystart="3117" bodyend="3120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a6e3e55b73a70e430c9ff9cac27026bf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::setLengthSpeed</definition>
+        <argsstring>(int newLength, int newSpeed)</argsstring>
+        <name>setLengthSpeed</name>
+        <param>
+          <type>int</type>
+          <declname>newLength</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>newSpeed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="182" column="10" bodyfile="map.cpp" bodystart="11765" bodyend="11847"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a7e923375eaf9c72285128834049752e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::restoreDefaultLengthSpeed</definition>
+        <argsstring>(std::shared_ptr&lt; Track &gt; track)</argsstring>
+        <name>restoreDefaultLengthSpeed</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="class_track" kindref="compound">Track</ref> &gt;</type>
+          <declname>track</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="183" column="10" bodyfile="map.cpp" bodystart="11849" bodyend="11853"/>
+      </memberdef>
+      <memberdef kind="function" id="class_map_1a722b11942b579aa693f1d8964c6a7eae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::clearSetTraclSpeedLengthList</definition>
+        <argsstring>()</argsstring>
+        <name>clearSetTraclSpeedLengthList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="map.h" line="184" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="map.h" line="11" column="1" bodyfile="map.h" bodystart="12" bodyend="186"/>
+    <listofallmembers>
+      <member refid="class_map_1a3562f87c0af4bf743956284885635a80" prot="public" virt="non-virtual"><scope>Map</scope><name>addBridgeUnderpassTrack</name></member>
+      <member refid="class_map_1a7793cb889c9d98026e42ce03f03d71a6" prot="public" virt="non-virtual"><scope>Map</scope><name>addBufferTrack</name></member>
+      <member refid="class_map_1aa07d0f238b342b850a47148c34b01e50" prot="public" virt="non-virtual"><scope>Map</scope><name>addConcourse</name></member>
+      <member refid="class_map_1aef95cecadca9d1fbd578e29d84b4a00f" prot="public" virt="non-virtual"><scope>Map</scope><name>addCrossoverTrack</name></member>
+      <member refid="class_map_1a2f89be64d1b8a565570f0b7f9dda817e" prot="public" virt="non-virtual"><scope>Map</scope><name>addCurvedTrack</name></member>
+      <member refid="class_map_1a052ff84e435706dcf2bf516815ba1a0a" prot="public" virt="non-virtual"><scope>Map</scope><name>addDirectTrack</name></member>
+      <member refid="class_map_1a3e31b91a4a73a9b67796b93c336ef306" prot="public" virt="non-virtual"><scope>Map</scope><name>addExitTrack</name></member>
+      <member refid="class_map_1a2846b72fa8bab573d765f54089b7f4c6" prot="public" virt="non-virtual"><scope>Map</scope><name>addFlyoverTrack</name></member>
+      <member refid="class_map_1a3e3d64ba6fd160b4d0e206c50f8cf603" prot="public" virt="non-virtual"><scope>Map</scope><name>addLevelCrossing</name></member>
+      <member refid="class_map_1a8c7d13c431b638b9572e9a59e746b63a" prot="public" virt="non-virtual"><scope>Map</scope><name>addLinkedTrack</name></member>
+      <member refid="class_map_1a518aa06f7839f933677919961f3ea16e" prot="public" virt="non-virtual"><scope>Map</scope><name>addNamedLocation</name></member>
+      <member refid="class_map_1a305d009a64ad1520aa2b83f76e135b5d" prot="public" virt="non-virtual"><scope>Map</scope><name>addParapet</name></member>
+      <member refid="class_map_1adeffa14dee2785be18cf66776c61cffe" prot="public" virt="non-virtual"><scope>Map</scope><name>addPlatform</name></member>
+      <member refid="class_map_1a337e4ebeb6302c3bb658939c1492532e" prot="public" virt="non-virtual"><scope>Map</scope><name>addSignalTrack</name></member>
+      <member refid="class_map_1ae06827fc434a7b46939d45eb8037b460" prot="public" virt="non-virtual"><scope>Map</scope><name>addStraightTrack</name></member>
+      <member refid="class_map_1a34ecacf9e280dba22f934251be6c458d" prot="public" virt="non-virtual"><scope>Map</scope><name>addSwitchTrack</name></member>
+      <member refid="class_map_1aadfc8185767ad2bc2bc2abf3b6546818" prot="public" virt="non-virtual"><scope>Map</scope><name>addText</name></member>
+      <member refid="class_map_1a0189e6d8b0936740ab314d5bb35f93a2" prot="private" virt="non-virtual"><scope>Map</scope><name>allConnected</name></member>
+      <member refid="class_map_1a8c62d131523ca38807c51bcf8fa3d753" prot="private" virt="non-virtual"><scope>Map</scope><name>allLinkedTrackLinked</name></member>
+      <member refid="class_map_1a76712e1ef32ac636c23d00795c0c0e4b" prot="private" virt="non-virtual"><scope>Map</scope><name>bridgeUnderpassTrackList</name></member>
+      <member refid="class_map_1a6fb0e6573ac60277254f19e8a48e2a56" prot="private" virt="non-virtual"><scope>Map</scope><name>bufferTrackList</name></member>
+      <member refid="class_map_1af69cf018a2b403f2ee05d06442251ade" prot="private" virt="non-virtual"><scope>Map</scope><name>checkAllLinkTrackLinked</name></member>
+      <member refid="class_map_1aadab594a9a9d7813e36bf0523a0615cb" prot="public" virt="non-virtual"><scope>Map</scope><name>checkAllTracks</name></member>
+      <member refid="class_map_1ae45327046290871cab2c0eab6b8b1e87" prot="public" virt="non-virtual"><scope>Map</scope><name>checkElementExists</name></member>
+      <member refid="class_map_1ade5bc8b05767b38d7bc191b1de34c621" prot="public" virt="non-virtual"><scope>Map</scope><name>checkTextExists</name></member>
+      <member refid="class_map_1a722b11942b579aa693f1d8964c6a7eae" prot="public" virt="non-virtual"><scope>Map</scope><name>clearSetTraclSpeedLengthList</name></member>
+      <member refid="class_map_1a03bcfdc5329cc57e8f7791401ccf2320" prot="private" virt="non-virtual"><scope>Map</scope><name>concourseList</name></member>
+      <member refid="class_map_1a54124c7bbf3621616582b0f984773e22" prot="public" virt="non-virtual"><scope>Map</scope><name>connectLinkedTrack</name></member>
+      <member refid="class_map_1aee5921c3ac1dbf8a185bf71e21fa5602" prot="private" virt="non-virtual"><scope>Map</scope><name>crossoverTrackList</name></member>
+      <member refid="class_map_1a7606af8077c854427e7ef680446591d8" prot="private" virt="non-virtual"><scope>Map</scope><name>curvedTrackList</name></member>
+      <member refid="class_map_1a95fd1eeba7668278d52fb6d1b17e5261" prot="public" virt="non-virtual"><scope>Map</scope><name>deleteElement</name></member>
+      <member refid="class_map_1a3e61566baee1056f0abd133c7889cddf" prot="public" virt="non-virtual"><scope>Map</scope><name>deleteText</name></member>
+      <member refid="class_map_1a3891c462ab42894e8b3bf35d84cdd1cf" prot="public" virt="non-virtual"><scope>Map</scope><name>deleteTextFromAllElement</name></member>
+      <member refid="class_map_1a98016142799d9d4e4c4799deddffabf9" prot="private" virt="non-virtual"><scope>Map</scope><name>directTrackList</name></member>
+      <member refid="class_map_1a09c2f69d28314d7cf5de0f64b6f40b0c" prot="private" virt="non-virtual"><scope>Map</scope><name>end</name></member>
+      <member refid="class_map_1a1c4bf95ce4a3da38f5edb2726636c4ba" prot="private" virt="non-virtual"><scope>Map</scope><name>exitTrackList</name></member>
+      <member refid="class_map_1a550e46579dca87ad3de44a08c3203c04" prot="public" virt="non-virtual"><scope>Map</scope><name>fillSetTrackSpeedLengthList</name></member>
+      <member refid="class_map_1a2c95f6cd176934215df782c5ff0a0d49" prot="private" virt="non-virtual"><scope>Map</scope><name>findTopLeftTrack</name></member>
+      <member refid="class_map_1ab3bf7707f8fff24dff0454365458dd6e" prot="private" virt="non-virtual"><scope>Map</scope><name>flyoverTrackList</name></member>
+      <member refid="class_map_1aedbc6b808a23877b98699b17c26ef8b8" prot="public" virt="non-virtual"><scope>Map</scope><name>getAllConnected</name></member>
+      <member refid="class_map_1adf0d99120b9bc32514a5039d0797108b" prot="public" virt="non-virtual"><scope>Map</scope><name>getAllLinkedTrackLinked</name></member>
+      <member refid="class_map_1a3c37aa632ea00233be8de850c1be3a85" prot="public" virt="non-virtual"><scope>Map</scope><name>getBridgeUnderpassTrack</name></member>
+      <member refid="class_map_1a21661968cc3141482dcdef8290a3f79a" prot="public" virt="non-virtual"><scope>Map</scope><name>getBridgeUnderpassTrackList</name></member>
+      <member refid="class_map_1a5bc7e6aed1f75b4669d24fe7b3b6ad62" prot="public" virt="non-virtual"><scope>Map</scope><name>getBufferTrackAt</name></member>
+      <member refid="class_map_1a1ccb86014c6d082f6669ea50b38000fd" prot="public" virt="non-virtual"><scope>Map</scope><name>getBufferTrackList</name></member>
+      <member refid="class_map_1aaf3f1d2d2c469bb8543724d685b0e6e2" prot="public" virt="non-virtual"><scope>Map</scope><name>getConcourseAt</name></member>
+      <member refid="class_map_1a9d1e8495cc0d34fe389f92f0f802967e" prot="public" virt="non-virtual"><scope>Map</scope><name>getConcourseList</name></member>
+      <member refid="class_map_1ac3e9f5f39bf73cb5a240a937fa7c40bd" prot="public" virt="non-virtual"><scope>Map</scope><name>getCrossoverTrackAt</name></member>
+      <member refid="class_map_1acdaf3eb23de854a79b6a3ad51a26e459" prot="public" virt="non-virtual"><scope>Map</scope><name>getCrossoverTrackList</name></member>
+      <member refid="class_map_1a82f74b03ee7503f91e60721fc77f50eb" prot="public" virt="non-virtual"><scope>Map</scope><name>getCurvedTrackAt</name></member>
+      <member refid="class_map_1a3e5a09425452747004918017c05294a8" prot="public" virt="non-virtual"><scope>Map</scope><name>getCurvedTrackList</name></member>
+      <member refid="class_map_1aa3785dff093da5489ef25447c89d1b18" prot="public" virt="non-virtual"><scope>Map</scope><name>getDirectTrackAt</name></member>
+      <member refid="class_map_1ada295c2532eaab2f3f2c1c3e0d003eda" prot="public" virt="non-virtual"><scope>Map</scope><name>getDirectTrackList</name></member>
+      <member refid="class_map_1a4fc8f64e33d6412dd27780aa957afae1" prot="public" virt="non-virtual"><scope>Map</scope><name>getElementAt</name></member>
+      <member refid="class_map_1a8eeb866128d67d541c64f4bf8330ba1f" prot="public" virt="non-virtual"><scope>Map</scope><name>getEnd</name></member>
+      <member refid="class_map_1a3ee5650170ae1b8f0622c8ffd2de4097" prot="public" virt="non-virtual"><scope>Map</scope><name>getExitTrackAt</name></member>
+      <member refid="class_map_1a33796bd388b7d6f2ef3024cdc0e211c2" prot="public" virt="non-virtual"><scope>Map</scope><name>getExitTrackList</name></member>
+      <member refid="class_map_1a448450ca2ed1766ba007bbfe766a04f5" prot="public" virt="non-virtual"><scope>Map</scope><name>getFlyoverTrackAt</name></member>
+      <member refid="class_map_1ae70b775a7d54783c699506b5679cc70c" prot="public" virt="non-virtual"><scope>Map</scope><name>getFlyoverTrackList</name></member>
+      <member refid="class_map_1ad766fc2ab45342ba2c1c2ec9f44f4726" prot="public" virt="non-virtual"><scope>Map</scope><name>getLinkedTrack1</name></member>
+      <member refid="class_map_1adaeaa86dc45e04c44c8f51e8ee6c78f1" prot="public" virt="non-virtual"><scope>Map</scope><name>getLinkedTrack2</name></member>
+      <member refid="class_map_1ac02f8df54b4c1e045407be5c2419513d" prot="public" virt="non-virtual"><scope>Map</scope><name>getLinkedTrackAt</name></member>
+      <member refid="class_map_1a6b9cffdf63896bc3eebbd41d0b928484" prot="public" virt="non-virtual"><scope>Map</scope><name>getLinkedTrackList</name></member>
+      <member refid="class_map_1adb432b6335ee2bdb5722db5eba84b9ba" prot="public" virt="non-virtual"><scope>Map</scope><name>getNamedElementAt</name></member>
+      <member refid="class_map_1a29145d61b38eca5dca5b039ed3504cf3" prot="public" virt="non-virtual"><scope>Map</scope><name>getNamedLocationAt</name></member>
+      <member refid="class_map_1a5351dfe5e350e4222ba0ce5d3635386c" prot="public" virt="non-virtual"><scope>Map</scope><name>getNamedLocationList</name></member>
+      <member refid="class_map_1afd6c6f6502225bae2e2155798e2965cf" prot="public" virt="non-virtual"><scope>Map</scope><name>getParapetAt</name></member>
+      <member refid="class_map_1afdf146458c0f99d365156b0bdceed61c" prot="public" virt="non-virtual"><scope>Map</scope><name>getParapetList</name></member>
+      <member refid="class_map_1a2c5ed7557ba03c23933efe7b4af2cc76" prot="public" virt="non-virtual"><scope>Map</scope><name>getSetTrackSpeedLengthMainList</name></member>
+      <member refid="class_map_1a59f5da00767feee91ccd78a811d65260" prot="public" virt="non-virtual"><scope>Map</scope><name>getSetTrackSpeedLengthSecondaryList</name></member>
+      <member refid="class_map_1a3d7e7970292a0eb4c0886fc19223f5c0" prot="public" virt="non-virtual"><scope>Map</scope><name>getSignalTrackAt</name></member>
+      <member refid="class_map_1a3495248c2044b30355b9aad3f42a7a1c" prot="public" virt="non-virtual"><scope>Map</scope><name>getSignalTrackList</name></member>
+      <member refid="class_map_1a8645429de152a5d9b3ee2384580882c0" prot="public" virt="non-virtual"><scope>Map</scope><name>getStart</name></member>
+      <member refid="class_map_1a145399f21e8df57392ebf01b463edece" prot="public" virt="non-virtual"><scope>Map</scope><name>getStraightTrackAt</name></member>
+      <member refid="class_map_1acb9a49b28ab74401f320d2304bc85aa4" prot="public" virt="non-virtual"><scope>Map</scope><name>getStraightTrackList</name></member>
+      <member refid="class_map_1a5807be3e24b2a96ab519dbe18a8234bd" prot="public" virt="non-virtual"><scope>Map</scope><name>getSwitchTrackAt</name></member>
+      <member refid="class_map_1a994bc1a291dee77dba1280f39a950049" prot="public" virt="non-virtual"><scope>Map</scope><name>getSwitchTrackList</name></member>
+      <member refid="class_map_1af35e8897d7d2d0907b3f00d641ba58ed" prot="public" virt="non-virtual"><scope>Map</scope><name>getTextAt</name></member>
+      <member refid="class_map_1af4c2d38555649bc7b670dc75846226f3" prot="public" virt="non-virtual"><scope>Map</scope><name>getTextList</name></member>
+      <member refid="class_map_1a935ba7fd2b7cd83323285de0bbb47e6b" prot="public" virt="non-virtual"><scope>Map</scope><name>getTotalTrack</name></member>
+      <member refid="class_map_1a329f43f11dc7b7d534388e6fbf36f8c1" prot="public" virt="non-virtual"><scope>Map</scope><name>getTrackAt</name></member>
+      <member refid="class_map_1a43baa39fc073165fcbb8868798a3c07a" prot="public" virt="non-virtual"><scope>Map</scope><name>getTrackList</name></member>
+      <member refid="class_map_1abbba65cc03294a4af9eaa053c611a812" prot="public" virt="non-virtual"><scope>Map</scope><name>haslinkTrackAt</name></member>
+      <member refid="class_map_1a8952df29aa773d538e3d95f4ec4ec757" prot="private" virt="non-virtual"><scope>Map</scope><name>linkedTrack1</name></member>
+      <member refid="class_map_1a79584515e68050cf5e62b4805417b0b3" prot="private" virt="non-virtual"><scope>Map</scope><name>linkedTrack2</name></member>
+      <member refid="class_map_1ae8db4a2dbc6aef1c58201a1b0264cef4" prot="private" virt="non-virtual"><scope>Map</scope><name>linkedTrackList</name></member>
+      <member refid="class_map_1af1b2ba65da191b1c26639b60b131cc19" prot="public" virt="non-virtual"><scope>Map</scope><name>linkLocalText</name></member>
+      <member refid="class_map_1aef3a8c77575a572731c92b491b0d35fd" prot="public" virt="non-virtual"><scope>Map</scope><name>linkNewBlockToText</name></member>
+      <member refid="class_map_1a066e844097714b1af1506c89d759bf33" prot="public" virt="non-virtual"><scope>Map</scope><name>makeTrackList</name></member>
+      <member refid="class_map_1a0f5ad0fd4563497b4214038cbca8b582" prot="public" virt="non-virtual"><scope>Map</scope><name>Map</name></member>
+      <member refid="class_map_1a1046a076cdc5ff906c45df4eea5801c0" prot="private" virt="non-virtual"><scope>Map</scope><name>namedLocationList</name></member>
+      <member refid="class_map_1a826813afc92d134b5bfbc1cbd2e15c26" prot="private" virt="non-virtual"><scope>Map</scope><name>parapetList</name></member>
+      <member refid="class_map_1af537c3af2f5159385bcf97a99fcd94a1" prot="public" virt="non-virtual"><scope>Map</scope><name>resetFoundForAllTrack</name></member>
+      <member refid="class_map_1a5eefdc8bfa81ae8a3e1c6942841f3f98" prot="public" virt="non-virtual"><scope>Map</scope><name>resetSetTrackSpeedLengthMechanics</name></member>
+      <member refid="class_map_1a7e923375eaf9c72285128834049752e0" prot="public" virt="non-virtual"><scope>Map</scope><name>restoreDefaultLengthSpeed</name></member>
+      <member refid="class_map_1a99fcc78e21258fc3888b0b73d28a2326" prot="public" virt="non-virtual"><scope>Map</scope><name>setAllConnected</name></member>
+      <member refid="class_map_1a5428442cce80d482d226f1a96de36a1c" prot="public" virt="non-virtual"><scope>Map</scope><name>setAllLinkedTrackLinked</name></member>
+      <member refid="class_map_1a14b6df5ff9df55b7f9ca75b53ac09709" prot="public" virt="non-virtual"><scope>Map</scope><name>setBridgeUnderpassTrackList</name></member>
+      <member refid="class_map_1af49d45f98aa14eed2ba3cad7c6aa9cfe" prot="public" virt="non-virtual"><scope>Map</scope><name>setBufferTrackList</name></member>
+      <member refid="class_map_1a2d21e57e21b898ad9161d477418dfc12" prot="public" virt="non-virtual"><scope>Map</scope><name>setConcourseList</name></member>
+      <member refid="class_map_1acb4273c29e00c72d11d67f2dc7c1f779" prot="public" virt="non-virtual"><scope>Map</scope><name>setCrossoverTrackList</name></member>
+      <member refid="class_map_1a46deb0262a311530c88dca7afd1d7f12" prot="public" virt="non-virtual"><scope>Map</scope><name>setCurvedTrackList</name></member>
+      <member refid="class_map_1a901620ecdd7eb7ff517d9e8375c15548" prot="public" virt="non-virtual"><scope>Map</scope><name>setDirectTrackList</name></member>
+      <member refid="class_map_1aa1c2b96f6e633af757a61814ce0ae5d9" prot="public" virt="non-virtual"><scope>Map</scope><name>setEnd</name></member>
+      <member refid="class_map_1a89bb09d0d03e7e770f9b8e1028e27a9b" prot="public" virt="non-virtual"><scope>Map</scope><name>setExitTrackList</name></member>
+      <member refid="class_map_1a105e1ea0bf0330c3697034e53033abbc" prot="public" virt="non-virtual"><scope>Map</scope><name>setFlyoverTrackList</name></member>
+      <member refid="class_map_1a6e3e55b73a70e430c9ff9cac27026bf6" prot="public" virt="non-virtual"><scope>Map</scope><name>setLengthSpeed</name></member>
+      <member refid="class_map_1afee678c0e711df8307f025ec7a0cbee4" prot="public" virt="non-virtual"><scope>Map</scope><name>setLinkedTrack1</name></member>
+      <member refid="class_map_1a6d9ed3ab82b5ecba4656649775ba12a5" prot="public" virt="non-virtual"><scope>Map</scope><name>setLinkedTrack2</name></member>
+      <member refid="class_map_1a868d6c884d5968877999aa8f463752c8" prot="public" virt="non-virtual"><scope>Map</scope><name>setLinkedTrackList</name></member>
+      <member refid="class_map_1ae59e29168a8ca2ab1c712a95ca7f6ce2" prot="public" virt="non-virtual"><scope>Map</scope><name>setNamedLocationList</name></member>
+      <member refid="class_map_1a1b1697edc4eae496d0c59b911a10f422" prot="public" virt="non-virtual"><scope>Map</scope><name>setParapetList</name></member>
+      <member refid="class_map_1aed8cd1a8b6bc9d86028aa516f6a6f663" prot="public" virt="non-virtual"><scope>Map</scope><name>setSectionSpeedLength</name></member>
+      <member refid="class_map_1ab8ac2e5290e55eaa09388dbef728d108" prot="public" virt="non-virtual"><scope>Map</scope><name>setSetTrackSpeedLengthMainList</name></member>
+      <member refid="class_map_1a6d0456a9ee68117a03d660f1c406284a" prot="public" virt="non-virtual"><scope>Map</scope><name>setSetTrackSpeedLengthSecondaryList</name></member>
+      <member refid="class_map_1a8a866f7d84740229e11910150b66df35" prot="public" virt="non-virtual"><scope>Map</scope><name>setSignalTrackList</name></member>
+      <member refid="class_map_1a9eea2afc41a1e6dbef3ddad3aad56829" prot="public" virt="non-virtual"><scope>Map</scope><name>setStart</name></member>
+      <member refid="class_map_1a8b5de34898fd1db511b0743061eb052b" prot="public" virt="non-virtual"><scope>Map</scope><name>setStraightTrackList</name></member>
+      <member refid="class_map_1afb0def6674267ab663163fc1e6265fb5" prot="public" virt="non-virtual"><scope>Map</scope><name>setSwitchTrackList</name></member>
+      <member refid="class_map_1af3aac12b7e13ff1ab826d642ce00e357" prot="public" virt="non-virtual"><scope>Map</scope><name>setTextList</name></member>
+      <member refid="class_map_1a501da9e0ba3da08dd5c93ee9441fa430" prot="public" virt="non-virtual"><scope>Map</scope><name>setTotalTrack</name></member>
+      <member refid="class_map_1ad9a1e17e7f8139774878c61f4b442786" prot="public" virt="non-virtual"><scope>Map</scope><name>setTrackList</name></member>
+      <member refid="class_map_1a9ed6679cb30c402edb600d7bcae84599" prot="private" virt="non-virtual"><scope>Map</scope><name>setTrackSpeedLengthCounter</name></member>
+      <member refid="class_map_1af95c873106d9b8a3a733897b2d51ff42" prot="private" virt="non-virtual"><scope>Map</scope><name>setTrackSpeedLengthMainList</name></member>
+      <member refid="class_map_1a863f69962eeb16b64c8e80f8c1f37242" prot="private" virt="non-virtual"><scope>Map</scope><name>setTrackSpeedLengthSecondaryList</name></member>
+      <member refid="class_map_1a24c9ee01e64c4e39152b4f3ef761e421" prot="private" virt="non-virtual"><scope>Map</scope><name>signalTrackList</name></member>
+      <member refid="class_map_1acb0a1a369fb831fa656609543c873572" prot="private" virt="non-virtual"><scope>Map</scope><name>start</name></member>
+      <member refid="class_map_1a77bb5f609ed69e85342b01a2f0e55b12" prot="private" virt="non-virtual"><scope>Map</scope><name>straightTrackList</name></member>
+      <member refid="class_map_1a0bca4ad58b1f7732b608a5453f8840aa" prot="private" virt="non-virtual"><scope>Map</scope><name>switchTrackList</name></member>
+      <member refid="class_map_1a1c037b86b4c4ae85e2b8ffa1772ba32e" prot="private" virt="non-virtual"><scope>Map</scope><name>textList</name></member>
+      <member refid="class_map_1a05f5633cc9d6bd54b5f61ec202d63133" prot="private" virt="non-virtual"><scope>Map</scope><name>totalTrack</name></member>
+      <member refid="class_map_1a19712d927d0533f4df76b99cc6c78731" prot="private" virt="non-virtual"><scope>Map</scope><name>trackList</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

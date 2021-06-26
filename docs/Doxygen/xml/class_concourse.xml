@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_concourse" kind="class" language="C++" prot="public">
+    <compoundname>Concourse</compoundname>
+    <basecompoundref refid="class_named_element" prot="public" virt="non-virtual">NamedElement</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_concourse_1a6193139030ab95ff3938142bf592b284" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Concourse::Concourse</definition>
+        <argsstring>(int newLocationX, int newLocationY)</argsstring>
+        <name>Concourse</name>
+        <param>
+          <type>int</type>
+          <declname>newLocationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>newLocationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="107" column="5" bodyfile="element.cpp" bodystart="126" bodyend="133"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>NamedElement</label>
+        <link refid="class_named_element"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Concourse</label>
+        <link refid="class_concourse"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>NamedElement</label>
+        <link refid="class_named_element"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Concourse</label>
+        <link refid="class_concourse"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+    </collaborationgraph>
+    <location file="element.h" line="98" column="1" bodyfile="element.h" bodystart="99" bodyend="109"/>
+    <listofallmembers>
+      <member refid="class_concourse_1a6193139030ab95ff3938142bf592b284" prot="public" virt="non-virtual"><scope>Concourse</scope><name>Concourse</name></member>
+      <member refid="class_element_1ab0d0e20be9a36ae676202db753faeec9" prot="public" virt="non-virtual"><scope>Concourse</scope><name>Element</name></member>
+      <member refid="class_element_1a30320015284f3ac5c1717e40be18cbe0" prot="public" virt="non-virtual"><scope>Concourse</scope><name>Element</name></member>
+      <member refid="class_element_1a5d0e23ab49cac51ba1834bd9b3ad98e1" prot="public" virt="non-virtual"><scope>Concourse</scope><name>getLocationX</name></member>
+      <member refid="class_element_1a76ba22891795956f10eefad81135f3eb" prot="public" virt="non-virtual"><scope>Concourse</scope><name>getLocationY</name></member>
+      <member refid="class_named_element_1a82cca4c8c821f1875e135a95f808f288" prot="public" virt="non-virtual"><scope>Concourse</scope><name>getNamed</name></member>
+      <member refid="class_named_element_1abad0f275ff7a5babfb9eb147d4859808" prot="public" virt="non-virtual"><scope>Concourse</scope><name>getText</name></member>
+      <member refid="class_element_1aad99bef1925b4aeab2193f043e65b397" prot="protected" virt="non-virtual"><scope>Concourse</scope><name>locationX</name></member>
+      <member refid="class_element_1aaf92e16cbdf7560d86bbd8b2bb572130" prot="protected" virt="non-virtual"><scope>Concourse</scope><name>locationY</name></member>
+      <member refid="class_named_element_1a43e36d5aa516564d7e2bdc2ae2baf405" prot="protected" virt="non-virtual"><scope>Concourse</scope><name>named</name></member>
+      <member refid="class_named_element_1aaee39c5f8f1de8115396b4d363708836" prot="public" virt="non-virtual"><scope>Concourse</scope><name>NamedElement</name></member>
+      <member refid="class_element_1aeb8176e1394b9f20d7ec84d5d5b894fe" prot="public" virt="non-virtual"><scope>Concourse</scope><name>setLocationX</name></member>
+      <member refid="class_element_1aea0a5c3b8a7fdaa00b219df32838f21e" prot="public" virt="non-virtual"><scope>Concourse</scope><name>setLocationY</name></member>
+      <member refid="class_named_element_1aa8fa8cffaa4a5acec97f29b8a3ee11b4" prot="public" virt="non-virtual"><scope>Concourse</scope><name>setNamed</name></member>
+      <member refid="class_named_element_1a530fcd4c9efe28265700a20d21976e5e" prot="public" virt="non-virtual"><scope>Concourse</scope><name>setText</name></member>
+      <member refid="class_named_element_1a598fe70703d4a775eea5f2c701fd1126" prot="protected" virt="non-virtual"><scope>Concourse</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_bridge_underpass_track" kind="class" language="C++" prot="public">
+    <compoundname>BridgeUnderpassTrack</compoundname>
+    <basecompoundref refid="class_straight_track" prot="public" virt="non-virtual">StraightTrack</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_bridge_underpass_track_1ad80d7ea64ac9d3f618fa965c26bb8670" prot="private" static="no" mutable="no">
+        <type>BridgeUnderpassType</type>
+        <definition>BridgeUnderpassType BridgeUnderpassTrack::bridgeUnderpassType</definition>
+        <argsstring></argsstring>
+        <name>bridgeUnderpassType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="259" column="25" bodyfile="track.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_bridge_underpass_track_1a83fc766a2cd25a839958ba14a84f049f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BridgeUnderpassTrack::BridgeUnderpassTrack</definition>
+        <argsstring>(BridgeUnderpassType newBridgeUnderpassType, int newLocationX, int newLocationY)</argsstring>
+        <name>BridgeUnderpassTrack</name>
+        <param>
+          <type>BridgeUnderpassType</type>
+          <declname>newBridgeUnderpassType</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>newLocationX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>newLocationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="267" column="5" bodyfile="track.cpp" bodystart="627" bodyend="649"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bridge_underpass_track_1a6ff0ec1ee27518c7c0ab66d9de805f1d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>BridgeUnderpassType</type>
+        <definition>BridgeUnderpassType BridgeUnderpassTrack::getBridgeUnderpassType</definition>
+        <argsstring>() const</argsstring>
+        <name>getBridgeUnderpassType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="268" column="25" bodyfile="track.cpp" bodystart="651" bodyend="654"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bridge_underpass_track_1a7cc61fb928dccb86b07a16cf095e5db5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BridgeUnderpassTrack::setBridgeUnderpassType</definition>
+        <argsstring>(const BridgeUnderpassType &amp;newBridgeUnderpassType)</argsstring>
+        <name>setBridgeUnderpassType</name>
+        <param>
+          <type>const BridgeUnderpassType &amp;</type>
+          <declname>newBridgeUnderpassType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="269" column="10" bodyfile="track.cpp" bodystart="656" bodyend="659"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>StraightTrack</label>
+        <link refid="class_straight_track"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>NamedElement</label>
+        <link refid="class_named_element"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BridgeUnderpassTrack</label>
+        <link refid="class_bridge_underpass_track"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+      <node id="3">
+        <label>Track</label>
+        <link refid="class_track"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>StraightTrack</label>
+        <link refid="class_straight_track"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>NamedElement</label>
+        <link refid="class_named_element"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BridgeUnderpassTrack</label>
+        <link refid="class_bridge_underpass_track"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+      <node id="3">
+        <label>Track</label>
+        <link refid="class_track"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="track.h" line="256" column="1" bodyfile="track.h" bodystart="257" bodyend="270"/>
+    <listofallmembers>
+      <member refid="class_straight_track_1a3ba36d319c59e5160a96c9e6bb9bd8f9" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>addLevelCrossing</name></member>
+      <member refid="class_bridge_underpass_track_1a83fc766a2cd25a839958ba14a84f049f" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>BridgeUnderpassTrack</name></member>
+      <member refid="class_bridge_underpass_track_1ad80d7ea64ac9d3f618fa965c26bb8670" prot="private" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>bridgeUnderpassType</name></member>
+      <member refid="class_element_1ab0d0e20be9a36ae676202db753faeec9" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>Element</name></member>
+      <member refid="class_element_1a30320015284f3ac5c1717e40be18cbe0" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>Element</name></member>
+      <member refid="class_track_1a5aea5b4e7af80b589bcf6f9fc17d69d3" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>found</name></member>
+      <member refid="class_bridge_underpass_track_1a6ff0ec1ee27518c7c0ab66d9de805f1d" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getBridgeUnderpassType</name></member>
+      <member refid="class_track_1abbf88dbb37f3789bd1e21782a752403b" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getFound</name></member>
+      <member refid="class_track_1ac92990c20e197b15f031ae39f86d0af6" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLink0</name></member>
+      <member refid="class_track_1a73824bfaa54c095d95a31e2453e15c6f" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLink1</name></member>
+      <member refid="class_track_1a9a89bb8ba0bb38ce297204d10a8be814" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLink2</name></member>
+      <member refid="class_track_1a7881e6215661c7cc9c32b0101ceff6ed" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLink3</name></member>
+      <member refid="class_track_1abe989ddb3caf72b6de2765a4e244dec8" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLink4</name></member>
+      <member refid="class_track_1a584d39a5cc70c58cd209b0d56842d3d6" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLink5</name></member>
+      <member refid="class_track_1aa6ccc1986b452c1a3fda6103b9becf6d" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLink6</name></member>
+      <member refid="class_track_1a66a0bc8d535484f51b291dfe73100274" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLink7</name></member>
+      <member refid="class_track_1aaab9c686a421427bed4bf21648bcd4e2" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLink8</name></member>
+      <member refid="class_element_1a5d0e23ab49cac51ba1834bd9b3ad98e1" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLocationX</name></member>
+      <member refid="class_element_1a76ba22891795956f10eefad81135f3eb" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getLocationY</name></member>
+      <member refid="class_named_element_1a82cca4c8c821f1875e135a95f808f288" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getNamed</name></member>
+      <member refid="class_track_1a32f6756ae40b57334f3bbe5a82b7b55d" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getPlatform1</name></member>
+      <member refid="class_track_1a95c928c73f9d6bcbdcbe3ecb8c8e4276" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getPlatform2</name></member>
+      <member refid="class_track_1abe05984036500fce90cd2c3589a9dcad" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getPlatformAny</name></member>
+      <member refid="class_straight_track_1ac9c97982ae321c1121055b82bafd1126" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getStraightType</name></member>
+      <member refid="class_named_element_1abad0f275ff7a5babfb9eb147d4859808" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getText</name></member>
+      <member refid="class_track_1a353baee51fb5a1c24ab5d198f331306a" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getTrackMainLength</name></member>
+      <member refid="class_track_1a71eb6e3bcccf2a137623211e92bfc9b4" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getTrackMainSpeed</name></member>
+      <member refid="class_track_1af1882622c1cea75ec19e3492efbf99df" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getTrackSecondaryLength</name></member>
+      <member refid="class_track_1a4e2ebd72dfd2572b213663b6af6a9b7e" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>getTrackSecondarySpeed</name></member>
+      <member refid="class_straight_track_1aff8e421140fef9a065ab3144e86517ce" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>hasLevelCrossing</name></member>
+      <member refid="class_track_1acc590bc83c9903eed37d5938d2da272f" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>links</name></member>
+      <member refid="class_element_1aad99bef1925b4aeab2193f043e65b397" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>locationX</name></member>
+      <member refid="class_element_1aaf92e16cbdf7560d86bbd8b2bb572130" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>locationY</name></member>
+      <member refid="class_named_element_1a43e36d5aa516564d7e2bdc2ae2baf405" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>named</name></member>
+      <member refid="class_named_element_1aaee39c5f8f1de8115396b4d363708836" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>NamedElement</name></member>
+      <member refid="class_track_1a732a61e6b7bed06bb24032108fbe4750" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>platform1</name></member>
+      <member refid="class_track_1a729ef68abb99f42e7facc3eed24c1e85" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>platform2</name></member>
+      <member refid="class_track_1a11facb86b69cde3e84ce3053e4914a50" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>platformAny</name></member>
+      <member refid="class_bridge_underpass_track_1a7cc61fb928dccb86b07a16cf095e5db5" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setBridgeUnderpassType</name></member>
+      <member refid="class_track_1a2d7271aa80403962ccf5fb1700c7caab" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setFound</name></member>
+      <member refid="class_element_1aeb8176e1394b9f20d7ec84d5d5b894fe" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setLocationX</name></member>
+      <member refid="class_element_1aea0a5c3b8a7fdaa00b219df32838f21e" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setLocationY</name></member>
+      <member refid="class_named_element_1aa8fa8cffaa4a5acec97f29b8a3ee11b4" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setNamed</name></member>
+      <member refid="class_track_1ac26ff28942b37f10f0720c13c754197d" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setPlatform1</name></member>
+      <member refid="class_track_1a145c5f810c2d15a2fe6a7fa4d25d23cb" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setPlatform2</name></member>
+      <member refid="class_track_1acd0fad01eeb4409d260f28ba60dd5fdc" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setPlatformAny</name></member>
+      <member refid="class_straight_track_1a8eb8f31141ef4f5c1905ee3df154366a" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setStraightType</name></member>
+      <member refid="class_named_element_1a530fcd4c9efe28265700a20d21976e5e" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setText</name></member>
+      <member refid="class_track_1a218259a8ea8c69b46e765c111b4117b6" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setTrackMainLength</name></member>
+      <member refid="class_track_1a25755a807260bebbd465f8917cb336db" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setTrackMainSpeed</name></member>
+      <member refid="class_track_1a7bb019f81a80262609f46643c6ef7874" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setTrackSecondaryLength</name></member>
+      <member refid="class_track_1aa1b8a1a7fa9fd40edcb63f641f6c4bfd" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>setTrackSecondarySpeed</name></member>
+      <member refid="class_straight_track_1a35fbb3a49dd7de95f7d92ba03dd58645" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>StraightTrack</name></member>
+      <member refid="class_straight_track_1a65d1fe071f8024cea46737d511a32b9e" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>StraightTrack</name></member>
+      <member refid="class_named_element_1a598fe70703d4a775eea5f2c701fd1126" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>text</name></member>
+      <member refid="class_track_1a11457bcda8be04595018c11173d8241c" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>Track</name></member>
+      <member refid="class_track_1a41b6fdb0b034430775b6a16e24e3240d" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>trackMainLength</name></member>
+      <member refid="class_track_1a0fbdeaf47b0250f0f5782472ac4884cf" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>trackMainSpeed</name></member>
+      <member refid="class_track_1ab5498db633872c734c32e1f32c7fd461" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>trackSecondaryLength</name></member>
+      <member refid="class_track_1a0659473e7778925bb689da55a283b218" prot="protected" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>trackSecondarySpeed</name></member>
+      <member refid="class_straight_track_1aeaa986c75fa1079c7318df0a5030c2be" prot="public" virt="non-virtual"><scope>BridgeUnderpassTrack</scope><name>~StraightTrack</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_element" kind="class" language="C++" prot="public">
+    <compoundname>Element</compoundname>
+    <derivedcompoundref refid="class_named_element" prot="public" virt="non-virtual">NamedElement</derivedcompoundref>
+    <derivedcompoundref refid="class_parapet" prot="public" virt="non-virtual">Parapet</derivedcompoundref>
+    <derivedcompoundref refid="class_text" prot="public" virt="non-virtual">Text</derivedcompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_element_1aad99bef1925b4aeab2193f043e65b397" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Element::locationX</definition>
+        <argsstring></argsstring>
+        <name>locationX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="23" column="5" bodyfile="element.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_element_1aaf92e16cbdf7560d86bbd8b2bb572130" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Element::locationY</definition>
+        <argsstring></argsstring>
+        <name>locationY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="24" column="5" bodyfile="element.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_element_1ab0d0e20be9a36ae676202db753faeec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Element::Element</definition>
+        <argsstring>()</argsstring>
+        <name>Element</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="27" column="1" bodyfile="element.cpp" bodystart="3" bodyend="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_element_1a30320015284f3ac5c1717e40be18cbe0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Element::Element</definition>
+        <argsstring>(int currentX, int currentY)</argsstring>
+        <name>Element</name>
+        <param>
+          <type>int</type>
+          <declname>currentX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>currentY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="28" column="1" bodyfile="element.cpp" bodystart="7" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_element_1a5d0e23ab49cac51ba1834bd9b3ad98e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Element::getLocationX</definition>
+        <argsstring>() const</argsstring>
+        <name>getLocationX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="29" column="9" bodyfile="element.cpp" bodystart="13" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_element_1aeb8176e1394b9f20d7ec84d5d5b894fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Element::setLocationX</definition>
+        <argsstring>(int locationX)</argsstring>
+        <name>setLocationX</name>
+        <param>
+          <type>int</type>
+          <declname>locationX</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="30" column="6" bodyfile="element.cpp" bodystart="17" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_element_1a76ba22891795956f10eefad81135f3eb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Element::getLocationY</definition>
+        <argsstring>() const</argsstring>
+        <name>getLocationY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="31" column="5" bodyfile="element.cpp" bodystart="21" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_element_1aea0a5c3b8a7fdaa00b219df32838f21e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Element::setLocationY</definition>
+        <argsstring>(int locationY)</argsstring>
+        <name>setLocationY</name>
+        <param>
+          <type>int</type>
+          <declname>locationY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="element.h" line="32" column="6" bodyfile="element.cpp" bodystart="25" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="16">
+        <label>SwitchTrack</label>
+        <link refid="class_switch_track"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>ExitTrack</label>
+        <link refid="class_exit_track"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>StraightTrack</label>
+        <link refid="class_straight_track"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NamedElement</label>
+        <link refid="class_named_element"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>BridgeUnderpassTrack</label>
+        <link refid="class_bridge_underpass_track"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>SignalTrack</label>
+        <link refid="class_signal_track"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>NamedLocation</label>
+        <link refid="class_named_location"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>BufferTrack</label>
+        <link refid="class_buffer_track"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Text</label>
+        <link refid="class_text"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CrossoverTrack</label>
+        <link refid="class_crossover_track"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>LinkedTrack</label>
+        <link refid="class_linked_track"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Concourse</label>
+        <link refid="class_concourse"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>FlyoverTrack</label>
+        <link refid="class_flyover_track"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>DirectTrack</label>
+        <link refid="class_direct_track"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Element</label>
+        <link refid="class_element"/>
+      </node>
+      <node id="17">
+        <label>Parapet</label>
+        <link refid="class_parapet"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>CurvedTrack</label>
+        <link refid="class_curved_track"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Track</label>
+        <link refid="class_track"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="element.h" line="18" column="1" bodyfile="element.h" bodystart="19" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_element_1ab0d0e20be9a36ae676202db753faeec9" prot="public" virt="non-virtual"><scope>Element</scope><name>Element</name></member>
+      <member refid="class_element_1a30320015284f3ac5c1717e40be18cbe0" prot="public" virt="non-virtual"><scope>Element</scope><name>Element</name></member>
+      <member refid="class_element_1a5d0e23ab49cac51ba1834bd9b3ad98e1" prot="public" virt="non-virtual"><scope>Element</scope><name>getLocationX</name></member>
+      <member refid="class_element_1a76ba22891795956f10eefad81135f3eb" prot="public" virt="non-virtual"><scope>Element</scope><name>getLocationY</name></member>
+      <member refid="class_element_1aad99bef1925b4aeab2193f043e65b397" prot="protected" virt="non-virtual"><scope>Element</scope><name>locationX</name></member>
+      <member refid="class_element_1aaf92e16cbdf7560d86bbd8b2bb572130" prot="protected" virt="non-virtual"><scope>Element</scope><name>locationY</name></member>
+      <member refid="class_element_1aeb8176e1394b9f20d7ec84d5d5b894fe" prot="public" virt="non-virtual"><scope>Element</scope><name>setLocationX</name></member>
+      <member refid="class_element_1aea0a5c3b8a7fdaa00b219df32838f21e" prot="public" virt="non-virtual"><scope>Element</scope><name>setLocationY</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

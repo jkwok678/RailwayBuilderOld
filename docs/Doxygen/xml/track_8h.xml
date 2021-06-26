@@ -1,0 +1,1357 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="track_8h" kind="file" language="C++">
+    <compoundname>track.h</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">iostream</includes>
+    <includes refid="element_8h" local="yes">element.h</includes>
+    <includedby refid="canvas_8h" local="yes">canvas.h</includedby>
+    <includedby refid="map_8h" local="yes">map.h</includedby>
+    <includedby refid="track_8cpp" local="yes">track.cpp</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>QFont</label>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>QSharedPointer</label>
+      </node>
+      <node id="1">
+        <label>track.h</label>
+        <link refid="track_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>QString</label>
+      </node>
+      <node id="4">
+        <label>element.h</label>
+        <link refid="element_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+      <node id="8">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>window.h</label>
+        <link refid="window_8h_source"/>
+      </node>
+      <node id="2">
+        <label>canvas.h</label>
+        <link refid="canvas_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>track.h</label>
+        <link refid="track_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>map.h</label>
+        <link refid="map_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_track" prot="public">Track</innerclass>
+    <innerclass refid="class_straight_track" prot="public">StraightTrack</innerclass>
+    <innerclass refid="class_direct_track" prot="public">DirectTrack</innerclass>
+    <innerclass refid="class_curved_track" prot="public">CurvedTrack</innerclass>
+    <innerclass refid="class_linked_track" prot="public">LinkedTrack</innerclass>
+    <innerclass refid="class_exit_track" prot="public">ExitTrack</innerclass>
+    <innerclass refid="class_buffer_track" prot="public">BufferTrack</innerclass>
+    <innerclass refid="class_signal_track" prot="public">SignalTrack</innerclass>
+    <innerclass refid="class_bridge_underpass_track" prot="public">BridgeUnderpassTrack</innerclass>
+    <innerclass refid="class_switch_track" prot="public">SwitchTrack</innerclass>
+    <innerclass refid="class_crossover_track" prot="public">CrossoverTrack</innerclass>
+    <innerclass refid="class_flyover_track" prot="public">FlyoverTrack</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="track_8h_1a73d373684cf1b800934edb3114b15328" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>StraightType</name>
+        <enumvalue id="track_8h_1a73d373684cf1b800934edb3114b15328aed0121574357ebbbda56982b2e134326" prot="public">
+          <name>STRAIGHTH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a73d373684cf1b800934edb3114b15328a70b78d3b4bfe3887b854113e8243841d" prot="public">
+          <name>STRAIGHTV</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a73d373684cf1b800934edb3114b15328a990974ab207cdbba84a1c6762bb04029" prot="public">
+          <name>STRAIGHTLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a73d373684cf1b800934edb3114b15328af620eb034024dfd11e19188bf60285a9" prot="public">
+          <name>STRIAGHTRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="7" column="1" bodyfile="track.h" bodystart="8" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1aa3c93ced0c2331c83baf9a206e255ce7" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>DirectType</name>
+        <enumvalue id="track_8h_1aa3c93ced0c2331c83baf9a206e255ce7a9130087b581f4f1f347204e0863b2b4c" prot="public">
+          <name>DIRECTLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aa3c93ced0c2331c83baf9a206e255ce7a4121e2e40d6eb663417b4c9f7e856e96" prot="public">
+          <name>DIRECTRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aa3c93ced0c2331c83baf9a206e255ce7ad964b3045053304178e58112dc54b96c" prot="public">
+          <name>DIRECTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aa3c93ced0c2331c83baf9a206e255ce7a2141cb27746c896db890f2c65a060a4e" prot="public">
+          <name>DIRECTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aa3c93ced0c2331c83baf9a206e255ce7a0036059db456cbac2b40f760726a9bd3" prot="public">
+          <name>DIRECTRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aa3c93ced0c2331c83baf9a206e255ce7aa3bf84bd15c3fae53b8e53383f871659" prot="public">
+          <name>DIRECTLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aa3c93ced0c2331c83baf9a206e255ce7aaa8285edcfbf2641ac105ce2fb362a2d" prot="public">
+          <name>DIRECTLEFTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aa3c93ced0c2331c83baf9a206e255ce7a17243b6b7d9632706d4f3e4a7181af1d" prot="public">
+          <name>DIRECTRIGHTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="12" column="1" bodyfile="track.h" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1ac12be2177b54cba016f7f2296f82931d" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>CurvedType</name>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931da4143e841f75ce41ad983d5260a83c986" prot="public">
+          <name>TIGHTCURVE1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931daa13d37d205434554f7924d453260d6dd" prot="public">
+          <name>TIGHTCURVE2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931dae5bac00ce0e3a542f8b3359795ce88f2" prot="public">
+          <name>TIGHTCURVE3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931da67367bbcf332c99f1ec4b5c0807fc84a" prot="public">
+          <name>TIGHTCURVE4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931da17fb7995da55d8229b61fb2ce2fa026e" prot="public">
+          <name>CURVE1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931dad15e9b5cde4ab600e6792c7f968031a7" prot="public">
+          <name>CURVE2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931da638e1a4ff65744c1554362935d9a55bd" prot="public">
+          <name>CURVE3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931dade418f4754002742ea6b76d34639e6a2" prot="public">
+          <name>CURVE4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931dae4a9eac031d266674b3fbc7186e514e6" prot="public">
+          <name>CURVE5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931dad0315c77ec82df70f3deef24143964e1" prot="public">
+          <name>CURVE6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931dac598d90d2f1976aca3f6325551eded21" prot="public">
+          <name>CURVE7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac12be2177b54cba016f7f2296f82931da07bac1dbbe742b8f27e7c56542e2306b" prot="public">
+          <name>CURVE8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="18" column="1" bodyfile="track.h" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1acd585878b89722e7fd0472a280306609" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>LinkedType</name>
+        <enumvalue id="track_8h_1acd585878b89722e7fd0472a280306609ad5e3debfb004048bd6e4a048aead2c5e" prot="public">
+          <name>LINKLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1acd585878b89722e7fd0472a280306609aab25dc1ea007d4016fabfbef9170cfca" prot="public">
+          <name>LINKRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1acd585878b89722e7fd0472a280306609acc36e6fd2d831692fe6b2cb355c80e4b" prot="public">
+          <name>LINKDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1acd585878b89722e7fd0472a280306609a0ecc351df9a01c64b05f6e43da79aaf7" prot="public">
+          <name>LINKUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1acd585878b89722e7fd0472a280306609a7eae4537354174785aa4e58ffd291e7e" prot="public">
+          <name>LINKLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1acd585878b89722e7fd0472a280306609a8df583f114f46c069ed218ae8dbdc556" prot="public">
+          <name>LINKRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1acd585878b89722e7fd0472a280306609a4e5ee30dada8c692b23ff0dcb5e29547" prot="public">
+          <name>LINKLEFTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1acd585878b89722e7fd0472a280306609a9f1d24fe1569b8958882ea30cc05c6ff" prot="public">
+          <name>LINKRIGHTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="24" column="1" bodyfile="track.h" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1a0615ee27159b500bdb73bed3ee37027d" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ExitType</name>
+        <enumvalue id="track_8h_1a0615ee27159b500bdb73bed3ee37027da59f66788365e2771154879f98c11b8b6" prot="public">
+          <name>EXITLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a0615ee27159b500bdb73bed3ee37027dab2f0b41ded3bfcd296eb7ef013bd5ab7" prot="public">
+          <name>EXITRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a0615ee27159b500bdb73bed3ee37027da8470b3f128670677047d82963ec7aeb7" prot="public">
+          <name>EXITDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a0615ee27159b500bdb73bed3ee37027daec7288bc512937534ae949f29143e065" prot="public">
+          <name>EXITUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a0615ee27159b500bdb73bed3ee37027daad7cb87fcc3b6942e1d481bc6345d7e4" prot="public">
+          <name>EXITLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a0615ee27159b500bdb73bed3ee37027da4b48aa8db7946ebe96104ceeb885bde6" prot="public">
+          <name>EXITRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a0615ee27159b500bdb73bed3ee37027da513d5a836c9db519b946b2cf104fc298" prot="public">
+          <name>EXITLEFTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a0615ee27159b500bdb73bed3ee37027da4e7f3cc25195ce7903cd2153370d8bed" prot="public">
+          <name>EXITRIGHTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="30" column="1" bodyfile="track.h" bodystart="31" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1adf8e136713c0691010d2bec6ba63e9cf" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>BufferType</name>
+        <enumvalue id="track_8h_1adf8e136713c0691010d2bec6ba63e9cfaa0c92ab9991de13960e6a34efe5fa22d" prot="public">
+          <name>BUFFERLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf8e136713c0691010d2bec6ba63e9cfa4891b4bfbae113c15328e70ba11d8b42" prot="public">
+          <name>BUFFERRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf8e136713c0691010d2bec6ba63e9cfae0abb25039a2238f4cebc2d92d108bfd" prot="public">
+          <name>BUFFERDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf8e136713c0691010d2bec6ba63e9cfabf40b9ccc6c62281eac6f6f37d4bc978" prot="public">
+          <name>BUFFERUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf8e136713c0691010d2bec6ba63e9cfab0c86fa74b633ecc99379457249324dc" prot="public">
+          <name>BUFFERLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf8e136713c0691010d2bec6ba63e9cfa6aad76a1f5317ffc91580665a098956a" prot="public">
+          <name>BUFFERRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf8e136713c0691010d2bec6ba63e9cfaf6223e91010436872dd40be20e350864" prot="public">
+          <name>BUFFERLEFTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf8e136713c0691010d2bec6ba63e9cfabec651bed6cedd4e4497dc4b049694ec" prot="public">
+          <name>BUFFERRIGHTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="35" column="1" bodyfile="track.h" bodystart="36" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1aad6ca876084fe82fadbaf26d6e919ade" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>SignalType</name>
+        <enumvalue id="track_8h_1aad6ca876084fe82fadbaf26d6e919adea46cb2b7d6e3b5418371f2969aeb4aaa6" prot="public">
+          <name>SIGNALLEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aad6ca876084fe82fadbaf26d6e919adea008fc9804a87386816b2037ab891855e" prot="public">
+          <name>SIGNALRIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aad6ca876084fe82fadbaf26d6e919adeace39d882836346d58e992a851457f426" prot="public">
+          <name>SIGNALDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aad6ca876084fe82fadbaf26d6e919adeaf20a4010f77ef43702ad84ea9c9c86d9" prot="public">
+          <name>SIGNALUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aad6ca876084fe82fadbaf26d6e919adea66740c3e95951b453b6663b8c2707f50" prot="public">
+          <name>SIGNALLEFTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aad6ca876084fe82fadbaf26d6e919adeab3185835bd45566a13b395adeafa34c2" prot="public">
+          <name>SIGNALRIGHTUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aad6ca876084fe82fadbaf26d6e919adea2eff35942238c1dce3f09db8b9be582f" prot="public">
+          <name>SIGNALLEFTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1aad6ca876084fe82fadbaf26d6e919adeaca7e4880ab053108132bdc88b23e7c25" prot="public">
+          <name>SIGNALRIGHTDOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="40" column="1" bodyfile="track.h" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1a9ffacff2f87f41d18512f005d3681c11" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>BridgeUnderpassType</name>
+        <enumvalue id="track_8h_1a9ffacff2f87f41d18512f005d3681c11aea0e9e37a74dffa6de941dcac8265163" prot="public">
+          <name>BRIDGE1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a9ffacff2f87f41d18512f005d3681c11ac1f99946759b3b77f47f5e7226f66d90" prot="public">
+          <name>BRIDGE2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a9ffacff2f87f41d18512f005d3681c11a3c9f04805ba850d10294487b1fab6b66" prot="public">
+          <name>UNDERPASS1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a9ffacff2f87f41d18512f005d3681c11aa4465b5dc2dd066c9ae94799b579e45e" prot="public">
+          <name>UNDERPASS2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="45" column="1" bodyfile="track.h" bodystart="46" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>SwitchType</name>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1aaa8ea7df9cc9d83df5616c56fa136fa8" prot="public">
+          <name>SWITCHTIGHT1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a4609b8efd846935d4996b73182d67820" prot="public">
+          <name>SWITCHTIGHT2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a640185735de1fc3776484b34231edb68" prot="public">
+          <name>SWITCHTIGHT3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1adaadf148f5683fd4a75ff5ada14e7222" prot="public">
+          <name>SWITCHTIGHT4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a1e54f384e42db8f14ef48a372a91c91d" prot="public">
+          <name>SWITCHTIGHT5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a7c3f387cfd98ab4537e31c0758e27a53" prot="public">
+          <name>SWITCHTIGHT6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a221c97622682bc20a3116b788e576ea1" prot="public">
+          <name>SWITCHTIGHT7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1ad65b962644ffa69c509ef01fed351d00" prot="public">
+          <name>SWITCHTIGHT8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a1b34bbdc8514bfdcfb77c7a933b14544" prot="public">
+          <name>SWITCHSPLIT1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1aa6c7b991e1f3013c1b35eedc959cdd2d" prot="public">
+          <name>SWITCHSPLIT2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a753b6f91f87295d1ebd214c69c98e64b" prot="public">
+          <name>SWITCHSPLIT3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a150c09abb7be3917964d396d84414a17" prot="public">
+          <name>SWITCHSPLIT4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a5a45677f3719258fc99d186c5827aa85" prot="public">
+          <name>SWITCHSPLIT5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1aadf8f7855a255af01b5d7a3c234fa907" prot="public">
+          <name>SWITCHSPLIT6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a0f19362db482864e92e67c2094c41f8b" prot="public">
+          <name>SWITCHSPLIT7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a7bb875f39bfd8045890865891def53ba" prot="public">
+          <name>SWITCHSPLIT8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a77aa8350c7b8774b67d6d4f6f0a581bb" prot="public">
+          <name>SWITCH1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1aeb59f3479326061a4a4d372f2b0bebc9" prot="public">
+          <name>SWITCH2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1ae4e2ec31302e3cdeb6078bbc0882ffae" prot="public">
+          <name>SWITCH3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1ade40cc40c302a120bb2c7e6c1f8dc1bb" prot="public">
+          <name>SWITCH4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a1f8bee7ecdfe20cf988d06f92f525099" prot="public">
+          <name>SWITCH5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a0e30a6a7e7f065f39d778e61d190a0a6" prot="public">
+          <name>SWITCH6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a2aba77cbf1f622d8018e390463d7e049" prot="public">
+          <name>SWITCH7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1ad19b7450f803347cb2e5a96b67a63c8c" prot="public">
+          <name>SWITCH8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a4b24734ed520323e5c9e109e73114087" prot="public">
+          <name>SWITCH9</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a1b0aff5eb6a9c9aedab4e619140fc809" prot="public">
+          <name>SWITCH10</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a6a1876c4cc808814cb22dc4d60b908e0" prot="public">
+          <name>SWITCH11</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1ac859ff6860be81860fc6f8bdd72157ae" prot="public">
+          <name>SWITCH12</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1aa4339858f52cd670fb47273fc7745014" prot="public">
+          <name>SWITCH13</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1ae9dfb774585228ee2eb252d3380718da" prot="public">
+          <name>SWITCH14</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1a4abec1bf27fcb957bbe04b9e0181941d" prot="public">
+          <name>SWITCH15</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1adf90f5f453f8618100f3f55bb35d32e1abe3615ce7445f42119d03a5879d4b097" prot="public">
+          <name>SWITCH16</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="50" column="1" bodyfile="track.h" bodystart="51" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1ac52d546ccaf78f582c8099dbd7f2c8af" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>CrossoverType</name>
+        <enumvalue id="track_8h_1ac52d546ccaf78f582c8099dbd7f2c8afa15e5680694932af60ca09cac14152977" prot="public">
+          <name>CROSSOVER1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac52d546ccaf78f582c8099dbd7f2c8afa8fc0f4f9c45b3ddffeed2f0718721f04" prot="public">
+          <name>CROSSOVER2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac52d546ccaf78f582c8099dbd7f2c8afa082a85adc650fc5d99fdcf67abced119" prot="public">
+          <name>CROSSOVER3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac52d546ccaf78f582c8099dbd7f2c8afa542f9d3cbd2e7832ce12c0185adcb5cb" prot="public">
+          <name>CROSSOVER4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac52d546ccaf78f582c8099dbd7f2c8afaf5a942d014226c2c71d069c43dd1650c" prot="public">
+          <name>CROSSOVER5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1ac52d546ccaf78f582c8099dbd7f2c8afa76d0dbe6a8bec95ee042256114089b77" prot="public">
+          <name>CROSSOVER6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="57" column="1" bodyfile="track.h" bodystart="58" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bda" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>FlyoverType</name>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaa470793893cad335d3a4562785b33d8ca" prot="public">
+          <name>FLYOVER1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaaaea8cc3592a8518675bcaa558205c7ad" prot="public">
+          <name>FLYOVER2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaa6a269decfa13cbbf659d26fa23750a34" prot="public">
+          <name>FLYOVER3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaa2c534f983d07466f19d98b6ef2a57020" prot="public">
+          <name>FLYOVER4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaaf84c02816f5e43a983f06b14f44adece" prot="public">
+          <name>FLYOVER5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaa172c3b7e036c4a2e595b42882dbd7fbb" prot="public">
+          <name>FLYOVER6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaa276469afaf5dc80975003543d208ee70" prot="public">
+          <name>FLYOVER7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaa9f9067549030ff1cdbc4e39e6798c05f" prot="public">
+          <name>FLYOVER8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaa946f56339cc98acc4a38f1f52188aa29" prot="public">
+          <name>FLYOVER9</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaab9a1c520f5af7de082e0174604e386a1" prot="public">
+          <name>FLYOVER10</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaa3ad10c94898fb620108f6ae03f583a2c" prot="public">
+          <name>FLYOVER11</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a487e5b2d6cab50b33ae9fadd4a064bdaae6686fce7b3befc668f7e69d1568d849" prot="public">
+          <name>FLYOVER12</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="62" column="1" bodyfile="track.h" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="enum" id="track_8h_1a5be836f305c9cd8b44ffb7c964f4cbd9" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Platform</name>
+        <enumvalue id="track_8h_1a5be836f305c9cd8b44ffb7c964f4cbd9a684d325a7303f52e64011467ff5c5758" prot="public">
+          <name>LEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a5be836f305c9cd8b44ffb7c964f4cbd9afbaedde498cdead4f2780217646e9ba1" prot="public">
+          <name>UP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a5be836f305c9cd8b44ffb7c964f4cbd9a21507b40c80068eda19865706fdc2403" prot="public">
+          <name>RIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="track_8h_1a5be836f305c9cd8b44ffb7c964f4cbd9ac4e0e4e3118472beeb2ae75827450f1f" prot="public">
+          <name>DOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="track.h" line="67" column="1" bodyfile="track.h" bodystart="67" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TRACK_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TRACK_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;element.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>StraightType</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>STRAIGHTH,<sp/>STRAIGHTV,<sp/>STRAIGHTLEFTUP,<sp/>STRIAGHTRIGHTUP</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>DirectType</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECTLEFT,<sp/>DIRECTRIGHT,<sp/>DIRECTUP,<sp/>DIRECTDOWN,<sp/>DIRECTRIGHTUP,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECTLEFTUP,<sp/>DIRECTLEFTDOWN,<sp/>DIRECTRIGHTDOWN</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>CurvedType</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>TIGHTCURVE1,<sp/>TIGHTCURVE2,<sp/>TIGHTCURVE3,<sp/>TIGHTCURVE4,<sp/>CURVE1,<sp/>CURVE2,<sp/>CURVE3,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>CURVE4,<sp/>CURVE5,<sp/>CURVE6,<sp/>CURVE7,<sp/>CURVE8</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>LinkedType</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>LINKLEFT,<sp/>LINKRIGHT,<sp/>LINKDOWN,<sp/>LINKUP,<sp/>LINKLEFTUP,<sp/>LINKRIGHTUP,<sp/>LINKLEFTDOWN,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>LINKRIGHTDOWN</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>ExitType</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>EXITLEFT,<sp/>EXITRIGHT,<sp/>EXITDOWN,<sp/>EXITUP,<sp/>EXITLEFTUP,<sp/>EXITRIGHTUP,<sp/>EXITLEFTDOWN,<sp/>EXITRIGHTDOWN</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>BufferType</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>BUFFERLEFT,<sp/>BUFFERRIGHT,<sp/>BUFFERDOWN,<sp/>BUFFERUP,<sp/>BUFFERLEFTUP,<sp/>BUFFERRIGHTUP,<sp/>BUFFERLEFTDOWN,<sp/>BUFFERRIGHTDOWN</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>SignalType</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>SIGNALLEFT,<sp/>SIGNALRIGHT,<sp/>SIGNALDOWN,<sp/>SIGNALUP,<sp/>SIGNALLEFTUP,<sp/>SIGNALRIGHTUP,<sp/>SIGNALLEFTDOWN,<sp/>SIGNALRIGHTDOWN</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>BridgeUnderpassType</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>BRIDGE1,<sp/>BRIDGE2,<sp/>UNDERPASS1,<sp/>UNDERPASS2</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>SwitchType</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>SWITCHTIGHT1,<sp/>SWITCHTIGHT2,<sp/>SWITCHTIGHT3,<sp/>SWITCHTIGHT4,<sp/>SWITCHTIGHT5,<sp/>SWITCHTIGHT6,<sp/>SWITCHTIGHT7,<sp/>SWITCHTIGHT8,<sp/>SWITCHSPLIT1,<sp/>SWITCHSPLIT2,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>SWITCHSPLIT3,<sp/>SWITCHSPLIT4,<sp/>SWITCHSPLIT5,<sp/>SWITCHSPLIT6,<sp/>SWITCHSPLIT7,<sp/>SWITCHSPLIT8,<sp/>SWITCH1,<sp/>SWITCH2,<sp/>SWITCH3,<sp/>SWITCH4,<sp/>SWITCH5,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>SWITCH6,<sp/>SWITCH7,<sp/>SWITCH8,<sp/>SWITCH9,<sp/>SWITCH10,<sp/>SWITCH11,<sp/>SWITCH12,<sp/>SWITCH13,<sp/>SWITCH14,<sp/>SWITCH15,<sp/>SWITCH16</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>CrossoverType</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>CROSSOVER1,<sp/>CROSSOVER2,<sp/>CROSSOVER3,<sp/>CROSSOVER4,<sp/>CROSSOVER5,<sp/>CROSSOVER6</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>FlyoverType</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>FLYOVER1,<sp/>FLYOVER2,<sp/>FLYOVER3,<sp/>FLYOVER4,<sp/>FLYOVER5,<sp/>FLYOVER6,<sp/>FLYOVER7,<sp/>FLYOVER8,<sp/>FLYOVER9,<sp/>FLYOVER10,<sp/>FLYOVER11,<sp/>FLYOVER12</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>Platform<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>LEFT,<sp/>UP,<sp/>RIGHT,<sp/>DOWN</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="class_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_track" kindref="compound">Track</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_named_element" kindref="compound">NamedElement</ref></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>trackMainSpeed{<sp/>200<sp/>};</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>trackMainLength{<sp/>100<sp/>};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>trackSecondarySpeed{-1};</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>trackSecondaryLength{-1};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//For<sp/>vertical<sp/>tracks,<sp/>platform1<sp/>is<sp/>left,<sp/>platform2<sp/>is<sp/>right</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//For<sp/>Horizontal<sp/>tracks<sp/>platform1<sp/>is<sp/>up,<sp/>platform2<sp/>is<sp/>down</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>platformAny{<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>platform1{<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>platform2{<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>links<sp/>[9]{</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>found;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_track" kindref="compound">Track</ref>();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getTrackMainSpeed()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTrackMainSpeed(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getTrackMainLength()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTrackMainLength(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getPlatformAny()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setPlatformAny(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getPlatform1()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setPlatform1(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>newPlatform);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getPlatform2()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setPlatform2(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>newPlatform);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getLink0();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getLink1();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getLink2();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getLink3();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getLink4();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getLink5();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getLink6();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getLink7();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getLink8();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getFound()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setFound(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>newFound);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getTrackSecondarySpeed()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTrackSecondarySpeed(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getTrackSecondaryLength()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTrackSecondaryLength(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="class_straight_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_straight_track" kindref="compound">StraightTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_track" kindref="compound">Track</ref></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>StraightType<sp/>straightType;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>levelCrossing{<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_straight_track" kindref="compound">StraightTrack</ref>();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_straight_track" kindref="compound">StraightTrack</ref>(StraightType<sp/>newStraightType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_straight_track" kindref="compound">StraightTrack</ref>();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>StraightType<sp/>getStraightType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setStraightType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>StraightType<sp/>&amp;newStraightType);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasLevelCrossing()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addLevelCrossing();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="class_direct_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_direct_track" kindref="compound">DirectTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_straight_track" kindref="compound">StraightTrack</ref></highlight></codeline>
+<codeline lineno="148"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>DirectType<sp/>directType;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_direct_track" kindref="compound">DirectTrack</ref>(DirectType<sp/>newDirectType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>DirectType<sp/>getDirectType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDirectType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DirectType<sp/>&amp;newDirectType);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="class_curved_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_curved_track" kindref="compound">CurvedTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_track" kindref="compound">Track</ref></highlight></codeline>
+<codeline lineno="164"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>CurvedType<sp/>curvedType;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_curved_track" kindref="compound">CurvedTrack</ref>(CurvedType<sp/>newCurvedType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>CurvedType<sp/>getCurvedType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCurvedType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CurvedType<sp/>&amp;newCurvedType);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="class_linked_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_linked_track" kindref="compound">LinkedTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_track" kindref="compound">Track</ref></highlight></codeline>
+<codeline lineno="180"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>LinkedType<sp/>linkedType;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>linked;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;LinkedTrack&gt;<sp/>otherLinkTrack{</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_linked_track" kindref="compound">LinkedTrack</ref>();</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_linked_track" kindref="compound">LinkedTrack</ref>(LinkedType<sp/>newLinkedType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>LinkedType<sp/>getLinkedType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setLinkedType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>LinkedType<sp/>&amp;newLinkedType);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getLinked()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setLinked(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>newLinked);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;LinkedTrack&gt;<sp/>getOtherLinkTrack();</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setOtherLinkTrack(std::shared_ptr&lt;LinkedTrack&gt;<sp/>&amp;newLinkedTrack);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204" refid="class_exit_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_exit_track" kindref="compound">ExitTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_track" kindref="compound">Track</ref></highlight></codeline>
+<codeline lineno="205"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>ExitType<sp/>exitType;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_exit_track" kindref="compound">ExitTrack</ref>(ExitType<sp/>newExitType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>ExitType<sp/>getExitType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setExitType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ExitType<sp/>&amp;newExitType);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220" refid="class_buffer_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_buffer_track" kindref="compound">BufferTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_straight_track" kindref="compound">StraightTrack</ref></highlight></codeline>
+<codeline lineno="221"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>BufferType<sp/>bufferType;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_buffer_track" kindref="compound">BufferTrack</ref>(BufferType<sp/>newBufferType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>BufferType<sp/>getBufferType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setBufferType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>BufferType<sp/>&amp;newBufferType);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236" refid="class_signal_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_signal_track" kindref="compound">SignalTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_straight_track" kindref="compound">StraightTrack</ref></highlight></codeline>
+<codeline lineno="237"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>SignalType<sp/>signalType;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>aspect;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_signal_track" kindref="compound">SignalTrack</ref>(SignalType<sp/>newSignalType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newAspect,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getAspect()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setAspect(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newAspect);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>SignalType<sp/>getSignalType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSignalType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>SignalType<sp/>&amp;newSignalType);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256" refid="class_bridge_underpass_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_bridge_underpass_track" kindref="compound">BridgeUnderpassTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_straight_track" kindref="compound">StraightTrack</ref></highlight></codeline>
+<codeline lineno="257"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>BridgeUnderpassType<sp/>bridgeUnderpassType;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_bridge_underpass_track" kindref="compound">BridgeUnderpassTrack</ref>(BridgeUnderpassType<sp/>newBridgeUnderpassType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>BridgeUnderpassType<sp/>getBridgeUnderpassType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setBridgeUnderpassType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>BridgeUnderpassType<sp/>&amp;newBridgeUnderpassType);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272" refid="class_switch_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_switch_track" kindref="compound">SwitchTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_track" kindref="compound">Track</ref></highlight></codeline>
+<codeline lineno="273"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>SwitchType<sp/>switchType;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_switch_track" kindref="compound">SwitchTrack</ref>(SwitchType<sp/>newSwitchType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/>SwitchType<sp/>getSwitchType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSwitchType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>SwitchType<sp/>&amp;newSwitchType);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288" refid="class_crossover_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_crossover_track" kindref="compound">CrossoverTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_track" kindref="compound">Track</ref></highlight></codeline>
+<codeline lineno="289"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>CrossoverType<sp/>crossoverType;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_crossover_track" kindref="compound">CrossoverTrack</ref>(CrossoverType<sp/>newCrossoverType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/>CrossoverType<sp/>getCrossoverType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCrossoverType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CrossoverType<sp/>&amp;newCrossoverType);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304" refid="class_flyover_track" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_flyover_track" kindref="compound">FlyoverTrack</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_track" kindref="compound">Track</ref></highlight></codeline>
+<codeline lineno="305"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>FlyoverType<sp/>flyoverType;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_flyover_track" kindref="compound">FlyoverTrack</ref>(FlyoverType<sp/>newFlyoverType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newLocationY);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/>FlyoverType<sp/>getFlyoverType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setFlyoverType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FlyoverType<sp/>&amp;newFlyoverType);</highlight></codeline>
+<codeline lineno="318"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>TRACK_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="track.h"/>
+  </compounddef>
+</doxygen>
